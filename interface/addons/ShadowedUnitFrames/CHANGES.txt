@@ -1,0 +1,18 @@
+tag fe68ccf089b0232514b63691a53e56f332cea829 v4.1.22b
+Author:	Hendrik Leppkes <h.leppkes@gmail.com>
+Date:	Wed Jan 24 10:47:15 2018 +0100
+
+Tag as v4.1.22b
+
+commit c45e99993bb9bbf7b1e546c29a0f196f6ae8be0d
+Author: Hendrik Leppkes <h.leppkes@gmail.com>
+Date:   Mon Jan 22 00:19:00 2018 +0100
+
+    Add a missing color entry for the second demonology warlock guardian bar
+
+commit a128655dd19b995cd5ea1f816c88793249f80db9
+Author: Hendrik Leppkes <h.leppkes@gmail.com>
+Date:   Mon Jan 22 00:11:11 2018 +0100
+
+    Check that unit is set before trying to register the state driver
+

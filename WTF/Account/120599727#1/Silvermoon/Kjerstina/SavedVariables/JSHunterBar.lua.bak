@@ -1,0 +1,296 @@
+
+JSHB_SavedOptions = {
+	["ccAnchorPointRelative"] = "CENTER",
+	["barHeight"] = 25,
+	["enabledebuffalert"] = true,
+	["anchorPoint"] = "CENTER",
+	["fontoutlined"] = true,
+	["timerfontposition"] = 1,
+	["focuscenteroffset"] = 0,
+	["enablemdtargetwhisper"] = false,
+	["alphabackdrop"] = 0.5,
+	["anchorPointRelative"] = "CENTER",
+	["focushighthreshold"] = 0.8,
+	["enablecurrentfocustext"] = true,
+	["enableprediction"] = true,
+	["alphamaxooc"] = 0,
+	["enabletranqalert"] = true,
+	["debuffAnchorPoint"] = "CENTER",
+	["markAnchorPointRelative"] = "CENTER",
+	["classcoloredprediction"] = true,
+	["enabletargethealthpercent"] = true,
+	["alphanormooc"] = 0,
+	["alertAnchorPoint"] = "CENTER",
+	["fontsize"] = 17,
+	["iconSize"] = 19,
+	["enablemdoverannounce"] = false,
+	["alphamax"] = 1,
+	["enablehuntersmarkwarning"] = true,
+	["enablecctimers"] = true,
+	["fontsizetimers"] = 13,
+	["alertAnchorPointOffsetY"] = 38.00006318239897,
+	["enabletranqablesframe"] = false,
+	["enabletranqablestips"] = false,
+	["autoshotbarcolor"] = {
+		1, -- [1]
+		1, -- [2]
+		1, -- [3]
+	},
+	["debuffAnchorPointOffsetY"] = 1.000074806866313,
+	["debuffAnchorPointOffsetX"] = -230.0000194196984,
+	["classcolored"] = true,
+	["icontimerssize"] = 30,
+	["alertAnchorPointOffsetX"] = -21.00000670116353,
+	["anchorPointOffsetX"] = -5.000024206243761,
+	["alphanorm"] = 1,
+	["timerfont"] = "Arial Narrow",
+	["cCIconSize"] = 30,
+	["tranqablesiconsize"] = 24,
+	["enablemdcastannounce"] = true,
+	["enablemdonpet"] = true,
+	["tranqannouncechannel"] = 1,
+	["enablemdonraid"] = true,
+	["timers"] = {
+		["sv"] = {
+			{
+				90355, -- [1]
+				true, -- [2]
+				1, -- [3]
+				3, -- [4]
+			}, -- [1]
+			{
+				3674, -- [1]
+				false, -- [2]
+				1, -- [3]
+				3, -- [4]
+			}, -- [2]
+			{
+				1499, -- [1]
+				false, -- [2]
+				1, -- [3]
+				4, -- [4]
+			}, -- [3]
+			{
+				32182, -- [1]
+				true, -- [2]
+				1, -- [3]
+				3, -- [4]
+			}, -- [4]
+			{
+				136, -- [1]
+				true, -- [2]
+				2, -- [3]
+				3, -- [4]
+			}, -- [5]
+			{
+				3045, -- [1]
+				true, -- [2]
+				1, -- [3]
+				3, -- [4]
+			}, -- [6]
+			{
+				1978, -- [1]
+				true, -- [2]
+				0, -- [3]
+				3, -- [4]
+			}, -- [7]
+			{
+				82654, -- [1]
+				true, -- [2]
+				0, -- [3]
+				3, -- [4]
+			}, -- [8]
+			{
+				19386, -- [1]
+				false, -- [2]
+				1, -- [3]
+				4, -- [4]
+			}, -- [9]
+		},
+		["bm"] = {
+			{
+				19574, -- [1]
+				false, -- [2]
+				1, -- [3]
+				4, -- [4]
+			}, -- [1]
+			{
+				77767, -- [1]
+				false, -- [2]
+				1, -- [3]
+				4, -- [4]
+				0, -- [5]
+			}, -- [2]
+			{
+				5116, -- [1]
+				true, -- [2]
+				1, -- [3]
+				3, -- [4]
+				0, -- [5]
+			}, -- [3]
+			{
+				82726, -- [1]
+				false, -- [2]
+				1, -- [3]
+				4, -- [4]
+			}, -- [4]
+			{
+				1499, -- [1]
+				false, -- [2]
+				1, -- [3]
+				4, -- [4]
+			}, -- [5]
+			{
+				34026, -- [1]
+				false, -- [2]
+				1, -- [3]
+				4, -- [4]
+				0, -- [5]
+			}, -- [6]
+			{
+				53351, -- [1]
+				false, -- [2]
+				1, -- [3]
+				4, -- [4]
+				0, -- [5]
+			}, -- [7]
+			{
+				136, -- [1]
+				true, -- [2]
+				2, -- [3]
+				3, -- [4]
+			}, -- [8]
+			{
+				34477, -- [1]
+				true, -- [2]
+				0, -- [3]
+				3, -- [4]
+				0, -- [5]
+			}, -- [9]
+			{
+				1978, -- [1]
+				true, -- [2]
+				0, -- [3]
+				3, -- [4]
+			}, -- [10]
+			{
+				34692, -- [1]
+				true, -- [2]
+				1, -- [3]
+				3, -- [4]
+			}, -- [11]
+		},
+		["mm"] = {
+			{
+				90355, -- [1]
+				true, -- [2]
+				1, -- [3]
+				3, -- [4]
+			}, -- [1]
+			{
+				1499, -- [1]
+				false, -- [2]
+				1, -- [3]
+				4, -- [4]
+			}, -- [2]
+			{
+				32182, -- [1]
+				true, -- [2]
+				1, -- [3]
+				3, -- [4]
+			}, -- [3]
+			{
+				53220, -- [1]
+				true, -- [2]
+				1, -- [3]
+				3, -- [4]
+			}, -- [4]
+			{
+				136, -- [1]
+				true, -- [2]
+				2, -- [3]
+				3, -- [4]
+			}, -- [5]
+			{
+				3045, -- [1]
+				true, -- [2]
+				1, -- [3]
+				3, -- [4]
+			}, -- [6]
+			{
+				1978, -- [1]
+				true, -- [2]
+				0, -- [3]
+				3, -- [4]
+			}, -- [7]
+			{
+				82654, -- [1]
+				true, -- [2]
+				0, -- [3]
+				3, -- [4]
+			}, -- [8]
+		},
+	},
+	["predictionbarcolorwarninghigh"] = {
+		1, -- [1]
+		0.5490196078431373, -- [2]
+		0, -- [3]
+	},
+	["predictionbarcolor"] = {
+		0.6, -- [1]
+		0.6, -- [2]
+		0.6, -- [3]
+	},
+	["enablecdicons"] = true,
+	["alertAnchorPointRelative"] = "CENTER",
+	["enabletimers"] = true,
+	["barcolor"] = {
+		0.6, -- [1]
+		0.6, -- [2]
+		0.6, -- [3]
+	},
+	["barcolorwarninglow"] = {
+		1, -- [1]
+		0, -- [2]
+		0, -- [3]
+	},
+	["barfont"] = "Big Noodle",
+	["anchorPointOffsetY"] = -126.999978528925,
+	["markAnchorPointOffsetY"] = -127.0000222916256,
+	["barcolorwarninghigh"] = {
+		1, -- [1]
+		0.5490196078431373, -- [2]
+		0, -- [3]
+	},
+	["enablemdonparty"] = true,
+	["bartexture"] = "Aluminium",
+	["debuffAnchorPointRelative"] = "CENTER",
+	["enableautoshottext"] = true,
+	["enabletukuitimers"] = false,
+	["debufficonsize"] = 40,
+	["enablemaintick"] = true,
+	["enablerightclickmd"] = true,
+	["enablestackbars"] = true,
+	["timertextcoloredbytime"] = true,
+	["alphaicontimersfaded"] = 0.35,
+	["ccAnchorPoint"] = "CENTER",
+	["enabletukui"] = false,
+	["mdannouncechannel"] = 1,
+	["alphazeroooc"] = 0,
+	["markAnchorPointOffsetX"] = 227.0000512844148,
+	["enabletimertenths"] = true,
+	["taiconsize"] = 40,
+	["movestackbarstotop"] = false,
+	["timericonanchorparent"] = 8,
+	["enableautoshotbar"] = true,
+	["enabletimerstext"] = true,
+	["ccAnchorPointOffsetY"] = -126.9998647459035,
+	["alphazero"] = 1,
+	["icontimersgap"] = 260,
+	["markAnchorPoint"] = "CENTER",
+	["enabletranqannounce"] = true,
+	["enablehighcolorwarning"] = true,
+	["markIconSize"] = 40,
+	["ccAnchorPointOffsetX"] = -232.9999525448216,
+	["barWidth"] = 400,
+}

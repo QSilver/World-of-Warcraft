@@ -1,0 +1,7 @@
+changeset:   1081:54646840f7ac
+tag:         3.6.34
+user:        sylvanaar <sylvanaar@mindspring.com>
+date:        Sat Oct 07 18:15:35 2017 -0700
+summary:     Fix SoundKit error
+
+

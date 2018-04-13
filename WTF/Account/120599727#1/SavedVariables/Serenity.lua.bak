@@ -1,0 +1,848 @@
+
+SerenityDB = {
+	["profileKeys"] = {
+		["Qsilver - Silvermoon"] = "Default",
+	},
+	["profiles"] = {
+		["Default"] = {
+			["enrage"] = {
+				["removednotify"] = false,
+				["anchor_removables"] = {
+					nil, -- [1]
+					nil, -- [2]
+					nil, -- [3]
+					184.9999547329566, -- [4]
+					73.00004444649278, -- [5]
+				},
+				["anchor"] = {
+					nil, -- [1]
+					nil, -- [2]
+					nil, -- [3]
+					-3.000014086119251, -- [4]
+					57.99992806506091, -- [5]
+				},
+			},
+			["newinstall"] = false,
+			["indicators"] = {
+				["aspect_enable"] = false,
+				["huntersmark_enable"] = false,
+				["aspect_onlymissing"] = true,
+				["anchor_huntersmark"] = {
+					nil, -- [1]
+					nil, -- [2]
+					nil, -- [3]
+					146.9999615708786, -- [4]
+					-86.9999249196168, -- [5]
+				},
+				["scarebeast_enable"] = false,
+				["anchor_scarebeast"] = {
+					nil, -- [1]
+					nil, -- [2]
+					nil, -- [3]
+					-288.9999820846444, -- [4]
+					-91.99997100721086, -- [5]
+				},
+			},
+			["energybar"] = {
+				["oocoverridealpha"] = 0,
+				["anchor"] = {
+					nil, -- [1]
+					nil, -- [2]
+					nil, -- [3]
+					-4.000112688954007, -- [4]
+					-85.99987719092148, -- [5]
+				},
+				["mountoverridealpha"] = 0,
+				["inactivealpha"] = 1,
+				["ticks"] = {
+					nil, -- [1]
+					{
+						nil, -- [1]
+						"Kill Command", -- [2]
+					}, -- [2]
+				},
+			},
+			["misdirection"] = {
+				["enablemdmountwarn"] = false,
+				["enablemdtransferannounce"] = false,
+			},
+			["alerts"] = {
+				["BOT: Heart of Ice"] = {
+					["enabled"] = false,
+					["sparkles"] = true,
+					["enablesound"] = true,
+					["aura"] = 82665,
+					["target"] = "player",
+					["alerttype"] = "BUFF",
+					["tooltips"] = true,
+					["sound"] = "Raid Warning",
+				},
+				["BOT: Waterlogged"] = {
+					["enabled"] = true,
+					["sparkles"] = true,
+					["enablesound"] = true,
+					["aura"] = 82762,
+					["target"] = "player",
+					["alerttype"] = "DEBUFF",
+					["tooltips"] = true,
+					["sound"] = "Raid Warning",
+				},
+				["BWD: Lightning Conductor"] = {
+					["enabled"] = true,
+					["sparkles"] = true,
+					["enablesound"] = true,
+					["aura"] = 91433,
+					["target"] = "player",
+					["alerttype"] = "DEBUFF",
+					["tooltips"] = true,
+					["sound"] = "Raid Warning",
+				},
+				["BOT: Burning Blood"] = {
+					["enabled"] = true,
+					["sparkles"] = true,
+					["enablesound"] = true,
+					["aura"] = 82660,
+					["target"] = "player",
+					["alerttype"] = "BUFF",
+					["tooltips"] = true,
+					["sound"] = "Raid Warning",
+				},
+				["BWD: Dark Sludge"] = {
+					["enabled"] = true,
+					["sparkles"] = true,
+					["enablesound"] = true,
+					["aura"] = 92987,
+					["target"] = "player",
+					["alerttype"] = "DEBUFF",
+					["tooltips"] = true,
+					["sound"] = "Raid Warning",
+				},
+				["BWD: Dominion"] = {
+					["enabled"] = true,
+					["sparkles"] = true,
+					["enablesound"] = true,
+					["aura"] = 79318,
+					["target"] = "player",
+					["alerttype"] = "DEBUFF",
+					["tooltips"] = true,
+					["sound"] = "Raid Warning",
+				},
+				["BWD: Shadow Conductor"] = {
+					["enabled"] = true,
+					["sparkles"] = true,
+					["enablesound"] = true,
+					["aura"] = 92053,
+					["target"] = "player",
+					["alerttype"] = "DEBUFF",
+					["tooltips"] = true,
+					["sound"] = "Raid Warning",
+				},
+				["BWD: Fixate (Toxitron)"] = {
+					["enabled"] = true,
+					["sparkles"] = true,
+					["enablesound"] = true,
+					["aura"] = 80094,
+					["target"] = "player",
+					["alerttype"] = "DEBUFF",
+					["tooltips"] = true,
+					["sound"] = "Raid Warning",
+				},
+				["BWD: Consuming Flames (Maloriak)"] = {
+					["enabled"] = true,
+					["sparkles"] = true,
+					["enablesound"] = true,
+					["aura"] = 77786,
+					["target"] = "player",
+					["alerttype"] = "DEBUFF",
+					["tooltips"] = true,
+					["sound"] = "Raid Warning",
+				},
+				["BWD: Sonic Breath"] = {
+					["enabled"] = true,
+					["sparkles"] = true,
+					["enablesound"] = true,
+					["aura"] = 92407,
+					["target"] = "player",
+					["alerttype"] = "DEBUFF",
+					["tooltips"] = true,
+					["sound"] = "Raid Warning",
+				},
+				["BWD: Explosive Cinders"] = {
+					["enabled"] = true,
+					["sparkles"] = true,
+					["enablesound"] = true,
+					["aura"] = 79339,
+					["target"] = "player",
+					["alerttype"] = "DEBUFF",
+					["tooltips"] = true,
+					["sound"] = "Raid Warning",
+				},
+				["BOT: Blackout"] = {
+					["enabled"] = true,
+					["sparkles"] = true,
+					["enablesound"] = true,
+					["aura"] = 86788,
+					["target"] = "player",
+					["alerttype"] = "DEBUFF",
+					["tooltips"] = true,
+					["sound"] = "Raid Warning",
+				},
+				["BOT: Devouring Flames"] = {
+					["enabled"] = true,
+					["sparkles"] = true,
+					["enablesound"] = true,
+					["aura"] = 86840,
+					["target"] = "player",
+					["alerttype"] = "DEBUFF",
+					["tooltips"] = true,
+					["sound"] = "Raid Warning",
+				},
+				["BWD: Searing Flame"] = {
+					["enabled"] = true,
+					["sparkles"] = true,
+					["enablesound"] = true,
+					["aura"] = 92423,
+					["target"] = "player",
+					["alerttype"] = "DEBUFF",
+					["tooltips"] = true,
+					["sound"] = "Raid Warning",
+				},
+				["BWD: Fixate (Maloriak)"] = {
+					["enabled"] = true,
+					["sparkles"] = true,
+					["enablesound"] = true,
+					["aura"] = 78617,
+					["target"] = "player",
+					["alerttype"] = "DEBUFF",
+					["tooltips"] = true,
+					["sound"] = "Raid Warning",
+				},
+				["BWD: Parasitic Infection"] = {
+					["enabled"] = true,
+					["sparkles"] = true,
+					["enablesound"] = true,
+					["aura"] = 94679,
+					["target"] = "player",
+					["alerttype"] = "DEBUFF",
+					["tooltips"] = true,
+					["sound"] = "Raid Warning",
+				},
+				["BWD: Stolen Power"] = {
+					["enabled"] = true,
+					["sparkles"] = true,
+					["enablesound"] = true,
+					["aura"] = 80627,
+					["target"] = "player",
+					["alerttype"] = "BUFF",
+					["tooltips"] = true,
+					["sound"] = "Raid Warning",
+				},
+				["BOT: Engulfing Magic"] = {
+					["enabled"] = true,
+					["sparkles"] = true,
+					["enablesound"] = true,
+					["aura"] = 86622,
+					["target"] = "player",
+					["alerttype"] = "BUFF",
+					["tooltips"] = true,
+					["sound"] = "Raid Warning",
+				},
+				["BOT: Lightning Rod (Arion)"] = {
+					["enabled"] = true,
+					["sparkles"] = true,
+					["enablesound"] = true,
+					["aura"] = 83099,
+					["target"] = "player",
+					["alerttype"] = "DEBUFF",
+					["tooltips"] = true,
+					["sound"] = "Raid Warning",
+				},
+				["BWD: Roaring Flame"] = {
+					["enabled"] = true,
+					["sparkles"] = true,
+					["enablesound"] = true,
+					["aura"] = 92485,
+					["target"] = "player",
+					["alerttype"] = "DEBUFF",
+					["tooltips"] = true,
+					["sound"] = "Raid Warning",
+				},
+				["BOT: Twilight Meteorite"] = {
+					["enabled"] = true,
+					["sparkles"] = true,
+					["enablesound"] = true,
+					["aura"] = 88518,
+					["target"] = "player",
+					["alerttype"] = "DEBUFF",
+					["tooltips"] = true,
+					["sound"] = "Raid Warning",
+				},
+				["BOT: Gravity Core"] = {
+					["enabled"] = true,
+					["sparkles"] = true,
+					["enablesound"] = true,
+					["aura"] = 92075,
+					["target"] = "player",
+					["alerttype"] = "DEBUFF",
+					["tooltips"] = true,
+					["sound"] = "Raid Warning",
+				},
+			},
+			["crowdcontrol"] = {
+				["anchor"] = {
+					nil, -- [1]
+					nil, -- [2]
+					nil, -- [3]
+					-203.9999513139956, -- [4]
+					-96.9999033117834, -- [5]
+				},
+			},
+			["timers"] = {
+				["Durations"] = {
+					["enabled"] = true,
+					["timers"] = {
+						{
+							90355, -- [1]
+							nil, -- [2]
+							"player", -- [3]
+							"DURATION", -- [4]
+							"ANY", -- [5]
+							0, -- [6]
+							"RIGHT", -- [7]
+							[11] = 0.4,
+							[12] = 1.4,
+							[14] = 0.4,
+							[15] = 1,
+						}, -- [1]
+						{
+							2825, -- [1]
+							nil, -- [2]
+							"player", -- [3]
+							"DURATION", -- [4]
+							"ANY", -- [5]
+							0, -- [6]
+							"RIGHT", -- [7]
+							[11] = 0.4,
+							[12] = 1.4,
+							[14] = 0.4,
+							[15] = 1,
+						}, -- [2]
+						{
+							"Bombardment", -- [1]
+							nil, -- [2]
+							"player", -- [3]
+							"DURATION", -- [4]
+							"PLAYERS", -- [5]
+							0, -- [6]
+							"RIGHT", -- [7]
+							[11] = 0.4,
+							[12] = 1.4,
+							[14] = 0.4,
+							[15] = 1,
+						}, -- [3]
+						{
+							"Combat Trance", -- [1]
+							nil, -- [2]
+							"player", -- [3]
+							"DURATION", -- [4]
+							"PLAYERS", -- [5]
+							0, -- [6]
+							"RIGHT", -- [7]
+							[11] = 0.4,
+							[12] = 1.4,
+							[14] = 0.4,
+							[15] = 1,
+						}, -- [4]
+						{
+							32182, -- [1]
+							nil, -- [2]
+							"player", -- [3]
+							"DURATION", -- [4]
+							"ANY", -- [5]
+							0, -- [6]
+							"RIGHT", -- [7]
+							[11] = 0.4,
+							[12] = 1.4,
+							[14] = 0.4,
+							[15] = 1,
+						}, -- [5]
+						{
+							53220, -- [1]
+							nil, -- [2]
+							"player", -- [3]
+							"DURATION", -- [4]
+							"PLAYERS", -- [5]
+							2, -- [6]
+							"RIGHT", -- [7]
+							[11] = 0.4,
+							[12] = 1.4,
+							[14] = 0.4,
+							[15] = 1,
+						}, -- [6]
+						{
+							136, -- [1]
+							nil, -- [2]
+							"pet", -- [3]
+							"DURATION", -- [4]
+							"PLAYERS", -- [5]
+							0, -- [6]
+							"RIGHT", -- [7]
+							[11] = 0.4,
+							[12] = 1.4,
+							[14] = 0.4,
+							[15] = 1,
+						}, -- [7]
+						{
+							3045, -- [1]
+							nil, -- [2]
+							"player", -- [3]
+							"DURATION", -- [4]
+							"PLAYERS", -- [5]
+							0, -- [6]
+							"RIGHT", -- [7]
+							[11] = 0.4,
+							[12] = 1.4,
+							[14] = 0.4,
+							[15] = 1,
+						}, -- [8]
+						{
+							1978, -- [1]
+							nil, -- [2]
+							"target", -- [3]
+							"DURATION", -- [4]
+							"PLAYERS", -- [5]
+							0, -- [6]
+							"RIGHT", -- [7]
+							[11] = 0.4,
+							[12] = 1.4,
+							[14] = 0.4,
+							[15] = 1,
+						}, -- [9]
+						{
+							80353, -- [1]
+							nil, -- [2]
+							"player", -- [3]
+							"DURATION", -- [4]
+							"ANY", -- [5]
+							0, -- [6]
+							"RIGHT", -- [7]
+							[11] = 0.4,
+							[12] = 1.4,
+							[14] = 0.4,
+							[15] = 1,
+						}, -- [10]
+						{
+							79633, -- [1]
+							nil, -- [2]
+							"player", -- [3]
+							"DURATION", -- [4]
+							"PLAYERS", -- [5]
+							0, -- [6]
+							"RIGHT", -- [7]
+							[11] = 0.4,
+							[12] = 1.4,
+							[14] = 0.4,
+							[15] = 1,
+						}, -- [11]
+					},
+					["inactivealpha"] = 0.5,
+					["layout"] = "horizontal",
+					["oocoverridealpha"] = 0,
+					["activealpha"] = 1,
+					["deadoverridealpha"] = 0,
+					["oocoverride"] = true,
+					["reverse"] = false,
+					["anchor"] = {
+						"CENTER", -- [1]
+						nil, -- [2]
+						"CENTER", -- [3]
+						-4.000065917567756, -- [4]
+						-61.00031632227017, -- [5]
+					},
+					["mountoverride"] = true,
+					["deadoverride"] = true,
+					["mountoverridealpha"] = 0,
+				},
+				["Cooldowns"] = {
+					["enabled"] = true,
+					["timers"] = {
+						{
+							90355, -- [1]
+							nil, -- [2]
+							"player", -- [3]
+							"COOLDOWN", -- [4]
+							"PLAYERS", -- [5]
+							1, -- [6]
+							"RIGHT", -- [7]
+							[11] = 0.4,
+							[12] = 1.4,
+							[14] = 0.4,
+							[15] = 1,
+						}, -- [1]
+						{
+							"Chimera Shot", -- [1]
+							nil, -- [2]
+							"player", -- [3]
+							"COOLDOWN", -- [4]
+							"PLAYERS", -- [5]
+							3, -- [6]
+							"RIGHT", -- [7]
+							[11] = 0.4,
+							[12] = 1.4,
+							[14] = 0.4,
+							[15] = 1,
+						}, -- [2]
+						{
+							1499, -- [1]
+							nil, -- [2]
+							"player", -- [3]
+							"COOLDOWN", -- [4]
+							"PLAYERS", -- [5]
+							0, -- [6]
+							"RIGHT", -- [7]
+							[11] = 0.4,
+							[12] = 1.4,
+							[14] = 0.4,
+							[15] = 1,
+						}, -- [3]
+						{
+							3045, -- [1]
+							nil, -- [2]
+							"player", -- [3]
+							"COOLDOWN", -- [4]
+							"PLAYERS", -- [5]
+							0, -- [6]
+							"RIGHT", -- [7]
+							[11] = 0.4,
+							[12] = 1.4,
+							[14] = 0.4,
+							[15] = 1,
+						}, -- [4]
+						{
+							"Readiness", -- [1]
+							nil, -- [2]
+							"player", -- [3]
+							"COOLDOWN", -- [4]
+							"PLAYERS", -- [5]
+							0, -- [6]
+							"RIGHT", -- [7]
+							[11] = 0.4,
+							[12] = 1.4,
+							[14] = 0.4,
+							[15] = 1,
+						}, -- [5]
+					},
+					["inactivealpha"] = 0.5,
+					["layout"] = "horizontal",
+					["oocoverridealpha"] = 0,
+					["activealpha"] = 1,
+					["deadoverridealpha"] = 0,
+					["oocoverride"] = true,
+					["reverse"] = false,
+					["anchor"] = {
+						"CENTER", -- [1]
+						nil, -- [2]
+						"CENTER", -- [3]
+						-4.000065917567756, -- [4]
+						-109.0001697172232, -- [5]
+					},
+					["mountoverride"] = true,
+					["deadoverride"] = true,
+					["mountoverridealpha"] = 0,
+				},
+			},
+			["alerticons"] = {
+				["anchor"] = {
+					nil, -- [1]
+					nil, -- [2]
+					nil, -- [3]
+					-160.0000043762701, -- [4]
+					67.00006003695486, -- [5]
+				},
+			},
+			["frames"] = {
+				["timers"] = {
+					["Durations"] = {
+						["stackfontcolor"] = {
+							0.05, -- [1]
+							1, -- [2]
+							0.96, -- [3]
+						},
+						["timerfontcolor"] = {
+							0.4, -- [1]
+							0.4, -- [2]
+							1, -- [3]
+						},
+						["timerbordercolor"] = {
+							1, -- [1]
+							1, -- [2]
+							1, -- [3]
+							1, -- [4]
+						},
+						["timerenablebackdrop"] = false,
+						["timertile"] = false,
+						["tile"] = false,
+						["backdropoffsets"] = {
+							-2, -- [1]
+							2, -- [2]
+							2, -- [3]
+							-2, -- [4]
+						},
+						["timerbackdroptexture"] = "Solid",
+						["height"] = 19,
+						["edgesize"] = 16,
+						["backdropinsets"] = {
+							-2, -- [1]
+							-2, -- [2]
+							-2, -- [3]
+							-2, -- [4]
+						},
+						["timershadowcolor"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							0.5, -- [4]
+						},
+						["timefont"] = {
+							"Arial Narrow", -- [1]
+							13, -- [2]
+							"", -- [3]
+						},
+						["timerbackdropcolor"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							0.5, -- [4]
+						},
+						["bordercolor"] = {
+							1, -- [1]
+							1, -- [2]
+							1, -- [3]
+							1, -- [4]
+						},
+						["bordertexture"] = "None",
+						["texcoords"] = {
+							0.08, -- [1]
+							0.92, -- [2]
+							0.08, -- [3]
+							0.92, -- [4]
+						},
+						["timerbackdropinsets"] = {
+							-2, -- [1]
+							-2, -- [2]
+							-2, -- [3]
+							-2, -- [4]
+						},
+						["timertilesize"] = 16,
+						["tilesize"] = 16,
+						["colorbackdrop"] = true,
+						["backdroptexture"] = "Solid",
+						["iconsize"] = 19,
+						["enablebackdrop"] = false,
+						["backdropcolor"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							0.5, -- [4]
+						},
+						["stackfont"] = {
+							"Arial Narrow", -- [1]
+							12, -- [2]
+							"OUTLINE", -- [3]
+						},
+						["enabletimershadow"] = false,
+						["timershadowoffset"] = {
+							2, -- [1]
+							-2, -- [2]
+						},
+						["width"] = 250,
+						["enableborder"] = false,
+						["enabletexcoords"] = false,
+						["timerbackdropoffsets"] = {
+							-2, -- [1]
+							2, -- [2]
+							2, -- [3]
+							-2, -- [4]
+						},
+						["timercolorbackdrop"] = false,
+						["timerfontcolorstatic"] = false,
+						["timerbordertexture"] = "None",
+						["timeredgesize"] = 16,
+						["timerenableborder"] = false,
+					},
+					["Cooldowns"] = {
+						["stackfontcolor"] = {
+							0.05, -- [1]
+							1, -- [2]
+							0.96, -- [3]
+						},
+						["timerfontcolor"] = {
+							0.4, -- [1]
+							0.4, -- [2]
+							1, -- [3]
+						},
+						["timerbordercolor"] = {
+							1, -- [1]
+							1, -- [2]
+							1, -- [3]
+							1, -- [4]
+						},
+						["timerenablebackdrop"] = false,
+						["timertile"] = false,
+						["tile"] = false,
+						["backdropoffsets"] = {
+							-2, -- [1]
+							2, -- [2]
+							2, -- [3]
+							-2, -- [4]
+						},
+						["timerbackdroptexture"] = "Solid",
+						["height"] = 19,
+						["edgesize"] = 16,
+						["backdropinsets"] = {
+							-2, -- [1]
+							-2, -- [2]
+							-2, -- [3]
+							-2, -- [4]
+						},
+						["timershadowcolor"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							0.5, -- [4]
+						},
+						["timefont"] = {
+							"Arial Narrow", -- [1]
+							13, -- [2]
+							"", -- [3]
+						},
+						["timerbackdropcolor"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							0.5, -- [4]
+						},
+						["bordercolor"] = {
+							1, -- [1]
+							1, -- [2]
+							1, -- [3]
+							1, -- [4]
+						},
+						["bordertexture"] = "None",
+						["texcoords"] = {
+							0.08, -- [1]
+							0.92, -- [2]
+							0.08, -- [3]
+							0.92, -- [4]
+						},
+						["timerbackdropinsets"] = {
+							-2, -- [1]
+							-2, -- [2]
+							-2, -- [3]
+							-2, -- [4]
+						},
+						["timertilesize"] = 16,
+						["tilesize"] = 16,
+						["colorbackdrop"] = true,
+						["backdroptexture"] = "Solid",
+						["iconsize"] = 19,
+						["enablebackdrop"] = false,
+						["backdropcolor"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							0.5, -- [4]
+						},
+						["stackfont"] = {
+							"Arial Narrow", -- [1]
+							12, -- [2]
+							"OUTLINE", -- [3]
+						},
+						["enabletimershadow"] = false,
+						["timershadowoffset"] = {
+							2, -- [1]
+							-2, -- [2]
+						},
+						["width"] = 250,
+						["enableborder"] = false,
+						["enabletexcoords"] = false,
+						["timerbackdropoffsets"] = {
+							-2, -- [1]
+							2, -- [2]
+							2, -- [3]
+							-2, -- [4]
+						},
+						["timercolorbackdrop"] = false,
+						["timerfontcolorstatic"] = false,
+						["timerbordertexture"] = "None",
+						["timeredgesize"] = 16,
+						["timerenableborder"] = false,
+					},
+				},
+				["energybar"] = {
+					["barcolorhigh"] = {
+						0, -- [1]
+						0.02352941176470588, -- [2]
+						1, -- [3]
+					},
+					["width"] = 350,
+					["height"] = 25,
+				},
+				["alerts"] = {
+					["icons"] = {
+						["edgesize"] = 16,
+						["backdropinsets"] = {
+							-2, -- [1]
+							-2, -- [2]
+							-2, -- [3]
+							-2, -- [4]
+						},
+						["stackfontcolor"] = {
+							0.05, -- [1]
+							1, -- [2]
+							0.96, -- [3]
+						},
+						["texcoords"] = {
+							0.08, -- [1]
+							0.92, -- [2]
+							0.08, -- [3]
+							0.92, -- [4]
+						},
+						["tilesize"] = 16,
+						["colorbackdrop"] = false,
+						["enablebackdrop"] = false,
+						["stackfont"] = {
+							"Arial Narrow", -- [1]
+							12, -- [2]
+							"OUTLINE", -- [3]
+						},
+						["backdropoffsets"] = {
+							-2, -- [1]
+							2, -- [2]
+							2, -- [3]
+							-2, -- [4]
+						},
+						["backdroptexture"] = "Solid",
+						["enabletexcoords"] = false,
+						["bordercolor"] = {
+							1, -- [1]
+							1, -- [2]
+							1, -- [3]
+							1, -- [4]
+						},
+						["bordertexture"] = "None",
+						["backdropcolor"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							0.5, -- [4]
+						},
+						["enableborder"] = false,
+						["iconsize"] = 32,
+						["tile"] = false,
+					},
+				},
+			},
+		},
+	},
+}

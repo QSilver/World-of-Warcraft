@@ -1,0 +1,6 @@
+## Interface: 70300
+## Title: You Only Hear Once
+## Notes: Remove those talking heads shown when you enter a quest zone.
+## SavedVariables: TalkingHeadRemovalDB
+
+YouOnlyHearOnce.lua

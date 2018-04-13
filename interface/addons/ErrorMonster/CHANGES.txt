@@ -1,0 +1,18 @@
+tag c07673b0b86008fae5d3e2c196fa93e0a151e2fb v7.3.0
+Author:	funkydude <funkydude@users.noreply.github.com>
+Date:	Sun Nov 19 17:09:31 2017 +0000
+
+Tagging as v7.3.0
+
+commit e78ae4a0da657e927de87e792162da397f5675dd
+Author: funkydude <funkydude@users.noreply.github.com>
+Date:   Sun Nov 19 16:46:49 2017 +0000
+
+    update metadata
+
+commit 794ed43ee510c9bdf65846462f098c49713bbc55
+Author: funkydude <funkydude@users.noreply.github.com>
+Date:   Sun Nov 19 15:55:22 2017 +0000
+
+    add locale
+

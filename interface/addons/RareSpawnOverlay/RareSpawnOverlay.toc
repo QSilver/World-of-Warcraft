@@ -1,0 +1,14 @@
+## Interface: 70000
+## Title: Rare Spawn Overlay
+## Author: Keith Gabryelski, Maintained by Vallandros for 3.3.5,4.0.1,4.3, Updated By Rapsheet (Malfurion) for 6.1
+## Notes: World Map Overlay for rare NPC's
+## Version: 7.0.00000
+## X-Date: August 31, 2016
+## SavedVariables: RareSpawnOverlayOptions
+# 
+RareSpawnOverlay.lua
+RSO-MapManager.lua
+RSO-SpawnData.lua
+RSO-OverlayManager.lua
+RSO-Options.xml
+RSO-API.lua

@@ -1,0 +1,47 @@
+VER 3 000000000000002A "Barrel WQ" "1542861"
+/tar Frozen Slave
+END
+VER 3 000000000000002B "Battleres" "136080"
+#showtooltip
+/use [pet:crane]Gift of Chi-Ji(Exotic Ability)
+END
+VER 3 000000000000000F "Call" "ABILITY_HUNTER_MASTERSCALL"
+#showtooltip
+/use [@player]Master's Call
+END
+VER 3 0000000000000024 "Cancel" "SPELL_HOLY_SENSEUNDEAD"
+/cancelaura Hand of Protection
+/cancelaura Aspect of the Turtle
+END
+VER 3 0000000000000028 "CollectMeRC" "INV_PET_BABYBLIZZARDBEAR"
+/cm rc
+END
+VER 3 0000000000000022 "Deterr" "SPELL_MISC_PETHEAL"
+#showtooltip
+/stopcasting
+/use Deterrence
+END
+VER 3 000000000000001A "extra" "ACHIEVEMENT_DUNGEON_AUCHINDOUN"
+/click ExtraActionButton1
+END
+VER 3 000000000000001F "Feign" "ABILITY_AMBUSH"
+#showtooltip
+/stopcasting
+/use Feign Death
+END
+VER 3 000000000000002C "KC" "132176"
+#showtooltip
+/petattack [@target, harm]
+/cast Kill Command
+END
+VER 3 0000000000000008 "Mend" "SPELL_NATURE_SPIRITARMOR"
+#showtooltip
+/stopcasting
+/use [@target,help][@player]Spirit Mend
+END
+VER 3 0000000000000015 "Raid" "CREATUREPORTRAIT_PORTAL_ISLEOFCONQUESTALLIANCE"
+/run CompactRaidFrameManager:UnregisterAllEvents()
+/run CompactRaidFrameManager:Hide()
+/run CompactRaidFrameContainer:UnregisterAllEvents()
+/run CompactRaidFrameContainer:Hide()
+END

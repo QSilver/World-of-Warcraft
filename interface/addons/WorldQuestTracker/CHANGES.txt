@@ -1,0 +1,7 @@
+changeset:   281:94638ee59e76
+tag:         v7.3.5.281-release
+user:        Tercio
+date:        Fri Apr 13 12:26:36 2018 -0300
+summary:     - Fixing the tex coordinate of the icon on pet battle quests.
+
+

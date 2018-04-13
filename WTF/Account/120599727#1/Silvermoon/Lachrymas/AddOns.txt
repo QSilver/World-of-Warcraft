@@ -1,0 +1,4 @@
+AdvancedInterfaceOptions: enabled
+EnemyGrid: enabled
+Details_DeathGraphs: disabled
+_NPCScan.Overlay: disabled

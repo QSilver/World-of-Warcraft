@@ -1,0 +1,2 @@
+
+BADBOY_GWHISPER = nil

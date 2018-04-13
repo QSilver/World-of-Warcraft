@@ -1,0 +1,7 @@
+changeset:   56:c0e733d752f0
+tag:         v7.3.5.056
+user:        Tercio
+date:        Sat Mar 10 11:57:05 2018 -0300
+summary:     - Formated the add chart window to use the framework templates and setting ground to add smoothness options to the drawn line.
+
+

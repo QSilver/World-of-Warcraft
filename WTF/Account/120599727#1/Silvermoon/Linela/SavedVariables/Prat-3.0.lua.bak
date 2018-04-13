@@ -1,0 +1,3 @@
+
+Prat3CharDB = {
+}

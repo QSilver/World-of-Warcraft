@@ -1,0 +1,209 @@
+
+ElvData = {
+	["profileKeys"] = {
+		["Qsilver - Silvermoon"] = "Qsilver - Silvermoon",
+	},
+	["gold"] = {
+		["Silvermoon"] = {
+			["Qsilver"] = 242795107,
+		},
+	},
+	["namespaces"] = {
+		["LibDualSpec-1.0"] = {
+		},
+	},
+	["global"] = {
+		["unitframe"] = {
+			["buffwatch"] = {
+				["HUNTER"] = {
+				},
+			},
+		},
+		["newThemePrompt"] = true,
+	},
+	["profiles"] = {
+		["Qsilver - Silvermoon"] = {
+			["nameplate"] = {
+				["fontSize"] = 7,
+				["fontOutline"] = "MONOCHROMEOUTLINE",
+				["width"] = 112,
+				["font"] = "ElvUI Pixel",
+				["height"] = 7,
+			},
+			["general"] = {
+				["bottomPanel"] = true,
+				["backdropfadecolor"] = {
+					["b"] = 0.06,
+					["g"] = 0.06,
+					["r"] = 0.06,
+				},
+				["valuecolor"] = {
+					["b"] = 0.819,
+					["g"] = 0.513,
+					["r"] = 0.09,
+				},
+				["experience"] = {
+					["width"] = 400,
+				},
+				["bordercolor"] = {
+					["b"] = 0.31,
+					["g"] = 0.31,
+					["r"] = 0.31,
+				},
+				["reputation"] = {
+					["width"] = 400,
+				},
+			},
+			["movers"] = {
+				["ElvUF_PlayerMover"] = "BOTTOMElvUIParentBOTTOM-106135",
+				["ElvUF_TargetMover"] = "BOTTOMElvUIParentBOTTOM106135",
+				["ElvUF_PetMover"] = "BOTTOMElvUIParentBOTTOM-10680",
+				["ElvUF_FocusMover"] = "BOTTOMElvUIParentBOTTOM310332",
+				["ElvAB_2"] = "CENTERElvUIParentBOTTOM056.18",
+				["ElvUF_TargetTargetMover"] = "BOTTOMElvUIParentBOTTOM10680",
+			},
+			["auras"] = {
+				["wrapAfter"] = 10,
+			},
+			["chat"] = {
+				["panelWidth"] = 400,
+			},
+			["unitframe"] = {
+				["units"] = {
+					["pet"] = {
+						["power"] = {
+							["enable"] = false,
+						},
+						["width"] = 200,
+						["height"] = 26,
+					},
+					["targettarget"] = {
+						["debuffs"] = {
+							["enable"] = false,
+						},
+						["power"] = {
+							["enable"] = false,
+						},
+						["width"] = 200,
+						["height"] = 26,
+					},
+					["player"] = {
+						["classbar"] = {
+							["fill"] = "fill",
+						},
+						["castbar"] = {
+							["width"] = 200,
+						},
+						["width"] = 200,
+					},
+					["target"] = {
+						["combobar"] = {
+							["fill"] = "fill",
+						},
+						["width"] = 200,
+						["castbar"] = {
+							["width"] = 200,
+						},
+					},
+					["boss"] = {
+						["width"] = 200,
+						["castbar"] = {
+							["width"] = 200,
+						},
+					},
+					["arena"] = {
+						["width"] = 200,
+						["castbar"] = {
+							["width"] = 200,
+						},
+					},
+				},
+				["colors"] = {
+					["auraBarBuff"] = {
+						["b"] = 0.31,
+						["g"] = 0.31,
+						["r"] = 0.31,
+					},
+					["castColor"] = {
+						["b"] = 0.31,
+						["g"] = 0.31,
+						["r"] = 0.31,
+					},
+					["health"] = {
+						["b"] = 0.31,
+						["g"] = 0.31,
+						["r"] = 0.31,
+					},
+				},
+			},
+			["datatexts"] = {
+				["panels"] = {
+					["LeftChatDataPanel"] = {
+						["right"] = "Crit Chance",
+						["left"] = "Attack Power",
+					},
+				},
+			},
+			["actionbar"] = {
+				["bar3"] = {
+					["enabled"] = false,
+					["buttonspacing"] = 2,
+					["backdrop"] = false,
+					["buttonsize"] = 32,
+				},
+				["bar1"] = {
+					["buttonspacing"] = 2,
+					["heightMult"] = 2,
+					["backdrop"] = false,
+					["buttonsize"] = 32,
+				},
+				["bar2"] = {
+					["enabled"] = true,
+					["buttonspacing"] = 2,
+					["buttonsize"] = 32,
+				},
+				["bar5"] = {
+					["enabled"] = false,
+					["buttonspacing"] = 2,
+					["backdrop"] = false,
+					["buttonsize"] = 32,
+				},
+				["stanceBar"] = {
+					["buttonspacing"] = 2,
+					["buttonsize"] = 32,
+				},
+				["barPet"] = {
+					["buttonspacing"] = 2,
+					["buttonsize"] = 32,
+				},
+				["bar4"] = {
+					["buttonspacing"] = 2,
+					["buttonsize"] = 32,
+				},
+			},
+			["layoutSet"] = "dpsMelee",
+			["bags"] = {
+				["bankSize"] = 34,
+				["bagSize"] = 34,
+			},
+			["lowresolutionset"] = true,
+		},
+	},
+}
+ElvPrivateData = {
+	["profileKeys"] = {
+		["Qsilver - Silvermoon"] = "Qsilver - Silvermoon",
+	},
+	["profiles"] = {
+		["Qsilver - Silvermoon"] = {
+			["nameplate"] = {
+				["enable"] = false,
+			},
+			["auras"] = {
+				["size"] = 30,
+			},
+			["theme"] = "pixelPerfect",
+			["install_complete"] = "4.69",
+		},
+	},
+}

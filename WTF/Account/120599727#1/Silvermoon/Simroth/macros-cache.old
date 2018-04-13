@@ -1,0 +1,10 @@
+VER 3 01000000000000AF "VuhDoDCShieldData" "Ability_Repair"
+R3MR1NT1ET[x]1EM1NM2PM2RM2RM2WM2WM3MR3MR3MR3IR4DH4SH4SH4SH4IH5LR5LR5DM5PM[x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x]1ET[x][x][x][x]0__[x][x][x][x][x][x][x][x][x][x][x][x][x][x][x]0__0__[x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x]
+END
+VER 3 01000000000000B0 "VuhDoDCShieldNames" "Ability_Repair"
+NTroDuiDkh[x]XpiDeeÐeiWunSaiClaCårZipGulLaaIsoFesTjaIolGarMicHeuZapNelMae[x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x]Sim[x][x][x][x]Too[x][x][x][x][x][x][x][x][x][x][x][x][x][x][x]RikAba[x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x]
+END
+VER 3 0100000000000151 "ZGVMacro3" "0"
+/target Challe
+/run ZGV:MRM()
+END
