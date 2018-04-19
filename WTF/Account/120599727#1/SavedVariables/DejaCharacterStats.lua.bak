@@ -53,8 +53,8 @@ DejaCharacterStatsDB = {
 			["ItemLevelEQ_AV_SetChecked"] = true,
 			["ItemLevelSetChecked"] = true,
 			["ItemLevelTwoDecimalsSetChecked"] = true,
-			["ItemLevelDecimalsSetChecked"] = false,
 			["ItemLevelClassColorSetChecked"] = true,
+			["ItemLevelDecimalsSetChecked"] = false,
 		},
 		["dejacharacterstatsScrollbarChecked"] = {
 			["ScrollbarSetChecked"] = false,

@@ -1,38 +1,42 @@
 
 Omen3DB = {
 	["profileKeys"] = {
-		["Simroth - Silvermoon"] = "Qsilver - Silvermoon",
-		["Siluna - Silvermoon"] = "Qsilver - Silvermoon",
 		["Alyara - Silvermoon"] = "Qsilver - Silvermoon",
+		["Simroth - Silvermoon"] = "Qsilver - Silvermoon",
+		["Linela - Silvermoon"] = "Qsilver - Silvermoon",
 		["Myvanna - Silvermoon"] = "Qsilver - Silvermoon",
 		["Flaville - Silvermoon"] = "Flaville - Silvermoon",
-		["Spinhoof - Ragnaros"] = "Qsilver - Silvermoon",
+		["Kjerstina - Silvermoon"] = "Qsilver - Silvermoon",
 		["Stephanna - Argent Dawn"] = "Stephanna - Argent Dawn",
 		["Thagmarr - Silvermoon"] = "Qsilver - Silvermoon",
 		["Bjornson - Silvermoon"] = "Bjornson - Silvermoon",
 		["Lachrymas - Silvermoon"] = "Qsilver - Silvermoon",
 		["Tenderbreeze - Silvermoon"] = "Qsilver - Silvermoon",
-		["Kjerstina - Silvermoon"] = "Qsilver - Silvermoon",
+		["Spinhoof - Ragnaros"] = "Qsilver - Silvermoon",
 		["Dotyou - Silvermoon"] = "Dotyou - Silvermoon",
-		["Linela - Silvermoon"] = "Qsilver - Silvermoon",
+		["Siluna - Silvermoon"] = "Qsilver - Silvermoon",
 		["Qsilver - Silvermoon"] = "Qsilver - Silvermoon",
 	},
 	["profiles"] = {
-		["Simroth - Silvermoon"] = {
-			["PositionX"] = 570.5,
-			["PositionY"] = 459,
-		},
-		["Siluna - Silvermoon"] = {
-			["Shown"] = true,
-			["PositionY"] = 665.769226074219,
-			["PositionX"] = 937.756469726562,
-		},
 		["Alyara - Silvermoon"] = {
 			["PositionY"] = 416.332458496094,
 			["PositionW"] = 199.999938964844,
 			["Shown"] = true,
 			["PositionX"] = 1900.51306152344,
 			["PositionH"] = 82.0000076293945,
+		},
+		["Simroth - Silvermoon"] = {
+			["PositionX"] = 570.5,
+			["PositionY"] = 459,
+		},
+		["Linela - Silvermoon"] = {
+			["VGrip2"] = 96.0250189952836,
+			["PositionY"] = 271.999969482422,
+			["PositionW"] = 167.000045776367,
+			["Shown"] = true,
+			["VGrip1"] = 70.9750140399922,
+			["PositionX"] = 1199,
+			["PositionH"] = 82.0000152587891,
 		},
 		["Myvanna - Silvermoon"] = {
 			["Shown"] = true,
@@ -57,16 +61,10 @@ Omen3DB = {
 			},
 			["PositionX"] = 1900.51306152344,
 		},
-		["Spinhoof - Ragnaros"] = {
-			["PositionY"] = 339.751892089844,
-			["PositionW"] = 199.999938964844,
-			["PositionH"] = 82.0000076293945,
+		["Kjerstina - Silvermoon"] = {
 			["Shown"] = true,
-			["MinimapIcon"] = {
-				["hide"] = true,
-			},
-			["PositionX"] = 1844.69555664063,
-			["VGrip1"] = 78.5856508233752,
+			["PositionY"] = 665.769226074219,
+			["PositionX"] = 937.756469726562,
 		},
 		["Stephanna - Argent Dawn"] = {
 			["Shown"] = false,
@@ -94,25 +92,27 @@ Omen3DB = {
 			["PositionY"] = 665.769226074219,
 			["PositionX"] = 937.756469726562,
 		},
-		["Kjerstina - Silvermoon"] = {
+		["Spinhoof - Ragnaros"] = {
+			["PositionY"] = 339.751892089844,
+			["PositionW"] = 199.999938964844,
+			["VGrip1"] = 78.5856508233752,
+			["Shown"] = true,
+			["PositionX"] = 1844.69555664063,
+			["MinimapIcon"] = {
+				["hide"] = true,
+			},
+			["PositionH"] = 82.0000076293945,
+		},
+		["Dotyou - Silvermoon"] = {
+			["PositionX"] = 488.500030517578,
+			["PositionY"] = 409.999969482422,
+			["PositionW"] = 200.000015258789,
+			["PositionH"] = 82.0000152587891,
+		},
+		["Siluna - Silvermoon"] = {
 			["Shown"] = true,
 			["PositionY"] = 665.769226074219,
 			["PositionX"] = 937.756469726562,
-		},
-		["Dotyou - Silvermoon"] = {
-			["PositionW"] = 200.000015258789,
-			["PositionY"] = 409.999969482422,
-			["PositionX"] = 488.500030517578,
-			["PositionH"] = 82.0000152587891,
-		},
-		["Linela - Silvermoon"] = {
-			["VGrip2"] = 96.0250189952836,
-			["PositionY"] = 271.999969482422,
-			["PositionW"] = 167.000045776367,
-			["Shown"] = true,
-			["PositionH"] = 82.0000152587891,
-			["PositionX"] = 1199,
-			["VGrip1"] = 70.9750140399922,
 		},
 		["Qsilver - Silvermoon"] = {
 			["PositionW"] = 186.612197875977,
@@ -122,8 +122,8 @@ Omen3DB = {
 			["Locked"] = true,
 			["Background"] = {
 				["Color"] = {
-					["r"] = 0.992156862745098,
 					["b"] = 0.968627450980392,
+					["r"] = 0.992156862745098,
 				},
 				["Texture"] = "Blizzard Dialog Background",
 			},
@@ -136,10 +136,10 @@ Omen3DB = {
 				["HideInPVP"] = false,
 			},
 			["VGrip1"] = 87.2899578028536,
-			["PositionX"] = 1872.3291015625,
 			["TitleBar"] = {
 				["ShowTitleBar"] = false,
 			},
+			["PositionX"] = 1872.3291015625,
 			["Shown"] = true,
 			["Bar"] = {
 				["ShowHeadings"] = false,

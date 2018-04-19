@@ -22,69 +22,69 @@ Prat3DB = {
 				["Default"] = {
 					["colors"] = {
 						["general"] = {
-							["r"] = 1,
-							["g"] = 0.752941250801086,
 							["b"] = 0.752941250801086,
+							["g"] = 0.752941250801086,
+							["r"] = 1,
 						},
 						["roguechat"] = {
-							["r"] = 1,
-							["g"] = 0.749019622802734,
 							["b"] = 0.749019622802734,
+							["g"] = 0.749019622802734,
+							["r"] = 1,
 						},
 						["details"] = {
-							["r"] = 1,
-							["g"] = 0.749019622802734,
 							["b"] = 0.749019622802734,
+							["g"] = 0.749019622802734,
+							["r"] = 1,
 						},
 						["phranged"] = {
-							["b"] = 0.752941250801086,
-							["g"] = 0.752941250801086,
 							["r"] = 1,
+							["g"] = 0.752941250801086,
+							["b"] = 0.752941250801086,
 						},
 						["phhealers"] = {
-							["r"] = 1,
-							["g"] = 0.752941250801086,
 							["b"] = 0.752941250801086,
+							["g"] = 0.752941250801086,
+							["r"] = 1,
 						},
 						["phophohunters"] = {
-							["b"] = 0.752941250801086,
-							["g"] = 0.752941250801086,
 							["r"] = 1,
+							["g"] = 0.752941250801086,
+							["b"] = 0.752941250801086,
 						},
 						["phsecretmage"] = {
-							["b"] = 0.749019622802734,
+							["r"] = 1,
 							["g"] = 0.749019622802734,
-							["r"] = 1,
-						},
-						["twitchchat"] = {
-							["b"] = 0.752941250801086,
-							["g"] = 0.752941250801086,
-							["r"] = 1,
+							["b"] = 0.749019622802734,
 						},
 						["trade"] = {
-							["b"] = 0.752941250801086,
-							["g"] = 0.752941250801086,
 							["r"] = 1,
+							["g"] = 0.752941250801086,
+							["b"] = 0.752941250801086,
+						},
+						["twitchchat"] = {
+							["r"] = 1,
+							["g"] = 0.752941250801086,
+							["b"] = 0.752941250801086,
 						},
 						["localdefense"] = {
-							["b"] = 0.752941250801086,
-							["g"] = 0.752941250801086,
 							["r"] = 1,
+							["g"] = 0.752941250801086,
+							["b"] = 0.752941250801086,
 						},
 						["phtrivia"] = {
-							["b"] = 0.749019622802734,
-							["g"] = 0.749019622802734,
 							["r"] = 1,
+							["g"] = 0.749019622802734,
+							["b"] = 0.749019622802734,
 						},
 						["phrogues"] = {
-							["r"] = 1,
-							["g"] = 0.749019622802734,
 							["b"] = 0.749019622802734,
+							["g"] = 0.749019622802734,
+							["r"] = 1,
 						},
 						["phhunters"] = {
-							["b"] = 0.752941250801086,
-							["g"] = 0.752941250801086,
 							["r"] = 1,
+							["g"] = 0.752941250801086,
+							["b"] = 0.752941250801086,
 						},
 					},
 				},
@@ -105,7 +105,7 @@ Prat3DB = {
 		},
 		["Prat_Scroll"] = {
 		},
-		["Prat_ChannelNames"] = {
+		["Prat_Bubbles"] = {
 		},
 		["Prat_Paragraph"] = {
 		},
@@ -119,7 +119,7 @@ Prat3DB = {
 		},
 		["Prat_ChannelSticky"] = {
 		},
-		["Prat_ChatLog"] = {
+		["Prat_Timestamps"] = {
 		},
 		["Prat_History"] = {
 		},
@@ -127,40 +127,40 @@ Prat3DB = {
 		},
 		["Prat_CopyChat"] = {
 		},
-		["Prat_Timestamps"] = {
+		["Prat_ChatLog"] = {
 		},
 		["Prat_Search"] = {
 		},
 		["Prat_Buttons"] = {
 			["profiles"] = {
 				["Default"] = {
-					["showMenu"] = false,
-					["showBnet"] = false,
 					["scrollReminder"] = false,
-					["showminimize"] = false,
+					["showBnet"] = false,
 					["showButtons"] = false,
+					["showminimize"] = false,
+					["showMenu"] = false,
 				},
 			},
 		},
 		["Prat_ServerNames"] = {
 		},
-		["Prat_Bubbles"] = {
+		["Prat_ChannelNames"] = {
 		},
 	},
 	["profileKeys"] = {
-		["Alyara - Silvermoon"] = "Default",
 		["Linela - Silvermoon"] = "Default",
-		["Erdanii - Silvermoon"] = "Default",
-		["Flaville - Silvermoon"] = "Default",
-		["Simroth - Silvermoon"] = "Default",
-		["Stephanna - Argent Dawn"] = "Default",
+		["Alyara - Silvermoon"] = "Default",
 		["Siluna - Silvermoon"] = "Default",
-		["Spinhoof - Ragnaros"] = "Default",
-		["Lachrymas - Silvermoon"] = "Default",
+		["Flaville - Silvermoon"] = "Default",
 		["Myvanna - Silvermoon"] = "Default",
-		["Kjerstina - Silvermoon"] = "Default",
-		["Tenderbreeze - Silvermoon"] = "Default",
+		["Stephanna - Argent Dawn"] = "Default",
 		["Thagmarr - Silvermoon"] = "Default",
+		["Kjerstina - Silvermoon"] = "Default",
+		["Lachrymas - Silvermoon"] = "Default",
+		["Tenderbreeze - Silvermoon"] = "Default",
+		["Spinhoof - Ragnaros"] = "Default",
+		["Simroth - Silvermoon"] = "Default",
+		["Erdanii - Silvermoon"] = "Default",
 		["Qsilver - Silvermoon"] = "Default",
 	},
 	["profiles"] = {
@@ -170,14 +170,14 @@ Prat3DB = {
 		},
 		["Default"] = {
 			["modules"] = {
-				["Alias"] = 2,
+				["ChatLog"] = 2,
 				["AltNames"] = 2,
 				["Sounds"] = 2,
 				["Paragraph"] = 2,
 				["KeyBindings"] = 2,
 				["PopupMessage"] = 2,
 				["OriginalButtons"] = 2,
-				["ChatLog"] = 2,
+				["Alias"] = 2,
 			},
 		},
 	},

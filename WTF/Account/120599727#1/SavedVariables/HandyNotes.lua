@@ -1,47 +1,47 @@
 
 HandyNotesDB = {
 	["profileKeys"] = {
-		["Linela - Silvermoon"] = "Linela - Silvermoon",
 		["Alyara - Silvermoon"] = "Alyara - Silvermoon",
-		["Siluna - Silvermoon"] = "Siluna - Silvermoon",
+		["Linela - Silvermoon"] = "Linela - Silvermoon",
 		["Erdanii - Silvermoon"] = "Erdanii - Silvermoon",
-		["Myvanna - Silvermoon"] = "Myvanna - Silvermoon",
+		["Flaville - Silvermoon"] = "Flaville - Silvermoon",
+		["Simroth - Silvermoon"] = "Simroth - Silvermoon",
 		["Stephanna - Argent Dawn"] = "Stephanna - Argent Dawn",
 		["Thagmarr - Silvermoon"] = "Thagmarr - Silvermoon",
-		["Spinhoof - Ragnaros"] = "Spinhoof - Ragnaros",
+		["Kjerstina - Silvermoon"] = "Kjerstina - Silvermoon",
 		["Lachrymas - Silvermoon"] = "Lachrymas - Silvermoon",
 		["Tenderbreeze - Silvermoon"] = "Tenderbreeze - Silvermoon",
-		["Kjerstina - Silvermoon"] = "Kjerstina - Silvermoon",
-		["Simroth - Silvermoon"] = "Simroth - Silvermoon",
-		["Flaville - Silvermoon"] = "Flaville - Silvermoon",
+		["Spinhoof - Ragnaros"] = "Spinhoof - Ragnaros",
+		["Myvanna - Silvermoon"] = "Myvanna - Silvermoon",
+		["Siluna - Silvermoon"] = "Siluna - Silvermoon",
 		["Qsilver - Silvermoon"] = "Qsilver - Silvermoon",
 	},
 	["profiles"] = {
-		["Linela - Silvermoon"] = {
-		},
 		["Alyara - Silvermoon"] = {
 		},
-		["Siluna - Silvermoon"] = {
+		["Linela - Silvermoon"] = {
 		},
 		["Erdanii - Silvermoon"] = {
 		},
-		["Myvanna - Silvermoon"] = {
+		["Flaville - Silvermoon"] = {
+		},
+		["Simroth - Silvermoon"] = {
 		},
 		["Stephanna - Argent Dawn"] = {
 		},
 		["Thagmarr - Silvermoon"] = {
 		},
-		["Spinhoof - Ragnaros"] = {
+		["Kjerstina - Silvermoon"] = {
 		},
 		["Lachrymas - Silvermoon"] = {
 		},
 		["Tenderbreeze - Silvermoon"] = {
 		},
-		["Kjerstina - Silvermoon"] = {
+		["Spinhoof - Ragnaros"] = {
 		},
-		["Simroth - Silvermoon"] = {
+		["Myvanna - Silvermoon"] = {
 		},
-		["Flaville - Silvermoon"] = {
+		["Siluna - Silvermoon"] = {
 		},
 		["Qsilver - Silvermoon"] = {
 		},
@@ -49,47 +49,47 @@ HandyNotesDB = {
 }
 HandyNotes_HandyNotesDB = {
 	["profileKeys"] = {
-		["Linela - Silvermoon"] = "Linela - Silvermoon",
 		["Alyara - Silvermoon"] = "Alyara - Silvermoon",
-		["Siluna - Silvermoon"] = "Siluna - Silvermoon",
+		["Linela - Silvermoon"] = "Linela - Silvermoon",
 		["Erdanii - Silvermoon"] = "Erdanii - Silvermoon",
-		["Myvanna - Silvermoon"] = "Myvanna - Silvermoon",
+		["Flaville - Silvermoon"] = "Flaville - Silvermoon",
+		["Simroth - Silvermoon"] = "Simroth - Silvermoon",
 		["Stephanna - Argent Dawn"] = "Stephanna - Argent Dawn",
 		["Thagmarr - Silvermoon"] = "Thagmarr - Silvermoon",
-		["Spinhoof - Ragnaros"] = "Spinhoof - Ragnaros",
+		["Kjerstina - Silvermoon"] = "Kjerstina - Silvermoon",
 		["Lachrymas - Silvermoon"] = "Lachrymas - Silvermoon",
 		["Tenderbreeze - Silvermoon"] = "Tenderbreeze - Silvermoon",
-		["Kjerstina - Silvermoon"] = "Kjerstina - Silvermoon",
-		["Simroth - Silvermoon"] = "Simroth - Silvermoon",
-		["Flaville - Silvermoon"] = "Flaville - Silvermoon",
+		["Spinhoof - Ragnaros"] = "Spinhoof - Ragnaros",
+		["Myvanna - Silvermoon"] = "Myvanna - Silvermoon",
+		["Siluna - Silvermoon"] = "Siluna - Silvermoon",
 		["Qsilver - Silvermoon"] = "Qsilver - Silvermoon",
 	},
 	["profiles"] = {
-		["Linela - Silvermoon"] = {
-		},
 		["Alyara - Silvermoon"] = {
 		},
-		["Siluna - Silvermoon"] = {
+		["Linela - Silvermoon"] = {
 		},
 		["Erdanii - Silvermoon"] = {
 		},
-		["Myvanna - Silvermoon"] = {
+		["Flaville - Silvermoon"] = {
+		},
+		["Simroth - Silvermoon"] = {
 		},
 		["Stephanna - Argent Dawn"] = {
 		},
 		["Thagmarr - Silvermoon"] = {
 		},
-		["Spinhoof - Ragnaros"] = {
+		["Kjerstina - Silvermoon"] = {
 		},
 		["Lachrymas - Silvermoon"] = {
 		},
 		["Tenderbreeze - Silvermoon"] = {
 		},
-		["Kjerstina - Silvermoon"] = {
+		["Spinhoof - Ragnaros"] = {
 		},
-		["Simroth - Silvermoon"] = {
+		["Myvanna - Silvermoon"] = {
 		},
-		["Flaville - Silvermoon"] = {
+		["Siluna - Silvermoon"] = {
 		},
 		["Qsilver - Silvermoon"] = {
 		},

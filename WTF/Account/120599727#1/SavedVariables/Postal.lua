@@ -1,21 +1,5 @@
 
 Postal3DB = {
-	["profileKeys"] = {
-		["Linela - Silvermoon"] = "Linela - Silvermoon",
-		["Alyara - Silvermoon"] = "Alyara - Silvermoon",
-		["Thagmarr - Silvermoon"] = "Thagmarr - Silvermoon",
-		["Erdanii - Silvermoon"] = "Erdanii - Silvermoon",
-		["Tenderbreeze - Silvermoon"] = "Tenderbreeze - Silvermoon",
-		["Stephanna - Argent Dawn"] = "Stephanna - Argent Dawn",
-		["Siluna - Silvermoon"] = "Siluna - Silvermoon",
-		["Spinhoof - Ragnaros"] = "Spinhoof - Ragnaros",
-		["Lachrymas - Silvermoon"] = "Lachrymas - Silvermoon",
-		["Myvanna - Silvermoon"] = "Myvanna - Silvermoon",
-		["Kjerstina - Silvermoon"] = "Kjerstina - Silvermoon",
-		["Simroth - Silvermoon"] = "Simroth - Silvermoon",
-		["Flaville - Silvermoon"] = "Flaville - Silvermoon",
-		["Qsilver - Silvermoon"] = "Qsilver - Silvermoon",
-	},
 	["global"] = {
 		["BlackBook"] = {
 			["alts"] = {
@@ -36,18 +20,26 @@ Postal3DB = {
 			},
 		},
 	},
+	["profileKeys"] = {
+		["Alyara - Silvermoon"] = "Alyara - Silvermoon",
+		["Linela - Silvermoon"] = "Linela - Silvermoon",
+		["Erdanii - Silvermoon"] = "Erdanii - Silvermoon",
+		["Flaville - Silvermoon"] = "Flaville - Silvermoon",
+		["Simroth - Silvermoon"] = "Simroth - Silvermoon",
+		["Stephanna - Argent Dawn"] = "Stephanna - Argent Dawn",
+		["Siluna - Silvermoon"] = "Siluna - Silvermoon",
+		["Kjerstina - Silvermoon"] = "Kjerstina - Silvermoon",
+		["Lachrymas - Silvermoon"] = "Lachrymas - Silvermoon",
+		["Myvanna - Silvermoon"] = "Myvanna - Silvermoon",
+		["Spinhoof - Ragnaros"] = "Spinhoof - Ragnaros",
+		["Tenderbreeze - Silvermoon"] = "Tenderbreeze - Silvermoon",
+		["Thagmarr - Silvermoon"] = "Thagmarr - Silvermoon",
+		["Qsilver - Silvermoon"] = "Qsilver - Silvermoon",
+	},
 	["profiles"] = {
-		["Linela - Silvermoon"] = {
-			["BlackBook"] = {
-				["recent"] = {
-					"Simroth|Silvermoon|Alliance", -- [1]
-					"Qsilver|Silvermoon|Alliance", -- [2]
-				},
-			},
-		},
 		["Alyara - Silvermoon"] = {
 		},
-		["Thagmarr - Silvermoon"] = {
+		["Linela - Silvermoon"] = {
 			["BlackBook"] = {
 				["recent"] = {
 					"Simroth|Silvermoon|Alliance", -- [1]
@@ -57,7 +49,17 @@ Postal3DB = {
 		},
 		["Erdanii - Silvermoon"] = {
 		},
-		["Tenderbreeze - Silvermoon"] = {
+		["Flaville - Silvermoon"] = {
+		},
+		["Simroth - Silvermoon"] = {
+			["BlackBook"] = {
+				["recent"] = {
+					"Qsilver|Silvermoon|Alliance", -- [1]
+					"Linela|Silvermoon|Alliance", -- [2]
+					"Duivel|Silvermoon|Alliance", -- [3]
+					"Myvanna|Silvermoon|Alliance", -- [4]
+				},
+			},
 		},
 		["Stephanna - Argent Dawn"] = {
 		},
@@ -70,7 +72,12 @@ Postal3DB = {
 				},
 			},
 		},
-		["Spinhoof - Ragnaros"] = {
+		["Kjerstina - Silvermoon"] = {
+			["BlackBook"] = {
+				["recent"] = {
+					"Qsilver|Silvermoon|Alliance", -- [1]
+				},
+			},
 		},
 		["Lachrymas - Silvermoon"] = {
 			["BlackBook"] = {
@@ -88,24 +95,17 @@ Postal3DB = {
 				},
 			},
 		},
-		["Kjerstina - Silvermoon"] = {
+		["Spinhoof - Ragnaros"] = {
+		},
+		["Tenderbreeze - Silvermoon"] = {
+		},
+		["Thagmarr - Silvermoon"] = {
 			["BlackBook"] = {
 				["recent"] = {
-					"Qsilver|Silvermoon|Alliance", -- [1]
+					"Simroth|Silvermoon|Alliance", -- [1]
+					"Qsilver|Silvermoon|Alliance", -- [2]
 				},
 			},
-		},
-		["Simroth - Silvermoon"] = {
-			["BlackBook"] = {
-				["recent"] = {
-					"Qsilver|Silvermoon|Alliance", -- [1]
-					"Linela|Silvermoon|Alliance", -- [2]
-					"Duivel|Silvermoon|Alliance", -- [3]
-					"Myvanna|Silvermoon|Alliance", -- [4]
-				},
-			},
-		},
-		["Flaville - Silvermoon"] = {
 		},
 		["Qsilver - Silvermoon"] = {
 			["BlackBook"] = {
