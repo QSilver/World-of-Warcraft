@@ -243,8 +243,8 @@ L["STRING_FORGE_HEADER_OWNER"] = "Besitzer"
 L["STRING_FORGE_HEADER_SCHOOL"] = "Kategorie"
 L["STRING_FORGE_HEADER_SPELLID"] = "Zauber-ID"
 L["STRING_FORGE_HEADER_TIMER"] = "Timer"
---[[Translation missing --]]
---[[ L["STRING_FORGE_TUTORIAL_DESC"] = ""--]] 
+L["STRING_FORGE_TUTORIAL_DESC"] = [=[
+Durchsuche Zauber- und Boss-Mods-Timer, um Auren durch Klicken auf '|cFFFFFF00Aura Erstellen|r' zu erstellen.]=]
 L["STRING_FORGE_TUTORIAL_TITLE"] = "Willkommen bei Details! Forge"
 L["STRING_FORGE_TUTORIAL_VIDEO"] = "Beispiel einer Aura bei Verwendung von Bossmod-Timern:"
 L["STRING_FREEZE"] = "Dieses Segment ist im Moment nicht verfügbar "
@@ -395,14 +395,14 @@ L["STRING_OPTIONS_3D_LALPHA_DESC"] = [=[Wähle einen Wert für die Transparenz.
 |cFFFFFF00Achtung|r: Einige Modelle ignorieren den Transparenzwert.]=]
 L["STRING_OPTIONS_3D_LANCHOR"] = "Unteres 3D-Modell:"
 L["STRING_OPTIONS_3D_LENABLED_DESC"] = "Aktiviert oder deaktiviert die Nutzung eines 3D-Modells unter den Balken."
-L["STRING_OPTIONS_3D_LSELECT_DESC"] = "Wähle das zu benutzende 3D-Modell für Balken."
+L["STRING_OPTIONS_3D_LSELECT_DESC"] = "Wähle das zu benutzende 3D-Modell für die Balken."
 L["STRING_OPTIONS_3D_SELECT"] = "Modell wählen"
 L["STRING_OPTIONS_3D_UALPHA_DESC"] = [=[Wähle einen Wert für die Transparenz des oberen Modells.
 
 |cFFFFFF00Achtung|r: Einige Modelle ignorieren den Transparenzwert.]=]
 L["STRING_OPTIONS_3D_UANCHOR"] = "Oberes 3D-Modell:"
 L["STRING_OPTIONS_3D_UENABLED_DESC"] = "Aktiviert oder deaktiviert die Nutzung eines 3D-Modells über den Balken."
-L["STRING_OPTIONS_3D_USELECT_DESC"] = "Wähle das zu benutzende 3D-Modell für Balken."
+L["STRING_OPTIONS_3D_USELECT_DESC"] = "Wähle das zu benutzende 3D-Modell für die Balken."
 L["STRING_OPTIONS_ADVANCED"] = "Erweitert"
 L["STRING_OPTIONS_ALPHAMOD_ANCHOR"] = "Automatisch Verbergen:"
 L["STRING_OPTIONS_ALWAYS_USE"] = "Bei allen Charakteren benutzen"
@@ -652,8 +652,7 @@ L["STRING_OPTIONS_DEATHLIMIT_DESC"] = [=[Stelle die Anzahl an Ereignissen für d
 
 |cFFFFFF00Wichtig|r: Wird nach der Änderung nur auf neue Tode angewendet.]=]
 L["STRING_OPTIONS_DEATHLOG_MINHEALING"] = "Mindestheilung für Todesprotokoll"
---[[Translation missing --]]
---[[ L["STRING_OPTIONS_DEATHLOG_MINHEALING_DESC"] = ""--]] 
+L["STRING_OPTIONS_DEATHLOG_MINHEALING_DESC"] = "|cFFFFFF00Tip|r: Rechtsklicken um einen manuellen Wert einzugeben."
 L["STRING_OPTIONS_DESATURATE_MENU"] = "Entfärbt"
 L["STRING_OPTIONS_DESATURATE_MENU_DESC"] = "Aktiviert: Alle Symbole der Werkzeugleiste werden schwarz-weiß."
 L["STRING_OPTIONS_DISABLE_ALLDISPLAYSWINDOW"] = "Das Menü 'Alle Anzeigen' deaktivieren"

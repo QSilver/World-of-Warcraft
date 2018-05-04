@@ -10,31 +10,31 @@ MSBTProfiles_SavedVars = {
 				["disabled"] = false,
 			},
 			["critFontSize"] = 19,
-			["groupNumbers"] = true,
 			["soundsDisabled"] = true,
+			["hideFullOverheals"] = true,
 			["scrollAreas"] = {
-				["Incoming"] = {
-					["offsetX"] = -600,
-					["offsetY"] = -75,
-				},
 				["Outgoing"] = {
 					["offsetX"] = 600,
 					["offsetY"] = -75,
-				},
-				["Notification"] = {
-					["offsetY"] = 340,
-					["offsetX"] = -182,
-					["disabled"] = true,
 				},
 				["Static"] = {
 					["offsetY"] = 213,
 					["offsetX"] = -21,
 					["disabled"] = true,
 				},
+				["Notification"] = {
+					["offsetY"] = 340,
+					["offsetX"] = -182,
+					["disabled"] = true,
+				},
+				["Incoming"] = {
+					["offsetX"] = -600,
+					["offsetY"] = -75,
+				},
 			},
 			["enableBlizzardHealing"] = false,
 			["normalFontName"] = "Arial Narrow",
-			["hideFullOverheals"] = true,
+			["groupNumbers"] = true,
 			["normalFontSize"] = 13,
 		},
 	},

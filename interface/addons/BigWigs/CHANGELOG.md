@@ -1,6 +1,13 @@
 # BigWigs
 
-## [v95.1](https://github.com/BigWigsMods/BigWigs/tree/v95.1) (2018-04-09)
-[Full Changelog](https://github.com/BigWigsMods/BigWigs/compare/v95...v95.1)
+## [v97.1](https://github.com/BigWigsMods/BigWigs/tree/v97.1) (2018-05-03)
+[Full Changelog](https://github.com/BigWigsMods/BigWigs/compare/v97...v97.1)
 
-- Remove locales.xml from certain toc files  
+- Uldir/Taloc: Drycode for friday test (6/3)  
+- Merge branch 'master' of https://github.com/BigWigsMods/BigWigs  
+- Uldir/Zul: Drycode for friday test  
+- parser: Check for registered callbacks that don't exist  
+- parser: Handle single file parsing  
+- Uldir/Vectis: Fix engage id and Gestate Removed  
+- Uldir/Mother: Add respawn, fix tank warning  
+- Uldir/Mother: Add Enable Id  

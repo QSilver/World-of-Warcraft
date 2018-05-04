@@ -1,18 +1,33 @@
-tag fe68ccf089b0232514b63691a53e56f332cea829 v4.1.22b
+tag f011328fc7c8705cce098b499c0f1a3633051960 v4.1.23
 Author:	Hendrik Leppkes <h.leppkes@gmail.com>
-Date:	Wed Jan 24 10:47:15 2018 +0100
+Date:	Mon Apr 23 12:25:18 2018 +0200
 
-Tag as v4.1.22b
+Tag as v4.1.23
 
-commit c45e99993bb9bbf7b1e546c29a0f196f6ae8be0d
+commit 152c7cf4b65c924534a95bcfd0b936c0550d1ab8
 Author: Hendrik Leppkes <h.leppkes@gmail.com>
-Date:   Mon Jan 22 00:19:00 2018 +0100
+Date:   Mon Apr 23 12:22:44 2018 +0200
 
-    Add a missing color entry for the second demonology warlock guardian bar
+    indicators: show prestige icon  instead of the generic pvp faciton icon
 
-commit a128655dd19b995cd5ea1f816c88793249f80db9
+commit 427fd6d56bae698610dd9185222c8c249e901b04
 Author: Hendrik Leppkes <h.leppkes@gmail.com>
-Date:   Mon Jan 22 00:11:11 2018 +0100
+Date:   Mon Apr 23 12:00:34 2018 +0200
 
-    Check that unit is set before trying to register the state driver
+    units: protect against forbidden tooltip
+
+commit 5f60eec1ba28f1af27bdea0cc2c569a4e6956352
+Author: Hendrik Leppkes <h.leppkes@gmail.com>
+Date:   Mon Apr 23 11:56:38 2018 +0200
+
+    auras: protect against forbidden gametooltip
+
+commit 0d3c416d8ccbeabc635b6f0c282ea3bdc7a7f83d
+Author: Hendrik Leppkes <h.leppkes@gmail.com>
+Date:   Mon Apr 23 11:53:31 2018 +0200
+
+    Move DualSpec handling at the end of startup init
+    
+    This should avoid errors when DualSpec tries to switch the profile
+    during load already when SUF is not fully setup yet.
 

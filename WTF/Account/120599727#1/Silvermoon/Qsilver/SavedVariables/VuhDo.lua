@@ -129,22 +129,22 @@ VUHDO_CONFIG = {
 	["DETECT_DEBUFFS_IGNORE_NO_HARM"] = true,
 	["DETECT_DEBUFFS_IGNORE_BY_CLASS"] = true,
 	["EMERGENCY_TRIGGER"] = 100,
-	["RES_IS_SHOW_TEXT"] = false,
-	["IS_DC_SHIELD_DISABLED"] = false,
-	["IS_ALWAYS_OVERWRITE_PROFILE"] = false,
-	["IS_USE_BUTTON_FACADE"] = false,
-	["BLIZZ_UI_HIDE_TARGET"] = 2,
-	["SHOW_PLAYER_TAGS"] = true,
-	["BLIZZ_UI_HIDE_RAID_MGR"] = 2,
-	["UPDATE_HOTS_MS"] = 250,
-	["LOCK_CLICKS_THROUGH"] = false,
 	["MAX_EMERGENCIES"] = 5,
+	["SHOW_OVERHEAL"] = true,
+	["RES_IS_SHOW_TEXT"] = false,
+	["IS_USE_BUTTON_FACADE"] = false,
+	["IS_DC_SHIELD_DISABLED"] = false,
+	["SHOW_PLAYER_TAGS"] = true,
+	["IS_ALWAYS_OVERWRITE_PROFILE"] = false,
+	["UPDATE_HOTS_MS"] = 250,
+	["BLIZZ_UI_HIDE_TARGET"] = 2,
+	["BLIZZ_UI_HIDE_RAID_MGR"] = 2,
 	["HIDE_PANELS_SOLO"] = false,
 	["CURRENT_PROFILE"] = "Q",
 	["AUTO_PROFILES"] = {
 	},
 	["SHOW_INCOMING"] = true,
-	["SHOW_OVERHEAL"] = true,
+	["LOCK_CLICKS_THROUGH"] = false,
 	["OMIT_FOCUS"] = false,
 	["SPELL_TRACE"] = {
 		["isOthers"] = false,
@@ -4002,7 +4002,7 @@ VUHDO_CONFIG = {
 				["isColor"] = false,
 				["timer"] = true,
 			},
-			["Parasitic Growth"] = {
+			["Locked On"] = {
 				["isStacks"] = false,
 				["animate"] = true,
 				["timer"] = true,
@@ -4016,12 +4016,12 @@ VUHDO_CONFIG = {
 				["isColor"] = false,
 				["timer"] = true,
 			},
-			["Locked On"] = {
+			["219049"] = {
 				["isStacks"] = false,
 				["animate"] = true,
-				["timer"] = true,
-				["isColor"] = false,
 				["isIcon"] = true,
+				["isColor"] = false,
+				["timer"] = true,
 			},
 			["Poison Bomb"] = {
 				["isStacks"] = false,
@@ -4289,12 +4289,12 @@ VUHDO_CONFIG = {
 				["isColor"] = false,
 				["isIcon"] = true,
 			},
-			["219049"] = {
+			["Parasitic Growth"] = {
 				["isStacks"] = false,
 				["animate"] = true,
-				["isIcon"] = true,
-				["isColor"] = false,
 				["timer"] = true,
+				["isColor"] = false,
+				["isIcon"] = true,
 			},
 			["Collapsing Nightmare"] = {
 				["isStacks"] = false,
@@ -4851,7 +4851,7 @@ VUHDO_PANEL_SETUP = {
 			["orientation"] = "TOPLEFT",
 			["relativePoint"] = "BOTTOMLEFT",
 			["scale"] = 1,
-			["height"] = 179.000061035156,
+			["height"] = 34.9999771118164,
 			["growth"] = "TOPLEFT",
 			["width"] = 422.000030517578,
 		},
@@ -4864,6 +4864,7 @@ VUHDO_PANEL_SETUP = {
 		},
 		["frameStrata"] = "MEDIUM",
 		["MODEL"] = {
+			["sort"] = 0,
 			["ordering"] = 0,
 			["groups"] = {
 				1, -- [1]
@@ -4875,7 +4876,6 @@ VUHDO_PANEL_SETUP = {
 				7, -- [7]
 				8, -- [8]
 			},
-			["sort"] = 0,
 			["isReverse"] = false,
 		},
 		["TOOLTIP"] = {
@@ -4996,7 +4996,7 @@ VUHDO_PANEL_SETUP = {
 			["position"] = "TOP+TOP",
 			["yAdjust"] = 0,
 			["xAdjust"] = 0,
-			["_spacing"] = 25.0000438690186,
+			["_spacing"] = 24.9999713897705,
 			["showPetOwners"] = true,
 		},
 		["LIFE_TEXT"] = {
@@ -7618,9 +7618,9 @@ VUHDO_SPELLS_KEYBOARD = {
 			"-w10", -- [2]
 			"", -- [3]
 		},
-		["ctrlshift2"] = {
-			"CTRL-SHIFT-", -- [1]
-			"-w14", -- [2]
+		["shift1"] = {
+			"SHIFT-", -- [1]
+			"-w7", -- [2]
 			"", -- [3]
 		},
 		["2"] = {
@@ -7628,9 +7628,9 @@ VUHDO_SPELLS_KEYBOARD = {
 			"-w2", -- [2]
 			"", -- [3]
 		},
-		["shift1"] = {
-			"SHIFT-", -- [1]
-			"-w7", -- [2]
+		["ctrl2"] = {
+			"CTRL-", -- [1]
+			"-w6", -- [2]
 			"", -- [3]
 		},
 		["shift2"] = {
@@ -7683,9 +7683,9 @@ VUHDO_SPELLS_KEYBOARD = {
 			"-w9", -- [2]
 			"", -- [3]
 		},
-		["ctrl2"] = {
-			"CTRL-", -- [1]
-			"-w6", -- [2]
+		["ctrlshift2"] = {
+			"CTRL-SHIFT-", -- [1]
+			"-w14", -- [2]
 			"", -- [3]
 		},
 	},
@@ -7712,9 +7712,9 @@ VUHDO_SPELLS_KEYBOARD = {
 			"-w10", -- [2]
 			"", -- [3]
 		},
-		["ctrlshift2"] = {
-			"CTRL-SHIFT-", -- [1]
-			"-w14", -- [2]
+		["shift1"] = {
+			"SHIFT-", -- [1]
+			"-w7", -- [2]
 			"", -- [3]
 		},
 		["2"] = {
@@ -7722,9 +7722,9 @@ VUHDO_SPELLS_KEYBOARD = {
 			"-w2", -- [2]
 			"", -- [3]
 		},
-		["shift1"] = {
-			"SHIFT-", -- [1]
-			"-w7", -- [2]
+		["ctrl2"] = {
+			"CTRL-", -- [1]
+			"-w6", -- [2]
 			"", -- [3]
 		},
 		["shift2"] = {
@@ -7777,9 +7777,9 @@ VUHDO_SPELLS_KEYBOARD = {
 			"-w9", -- [2]
 			"", -- [3]
 		},
-		["ctrl2"] = {
-			"CTRL-", -- [1]
-			"-w6", -- [2]
+		["ctrlshift2"] = {
+			"CTRL-SHIFT-", -- [1]
+			"-w14", -- [2]
 			"", -- [3]
 		},
 	},
@@ -7815,15 +7815,48 @@ VUHDO_SPEC_LAYOUTS = {
 	["selected"] = "",
 	["2"] = "",
 }
-VUHDO_GROUP_SIZE = 1
+VUHDO_GROUP_SIZE = 5
 VUHDO_RAID = {
+	["party3"] = {
+		["zone"] = "Sanctum of Light",
+		["baseRange"] = false,
+		["class"] = "PALADIN",
+		["role"] = 63,
+		["sortMaxHp"] = 7049799,
+		["map"] = "TrueshotLodge",
+		["threat"] = 0,
+		["powermax"] = 51424,
+		["threatPerc"] = 0,
+		["isPet"] = false,
+		["name"] = "Olivum",
+		["number"] = 3,
+		["isVehicle"] = false,
+		["group"] = 1,
+		["classId"] = 23,
+		["unit"] = "party3",
+		["powertype"] = 0,
+		["healthmax"] = 7049799,
+		["dead"] = false,
+		["charmed"] = false,
+		["fullName"] = "Olivum",
+		["power"] = 51424,
+		["aggro"] = false,
+		["visible"] = false,
+		["targetUnit"] = "party3target",
+		["health"] = 7049799,
+		["className"] = "Paladin",
+		["afk"] = false,
+		["debuff"] = 0,
+		["connected"] = true,
+		["petUnit"] = "partypet3",
+	},
 	["player"] = {
-		["zone"] = "Dalaran",
+		["zone"] = "Trueshot Lodge",
 		["baseRange"] = true,
 		["class"] = "HUNTER",
 		["role"] = 62,
-		["sortMaxHp"] = 7051800,
-		["map"] = "Dalaran70",
+		["sortMaxHp"] = 7156860,
+		["map"] = "TrueshotLodge",
 		["threat"] = 0,
 		["powermax"] = 120,
 		["threatPerc"] = 0,
@@ -7836,7 +7869,7 @@ VUHDO_RAID = {
 		["range"] = true,
 		["unit"] = "player",
 		["powertype"] = 2,
-		["healthmax"] = 7051800,
+		["healthmax"] = 7156860,
 		["dead"] = false,
 		["charmed"] = false,
 		["fullName"] = "Qsilver",
@@ -7844,12 +7877,111 @@ VUHDO_RAID = {
 		["aggro"] = false,
 		["visible"] = true,
 		["targetUnit"] = "target",
-		["health"] = 7051800,
+		["health"] = 7156860,
 		["className"] = "Hunter",
 		["afk"] = false,
 		["debuff"] = 0,
 		["connected"] = true,
 		["petUnit"] = "pet",
+	},
+	["party1"] = {
+		["zone"] = "Krasus' Landing",
+		["baseRange"] = false,
+		["class"] = "PRIEST",
+		["role"] = 62,
+		["sortMaxHp"] = 6114960,
+		["map"] = "TrueshotLodge",
+		["threat"] = 0,
+		["powermax"] = 100,
+		["threatPerc"] = 0,
+		["isPet"] = false,
+		["name"] = "Bafomdad",
+		["number"] = 1,
+		["isVehicle"] = false,
+		["group"] = 1,
+		["classId"] = 28,
+		["unit"] = "party1",
+		["powertype"] = 13,
+		["healthmax"] = 6114960,
+		["dead"] = false,
+		["charmed"] = false,
+		["fullName"] = "Bafomdad",
+		["power"] = 0,
+		["aggro"] = false,
+		["visible"] = false,
+		["targetUnit"] = "party1target",
+		["health"] = 6114960,
+		["className"] = "Priest",
+		["afk"] = false,
+		["debuff"] = 0,
+		["connected"] = true,
+		["petUnit"] = "partypet1",
+	},
+	["party2"] = {
+		["zone"] = "The Dragon's Spine",
+		["baseRange"] = false,
+		["class"] = "DEATHKNIGHT",
+		["role"] = 60,
+		["sortMaxHp"] = 10320120,
+		["map"] = "TrueshotLodge",
+		["threat"] = 0,
+		["powermax"] = 125,
+		["threatPerc"] = 0,
+		["isPet"] = false,
+		["name"] = "Xpire",
+		["number"] = 2,
+		["isVehicle"] = false,
+		["group"] = 1,
+		["classId"] = 29,
+		["unit"] = "party2",
+		["powertype"] = 6,
+		["healthmax"] = 10320120,
+		["dead"] = false,
+		["charmed"] = false,
+		["fullName"] = "Xpire",
+		["power"] = 0,
+		["aggro"] = false,
+		["visible"] = false,
+		["targetUnit"] = "party2target",
+		["health"] = 10320120,
+		["className"] = "Death Knight",
+		["afk"] = false,
+		["debuff"] = 0,
+		["connected"] = true,
+		["petUnit"] = "partypet2",
+	},
+	["party4"] = {
+		["zone"] = "The Great Sea",
+		["baseRange"] = false,
+		["class"] = "PRIEST",
+		["role"] = 62,
+		["sortMaxHp"] = 5913900,
+		["map"] = "TrueshotLodge",
+		["threat"] = 0,
+		["powermax"] = 100,
+		["threatPerc"] = 0,
+		["isPet"] = false,
+		["name"] = "Líghtsworn",
+		["number"] = 4,
+		["isVehicle"] = false,
+		["group"] = 1,
+		["classId"] = 28,
+		["unit"] = "party4",
+		["powertype"] = 13,
+		["healthmax"] = 5913900,
+		["dead"] = false,
+		["charmed"] = false,
+		["fullName"] = "Líghtsworn",
+		["power"] = 0,
+		["aggro"] = false,
+		["visible"] = false,
+		["targetUnit"] = "party4target",
+		["health"] = 5913900,
+		["className"] = "Priest",
+		["afk"] = false,
+		["debuff"] = 0,
+		["connected"] = true,
+		["petUnit"] = "partypet4",
 	},
 }
 VUHDO_INDICATOR_CONFIG = {
@@ -7863,9 +7995,9 @@ VUHDO_INDICATOR_CONFIG = {
 		["INCOMING_BAR"] = "",
 		["SIDE_LEFT"] = "",
 		["THREAT_MARK"] = "",
+		["MANA_BAR"] = "Manabars: Mana only",
 		["BAR_BORDER"] = "Border: Multi + Aggro",
 		["SIDE_RIGHT"] = "",
-		["MANA_BAR"] = "Manabars: Mana only",
 		["HEALTH_BAR"] = "Health (generic, class col)",
 		["CLUSTER_BORDER"] = "",
 		["HEALTH_BAR_PANEL"] = {

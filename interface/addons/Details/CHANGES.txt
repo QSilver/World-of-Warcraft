@@ -1,5 +1,11 @@
-changeset:   714:4803d97fbcf0
+changeset:   715:b025504ef9dd
 tag:         tip
+user:        Tercio
+date:        Fri Apr 27 13:31:55 2018 -0300
+summary:     - Fixed major issue with the statistics sharing.
+
+
+changeset:   714:4803d97fbcf0
 user:        Tercio
 date:        Fri Apr 13 10:46:36 2018 -0300
 summary:     Release 5559:

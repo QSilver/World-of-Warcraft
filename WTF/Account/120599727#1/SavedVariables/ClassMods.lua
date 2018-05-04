@@ -4851,16 +4851,6 @@ CMDb = {
 				["height"] = 20,
 				["basicmode"] = true,
 			},
-			["dispel"] = {
-				["enabled"] = false,
-				["anchor_removables"] = {
-					nil, -- [1]
-					nil, -- [2]
-					nil, -- [3]
-					250.000015258789, -- [4]
-					250.000015258789, -- [5]
-				},
-			},
 			["announcements"] = {
 				["announcements"] = {
 					["Soulstone"] = {
@@ -4872,6 +4862,48 @@ CMDb = {
 						["pvpchan"] = "AUTO",
 						["partychan"] = "AUTO",
 						["arenachan"] = "AUTO",
+					},
+				},
+			},
+			["alerts"] = {
+				["alerts"] = {
+					["Player Health Alert"] = {
+						["enabled"] = false,
+						["aura"] = "",
+						["enablesound"] = true,
+						["healthpercent"] = 0.3,
+						["target"] = "player",
+						["sparkles"] = true,
+						["sound"] = "Raid Warning",
+						["alerttype"] = "HEALTH",
+					},
+					["Demonic Synergy"] = {
+						["enabled"] = false,
+						["enablesound"] = true,
+						["aura"] = 171982,
+						["target"] = "player",
+						["alerttype"] = "BUFF",
+						["sound"] = "Ding",
+						["sparkles"] = true,
+					},
+					["Demonic Calling"] = {
+						["enabled"] = false,
+						["enablesound"] = true,
+						["aura"] = 205146,
+						["target"] = "player",
+						["alerttype"] = "BUFF",
+						["sound"] = "Ding",
+						["sparkles"] = true,
+					},
+					["Pet Health Alert"] = {
+						["enabled"] = false,
+						["aura"] = "",
+						["enablesound"] = true,
+						["healthpercent"] = 0.3,
+						["target"] = "pet",
+						["sparkles"] = true,
+						["sound"] = "Raid Warning",
+						["alerttype"] = "PETHEALTH",
 					},
 				},
 			},
@@ -6266,46 +6298,14 @@ CMDb = {
 				["enabled"] = false,
 			},
 			["minimapbutton"] = false,
-			["alerts"] = {
-				["alerts"] = {
-					["Player Health Alert"] = {
-						["enabled"] = false,
-						["aura"] = "",
-						["enablesound"] = true,
-						["healthpercent"] = 0.3,
-						["target"] = "player",
-						["sparkles"] = true,
-						["sound"] = "Raid Warning",
-						["alerttype"] = "HEALTH",
-					},
-					["Demonic Synergy"] = {
-						["enabled"] = false,
-						["enablesound"] = true,
-						["aura"] = 171982,
-						["target"] = "player",
-						["alerttype"] = "BUFF",
-						["sound"] = "Ding",
-						["sparkles"] = true,
-					},
-					["Demonic Calling"] = {
-						["enabled"] = false,
-						["enablesound"] = true,
-						["aura"] = 205146,
-						["target"] = "player",
-						["alerttype"] = "BUFF",
-						["sound"] = "Ding",
-						["sparkles"] = true,
-					},
-					["Pet Health Alert"] = {
-						["enabled"] = false,
-						["aura"] = "",
-						["enablesound"] = true,
-						["healthpercent"] = 0.3,
-						["target"] = "pet",
-						["sparkles"] = true,
-						["sound"] = "Raid Warning",
-						["alerttype"] = "PETHEALTH",
-					},
+			["dispel"] = {
+				["enabled"] = false,
+				["anchor_removables"] = {
+					nil, -- [1]
+					nil, -- [2]
+					nil, -- [3]
+					250.000015258789, -- [4]
+					250.000015258789, -- [5]
 				},
 			},
 		},
@@ -14188,7 +14188,7 @@ CMDb = {
 					0.372549019607843, -- [2]
 					0.0313725490196078, -- [3]
 				},
-				["spell2"] = 3,
+				["highwarnthreshold"] = 90,
 				["barcolorenable"] = true,
 				["updateinterval"] = 0.01,
 				["width"] = 400,
@@ -14197,13 +14197,13 @@ CMDb = {
 					24, -- [2]
 				},
 				["lowwarnthreshold"] = 30,
+				["autoattacktimer"] = true,
 				["barcolorhigh"] = {
 					0.00392156862745098, -- [1]
 					0.419607843137255, -- [2]
 					1, -- [3]
 				},
-				["highwarnthreshold"] = 90,
-				["autoattacktimer"] = true,
+				["spell2"] = 3,
 			},
 			["healthbar"] = {
 				["enabled"] = false,
