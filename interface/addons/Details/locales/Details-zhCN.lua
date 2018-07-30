@@ -547,6 +547,8 @@ L["STRING_OPTIONS_CENERGY_DESC"] = [=[启用捕获：
 - |cFFFFFF00符文能量生成|r]=]
 L["STRING_OPTIONS_CHANGE_CLASSCOLORS"] = "修改职业颜色"
 L["STRING_OPTIONS_CHANGE_CLASSCOLORS_DESC"] = "选择新的职业颜色。"
+--[[Translation missing --]]
+--[[ L["STRING_OPTIONS_CHANGECOLOR"] = ""--]] 
 L["STRING_OPTIONS_CHANGELOG"] = "版本说明"
 L["STRING_OPTIONS_CHART_ADD"] = "添加数据"
 L["STRING_OPTIONS_CHART_ADD2"] = "添加"
@@ -1704,6 +1706,20 @@ L["STRING_WELCOME_7"] = "用于排名，这种方法使用经过实战的时间�
 L["STRING_WELCOME_70"] = "标题栏设置"
 L["STRING_WELCOME_71"] = "条列设置"
 L["STRING_WELCOME_72"] = "视窗设置"
+--[[Translation missing --]]
+--[[ L["STRING_WELCOME_73"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["STRING_WELCOME_74"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["STRING_WELCOME_75"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["STRING_WELCOME_76"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["STRING_WELCOME_77"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["STRING_WELCOME_78"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["STRING_WELCOME_79"] = ""--]] 
 L["STRING_WINDOW_NOTFOUND"] = "找不到窗口。"
 L["STRING_WINDOW_NUMBER"] = "窗口数字"
 L["STRING_WINDOW1ATACH_DESC"] = "创建一个群组窗口, 拖动 #2 到 窗口 #1 附近。"

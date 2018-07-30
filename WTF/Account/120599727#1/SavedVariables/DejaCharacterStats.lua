@@ -1858,13 +1858,15 @@ DCS_ClassSpecDB = {
 		}, -- [10]
 		{
 			["statKey"] = "ATTACK_DAMAGE",
+			["hidden"] = true,
 		}, -- [11]
 		{
 			["statKey"] = "ATTACK_AP",
-			["hidden"] = true,
+			["hidden"] = false,
 		}, -- [12]
 		{
 			["statKey"] = "DCS_ATTACK_ATTACKSPEED",
+			["hidden"] = true,
 		}, -- [13]
 		{
 			["statKey"] = "WEAPON_DPS",
@@ -1880,7 +1882,7 @@ DCS_ClassSpecDB = {
 		}, -- [16]
 		{
 			["statKey"] = "MOVESPEED",
-			["hidden"] = true,
+			["hidden"] = false,
 		}, -- [17]
 		{
 			["statKey"] = "ENERGY_REGEN",
@@ -1898,7 +1900,7 @@ DCS_ClassSpecDB = {
 		}, -- [21]
 		{
 			["statKey"] = "DURABILITY_STAT",
-			["hidden"] = true,
+			["hidden"] = false,
 		}, -- [22]
 		{
 			["statKey"] = "REPAIR_COST",
@@ -2012,8 +2014,21 @@ DCS_ClassSpecDB = {
 		}, -- [46]
 		{
 			["statKey"] = "SPEED",
+			["hideAt"] = 0,
 			["hidden"] = true,
 		}, -- [47]
+		{
+			["statKey"] = "STAGGER",
+			["hideAt"] = 0,
+			["roles"] = {
+				"TANK", -- [1]
+			},
+		}, -- [48]
+		{
+			["statKey"] = "SPEED_RATING",
+			["hideAt"] = 0,
+			["hidden"] = true,
+		}, -- [49]
 		["uniqueKey"] = "Qsilver:Silvermoon:1",
 	},
 	["Simroth:Silvermoon:1"] = {

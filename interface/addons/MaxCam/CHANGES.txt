@@ -1,10 +1,10 @@
-lightweight tag be9b6a6a07c1d98b091c91595bc4b43b246ea4b3 v2.1.4
+lightweight tag ddfc727501c64d6ab243b74da0767d836467c2c1 v2.2.0
 Author:	Ketho <sghs17@outlook.com>
-Date:	Wed Sep 20 04:58:02 2017 +0200
+Date:	Fri Jul 27 21:20:14 2018 +0200
 
-commit be9b6a6a07c1d98b091c91595bc4b43b246ea4b3
+commit ddfc727501c64d6ab243b74da0767d836467c2c1
 Author: Ketho <sghs17@outlook.com>
-Date:   Wed Sep 20 04:58:02 2017 +0200
+Date:   Fri Jul 27 21:20:14 2018 +0200
 
     Bump TOC
 

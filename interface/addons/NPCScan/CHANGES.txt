@@ -1,10 +1,46 @@
-tag fced2c1506076dda2bab9aba594298bdbd7a7a6d 7.3.5.11
+tag d3953ad5723658a9f19f7360061680eac1c5766f 8.0.1.2
 Author:	James D. Callahan III <jcallahan@curse.com>
-Date:	Fri May 4 03:15:48 2018 -0500
+Date:	Wed Jul 18 22:35:55 2018 -0500
 
-commit e9b6bf14d457fe7f05d34d934844a6e8e66c5518
+commit 33dffb25f9f761148197b87a414e213a9c66c59b
 Author: James D. Callahan III <jcallahan@curse.com>
-Date:   Fri May 4 03:07:00 2018 -0500
+Date:   Wed Jul 18 22:35:38 2018 -0500
 
-    Add support for The Song of Silence achievement.
+    Rework PLAYER_ENTERING_WORLD handler, since that event now has a payload.
+
+commit 8bd50d0110348ef3b16f31b6475f9f41e7f90d2c
+Author: James D. Callahan III <jcallahan@curse.com>
+Date:   Wed Jul 18 19:17:06 2018 -0500
+
+    Greatly simplify vignette-scanning code.
+
+commit c2e589bcde522ccabc87f270baaed5f227575a95
+Author: James D. Callahan III <jcallahan@curse.com>
+Date:   Wed Jul 18 14:10:03 2018 -0500
+
+    Give DataObject.scannerData default values.
+
+commit 16afafcb38b46308f284eea83b068fac8fbed282
+Author: James D. Callahan III <jcallahan@curse.com>
+Date:   Wed Jul 18 13:53:49 2018 -0500
+
+    Add the Tiny Shale Spider pet to Jadefang.
+
+commit 55109036a2691bb4ce9d31d7ed37680996355a0c
+Author: James D. Callahan III <jcallahan@curse.com>
+Date:   Wed Jul 18 13:53:26 2018 -0500
+
+    Use AchievementID instead of hardcoded numbers for all manually-assigned NPCs, and ensure their manual addition to the achievement's criteriaNPCs table.
+
+commit 0658f39f168c802b35f3e961bd9ee0c8f88598bf
+Author: James D. Callahan III <jcallahan@curse.com>
+Date:   Wed Jul 18 13:46:45 2018 -0500
+
+    Move the AchievementID table into Achievements.lua
+
+commit 777276d2948b414df90da2a9d09273f77f9c8467
+Author: James D. Callahan III <jcallahan@curse.com>
+Date:   Wed Jul 18 13:45:21 2018 -0500
+
+    Update the scanner list during PLAYER_ENTERING_WORLD since the WoW 8.0.1 changes to the map system made doing so during PLAYER_LOGIN useless.
 

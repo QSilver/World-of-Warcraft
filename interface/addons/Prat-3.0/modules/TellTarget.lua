@@ -2,7 +2,7 @@
 --
 -- Prat - A framework for World of Warcraft chat mods
 --
--- Copyright (C) 2006-2011  Prat Development Team
+-- Copyright (C) 2006-2018  Prat Development Team
 --
 -- This program is free software; you can redistribute it and/or
 -- modify it under the terms of the GNU General Public License
@@ -36,7 +36,9 @@ Prat:AddModuleToLoad(function()
     return
   end
 
-  local PL = Prat:GetLocalizer({})
+  local module = Prat:NewModule(PRAT_MODULE, "AceHook-3.0")
+
+  local PL = module.PL
 
   --[===[@debug@
   PL:AddLocale(PRAT_MODULE, "enUS", {
@@ -123,20 +125,20 @@ Prat:AddModuleToLoad(function()
  L=
 {
 	["TellTarget"] = {
-		--Translation missing 
-		-- ["/tt"] = "",
-		--Translation missing 
-		-- ["Adds telltarget slash command (/tt)."] = "",
-		--Translation missing 
-		-- ["No target selected."] = "",
-		--Translation missing 
-		-- ["NoTarget"] = "",
-		--Translation missing 
-		-- ["Target does not exist."] = "",
-		--Translation missing 
-		-- ["Target is not a player."] = "",
-		--Translation missing 
-		-- ["TellTarget"] = "",
+		--[[Translation missing --]]
+		--[[ ["/tt"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Adds telltarget slash command (/tt)."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["No target selected."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["NoTarget"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Target does not exist."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Target is not a player."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["TellTarget"] = "",--]] 
 	}
 }
 
@@ -211,7 +213,6 @@ Prat:AddModuleToLoad(function()
  --@end-non-debug@
 
   -- create prat module
-  local module = Prat:NewModule(PRAT_MODULE, "AceHook-3.0")
 
   Prat:SetModuleDefaults(module.name, {
     profile = {
@@ -245,6 +246,11 @@ Prat:AddModuleToLoad(function()
   --[[------------------------------------------------
       Core Functions
   ------------------------------------------------]] --
+
+  function module:GetDescription()
+    return PL["Adds telltarget slash command (/tt)."]
+  end
+  
   function module:OnTextChanged(editBox, ...)
     local command, msg = editBox:GetText():match("^(/%S+)%s(.*)$")
     if command == "/tt" or command == PL["/tt"] then

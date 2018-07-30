@@ -1,8 +1,9 @@
 ------------------------------------------------------------------------
-r392 | Tomber | 2017-09-04 17:10:06 -0500 (Mon, 04 Sep 2017) | 1 line
+r402 | Tomber | 2018-07-19 20:17:16 +0000 (Thu, 19 Jul 2018) | 2 lines
 Changed paths:
-   M /trunk/Raven_Options/Raven_Options.toc
+   M /trunk/Raven_Options/Options.lua
 
-Update toc for the options panel.
+Fix bug with the grid overlay (helps align UI elements).
+Allow Expire Time to be set with one decimal place precision.
 ------------------------------------------------------------------------
 

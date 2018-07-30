@@ -2,7 +2,7 @@
 --
 -- Prat - A framework for World of Warcraft chat mods
 --
--- Copyright (C) 2006-2011  Prat Development Team
+-- Copyright (C) 2006-2018  Prat Development Team
 --
 -- This program is free software; you can redistribute it and/or
 -- modify it under the terms of the GNU General Public License
@@ -35,7 +35,10 @@ if PRAT_MODULE == nil then
     return 
 end
 
-local PL = Prat:GetLocalizer({})
+
+local module = Prat:NewModule(PRAT_MODULE)
+
+local PL = module.PL
 
 --[===[@debug@
 PL:AddLocale(PRAT_MODULE, "enUS", {
@@ -71,16 +74,16 @@ PL:AddLocale(PRAT_MODULE, "enUS", L)
 L=
 {
 	["Clear"] = {
-		--Translation missing 
-		-- ["Adds clear text slash commands (/clear)(/cls)(/clearall)(/clsall)."] = "",
-		--Translation missing 
-		-- ["Clear"] = "",
-		--Translation missing 
-		-- ["Clearall"] = "",
-		--Translation missing 
-		-- ["Clears all chat frames."] = "",
-		--Translation missing 
-		-- ["Clears the current chat frame."] = "",
+		--[[Translation missing --]]
+		--[[ ["Adds clear text slash commands (/clear)(/cls)(/clearall)(/clsall)."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Clear"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Clearall"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Clears all chat frames."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Clears the current chat frame."] = "",--]] 
 	}
 }
 PL:AddLocale(PRAT_MODULE, "itIT", L)
@@ -89,16 +92,16 @@ PL:AddLocale(PRAT_MODULE, "itIT", L)
 L=
 {
 	["Clear"] = {
-		--Translation missing 
-		-- ["Adds clear text slash commands (/clear)(/cls)(/clearall)(/clsall)."] = "",
-		--Translation missing 
-		-- ["Clear"] = "",
-		--Translation missing 
-		-- ["Clearall"] = "",
-		--Translation missing 
-		-- ["Clears all chat frames."] = "",
-		--Translation missing 
-		-- ["Clears the current chat frame."] = "",
+		--[[Translation missing --]]
+		--[[ ["Adds clear text slash commands (/clear)(/cls)(/clearall)(/clsall)."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Clear"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Clearall"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Clears all chat frames."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Clears the current chat frame."] = "",--]] 
 	}
 }
 PL:AddLocale(PRAT_MODULE, "ptBR", L)
@@ -143,16 +146,16 @@ PL:AddLocale(PRAT_MODULE, "koKR",L)
 L=
 {
 	["Clear"] = {
-		--Translation missing 
-		-- ["Adds clear text slash commands (/clear)(/cls)(/clearall)(/clsall)."] = "",
-		--Translation missing 
-		-- ["Clear"] = "",
-		--Translation missing 
-		-- ["Clearall"] = "",
-		--Translation missing 
-		-- ["Clears all chat frames."] = "",
-		--Translation missing 
-		-- ["Clears the current chat frame."] = "",
+		--[[Translation missing --]]
+		--[[ ["Adds clear text slash commands (/clear)(/cls)(/clearall)(/clsall)."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Clear"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Clearall"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Clears all chat frames."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Clears the current chat frame."] = "",--]] 
 	}
 }
 PL:AddLocale(PRAT_MODULE, "esMX",L)
@@ -203,7 +206,6 @@ PL:AddLocale(PRAT_MODULE, "zhTW",L)
 end
 --@end-non-debug@
 
-local module = Prat:NewModule(PRAT_MODULE)
 
 Prat:SetModuleDefaults(module.name, {
 	profile = {
@@ -260,6 +262,10 @@ end
 --[[ - - ------------------------------------------------
 	Core Functions
 --------------------------------------------- - ]]--
+
+function module:GetDescription()
+	return PL["Adds clear text slash commands (/clear)(/cls)(/clearall)(/clsall)."]
+end
 
 function module:clear(chatframe)
 	local vartype = type(chatframe)

@@ -1,5 +1,6 @@
 
 OmniCC4Config = {
+	["version"] = "8.0.0",
 	["groupSettings"] = {
 		["base"] = {
 			["enabled"] = true,
@@ -45,17 +46,17 @@ OmniCC4Config = {
 				},
 			},
 			["effect"] = "pulse",
-			["scaleText"] = true,
+			["yOff"] = 0,
 			["mmSSDuration"] = 900.000012516975,
 			["anchor"] = "CENTER",
 			["spiralOpacity"] = 1.00999997742474,
-			["minDuration"] = 2.00000002980232,
+			["scaleText"] = true,
 			["xOff"] = 0,
 			["tenthsDuration"] = 5.00000007450581,
 			["fontOutline"] = "THICKOUTLINE",
 			["minSize"] = 0,
 			["minEffectDuration"] = 0,
-			["yOff"] = 0,
+			["minDuration"] = 2.00000002980232,
 			["fontSize"] = 15,
 		},
 		["Ignore"] = {
@@ -63,17 +64,17 @@ OmniCC4Config = {
 			["fontFace"] = "Fonts\\FRIZQT__.TTF",
 			["fontSize"] = 15,
 			["effect"] = "pulse",
-			["yOff"] = 0,
+			["minDuration"] = 2,
 			["minEffectDuration"] = 0,
 			["minSize"] = 0.5,
 			["spiralOpacity"] = 1.00999997742474,
-			["scaleText"] = true,
+			["yOff"] = 0,
 			["xOff"] = 0,
 			["tenthsDuration"] = 5,
 			["fontOutline"] = "THICKOUTLINE",
 			["anchor"] = "CENTER",
 			["mmSSDuration"] = 900,
-			["minDuration"] = 2,
+			["scaleText"] = true,
 			["styles"] = {
 				["seconds"] = {
 					["a"] = 1,
@@ -116,7 +117,7 @@ OmniCC4Config = {
 			},
 		},
 	},
-	["version"] = "7.3.1",
+	["engine"] = "ScriptUpdater",
 	["groups"] = {
 		{
 			["id"] = "Ignore",
@@ -127,5 +128,4 @@ OmniCC4Config = {
 			["enabled"] = true,
 		}, -- [1]
 	},
-	["engine"] = "ScriptUpdater",
 }

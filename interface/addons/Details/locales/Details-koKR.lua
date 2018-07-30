@@ -536,6 +536,8 @@ L["STRING_OPTIONS_CENERGY_DESC"] = [=[수집 허용:
 - |cFFFFFF00룬 마력 생성|r]=]
 L["STRING_OPTIONS_CHANGE_CLASSCOLORS"] = "직업 색상 수정"
 L["STRING_OPTIONS_CHANGE_CLASSCOLORS_DESC"] = "직업을 위한 새로운 색상을 선택합니다."
+--[[Translation missing --]]
+--[[ L["STRING_OPTIONS_CHANGECOLOR"] = ""--]] 
 L["STRING_OPTIONS_CHANGELOG"] = "버전 노트"
 L["STRING_OPTIONS_CHART_ADD"] = "데이터 추가"
 L["STRING_OPTIONS_CHART_ADD2"] = "추가"
@@ -1656,6 +1658,20 @@ L["STRING_WELCOME_7"] = "순위를 매길때 쓰입니다, 이 방법은 모든 
 L["STRING_WELCOME_70"] = "제목 바 설정"
 L["STRING_WELCOME_71"] = "바 설정"
 L["STRING_WELCOME_72"] = "창 설정"
+--[[Translation missing --]]
+--[[ L["STRING_WELCOME_73"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["STRING_WELCOME_74"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["STRING_WELCOME_75"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["STRING_WELCOME_76"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["STRING_WELCOME_77"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["STRING_WELCOME_78"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["STRING_WELCOME_79"] = ""--]] 
 L["STRING_WINDOW_NOTFOUND"] = "창을 찾을 수 없습니다."
 L["STRING_WINDOW_NUMBER"] = "창 번호"
 L["STRING_WINDOW1ATACH_DESC"] = "창 그룹을 만들려면 창 #2를 창 #1 가까이 드래그하세요."

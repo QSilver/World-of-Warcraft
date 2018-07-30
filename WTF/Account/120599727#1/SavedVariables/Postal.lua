@@ -23,17 +23,17 @@ Postal3DB = {
 	["profileKeys"] = {
 		["Alyara - Silvermoon"] = "Alyara - Silvermoon",
 		["Linela - Silvermoon"] = "Linela - Silvermoon",
-		["Erdanii - Silvermoon"] = "Erdanii - Silvermoon",
 		["Flaville - Silvermoon"] = "Flaville - Silvermoon",
+		["Erdanii - Silvermoon"] = "Erdanii - Silvermoon",
 		["Simroth - Silvermoon"] = "Simroth - Silvermoon",
 		["Stephanna - Argent Dawn"] = "Stephanna - Argent Dawn",
-		["Siluna - Silvermoon"] = "Siluna - Silvermoon",
+		["Thagmarr - Silvermoon"] = "Thagmarr - Silvermoon",
 		["Kjerstina - Silvermoon"] = "Kjerstina - Silvermoon",
 		["Lachrymas - Silvermoon"] = "Lachrymas - Silvermoon",
-		["Myvanna - Silvermoon"] = "Myvanna - Silvermoon",
-		["Spinhoof - Ragnaros"] = "Spinhoof - Ragnaros",
 		["Tenderbreeze - Silvermoon"] = "Tenderbreeze - Silvermoon",
-		["Thagmarr - Silvermoon"] = "Thagmarr - Silvermoon",
+		["Spinhoof - Ragnaros"] = "Spinhoof - Ragnaros",
+		["Myvanna - Silvermoon"] = "Myvanna - Silvermoon",
+		["Siluna - Silvermoon"] = "Siluna - Silvermoon",
 		["Qsilver - Silvermoon"] = "Qsilver - Silvermoon",
 	},
 	["profiles"] = {
@@ -47,9 +47,9 @@ Postal3DB = {
 				},
 			},
 		},
-		["Erdanii - Silvermoon"] = {
-		},
 		["Flaville - Silvermoon"] = {
+		},
+		["Erdanii - Silvermoon"] = {
 		},
 		["Simroth - Silvermoon"] = {
 			["BlackBook"] = {
@@ -63,12 +63,11 @@ Postal3DB = {
 		},
 		["Stephanna - Argent Dawn"] = {
 		},
-		["Siluna - Silvermoon"] = {
+		["Thagmarr - Silvermoon"] = {
 			["BlackBook"] = {
 				["recent"] = {
 					"Simroth|Silvermoon|Alliance", -- [1]
 					"Qsilver|Silvermoon|Alliance", -- [2]
-					"Linela|Silvermoon|Alliance", -- [3]
 				},
 			},
 		},
@@ -86,6 +85,10 @@ Postal3DB = {
 				},
 			},
 		},
+		["Tenderbreeze - Silvermoon"] = {
+		},
+		["Spinhoof - Ragnaros"] = {
+		},
 		["Myvanna - Silvermoon"] = {
 			["BlackBook"] = {
 				["recent"] = {
@@ -95,15 +98,12 @@ Postal3DB = {
 				},
 			},
 		},
-		["Spinhoof - Ragnaros"] = {
-		},
-		["Tenderbreeze - Silvermoon"] = {
-		},
-		["Thagmarr - Silvermoon"] = {
+		["Siluna - Silvermoon"] = {
 			["BlackBook"] = {
 				["recent"] = {
 					"Simroth|Silvermoon|Alliance", -- [1]
 					"Qsilver|Silvermoon|Alliance", -- [2]
+					"Linela|Silvermoon|Alliance", -- [3]
 				},
 			},
 		},

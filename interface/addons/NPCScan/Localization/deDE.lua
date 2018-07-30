@@ -63,8 +63,7 @@ VL["Artificer Lothaire"] = "Konstrukteur Lothaire"
 VL["Avatar of Sothrecar"] = "Avatar von Socrethar"
 VL["Bahagar"] = "Bahagar"
 VL["Ba'ruun"] = "Ba'ruun"
---[[Translation missing --]]
---[[ VL["Battle of the Barnacle"] = "Battle of the Barnacle"--]] 
+VL["Battle of the Barnacle"] = "Kampf der Seepocke"
 VL["Beacher"] = "Sandros"
 VL["Beastmaster Pao'lek"] = "Bestienmeister Pao'lek"
 VL["BH Master Scout"] = "BH Meisterspäher"
@@ -192,6 +191,8 @@ VL["Mother Om'ra"] = "Mutter Om'ra"
 VL["Mrrgrl the Tide Reaver"] = "Mrrgrl der Gezeitenhäscher"
 VL["Murktide Alpha"] = "Glub'glok"
 VL["Myonix"] = "Myonix"
+--[[Translation missing --]]
+--[[ VL["Naroua, King of the Forest"] = "Naroua, King of the Forest"--]] 
 VL["Nas Dunberlin"] = "Nas Dunberlinn"
 VL["Night Haunter"] = "Der Nachtschatten"
 VL["Noble Blademaster"] = "Adliger Klingenmeister"
@@ -218,6 +219,8 @@ VL["Randril"] = "Randril"
 VL["Rauren"] = "Rauren"
 VL["Ravager Broodlord"] = "Verwüstende Zuchtbrüder"
 VL["Ravyn-Drath"] = "Ravyn-Drath"
+--[[Translation missing --]]
+--[[ VL["Really Skunky Beer"] = "Really Skunky Beer"--]] 
 VL["Reef Lord Raj'his"] = "Rifflord Raj'his"
 VL["Remnant of the Blood Moon"] = "Überrest des Blutmonds"
 VL["Rogond"] = "Rogond"
@@ -252,8 +255,7 @@ VL["Skywhisker Taskmaster"] = "Zuchtmeister der Himmelsschnauzer"
 VL["Slogtusk"] = "Wuchthauer"
 VL["Slumbering Bear"] = "Schlummernder Bär"
 VL["Soulfang"] = "Seelenfang"
---[[Translation missing --]]
---[[ VL["Soulgrinder Portal"] = "Soulgrinder Portal"--]] 
+VL["Soulgrinder Portal"] = "Seelenschänderportal"
 VL["Soulthirster"] = "Seelenlechzer"
 VL["Starbuck"] = "Sternbock"
 VL["Stingtail Nest"] = "Stachelschwanz Nest"

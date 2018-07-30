@@ -6,6 +6,10 @@ L["page_names"] = {
 	["bossmod"] = "Boss 模式",
 	["castbars"] = "施法条",
 	["classpowers"] = "职业资源",
+--[[Translation missing --]]
+	["cvars"] = "CVars",
+--[[Translation missing --]]
+	["fade_rules"] = "Fade rules",
 	["framesizes"] = "框体大小",
 	["general"] = "一般",
 	["healthbars"] = "血量条",
@@ -47,6 +51,8 @@ L["titles"] = {
 	["castbar_height"] = "施法条高度",
 	["castbar_icon"] = "显示法术图标",
 	["castbar_name"] = "显示法术名称",
+--[[Translation missing --]]
+	["castbar_name_vertical_offset"] = "Spell name v.offset",
 	["castbar_shield"] = "显示盾牌图标",
 	["castbar_showall"] = "所有姓名版均显示施法条",
 	["castbar_showenemy"] = "显示敌方施法条",
@@ -84,6 +90,26 @@ L["titles"] = {
 	["combat_hostile"] = "战斗动作：敌方",
 	["copy_profile_label"] = "为配置输入新名称",
 	["copy_profile_title"] = "复制配置",
+--[[Translation missing --]]
+	["cvar_clamp_bottom"] = "Bottom clamp distance",
+--[[Translation missing --]]
+	["cvar_clamp_top"] = "Top clamp distance",
+--[[Translation missing --]]
+	["cvar_enable"] = "Allow Kui Nameplates to modify CVars",
+--[[Translation missing --]]
+	["cvar_max_distance"] = "Max render distance",
+--[[Translation missing --]]
+	["cvar_name_only"] = "Hide default health bar",
+--[[Translation missing --]]
+	["cvar_overlap_v"] = "Vertical overlap",
+--[[Translation missing --]]
+	["cvar_personal_show_always"] = "Always show personal nameplate",
+--[[Translation missing --]]
+	["cvar_personal_show_combat"] = "Show personal nameplate when in combat",
+--[[Translation missing --]]
+	["cvar_personal_show_target"] = "Show personal nameplate with a target",
+--[[Translation missing --]]
+	["cvar_show_friendly_npcs"] = "Always show friendly NPCs' nameplates",
 	["dd_auras_sort_index"] = "光环索引",
 	["dd_auras_sort_time"] = "剩馀时间",
 	["dd_bar_animation_cutaway"] = "切除",
@@ -98,6 +124,10 @@ L["titles"] = {
 	["dd_font_style_shadowandoutline"] = "阴影加描边",
 	["dd_health_text_blank"] = "空",
 	["dd_health_text_current"] = "当前值",
+--[[Translation missing --]]
+	["dd_health_text_current_deficit"] = "Current + deficit",
+--[[Translation missing --]]
+	["dd_health_text_current_percent"] = "Current + percent",
 	["dd_health_text_deficit"] = "损失值",
 	["dd_health_text_maximum"] = "最大值",
 	["dd_health_text_percent"] = "百分比",
@@ -110,13 +140,27 @@ L["titles"] = {
 	["execute_sep"] = "斩杀阶段",
 	["fade_all"] = "默认渐隐",
 	["fade_alpha"] = "渐隐透明度",
+--[[Translation missing --]]
+	["fade_avoid_casting_friendly"] = "Avoid casting (friendly)",
+--[[Translation missing --]]
+	["fade_avoid_casting_hostile"] = "Avoid casting (hostile)",
+--[[Translation missing --]]
+	["fade_avoid_casting_interruptible"] = "Interruptible",
+--[[Translation missing --]]
+	["fade_avoid_casting_uninterruptible"] = "Uninterruptible",
+--[[Translation missing --]]
+	["fade_avoid_combat"] = "Avoid in combat",
 	["fade_avoid_execute_friend"] = "避开低血量友方",
 	["fade_avoid_execute_hostile"] = "避开低血量敌方",
 	["fade_avoid_nameonly"] = "避开名字模式",
 	["fade_avoid_raidicon"] = "避开团队标记",
 	["fade_avoid_tracked"] = "避开追踪中或战斗中的",
+--[[Translation missing --]]
+	["fade_conditional_alpha"] = "Conditional alpha",
 	["fade_friendly_npc"] = "渐隐友方NPC",
 	["fade_neutral_enemy"] = "渐隐中立单位",
+--[[Translation missing --]]
+	["fade_non_target_alpha"] = "Non-target alpha",
 	["fade_rules_sep"] = "框体渐隐",
 	["fade_speed"] = "渐隐动画速度",
 	["fade_untracked"] = "渐隐非追踪单位",
@@ -144,6 +188,20 @@ L["titles"] = {
 	["hide_names"] = "隐藏未追踪单位名字",
 	["ignore_uiscale"] = "忽略界面缩放",
 	["level_text"] = "显示等级",
+--[[Translation missing --]]
+	["name_colour_npc_friendly"] = "Friendly",
+--[[Translation missing --]]
+	["name_colour_npc_hostile"] = "Hostile",
+--[[Translation missing --]]
+	["name_colour_npc_neutral"] = "Neutral",
+--[[Translation missing --]]
+	["name_colour_player_friendly"] = "Friendly player",
+--[[Translation missing --]]
+	["name_colour_player_hostile"] = "Hostile player",
+--[[Translation missing --]]
+	["name_colour_sep"] = "Name text colour",
+--[[Translation missing --]]
+	["name_colour_white_in_bar_mode"] = "White names with visible health bar",
 	["name_text"] = "显示姓名",
 	["name_vertical_offset"] = "名字垂直偏移",
 	["nameonly"] = "启用名字模式",
@@ -156,6 +214,10 @@ L["titles"] = {
 	["nameonly_no_font_style"] = "无字型描边",
 	["nameonly_on_default"] = "原始姓名板名字模式",
 	["nameonly_target"] = "包括目标",
+--[[Translation missing --]]
+	["nameonly_text_sep"] = "Text",
+--[[Translation missing --]]
+	["nameonly_visibility_sep"] = "Visibility",
 	["new_profile"] = "新配置...",
 	["new_profile_label"] = "输入配置名称",
 	["powerbar_height"] = "能量条高度",
@@ -209,6 +271,8 @@ L["tooltips"] = {
 	["bossmod_y_offset"] = "首领光环图标位置的垂直偏移量",
 	["bot_vertical_offset"] = "等级血量垂直偏移",
 	["castbar_enable"] = "启用施法条",
+--[[Translation missing --]]
+	["castbar_name_vertical_offset"] = "Vertical offset of the spell name text",
 	["castbar_shield"] = "在免疫打断的施法条上显示盾牌图标",
 	["castbar_showall"] = "在所有姓名板上显示施法条",
 	["castbar_showenemy"] = "显示敌方施法条",
@@ -234,19 +298,49 @@ L["tooltips"] = {
 	["colour_self_class"] = "以职业颜色染色个人资源",
 	["combat_friendly"] = "进入与离开战斗时在友方框体上採取的动作。",
 	["combat_hostile"] = "进入与离开战斗时在敌方框体上採取的动作。",
+--[[Translation missing --]]
+	["cvar_clamp_bottom"] = "|cffffcc00nameplate{Other,Large}BottomInset|r",
+--[[Translation missing --]]
+	["cvar_clamp_top"] = "|cffffcc00nameplate{Other,Large}TopInset|r|n|nHow close nameplates will be rendered to the top edge of the screen, where 0 means on the edge. Set to -0.1 to disable clamping on the top of the screen.|n|nClamping only affects your current target.",
+--[[Translation missing --]]
+	["cvar_enable"] = "When enabled, Kui Nameplates will attempt to lock the CVars on this page to the values set here.|n|nIf this option is disabled, KNP will not modify CVars, even to return them to defaults.",
+--[[Translation missing --]]
+	["cvar_max_distance"] = "|cffffcc00nameplateMaxDistance|r|n|nMaximum distance at which to render nameplates (not including your current target).",
+--[[Translation missing --]]
+	["cvar_name_only"] = "|cffffcc00nameplateShowOnlyNames|r|n|nHide the health bar of the default nameplates in situations where friendly nameplates cannot be otherwise modified by addons.",
+--[[Translation missing --]]
+	["cvar_overlap_v"] = "|cffffcc00nameplateOverlapV|r|n|nVertical distance between nameplates (only valid when motion type is set to stacking in the default interface options).",
+--[[Translation missing --]]
+	["cvar_personal_show_always"] = "|cffffcc00nameplatePersonalShowAlways|r",
+--[[Translation missing --]]
+	["cvar_personal_show_combat"] = "|cffffcc00nameplatePersonalShowInCombat|r",
+--[[Translation missing --]]
+	["cvar_personal_show_target"] = "|cffffcc00nameplatePersonalShowWithTarget|r|n|nShow the personal nameplate whenever you have an attackable target.",
+--[[Translation missing --]]
+	["cvar_show_friendly_npcs"] = "|cffffcc00nameplateShowFriendlyNPCs|r",
 	["execute_auto"] = "自动侦测你的天赋专精所需的斩杀阈值，对于无斩杀的角色默认为20%",
 	["execute_colour"] = "斩杀阶段使用的颜色",
 	["execute_enabled"] = "当单位进入斩杀阶段时，重新染色姓名板",
 	["execute_percent"] = "手动设定斩杀阶段血量阈值",
 	["fade_all"] = "默认状态下渐隐所有框体",
 	["fade_alpha"] = "渐隐框体的透明度。请注意：如果设为0（即框体完全透明不可见），不可见的姓名板仍然可以点击。 插件不能任意禁用姓名板的点击框。",
+--[[Translation missing --]]
+	["fade_avoid_casting_friendly"] = "Don't fade friendly nameplates when they are casting",
+--[[Translation missing --]]
+	["fade_avoid_casting_hostile"] = "Don't fade hostile nameplates when they are casting",
+--[[Translation missing --]]
+	["fade_avoid_combat"] = "Don't fade nameplates which are affecting combat with you",
 	["fade_avoid_execute_friend"] = "不要渐隐血量处于斩杀阶段的友方姓名板（在”血量条”页面设置）",
 	["fade_avoid_execute_hostile"] = "不要渐隐血量处于斩杀阶段的敌方姓名板（在”血量条”页面设置）",
 	["fade_avoid_nameonly"] = "启用名字模式时，不要渐隐姓名板",
 	["fade_avoid_raidicon"] = "不要渐隐有团队标记的姓名板",
 	["fade_avoid_tracked"] = "不渐隐已追踪或是正在与你战斗中的单位姓名板。|n透过改变 Esc > 界面 > 姓名 > ”NPC名称”下拉菜单的选项，来设定是否进行追踪",
+--[[Translation missing --]]
+	["fade_conditional_alpha"] = "Opacity frames will fade to when matching one of the conditions below",
 	["fade_friendly_npc"] = "默认渐隐友方NPC姓名板（包含名字模式）",
 	["fade_neutral_enemy"] = "默认渐隐可攻击的中立单位姓名板（包含名字模式）",
+--[[Translation missing --]]
+	["fade_non_target_alpha"] = "Opacity other frames will fade to when you have a target.|nIf set to 0, the nameplate will still be clickable despite being invisible. Addons cannot arbitrarily disable nameplate clickboxes",
 	["fade_speed"] = "框体渐隐的速度，1是最慢的，0是立即渐隐",
 	["fade_untracked"] = "渐隐非追踪姓名板（包含名字模式）。|n透过改变 Esc > 界面 > 姓名 > ”NPC名称”下拉菜单的选项，来设定是否进行追踪",
 	["font_face"] = "姓名板所使用的全局字型（由LibSharedMedia提供）",
@@ -268,6 +362,8 @@ L["tooltips"] = {
 	["health_text_hostile_max"] = "敌方玩家满血时的血量文字格式",
 	["hide_names"] = "你可以透过改变 Esc > 界面 > 姓名 > ”NPC名称”下拉菜单的选项，来设定是否进行追踪。注意：此設定在名字模式不生效",
 	["ignore_uiscale"] = "忽略默认的界面缩放。这可以让姓名板维持精确的像素，不受分辨率影响。",
+--[[Translation missing --]]
+	["name_colour_white_in_bar_mode"] = "Colour NPC's and player's names white (unless class colour is enabled).|n|nIf this is enabled, the colours below only apply to name-only mode.",
 	["name_vertical_offset"] = "名字文本位置的垂直偏移量",
 	["nameonly"] = "隐藏友方或不可攻击单位的姓名板。启用此模组时以血量百分比染色名字。",
 	["nameonly_all_enemies"] = "在所有敌方单位使用名字模式",

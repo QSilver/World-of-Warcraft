@@ -1,6 +1,6 @@
 
 BigWigs:AddSounds("Aqu'sirr", {
-	[264155] = "alert",
+	[264101] = "alert",
 	[264166] = "warning",
 	[264560] = "alarm",
 	[264903] = "long",

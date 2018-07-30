@@ -2,7 +2,7 @@
 --
 -- Prat - A framework for World of Warcraft chat mods
 --
--- Copyright (C) 2006-2011  Prat Development Team
+-- Copyright (C) 2006-2018  Prat Development Team
 --
 -- This program is free software; you can redistribute it and/or
 -- modify it under the terms of the GNU General Public License
@@ -36,7 +36,9 @@ if PRAT_MODULE == nil then
     return 
 end
 
-local PL = Prat:GetLocalizer({})
+local module = Prat:NewModule(PRAT_MODULE)
+
+local PL = module.PL
 
 --[===[@debug@
 PL:AddLocale(PRAT_MODULE, "enUS", {
@@ -90,34 +92,34 @@ PL:AddLocale(PRAT_MODULE, "enUS", L)
 L=
 {
 	["ChatLog"] = {
-		--Translation missing 
-		-- ["A module to automaticaly enable chat and combat logging."] = "",
-		--Translation missing 
-		-- ["Chat log recorded to <WoW Installation>\\Logs\\WoWChatLog.txt only upon logout."] = "",
-		--Translation missing 
-		-- ["Chat Log: Disabled"] = "",
-		--Translation missing 
-		-- ["Chat Log: Enabled"] = "",
-		--Translation missing 
-		-- ["ChatLog"] = "",
-		--Translation missing 
-		-- ["Combat log recorded to <WoW Installation>\\Logs\\WoWCombatLog.txt only upon logout."] = "",
-		--Translation missing 
-		-- ["Combat Log: Disabled"] = "",
-		--Translation missing 
-		-- ["Combat Log: Enabled"] = "",
-		--Translation missing 
-		-- ["quiet_desc"] = "",
-		--Translation missing 
-		-- ["quiet_name"] = "",
-		--Translation missing 
-		-- ["Toggle Chat Log"] = "",
-		--Translation missing 
-		-- ["Toggle chat log on and off."] = "",
-		--Translation missing 
-		-- ["Toggle Combat Log"] = "",
-		--Translation missing 
-		-- ["Toggle combat log on and off."] = "",
+		--[[Translation missing --]]
+		--[[ ["A module to automaticaly enable chat and combat logging."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Chat log recorded to <WoW Installation>\\Logs\\WoWChatLog.txt only upon logout."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Chat Log: Disabled"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Chat Log: Enabled"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["ChatLog"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Combat log recorded to <WoW Installation>\\Logs\\WoWCombatLog.txt only upon logout."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Combat Log: Disabled"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Combat Log: Enabled"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["quiet_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["quiet_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Toggle Chat Log"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Toggle chat log on and off."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Toggle Combat Log"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Toggle combat log on and off."] = "",--]] 
 	}
 }
 PL:AddLocale(PRAT_MODULE, "itIT", L)
@@ -126,34 +128,34 @@ PL:AddLocale(PRAT_MODULE, "itIT", L)
 L=
 {
 	["ChatLog"] = {
-		--Translation missing 
-		-- ["A module to automaticaly enable chat and combat logging."] = "",
-		--Translation missing 
-		-- ["Chat log recorded to <WoW Installation>\\Logs\\WoWChatLog.txt only upon logout."] = "",
-		--Translation missing 
-		-- ["Chat Log: Disabled"] = "",
-		--Translation missing 
-		-- ["Chat Log: Enabled"] = "",
-		--Translation missing 
-		-- ["ChatLog"] = "",
-		--Translation missing 
-		-- ["Combat log recorded to <WoW Installation>\\Logs\\WoWCombatLog.txt only upon logout."] = "",
-		--Translation missing 
-		-- ["Combat Log: Disabled"] = "",
-		--Translation missing 
-		-- ["Combat Log: Enabled"] = "",
-		--Translation missing 
-		-- ["quiet_desc"] = "",
-		--Translation missing 
-		-- ["quiet_name"] = "",
-		--Translation missing 
-		-- ["Toggle Chat Log"] = "",
-		--Translation missing 
-		-- ["Toggle chat log on and off."] = "",
-		--Translation missing 
-		-- ["Toggle Combat Log"] = "",
-		--Translation missing 
-		-- ["Toggle combat log on and off."] = "",
+		--[[Translation missing --]]
+		--[[ ["A module to automaticaly enable chat and combat logging."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Chat log recorded to <WoW Installation>\\Logs\\WoWChatLog.txt only upon logout."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Chat Log: Disabled"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Chat Log: Enabled"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["ChatLog"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Combat log recorded to <WoW Installation>\\Logs\\WoWCombatLog.txt only upon logout."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Combat Log: Disabled"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Combat Log: Enabled"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["quiet_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["quiet_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Toggle Chat Log"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Toggle chat log on and off."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Toggle Combat Log"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Toggle combat log on and off."] = "",--]] 
 	}
 }
 PL:AddLocale(PRAT_MODULE, "ptBR", L)
@@ -225,34 +227,34 @@ PL:AddLocale(PRAT_MODULE, "koKR",L)
 L=
 {
 	["ChatLog"] = {
-		--Translation missing 
-		-- ["A module to automaticaly enable chat and combat logging."] = "",
-		--Translation missing 
-		-- ["Chat log recorded to <WoW Installation>\\Logs\\WoWChatLog.txt only upon logout."] = "",
-		--Translation missing 
-		-- ["Chat Log: Disabled"] = "",
-		--Translation missing 
-		-- ["Chat Log: Enabled"] = "",
-		--Translation missing 
-		-- ["ChatLog"] = "",
-		--Translation missing 
-		-- ["Combat log recorded to <WoW Installation>\\Logs\\WoWCombatLog.txt only upon logout."] = "",
-		--Translation missing 
-		-- ["Combat Log: Disabled"] = "",
-		--Translation missing 
-		-- ["Combat Log: Enabled"] = "",
-		--Translation missing 
-		-- ["quiet_desc"] = "",
-		--Translation missing 
-		-- ["quiet_name"] = "",
-		--Translation missing 
-		-- ["Toggle Chat Log"] = "",
-		--Translation missing 
-		-- ["Toggle chat log on and off."] = "",
-		--Translation missing 
-		-- ["Toggle Combat Log"] = "",
-		--Translation missing 
-		-- ["Toggle combat log on and off."] = "",
+		--[[Translation missing --]]
+		--[[ ["A module to automaticaly enable chat and combat logging."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Chat log recorded to <WoW Installation>\\Logs\\WoWChatLog.txt only upon logout."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Chat Log: Disabled"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Chat Log: Enabled"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["ChatLog"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Combat log recorded to <WoW Installation>\\Logs\\WoWCombatLog.txt only upon logout."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Combat Log: Disabled"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Combat Log: Enabled"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["quiet_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["quiet_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Toggle Chat Log"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Toggle chat log on and off."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Toggle Combat Log"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Toggle combat log on and off."] = "",--]] 
 	}
 }
 PL:AddLocale(PRAT_MODULE, "esMX",L)
@@ -340,7 +342,6 @@ end
 --@end-non-debug@
 
 
-local module = Prat:NewModule(PRAT_MODULE)
 
 
 Prat:SetModuleDefaults(module.name, {
@@ -391,6 +392,10 @@ end
 --[[------------------------------------------------
     Core Functions
 ------------------------------------------------]]--
+
+function module:GetDescription()
+    return PL["A module to automaticaly enable chat and combat logging."]
+end
 
 -- enable or disable the chat log
 function module:SetChatLog(info, val)

@@ -99,31 +99,39 @@ Prat3DB = {
 		},
 		["Prat_Fading"] = {
 		},
+		["Prat_UrlCopy"] = {
+		},
+		["Prat_History"] = {
+		},
 		["Prat_Font"] = {
-		},
-		["Prat_KeyBindings"] = {
-		},
-		["Prat_Scroll"] = {
 		},
 		["Prat_ChannelNames"] = {
 		},
+		["Prat_KeyBindings"] = {
+		},
+		["Prat_Bubbles"] = {
+		},
+		["Prat_Scroll"] = {
+		},
 		["Prat_Paragraph"] = {
 		},
-		["Prat_UrlCopy"] = {
+		["Prat_Achievements"] = {
+		},
+		["Prat_ChatLog"] = {
 		},
 		["Prat_Alias"] = {
 		},
 		["Prat_OriginalButtons"] = {
 		},
-		["Prat_Sounds"] = {
+		["Prat_Highlight"] = {
 		},
 		["Prat_ChannelSticky"] = {
 		},
-		["Prat_ChatLog"] = {
-		},
-		["Prat_History"] = {
-		},
 		["Prat_PopupMessage"] = {
+		},
+		["Prat_Invites"] = {
+		},
+		["Prat_Sounds"] = {
 		},
 		["Prat_CopyChat"] = {
 		},
@@ -134,33 +142,33 @@ Prat3DB = {
 		["Prat_Buttons"] = {
 			["profiles"] = {
 				["Default"] = {
-					["showMenu"] = false,
-					["showBnet"] = false,
-					["scrollReminder"] = false,
 					["showminimize"] = false,
+					["showBnet"] = false,
 					["showButtons"] = false,
+					["showMenu"] = false,
+					["scrollReminder"] = false,
 				},
 			},
 		},
 		["Prat_ServerNames"] = {
 		},
-		["Prat_Bubbles"] = {
+		["Prat_HoverTips"] = {
 		},
 	},
 	["profileKeys"] = {
 		["Alyara - Silvermoon"] = "Default",
 		["Linela - Silvermoon"] = "Default",
-		["Erdanii - Silvermoon"] = "Default",
 		["Flaville - Silvermoon"] = "Default",
+		["Erdanii - Silvermoon"] = "Default",
 		["Simroth - Silvermoon"] = "Default",
 		["Stephanna - Argent Dawn"] = "Default",
-		["Siluna - Silvermoon"] = "Default",
+		["Thagmarr - Silvermoon"] = "Default",
 		["Spinhoof - Ragnaros"] = "Default",
 		["Lachrymas - Silvermoon"] = "Default",
-		["Myvanna - Silvermoon"] = "Default",
-		["Kjerstina - Silvermoon"] = "Default",
 		["Tenderbreeze - Silvermoon"] = "Default",
-		["Thagmarr - Silvermoon"] = "Default",
+		["Kjerstina - Silvermoon"] = "Default",
+		["Myvanna - Silvermoon"] = "Default",
+		["Siluna - Silvermoon"] = "Default",
 		["Qsilver - Silvermoon"] = "Default",
 	},
 	["profiles"] = {
@@ -171,11 +179,11 @@ Prat3DB = {
 		["Default"] = {
 			["modules"] = {
 				["Alias"] = 2,
+				["PopupMessage"] = 2,
 				["AltNames"] = 2,
 				["Sounds"] = 2,
 				["Paragraph"] = 2,
 				["KeyBindings"] = 2,
-				["PopupMessage"] = 2,
 				["OriginalButtons"] = 2,
 				["ChatLog"] = 2,
 			},

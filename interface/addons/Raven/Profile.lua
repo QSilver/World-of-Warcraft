@@ -310,11 +310,11 @@ end
 -- Initialize default fonts and textures
 function MOD:SetFontTextureDefaults(p)
 	p.labelFont = "Arial Narrow"; p.labelFSize = 10; p.labelAlpha = 1; p.labelColor = { r = 1, g = 1, b = 1, a = 1 }
-	p.labelOutline = false; p.labelShadow = true; p.labelThick = false; p.labelMono = false
+	p.labelOutline = false; p.labelShadow = true; p.labelThick = false; p.labelMono = false; p.labelSpecial = false
 	p.timeFont = "Arial Narrow"; p.timeFSize = 10; p.timeAlpha = 1; p.timeColor = { r = 1, g = 1, b = 1, a = 1 }
-	p.timeOutline = false; p.timeShadow = true; p.timeThick = false; p.timeMono = false
+	p.timeOutline = false; p.timeShadow = true; p.timeThick = false; p.timeMono = false; p.timeSpecial = false
 	p.iconFont = "Arial Narrow"; p.iconFSize = 10; p.iconAlpha = 1; p.iconColor = { r = 1, g = 1, b = 1, a = 1 }
-	p.iconOutline = true; p.iconShadow = true; p.iconThick = false; p.iconMono = false
+	p.iconOutline = true; p.iconShadow = true; p.iconThick = false; p.iconMono = false; p.iconSpecial = false
 	p.texture = "Blizzard"; p.bgtexture = "Blizzard"; p.alpha = 1; p.combatAlpha = 1; p.fgAlpha = 1; p.bgAlpha = 0.65
 	p.backdropEnable = false; p.backdropTexture = "None"; p.backdropWidth = 16; p.backdropInset = 4; p.backdropPadding = 16; p.backdropPanel = "None"
 	p.backdropColor = { r = 1, g = 1, b = 1, a = 1 }; p.backdropFill = { r = 1, g = 1, b = 1, a = 1 }
@@ -327,11 +327,11 @@ end
 function MOD:CopyFontsAndTextures(s, d)
 	if s and d and (s ~= d) then
 		d.labelFont = s.labelFont; d.labelFSize = s.labelFSize; d.labelAlpha = s.labelAlpha; d.labelColor = MOD.CopyColor(s.labelColor)
-		d.labelOutline = s.labelOutline; d.labelShadow = s.labelShadow; d.labelThick = s.labelThick; d.labelMono = s.labelMono
+		d.labelOutline = s.labelOutline; d.labelShadow = s.labelShadow; d.labelThick = s.labelThick; d.labelMono = s.labelMono; d.labelSpecial = s.labelSpecial
 		d.timeFont = s.timeFont; d.timeFSize = s.timeFSize; d.timeAlpha = s.timeAlpha; d.timeColor = MOD.CopyColor(s.timeColor)
-		d.timeOutline = s.timeOutline; d.timeShadow = s.timeShadow; d.timeThick = s.timeThick; d.timeMono = s.timeMono
+		d.timeOutline = s.timeOutline; d.timeShadow = s.timeShadow; d.timeThick = s.timeThick; d.timeMono = s.timeMono; d.timeSpecial = s.timeSpecial
 		d.iconFont = s.iconFont; d.iconFSize = s.iconFSize; d.iconAlpha = s.iconAlpha; d.iconColor = MOD.CopyColor(s.iconColor)
-		d.iconOutline = s.iconOutline; d.iconShadow = s.iconShadow; d.iconThick = s.iconThick; d.iconMono = s.iconMono
+		d.iconOutline = s.iconOutline; d.iconShadow = s.iconShadow; d.iconThick = s.iconThick; d.iconMono = s.iconMono; d.iconSpecial = s.iconSpecial
 		d.texture = s.texture; d.bgtexture = s.bgtexture; d.alpha = s.alpha; d.combatAlpha = s.combatAlpha; d.fgAlpha = s.fgAlpha; d.bgAlpha = s.bgAlpha
 		d.fgSaturation = s.fgSaturation; d.fgBrightness = s.fgBrightness; d.bgSaturation = s.bgSaturation; d.bgBrightness = s.bgBrightness;
 		d.backdropTexture = s.backdropTexture; d.backdropWidth = s.backdropWidth; d.backdropInset = s.backdropInset
@@ -363,7 +363,7 @@ function MOD:GetSpellID(name)
 	local id = MOD.db.global.SpellIDs[name]
 	if id == 0 then return nil end -- only scan invalid ones once in a session
 	if id and (name ~= GetSpellInfo(id)) then id = nil end -- verify it is still valid
-
+	
 	if not id and not InCombatLockdown() then -- disallow the search when in combat due to script time limit (MoP)
 		id = 0
 		while id < maxSpellID do -- determined during initialization
@@ -773,6 +773,7 @@ MOD.DefaultProfile = {
 		PixelIconBorder = false,		-- enable a single pixel color border for icons
 		RectIcons = false,				-- enable rectangular icons
 		ZoomIcons = false,				-- enable zoomed rectangular icons
+		IconClockEdge = false,			-- enable edge for icon clock overlays
 		GridLines = 40,					-- number of lines in overlay grid
 		GridCenterColor = MOD.HexColor("ff0000"), -- color of center lines in overlay grid
 		GridLineColor = MOD.HexColor("00ff00"), -- color of other lines in overlay grid

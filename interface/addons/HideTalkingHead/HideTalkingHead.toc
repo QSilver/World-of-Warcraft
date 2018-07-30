@@ -1,5 +1,5 @@
-## Interface: 70300
-## Version: v1.0.5
+## Interface: 80000
+## Version: v1.1
 ## Title: HideTalkingHead
 ## LoadOnDemand: 1
 ## LoadWith: Blizzard_TalkingHeadUI

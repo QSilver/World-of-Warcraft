@@ -3,7 +3,7 @@
 -- Prat - A framework for World of Warcraft chat modification
 --        and a collection of modules which utilize the framework
 --
--- Copyright (C) 2006-2011  Prat Development Team
+-- Copyright (C) 2006-2018  Prat Development Team
 --
 -- This program is free software; you can redistribute it and/or
 -- modify it under the terms of the GNU General Public License
@@ -51,7 +51,7 @@ local wipe = table.wipe
 local print = print
 
 -- Do something about the missing party guide chat type
-if CHAT_MSG_PARTY_GUIDE == nil and CHAT_PARTY_GUIDE_GET ~= nil then
+if CHAT_MSG_PARTY_GUIDE == nil and CHAT_PARTY_GUIDE_GET ~= nil and select(4, GetBuildInfo()) < 80000 then
   tinsert(ChatTypeGroup["PARTY_LEADER"], "CHAT_MSG_PARTY_GUIDE")
   ChatTypeInfo["PARTY_GUIDE"] = ChatTypeInfo["PARTY_LEADER"]
 
@@ -86,7 +86,7 @@ Version = "Prat |cff8080ff3.0|r (|cff8080ff" .. "DEBUG" .. "|r)"
 --@end-debug@]===]
 
 --@non-debug@
-Version = "Prat |cff8080ff3.0|r (|cff8080ff".."r1082".."|r)"
+Version = "Prat |cff8080ff3.0|r (|cff8080ff".."r1157".."|r)"
 --@end-non-debug@
 
 
@@ -711,7 +711,7 @@ function addon:AddMessage(frame, text, r, g, b, id, ...)
 end
 
 local wowsounds = {
-  ["TellMessage"] = "TellMessage",
+  ["TellMessage"] = _G.SOUNDKIT.TELL_MESSAGE,
 }
 
 function PlaySound(self, sound)

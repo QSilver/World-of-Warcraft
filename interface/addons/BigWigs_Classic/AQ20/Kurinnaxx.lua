@@ -40,24 +40,24 @@ end
 --
 
 function mod:MortalWound(args)
-	self:StackMessage(args.spellId, args.destName, args.amount, "Attention")
+	self:StackMessage(args.spellId, args.destName, args.amount, "yellow")
 end
 
 function mod:SandTrap()
-	self:Message(25656, "Urgent", "Alert")
+	self:Message(25656, "orange", "Alert")
 end
 
 function mod:Frenzy(args)
 	self:UnregisterUnitEvent("UNIT_HEALTH_FREQUENT", "target", "focus")
-	self:Message(args.spellId, "Important", nil, "30% - ", args.spellName)
+	self:Message(args.spellId, "red", nil, "30% - ", args.spellName)
 end
 
-function mod:UNIT_HEALTH_FREQUENT(unit)
+function mod:UNIT_HEALTH_FREQUENT(event, unit)
 	if self:MobId(UnitGUID(unit)) == 15348 then
 		local hp = UnitHealth(unit) / UnitHealthMax(unit) * 100
 		if hp < 36 then
-			self:UnregisterUnitEvent("UNIT_HEALTH_FREQUENT", "target", "focus")
-			self:Message(26527, "Positive", nil, CL.soon:format(self:SpellName(26527)), false)
+			self:UnregisterUnitEvent(event, "target", "focus")
+			self:Message(26527, "green", nil, CL.soon:format(self:SpellName(26527)), false)
 		end
 	end
 end

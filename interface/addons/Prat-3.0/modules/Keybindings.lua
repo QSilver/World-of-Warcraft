@@ -2,7 +2,7 @@
 --
 -- Prat - A framework for World of Warcraft chat mods
 --
--- Copyright (C) 2006-2011  Prat Development Team
+-- Copyright (C) 2006-2018  Prat Development Team
 --
 -- This program is free software; you can redistribute it and/or
 -- modify it under the terms of the GNU General Public License
@@ -33,10 +33,13 @@ Prat:AddModuleToLoad(function()
     return
   end
 
-  local PL = Prat:GetLocalizer({})
+  local module = Prat:NewModule(PRAT_MODULE)
+
+  local PL = module.PL
 
   --[===[@debug@
   PL:AddLocale(PRAT_MODULE, "enUS", {
+    module_desc = "Adds chat related keybindings",
     ["Prat Keybindings"] = true,
     ["Officer Channel"] = true,
     ["Guild Channel"] = true,
@@ -70,6 +73,7 @@ Prat:AddModuleToLoad(function()
 		["Copy Selected Chat Frame"] = true,
 		["Guild Channel"] = true,
 		["Instance Channel"] = true,
+		["module_desc"] = "Adds chat related keybindings",
 		["Next Chat Tab"] = true,
 		["Officer Channel"] = true,
 		["Party Channel"] = true,
@@ -96,8 +100,10 @@ Prat:AddModuleToLoad(function()
 		["Copy Selected Chat Frame"] = "Copier la fenêtre de chat sélectionné",
 		["Guild Channel"] = "Canal de Guilde",
 		["Instance Channel"] = "Canal d'Instance",
-		--Translation missing 
-		-- ["Next Chat Tab"] = "",
+		--[[Translation missing --]]
+		--[[ ["module_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Next Chat Tab"] = "",--]] 
 		["Officer Channel"] = "Canal Officier",
 		["Party Channel"] = "Canal de Groupe",
 		["Prat CopyChat"] = "Prat Copier-le-Chat",
@@ -106,8 +112,8 @@ Prat:AddModuleToLoad(function()
 		["Raid Channel"] = "Canal Raid",
 		["Raid Warning Channel"] = "Canal Avertissement",
 		["Say"] = "Dire",
-		--Translation missing 
-		-- ["Smart Group Channel"] = "",
+		--[[Translation missing --]]
+		--[[ ["Smart Group Channel"] = "",--]] 
 		["TellTarget"] = "Chuchoter à la cible",
 		["Whisper"] = "Chuchoter",
 		["Yell"] = "Crier",
@@ -124,6 +130,8 @@ Prat:AddModuleToLoad(function()
 		["Copy Selected Chat Frame"] = "Ausgewähltes Chatfenster kopieren",
 		["Guild Channel"] = "Gildenkanal",
 		["Instance Channel"] = "Schlachtfeld-Kanal",
+		--[[Translation missing --]]
+		--[[ ["module_desc"] = "",--]] 
 		["Next Chat Tab"] = "Nächster Chatreiter",
 		["Officer Channel"] = "Offizierskanal",
 		["Party Channel"] = "Gruppenkanal",
@@ -150,6 +158,8 @@ Prat:AddModuleToLoad(function()
 		["Copy Selected Chat Frame"] = "선택한 대화창 복사",
 		["Guild Channel"] = "길드 채널",
 		["Instance Channel"] = "인스턴스 채널",
+		--[[Translation missing --]]
+		--[[ ["module_desc"] = "",--]] 
 		["Next Chat Tab"] = "다음 대화 탭",
 		["Officer Channel"] = "관리자 채널",
 		["Party Channel"] = "파티 채널",
@@ -172,40 +182,42 @@ Prat:AddModuleToLoad(function()
  L=
 {
 	["KeyBindings"] = {
-		--Translation missing 
-		-- ["Channel %d"] = "",
-		--Translation missing 
-		-- ["Copy Selected Chat Frame"] = "",
-		--Translation missing 
-		-- ["Guild Channel"] = "",
-		--Translation missing 
-		-- ["Instance Channel"] = "",
-		--Translation missing 
-		-- ["Next Chat Tab"] = "",
-		--Translation missing 
-		-- ["Officer Channel"] = "",
-		--Translation missing 
-		-- ["Party Channel"] = "",
-		--Translation missing 
-		-- ["Prat CopyChat"] = "",
-		--Translation missing 
-		-- ["Prat Keybindings"] = "",
-		--Translation missing 
-		-- ["Prat TellTarget"] = "",
-		--Translation missing 
-		-- ["Raid Channel"] = "",
-		--Translation missing 
-		-- ["Raid Warning Channel"] = "",
-		--Translation missing 
-		-- ["Say"] = "",
-		--Translation missing 
-		-- ["Smart Group Channel"] = "",
-		--Translation missing 
-		-- ["TellTarget"] = "",
-		--Translation missing 
-		-- ["Whisper"] = "",
-		--Translation missing 
-		-- ["Yell"] = "",
+		--[[Translation missing --]]
+		--[[ ["Channel %d"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Copy Selected Chat Frame"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Guild Channel"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Instance Channel"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["module_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Next Chat Tab"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Officer Channel"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Party Channel"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Prat CopyChat"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Prat Keybindings"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Prat TellTarget"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Raid Channel"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Raid Warning Channel"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Say"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Smart Group Channel"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["TellTarget"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Whisper"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Yell"] = "",--]] 
 	}
 }
 
@@ -219,6 +231,7 @@ Prat:AddModuleToLoad(function()
 		["Copy Selected Chat Frame"] = "Копирование выбранного окна чата",
 		["Guild Channel"] = "Канал Гильдии",
 		["Instance Channel"] = "Канал Подземелий",
+		["module_desc"] = "Добавляет привязки к чату",
 		["Next Chat Tab"] = "Следующее окно чата",
 		["Officer Channel"] = "Офицерский Канал",
 		["Party Channel"] = "Канал Группы",
@@ -245,6 +258,8 @@ Prat:AddModuleToLoad(function()
 		["Copy Selected Chat Frame"] = "复制选定的聊天框体",
 		["Guild Channel"] = "公会频道",
 		["Instance Channel"] = "战场频道",
+		--[[Translation missing --]]
+		--[[ ["module_desc"] = "",--]] 
 		["Next Chat Tab"] = "下一个聊天标签",
 		["Officer Channel"] = "官员频道",
 		["Party Channel"] = "小队频道",
@@ -271,6 +286,8 @@ Prat:AddModuleToLoad(function()
 		["Copy Selected Chat Frame"] = "Copiar el Marco de Chat Seleccionado",
 		["Guild Channel"] = "Canal de Hermandad",
 		["Instance Channel"] = "Canal Campo de Batalla",
+		--[[Translation missing --]]
+		--[[ ["module_desc"] = "",--]] 
 		["Next Chat Tab"] = "Siguiente Pestaña de Chat",
 		["Officer Channel"] = "Canal Oficial",
 		["Party Channel"] = "Canal del Grupo",
@@ -297,6 +314,8 @@ Prat:AddModuleToLoad(function()
 		["Copy Selected Chat Frame"] = "複製選取的聊天視窗",
 		["Guild Channel"] = "公會頻道",
 		["Instance Channel"] = "戰場頻道",
+		--[[Translation missing --]]
+		--[[ ["module_desc"] = "",--]] 
 		["Next Chat Tab"] = "次個聊天標籤",
 		["Officer Channel"] = "幹部頻道",
 		["Party Channel"] = "小隊頻道",
@@ -319,7 +338,6 @@ Prat:AddModuleToLoad(function()
  end
  --@end-non-debug@
 
-  local module = Prat:NewModule(PRAT_MODULE)
 
   Prat:SetModuleInit(module,
     function(self)

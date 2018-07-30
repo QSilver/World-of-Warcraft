@@ -2,7 +2,7 @@
 --
 -- Prat - A framework for World of Warcraft chat mods
 --
--- Copyright (C) 2006-2011  Prat Development Team
+-- Copyright (C) 2006-2018  Prat Development Team
 --
 -- This program is free software; you can redistribute it and/or
 -- modify it under the terms of the GNU General Public License
@@ -37,7 +37,9 @@ if PRAT_MODULE == nil then
     return 
 end
 
-local PL = Prat:GetLocalizer({})
+local module = Prat:NewModule(PRAT_MODULE)
+
+local PL = module.PL
 
 --[===[@debug@
 PL:AddLocale(PRAT_MODULE, "enUS", {
@@ -85,28 +87,28 @@ PL:AddLocale(PRAT_MODULE, "enUS", L)
 L=
 {
 	["Paragraph"] = {
-		--Translation missing 
-		-- ["adjustlinks_desc"] = "",
-		--Translation missing 
-		-- ["adjustlinks_name"] = "",
-		--Translation missing 
-		-- ["Center"] = "",
-		--Translation missing 
-		-- ["Chat window paragraph options."] = "",
-		--Translation missing 
-		-- ["justification_desc"] = "",
-		--Translation missing 
-		-- ["justification_name"] = "",
-		--Translation missing 
-		-- ["Left"] = "",
-		--Translation missing 
-		-- ["Line Spacing"] = "",
-		--Translation missing 
-		-- ["Paragraph"] = "",
-		--Translation missing 
-		-- ["Right"] = "",
-		--Translation missing 
-		-- ["Set the line spacing for all chat windows."] = "",
+		--[[Translation missing --]]
+		--[[ ["adjustlinks_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["adjustlinks_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Center"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Chat window paragraph options."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["justification_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["justification_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Left"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Line Spacing"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Paragraph"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Right"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Set the line spacing for all chat windows."] = "",--]] 
 	}
 }
 PL:AddLocale(PRAT_MODULE, "itIT", L)
@@ -115,28 +117,28 @@ PL:AddLocale(PRAT_MODULE, "itIT", L)
 L=
 {
 	["Paragraph"] = {
-		--Translation missing 
-		-- ["adjustlinks_desc"] = "",
-		--Translation missing 
-		-- ["adjustlinks_name"] = "",
-		--Translation missing 
-		-- ["Center"] = "",
-		--Translation missing 
-		-- ["Chat window paragraph options."] = "",
-		--Translation missing 
-		-- ["justification_desc"] = "",
-		--Translation missing 
-		-- ["justification_name"] = "",
-		--Translation missing 
-		-- ["Left"] = "",
-		--Translation missing 
-		-- ["Line Spacing"] = "",
-		--Translation missing 
-		-- ["Paragraph"] = "",
-		--Translation missing 
-		-- ["Right"] = "",
-		--Translation missing 
-		-- ["Set the line spacing for all chat windows."] = "",
+		--[[Translation missing --]]
+		--[[ ["adjustlinks_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["adjustlinks_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Center"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Chat window paragraph options."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["justification_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["justification_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Left"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Line Spacing"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Paragraph"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Right"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Set the line spacing for all chat windows."] = "",--]] 
 	}
 }
 PL:AddLocale(PRAT_MODULE, "ptBR", L)
@@ -199,28 +201,28 @@ PL:AddLocale(PRAT_MODULE, "koKR",L)
 L=
 {
 	["Paragraph"] = {
-		--Translation missing 
-		-- ["adjustlinks_desc"] = "",
-		--Translation missing 
-		-- ["adjustlinks_name"] = "",
-		--Translation missing 
-		-- ["Center"] = "",
-		--Translation missing 
-		-- ["Chat window paragraph options."] = "",
-		--Translation missing 
-		-- ["justification_desc"] = "",
-		--Translation missing 
-		-- ["justification_name"] = "",
-		--Translation missing 
-		-- ["Left"] = "",
-		--Translation missing 
-		-- ["Line Spacing"] = "",
-		--Translation missing 
-		-- ["Paragraph"] = "",
-		--Translation missing 
-		-- ["Right"] = "",
-		--Translation missing 
-		-- ["Set the line spacing for all chat windows."] = "",
+		--[[Translation missing --]]
+		--[[ ["adjustlinks_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["adjustlinks_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Center"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Chat window paragraph options."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["justification_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["justification_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Left"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Line Spacing"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Paragraph"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Right"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Set the line spacing for all chat windows."] = "",--]] 
 	}
 }
 PL:AddLocale(PRAT_MODULE, "esMX",L)
@@ -318,7 +320,6 @@ end
 --
 
 -- create prat module
-local module = Prat:NewModule(PRAT_MODULE)
 
 Prat:SetModuleDefaults(module, {
 	profile = {
@@ -388,6 +389,10 @@ end
 --[[------------------------------------------------
 	Core Functions
 ------------------------------------------------]]--
+function module:GetDescription()
+	return PL["Chat window paragraph options."]
+end
+
 function module:ConfigureAllChatFrames(enable)
 	local prof = self.db.profile
 	for k,v in pairs(Prat.Frames) do

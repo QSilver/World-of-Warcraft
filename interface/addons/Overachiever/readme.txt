@@ -1,5 +1,5 @@
 
-Overachiever v0.99.10
+Overachiever v1.0.0
 ==============================
 
 Author: Tuhljin
@@ -51,7 +51,9 @@ SLASH COMMANDS:
 
 - ALTERED: /ach and its aliases (/achieve, /achievement, and /achievements)
 
-  You can now add the name, part of the name, or the # sign next to the ID number of an achievement to search for it.
+  You can now add the name, part of the name, or the numerical ID of an achievement to search for it. If you put the "#"
+sign before the ID, then achievements that contain the number in the name aren't included (useful if you want to see
+the achievement with ID 500 but not achievements like "500 Fish" and "500 Quests Completed", for example).
 
   Example A: /ach
    - Result: Toggle visibility of the main achievement UI.
@@ -107,6 +109,30 @@ Change log
 ==========
 
 The change log lists changes of particular note to users, not every change made.
+
+v1.0.0
+- Updated for Battle for Azeroth beta and pre-patch, WoW patch 8.0.x. Updated TOC and made many required changes.
+- This release is backward compatible with Legion. (This may not be the case for future releases.)
+- Reworked the achievement search system. Searches should generally take less time and they now allow other activity to continue during a search.
+- Search Tab: Added an option to direct searches started by slash commands (like "/ach") to the Search tab.
+- When not directed to the Search tab, slash commands that searched for achievements will now also search through unlisted achievements. Excludes the "silent" slash commands such as "/achs". (When directed to the tab, whether they include unlisted achievements is determined by the relevant checkbox found there.)
+- Minimap tooltips are now properly supported by the tooltip reminders feature. Up/down arrows (indicating a node's relative vertical position) do not prevent the reminder from showing and multiple nodes showing in the tooltip at once are now handled.
+- Suggestions Tab:
+-- Added suggestions for Seething Shore.
+-- "Personal" type split into "Personal" and "Other." The latter are achievements that do not have a category which belongs in the base UI. (Since all of them are unlisted achievements, selecting the "Other" type causes the search to include unlisted achievements even when the box to do so is unchecked.)
+- Tabs module: Added text overlay to indicate when the achievement completion filter (earned or incomplete) has caused an achievement to be omitted from the Suggestions or Related tabs.
+- Improved ability to toggle tracking an achievement by ctrl+clicking on its link. Overachiever will now attempt to toggle tracking when the selected achievement is part of a series to which the linked achievement belongs (rather than requiring the linked achievement itself to be selected).
+- Option "Startup: Throttle achievement lookup" is now disabled by default and it is automatically disabled for users upgrading from a pre-1.0 version of Overachiever.
+
+v0.99.11
+- New option added to exclude guild achievements from "need to kill" reminders.
+- Added achievements for Argus zones to exploration auto-tracking.
+- Fixed an issue where taint could be introduced when clicking a hyperlink.
+- Suggestions Tab:
+-- Added suggestions for Argus zones, the Seat of the Triumvirate, and Antorus, the Burning Throne.
+-- Updated suggestions for Ulduar to account for 10- and 25-man achievements being replaced by new any-raid-size achievements.
+- Tabs module: Added text overlay to indicate when the achievement completion filter (earned or incomplete) has caused an achievement to be omitted from the Search results or a Watch list.
+- Fixed an error that can occur if the Tabs module is disabled and a holiday toast is clicked.
 
 v0.99.10
 - Change the way consumed item tracking works in an attempt to improve performance when bag contents change.

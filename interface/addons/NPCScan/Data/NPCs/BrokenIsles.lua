@@ -2,10 +2,11 @@
 -- AddOn namespace
 -- ----------------------------------------------------------------------------
 local AddOnFolderName, private = ...
+local AchievementID = private.Enum.AchievementID
 local NPCs = private.Data.NPCs
 
 -- ----------------------------------------------------------------------------
--- Azsuna (1015)
+-- Azsuna
 -- ----------------------------------------------------------------------------
 NPCs[89016] = { -- Ravyn-Drath
 	questID = 37537, -- Ravyn-Drath
@@ -254,7 +255,7 @@ NPCs[111434] = { -- Sea King Tidross
 }
 
 NPCs[111454] = { -- Bestrix
-	questID = 43961, -- Unknown
+	questID = 43961, -- Bestrix
 }
 
 NPCs[111939] = { -- Lysanis Shadesoul
@@ -272,7 +273,7 @@ NPCs[112637] = { -- Devious Sunrunner
 }
 
 -- ----------------------------------------------------------------------------
--- Stormheim (1017)
+-- Stormheim
 -- ----------------------------------------------------------------------------
 NPCs[90139] = { -- Inquisitor Ernstenbok
 	questID = 37908, -- Inquisitor Ernstenbok
@@ -290,6 +291,12 @@ NPCs[91780] = { -- Mother Clacker
 }
 
 NPCs[91795] = { -- Stormwing Matriarch
+	pets = {
+		{
+			itemID = 129208, -- Stormborne Whelpling
+			npcID = 97205, -- Stormborne Whelpling
+		},
+	},
 	questID = 38423, -- Stormdrake Matriarch
 	vignetteName = "Stormwing Matriarch",
 }
@@ -306,6 +313,9 @@ NPCs[91874] = { -- Bladesquall
 
 NPCs[91892] = { -- Thane Irglov the Merciless
 	questID = 38424, -- Thane's Mead Hall
+	toys = {
+		{ itemID = 129113 }, -- Faintly Glowing Flagon of Mead
+	},
 	vignetteName = "Thane's Mead Hall",
 }
 
@@ -463,8 +473,23 @@ NPCs[98503] = { -- Grrvrgull the Conqueror
 	vignetteName = "Grrvrgull the Conquerer",
 }
 
+NPCs[106981] = { -- Captain Hring
+	achievementID = AchievementID.UnleashedMonstrosities,
+	questID = 42269, -- The Soultakers
+}
+
+NPCs[106982] = { -- Reaver Jdorn
+	achievementID = AchievementID.UnleashedMonstrosities,
+	questID = 42269, -- The Soultakers
+}
+
+NPCs[106984] = { -- Soultrapper Mevra
+	achievementID = AchievementID.UnleashedMonstrosities,
+	questID = 42269, -- The Soultakers
+}
+
 NPCs[107023] = { -- Nithogg
-	questID = 44508, -- Unknown
+	questID = 44508, -- Tracking Quest
 }
 
 NPCs[107487] = { -- Starbuck
@@ -474,7 +499,7 @@ NPCs[107487] = { -- Starbuck
 }
 
 NPCs[107544] = { -- Nithogg
-	questID = 44508, -- Unknown
+	questID = 44508, -- Tracking Quest
 }
 
 NPCs[107926] = { -- Hannval the Butcher
@@ -482,12 +507,40 @@ NPCs[107926] = { -- Hannval the Butcher
 	vignetteName = "Hannval the Butcher",
 }
 
+NPCs[108790] = { -- Den Mother Ylva
+	questID = 42785, -- DANGER: Den Mother Ylva
+}
+
+NPCs[108822] = { -- Huntress Estrid
+	questID = 42798, -- DANGER: Huntress Estrid
+}
+
 NPCs[108827] = { -- Fjorlag, the Grave's Chill
 	questID = 45507, -- Fjorlag, the Grave's Chill
 }
 
+NPCs[108885] = { -- Aegir Wavecrusher
+	questID = 42820, -- DANGER: Aegir Wavecrusher
+}
+
+NPCs[109015] = { -- Lagertha
+	questID = 42964, -- DANGER: Lagertha
+}
+
 NPCs[109113] = { -- Boulderfall, the Eroded
 	questID = 40067, -- 7.0 Stormheim - Boulderfall - twh
+}
+
+NPCs[109195] = { -- Soulbinder Halldora
+	questID = 42953, -- DANGER: Soulbinder Halldora
+}
+
+NPCs[109317] = { -- Rulf Bonesnapper
+	questID = 42963, -- DANGER: Rulf Bonesnapper
+}
+
+NPCs[109318] = { -- Runeseer Sigvid
+	questID = 42991, -- DANGER: Runeseer Sigvid
 }
 
 NPCs[110363] = { -- Roteye
@@ -500,21 +553,33 @@ NPCs[111463] = { -- Bulvinkel
 }
 
 -- ----------------------------------------------------------------------------
--- Val'sharah (1018)
+-- Val'sharah
 -- ----------------------------------------------------------------------------
 NPCs[92104] = { -- Thistleleaf Rascal
-	questID = 38466, -- Unknown
+	questID = 38466, -- Grellkin Treasure
+	toys = {
+		{ itemID = 130147 }, -- Thistleleaf Branch
+	},
 	vignetteName = "Unguarded Thistleleaf Treasure",
 }
 
 NPCs[92117] = { -- Gorebeak
 	isTameable = true,
+	pets = {
+		{
+			itemID = 130154, -- Pygmy Owl
+			npcID = 108568, -- Pygmy Owl
+		},
+	},
 	questID = 38468, -- Gorebeak
 	vignetteName = "Gorebeak",
 }
 
 NPCs[92180] = { -- Seersei
 	questID = 38479, -- Seersei
+	toys = {
+		{ itemID = 130171 }, -- Cursed Orb
+	},
 	vignetteName = "Seersei",
 }
 
@@ -524,6 +589,12 @@ NPCs[92423] = { -- Theryssia
 }
 
 NPCs[92965] = { -- Darkshade
+	pets = {
+		{
+			itemID = 130166, -- Risen Saber Kitten
+			npcID = 99403, -- Risen Saber Kitten
+		},
+	},
 	questID = 38767, -- Nightmaul
 	vignetteName = "Darkshade, Saber Matriarch",
 }
@@ -564,6 +635,12 @@ NPCs[94414] = { -- Kiranys Duskwhisper
 }
 
 NPCs[94485] = { -- Pollous the Fetid
+	pets = {
+		{
+			itemID = 130168, -- Fetid Waveling
+			npcID = 99394, -- Fetid Waveling
+		},
+	},
 	questID = 39130, -- 7.0 Val'sharah - River: Purging the River - TRACKING - twh
 	vignetteName = "Purging the River",
 }
@@ -575,6 +652,9 @@ NPCs[95123] = { -- Grelda the Hag
 
 NPCs[95221] = { -- Mad Henryk
 	questID = 39357, -- 7.0 Val'sharah - Grove - Eileen - TRACKING - twh
+	toys = {
+		{ itemID = 130214 }, -- Worn Doll
+	},
 	vignetteName = "Old Bear Trap",
 }
 
@@ -600,6 +680,7 @@ NPCs[98241] = { -- Lyrath Moonfeather
 
 NPCs[103785] = { -- Well-Fed Bear
 	isTameable = true,
+	questID = 41553, -- Slab of Bacon
 }
 
 NPCs[104523] = { -- Shalas'aman
@@ -616,6 +697,9 @@ NPCs[109125] = { -- Kathaw the Savage
 
 NPCs[109281] = { -- Malisandra
 	questID = 45501, -- Malisandra
+	toys = {
+		{ itemID = 130171 }, -- Cursed Orb
+	},
 }
 
 NPCs[109648] = { -- Witchdoctor Grgl-Brgl
@@ -639,6 +723,10 @@ NPCs[110342] = { -- Rabxach
 	questID = 45487, -- Rabxach
 }
 
+NPCs[110346] = { -- Aodh Witherpetal
+	questID = 43344, -- DANGER: Aodh Witherpetal
+}
+
 NPCs[110361] = { -- Harbinger of Screams
 	questID = 45484, -- Harbinger of Screams
 }
@@ -654,62 +742,66 @@ NPCs[110562] = { -- Bahagar
 }
 
 -- ----------------------------------------------------------------------------
--- Broken Shore (1021)
+-- Broken Shore
 -- ----------------------------------------------------------------------------
 NPCs[116166] = { -- Eye of Gurgh
-	questID = 47068, -- Unknown
+	questID = 47068, -- Rare Elite 25
 }
 
 NPCs[116953] = { -- Corrupted Bonebreaker
-	questID = 46101, -- Unknown
+	questID = 46101, -- Rare Elite 12
 }
 
 NPCs[117086] = { -- Emberfire
-	questID = 46093, -- Unknown
+	questID = 46093, -- Rare Elite 04
 }
 
 NPCs[117089] = { -- Inquisitor Chillbane
-	questID = 46096, -- Unknown
+	questID = 46096, -- Rare Elite 07
 }
 
 NPCs[117090] = { -- Xorogun the Flamecarver
-	questID = 46100, -- Unknown
+	questID = 46100, -- Rare Elite 11
 }
 
 NPCs[117091] = { -- Felmaw Emberfiend
-	questID = 46095, -- Unknown
+	questID = 46095, -- Rare Elite 06
 }
 
 NPCs[117093] = { -- Felbringer Xar'thok
-	questID = 46099, -- Unknown
+	questID = 46099, -- Rare Elite 10
 }
 
 NPCs[117094] = { -- Malorus the Soulkeeper
-	questID = 46092, -- Unknown
+	questID = 46092, -- Rare Elite 03
 }
 
 NPCs[117095] = { -- Dreadblade Annihilator
-	questID = 46098, -- Unknown
+	questID = 46098, -- Rare Elite 09
 }
 
 NPCs[117096] = { -- Potionmaster Gloop
-	questID = 46094, -- Unknown
+	questID = 46094, -- Rare Elite 05
 }
 
 NPCs[117103] = { -- Felcaller Zelthae
-	questID = 46102, -- Unknown
+	questID = 46102, -- Rare Elite 13
 }
 
 NPCs[117136] = { -- Doombringer Zar'thoz
-	questID = 46097, -- Unknown
+	questID = 46097, -- Rare Elite 08
 }
 
 NPCs[117140] = { -- Salethan the Broodwalker
-	questID = 46091, -- Unknown
+	questID = 46091, -- Rare Elite 02
 }
 
 NPCs[117141] = { -- Malgrazoth
-	questID = 46090, -- Unknown
+	questID = 46090, -- Rare Elite 01
+}
+
+NPCs[117303] = { -- Malificus
+	questID = 46948, -- Malificus
 }
 
 NPCs[117470] = { -- Si'vash
@@ -717,43 +809,43 @@ NPCs[117470] = { -- Si'vash
 }
 
 NPCs[118993] = { -- Dreadeye
-	questID = 46202, -- Unknown
+	questID = 46202, -- Rare Elite 14
 }
 
 NPCs[119629] = { -- Lord Hel'Nurath
-	questID = 46304, -- Unknown
+	questID = 46304, -- Rare Elite 15
 }
 
 NPCs[119718] = { -- Imp Mother Bruva
-	questID = 46313, -- Unknown
+	questID = 46313, -- Rare Elite 16
 }
 
 NPCs[120998] = { -- Flllurlokkr
-	questID = 46951, -- Unknown
+	questID = 46951, -- Rare Elite 17
 }
 
 NPCs[121016] = { -- Aqueux
-	questID = 46953, -- Unknown
+	questID = 46953, -- Rare Elite 18
 }
 
 NPCs[121029] = { -- Brood Mother Nix
-	questID = 46965, -- Unknown
+	questID = 46965, -- Rare Elite 19
 }
 
 NPCs[121037] = { -- Grossir
-	questID = 46995, -- Unknown
+	questID = 46995, -- Rare Elite 20
 }
 
 NPCs[121046] = { -- Brother Badatin
-	questID = 47001, -- Unknown
+	questID = 47001, -- Rare Elite 21
 }
 
 NPCs[121107] = { -- Lady Eldrathe
-	questID = 47026, -- Unknown
+	questID = 47026, -- Rare Elite 22
 }
 
 NPCs[121112] = { -- Somber Dawn
-	questID = 47028, -- Unknown
+	questID = 47028, -- Rare Elite 23
 }
 
 NPCs[121124] = { -- Apocron
@@ -761,11 +853,11 @@ NPCs[121124] = { -- Apocron
 }
 
 NPCs[121134] = { -- Duke Sithizi
-	questID = 47036, -- Unknown
+	questID = 47036, -- Rare Elite 24
 }
 
 -- ----------------------------------------------------------------------------
--- Helheim (1022)
+-- Helheim
 -- ----------------------------------------------------------------------------
 NPCs[92040] = { -- Fenri
 	questID = 38461, -- Guarms Mate (Fenri)
@@ -778,7 +870,7 @@ NPCs[97630] = { -- Soulthirster
 }
 
 -- ----------------------------------------------------------------------------
--- Highmountain (1024)
+-- Highmountain
 -- ----------------------------------------------------------------------------
 NPCs[94877] = { -- Brogrul the Mighty
 	questID = 39235, -- Buba
@@ -802,6 +894,9 @@ NPCs[96072] = { -- Durguth
 NPCs[96410] = { -- Majestic Elderhorn
 	isTameable = true,
 	questID = 39646, -- Albino Elderhorn
+	toys = {
+		{ itemID = 131900 }, -- Majestic Elderhorn Hoof
+	},
 	vignetteName = "Majestic Elderhorn",
 }
 
@@ -817,6 +912,9 @@ NPCs[96621] = { -- Mellok, Son of Torok
 
 NPCs[97093] = { -- Shara Felbreath
 	questID = 39762, -- Feltotem Warlock
+	toys = {
+		{ itemID = 131900 }, -- Majestic Elderhorn Hoof
+	},
 	vignetteName = "Shara Felbreath",
 }
 
@@ -826,6 +924,12 @@ NPCs[97102] = { -- Ram'Pag
 }
 
 NPCs[97203] = { -- Tenpak Flametotem
+	pets = {
+		{
+			itemID = 129175, -- Crispin
+			npcID = 98077, -- Crispin
+		},
+	},
 	questID = 39782, -- The Exiled Shaman
 	vignetteName = "The Exiled Shaman",
 }
@@ -986,7 +1090,7 @@ NPCs[109501] = { -- Darkful
 }
 
 NPCs[110378] = { -- Drugon the Frostblood
-	questID = 44503, -- Unknown
+	questID = 44503, -- Tracking Quest
 }
 
 NPCs[125951] = { -- Obsidian Deathwarder
@@ -994,7 +1098,7 @@ NPCs[125951] = { -- Obsidian Deathwarder
 }
 
 -- ----------------------------------------------------------------------------
--- Mardum, the Shattered Abyss (1028)
+-- Mardum, the Shattered Abyss
 -- ----------------------------------------------------------------------------
 NPCs[97057] = { -- Overseer Brutarg
 	questID = 40233, -- The Brood Queen's Court: Overseer Brutarg
@@ -1017,7 +1121,7 @@ NPCs[97370] = { -- General Volroth
 }
 
 -- ----------------------------------------------------------------------------
--- Vault of the Wardens (1032)
+-- Vault of the Wardens
 -- ----------------------------------------------------------------------------
 NPCs[96997] = { -- Kethrazor
 	questID = 40251, -- Kethrazor
@@ -1030,7 +1134,7 @@ NPCs[97069] = { -- Wrath-Lord Lekos
 }
 
 -- ----------------------------------------------------------------------------
--- Suramar (1033)
+-- Suramar
 -- ----------------------------------------------------------------------------
 NPCs[99610] = { -- Garvrulg
 	questID = 40897, -- Garvrulg
@@ -1137,6 +1241,12 @@ NPCs[106526] = { -- Lady Rivantas
 }
 
 NPCs[106532] = { -- Inquisitor Volitix
+	pets = {
+		{
+			itemID = 136901, -- Eye of Inquisition
+			npcID = 97179, -- Eye of Inquisition
+		}
+	},
 	questID = 44569, -- Inquisitor Volitix
 	vignetteName = "Inquisitor Volitix",
 }
@@ -1144,6 +1254,9 @@ NPCs[106532] = { -- Inquisitor Volitix
 NPCs[107846] = { -- Pinchshank
 	isTameable = true,
 	questID = 43968, -- Pinchshank
+	toys = {
+		{ itemID = 140314 }, -- Crab Shank
+	},
 	vignetteName = "Pinchshank",
 }
 
@@ -1218,6 +1331,12 @@ NPCs[111007] = { -- Randril
 }
 
 NPCs[111197] = { -- Anax
+	pets = {
+		{
+			itemID = 140934, -- Benax
+			npcID = 113136, -- Benax
+		},
+	},
 	questID = 43954, -- Anax
 	vignetteName = "Anax",
 }
@@ -1288,7 +1407,7 @@ NPCs[113694] = { -- Pashya
 }
 
 -- ----------------------------------------------------------------------------
--- Eye of Azshara (1046)
+-- Eye of Azshara
 -- ----------------------------------------------------------------------------
 NPCs[101411] = { -- Gom Crabbar
 	vignetteName = "Gom Crabbar",
@@ -1299,7 +1418,7 @@ NPCs[111573] = { -- Kosumoth the Hungering
 }
 
 -- ----------------------------------------------------------------------------
--- Thunder Totem (1080)
+-- Thunder Totem
 -- ----------------------------------------------------------------------------
 NPCs[101077] = { -- Sekhan
 	isTameable = true,

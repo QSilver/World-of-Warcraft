@@ -2,7 +2,7 @@
 --
 -- Prat - A framework for World of Warcraft chat mods
 --
--- Copyright (C) 2006-2011  Prat Development Team
+-- Copyright (C) 2006-2018  Prat Development Team
 --
 -- This program is free software; you can redistribute it and/or
 -- modify it under the terms of the GNU General Public License
@@ -36,7 +36,9 @@ if PRAT_MODULE == nil then
     return 
 end
 
-local PL = Prat:GetLocalizer({})
+local module = Prat:NewModule(PRAT_MODULE, "AceEvent-3.0")
+
+local PL = module.PL
 
 --[===[@debug@
 PL:AddLocale(PRAT_MODULE, "enUS", {
@@ -86,30 +88,30 @@ PL:AddLocale(PRAT_MODULE, "enUS", L)
 L=
 {
 	["Filtering"] = {
-		--Translation missing 
-		-- ["A module to provide basic chat filtering."] = "",
-		--Translation missing 
-		-- ["afkdnd_desc"] = "",
-		--Translation missing 
-		-- ["afkdnd_name"] = "",
-		--Translation missing 
-		-- ["bgjoin_desc"] = "",
-		--Translation missing 
-		-- ["bgjoin_name"] = "",
-		--Translation missing 
-		-- ["Filtering"] = "",
-		--Translation missing 
-		-- ["leavejoin_desc"] = "",
-		--Translation missing 
-		-- ["leavejoin_name"] = "",
-		--Translation missing 
-		-- ["notices_desc"] = "",
-		--Translation missing 
-		-- ["notices_name"] = "",
-		--Translation missing 
-		-- ["tradespam_desc"] = "",
-		--Translation missing 
-		-- ["tradespam_name"] = "",
+		--[[Translation missing --]]
+		--[[ ["A module to provide basic chat filtering."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["afkdnd_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["afkdnd_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["bgjoin_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["bgjoin_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Filtering"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["leavejoin_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["leavejoin_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["notices_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["notices_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["tradespam_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["tradespam_name"] = "",--]] 
 	}
 }
 PL:AddLocale(PRAT_MODULE, "itIT", L)
@@ -118,30 +120,30 @@ PL:AddLocale(PRAT_MODULE, "itIT", L)
 L=
 {
 	["Filtering"] = {
-		--Translation missing 
-		-- ["A module to provide basic chat filtering."] = "",
-		--Translation missing 
-		-- ["afkdnd_desc"] = "",
-		--Translation missing 
-		-- ["afkdnd_name"] = "",
-		--Translation missing 
-		-- ["bgjoin_desc"] = "",
-		--Translation missing 
-		-- ["bgjoin_name"] = "",
-		--Translation missing 
-		-- ["Filtering"] = "",
-		--Translation missing 
-		-- ["leavejoin_desc"] = "",
-		--Translation missing 
-		-- ["leavejoin_name"] = "",
-		--Translation missing 
-		-- ["notices_desc"] = "",
-		--Translation missing 
-		-- ["notices_name"] = "",
-		--Translation missing 
-		-- ["tradespam_desc"] = "",
-		--Translation missing 
-		-- ["tradespam_name"] = "",
+		--[[Translation missing --]]
+		--[[ ["A module to provide basic chat filtering."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["afkdnd_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["afkdnd_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["bgjoin_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["bgjoin_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Filtering"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["leavejoin_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["leavejoin_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["notices_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["notices_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["tradespam_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["tradespam_name"] = "",--]] 
 	}
 }
 PL:AddLocale(PRAT_MODULE, "ptBR", L)
@@ -150,22 +152,22 @@ L=
 {
 	["Filtering"] = {
 		["A module to provide basic chat filtering."] = "Un module pour fournir un filtrage basique",
-		--Translation missing 
-		-- ["afkdnd_desc"] = "",
-		--Translation missing 
-		-- ["afkdnd_name"] = "",
+		--[[Translation missing --]]
+		--[[ ["afkdnd_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["afkdnd_name"] = "",--]] 
 		["bgjoin_desc"] = "Filtrer les messages du canal Champ de bataille: \"quitte/rejoint\"",
 		["bgjoin_name"] = "Filtrer BG quitte/rejoint",
 		["Filtering"] = "Filtrage",
 		["leavejoin_desc"] = "Filtrer les messages: \"quitte/rejoint le canal\"",
 		["leavejoin_name"] = "Filtre Rejoindre/Quitte",
-		--Translation missing 
-		-- ["notices_desc"] = "",
+		--[[Translation missing --]]
+		--[[ ["notices_desc"] = "",--]] 
 		["notices_name"] = "Notifications de filtrage",
-		--Translation missing 
-		-- ["tradespam_desc"] = "",
-		--Translation missing 
-		-- ["tradespam_name"] = "",
+		--[[Translation missing --]]
+		--[[ ["tradespam_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["tradespam_name"] = "",--]] 
 	}
 }
 PL:AddLocale(PRAT_MODULE, "frFR",L)
@@ -212,30 +214,30 @@ PL:AddLocale(PRAT_MODULE, "koKR",L)
 L=
 {
 	["Filtering"] = {
-		--Translation missing 
-		-- ["A module to provide basic chat filtering."] = "",
-		--Translation missing 
-		-- ["afkdnd_desc"] = "",
-		--Translation missing 
-		-- ["afkdnd_name"] = "",
-		--Translation missing 
-		-- ["bgjoin_desc"] = "",
-		--Translation missing 
-		-- ["bgjoin_name"] = "",
-		--Translation missing 
-		-- ["Filtering"] = "",
-		--Translation missing 
-		-- ["leavejoin_desc"] = "",
-		--Translation missing 
-		-- ["leavejoin_name"] = "",
-		--Translation missing 
-		-- ["notices_desc"] = "",
-		--Translation missing 
-		-- ["notices_name"] = "",
-		--Translation missing 
-		-- ["tradespam_desc"] = "",
-		--Translation missing 
-		-- ["tradespam_name"] = "",
+		--[[Translation missing --]]
+		--[[ ["A module to provide basic chat filtering."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["afkdnd_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["afkdnd_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["bgjoin_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["bgjoin_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Filtering"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["leavejoin_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["leavejoin_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["notices_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["notices_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["tradespam_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["tradespam_name"] = "",--]] 
 	}
 }
 PL:AddLocale(PRAT_MODULE, "esMX",L)
@@ -279,10 +281,10 @@ L=
 {
 	["Filtering"] = {
 		["A module to provide basic chat filtering."] = "Un módulo que proporciona el filtrado básico del chat.",
-		--Translation missing 
-		-- ["afkdnd_desc"] = "",
-		--Translation missing 
-		-- ["afkdnd_name"] = "",
+		--[[Translation missing --]]
+		--[[ ["afkdnd_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["afkdnd_name"] = "",--]] 
 		["bgjoin_desc"] = "Filtrar en canal Campo de Batlla spam ha abandonado/se ha unido",
 		["bgjoin_name"] = "Filtrar mensajes de unión/dejadas de Campos de Batalla",
 		["Filtering"] = "Filtrado",
@@ -290,10 +292,10 @@ L=
 		["leavejoin_name"] = "Filtro de Canal  Ha abandonado / Se ha unido",
 		["notices_desc"] = "Filtrar otros mensajes de notificación de canal personalizado, por ejemplo, los cambios de moderador.",
 		["notices_name"] = "Filtrar Noticias del Canal",
-		--Translation missing 
-		-- ["tradespam_desc"] = "",
-		--Translation missing 
-		-- ["tradespam_name"] = "",
+		--[[Translation missing --]]
+		--[[ ["tradespam_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["tradespam_name"] = "",--]] 
 	}
 }
 PL:AddLocale(PRAT_MODULE, "esES",L)
@@ -301,10 +303,10 @@ L=
 {
 	["Filtering"] = {
 		["A module to provide basic chat filtering."] = "模組：提供基本聊天過濾。",
-		--Translation missing 
-		-- ["afkdnd_desc"] = "",
-		--Translation missing 
-		-- ["afkdnd_name"] = "",
+		--[[Translation missing --]]
+		--[[ ["afkdnd_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["afkdnd_name"] = "",--]] 
 		["bgjoin_desc"] = "濾除戰場頻道離開/加入訊息",
 		["bgjoin_name"] = "過濾戰場離開/參加",
 		["Filtering"] = "過濾",
@@ -312,10 +314,10 @@ L=
 		["leavejoin_name"] = "過濾頻道離開/加入",
 		["notices_desc"] = "濾除自訂頻道通知訊息，像是主持人變動",
 		["notices_name"] = "過濾頻道通知",
-		--Translation missing 
-		-- ["tradespam_desc"] = "",
-		--Translation missing 
-		-- ["tradespam_name"] = "",
+		--[[Translation missing --]]
+		--[[ ["tradespam_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["tradespam_name"] = "",--]] 
 	}
 }
 PL:AddLocale(PRAT_MODULE, "zhTW",L)
@@ -323,7 +325,6 @@ end
 --@end-non-debug@
 
 
-local module = Prat:NewModule(PRAT_MODULE, "AceEvent-3.0")
 
 Prat:SetModuleDefaults(module, {
 	profile = {
@@ -449,7 +450,9 @@ end
     Core Functions
 ------------------------------------------------]]--
 
-
+function module:GetDescription()
+    return PL["A module to provide basic chat filtering."]
+end
 
 function module:PruneMessages()
     for k,v in pairs(MessageTime) do

@@ -2,7 +2,7 @@
 --
 -- Prat - A framework for World of Warcraft chat mods
 --
--- Copyright (C) 2006-2011  Prat Development Team
+-- Copyright (C) 2006-2018  Prat Development Team
 --
 -- This program is free software; you can redistribute it and/or
 -- modify it under the terms of the GNU General Public License
@@ -34,7 +34,9 @@ Prat:AddModuleToLoad(function()
     return
   end
 
-  local PL = Prat:GetLocalizer({})
+  local module = Prat:NewModule(PRAT_MODULE, "LibSink-2.0")
+
+  local PL = module.PL
 
   --[===[@debug@
   PL:AddLocale(PRAT_MODULE, "enUS", {
@@ -144,89 +146,89 @@ L=
 L=
 {
 	["CustomFilters"] = {
-		--Translation missing 
-		-- ["<string>"] = "",
-		--Translation missing 
-		-- ["Add a pattern to search for."] = "",
-		--Translation missing 
-		-- ["Add Pattern"] = "",
-		--Translation missing 
-		-- ["Block Message"] = "",
-		--Translation missing 
-		-- ["Channel Data"] = "",
-		--Translation missing 
-		-- ["Channel to send output text to."] = "",
+		--[[Translation missing --]]
+		--[[ ["<string>"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Add a pattern to search for."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Add Pattern"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Block Message"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Channel Data"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Channel to send output text to."] = "",--]] 
 		["Enabled"] = "Activé",
-		--Translation missing 
-		-- ["Extra data for WHISPER (target) and CHANNEL (channel name or num)"] = "",
-		--Translation missing 
-		-- ["Filter Name"] = "",
-		--Translation missing 
-		-- ["Forward"] = "",
-		--Translation missing 
-		-- ["Forward the message to a chat channel."] = "",
-		--Translation missing 
-		-- ["Forward the message to a custom chat channel."] = "",
-		--Translation missing 
-		-- ["ForwardCustom"] = "",
-		--Translation missing 
-		-- ["ForwardMessage"] = "",
-		--Translation missing 
-		-- ["ForwardMessageCustom"] = "",
-		--Translation missing 
-		-- ["Hilight Color"] = "",
-		--Translation missing 
-		-- ["Hilight Match Text"] = "",
-		--Translation missing 
-		-- ["Inbound"] = "",
-		--Translation missing 
-		-- ["inchannels_desc"] = "",
-		--Translation missing 
-		-- ["inchannels_name"] = "",
-		--Translation missing 
-		-- ["Is this pattern enabled for use?"] = "",
-		--Translation missing 
-		-- ["Match Options"] = "",
-		--Translation missing 
-		-- ["module_desc"] = "",
-		--Translation missing 
-		-- ["module_name"] = "",
-		--Translation missing 
-		-- ["Only output the message portion of the chat text, leave out the channel, and playername etc."] = "",
-		--Translation missing 
-		-- ["Outbound"] = "",
-		--Translation missing 
-		-- ["Output Channel"] = "",
-		--Translation missing 
-		-- ["Output Message Only"] = "",
-		--Translation missing 
-		-- ["Pattern Info"] = "",
-		--Translation missing 
-		-- ["Pattern Options"] = "",
-		--Translation missing 
-		-- ["Play a sound when this message is output to the chatframe"] = "",
-		--Translation missing 
-		-- ["Play Sound"] = "",
-		--Translation missing 
-		-- ["Prevent the message from being displayed"] = "",
-		--Translation missing 
-		-- ["Remove an existing pattern."] = "",
-		--Translation missing 
-		-- ["Remove Pattern"] = "",
-		--Translation missing 
-		-- ["Replacement Text"] = "",
-		--Translation missing 
-		-- ["Search Format String"] = "",
-		--Translation missing 
-		-- ["Search Pattern"] = "",
-		--Translation missing 
-		-- ["Secondary Output"] = "",
-		--Translation missing 
-		-- ["Send to a secondary output"] = "",
-		--Translation missing 
-		-- ["Supplied pattern is a format string instead of a pattern"] = "",
-		--Translation missing 
-		-- ["Your name for this filter"] = "",
+		--[[Translation missing --]]
+		--[[ ["Extra data for WHISPER (target) and CHANNEL (channel name or num)"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Filter Name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Forward"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Forward the message to a chat channel."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Forward the message to a custom chat channel."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["ForwardCustom"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["ForwardMessage"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["ForwardMessageCustom"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Hilight Color"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Hilight Match Text"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Inbound"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["inchannels_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["inchannels_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Is this pattern enabled for use?"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Match Options"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["module_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["module_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Only output the message portion of the chat text, leave out the channel, and playername etc."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Outbound"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Output Channel"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Output Message Only"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Pattern Info"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Pattern Options"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Play a sound when this message is output to the chatframe"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Play Sound"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Prevent the message from being displayed"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Remove an existing pattern."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Remove Pattern"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Replacement Text"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Search Format String"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Search Pattern"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Secondary Output"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Send to a secondary output"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Supplied pattern is a format string instead of a pattern"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Your name for this filter"] = "",--]] 
 	}
 }
 
@@ -338,90 +340,90 @@ L=
 L=
 {
 	["CustomFilters"] = {
-		--Translation missing 
-		-- ["<string>"] = "",
-		--Translation missing 
-		-- ["Add a pattern to search for."] = "",
-		--Translation missing 
-		-- ["Add Pattern"] = "",
-		--Translation missing 
-		-- ["Block Message"] = "",
-		--Translation missing 
-		-- ["Channel Data"] = "",
-		--Translation missing 
-		-- ["Channel to send output text to."] = "",
-		--Translation missing 
-		-- ["Enabled"] = "",
-		--Translation missing 
-		-- ["Extra data for WHISPER (target) and CHANNEL (channel name or num)"] = "",
-		--Translation missing 
-		-- ["Filter Name"] = "",
-		--Translation missing 
-		-- ["Forward"] = "",
-		--Translation missing 
-		-- ["Forward the message to a chat channel."] = "",
-		--Translation missing 
-		-- ["Forward the message to a custom chat channel."] = "",
-		--Translation missing 
-		-- ["ForwardCustom"] = "",
-		--Translation missing 
-		-- ["ForwardMessage"] = "",
-		--Translation missing 
-		-- ["ForwardMessageCustom"] = "",
-		--Translation missing 
-		-- ["Hilight Color"] = "",
-		--Translation missing 
-		-- ["Hilight Match Text"] = "",
-		--Translation missing 
-		-- ["Inbound"] = "",
-		--Translation missing 
-		-- ["inchannels_desc"] = "",
-		--Translation missing 
-		-- ["inchannels_name"] = "",
-		--Translation missing 
-		-- ["Is this pattern enabled for use?"] = "",
-		--Translation missing 
-		-- ["Match Options"] = "",
-		--Translation missing 
-		-- ["module_desc"] = "",
-		--Translation missing 
-		-- ["module_name"] = "",
-		--Translation missing 
-		-- ["Only output the message portion of the chat text, leave out the channel, and playername etc."] = "",
-		--Translation missing 
-		-- ["Outbound"] = "",
-		--Translation missing 
-		-- ["Output Channel"] = "",
-		--Translation missing 
-		-- ["Output Message Only"] = "",
-		--Translation missing 
-		-- ["Pattern Info"] = "",
-		--Translation missing 
-		-- ["Pattern Options"] = "",
-		--Translation missing 
-		-- ["Play a sound when this message is output to the chatframe"] = "",
-		--Translation missing 
-		-- ["Play Sound"] = "",
-		--Translation missing 
-		-- ["Prevent the message from being displayed"] = "",
-		--Translation missing 
-		-- ["Remove an existing pattern."] = "",
-		--Translation missing 
-		-- ["Remove Pattern"] = "",
-		--Translation missing 
-		-- ["Replacement Text"] = "",
-		--Translation missing 
-		-- ["Search Format String"] = "",
-		--Translation missing 
-		-- ["Search Pattern"] = "",
-		--Translation missing 
-		-- ["Secondary Output"] = "",
-		--Translation missing 
-		-- ["Send to a secondary output"] = "",
-		--Translation missing 
-		-- ["Supplied pattern is a format string instead of a pattern"] = "",
-		--Translation missing 
-		-- ["Your name for this filter"] = "",
+		--[[Translation missing --]]
+		--[[ ["<string>"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Add a pattern to search for."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Add Pattern"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Block Message"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Channel Data"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Channel to send output text to."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Enabled"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Extra data for WHISPER (target) and CHANNEL (channel name or num)"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Filter Name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Forward"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Forward the message to a chat channel."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Forward the message to a custom chat channel."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["ForwardCustom"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["ForwardMessage"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["ForwardMessageCustom"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Hilight Color"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Hilight Match Text"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Inbound"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["inchannels_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["inchannels_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Is this pattern enabled for use?"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Match Options"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["module_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["module_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Only output the message portion of the chat text, leave out the channel, and playername etc."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Outbound"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Output Channel"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Output Message Only"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Pattern Info"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Pattern Options"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Play a sound when this message is output to the chatframe"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Play Sound"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Prevent the message from being displayed"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Remove an existing pattern."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Remove Pattern"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Replacement Text"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Search Format String"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Search Pattern"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Secondary Output"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Send to a secondary output"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Supplied pattern is a format string instead of a pattern"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Your name for this filter"] = "",--]] 
 	}
 }
 
@@ -604,23 +606,23 @@ L=
 		["Inbound"] = "傳入",
 		["inchannels_desc"] = "搜尋某些頻道",
 		["inchannels_name"] = "搜尋頻道",
-		--Translation missing 
-		-- ["Is this pattern enabled for use?"] = "",
+		--[[Translation missing --]]
+		--[[ ["Is this pattern enabled for use?"] = "",--]] 
 		["Match Options"] = "匹配選項",
 		["module_desc"] = "支援自訂過濾的模組",
 		["module_name"] = "自定義過濾",
-		--Translation missing 
-		-- ["Only output the message portion of the chat text, leave out the channel, and playername etc."] = "",
+		--[[Translation missing --]]
+		--[[ ["Only output the message portion of the chat text, leave out the channel, and playername etc."] = "",--]] 
 		["Outbound"] = "傳出",
 		["Output Channel"] = "輸出頻道",
 		["Output Message Only"] = "僅輸出訊息",
 		["Pattern Info"] = "樣式資訊",
 		["Pattern Options"] = "模式選項",
-		--Translation missing 
-		-- ["Play a sound when this message is output to the chatframe"] = "",
+		--[[Translation missing --]]
+		--[[ ["Play a sound when this message is output to the chatframe"] = "",--]] 
 		["Play Sound"] = "播放音效",
-		--Translation missing 
-		-- ["Prevent the message from being displayed"] = "",
+		--[[Translation missing --]]
+		--[[ ["Prevent the message from being displayed"] = "",--]] 
 		["Remove an existing pattern."] = "替換文本",
 		["Remove Pattern"] = "移除模板",
 		["Replacement Text"] = "替換文字",
@@ -628,8 +630,8 @@ L=
 		["Search Pattern"] = "搜尋樣式",
 		["Secondary Output"] = "次要輸出",
 		["Send to a secondary output"] = "發送次要輸出",
-		--Translation missing 
-		-- ["Supplied pattern is a format string instead of a pattern"] = "",
+		--[[Translation missing --]]
+		--[[ ["Supplied pattern is a format string instead of a pattern"] = "",--]] 
 		["Your name for this filter"] = "你的名字此過濾",
 	}
 }
@@ -676,7 +678,6 @@ end
 
 
 
-  local module = Prat:NewModule(PRAT_MODULE, "LibSink-2.0")
 
   local patterndefaults = {
     ["*"] = {

@@ -531,6 +531,8 @@ L["STRING_OPTIONS_CENERGY_DESC"] = [=[啟用獲得:
 - |cFFFFFF00符文能量生成|r]=]
 L["STRING_OPTIONS_CHANGE_CLASSCOLORS"] = "修改職業顏色"
 L["STRING_OPTIONS_CHANGE_CLASSCOLORS_DESC"] = "選擇職業的新顏色。"
+--[[Translation missing --]]
+--[[ L["STRING_OPTIONS_CHANGECOLOR"] = ""--]] 
 L["STRING_OPTIONS_CHANGELOG"] = "版本註釋"
 L["STRING_OPTIONS_CHART_ADD"] = "增加數據"
 L["STRING_OPTIONS_CHART_ADD2"] = "增加"
@@ -773,8 +775,7 @@ L["STRING_OPTIONS_MENU_ATTRIBUTE_ENABLED_DESC"] = "激活顯示,目前顯示在�
 L["STRING_OPTIONS_MENU_ATTRIBUTE_ENCOUNTERTIMER"] = "首領戰鬥計時器"
 L["STRING_OPTIONS_MENU_ATTRIBUTE_ENCOUNTERTIMER_DESC"] = "如果開啟，在文字的左側將出現一個計時器"
 L["STRING_OPTIONS_MENU_ATTRIBUTE_FONT"] = "文字字體"
---[[Translation missing --]]
---[[ L["STRING_OPTIONS_MENU_ATTRIBUTE_FONT_DESC"] = ""--]] 
+L["STRING_OPTIONS_MENU_ATTRIBUTE_FONT_DESC"] = "選擇屬性文字的字體。"
 L["STRING_OPTIONS_MENU_ATTRIBUTE_SHADOW_DESC"] = "啟用或是禁用文字陰影"
 L["STRING_OPTIONS_MENU_ATTRIBUTE_SIDE"] = "附加到頂端"
 L["STRING_OPTIONS_MENU_ATTRIBUTE_SIDE_DESC"] = "選擇文字所在的位置。"
@@ -853,14 +854,10 @@ L["STRING_OPTIONS_OVERALL_RAIDBOSS"] = "團副首領(王)"
 L["STRING_OPTIONS_OVERALL_RAIDBOSS_DESC"] = "帶有團體戰鬥的片段被添加到整體數據中。"
 L["STRING_OPTIONS_OVERALL_RAIDCLEAN"] = "團副小怪(垃圾)"
 L["STRING_OPTIONS_OVERALL_RAIDCLEAN_DESC"] = "將團副小怪(垃圾)數據處理分被添加到整體數據中。"
---[[Translation missing --]]
---[[ L["STRING_OPTIONS_PANIMODE"] = ""--]] 
---[[Translation missing --]]
---[[ L["STRING_OPTIONS_PANIMODE_DESC"] = ""--]] 
---[[Translation missing --]]
---[[ L["STRING_OPTIONS_PDW_ANCHOR"] = ""--]] 
---[[Translation missing --]]
---[[ L["STRING_OPTIONS_PDW_SKIN_DESC"] = ""--]] 
+L["STRING_OPTIONS_PANIMODE"] = "慌亂模式"
+L["STRING_OPTIONS_PANIMODE_DESC"] = "如果啟用並且您從遊戲中退出（例如通過斷開連接），而您正在與首領對戰中，則所有片段都將被刪除，這將使您的登出過程更快。"
+L["STRING_OPTIONS_PDW_ANCHOR"] = "面板："
+L["STRING_OPTIONS_PDW_SKIN_DESC"] = "在玩家詳細訊息視窗、報告視窗和選項面板上使用的皮膚。 某些更改需要重載。"
 --[[Translation missing --]]
 --[[ L["STRING_OPTIONS_PERCENT_TYPE"] = ""--]] 
 --[[Translation missing --]]
@@ -1693,6 +1690,20 @@ L["STRING_WELCOME_7"] = "用於排名，這個方式會使用已經產生的數�
 L["STRING_WELCOME_70"] = "標題條設定"
 L["STRING_WELCOME_71"] = "列表設定"
 L["STRING_WELCOME_72"] = "視窗設定"
+--[[Translation missing --]]
+--[[ L["STRING_WELCOME_73"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["STRING_WELCOME_74"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["STRING_WELCOME_75"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["STRING_WELCOME_76"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["STRING_WELCOME_77"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["STRING_WELCOME_78"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["STRING_WELCOME_79"] = ""--]] 
 L["STRING_WINDOW_NOTFOUND"] = "沒有找到視窗。"
 L["STRING_WINDOW_NUMBER"] = "視窗數"
 L["STRING_WINDOW1ATACH_DESC"] = "要創建窗口組，請拖拽窗口 #2 到窗口 #1 旁"

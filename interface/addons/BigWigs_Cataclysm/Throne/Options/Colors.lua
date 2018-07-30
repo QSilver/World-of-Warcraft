@@ -1,22 +1,22 @@
 
 BigWigs:AddColors("Conclave of Wind", {
-	["full_power"] = "Attention",
-	[86205] = "Urgent",
-	[86307] = "Important",
-	[84645] = "Personal",
-	[85422] = "Urgent",
-	[86193] = "Important",
-	["storm_shield"] = "Urgent",
-	[86281] = "Urgent",
+	[84645] = "blue",
+	[85422] = "orange",
+	[86193] = "red",
+	[86205] = "orange",
+	[86281] = "orange",
+	[86307] = "red",
+	["full_power"] = "yellow",
+	["storm_shield"] = "orange",
 })
 
 BigWigs:AddColors("Al'Akir", {
-	[88301] = "Attention",
-	["stages"] = "Positive",
-	[87770] = {"Important","Attention"},
-	["stormling"] = "Important",
-	[87904] = "Positive",
-	[89588] = {"Urgent","Important"},
-	[88427] = "Personal",
-	[89668] = "Personal",
+	[87770] = {"red","yellow"},
+	[87904] = "green",
+	[88301] = "yellow",
+	[88427] = "blue",
+	[89588] = {"orange","red"},
+	[89668] = "blue",
+	["stages"] = "green",
+	["stormling"] = "red",
 })

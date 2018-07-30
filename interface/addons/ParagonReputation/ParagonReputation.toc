@@ -1,7 +1,7 @@
-## Interface: 70300
+## Interface: 80000
 ## Title: |cff0088eeParagon|r Reputation
 ## Author: |cffabd473Sev|r |cffbd87e7US-Drakkari|r
-## Version: 1.18
+## Version: 1.19
 ## Notes: Switch Exalted Bars for Paragon Bars.
 ## DefaultState: Enabled
 ## LoadOnDemand: 0

@@ -3,11 +3,12 @@
 -- ----------------------------------------------------------------------------
 local AddOnFolderName, private = ...
 local Maps = private.Data.Maps
+local MapID = private.Enum.MapID
 
 -- ----------------------------------------------------------------------------
 -- The Jade Forest
 -- ----------------------------------------------------------------------------
-Maps[806].NPCs = {
+Maps[MapID.TheJadeForest].NPCs = {
     [50338] = true, -- Kor'nas Nightsavage
     [50350] = true, -- Morgrinn Crackfang
     [50363] = true, -- Krax'ik
@@ -26,7 +27,7 @@ Maps[806].NPCs = {
 -- ----------------------------------------------------------------------------
 -- Valley of the Four Winds
 -- ----------------------------------------------------------------------------
-Maps[807].NPCs = {
+Maps[MapID.ValleyOfTheFourWinds].NPCs = {
     [50339] = true, -- Sulik'shor
     [50351] = true, -- Jonn-Dar
     [50364] = true, -- Nal'lak the Ripper
@@ -34,13 +35,14 @@ Maps[807].NPCs = {
     [50783] = true, -- Salyin Warscout
     [50811] = true, -- Nasra Spothide
     [50828] = true, -- Bonobos
-    [51059] = true -- Blackhoof
+	[51059] = true, -- Blackhoof
+	[62346] = true, -- Galleon
 }
 
 -- ----------------------------------------------------------------------------
 -- Kun-Lai Summit
 -- ----------------------------------------------------------------------------
-Maps[809].NPCs = {
+Maps[MapID.KunLaiSummit].NPCs = {
     [50332] = true, -- Korda Torros
     [50341] = true, -- Borginn Darkfist
     [50354] = true, -- Havak
@@ -49,7 +51,8 @@ Maps[809].NPCs = {
     [50789] = true, -- Nessos the Oracle
     [50817] = true, -- Ahone the Wanderer
     [50831] = true, -- Scritch
-    [69768] = true, -- Zandalari Warscout
+	[60491] = true, -- Sha of Anger
+	[69768] = true, -- Zandalari Warscout
     [69769] = true, -- Zandalari Warbringer
     [69841] = true, -- Zandalari Warbringer
     [69842] = true, -- Zandalari Warbringer
@@ -59,7 +62,7 @@ Maps[809].NPCs = {
 -- ----------------------------------------------------------------------------
 -- Townlong Steppes
 -- ----------------------------------------------------------------------------
-Maps[810].NPCs = {
+Maps[MapID.TownlongSteppes].NPCs = {
     [50333] = true, -- Lon the Bull
     [50344] = true, -- Norlaxx
     [50355] = true, -- Kah'tir
@@ -78,7 +81,7 @@ Maps[810].NPCs = {
 -- ----------------------------------------------------------------------------
 -- Vale of Eternal Blossoms
 -- ----------------------------------------------------------------------------
-Maps[811].NPCs = {
+Maps[MapID.ValeOfEternalBlossoms].NPCs = {
     [50336] = true, -- Yorik Sharpeye
     [50349] = true, -- Kang the Soul Thief
     [50359] = true, -- Urgolax
@@ -110,7 +113,7 @@ Maps[811].NPCs = {
 -- ----------------------------------------------------------------------------
 -- Krasarang Wilds
 -- ----------------------------------------------------------------------------
-Maps[857].NPCs = {
+Maps[MapID.KrasarangWilds].NPCs = {
     [50331] = true, -- Go-Kan
     [50340] = true, -- Gaarn the Toxic
     [50352] = true, -- Qu'nas
@@ -133,7 +136,7 @@ Maps[857].NPCs = {
 -- ----------------------------------------------------------------------------
 -- Dread Wastes
 -- ----------------------------------------------------------------------------
-Maps[858].NPCs = {
+Maps[MapID.DreadWastes].NPCs = {
     [50334] = true, -- Dak the Breaker
     [50347] = true, -- Karr the Darkener
     [50356] = true, -- Krol the Blade
@@ -151,14 +154,14 @@ Maps[858].NPCs = {
 -- ----------------------------------------------------------------------------
 -- The Veiled Stair
 -- ----------------------------------------------------------------------------
-Maps[873].NPCs = {
+Maps[MapID.TheVeiledStair].NPCs = {
     [70126] = true -- Willy Wilder
 }
 
 -- ----------------------------------------------------------------------------
 -- Isle of Thunder
 -- ----------------------------------------------------------------------------
-Maps[928].NPCs = {
+Maps[MapID.IsleOfThunder].NPCs = {
     [50358] = true, -- Haywire Sunreaver Construct
     [69099] = true, -- Nalak
     [69664] = true, -- Mumta
@@ -176,7 +179,7 @@ Maps[928].NPCs = {
 -- ----------------------------------------------------------------------------
 -- Isle of Giants
 -- ----------------------------------------------------------------------------
-Maps[929].NPCs = {
+Maps[MapID.IsleOfGiants].NPCs = {
     [69161] = true, -- Oondasta
     [70096] = true -- War-God Dokah
 }
@@ -184,7 +187,7 @@ Maps[929].NPCs = {
 -- ----------------------------------------------------------------------------
 -- Throne of Thunder
 -- ----------------------------------------------------------------------------
-Maps[930].NPCs = {
+Maps[MapID.ThroneOfThunder].NPCs = {
     [69843] = true, -- Zao'cho
     [70238] = true, -- Unblinking Eye
     [70243] = true, -- Archritualist Kelada
@@ -198,7 +201,7 @@ Maps[930].NPCs = {
 -- ----------------------------------------------------------------------------
 -- Timeless Isle
 -- ----------------------------------------------------------------------------
-Maps[951].NPCs = {
+Maps[MapID.TimelessIsle].NPCs = {
     [71864] = true, -- Spelurk
     [71919] = true, -- Zhu-Gon the Sour
     [72045] = true, -- Chelon
@@ -223,14 +226,14 @@ Maps[951].NPCs = {
     [73171] = true, -- Champion of the Black Flame
     [73172] = true, -- Flintlord Gairan
     [73173] = true, -- Urdur the Cauterizer
-    [73174] = true, -- Archiereus of Flame
+    [73174] = true, -- Archiereus of Flame (Ordon Sanctuary)
     [73175] = true, -- Cinderfall
     [73277] = true, -- Leafmender
     [73279] = true, -- Evermaw
     [73281] = true, -- Dread Ship Vazuvius
     [73282] = true, -- Garnia
     [73293] = true, -- Whizzig
-    [73666] = true, -- Archiereus of Flame
-    [73704] = true, -- Stinkbraid
-    [73854] = true -- Cranegnasher
+    [73666] = true, -- Archiereus of Flame (Three-Breeze Terrace)
+	[73704] = true, -- Stinkbraid
+	[73854] = true, -- Cranegnasher
 }

@@ -81,7 +81,7 @@ BigWigs:AddSounds("Durumu the Forgotten", {
 	[133768] = "Alarm",
 	[133798] = "Alert",
 	[134626] = {"Alarm","Info"},
-	[134755] = "Info",
+	[140502] = "Info",
 	["adds"] = {"Info","Warning"},
 	["initial_life_drain"] = "Long",
 })

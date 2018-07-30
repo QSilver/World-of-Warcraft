@@ -114,7 +114,7 @@ do
 		if initialTarget and UnitIsUnit("boss1target", initialTarget) then return end
 
 		local name = mod:UnitName("boss1target")
-		mod:TargetMessage(134926, name, "Urgent", "Alarm", nil, nil, true)
+		mod:TargetMessage(134926, name, "orange", "Alarm", nil, nil, true)
 		mod:SecondaryIcon(134926, name)
 		if UnitIsUnit("player", "boss1target") then
 			mod:Flash(134926)
@@ -142,7 +142,7 @@ do
 	function mod:ThrowSpear(args)
 		if phase == 4 then return end -- don't warn in last phase
 		if spearTimer then -- didn't find a target
-			self:Message(args.spellId, "Urgent", "Alarm")
+			self:Message(args.spellId, "orange", "Alarm")
 		end
 		self:StopSpearScan()
 		self:CDBar(args.spellId, 33)
@@ -154,7 +154,7 @@ end
 -- Dam'ren
 
 function mod:Freeze(args)
-	local _, _, _, _, _, duration = UnitDebuff(args.destName, args.spellName)
+	local _, _, duration = self:UnitDebuff(args.destName, args.spellId)
 	self:Bar(args.spellId, duration, CL["incoming"]:format(args.spellName)) -- so people can use personal cooldowns for when the damage happens
 end
 
@@ -165,37 +165,37 @@ do
 		local t = GetTime()
 		if t-prev > 2 then
 			prev = t
-			self:Message(args.spellId, "Personal", "Info", CL["underyou"]:format(args.spellName))
+			self:Message(args.spellId, "blue", "Info", CL["underyou"]:format(args.spellName))
 			self:Flash(args.spellId)
 		end
 	end
 end
 
 function mod:DeadZone(args)
-	self:Message(-6914, "Attention")
+	self:Message(-6914, "yellow")
 	self:Bar(-6914, 16)
 end
 
 -- Quet'zal
 
 do
-	local scheduled = {}, nil
+	local scheduled = {}
 	local function checkArcLightning(spellName, checkOpen)
 		if not mod.isEngaged then return end -- This can run after wipe, so check if the encounter is engaged
 		local debuffs = nil
 		for unit in mod:IterateGroup() do
-			if UnitDebuff(unit, spellName) then
+			if mod:UnitDebuff(unit, spellName) then
 				debuffs = true
 				break
 			end
 		end
 		if not debuffs then
-			mod:Message(136193, "Positive", nil, L["arcing_lightning_cleared"], false)
+			mod:Message(136193, "green", nil, L["arcing_lightning_cleared"], false)
 		end
 		scheduled = nil
 		if mod:LFR() then return end
 
-		if UnitDebuff("player", spellName) then
+		if mod:UnitDebuff("player", spellName) then
 			mod:OpenProximity(136193, 12) -- open Arcing Lighning
 		elseif checkOpen then
 			mod:CloseProximity(136193) -- close multi-target
@@ -220,7 +220,7 @@ do
 
 	function mod:ArcingLightningApplied(args)
 		if self:Me(args.destGUID) then
-			self:Message(args.spellId, "Personal", "Alert", CL["you"]:format(args.spellName))
+			self:Message(args.spellId, "blue", "Alert", CL["you"]:format(args.spellName))
 			self:TargetBar(args.spellId, 30, args.destName)
 		end
 		if not scheduled then
@@ -231,7 +231,7 @@ end
 
 function mod:LightningStormApplied(args)
 	self:PrimaryIcon(args.spellId, args.destName)
-	self:TargetMessage(args.spellId, args.destName, "Urgent") -- no point for sound since the guy stunned can't do anything
+	self:TargetMessage(args.spellId, args.destName, "orange") -- no point for sound since the guy stunned can't do anything
 	self:Bar(args.spellId, 20)
 	if self:Me(args.destGUID) then
 		self:Say(args.spellId)
@@ -249,7 +249,7 @@ do
 		local t = GetTime()
 		if t-prev > 2 then
 			prev = t
-			self:Message(args.spellId, "Personal", "Info", CL["underyou"]:format(args.spellName))
+			self:Message(args.spellId, "blue", "Info", CL["underyou"]:format(args.spellName))
 			self:Flash(args.spellId)
 		end
 	end
@@ -258,7 +258,7 @@ end
 function mod:Windstorm(args)
 	if self:Me(args.destGUID) then
 		self:StopBar(136192) -- Lightning Storm
-		self:Message(-6877, "Attention") -- lets leave it here to warn people who fail and step back into the windstorm
+		self:Message(-6877, "yellow") -- lets leave it here to warn people who fail and step back into the windstorm
 	end
 end
 
@@ -271,7 +271,7 @@ do
 		local t = GetTime()
 		if t-prev > 2 then
 			prev = t
-			self:Message(args.spellId, "Personal", "Info", CL["underyou"]:format(args.spellName))
+			self:Message(args.spellId, "blue", "Info", CL["underyou"]:format(args.spellName))
 			self:Flash(args.spellId)
 		end
 	end
@@ -282,7 +282,7 @@ do
 	function mod:Scorched(args)
 		if self:Me(args.destGUID) then
 			local amount = args.amount or 1
-			self:Message(-6871, "Important", amount > 1 and "Warning", CL["count"]:format(args.spellName, amount))
+			self:Message(-6871, "red", amount > 1 and "Warning", CL["count"]:format(args.spellName, amount))
 		end
 		local t = GetTime()
 		if t-prev > 1 then
@@ -298,42 +298,42 @@ do
 		prevPower = 0
 		self:RegisterUnitEvent("UNIT_POWER_FREQUENT", "PowerWarn", "boss2")
 	end
-	function mod:PowerWarn(unitId)
+	function mod:PowerWarn(_, unitId)
 		local power = UnitPower(unitId)
 		if power > 64 and prevPower == 0 then
 			prevPower = 65
-			self:Message("molten_energy", "Attention", nil, ("%s (%d%%)"):format(L["molten_energy"], power), L.molten_energy_icon)
+			self:Message("molten_energy", "yellow", nil, ("%s (%d%%)"):format(L["molten_energy"], power), L.molten_energy_icon)
 		elseif power > 74 and prevPower == 65 then
 			prevPower = 75
-			self:Message("molten_energy", "Urgent", nil, ("%s (%d%%)"):format(L["molten_energy"], power), L.molten_energy_icon)
+			self:Message("molten_energy", "orange", nil, ("%s (%d%%)"):format(L["molten_energy"], power), L.molten_energy_icon)
 		elseif power > 84 and prevPower == 75 then
 			prevPower = 85
-			self:Message("molten_energy", "Important", "Long", ("%s (%d%%)"):format(L["molten_energy"], power), L.molten_energy_icon)
+			self:Message("molten_energy", "red", "Long", ("%s (%d%%)"):format(L["molten_energy"], power), L.molten_energy_icon)
 		elseif power > 94 and prevPower == 85 then
 			prevPower = 95
-			self:Message("molten_energy", "Important", "Long", ("%s (%d%%)"):format(L["molten_energy"], power), L.molten_energy_icon)
+			self:Message("molten_energy", "red", "Long", ("%s (%d%%)"):format(L["molten_energy"], power), L.molten_energy_icon)
 		end
 	end
 end
 
 function mod:MoltenOverloadApplied(args)
-	self:Message(args.spellId, "Important") -- message should be WIPE IT!
+	self:Message(args.spellId, "red") -- message should be WIPE IT!
 	self:Bar(args.spellId, 10, CL["cast"]:format(args.spellName))
 	self:UnregisterUnitEvent("UNIT_POWER_FREQUENT", "boss2")
 end
 
 -- General
 
-function mod:UNIT_SPELLCAST_SUCCEEDED(unit, spellName, _, _, spellId)
+function mod:UNIT_SPELLCAST_SUCCEEDED(_, unit, _, spellId)
 	if spellId == 139172 then -- Whirling Wind
-		self:Message(77333, "Attention")
+		self:Message(77333, "yellow")
 		self:Bar(77333, 30)
 	elseif spellId == 139181 then -- Frost Spike
-		self:Message(139180, "Attention")
+		self:Message(139180, "yellow")
 		self:CDBar(139180, 13)
 	elseif spellId == 137656 then -- Rushing Winds
 		if phase == 2 then
-			self:Message(-6877, "Positive", nil, CL["over"]:format(self:SpellName(-6877))) -- Windstorm
+			self:Message(-6877, "green", nil, CL["over"]:format(self:SpellName(-6877))) -- Windstorm
 			self:Bar(-6877, 70) -- Windstorm
 			self:CDBar(136192, 17) -- Lightning Storm
 		end
@@ -353,7 +353,7 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(unit, spellName, _, _, spellId)
 			self:StopBar(139180) -- Frost Spike
 			self:StopBar(-6877) -- Windstorm
 			self:StopBar(136192) -- Lightning Storm
-			if not UnitDebuff("player", arcingLightning) then
+			if not self:UnitDebuff("player", arcingLightning) then
 				self:CloseProximity(136192) -- Lightning Storm
 				self:OpenProximity(-6870, 10) -- Unleashed Flame
 			end
@@ -365,7 +365,7 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(unit, spellName, _, _, spellId)
 			phase = 4
 			self:StopBar(-6870) -- Unleashed Flame
 			self:StopBar(-6914) -- Dead Zone
-			if not UnitDebuff("player", arcingLightning) then
+			if not self:UnitDebuff("player", arcingLightning) then
 				self:CloseProximity(-6870) -- Unleashed Flame
 				self:OpenProximity(136192, 12) -- Lightning Storm (12 to be safe)
 			end
@@ -374,7 +374,8 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(unit, spellName, _, _, spellId)
 			self:Bar(-6917, 63, CL["count"]:format(self:SpellName(136146), 1)) -- Fist Smash
 		end
 	elseif spellId == 136146 then -- Fist Smash
-		self:Message(-6917, "Urgent", "Alarm", ("%s (%d)"):format(spellName, smashCounter))
+		local spellName = self:SpellName(spellId)
+		self:Message(-6917, "orange", "Alarm", ("%s (%d)"):format(spellName, smashCounter))
 		smashCounter = smashCounter + 1
 		self:Bar(-6917, 7.5, CL["cast"]:format(spellName))
 		if self:Heroic() then
@@ -387,7 +388,7 @@ end
 
 function mod:Impale(args)
 	local amount = args.amount or 1
-	self:StackMessage(args.spellId, args.destName, amount, "Positive", amount > 1 and "Warning")
+	self:StackMessage(args.spellId, args.destName, amount, "green", amount > 1 and "Warning")
 	self:CDBar(args.spellId, 20)
 end
 
@@ -412,7 +413,7 @@ function mod:Deaths(args)
 	elseif args.mobId == 68080 then
 		-- Quet'zal
 		self:StopBar(136192) -- Lightning Storm
-		if not UnitDebuff("player", arcingLightning) or self:LFR() then
+		if not self:UnitDebuff("player", arcingLightning) or self:LFR() then
 			self:CloseProximity(136192) -- Lightning Storm
 		end
 		if not self:Heroic() then

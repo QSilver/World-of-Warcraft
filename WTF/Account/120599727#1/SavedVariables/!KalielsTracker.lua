@@ -1,5 +1,10 @@
 
 KalielsTrackerDB = {
+	["char"] = {
+		["Qsilver - Silvermoon"] = {
+			["collapsed"] = true,
+		},
+	},
 	["profileKeys"] = {
 		["Stephanna - Argent Dawn"] = "Default",
 		["Lachrymas - Silvermoon"] = "Default",
@@ -11,7 +16,7 @@ KalielsTrackerDB = {
 	},
 	["global"] = {
 		["helpTutorial"] = 11,
-		["version"] = "2.1.9",
+		["version"] = "3.0.0",
 	},
 	["profiles"] = {
 		["Default"] = {

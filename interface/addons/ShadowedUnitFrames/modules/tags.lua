@@ -63,14 +63,21 @@ function Tags:RegisterEvents(parent, fontString, tags)
 					fontString[event] = true
 				-- Unit event
 				elseif( Tags.eventType[event] ~= "unitless" or ShadowUF.Units.unitEvents[event] ) then
-					parent:RegisterUnitEvent(event, fontString, "UpdateTags")
+					local success, err = pcall(parent.RegisterUnitEvent, parent, event, fontString, "UpdateTags")
+					if not success then
+						-- switch the tag back
+						ShadowUF.Units.unitEvents[event] = false
+						Tags.eventType[event] = "unitless"
+
+						parent:RegisterNormalEvent(event, fontString, "UpdateTags")
+					end
 				-- Everything else
 				else
 					parent:RegisterNormalEvent(event, fontString, "UpdateTags")
 				end
 
 				-- register UNIT_MANA event since its the only event that fires after repopping at a spirit healer
-				if event == "UNIT_POWER" or event == "UNIT_POWER_FREQUENT" then
+				if event == "UNIT_POWER_UPDATE" or event == "UNIT_POWER_FREQUENT" then
 					parent:RegisterUnitEvent("UNIT_MANA", fontString, "UpdateTags")
 
 					if ( parent.unit == "player" ) then
@@ -137,7 +144,7 @@ end
 
 
 -- Register a font string with the tag system
-local powerEvents = {["UNIT_POWER"] = true, ["UNIT_POWER_FREQUENT"] = true, ["UNIT_MAXPOWER"] = true}
+local powerEvents = {["UNIT_POWER_UPDATE"] = true, ["UNIT_POWER_FREQUENT"] = true, ["UNIT_MAXPOWER"] = true}
 local frequencyCache = {}
 local function createTagFunction(tags, resetCache)
 	if( tagPool[tags] and not resetCache ) then
@@ -368,7 +375,7 @@ end})
 
 -- Going to have to start using an env wrapper for tags I think
 local Druid = {}
-Druid.CatForm, Druid.Shapeshift = GetSpellInfo(768)
+Druid.CatForm = GetSpellInfo(768)
 Druid.MoonkinForm = GetSpellInfo(24858)
 Druid.TravelForm = GetSpellInfo(783)
 Druid.BearForm = GetSpellInfo(5487)
@@ -394,19 +401,19 @@ Tags.defaultTags = {
 		if( select(2, UnitClass(unit)) ~= "DRUID" ) then return nil end
 		
 		local Druid = ShadowUF.Druid
-		if( UnitAura(unit, Druid.CatForm, Druid.Shapeshift) ) then
+		if( ShadowUF.UnitAuraBySpell(unit, Druid.CatForm) ) then
 			return ShadowUF.L["C"]
-		elseif( UnitAura(unit, Druid.TreeForm, Druid.Shapeshift) ) then
+		elseif( ShadowUF.UnitAuraBySpell(unit, Druid.TreeForm) ) then
 			return ShadowUF.L["T"]
-		elseif( UnitAura(unit, Druid.MoonkinForm, Druid.Shapeshift) ) then
+		elseif( ShadowUF.UnitAuraBySpell(unit, Druid.MoonkinForm) ) then
 			return ShadowUF.L["M"]
-		elseif( UnitAura(unit, Druid.BearForm, Druid.Shapeshift) ) then
+		elseif( ShadowUF.UnitAuraBySpell(unit, Druid.BearForm) ) then
 			return ShadowUF.L["B"]
-		elseif( UnitAura(unit, Druid.SwiftFlightForm, Druid.Shapeshift) or UnitAura(unit, Druid.FlightForm, Druid.Shapeshift) ) then
+		elseif( ShadowUF.UnitAuraBySpell(unit, Druid.SwiftFlightForm) or ShadowUF.UnitAuraBySpell(unit, Druid.FlightForm) ) then
 			return ShadowUF.L["F"]
-		elseif( UnitAura(unit, Druid.TravelForm, Druid.Shapeshift) ) then
+		elseif( ShadowUF.UnitAuraBySpell(unit, Druid.TravelForm) ) then
 			return ShadowUF.L["T"]
-		elseif( UnitAura(unit, Druid.AquaticForm, Druid.Shapeshift) ) then
+		elseif( ShadowUF.UnitAuraBySpell(unit, Druid.AquaticForm) ) then
 			return ShadowUF.L["A"]
 		end
 	end]],
@@ -414,19 +421,19 @@ Tags.defaultTags = {
 		if( select(2, UnitClass(unit)) ~= "DRUID" ) then return nil end
 		
 		local Druid = ShadowUF.Druid
-		if( UnitAura(unit, Druid.CatForm, Druid.Shapeshift) ) then
+		if( ShadowUF.UnitAuraBySpell(unit, Druid.CatForm) ) then
 			return ShadowUF.L["Cat"]
-		elseif( UnitAura(unit, Druid.TreeForm, Druid.Shapeshift) ) then
+		elseif( ShadowUF.UnitAuraBySpell(unit, Druid.TreeForm) ) then
 			return ShadowUF.L["Tree"]
-		elseif( UnitAura(unit, Druid.MoonkinForm, Druid.Shapeshift) ) then
+		elseif( ShadowUF.UnitAuraBySpell(unit, Druid.MoonkinForm) ) then
 			return ShadowUF.L["Moonkin"]
-		elseif( UnitAura(unit, Druid.BearForm, Druid.Shapeshift) ) then
+		elseif( ShadowUF.UnitAuraBySpell(unit, Druid.BearForm) ) then
 			return ShadowUF.L["Bear"]
-		elseif( UnitAura(unit, Druid.SwiftFlightForm, Druid.Shapeshift) or UnitAura(unit, Druid.FlightForm, Druid.Shapeshift) ) then
+		elseif( ShadowUF.UnitAuraBySpell(unit, Druid.SwiftFlightForm) or ShadowUF.UnitAuraBySpell(unit, Druid.FlightForm) ) then
 			return ShadowUF.L["Flight"]
-		elseif( UnitAura(unit, Druid.TravelForm, Druid.Shapeshift) ) then
+		elseif( ShadowUF.UnitAuraBySpell(unit, Druid.TravelForm) ) then
 			return ShadowUF.L["Travel"]
-		elseif( UnitAura(unit, Druid.AquaticForm, Druid.Shapeshift) ) then
+		elseif( ShadowUF.UnitAuraBySpell(unit, Druid.AquaticForm) ) then
 			return ShadowUF.L["Aquatic"]
 		end
 	end]],
@@ -1430,12 +1437,20 @@ Tags.eventType = {
 	["PLAYER_TARGET_CHANGED"] = "unitless",
 	["PARTY_LEADER_CHANGED"] = "unitless",
 	["PLAYER_ENTERING_WORLD"] = "unitless",
+	["PLAYER_REGEN_DISABLED"] = "unitless",
+	["PLAYER_REGEN_ENABLED"] = "unitless",
 	["PLAYER_XP_UPDATE"] = "unitless",
 	["PLAYER_TOTEM_UPDATE"] = "unitless",
 	["PLAYER_LEVEL_UP"] = "unitless",
 	["UPDATE_EXHAUSTION"] = "unitless",
 	["PLAYER_UPDATE_RESTING"] = "unitless",
 	["UNIT_COMBO_POINTS"] = "unitless",
+	["PARTY_LOOT_METHOD_CHANGED"] = "unitless",
+	["READY_CHECK"] = "unitless",
+	["READY_CHECK_FINISHED"] = "unitless",
+	["RUNE_POWER_UPDATE"] = "unitless",
+	["RUNE_TYPE_UPDATE"] = "unitless",
+	["UPDATE_FACTION"] = "unitless",
 }
 
 -- Tag groups that have a special filter that can't be used on certain units, like the threat API's

@@ -2,7 +2,7 @@
 --
 -- Prat - A framework for World of Warcraft chat mods
 --
--- Copyright (C) 2006-2011  Prat Development Team
+-- Copyright (C) 2006-2018  Prat Development Team
 --
 -- This program is free software; you can redistribute it and/or
 -- modify it under the terms of the GNU General Public License
@@ -33,7 +33,9 @@ Prat:AddModuleToLoad(function()
     return
   end
 
-  local PL = Prat:GetLocalizer({})
+  local mod = Prat:NewModule(PRAT_MODULE)
+
+  local PL = mod.PL
 
   --[===[@debug@
   PL:AddLocale(PRAT_MODULE, "enUS", {
@@ -115,18 +117,18 @@ Prat:AddModuleToLoad(function()
   L=
 {
 	["Fading"] = {
-		--Translation missing 
-		-- ["duration_desc"] = "",
-		--Translation missing 
-		-- ["duration_name"] = "",
-		--Translation missing 
-		-- ["module_desc"] = "",
-		--Translation missing 
-		-- ["module_name"] = "",
-		--Translation missing 
-		-- ["textfade_desc"] = "",
-		--Translation missing 
-		-- ["textfade_name"] = "",
+		--[[Translation missing --]]
+		--[[ ["duration_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["duration_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["module_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["module_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["textfade_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["textfade_name"] = "",--]] 
 	}
 }
 
@@ -197,7 +199,6 @@ Prat:AddModuleToLoad(function()
   --@end-non-debug@
 
 
-  local mod = Prat:NewModule(PRAT_MODULE)
 
   -- define the default db values
   Prat:SetModuleDefaults(mod.name, {

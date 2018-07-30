@@ -228,7 +228,7 @@ do
 end
 
 --[[ General ]]--
-function mod:UNIT_TARGETABLE_CHANGED(unit)
+function mod:UNIT_TARGETABLE_CHANGED(_, unit)
 	if self:MobId(UnitGUID(unit)) == 122468 then -- Noura
 		if UnitCanAttack("player", unit) then
 			self:Message("stages", "green", "Long", -15967, false) -- Noura, Mother of Flame
@@ -320,7 +320,7 @@ do
 		["Golganneth"] = "tormentLightning",
 	}
 
-	function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, _, spellId)
+	function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 		local announceNextTorment = nil
 		if spellId == 253949 then -- Machinations of Aman'thul
 			self:StopBar(L.torment:format(L.tormentHeal))
@@ -468,13 +468,17 @@ do
 		end
 	end
 
-	function mod:UpdateChilledBloodInfoBoxAbsorbs(_, _, subEvent, _, _, _, _, _, _, destName, _, _, spellId, _, _, _, _, _, _, _, _, _, absorbed)
-		if subEvent == "SPELL_HEAL_ABSORBED" and spellId == 245586 then
-			for i = 1, #chilledBloodList do
-				if chilledBloodList[i][1] == destName then
-					chilledBloodList[i][2] = chilledBloodList[i][2] - absorbed
-					updateInfoBox()
-					break
+	do
+		local CombatLogGetCurrentEventInfo = CombatLogGetCurrentEventInfo
+		function mod:UpdateChilledBloodInfoBoxAbsorbs()
+			local _, subEvent, _, _, _, _, _, _, destName, _, _, spellId, _, _, _, _, _, _, _, _, _, absorbed = CombatLogGetCurrentEventInfo()
+			if subEvent == "SPELL_HEAL_ABSORBED" and spellId == 245586 then -- Chilled Blood
+				for i = 1, #chilledBloodList do
+					if chilledBloodList[i][1] == destName then
+						chilledBloodList[i][2] = chilledBloodList[i][2] - absorbed
+						updateInfoBox()
+						break
+					end
 				end
 			end
 		end

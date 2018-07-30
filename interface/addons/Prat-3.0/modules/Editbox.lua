@@ -10,7 +10,10 @@ Prat:AddModuleToLoad(function()
     return
   end
 
-  local PL = Prat:GetLocalizer({})
+  local mod = Prat:NewModule(PRAT_MODULE, "AceHook-3.0")
+
+  local PL = mod.PL
+
 
   --[===[@debug@
   PL:AddLocale(PRAT_MODULE, "enUS", {
@@ -91,8 +94,8 @@ L=
 		["Border texture"] = "Texture de la bordure",
 		["Bottom"] = "Bas",
 		["Color border by channel"] = "Colorier avec le canal",
-		--Translation missing 
-		-- ["currently_broken_alt_behavior"] = "",
+		--[[Translation missing --]]
+		--[[ ["currently_broken_alt_behavior"] = "",--]] 
 		["Edge Size"] = "Taille de la bordure",
 		["Editbox"] = "Boite d'édition",
 		["Editbox options."] = "Options de la boite d'édition.",
@@ -180,50 +183,50 @@ L=
 L=
 {
 	["Editbox"] = {
-		--Translation missing 
-		-- ["Attach edit box to..."] = "",
-		--Translation missing 
-		-- ["Attach to..."] = "",
-		--Translation missing 
-		-- ["Background color"] = "",
-		--Translation missing 
-		-- ["Background Inset"] = "",
-		--Translation missing 
-		-- ["Background texture"] = "",
-		--Translation missing 
-		-- ["Border color"] = "",
-		--Translation missing 
-		-- ["Border texture"] = "",
-		--Translation missing 
-		-- ["Bottom"] = "",
-		--Translation missing 
-		-- ["Color border by channel"] = "",
-		--Translation missing 
-		-- ["currently_broken_alt_behavior"] = "",
-		--Translation missing 
-		-- ["Edge Size"] = "",
-		--Translation missing 
-		-- ["Editbox"] = "",
-		--Translation missing 
-		-- ["Editbox options."] = "",
-		--Translation missing 
-		-- ["Font"] = "",
-		--Translation missing 
-		-- ["Free-floating"] = "",
-		--Translation missing 
-		-- ["Free-floating, Locked"] = "",
-		--Translation missing 
-		-- ["Requires the Alt key to be held down to move the cursor in chat"] = "",
-		--Translation missing 
-		-- ["Select the font to use for the edit box"] = "",
-		--Translation missing 
-		-- ["Sets the frame's border color to the color of your currently active channel"] = "",
-		--Translation missing 
-		-- ["Tile Size"] = "",
-		--Translation missing 
-		-- ["Top"] = "",
-		--Translation missing 
-		-- ["Use Alt key for cursor movement"] = "",
+		--[[Translation missing --]]
+		--[[ ["Attach edit box to..."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Attach to..."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Background color"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Background Inset"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Background texture"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Border color"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Border texture"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Bottom"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Color border by channel"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["currently_broken_alt_behavior"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Edge Size"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Editbox"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Editbox options."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Font"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Free-floating"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Free-floating, Locked"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Requires the Alt key to be held down to move the cursor in chat"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Select the font to use for the edit box"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Sets the frame's border color to the color of your currently active channel"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Tile Size"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Top"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Use Alt key for cursor movement"] = "",--]] 
 	}
 }
 
@@ -299,37 +302,37 @@ L=
 L=
 {
 	["Editbox"] = {
-		--Translation missing 
-		-- ["Attach edit box to..."] = "",
-		--Translation missing 
-		-- ["Attach to..."] = "",
+		--[[Translation missing --]]
+		--[[ ["Attach edit box to..."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Attach to..."] = "",--]] 
 		["Background color"] = "Color de fondo",
-		--Translation missing 
-		-- ["Background Inset"] = "",
+		--[[Translation missing --]]
+		--[[ ["Background Inset"] = "",--]] 
 		["Background texture"] = "Textura de fondo",
 		["Border color"] = "Color del borde",
 		["Border texture"] = "Textura del borde",
 		["Bottom"] = "Abajo",
 		["Color border by channel"] = "Color del borde por canal",
-		--Translation missing 
-		-- ["currently_broken_alt_behavior"] = "",
+		--[[Translation missing --]]
+		--[[ ["currently_broken_alt_behavior"] = "",--]] 
 		["Edge Size"] = "Tamaño del borde",
 		["Editbox"] = "Caja de edición",
 		["Editbox options."] = "Opciones de la caja de edición.",
 		["Font"] = "Fuente",
 		["Free-floating"] = "Flotar-libre",
 		["Free-floating, Locked"] = "Flotar-libre, Bloqueado",
-		--Translation missing 
-		-- ["Requires the Alt key to be held down to move the cursor in chat"] = "",
-		--Translation missing 
-		-- ["Select the font to use for the edit box"] = "",
-		--Translation missing 
-		-- ["Sets the frame's border color to the color of your currently active channel"] = "",
-		--Translation missing 
-		-- ["Tile Size"] = "",
+		--[[Translation missing --]]
+		--[[ ["Requires the Alt key to be held down to move the cursor in chat"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Select the font to use for the edit box"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Sets the frame's border color to the color of your currently active channel"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Tile Size"] = "",--]] 
 		["Top"] = "Arriba",
-		--Translation missing 
-		-- ["Use Alt key for cursor movement"] = "",
+		--[[Translation missing --]]
+		--[[ ["Use Alt key for cursor movement"] = "",--]] 
 	}
 }
 
@@ -348,19 +351,19 @@ L=
 		["Border texture"] = "邊緣材質",
 		["Bottom"] = "底部",
 		["Color border by channel"] = "顏色邊框由道頻",
-		--Translation missing 
-		-- ["currently_broken_alt_behavior"] = "",
+		--[[Translation missing --]]
+		--[[ ["currently_broken_alt_behavior"] = "",--]] 
 		["Edge Size"] = "邊框尺寸",
 		["Editbox"] = "輸入框",
 		["Editbox options."] = "輸入框選單",
 		["Font"] = "字型",
 		["Free-floating"] = "自由浮動",
 		["Free-floating, Locked"] = "自由浮動, 已鎖定",
-		--Translation missing 
-		-- ["Requires the Alt key to be held down to move the cursor in chat"] = "",
+		--[[Translation missing --]]
+		--[[ ["Requires the Alt key to be held down to move the cursor in chat"] = "",--]] 
 		["Select the font to use for the edit box"] = "選擇字型使用編輯框",
-		--Translation missing 
-		-- ["Sets the frame's border color to the color of your currently active channel"] = "",
+		--[[Translation missing --]]
+		--[[ ["Sets the frame's border color to the color of your currently active channel"] = "",--]] 
 		["Tile Size"] = "並排尺寸",
 		["Top"] = "頂部",
 		["Use Alt key for cursor movement"] = "使用 Alt 鍵游標移動",
@@ -375,7 +378,6 @@ end
 
 
 
-  local mod = Prat:NewModule(PRAT_MODULE, "AceHook-3.0")
 
   local mustUseAlt = select(4, _G.GetBuildInfo()) >= 50400
 
@@ -697,7 +699,7 @@ end
     self:UpdateHeight()
   end
 
-  function mod:OnEnable()
+  function mod:OnModuleEnable()
     self:LibSharedMedia_Registered()
 
     for i = 1, NUM_CHAT_WINDOWS do
@@ -752,7 +754,7 @@ end
     end
   end
 
-  function mod:OnDisable()
+  function mod:OnModuleDisable()
     for i = 1, NUM_CHAT_WINDOWS do
       local f = _G["ChatFrame" .. i .. "EditBox"]
       _G["ChatFrame" .. i .. "EditBoxLeft"]:Show()
@@ -763,6 +765,10 @@ end
       f.frame:Hide()
       self:SetAttach("BOTTOM")
     end
+  end
+
+  function mod:GetDescription()
+    return PL["Editbox options."]
   end
 
   -- changed the Hide to SetAlpha(0), the new ChatSystem OnHide handlers go though some looping

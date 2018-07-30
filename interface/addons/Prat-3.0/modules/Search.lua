@@ -5,7 +5,9 @@ Prat:AddModuleToLoad(function()
         return
     end
 
-    local PL = Prat:GetLocalizer({})
+    local module = Prat:NewModule(PRAT_MODULE)
+
+    local PL = module.PL
 
     --[===[@debug@
     PL:AddLocale(PRAT_MODULE, "enUS", {
@@ -47,18 +49,18 @@ Usage:
    L=
 {
 	["Search"] = {
-		--Translation missing 
-		-- ["err_notfound"] = "",
-		--Translation missing 
-		-- ["err_tooshort"] = "",
-		--Translation missing 
-		-- ["find_results"] = "",
-		--Translation missing 
-		-- ["module_desc"] = "",
-		--Translation missing 
-		-- ["module_info"] = "",
-		--Translation missing 
-		-- ["module_name"] = "",
+		--[[Translation missing --]]
+		--[[ ["err_notfound"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["err_tooshort"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["find_results"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["module_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["module_info"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["module_name"] = "",--]] 
 	}
 }
 
@@ -111,18 +113,18 @@ Suche]=],
    L=
 {
 	["Search"] = {
-		--Translation missing 
-		-- ["err_notfound"] = "",
-		--Translation missing 
-		-- ["err_tooshort"] = "",
-		--Translation missing 
-		-- ["find_results"] = "",
-		--Translation missing 
-		-- ["module_desc"] = "",
-		--Translation missing 
-		-- ["module_info"] = "",
-		--Translation missing 
-		-- ["module_name"] = "",
+		--[[Translation missing --]]
+		--[[ ["err_notfound"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["err_tooshort"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["find_results"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["module_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["module_info"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["module_name"] = "",--]] 
 	}
 }
 
@@ -171,18 +173,18 @@ Suche]=],
    L=
 {
 	["Search"] = {
-		--Translation missing 
-		-- ["err_notfound"] = "",
-		--Translation missing 
-		-- ["err_tooshort"] = "",
-		--Translation missing 
-		-- ["find_results"] = "",
-		--Translation missing 
-		-- ["module_desc"] = "",
-		--Translation missing 
-		-- ["module_info"] = "",
-		--Translation missing 
-		-- ["module_name"] = "",
+		--[[Translation missing --]]
+		--[[ ["err_notfound"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["err_tooshort"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["find_results"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["module_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["module_info"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["module_name"] = "",--]] 
 	}
 }
 
@@ -194,10 +196,10 @@ Suche]=],
 		["err_notfound"] = "找不到",
 		["err_tooshort"] = "尋找物品太短",
 		["find_results"] = "找到結果:",
-		--Translation missing 
-		-- ["module_desc"] = "",
-		--Translation missing 
-		-- ["module_info"] = "",
+		--[[Translation missing --]]
+		--[[ ["module_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["module_info"] = "",--]] 
 		["module_name"] = "尋找",
 	}
 }
@@ -208,7 +210,6 @@ Suche]=],
    --@end-non-debug@
 
 
-    local module = Prat:NewModule(PRAT_MODULE)
 
 
     Prat:SetModuleDefaults(module.name, {

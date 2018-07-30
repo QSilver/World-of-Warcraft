@@ -1,38 +1,38 @@
 
 BigWigs:AddColors("High Priest Venoxis", {
-	[96466] = "Urgent",
-	[96477] = {"Personal","Urgent"},
-	[96509] = "Important",
-	[96653] = "Positive",
-	[96842] = "Important",
+	[96466] = "orange",
+	[96477] = {"blue","orange"},
+	[96509] = "red",
+	[96653] = "green",
+	[96842] = "red",
 })
 
 BigWigs:AddColors("Bloodlord Mandokir", {
-	[96684] = {"Attention","Personal"},
-	[96724] = "Attention",
-	[96740] = "Important",
-	[96776] = "Attention",
-	[96800] = "Important",
+	[96684] = {"blue","yellow"},
+	[96724] = "yellow",
+	[96740] = "red",
+	[96776] = "yellow",
+	[96800] = "red",
 })
 
 BigWigs:AddColors("High Priestess Kilnara", {
-	[-2702] = "Important",
-	[96423] = {"Attention","Personal"},
-	[96435] = "Important",
-	[96457] = "Important",
-	[96592] = {"Attention","Personal"},
-	["stages"] = "Attention",
+	[-2702] = "red",
+	[96423] = {"blue","yellow"},
+	[96435] = "red",
+	[96457] = "red",
+	[96592] = {"blue","yellow"},
+	["stages"] = "yellow",
 })
 
 BigWigs:AddColors("Zanzil", {
-	[96316] = {"Attention","Important","Personal"},
-	[96338] = "Attention",
-	[96914] = "Attention",
+	[96316] = {"blue","red","yellow"},
+	[96338] = "yellow",
+	[96914] = "yellow",
 })
 
 BigWigs:AddColors("Jin'do the Godbreaker", {
-	[-2910] = {"Important","Personal"},
-	[97170] = "Important",
-	[97172] = {"Attention","Important"},
-	["stages"] = "Important",
+	[-2910] = {"blue","red"},
+	[97170] = "red",
+	[97172] = {"red","yellow"},
+	["stages"] = "red",
 })

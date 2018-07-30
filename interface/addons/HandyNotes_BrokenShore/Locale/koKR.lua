@@ -62,8 +62,4 @@ L["Veiled Wyrmtongue Chest"] = "장막의 고룡혓바닥 상자"
 L["What to display"] = "표시할 내용"
 L["Wyrmtongue Chest"] = "고룡혓바닥 상자"
 
--- ToC
-L["Description"] = "부서진 해변에 관심 지점을 표시합니다"
-L["Title"] = "HandyNotes - 부서진 해변"
-
 end

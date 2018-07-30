@@ -6,7 +6,7 @@ if GetLocale()=="deDE" or GetLocale()=="ruRU" or GetLocale()=="zhTW" or GetLocal
 end
 
 
-	raversion=7.305
+	raversion=8.001
 	local raverstiptext="alpha"
 	if string.len(raversion)==6 then
 		raverstiptext="beta"
@@ -97,7 +97,7 @@ end
 if racheckdatay and GetTime()>racheckdatay then
 racheckdatay=nil
 if raaddoninstalledsins==nil then
-local _, month, day, year = CalendarGetDate()
+local _, month, day, year = tonumber(date("%H")),tonumber(date("%m")),tonumber(date("%d")),tonumber(date("%y"))
 if year==2010 and month==10 and day<30 then
 raaddoninstalledsins="..."
 elseif year and year>2009 then
@@ -140,9 +140,9 @@ if ramsgtimestart>0 and racurrenttime>ramsgtimestart+0.4 then
 ramsgtimestart=0
 --тут отправда в аддон канал инфы
   if select(3,GetInstanceInfo())==17 or select(3,GetInstanceInfo())==11 or select(3,GetInstanceInfo())==12 or IsLFGModeActive(LE_LFG_CATEGORY_LFD) or IsLFGModeActive(LE_LFG_CATEGORY_SCENARIO) then
-  SendAddonMessage("RaidAc", "myname:"..ranamemsgsend.."++mychat:"..ramsgmychat.."++", "Instance_CHAT")
+  C_ChatInfo.SendAddonMessage("RaidAc", "myname:"..ranamemsgsend.."++mychat:"..ramsgmychat.."++", "Instance_CHAT")
   else
-  SendAddonMessage("RaidAc", "myname:"..ranamemsgsend.."++mychat:"..ramsgmychat.."++", "RAID")
+  C_ChatInfo.SendAddonMessage("RaidAc", "myname:"..ranamemsgsend.."++mychat:"..ramsgmychat.."++", "RAID")
   end
 end
 
@@ -199,11 +199,11 @@ rabilresnut=GetTime()
 end
 
 if event =="PLAYER_ENTERING_WORLD" then
-if type(RegisterAddonMessagePrefix) == "function" then
-RegisterAddonMessagePrefix ("RaidAc")
+if type(C_ChatInfo.RegisterAddonMessagePrefix) == "function" then
+C_ChatInfo.RegisterAddonMessagePrefix ("RaidAc")
 
 --changed into: RAother
-RegisterAddonMessagePrefix ("RAother")
+C_ChatInfo.RegisterAddonMessagePrefix ("RAother")
 
 --1 RAverwhips "1info"
 --2 RAverwhips2 - строчка с инфо версии в приват
@@ -286,7 +286,7 @@ ratmp2=ratmp2.."0"
 end
 end
 if pseashowfailreas then ratmp1="1-"..rasoundtoplay[1]..rasoundtoplay[2]..rasoundtoplay[3]..rasoundtoplay[4]..rasoundtoplay[5]..rasoundtoplay[6] end
-SendAddonMessage("RAother", "4RA "..UnitName("player").." v."..raversion.." "..ratmp1.." "..ratmp2.." "..wherereportraidach..wherereportpartyach.." "..psa6.." installed: "..raaddoninstalledsins, arg3)
+C_ChatInfo.SendAddonMessage("RAother", "4RA "..UnitName("player").." v."..raversion.." "..ratmp1.." "..ratmp2.." "..wherereportraidach..wherereportpartyach.." "..psa6.." installed: "..raaddoninstalledsins, arg3)
 end
 
 if arg1=="RAother" and arg3=="WHISPER" and arg2=="1info" then
@@ -324,7 +324,7 @@ ratmp2=ratmp2.."0"
 end
 end
 if pseashowfailreas then ratmp1="1-"..rasoundtoplay[1]..rasoundtoplay[2]..rasoundtoplay[3]..rasoundtoplay[4]..rasoundtoplay[5]..rasoundtoplay[6] end
-SendAddonMessage("RAother", "2RA "..UnitName("player").." v."..raversion.." "..ratmp1.." "..ratmp2.." "..wherereportraidach..wherereportpartyach.." "..psa6.." installed: "..raaddoninstalledsins, "WHISPER",arg4)
+C_ChatInfo.SendAddonMessage("RAother", "2RA "..UnitName("player").." v."..raversion.." "..ratmp1.." "..ratmp2.." "..wherereportraidach..wherereportpartyach.." "..psa6.." installed: "..raaddoninstalledsins, "WHISPER",arg4)
 end
 
 if arg1=="RAother" and arg3=="WHISPER" and arg2 and string.sub(arg2,1,1)=="2" then
@@ -363,7 +363,7 @@ elseif tonumber(string.sub(arg2,2))<raversion then
 if ralastsendbinf==nil or (ralastsendbinf and GetTime()>ralastsendbinf+60) then
 local inInstance, instanceType = IsInInstance()
 if instanceType~="pvp" then
-SendAddonMessage("RAother", "5"..raversion, arg3)
+C_ChatInfo.SendAddonMessage("RAother", "5"..raversion, arg3)
 ralastsendbinf=GetTime()
 end
 end
@@ -393,15 +393,15 @@ if (UnitInRaid("player")) then
 local inInstance, instanceType = IsInInstance()
 if instanceType~="pvp" then
 if select(3,GetInstanceInfo())==17 or select(3,GetInstanceInfo())==11 or select(3,GetInstanceInfo())==12 or IsLFGModeActive(LE_LFG_CATEGORY_LFD) or IsLFGModeActive(LE_LFG_CATEGORY_SCENARIO) then
-SendAddonMessage("RAother", "5"..raversion, "Instance_CHAT")
+C_ChatInfo.SendAddonMessage("RAother", "5"..raversion, "Instance_CHAT")
 else
-SendAddonMessage("RAother", "5"..raversion, "raid")
+C_ChatInfo.SendAddonMessage("RAother", "5"..raversion, "raid")
 end
 end
 end
 
 if IsInGuild() then
-SendAddonMessage("RAother", "5"..raversion, "guild")
+C_ChatInfo.SendAddonMessage("RAother", "5"..raversion, "guild")
 end
 	end
 
@@ -543,7 +543,7 @@ rabattlev=1
 
 local a1, a2, a3, a4, a5 = GetInstanceInfo()
 if UnitInRaid("player") or (a2=="raid" or a2=="scenario" or (a2=="party" and a3==2) or a3==14) then
-SetMapToCurrentZone()
+--SetMapToCurrentZone()
 end
 
 if (rabilresnut and GetTime()<rabilresnut+3) or racheckbossincombat then
@@ -1152,14 +1152,14 @@ end
 
 
 function chechtekzoneea()
-if GetMapNameByID(GetCurrentMapAreaID()) then
+if C_Map.GetBestMapForUnit("player") and C_Map.GetBestMapForUnit("player")>0 and C_Map.GetMapInfo(C_Map.GetBestMapForUnit("player")) then
 local a1, a2, a3, a4, a5 = GetInstanceInfo()
 if UnitInRaid("player") or (a2=="raid" or a2=="scenario" or (a2=="party" and a3==2) or a3==14) then
-SetMapToCurrentZone()
+--SetMapToCurrentZone()
 end
 
 --ульдуар
-if GetCurrentMapAreaID()==529 then
+if C_Map.GetBestMapForUnit("player")==529 then
 if IsAddOnLoaded("RaidAchievement_Ulduar")==false and wasuldatryloadea==nil then
 wasuldatryloadea=1
 local loaded, reason = LoadAddOn("RaidAchievement_Ulduar")
@@ -1172,7 +1172,7 @@ end
 end
 
 --Накс Сарт
-if GetCurrentMapAreaID()==535 or GetCurrentMapAreaID()==718 or GetCurrentMapAreaID()==531 then
+if C_Map.GetBestMapForUnit("player")==535 or C_Map.GetBestMapForUnit("player")==718 or C_Map.GetBestMapForUnit("player")==531 then
 if IsAddOnLoaded("RaidAchievement_Naxxramas")==false and wasnaxtryloadea==nil then
 wasnaxtryloadea=1
 local loaded, reason = LoadAddOn("RaidAchievement_Naxxramas")
@@ -1185,7 +1185,7 @@ end
 end
 
 --Цитадель
-if GetCurrentMapAreaID()==604 then
+if C_Map.GetBestMapForUnit("player")==604 then
 if IsAddOnLoaded("RaidAchievement_Icecrown")==false and wasictryloadea==nil then
 wasictryloadea=1
 local loaded, reason = LoadAddOn("RaidAchievement_Icecrown")
@@ -1198,7 +1198,7 @@ end
 end
 
 --рейды каты
-if GetCurrentMapAreaID()==754 or GetCurrentMapAreaID()==758 or GetCurrentMapAreaID()==800 or GetCurrentMapAreaID()==824 then
+if C_Map.GetBestMapForUnit("player")==754 or C_Map.GetBestMapForUnit("player")==758 or C_Map.GetBestMapForUnit("player")==800 or C_Map.GetBestMapForUnit("player")==824 then
 if IsAddOnLoaded("RaidAchievement_CataRaids")==false and wascrtryloadea==nil then
 wascrtryloadea=1
 local loaded, reason = LoadAddOn("RaidAchievement_CataRaids")
@@ -1211,7 +1211,7 @@ end
 end
 
 --рейды панды
-if GetCurrentMapAreaID()==897 or GetCurrentMapAreaID()==896 or GetCurrentMapAreaID()==886 or GetCurrentMapAreaID()==930 or GetCurrentMapAreaID()==953 then
+if C_Map.GetBestMapForUnit("player")==897 or C_Map.GetBestMapForUnit("player")==896 or C_Map.GetBestMapForUnit("player")==886 or C_Map.GetBestMapForUnit("player")==930 or C_Map.GetBestMapForUnit("player")==953 then
 if IsAddOnLoaded("RaidAchievement_PandaRaids")==false and wasprtryloadea==nil then
 wasprtryloadea=1
 local loaded, reason = LoadAddOn("RaidAchievement_PandaRaids")
@@ -1224,7 +1224,7 @@ end
 end
 
 --тут добавить рейды WoD
-if GetCurrentMapAreaID()==988 or GetCurrentMapAreaID()==1026 then
+if C_Map.GetBestMapForUnit("player")==988 or C_Map.GetBestMapForUnit("player")==1026 then
 if IsAddOnLoaded("RaidAchievement_WoDRaids")==false and waswodrtryloadea==nil then
 waswodrtryloadea=1
 local loaded, reason = LoadAddOn("RaidAchievement_WoDRaids")
@@ -1238,7 +1238,7 @@ end
 
 
 --тут добавить рейды Legion
-if GetCurrentMapAreaID()==1094 or GetCurrentMapAreaID()==1088 or GetCurrentMapAreaID()==1147 then
+if C_Map.GetBestMapForUnit("player")==1094 or C_Map.GetBestMapForUnit("player")==1088 or C_Map.GetBestMapForUnit("player")==1147 then
 if IsAddOnLoaded("RaidAchievement_WoDRaids")==false and waslegionrtryloadea==nil then
 waslegionrtryloadea=1
 local loaded, reason = LoadAddOn("RaidAchievement_LegionRaids")
@@ -1254,7 +1254,7 @@ end
 local idheroics={522,534,530,525,526,603,602,601,520,524,536,542,533}
 local buul=0
 for i=1,#idheroics do
-	if idheroics[i]==GetCurrentMapAreaID() then
+	if idheroics[i]==C_Map.GetBestMapForUnit("player") then
 		buul=1
 	end
 end
@@ -1266,10 +1266,10 @@ if select(3,GetInstanceInfo())==17 or IsLFGModeActive(LE_LFG_CATEGORY_LFD) or Is
 end
 
 if GetNumGroupMembers()>1 then
-SendAddonMessage("RAother", "5"..raversion, chattt)
+C_ChatInfo.SendAddonMessage("RAother", "5"..raversion, chattt)
 end
 if thisaddonwork then
-SendAddonMessage("PSaddon", "17"..psversion, chattt)
+C_ChatInfo.SendAddonMessage("PSaddon", "17"..psversion, chattt)
 end
 
 if IsAddOnLoaded("RaidAchievement_WotlkHeroics")==false and waswhtryloadea==nil then
@@ -1287,7 +1287,7 @@ end
 local idheroics={756,764,767,753,768,769,757,759,747,781,793,820,819,816}
 local buul=0
 for i=1,#idheroics do
-	if idheroics[i]==GetCurrentMapAreaID() then
+	if idheroics[i]==C_Map.GetBestMapForUnit("player") then
 		buul=1
 	end
 end
@@ -1299,10 +1299,10 @@ if select(3,GetInstanceInfo())==17 or IsLFGModeActive(LE_LFG_CATEGORY_LFD) or Is
 end
 
 if GetNumGroupMembers()>1 then
-SendAddonMessage("RAother", "5"..raversion, chattt)
+C_ChatInfo.SendAddonMessage("RAother", "5"..raversion, chattt)
 end
 if thisaddonwork then
-SendAddonMessage("PSaddon", "17"..psversion, chattt)
+C_ChatInfo.SendAddonMessage("PSaddon", "17"..psversion, chattt)
 end
 
 if IsAddOnLoaded("RaidAchievement_CataHeroics")==false and waschtryloadea==nil then
@@ -1320,7 +1320,7 @@ end
 local idheroics={867, 876, 877, 875, 885, 887, 898, 871, 874}
 local buul=0
 for i=1,#idheroics do
-	if idheroics[i]==GetCurrentMapAreaID() then
+	if idheroics[i]==C_Map.GetBestMapForUnit("player") then
 		buul=1
 	end
 end
@@ -1332,10 +1332,10 @@ if select(3,GetInstanceInfo())==17 or IsLFGModeActive(LE_LFG_CATEGORY_LFD) or Is
 end
 
 if GetNumGroupMembers()>1 then
-SendAddonMessage("RAother", "5"..raversion, chattt)
+C_ChatInfo.SendAddonMessage("RAother", "5"..raversion, chattt)
 end
 if thisaddonwork then
-SendAddonMessage("PSaddon", "17"..psversion, chattt)
+C_ChatInfo.SendAddonMessage("PSaddon", "17"..psversion, chattt)
 end
 
 if IsAddOnLoaded("RaidAchievement_PandaHeroics")==false and wasphtryloadea==nil then
@@ -1354,7 +1354,7 @@ end
 local idheroics={878, 899, 884, 900, 880, 906, 882,911,912,883,914,937,939,940,938}
 local buul=0
 for i=1,#idheroics do
-	if idheroics[i]==GetCurrentMapAreaID() then
+	if idheroics[i]==C_Map.GetBestMapForUnit("player") then
 		buul=1
 	end
 end
@@ -1366,10 +1366,10 @@ if select(3,GetInstanceInfo())==11 or select(3,GetInstanceInfo())==12 or IsLFGMo
 end
 
 if GetNumGroupMembers()>1 then
-SendAddonMessage("RAother", "5"..raversion, chattt)
+C_ChatInfo.SendAddonMessage("RAother", "5"..raversion, chattt)
 end
 if thisaddonwork then
-SendAddonMessage("PSaddon", "17"..psversion, chattt)
+C_ChatInfo.SendAddonMessage("PSaddon", "17"..psversion, chattt)
 end
 
 if IsAddOnLoaded("RaidAchievement_PandaScenarios")==false and waspztryloadea==nil then
@@ -1389,7 +1389,7 @@ end
 local idheroics={964,987,984,989,995,993,1008,969}
 local buul=0
 for i=1,#idheroics do
-	if idheroics[i]==GetCurrentMapAreaID() then
+	if idheroics[i]==C_Map.GetBestMapForUnit("player") then
 		buul=1
 	end
 end
@@ -1401,10 +1401,10 @@ if select(3,GetInstanceInfo())==17 or IsLFGModeActive(LE_LFG_CATEGORY_LFD) or Is
 end
 
 if GetNumGroupMembers()>1 then
-SendAddonMessage("RAother", "5"..raversion, chattt)
+C_ChatInfo.SendAddonMessage("RAother", "5"..raversion, chattt)
 end
 if thisaddonwork then
-SendAddonMessage("PSaddon", "17"..psversion, chattt)
+C_ChatInfo.SendAddonMessage("PSaddon", "17"..psversion, chattt)
 end
 
 if IsAddOnLoaded("RaidAchievement_WoDHeroics")==false and wasphtryloadea==nil then
@@ -1424,7 +1424,7 @@ end
 local idheroics={1081,1087,1067,1046,1041,1042,1065,1079,1045,1066}
 local buul=0
 for i=1,#idheroics do
-	if idheroics[i]==GetCurrentMapAreaID() then
+	if idheroics[i]==C_Map.GetBestMapForUnit("player") then
 		buul=1
 	end
 end
@@ -1437,10 +1437,10 @@ if select(3,GetInstanceInfo())==17 or IsLFGModeActive(LE_LFG_CATEGORY_LFD) or Is
 end
 
 if GetNumGroupMembers()>1 then
-SendAddonMessage("RAother", "5"..raversion, chattt)
+C_ChatInfo.SendAddonMessage("RAother", "5"..raversion, chattt)
 end
 if thisaddonwork then
-SendAddonMessage("PSaddon", "17"..psversion, chattt)
+C_ChatInfo.SendAddonMessage("PSaddon", "17"..psversion, chattt)
 end
 
 if IsAddOnLoaded("RaidAchievement_LegionHeroics")==false and waslhtryloadea==nil then
@@ -1535,12 +1535,12 @@ if pseashowfailreas then ratmp1="1-"..rasoundtoplay[1]..rasoundtoplay[2]..rasoun
 print ("RA "..UnitName("player").." v."..raversion.." "..ratmp1.." "..ratmp2.." "..wherereportraidach..wherereportpartyach.." "..psa6.." installed: "..raaddoninstalledsins)
 if cchat==nil then
 if select(3,GetInstanceInfo())==17 or select(3,GetInstanceInfo())==11 or select(3,GetInstanceInfo())==12 or IsLFGModeActive(LE_LFG_CATEGORY_LFD) or IsLFGModeActive(LE_LFG_CATEGORY_SCENARIO) then
-SendAddonMessage("RAother", "3info", "Instance_CHAT")
+C_ChatInfo.SendAddonMessage("RAother", "3info", "Instance_CHAT")
 else
-SendAddonMessage("RAother", "3info", "raid")
+C_ChatInfo.SendAddonMessage("RAother", "3info", "raid")
 end
 else
-SendAddonMessage("RAother", "3info", cchat)
+C_ChatInfo.SendAddonMessage("RAother", "3info", cchat)
 end
 end
 
@@ -2340,7 +2340,7 @@ end
 
 
 --инфо о ДР
-local _, month, day, year = CalendarGetDate()
+local _, month, day, year = tonumber(date("%H")),tonumber(date("%m")),tonumber(date("%d")),tonumber(date("%y"))
 --if (year==2017 and month==2 and (day==12 or day==13) and raannouncerun4==0 and (psDoNotShowOtherAnnounces==nil or (psDoNotShowOtherAnnounces and psDoNotShowOtherAnnounces==0)) and math.random(1,100)>70) then
 if (year==2017 and (month==8 or month==9) and (day>22 and day<31) and raannouncerun4==0 and (psDoNotShowOtherAnnounces==nil or (psDoNotShowOtherAnnounces and psDoNotShowOtherAnnounces==0)) and math.random(1,100)>70) then
 	local text=""

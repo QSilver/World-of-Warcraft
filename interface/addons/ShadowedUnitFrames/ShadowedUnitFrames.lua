@@ -90,6 +90,18 @@ function ShadowUF:OnInitialize()
 	if LibDualSpec then LibDualSpec:EnhanceDatabase(self.db, "ShadowedUnitFrames") end
 end
 
+function ShadowUF.UnitAuraBySpell(unit, spell, filter)
+	local index = 0
+	while true do
+		index = index + 1
+		local name, _, _, _, _, _, _, _, _, spellID = UnitAura(unit, index, filter)
+		if not name then break end
+		if (type(spell) == "string" and spell == name) or (type(spell) == "number" and spell == spellID) then
+			return UnitAura(unit, index, filter)
+		end
+	end
+end
+
 function ShadowUF:CheckBuild()
 	local build = select(4, GetBuildInfo())
 	if( self.db.profile.wowBuild == build ) then return end
@@ -755,9 +767,6 @@ function ShadowUF:HideBlizzardFrames()
 		ArenaEnemyFrames:SetParent(self.hiddenFrame)
 		ArenaPrepFrames:UnregisterAllEvents()
 		ArenaPrepFrames:SetParent(self.hiddenFrame)
-
-		SetCVar("showArenaEnemyFrames", 0, "SHOW_ARENA_ENEMY_FRAMES_TEXT")
-
 	end
 
 	if( self.db.profile.hidden.playerAltPower and not active_hiddens.playerAltPower ) then

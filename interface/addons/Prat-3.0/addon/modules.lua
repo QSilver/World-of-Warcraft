@@ -2,7 +2,7 @@
 --
 -- Prat - A framework for World of Warcraft chat mods
 --
--- Copyright (C) 2006-2011  Prat Development Team
+-- Copyright (C) 2006-2018  Prat Development Team
 --
 -- This program is free software; you can redistribute it and/or
 -- modify it under the terms of the GNU General Public License
@@ -172,6 +172,7 @@ do
 
 
   local function onEnable(self) -- ==> INITIALIZED/DISABLED -> ENABLED
+--    Print("onEnable() "..self.name)
     local pats = GetModulePatterns(self)
     if pats then
       for _,v in ipairs(pats) do
@@ -184,6 +185,7 @@ do
   end
 
   local function onDisable(self) -- ==>INITIALIZED/ENABLED -> DISABLED
+--    Print("onDisable() "..self.name)
     UnregisterAllPatterns(self.name)
     self:OnModuleDisable()
     Modules[self.name] = "DISABLED"
@@ -229,6 +231,10 @@ do
     return not self:IsEnabled()
   end
 
+  local function getDescription(self)
+    return self.PL.module_desc
+  end
+
   local prototype = {
     OnEnable = onEnable,
     OnDisable = onDisable,
@@ -246,14 +252,18 @@ do
     GetColorValue = getColorValue,
     SetColorValue = setColorValue,
     IsDisabled = isDisabled,
+    GetDescription = getDescription,
 
     -- Standard fields
-    PL = Prat:GetLocalizer({}),
     section = "extras",
   }
 
   function NewModule(self, name, ...) -- <== INSTALLED (Ace3 does the <== INITIALIZED)
-    return Addon:NewModule(name, prototype, ...)
+    local addon = Addon:NewModule(name, prototype, ...)
+
+    addon.PL = Prat:GetLocalizer({})
+
+    return addon
   end
 
   --	local locs, section

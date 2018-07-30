@@ -1,71 +1,71 @@
 
 BigWigs:AddColors("The Prophet Skeram", {
-	[785] = {"Attention","Personal"},
-	[26192] = "Urgent",
-	[20449] = "Important",
-	["images"] = {"Important","Positive"},
+	[785] = {"blue","yellow"},
+	[20449] = "red",
+	[26192] = "orange",
+	["images"] = {"green","red"},
 })
 
 BigWigs:AddColors("The Bug Trio", {
-	[25786] = "Personal",
-	[26580] = {"Important","Urgent"},
-	[25807] = "Urgent",
-	[25812] = "Attention",
+	[25786] = "blue",
+	[25807] = "orange",
+	[25812] = "yellow",
+	[26580] = {"orange","red"},
 })
 
 BigWigs:AddColors("Battleguard Sartura", {
-	["stages"] = "Positive",
-	[26083] = {"Important","Positive"},
-	[8269] = {"Urgent","Attention"},
+	[8269] = {"orange","yellow"},
+	[26083] = {"green","red"},
+	["stages"] = "green",
 })
 
 BigWigs:AddColors("Fankriss the Unyielding", {
-	[25832] = "Urgent",
-	[720] = {"Important","Personal"},
-	[25646] = {"Attention","Personal"},
+	[720] = {"blue","red"},
+	[25646] = {"blue","yellow"},
+	[25832] = "orange",
 })
 
 BigWigs:AddColors("Viscidus", {
-	[25991] = "Attention",
-	[25989] = "Personal",
-	["freeze"] = {"Positive","Neutral","Important","Urgent"},
+	[25989] = "blue",
+	[25991] = "yellow",
+	["freeze"] = {"cyan","green","orange","red"},
 })
 
 BigWigs:AddColors("Princess Huhuran", {
-	[26051] = "Attention",
-	["berserk"] = {"Urgent","Important"},
-	[26180] = {"Positive","Important","Personal"},
+	[26051] = "yellow",
+	[26180] = {"blue","green","red"},
+	["berserk"] = {"orange","red"},
 })
 
 BigWigs:AddColors("The Twin Emperors", {
-	[7393] = "Important",
-	[802] = "Neutral",
-	[26607] = "Personal",
-	[800] = {"Urgent","Important","Attention"},
+	[800] = {"orange","red","yellow"},
+	[802] = "cyan",
+	[7393] = "red",
+	[26607] = "blue",
 })
 
 BigWigs:AddColors("Ouro", {
-	[26103] = "Important",
-	[26615] = {"Urgent","Positive"},
-	["stages"] = {"Attention","Important"},
-	[26102] = {"Attention","Important"},
-	["scarab"] = "Important",
+	[26102] = {"red","yellow"},
+	[26103] = "red",
+	[26615] = {"green","orange"},
+	["scarab"] = "red",
+	["stages"] = {"red","yellow"},
 })
 
 BigWigs:AddColors("C'Thun", {
-	["weakened"] = {"Positive","Urgent","Important"},
-	[26029] = {"Urgent","Important"},
-	["stages"] = {"Attention","Neutral"},
-	["tentacle"] = {"Urgent","Important"},
+	[26029] = {"orange","red"},
+	["stages"] = {"cyan","yellow"},
+	["tentacle"] = {"orange","red"},
+	["weakened"] = {"green","orange","red"},
 })
 
 BigWigs:AddColors("Ahn'Qiraj Trash", {
-	[8269] = "Important",
-	[25698] = "Urgent",
-	[25051] = {"Attention","Personal"},
-	[26554] = "Neutral",
-	["warrior"] = "Positive",
-	[26556] = {"Attention","Personal"},
-	["guard"] = "Positive",
-	[26558] = "Neutral",
+	[8269] = "red",
+	[25051] = {"blue","yellow"},
+	[25698] = "orange",
+	[26554] = "cyan",
+	[26556] = {"blue","yellow"},
+	[26558] = "cyan",
+	["guard"] = "green",
+	["warrior"] = "green",
 })

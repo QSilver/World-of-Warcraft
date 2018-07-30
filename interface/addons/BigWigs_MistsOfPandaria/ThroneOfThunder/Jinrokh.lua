@@ -61,7 +61,7 @@ function mod:OnBossEnable()
 	self:Log("SPELL_AURA_REMOVED", "FocusedLightningRemoved", 137422)
 	self:Log("SPELL_CAST_START", "FocusedLightning", 137399) -- SUCCESS has destName, but this is so much earlier, and "boss1target" should be reliable for it
 	self:Log("SPELL_CAST_SUCCESS", "StaticBurst", 137162)
-	self:Log("SPELL_DAMAGE", "StaticWoundConduction", 138375)
+	self:Log("SPELL_DAMAGE", "StaticWoundConduction", 138375) -- XXX doesn't exist anymore
 	self:Log("SPELL_PERIODIC_DAMAGE", "ElectrifiedWaters", 138006)
 	self:Log("SPELL_PERIODIC_MISSED", "ElectrifiedWaters", 138006)
 
@@ -94,7 +94,7 @@ function mod:IonizationRemoved(args)
 	if self:Me(args.destGUID) then
 		openedForMe = nil
 		self:StopBar(CL["you"]:format(args.spellName))
-		self:Message(args.spellId, "Positive", "Info", CL["removed"]:format(args.spellName))
+		self:Message(args.spellId, "green", "Info", CL["removed"]:format(args.spellName))
 	end
 	for k, v in next, ionized do
 		if v == args.destName then
@@ -104,7 +104,7 @@ function mod:IonizationRemoved(args)
 	end
 	if #ionized == 0 then
 		self:CloseProximity(args.spellId)
-		if UnitDebuff("player", self:SpellName(137422)) then -- Focused Lightning
+		if self:UnitDebuff("player", self:SpellName(137422)) then -- Focused Lightning
 			self:OpenProximity(-7741, 8) -- reopen it if we have lightning chasing us too
 		end
 	elseif not openedForMe then
@@ -127,7 +127,7 @@ end
 
 function mod:Ionization(args)
 	self:CDBar(-7741, 13) -- Focused Lightning
-	self:Message(args.spellId, "Important", "Long")
+	self:Message(args.spellId, "red", "Long")
 	self:Bar(args.spellId, 92)
 end
 
@@ -136,7 +136,7 @@ function mod:LightningStormDuration(args)
 end
 
 function mod:LightningStorm(args)
-	self:Message(args.spellId, "Important", "Long")
+	self:Message(args.spellId, "red", "Long")
 	self:Bar(args.spellId, 93, L["storm_short"])
 	self:Bar(-7741, self:Heroic() and 20 or 26) -- Focused Lightning
 	self:Bar(137162, 20) -- Static Burst
@@ -146,13 +146,13 @@ end
 function mod:ThunderingThrowSafe()
 	self:SecondaryIcon(137175)
 	self:CloseProximity(137175)
-	if UnitDebuff("player", self:SpellName(137399)) then -- Focused Lightning
+	if self:UnitDebuff("player", self:SpellName(137399)) then -- Focused Lightning
 		self:OpenProximity(-7741, 5)
 	end
 end
 
 function mod:ThunderingThrow(_, _, _, _, target)
-	self:TargetMessage(137175, target, "Important", "Warning")
+	self:TargetMessage(137175, target, "red", "Warning")
 	self:SecondaryIcon(137175, target)
 	if not UnitIsUnit(target, "player") then -- no point opening proximity for the thrown tank
 		self:CloseProximity(-7741) -- close this before opening another ( in case it was open )
@@ -167,7 +167,7 @@ do
 		local t = GetTime()
 		if t-prev > 2 then
 			prev = t
-			self:Message(139467, "Personal", "Info", CL["underyou"]:format(args.spellName))
+			self:Message(139467, "blue", "Info", CL["underyou"]:format(args.spellName))
 			self:Flash(139467)
 		end
 	end
@@ -177,7 +177,7 @@ function mod:FocusedLightningRemoved(args)
 	self:PrimaryIcon(-7741)
 	if self:Me(args.destGUID) then
 		self:CloseProximity(-7741)
-		if UnitDebuff("player", self:SpellName(138732)) then -- Ionization
+		if self:UnitDebuff("player", self:SpellName(138732)) then -- Ionization
 			self:OpenProximity(138732, 8)
 		end
 	end
@@ -185,7 +185,7 @@ end
 
 do
 	local function printTarget(self, player, guid)
-		self:TargetMessage(-7741, player, "Positive", "Alarm")
+		self:TargetMessage(-7741, player, "green", "Alarm")
 		self:PrimaryIcon(-7741, player)
 		if self:Me(guid) then
 			self:Say(-7741)
@@ -199,7 +199,7 @@ do
 end
 
 function mod:StaticBurst(args)
-	self:Message(args.spellId, "Attention")
+	self:Message(args.spellId, "yellow")
 	self:CDBar(args.spellId, 23)
 end
 
@@ -210,14 +210,14 @@ do
 		local t = GetTime()
 		if t-prev > 2 then
 			prev = t
-			self:Message(args.spellId, "Personal", "Info", L["in_water"])
+			self:Message(args.spellId, "blue", "Info", L["in_water"])
 			self:Flash(args.spellId)
 		end
 	end
 end
 
 function mod:StaticWound(args)
-	self:TargetMessage(args.spellId, args.destName, "Urgent", "Alert", nil, nil, true)
+	self:TargetMessage(args.spellId, args.destName, "orange", "Alert", nil, nil, true)
 end
 
 
@@ -228,7 +228,7 @@ do
 		local t = GetTime()
 		if t-prev > 2 then
 			prev = t
-			self:Message(args.spellId, "Personal", "Info", CL["underyou"]:format(args.spellName))
+			self:Message(args.spellId, "blue", "Info", CL["underyou"]:format(args.spellName))
 			self:Flash(args.spellId)
 		end
 	end

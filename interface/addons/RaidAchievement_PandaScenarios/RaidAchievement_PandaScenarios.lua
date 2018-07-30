@@ -211,7 +211,7 @@ end
 
 --achieves tracker:
 --A Brewing Storm
-if GetCurrentMapAreaID()==878 then
+if C_Map.GetBestMapForUnit("player")==878 then
 if arg2=="SPELL_DAMAGE" and arg10==111544 then
   if pzraspisokon[1]==1 and pszraonetimeonlylight==nil then
     raunitisplayer(arg7,arg8)
@@ -250,7 +250,7 @@ end
 
 
 --Unga Ingoo
-if GetCurrentMapAreaID()==882 then
+if C_Map.GetBestMapForUnit("player")==882 then
 
 if arg2=="SPELL_AURA_APPLIED" and arg10==123137 and rabrewstillonetime==nil then
   if pzraspisokon[4]==1 then
@@ -266,7 +266,7 @@ end
 
 
 --гробницы забытых королей
-if GetCurrentMapAreaID()==900 then
+if C_Map.GetBestMapForUnit("player")==900 then
 
 if (arg2=="SPELL_DAMAGE" or arg2=="SPELL_MISSED") and arg10==120742 then
   if pzraspisokon[5]==1 and pzraachdone1 then
@@ -283,7 +283,7 @@ end
 
 
 --деревня зеленой скалы
-if GetCurrentMapAreaID()==880 then
+if C_Map.GetBestMapForUnit("player")==880 then
 
 if arg2=="UNIT_DIED" and rascbochka==nil then
   if pzraspisokon[6]==1 then
@@ -306,7 +306,7 @@ end
 --
 
 --арена
-if GetCurrentMapAreaID()==899 then
+if C_Map.GetBestMapForUnit("player")==899 then
 
 if (arg2=="SPELL_DAMAGE" or arg2=="SPELL_MISSED") and arg10==123965 then
   if pzraspisokon[8]==1 and pzraachdone1 then
@@ -323,7 +323,7 @@ end
 
 
 --терамор
-if GetCurrentMapAreaID()==906 then
+if C_Map.GetBestMapForUnit("player")==906 then
 
 if arg2=="UNIT_DIED" then
   local id=raGetUnitID(arg7)
@@ -360,7 +360,7 @@ end
 
 
 --Zan'vess
-if GetCurrentMapAreaID()==883 then
+if C_Map.GetBestMapForUnit("player")==883 then
 
 if arg2=="UNIT_DIED" then
   local id=raGetUnitID(arg7)
@@ -375,7 +375,7 @@ end
 --
 
 --knife
-if GetCurrentMapAreaID()==914 then
+if C_Map.GetBestMapForUnit("player")==914 then
 
 --1 ачивка зоны
 if arg2=="SPELL_DAMAGE" and arg10==133121 then
@@ -434,7 +434,7 @@ end
 
 
 --секреты огненной пропасти
-if GetCurrentMapAreaID()==938 then
+if C_Map.GetBestMapForUnit("player")==938 then
 
 if (arg2=="SPELL_DAMAGE" or arg2=="SWING_DAMAGE") and rascbochka2==nil then
   --получение ид

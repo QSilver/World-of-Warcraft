@@ -1,18 +1,18 @@
 
 BigWigs:AddColors("Forgemaster Garfrost", {
-	[68789] = "Personal",
-	[70381] = {"Attention","Personal"},
+	[68789] = "blue",
+	[70381] = {"blue","yellow"},
 })
 
 BigWigs:AddColors("Ick & Krick", {
-	[68987] = {"Attention","Personal"},
-	[68989] = "Urgent",
-	[69263] = "Important",
-	[70274] = "Personal",
+	[68987] = {"blue","yellow"},
+	[68989] = "orange",
+	[69263] = "red",
+	[70274] = "blue",
 })
 
 BigWigs:AddColors("Scourgelord Tyrannus", {
-	[69167] = "Important",
-	[69172] = {"Attention","Personal"},
-	[69275] = {"Important","Personal"},
+	[69167] = "red",
+	[69172] = {"blue","yellow"},
+	[69275] = {"blue","red"},
 })

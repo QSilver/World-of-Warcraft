@@ -81,7 +81,7 @@ function mod:OnEngage()
 	breathCounter = 0
 	headCounter = 0
 	self:Bar("breaths", 5, L["breaths"], L.breaths_icon)
-	self:Message("breaths", "Attention", nil, CL["custom_start_s"]:format(self.displayName, L["breaths"], 5), false)
+	self:Message("breaths", "yellow", nil, CL["custom_start_s"]:format(self.displayName, L["breaths"], 5), false)
 end
 
 --------------------------------------------------------------------------------
@@ -109,7 +109,7 @@ do
 		if t-prev > 6 then
 			prev = t
 			breathCounter = breathCounter + 1
-			self:Message("breaths", "Attention", nil, CL["count"]:format(L["breaths"], breathCounter), L.breaths_icon) -- neutral breath icon
+			self:Message("breaths", "yellow", nil, CL["count"]:format(L["breaths"], breathCounter), L.breaths_icon) -- neutral breath icon
 			self:Bar("breaths", 16.5, L["breaths"], L.breaths_icon)
 		end
 	end
@@ -122,27 +122,28 @@ do
 		local t = GetTime()
 		if t-prev > 2 then
 			prev = t
-			self:Message("breaths", "Personal", "Info", CL["you"]:format(args.spellName), args.spellId)
+			self:Message("breaths", "blue", "Info", CL["you"]:format(args.spellName), args.spellId)
 			self:Flash("breaths", args.spellId)
 		end
 	end
 end
 
 do
-	local function rampageOver(spellId, spellName)
-		mod:Message(spellId, "Positive", nil, CL["over"]:format(spellName))
-		if frostOrFireDead and not mod:LFR() then
-			mod:OpenProximity("proximity", 5)
+	local function rampageOver(self, spellId, spellName)
+		self:Message(spellId, "green", nil, CL["over"]:format(spellName))
+		if frostOrFireDead and not self:LFR() then
+			self:OpenProximity("proximity", 5)
 		end
-		mod:RegisterEvent("UNIT_AURA")
+		self:RegisterEvent("UNIT_AURA")
 	end
-	function mod:Rampage(unit, spellName, _, _, spellId)
+	function mod:Rampage(_, _, _, spellId)
 		if spellId == 139458 then
 			self:UnregisterEvent("UNIT_AURA")
 			self:Bar("breaths", 30, L["breaths"], L.breaths_icon)
-			self:Message(spellId, "Important", "Long", CL["count"]:format(spellName, headCounter))
+			local spellName = self:SpellName(spellId)
+			self:Message(spellId, "red", "Long", CL["count"]:format(spellName, headCounter))
 			self:Bar(spellId, 20, CL["count"]:format(spellName, headCounter))
-			self:ScheduleTimer(rampageOver, 20, spellId, spellName)
+			self:ScheduleTimer(rampageOver, 20, self, spellId, spellName)
 			breathCounter = 0
 		end
 	end
@@ -156,7 +157,7 @@ function mod:Deaths(args)
 	headCounter = headCounter + 1
 	self:CloseProximity("proximity")
 	self:StopBar(L["breaths"])
-	self:Message(139458, "Attention", nil, CL["soon"]:format(CL["count"]:format(self:SpellName(139458), headCounter))) -- Rampage
+	self:Message(139458, "yellow", nil, CL["soon"]:format(CL["count"]:format(self:SpellName(139458), headCounter))) -- Rampage
 	self:Bar(139458, 5, CL["incoming"]:format(self:SpellName(139458)))
 end
 
@@ -165,11 +166,11 @@ end
 --
 
 function mod:Suppression(args)
-	self:TargetMessage(args.spellId, args.destName, "Urgent")
+	self:TargetMessage(args.spellId, args.destName, "orange")
 end
 
 function mod:NetherTear(args)
-	self:Message(args.spellId, "Urgent", "Alarm", L["arcane_adds"])
+	self:Message(args.spellId, "orange", "Alarm", L["arcane_adds"])
 	self:Bar(args.spellId, 6, CL["cast"]:format(L["arcane_adds"])) -- this is to help so you know when all the adds have spawned
 end
 
@@ -184,7 +185,7 @@ do
 		local t = GetTime()
 		if t-prev > 2 then
 			prev = t
-			self:Message(args.spellId, "Personal", "Info", CL["underyou"]:format(args.spellName))
+			self:Message(args.spellId, "blue", "Info", CL["underyou"]:format(args.spellName))
 			self:Flash(args.spellId)
 		end
 	end
@@ -192,7 +193,6 @@ end
 
 do
 	local iceTorrent, torrentList = mod:SpellName(139857), {}
-	local UnitDebuff = UnitDebuff
 	local function torrentOver(expires)
 		torrentList[expires] = nil
 		if not next(torrentList) then
@@ -200,7 +200,7 @@ do
 		end
 	end
 	function mod:UNIT_AURA(_, unit)
-		local _, _, _, _, _, _, expires = UnitDebuff(unit, iceTorrent)
+		local _, _, _, expires = self:UnitDebuff(unit, iceTorrent)
 		if expires and not torrentList[expires] then
 			local duration = expires - GetTime() -- EJ says 8, spell tooltip says 11
 			local player = self:UnitName(unit)
@@ -209,7 +209,7 @@ do
 				self:Flash(139866)
 				self:Say(139866)
 			end
-			self:TargetMessage(139866, player, "Urgent", "Info")
+			self:TargetMessage(139866, player, "orange", "Info")
 			self:PrimaryIcon(139866, player)
 			self:ScheduleTimer(torrentOver, duration + 1, expires)
 			torrentList[expires] = true
@@ -219,7 +219,7 @@ end
 
 function mod:ArcticFreeze(args)
 	if args.amount > 3 then
-		self:StackMessage(args.spellId, args.destName, args.amount, "Urgent", "Warning")
+		self:StackMessage(args.spellId, args.destName, args.amount, "orange", "Warning")
 	end
 end
 
@@ -234,7 +234,7 @@ do
 		local t = GetTime()
 		if t-prev > 2 then
 			prev = t
-			self:Message(139822, "Personal", "Info", CL["underyou"]:format(args.spellName))
+			self:Message(139822, "blue", "Info", CL["underyou"]:format(args.spellName))
 			self:Flash(139822)
 		end
 	end
@@ -242,7 +242,7 @@ end
 
 function mod:CindersApplied(args)
 	self:SecondaryIcon(args.spellId, args.destName)
-	self:TargetMessage(args.spellId, args.destName, "Important", "Alert", nil, nil, true)
+	self:TargetMessage(args.spellId, args.destName, "red", "Alert", nil, nil, true)
 	self:TargetBar(args.spellId, 30, args.destName)
 	if self:Me(args.destGUID) then
 		self:Flash(args.spellId)

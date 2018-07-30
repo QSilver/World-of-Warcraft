@@ -2,7 +2,7 @@
 --
 -- Prat - A framework for World of Warcraft chat mods
 --
--- Copyright (C) 2006-2011  Prat Development Team
+-- Copyright (C) 2006-2018  Prat Development Team
 --
 -- This program is free software; you can redistribute it and/or
 -- modify it under the terms of the GNU General Public License
@@ -33,7 +33,10 @@ if PRAT_MODULE == nil then
     return 
 end
 
-local PL = Prat:GetLocalizer({})
+-- create prat module
+local module = Prat:NewModule(PRAT_MODULE, "LibSink-2.0")
+
+local PL = module.PL
 
 --[===[@debug@
 PL:AddLocale(PRAT_MODULE, "enUS", {
@@ -109,54 +112,54 @@ PL:AddLocale(PRAT_MODULE, "enUS", L)
 L=
 {
 	["PopupMessage"] = {
-		--Translation missing 
-		-- ["Add Nickname"] = "",
-		--Translation missing 
-		-- ["Adds an alternate name to show in popups."] = "",
-		--Translation missing 
-		-- ["Clear Nickname"] = "",
-		--Translation missing 
-		-- ["Clears alternate name to show in popups."] = "",
-		--Translation missing 
-		-- ["framealpha_desc"] = "",
-		--Translation missing 
-		-- ["framealpha_name"] = "",
-		--Translation missing 
-		-- ["Popup"] = "",
-		--Translation missing 
-		-- ["PopupMessage"] = "",
-		--Translation missing 
-		-- ["Remove Nickname"] = "",
-		--Translation missing 
-		-- ["Removes an alternate name to show in popups."] = "",
-		--Translation missing 
-		-- ["Set Separately"] = "",
-		--Translation missing 
-		-- ["Show All Popups"] = "",
-		--Translation missing 
-		-- ["Show Popups"] = "",
-		--Translation missing 
-		-- ["Show Popups for all chat windows."] = "",
-		--Translation missing 
-		-- ["Show Popups for each window."] = "",
-		--Translation missing 
-		-- ["show_desc"] = "",
-		--Translation missing 
-		-- ["show_name"] = "",
-		--Translation missing 
-		-- ["show_perframedesc"] = "",
-		--Translation missing 
-		-- ["show_perframename"] = "",
-		--Translation missing 
-		-- ["showall_desc"] = "",
-		--Translation missing 
-		-- ["showall_name"] = "",
-		--Translation missing 
-		-- ["Shows messages in a popup window."] = "",
-		--Translation missing 
-		-- ["Shows messages with your name in a popup."] = "",
-		--Translation missing 
-		-- ["Toggle setting options separately for each chat window."] = "",
+		--[[Translation missing --]]
+		--[[ ["Add Nickname"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Adds an alternate name to show in popups."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Clear Nickname"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Clears alternate name to show in popups."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["framealpha_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["framealpha_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Popup"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["PopupMessage"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Remove Nickname"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Removes an alternate name to show in popups."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Set Separately"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Show All Popups"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Show Popups"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Show Popups for all chat windows."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Show Popups for each window."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["show_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["show_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["show_perframedesc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["show_perframename"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showall_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showall_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Shows messages in a popup window."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Shows messages with your name in a popup."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Toggle setting options separately for each chat window."] = "",--]] 
 	}
 }
 PL:AddLocale(PRAT_MODULE, "itIT", L)
@@ -165,54 +168,54 @@ PL:AddLocale(PRAT_MODULE, "itIT", L)
 L=
 {
 	["PopupMessage"] = {
-		--Translation missing 
-		-- ["Add Nickname"] = "",
-		--Translation missing 
-		-- ["Adds an alternate name to show in popups."] = "",
-		--Translation missing 
-		-- ["Clear Nickname"] = "",
-		--Translation missing 
-		-- ["Clears alternate name to show in popups."] = "",
-		--Translation missing 
-		-- ["framealpha_desc"] = "",
-		--Translation missing 
-		-- ["framealpha_name"] = "",
-		--Translation missing 
-		-- ["Popup"] = "",
-		--Translation missing 
-		-- ["PopupMessage"] = "",
-		--Translation missing 
-		-- ["Remove Nickname"] = "",
-		--Translation missing 
-		-- ["Removes an alternate name to show in popups."] = "",
-		--Translation missing 
-		-- ["Set Separately"] = "",
-		--Translation missing 
-		-- ["Show All Popups"] = "",
-		--Translation missing 
-		-- ["Show Popups"] = "",
-		--Translation missing 
-		-- ["Show Popups for all chat windows."] = "",
-		--Translation missing 
-		-- ["Show Popups for each window."] = "",
-		--Translation missing 
-		-- ["show_desc"] = "",
-		--Translation missing 
-		-- ["show_name"] = "",
-		--Translation missing 
-		-- ["show_perframedesc"] = "",
-		--Translation missing 
-		-- ["show_perframename"] = "",
-		--Translation missing 
-		-- ["showall_desc"] = "",
-		--Translation missing 
-		-- ["showall_name"] = "",
-		--Translation missing 
-		-- ["Shows messages in a popup window."] = "",
-		--Translation missing 
-		-- ["Shows messages with your name in a popup."] = "",
-		--Translation missing 
-		-- ["Toggle setting options separately for each chat window."] = "",
+		--[[Translation missing --]]
+		--[[ ["Add Nickname"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Adds an alternate name to show in popups."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Clear Nickname"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Clears alternate name to show in popups."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["framealpha_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["framealpha_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Popup"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["PopupMessage"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Remove Nickname"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Removes an alternate name to show in popups."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Set Separately"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Show All Popups"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Show Popups"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Show Popups for all chat windows."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Show Popups for each window."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["show_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["show_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["show_perframedesc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["show_perframename"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showall_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showall_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Shows messages in a popup window."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Shows messages with your name in a popup."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Toggle setting options separately for each chat window."] = "",--]] 
 	}
 }
 PL:AddLocale(PRAT_MODULE, "ptBR", L)
@@ -221,18 +224,18 @@ L=
 {
 	["PopupMessage"] = {
 		["Add Nickname"] = "Ajouter un surnom",
-		--Translation missing 
-		-- ["Adds an alternate name to show in popups."] = "",
+		--[[Translation missing --]]
+		--[[ ["Adds an alternate name to show in popups."] = "",--]] 
 		["Clear Nickname"] = "Efface le surnom",
-		--Translation missing 
-		-- ["Clears alternate name to show in popups."] = "",
+		--[[Translation missing --]]
+		--[[ ["Clears alternate name to show in popups."] = "",--]] 
 		["framealpha_desc"] = "Régler la transparence de la popup lorsqu'elle disparait.",
 		["framealpha_name"] = "Transparence des popups",
 		["Popup"] = true,
 		["PopupMessage"] = "Message popup",
 		["Remove Nickname"] = "Retirer un surnom",
-		--Translation missing 
-		-- ["Removes an alternate name to show in popups."] = "",
+		--[[Translation missing --]]
+		--[[ ["Removes an alternate name to show in popups."] = "",--]] 
 		["Set Separately"] = "Afficher séparément",
 		["Show All Popups"] = "Afficher toutes les popups",
 		["Show Popups"] = "Afficher les popups",
@@ -317,54 +320,54 @@ PL:AddLocale(PRAT_MODULE, "koKR",L)
 L=
 {
 	["PopupMessage"] = {
-		--Translation missing 
-		-- ["Add Nickname"] = "",
-		--Translation missing 
-		-- ["Adds an alternate name to show in popups."] = "",
-		--Translation missing 
-		-- ["Clear Nickname"] = "",
-		--Translation missing 
-		-- ["Clears alternate name to show in popups."] = "",
-		--Translation missing 
-		-- ["framealpha_desc"] = "",
-		--Translation missing 
-		-- ["framealpha_name"] = "",
-		--Translation missing 
-		-- ["Popup"] = "",
-		--Translation missing 
-		-- ["PopupMessage"] = "",
-		--Translation missing 
-		-- ["Remove Nickname"] = "",
-		--Translation missing 
-		-- ["Removes an alternate name to show in popups."] = "",
-		--Translation missing 
-		-- ["Set Separately"] = "",
-		--Translation missing 
-		-- ["Show All Popups"] = "",
-		--Translation missing 
-		-- ["Show Popups"] = "",
-		--Translation missing 
-		-- ["Show Popups for all chat windows."] = "",
-		--Translation missing 
-		-- ["Show Popups for each window."] = "",
-		--Translation missing 
-		-- ["show_desc"] = "",
-		--Translation missing 
-		-- ["show_name"] = "",
-		--Translation missing 
-		-- ["show_perframedesc"] = "",
-		--Translation missing 
-		-- ["show_perframename"] = "",
-		--Translation missing 
-		-- ["showall_desc"] = "",
-		--Translation missing 
-		-- ["showall_name"] = "",
-		--Translation missing 
-		-- ["Shows messages in a popup window."] = "",
-		--Translation missing 
-		-- ["Shows messages with your name in a popup."] = "",
-		--Translation missing 
-		-- ["Toggle setting options separately for each chat window."] = "",
+		--[[Translation missing --]]
+		--[[ ["Add Nickname"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Adds an alternate name to show in popups."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Clear Nickname"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Clears alternate name to show in popups."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["framealpha_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["framealpha_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Popup"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["PopupMessage"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Remove Nickname"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Removes an alternate name to show in popups."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Set Separately"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Show All Popups"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Show Popups"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Show Popups for all chat windows."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Show Popups for each window."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["show_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["show_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["show_perframedesc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["show_perframename"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showall_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showall_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Shows messages in a popup window."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Shows messages with your name in a popup."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Toggle setting options separately for each chat window."] = "",--]] 
 	}
 }
 PL:AddLocale(PRAT_MODULE, "esMX",L)
@@ -462,18 +465,18 @@ L=
 {
 	["PopupMessage"] = {
 		["Add Nickname"] = "新增暱稱",
-		--Translation missing 
-		-- ["Adds an alternate name to show in popups."] = "",
+		--[[Translation missing --]]
+		--[[ ["Adds an alternate name to show in popups."] = "",--]] 
 		["Clear Nickname"] = "清除暱稱",
-		--Translation missing 
-		-- ["Clears alternate name to show in popups."] = "",
+		--[[Translation missing --]]
+		--[[ ["Clears alternate name to show in popups."] = "",--]] 
 		["framealpha_desc"] = "設定彈出視窗完全淡入時的透明度值",
 		["framealpha_name"] = "彈出視窗透明度",
 		["Popup"] = "彈出",
 		["PopupMessage"] = "彈出訊息",
 		["Remove Nickname"] = "移除暱稱",
-		--Translation missing 
-		-- ["Removes an alternate name to show in popups."] = "",
+		--[[Translation missing --]]
+		--[[ ["Removes an alternate name to show in popups."] = "",--]] 
 		["Set Separately"] = "單獨設定",
 		["Show All Popups"] = "顯示所有彈出視窗",
 		["Show Popups"] = "顯示彈出視窗",
@@ -486,10 +489,10 @@ L=
 		["showall_desc"] = "顯示彈出全部聊天視窗。",
 		["showall_name"] = "顯示全部彈出",
 		["Shows messages in a popup window."] = "顯示在彈出視窗訊息。",
-		--Translation missing 
-		-- ["Shows messages with your name in a popup."] = "",
-		--Translation missing 
-		-- ["Toggle setting options separately for each chat window."] = "",
+		--[[Translation missing --]]
+		--[[ ["Shows messages with your name in a popup."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Toggle setting options separately for each chat window."] = "",--]] 
 	}
 }
 PL:AddLocale(PRAT_MODULE, "zhTW",L)
@@ -535,8 +538,7 @@ local EVENTS_IGNORE = {
  ["CHAT_MSG_SYSTEM"] = true,
 }
 
--- create prat module
-local module = Prat:NewModule(PRAT_MODULE, "LibSink-2.0")
+
 
 Prat:SetModuleDefaults(module.name, {
 	profile = {
@@ -635,7 +637,9 @@ end
 --[[------------------------------------------------
 	Core Functions
 ------------------------------------------------]]--
-
+function module:GetDescription()
+	return PL["Shows messages with your name in a popup."]
+end
 -- /dump module.moduleOptions.args.output.get():find("Default")
 -- /script module.moduleOptions.args.output.set("PopupMessage")
 -- /dump module.db.profile

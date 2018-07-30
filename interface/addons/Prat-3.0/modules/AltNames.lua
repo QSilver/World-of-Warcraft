@@ -2,7 +2,7 @@
 --
 -- Prat - A framework for World of Warcraft chat mods
 --
--- Copyright (C) 2006-2011  Prat Development Team
+-- Copyright (C) 2006-2018  Prat Development Team
 --
 -- This program is free software; you can redistribute it and/or
 -- modify it under the terms of the GNU General Public License
@@ -34,7 +34,9 @@ Prat:AddModuleToLoad(function()
     return
   end
 
-  local PL = Prat:GetLocalizer({})
+  local module = Prat:NewModule(PRAT_MODULE, "AceHook-3.0", "AceEvent-3.0")
+
+  local PL = module.PL
 
   --[===[@debug@
   PL:AddLocale(PRAT_MODULE, "enUS", {
@@ -243,181 +245,181 @@ do
   L=
 {
 	["AltNames"] = {
-		--Translation missing 
-		-- ["%d alts found for %s: %s"] = "",
-		--Translation missing 
-		-- ["%s alts imported from LOKWhoIsWho"] = "",
-		--Translation missing 
-		-- ["%s total alts linked to mains"] = "",
-		--Translation missing 
-		-- ["(.-)'s? [Aa]lt"] = "",
-		--Translation missing 
-		-- ["([^%s%p%d%c%z]+)'s alt"] = "",
-		--Translation missing 
-		-- [".*[Aa]lts?$"] = "",
-		--Translation missing 
-		-- ["<alt name> (eg, /altnames del Personyouthoughtwassomeonesaltbutreallyisnt)"] = "",
-		--Translation missing 
-		-- ["<main> (eg /altnames listalts Fin)"] = "",
-		--Translation missing 
-		-- ["<search term> (eg, /altnames find fin)"] = "",
-		--Translation missing 
-		-- ["Alt"] = "",
-		--Translation missing 
-		-- ["alt"] = "",
-		--Translation missing 
-		-- ["alt name exists: %s -> %s; not overwriting as set in preferences"] = "",
-		--Translation missing 
-		-- ["AltNames"] = "",
-		--Translation missing 
-		-- ["Alts:"] = "",
-		--Translation missing 
-		-- ["autoguildalts_desc"] = "",
-		--Translation missing 
-		-- ["autoguildalts_name"] = "",
-		--Translation missing 
-		-- ["Be quiet"] = "",
-		--Translation missing 
-		-- ["character removed: %s"] = "",
-		--Translation missing 
-		-- ["Class colour"] = "",
-		--Translation missing 
-		-- ["Clear all"] = "",
-		--Translation missing 
-		-- ["Clear all links between alts and main names."] = "",
-		--Translation missing 
-		-- ["Colour"] = "",
-		--Translation missing 
-		-- ["Delete a character's link to another character as their main."] = "",
-		--Translation missing 
-		-- ["Delete alt"] = "",
-		--Translation missing 
-		-- ["Disabled"] = "",
-		--Translation missing 
-		-- ["Display a player's alts in the tooltip"] = "",
+		--[[Translation missing --]]
+		--[[ ["%d alts found for %s: %s"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["%s alts imported from LOKWhoIsWho"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["%s total alts linked to mains"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["(.-)'s? [Aa]lt"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["([^%s%p%d%c%z]+)'s alt"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ [".*[Aa]lts?$"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["<alt name> (eg, /altnames del Personyouthoughtwassomeonesaltbutreallyisnt)"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["<main> (eg /altnames listalts Fin)"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["<search term> (eg, /altnames find fin)"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Alt"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["alt"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["alt name exists: %s -> %s; not overwriting as set in preferences"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["AltNames"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Alts:"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["autoguildalts_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["autoguildalts_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Be quiet"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["character removed: %s"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Class colour"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Clear all"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Clear all links between alts and main names."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Colour"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Delete a character's link to another character as their main."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Delete alt"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Disabled"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Display a player's alts in the tooltip"] = "",--]] 
 		["Display a player's main name in the tooltip"] = "Affiche le nom principale d'un joueur dans la tooltip",
-		--Translation missing 
-		-- ["Display main names in the same colour as that of the alt's class (taking the data from the PlayerNames module if it is enabled)"] = "",
-		--Translation missing 
-		-- ["Display main names in the same colour as that of the main's class (taking the data from the PlayerNames module if it is enabled)"] = "",
+		--[[Translation missing --]]
+		--[[ ["Display main names in the same colour as that of the alt's class (taking the data from the PlayerNames module if it is enabled)"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Display main names in the same colour as that of the main's class (taking the data from the PlayerNames module if it is enabled)"] = "",--]] 
 		["Don't overwrite existing alt <-> main links when importing or adding new alts."] = "Ne pas écraser les liens principal <-> Alternatif lors d'un import ou d'un ajout de nouveaux personnages Alternatifs",
 		["Don't overwrite existing links"] = "Ne pas écraser les liens existant",
-		--Translation missing 
-		-- ["don't use"] = "",
+		--[[Translation missing --]]
+		--[[ ["don't use"] = "",--]] 
 		["Don't use data from the PlayerNames module at all"] = "Ne pas utiliser les donnée du module \"PlayerNames\" du tout",
 		["ERROR: some function sent a blank message!"] = "ERREUR: une fonction a envoyé un message blanc !",
 		["Find characters"] = "Trouver des personnages",
 		["Fix alts"] = "Réparer les personnages secondaires",
 		["Fix corrupted entries in your list of alt names."] = "Réparer les entrées corrompues dans votre liste de noms alternatifs.",
-		--Translation missing 
-		-- ["Found alt: %s => main: %s"] = "",
-		--Translation missing 
-		-- ["guild member alts found and imported: %s"] = "",
-		--Translation missing 
-		-- ["Import from Guild Greet database"] = "",
-		--Translation missing 
-		-- ["Import from guild roster"] = "",
-		--Translation missing 
-		-- ["Import options"] = "",
-		--Translation missing 
-		-- ["Imports alt names from a Guild Greet database, if present"] = "",
-		--Translation missing 
-		-- ["Imports alt names from the guild roster by checking for members with the rank \"alt\" or \"alts\", or guild / officer notes like \"<name>'s alt\""] = "",
-		--Translation missing 
-		-- ["Imports data from LOKWhoIsWho, if present (drop your SavedVariablesLOKWhoIsWho.lua in the Prat directory to be able to use this)."] = "",
-		--Translation missing 
-		-- ["Left"] = "",
-		--Translation missing 
-		-- ["link <alt name> <main name> (eg, /altnames link Fin Finjathealtoffin)"] = "",
-		--Translation missing 
-		-- ["Link alt"] = "",
-		--Translation missing 
-		-- ["Link someone's alt character with the name of their main."] = "",
-		--Translation missing 
-		-- ["linked alt %s => %s"] = "",
-		--Translation missing 
-		-- ["List all"] = "",
-		--Translation missing 
-		-- ["List all links between alts and their main names."] = "",
-		--Translation missing 
-		-- ["List alts"] = "",
-		--Translation missing 
-		-- ["List alts for a given character"] = "",
-		--Translation missing 
-		-- ["LOKWhoIsWho data not found"] = "",
-		--Translation missing 
-		-- ["LOKWhoIsWho import"] = "",
-		--Translation missing 
-		-- ["LOKWhoIsWho lua file not found, sorry."] = "",
-		--Translation missing 
-		-- ["Main"] = "",
-		--Translation missing 
-		-- ["main"] = "",
-		--Translation missing 
-		-- ["Main name position"] = "",
-		--Translation missing 
-		-- ["Main:"] = "",
-		--Translation missing 
-		-- ["mainpos_desc"] = "",
-		--Translation missing 
-		-- ["mainpos_name"] = "",
-		--Translation missing 
-		-- ["module_desc"] = "",
-		--Translation missing 
-		-- ["no alts found for character "] = "",
-		--Translation missing 
-		-- ["no alts or mains found matching \"%s\""] = "",
-		--Translation missing 
-		-- ["No arg string given to :addAlt()"] = "",
-		--Translation missing 
-		-- ["no characters called \"%s\" found; nothing deleted"] = "",
-		--Translation missing 
-		-- ["No Guild Greet database found"] = "",
-		--Translation missing 
-		-- ["No main name supplied to link %s to"] = "",
-		--Translation missing 
-		-- ["no matches found"] = "",
-		--Translation missing 
-		-- ["quiet"] = "",
-		--Translation missing 
-		-- ["quiet_desc"] = "",
-		--Translation missing 
-		-- ["quiet_name"] = "",
+		--[[Translation missing --]]
+		--[[ ["Found alt: %s => main: %s"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["guild member alts found and imported: %s"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Import from Guild Greet database"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Import from guild roster"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Import options"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Imports alt names from a Guild Greet database, if present"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Imports alt names from the guild roster by checking for members with the rank \"alt\" or \"alts\", or guild / officer notes like \"<name>'s alt\""] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Imports data from LOKWhoIsWho, if present (drop your SavedVariablesLOKWhoIsWho.lua in the Prat directory to be able to use this)."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Left"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["link <alt name> <main name> (eg, /altnames link Fin Finjathealtoffin)"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Link alt"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Link someone's alt character with the name of their main."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["linked alt %s => %s"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["List all"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["List all links between alts and their main names."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["List alts"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["List alts for a given character"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["LOKWhoIsWho data not found"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["LOKWhoIsWho import"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["LOKWhoIsWho lua file not found, sorry."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Main"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["main"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Main name position"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Main:"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["mainpos_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["mainpos_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["module_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["no alts found for character "] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["no alts or mains found matching \"%s\""] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["No arg string given to :addAlt()"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["no characters called \"%s\" found; nothing deleted"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["No Guild Greet database found"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["No main name supplied to link %s to"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["no matches found"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["quiet"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["quiet_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["quiet_name"] = "",--]] 
 		["Right"] = "Droite",
-		--Translation missing 
-		-- ["Search the list of linked characters for matching main or alt names."] = "",
-		--Translation missing 
-		-- ["searched for: %s - total matches: %s"] = "",
-		--Translation missing 
-		-- ["Show alts in tooltip"] = "",
-		--Translation missing 
-		-- ["Show main in tooltip"] = "",
-		--Translation missing 
-		-- ["Start"] = "",
-		--Translation missing 
-		-- ["The colour of an alt's main name that will be displayed"] = "",
-		--Translation missing 
-		-- ["Use class colour (from the PlayerNames module)"] = "",
-		--Translation missing 
-		-- ["use class colour of alt"] = "",
-		--Translation missing 
-		-- ["use class colour of main"] = "",
-		--Translation missing 
-		-- ["Use LibAlts Data"] = "",
-		--Translation missing 
-		-- ["Use the data available via the shared alt information library."] = "",
-		--Translation missing 
-		-- ["Various ways to import a main's alts from other addons"] = "",
-		--Translation missing 
-		-- ["warning: alt %s already linked to %s"] = "",
-		--Translation missing 
-		-- ["Where to display a character's main name when on their alt."] = "",
-		--Translation missing 
-		-- ["Whether to report to the chat frame or not."] = "",
-		--Translation missing 
-		-- ["You are not in a guild"] = "",
-		--Translation missing 
-		-- ["You have not yet linked any alts with their mains."] = "",
+		--[[Translation missing --]]
+		--[[ ["Search the list of linked characters for matching main or alt names."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["searched for: %s - total matches: %s"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Show alts in tooltip"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Show main in tooltip"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Start"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["The colour of an alt's main name that will be displayed"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Use class colour (from the PlayerNames module)"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["use class colour of alt"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["use class colour of main"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Use LibAlts Data"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Use the data available via the shared alt information library."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Various ways to import a main's alts from other addons"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["warning: alt %s already linked to %s"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Where to display a character's main name when on their alt."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Whether to report to the chat frame or not."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["You are not in a guild"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["You have not yet linked any alts with their mains."] = "",--]] 
 	}
 }
     PL:AddLocale(PRAT_MODULE, "frFR",L)
@@ -623,190 +625,190 @@ do
   L=
 {
 	["AltNames"] = {
-		--Translation missing 
-		-- ["%d alts found for %s: %s"] = "",
-		--Translation missing 
-		-- ["%s alts imported from LOKWhoIsWho"] = "",
-		--Translation missing 
-		-- ["%s total alts linked to mains"] = "",
-		--Translation missing 
-		-- ["(.-)'s? [Aa]lt"] = "",
-		--Translation missing 
-		-- ["([^%s%p%d%c%z]+)'s alt"] = "",
-		--Translation missing 
-		-- [".*[Aa]lts?$"] = "",
-		--Translation missing 
-		-- ["<alt name> (eg, /altnames del Personyouthoughtwassomeonesaltbutreallyisnt)"] = "",
-		--Translation missing 
-		-- ["<main> (eg /altnames listalts Fin)"] = "",
-		--Translation missing 
-		-- ["<search term> (eg, /altnames find fin)"] = "",
-		--Translation missing 
-		-- ["Alt"] = "",
-		--Translation missing 
-		-- ["alt"] = "",
-		--Translation missing 
-		-- ["alt name exists: %s -> %s; not overwriting as set in preferences"] = "",
-		--Translation missing 
-		-- ["AltNames"] = "",
-		--Translation missing 
-		-- ["Alts:"] = "",
-		--Translation missing 
-		-- ["autoguildalts_desc"] = "",
-		--Translation missing 
-		-- ["autoguildalts_name"] = "",
-		--Translation missing 
-		-- ["Be quiet"] = "",
-		--Translation missing 
-		-- ["character removed: %s"] = "",
-		--Translation missing 
-		-- ["Class colour"] = "",
-		--Translation missing 
-		-- ["Clear all"] = "",
-		--Translation missing 
-		-- ["Clear all links between alts and main names."] = "",
-		--Translation missing 
-		-- ["Colour"] = "",
-		--Translation missing 
-		-- ["Delete a character's link to another character as their main."] = "",
-		--Translation missing 
-		-- ["Delete alt"] = "",
-		--Translation missing 
-		-- ["Disabled"] = "",
-		--Translation missing 
-		-- ["Display a player's alts in the tooltip"] = "",
-		--Translation missing 
-		-- ["Display a player's main name in the tooltip"] = "",
-		--Translation missing 
-		-- ["Display main names in the same colour as that of the alt's class (taking the data from the PlayerNames module if it is enabled)"] = "",
-		--Translation missing 
-		-- ["Display main names in the same colour as that of the main's class (taking the data from the PlayerNames module if it is enabled)"] = "",
-		--Translation missing 
-		-- ["Don't overwrite existing alt <-> main links when importing or adding new alts."] = "",
-		--Translation missing 
-		-- ["Don't overwrite existing links"] = "",
-		--Translation missing 
-		-- ["don't use"] = "",
-		--Translation missing 
-		-- ["Don't use data from the PlayerNames module at all"] = "",
-		--Translation missing 
-		-- ["ERROR: some function sent a blank message!"] = "",
-		--Translation missing 
-		-- ["Find characters"] = "",
-		--Translation missing 
-		-- ["Fix alts"] = "",
-		--Translation missing 
-		-- ["Fix corrupted entries in your list of alt names."] = "",
-		--Translation missing 
-		-- ["Found alt: %s => main: %s"] = "",
-		--Translation missing 
-		-- ["guild member alts found and imported: %s"] = "",
-		--Translation missing 
-		-- ["Import from Guild Greet database"] = "",
-		--Translation missing 
-		-- ["Import from guild roster"] = "",
-		--Translation missing 
-		-- ["Import options"] = "",
-		--Translation missing 
-		-- ["Imports alt names from a Guild Greet database, if present"] = "",
-		--Translation missing 
-		-- ["Imports alt names from the guild roster by checking for members with the rank \"alt\" or \"alts\", or guild / officer notes like \"<name>'s alt\""] = "",
-		--Translation missing 
-		-- ["Imports data from LOKWhoIsWho, if present (drop your SavedVariablesLOKWhoIsWho.lua in the Prat directory to be able to use this)."] = "",
-		--Translation missing 
-		-- ["Left"] = "",
-		--Translation missing 
-		-- ["link <alt name> <main name> (eg, /altnames link Fin Finjathealtoffin)"] = "",
-		--Translation missing 
-		-- ["Link alt"] = "",
-		--Translation missing 
-		-- ["Link someone's alt character with the name of their main."] = "",
-		--Translation missing 
-		-- ["linked alt %s => %s"] = "",
-		--Translation missing 
-		-- ["List all"] = "",
-		--Translation missing 
-		-- ["List all links between alts and their main names."] = "",
-		--Translation missing 
-		-- ["List alts"] = "",
-		--Translation missing 
-		-- ["List alts for a given character"] = "",
-		--Translation missing 
-		-- ["LOKWhoIsWho data not found"] = "",
-		--Translation missing 
-		-- ["LOKWhoIsWho import"] = "",
-		--Translation missing 
-		-- ["LOKWhoIsWho lua file not found, sorry."] = "",
-		--Translation missing 
-		-- ["Main"] = "",
-		--Translation missing 
-		-- ["main"] = "",
-		--Translation missing 
-		-- ["Main name position"] = "",
-		--Translation missing 
-		-- ["Main:"] = "",
-		--Translation missing 
-		-- ["mainpos_desc"] = "",
-		--Translation missing 
-		-- ["mainpos_name"] = "",
-		--Translation missing 
-		-- ["module_desc"] = "",
-		--Translation missing 
-		-- ["no alts found for character "] = "",
-		--Translation missing 
-		-- ["no alts or mains found matching \"%s\""] = "",
-		--Translation missing 
-		-- ["No arg string given to :addAlt()"] = "",
-		--Translation missing 
-		-- ["no characters called \"%s\" found; nothing deleted"] = "",
-		--Translation missing 
-		-- ["No Guild Greet database found"] = "",
-		--Translation missing 
-		-- ["No main name supplied to link %s to"] = "",
-		--Translation missing 
-		-- ["no matches found"] = "",
-		--Translation missing 
-		-- ["quiet"] = "",
-		--Translation missing 
-		-- ["quiet_desc"] = "",
-		--Translation missing 
-		-- ["quiet_name"] = "",
-		--Translation missing 
-		-- ["Right"] = "",
-		--Translation missing 
-		-- ["Search the list of linked characters for matching main or alt names."] = "",
-		--Translation missing 
-		-- ["searched for: %s - total matches: %s"] = "",
-		--Translation missing 
-		-- ["Show alts in tooltip"] = "",
-		--Translation missing 
-		-- ["Show main in tooltip"] = "",
-		--Translation missing 
-		-- ["Start"] = "",
-		--Translation missing 
-		-- ["The colour of an alt's main name that will be displayed"] = "",
-		--Translation missing 
-		-- ["Use class colour (from the PlayerNames module)"] = "",
-		--Translation missing 
-		-- ["use class colour of alt"] = "",
-		--Translation missing 
-		-- ["use class colour of main"] = "",
-		--Translation missing 
-		-- ["Use LibAlts Data"] = "",
-		--Translation missing 
-		-- ["Use the data available via the shared alt information library."] = "",
-		--Translation missing 
-		-- ["Various ways to import a main's alts from other addons"] = "",
-		--Translation missing 
-		-- ["warning: alt %s already linked to %s"] = "",
-		--Translation missing 
-		-- ["Where to display a character's main name when on their alt."] = "",
-		--Translation missing 
-		-- ["Whether to report to the chat frame or not."] = "",
-		--Translation missing 
-		-- ["You are not in a guild"] = "",
-		--Translation missing 
-		-- ["You have not yet linked any alts with their mains."] = "",
+		--[[Translation missing --]]
+		--[[ ["%d alts found for %s: %s"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["%s alts imported from LOKWhoIsWho"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["%s total alts linked to mains"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["(.-)'s? [Aa]lt"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["([^%s%p%d%c%z]+)'s alt"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ [".*[Aa]lts?$"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["<alt name> (eg, /altnames del Personyouthoughtwassomeonesaltbutreallyisnt)"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["<main> (eg /altnames listalts Fin)"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["<search term> (eg, /altnames find fin)"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Alt"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["alt"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["alt name exists: %s -> %s; not overwriting as set in preferences"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["AltNames"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Alts:"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["autoguildalts_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["autoguildalts_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Be quiet"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["character removed: %s"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Class colour"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Clear all"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Clear all links between alts and main names."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Colour"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Delete a character's link to another character as their main."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Delete alt"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Disabled"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Display a player's alts in the tooltip"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Display a player's main name in the tooltip"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Display main names in the same colour as that of the alt's class (taking the data from the PlayerNames module if it is enabled)"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Display main names in the same colour as that of the main's class (taking the data from the PlayerNames module if it is enabled)"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Don't overwrite existing alt <-> main links when importing or adding new alts."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Don't overwrite existing links"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["don't use"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Don't use data from the PlayerNames module at all"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["ERROR: some function sent a blank message!"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Find characters"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Fix alts"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Fix corrupted entries in your list of alt names."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Found alt: %s => main: %s"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["guild member alts found and imported: %s"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Import from Guild Greet database"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Import from guild roster"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Import options"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Imports alt names from a Guild Greet database, if present"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Imports alt names from the guild roster by checking for members with the rank \"alt\" or \"alts\", or guild / officer notes like \"<name>'s alt\""] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Imports data from LOKWhoIsWho, if present (drop your SavedVariablesLOKWhoIsWho.lua in the Prat directory to be able to use this)."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Left"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["link <alt name> <main name> (eg, /altnames link Fin Finjathealtoffin)"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Link alt"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Link someone's alt character with the name of their main."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["linked alt %s => %s"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["List all"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["List all links between alts and their main names."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["List alts"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["List alts for a given character"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["LOKWhoIsWho data not found"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["LOKWhoIsWho import"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["LOKWhoIsWho lua file not found, sorry."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Main"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["main"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Main name position"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Main:"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["mainpos_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["mainpos_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["module_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["no alts found for character "] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["no alts or mains found matching \"%s\""] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["No arg string given to :addAlt()"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["no characters called \"%s\" found; nothing deleted"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["No Guild Greet database found"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["No main name supplied to link %s to"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["no matches found"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["quiet"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["quiet_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["quiet_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Right"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Search the list of linked characters for matching main or alt names."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["searched for: %s - total matches: %s"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Show alts in tooltip"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Show main in tooltip"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Start"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["The colour of an alt's main name that will be displayed"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Use class colour (from the PlayerNames module)"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["use class colour of alt"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["use class colour of main"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Use LibAlts Data"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Use the data available via the shared alt information library."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Various ways to import a main's alts from other addons"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["warning: alt %s already linked to %s"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Where to display a character's main name when on their alt."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Whether to report to the chat frame or not."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["You are not in a guild"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["You have not yet linked any alts with their mains."] = "",--]] 
 	}
 }
     PL:AddLocale(PRAT_MODULE, "esMX",L)
@@ -1027,18 +1029,18 @@ do
 		["alt name exists: %s -> %s; not overwriting as set in preferences"] = "existe el nombre alternativo: %s -> %s; sin sobrescribir como está establecido en las preferencias",
 		["AltNames"] = "AltNombres",
 		["Alts:"] = true,
-		--Translation missing 
-		-- ["autoguildalts_desc"] = "",
-		--Translation missing 
-		-- ["autoguildalts_name"] = "",
+		--[[Translation missing --]]
+		--[[ ["autoguildalts_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["autoguildalts_name"] = "",--]] 
 		["Be quiet"] = "Silencio",
 		["character removed: %s"] = "Personaje eliminado: %s",
 		["Class colour"] = "Color Clase",
 		["Clear all"] = "Limpiar todo",
 		["Clear all links between alts and main names."] = "Borrar todos los enlaces entre nombres alternativos y principales.",
 		["Colour"] = "Color",
-		--Translation missing 
-		-- ["Delete a character's link to another character as their main."] = "",
+		--[[Translation missing --]]
+		--[[ ["Delete a character's link to another character as their main."] = "",--]] 
 		["Delete alt"] = "Eliminar alternativo",
 		["Disabled"] = "Desactivado",
 		["Display a player's alts in the tooltip"] = "Mostrar los alters de los jugadores en el tooltip",
@@ -1055,21 +1057,21 @@ do
 		["Fix corrupted entries in your list of alt names."] = "Arreglar entradas corruptas en su lista de nombres alternativos.",
 		["Found alt: %s => main: %s"] = "Alternativo encontrado: %s => principal: %s",
 		["guild member alts found and imported: %s"] = "Miembros de hermandad alternativos encontrados e importados: %s",
-		--Translation missing 
-		-- ["Import from Guild Greet database"] = "",
+		--[[Translation missing --]]
+		--[[ ["Import from Guild Greet database"] = "",--]] 
 		["Import from guild roster"] = "Importar desde la lista de la hermandad",
 		["Import options"] = "Opciones de Importación",
-		--Translation missing 
-		-- ["Imports alt names from a Guild Greet database, if present"] = "",
-		--Translation missing 
-		-- ["Imports alt names from the guild roster by checking for members with the rank \"alt\" or \"alts\", or guild / officer notes like \"<name>'s alt\""] = "",
+		--[[Translation missing --]]
+		--[[ ["Imports alt names from a Guild Greet database, if present"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Imports alt names from the guild roster by checking for members with the rank \"alt\" or \"alts\", or guild / officer notes like \"<name>'s alt\""] = "",--]] 
 		["Imports data from LOKWhoIsWho, if present (drop your SavedVariablesLOKWhoIsWho.lua in the Prat directory to be able to use this)."] = "Importa datos de LOKWhoIsWho, si está presente (colocar su SavedVariablesLOKWhoIsWho.lua en el directorio Prat para poder usar este).",
 		["Left"] = "Izquierda",
 		["link <alt name> <main name> (eg, /altnames link Fin Finjathealtoffin)"] = "enlace <nombre alt> <nombre principal> (ej, /nombrealt enlace Fin Finjathealtoffin)",
-		--Translation missing 
-		-- ["Link alt"] = "",
-		--Translation missing 
-		-- ["Link someone's alt character with the name of their main."] = "",
+		--[[Translation missing --]]
+		--[[ ["Link alt"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Link someone's alt character with the name of their main."] = "",--]] 
 		["linked alt %s => %s"] = "alternativo enlazado %s => %s",
 		["List all"] = "Listar todo",
 		["List all links between alts and their main names."] = "Lista todos los enlaces entre alternativos y sus nombres principales.",
@@ -1084,39 +1086,39 @@ do
 		["Main:"] = "Principal:",
 		["mainpos_desc"] = "Donde mostrar nombre principal de un personaje cuando es su alternativa.",
 		["mainpos_name"] = "Posición del nombre principal",
-		--Translation missing 
-		-- ["module_desc"] = "",
+		--[[Translation missing --]]
+		--[[ ["module_desc"] = "",--]] 
 		["no alts found for character "] = "sin alternativos encontrados para el personaje",
 		["no alts or mains found matching \"%s\""] = "sin alternativos o principales coincidentes con \"%s\" encontrados",
 		["No arg string given to :addAlt()"] = "Sin cadena de argumento dado a: addAlt()",
 		["no characters called \"%s\" found; nothing deleted"] = "no se han encontrado personajes llamados \"%s\"; nada eliminado",
-		--Translation missing 
-		-- ["No Guild Greet database found"] = "",
+		--[[Translation missing --]]
+		--[[ ["No Guild Greet database found"] = "",--]] 
 		["No main name supplied to link %s to"] = "Sin nombre principal proporcionado para el enlace %s",
 		["no matches found"] = "Ninguna coincidencia encontrada",
 		["quiet"] = "Silencioso",
 		["quiet_desc"] = "Si desea informar al marco de chat o no.",
-		--Translation missing 
-		-- ["quiet_name"] = "",
+		--[[Translation missing --]]
+		--[[ ["quiet_name"] = "",--]] 
 		["Right"] = "Derecha",
-		--Translation missing 
-		-- ["Search the list of linked characters for matching main or alt names."] = "",
+		--[[Translation missing --]]
+		--[[ ["Search the list of linked characters for matching main or alt names."] = "",--]] 
 		["searched for: %s - total matches: %s"] = "buscado: %s - total de coincidencias: %s",
 		["Show alts in tooltip"] = "Muestra alternativos en ayuda contextual",
 		["Show main in tooltip"] = "Mostrar principal en ayuda contextual",
 		["Start"] = "Inicio",
-		--Translation missing 
-		-- ["The colour of an alt's main name that will be displayed"] = "",
+		--[[Translation missing --]]
+		--[[ ["The colour of an alt's main name that will be displayed"] = "",--]] 
 		["Use class colour (from the PlayerNames module)"] = "Utilizar el color de clase (desde el módulo de NombresJugador)",
 		["use class colour of alt"] = "utilizar color de clase de alt",
 		["use class colour of main"] = "utilizar el color de la clase principal",
 		["Use LibAlts Data"] = "Utiilizar Datos de LibAlts",
 		["Use the data available via the shared alt information library."] = "Utilice los datos disponibles a través de la biblioteca compartida de información alternativa.",
-		--Translation missing 
-		-- ["Various ways to import a main's alts from other addons"] = "",
+		--[[Translation missing --]]
+		--[[ ["Various ways to import a main's alts from other addons"] = "",--]] 
 		["warning: alt %s already linked to %s"] = "advertencia: alt %s ya vinculado a %s",
-		--Translation missing 
-		-- ["Where to display a character's main name when on their alt."] = "",
+		--[[Translation missing --]]
+		--[[ ["Where to display a character's main name when on their alt."] = "",--]] 
 		["Whether to report to the chat frame or not."] = "Si se debe reportar al marco de chat o no.",
 		["You are not in a guild"] = "No está en una hermandad",
 		["You have not yet linked any alts with their mains."] = "Aún no ha vinculado algún alternativo con su principal.",
@@ -1138,36 +1140,36 @@ do
 		["<search term> (eg, /altnames find fin)"] = "<search term> (例如, /altnames find fin)",
 		["Alt"] = "分身",
 		["alt"] = "分身",
-		--Translation missing 
-		-- ["alt name exists: %s -> %s; not overwriting as set in preferences"] = "",
+		--[[Translation missing --]]
+		--[[ ["alt name exists: %s -> %s; not overwriting as set in preferences"] = "",--]] 
 		["AltNames"] = "分身名字",
 		["Alts:"] = "分身:",
-		--Translation missing 
-		-- ["autoguildalts_desc"] = "",
+		--[[Translation missing --]]
+		--[[ ["autoguildalts_desc"] = "",--]] 
 		["autoguildalts_name"] = "自動匯入公會分身",
 		["Be quiet"] = "安靜",
 		["character removed: %s"] = "已移除角色：%s",
 		["Class colour"] = "職業色彩",
 		["Clear all"] = "清除所有",
-		--Translation missing 
-		-- ["Clear all links between alts and main names."] = "",
+		--[[Translation missing --]]
+		--[[ ["Clear all links between alts and main names."] = "",--]] 
 		["Colour"] = "顏色",
-		--Translation missing 
-		-- ["Delete a character's link to another character as their main."] = "",
+		--[[Translation missing --]]
+		--[[ ["Delete a character's link to another character as their main."] = "",--]] 
 		["Delete alt"] = "刪除別稱",
 		["Disabled"] = "停用",
 		["Display a player's alts in the tooltip"] = "顯示在提示玩家的分身",
 		["Display a player's main name in the tooltip"] = "顯示在提示玩家的本尊名稱",
-		--Translation missing 
-		-- ["Display main names in the same colour as that of the alt's class (taking the data from the PlayerNames module if it is enabled)"] = "",
-		--Translation missing 
-		-- ["Display main names in the same colour as that of the main's class (taking the data from the PlayerNames module if it is enabled)"] = "",
-		--Translation missing 
-		-- ["Don't overwrite existing alt <-> main links when importing or adding new alts."] = "",
+		--[[Translation missing --]]
+		--[[ ["Display main names in the same colour as that of the alt's class (taking the data from the PlayerNames module if it is enabled)"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Display main names in the same colour as that of the main's class (taking the data from the PlayerNames module if it is enabled)"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Don't overwrite existing alt <-> main links when importing or adding new alts."] = "",--]] 
 		["Don't overwrite existing links"] = "不要覆蓋現存的連接",
 		["don't use"] = "不要使用",
-		--Translation missing 
-		-- ["Don't use data from the PlayerNames module at all"] = "",
+		--[[Translation missing --]]
+		--[[ ["Don't use data from the PlayerNames module at all"] = "",--]] 
 		["ERROR: some function sent a blank message!"] = "錯誤：某些功能傳送空白訊息！",
 		["Find characters"] = "搜尋角色",
 		["Fix alts"] = "修正別稱",
@@ -1177,24 +1179,24 @@ do
 		["Import from Guild Greet database"] = "匯入來自公會問候資料庫",
 		["Import from guild roster"] = "匯入公會名冊",
 		["Import options"] = "匯入選項設定",
-		--Translation missing 
-		-- ["Imports alt names from a Guild Greet database, if present"] = "",
-		--Translation missing 
-		-- ["Imports alt names from the guild roster by checking for members with the rank \"alt\" or \"alts\", or guild / officer notes like \"<name>'s alt\""] = "",
-		--Translation missing 
-		-- ["Imports data from LOKWhoIsWho, if present (drop your SavedVariablesLOKWhoIsWho.lua in the Prat directory to be able to use this)."] = "",
+		--[[Translation missing --]]
+		--[[ ["Imports alt names from a Guild Greet database, if present"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Imports alt names from the guild roster by checking for members with the rank \"alt\" or \"alts\", or guild / officer notes like \"<name>'s alt\""] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Imports data from LOKWhoIsWho, if present (drop your SavedVariablesLOKWhoIsWho.lua in the Prat directory to be able to use this)."] = "",--]] 
 		["Left"] = "左方",
 		["link <alt name> <main name> (eg, /altnames link Fin Finjathealtoffin)"] = "link <alt name> <main name> (例如, /altnames link Fin Finjathealtoffin)",
 		["Link alt"] = "連結分身",
-		--Translation missing 
-		-- ["Link someone's alt character with the name of their main."] = "",
+		--[[Translation missing --]]
+		--[[ ["Link someone's alt character with the name of their main."] = "",--]] 
 		["linked alt %s => %s"] = "連結分身 %s=> %s",
 		["List all"] = "列出所有",
-		--Translation missing 
-		-- ["List all links between alts and their main names."] = "",
+		--[[Translation missing --]]
+		--[[ ["List all links between alts and their main names."] = "",--]] 
 		["List alts"] = "列出別稱",
-		--Translation missing 
-		-- ["List alts for a given character"] = "",
+		--[[Translation missing --]]
+		--[[ ["List alts for a given character"] = "",--]] 
 		["LOKWhoIsWho data not found"] = "LOKWhoIsWho 資料找不到",
 		["LOKWhoIsWho import"] = "LOKWhoIsWho 匯入",
 		["LOKWhoIsWho lua file not found, sorry."] = " LOKWhoIsWho lua 檔案找不到, 抱歉。 ",
@@ -1202,52 +1204,52 @@ do
 		["main"] = "主要",
 		["Main name position"] = "主要名稱位置",
 		["Main:"] = "主要：",
-		--Translation missing 
-		-- ["mainpos_desc"] = "",
+		--[[Translation missing --]]
+		--[[ ["mainpos_desc"] = "",--]] 
 		["mainpos_name"] = "主要名稱位置",
-		--Translation missing 
-		-- ["module_desc"] = "",
+		--[[Translation missing --]]
+		--[[ ["module_desc"] = "",--]] 
 		["no alts found for character "] = "未發現此角色分身",
 		["no alts or mains found matching \"%s\""] = "找不到分身或本尊符合\"%s\"",
-		--Translation missing 
-		-- ["No arg string given to :addAlt()"] = "",
+		--[[Translation missing --]]
+		--[[ ["No arg string given to :addAlt()"] = "",--]] 
 		["no characters called \"%s\" found; nothing deleted"] = "找不到角色\"%s\"; 沒有刪除",
 		["No Guild Greet database found"] = "找不到公會問候資料庫",
-		--Translation missing 
-		-- ["No main name supplied to link %s to"] = "",
+		--[[Translation missing --]]
+		--[[ ["No main name supplied to link %s to"] = "",--]] 
 		["no matches found"] = "找不到符合",
 		["quiet"] = "安靜",
 		["quiet_desc"] = "是否回報至聊天視窗。",
 		["quiet_name"] = true,
 		["Right"] = "右",
-		--Translation missing 
-		-- ["Search the list of linked characters for matching main or alt names."] = "",
+		--[[Translation missing --]]
+		--[[ ["Search the list of linked characters for matching main or alt names."] = "",--]] 
 		["searched for: %s - total matches: %s"] = "搜索於: %s - 總符合: %s",
 		["Show alts in tooltip"] = "顯示在提示分身",
 		["Show main in tooltip"] = "顯示提示主要",
 		["Start"] = "開始",
-		--Translation missing 
-		-- ["The colour of an alt's main name that will be displayed"] = "",
+		--[[Translation missing --]]
+		--[[ ["The colour of an alt's main name that will be displayed"] = "",--]] 
 		["Use class colour (from the PlayerNames module)"] = "使用職業色彩（來自玩家名稱模組）",
 		["use class colour of alt"] = "使用職業色彩於玩家次要人物",
 		["use class colour of main"] = "使用職業色彩於玩家主要人物",
 		["Use LibAlts Data"] = "使用 LibAlts 資料",
-		--Translation missing 
-		-- ["Use the data available via the shared alt information library."] = "",
+		--[[Translation missing --]]
+		--[[ ["Use the data available via the shared alt information library."] = "",--]] 
 		["Various ways to import a main's alts from other addons"] = "由其他插件以各種方法匯入非主要人物。",
 		["warning: alt %s already linked to %s"] = "警告: 分身 %s 已經連結至 %s",
 		["Where to display a character's main name when on their alt."] = "用以顯示人物主要名稱於其其他角色名稱。",
 		["Whether to report to the chat frame or not."] = "是否回報至聊天框架裡。",
 		["You are not in a guild"] = "你並沒有加入任何公會",
-		--Translation missing 
-		-- ["You have not yet linked any alts with their mains."] = "",
+		--[[Translation missing --]]
+		--[[ ["You have not yet linked any alts with their mains."] = "",--]] 
 	}
 }
     PL:AddLocale(PRAT_MODULE, "zhTW",L)
   end
   --@end-non-debug@
 
-  local module = Prat:NewModule(PRAT_MODULE, "AceHook-3.0", "AceEvent-3.0")
+
 
   local altregistry
 
@@ -1299,8 +1301,8 @@ do
       StaticPopupDialogs['MENUITEM_LINKALT'] = {
         -- text		= "Who would you like to set as the main character of %s?",
         text = 'Mainname',
-        button1 = TEXT(ACCEPT),
-        button2 = TEXT(CANCEL),
+        button1 = ACCEPT,
+        button2 = CANCEL,
         hasEditBox = 1,
         maxLetters = 24,
         exclusive = 0,

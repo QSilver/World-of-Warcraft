@@ -1,3 +1,89 @@
+### v2.8.2
+---
+
+* **TradeUI**
+* Added an indicator for when you're in range of the trade target.
+* When in range, simply click the row in the TradeUI to initiate trade.
+* Note: There seems to be issues with automatically adding multiple items at once.
+* It also seems like something has changed that doesn't allow for as automatic trading as I'd hoped.
+
+
+###### Bugfixes
+* *Fixed an issue preventing automatic trading (#347).*
+
+
+### v2.8.1
+---
+###### Bugfixes
+* *Fixed a few issues with the TradeUI (#343, #344).*
+
+###### Dev
+* Added two new comm messages for when RCLootCouncil handles loot. See top of core.lua.
+
+
+### v2.8.0 (patch 8.0)
+---
+* **Personal Loot**
+* RCLootCouncil is now fully useable with Personal Loot (PL).
+* All features (except obviously automatic distribution) is available when using PL.
+* PL mode is activated the same way ML used to be (popup in raid/group and/or through options).
+* When in PL mode, any tradeable items looted by any raider is automatically added to the session frame.
+* When items are awarded, players will need to trade the item to the winner, see below.
+* PL sessions still respects all loot/item settings such as autopass, filters etc.
+* *TODO: Missing a list of candidates that has looted a particular boss.*
+
+
+* **TradeUI**
+* Items that need to be traded to someone else are now presented in a separate window.
+* *TODO: Make it even easier by (semi) automatically open trade dialog.*
+
+
+* **Session additions**
+* Due to the nature of PL items not necessarily all dropping at once, items can now be added to a running session.
+* The MasterLooter/GroupLeader can simply add items through already available methods ('/rc add', alt-clicking or automatically).
+* Depending on settings, items are added to the session automatically, or to the session frame, and candidates are presented with the LootFrame for these items.
+* Due to internal restrictions, these items are not sorted if enabled.
+
+
+* **Item owners**
+* Session- and Voting frame now shows the owner of a particular item.
+* This info is also available for use in announcements.
+
+
+* **Discord export**
+* The Loot History can now be exported in a Discord friendly format.
+
+
+###### Dev
+* Removed `db.baggedItems`.
+* Added `RCLootCouncil.ItemStorage` for handling all items stored in bags. See file for documentation.
+* Added TradeUI for handling items that should be traded.
+* Added comm `lt_add` to relay lootTable additions.
+* Changed `award` comm to include `owner` as the last argument.
+* Removed Master Loot (loot method) related stuff.
+
+### v2.7.11
+---
+###### Bugfixes
+* *Fixed an issue with out of instance checks (#340).*
+* *Fixed an issue sometimes happening on login due to version checks (#341).*
+
+### v2.7.10
+---
+* Added "Pass" button to right click menu -> Change Response.
+* Loot Frame notes no longer requires an "enter" press to save the note.
+* Added a Discord option to Loot History exports.
+
+* **Out of Instance**
+* A message is added to a response if people has left the instance (i.e. impossible to give loot).
+* Various error messages have been updated to better reflect what's going on.
+
+###### Bugfixes
+* *Trying to sync/receiving sync in LFG/Battlegrounds could give "Not in Raid" spam (#338).*
+* *Wrong roles on candidates shouldn't happen anymore.*
+* *Missing/wrong guild ranks should happen less frequently (will be fully fixed in another update).*
+
+
 ### v2.7.9
 ---
 ###### Bugfixes

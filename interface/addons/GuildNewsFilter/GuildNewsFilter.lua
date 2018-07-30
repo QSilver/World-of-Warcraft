@@ -19,7 +19,8 @@ local AddonLoadedHook = CreateFrame("Frame")
 
 AddonLoadedHook:RegisterEvent("ADDON_LOADED");
 AddonLoadedHook:SetScript("OnEvent", function(self, event, AddonName)
-	if AddonName == "Blizzard_GuildUI" then
+
+	if AddonName == "Blizzard_Communities" then
 		GNFP_DB = GNFP_DB or {};
 		GBFP_ReplaceBlizzardFunctions()
 		GNFP_SetupOptions()
@@ -28,11 +29,11 @@ AddonLoadedHook:SetScript("OnEvent", function(self, event, AddonName)
 end)
 
 function GNFP_SetupOptions()
-	--GuildNewsFiltersFrame
-	
--- Make the frame larger to fit in the options
-	GuildNewsFiltersFrame:SetHeight(GuildNewsFiltersFrame:GetHeight()+160)
-	GuildNewsFiltersFrame:SetWidth(GuildNewsFiltersFrame:GetWidth()+50)
+	--CommunitiesGuildNewsFiltersFrame
+
+    -- Make the frame larger to fit in the options
+	CommunitiesGuildNewsFiltersFrame:SetHeight(CommunitiesGuildNewsFiltersFrame:GetHeight()+160)
+	CommunitiesGuildNewsFiltersFrame:SetWidth(CommunitiesGuildNewsFiltersFrame:GetWidth()+80)
 	
 	local backdrop = {
 		bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background",  -- path to the background texture
@@ -48,26 +49,26 @@ function GNFP_SetupOptions()
 		}
 	}
 	
--- Min Item Level Frame (begin) ------------------------------------------------------------------------------------------------------
-	GNF.ui.minItemLvlFrame=CreateFrame("FRAME","GNFP_MinItemLevel_Frame",GuildNewsFiltersFrame);
+    -- Min Item Level Frame (begin) ------------------------------------------------------------------------------------------------------
+	GNF.ui.minItemLvlFrame=CreateFrame("FRAME","GNFP_MinItemLevel_Frame",CommunitiesGuildNewsFiltersFrame);
 	GNF.ui.minItemLvlFrame:SetWidth(50); 
 	GNF.ui.minItemLvlFrame:SetHeight(20);
-	GNF.ui.minItemLvlFrame:SetPoint("TopLeft",GuildNewsFiltersFrame,"TopLeft",170,GNF.positions.minItemLvl);
+	GNF.ui.minItemLvlFrame:SetPoint("TopLeft",CommunitiesGuildNewsFiltersFrame,"TopLeft",190,GNF.positions.minItemLvl);
 	GNF.ui.minItemLvlFrame:SetBackdrop(backdrop)
--- Min Item Level Frame (end) ------------------------------------------------------------------------------------------------------
+    -- Min Item Level Frame (end) ------------------------------------------------------------------------------------------------------
 
--- Min Item Level Text (begin) ------------------------------------------------------------------------------------------------------
+    -- Min Item Level Text (begin) ------------------------------------------------------------------------------------------------------
 	GNF.ui.minItemLvlText = GNF.ui.minItemLvlFrame:CreateFontString("WPug_DifferentTypes_Frame_Text","ARTWORK","GameFontNormal");
 	GNF.ui.minItemLvlText:SetPoint("Right",GNF.ui.minItemLvlFrame,"Left",-5,0);
 	GNF.ui.minItemLvlText:SetJustifyH("Right");
 	GNF.ui.minItemLvlText:SetText("|cffffffff" .. GNF_MIN_ITEM_LEVEL .. ":");
--- Min Item Level Text (end) ------------------------------------------------------------------------------------------------------
+    -- Min Item Level Text (end) ------------------------------------------------------------------------------------------------------
 
--- Min Item Level CheckBox (begin) ------------------------------------------------------------------------------------------------------
-	GNF.ui.minItemLvlCheckButton = CreateFrame("CheckButton", "GNFP_MinItemLevel_CheckButton", GuildNewsFiltersFrame, "UICheckButtonTemplate");
+    -- Min Item Level CheckBox (begin) ------------------------------------------------------------------------------------------------------
+	GNF.ui.minItemLvlCheckButton = CreateFrame("CheckButton", "GNFP_MinItemLevel_CheckButton", CommunitiesGuildNewsFiltersFrame, "UICheckButtonTemplate");
 	GNF.ui.minItemLvlCheckButton:SetWidth(23);
 	GNF.ui.minItemLvlCheckButton:SetHeight(23);
-	GNF.ui.minItemLvlCheckButton:SetPoint("TopLeft",GuildNewsFiltersFrame,"TopLeft",25,GNF.positions.minItemLvl);
+	GNF.ui.minItemLvlCheckButton:SetPoint("TopLeft",CommunitiesGuildNewsFiltersFrame,"TopLeft",25,GNF.positions.minItemLvl);
 	GNF.ui.minItemLvlCheckButton:SetText("");
 	GNF.ui.minItemLvlCheckButton:SetChecked(GNFP_DB["GNFP_MinItemLevel_CheckButton"])
 	GNF.ui.minItemLvlCheckButton:SetScript("OnClick", function(self)
@@ -75,14 +76,14 @@ function GNFP_SetupOptions()
 		customFilterChanged = true;
 		GuildNewsSort(0);
 	end)
--- Min Item Level CheckBox (end) ------------------------------------------------------------------------------------------------------
+    -- Min Item Level CheckBox (end) ------------------------------------------------------------------------------------------------------
 	
--- Min Item Level (begin) ------------------------------------------------------------------------------------------------------
-	GNF.ui.minItemLvlBox = CreateFrame("EditBox", "GNFP_MinItemLevel_Box", GuildNewsFiltersFrame, InputBoxTemplate )
+    -- Min Item Level (begin) ------------------------------------------------------------------------------------------------------
+	GNF.ui.minItemLvlBox = CreateFrame("EditBox", "GNFP_MinItemLevel_Box", CommunitiesGuildNewsFiltersFrame, InputBoxTemplate )
 	GNF.ui.minItemLvlBox:SetFont("Fonts\\FRIZQT__.TTF", 12)
 	GNF.ui.minItemLvlBox:SetAutoFocus(false)
 	GNF.ui.minItemLvlBox:SetNumeric(true)
-	GNF.ui.minItemLvlBox:SetWidth(460)
+	GNF.ui.minItemLvlBox:SetWidth(23)
 	GNF.ui.minItemLvlBox:SetHeight(12) -- Set these to whatever height/width is needed 
 	GNF.ui.minItemLvlBox:SetPoint("Left", GNFP_MinItemLevel_Frame, "Left", 8, 0)
 	
@@ -98,19 +99,19 @@ function GNFP_SetupOptions()
 												end)
 	GNF.ui.minItemLvlBox:SetScript("OnEnterPressed",	function(self) self:ClearFocus() 	end)
 	GNF.ui.minItemLvlBox:SetScript("OnEscapePressed",	function(self) self:ClearFocus()	end)
--- Min Item Level (end) ------------------------------------------------------------------------------------------------------
+    -- Min Item Level (end) ------------------------------------------------------------------------------------------------------
 
 
 
--- Ignored Words Frame (begin) ------------------------------------------------------------------------------------------------------
-	GNF.ui.ignoredWordsFrame=CreateFrame("FRAME","GNFP_IgnoredWords_Frame",GuildNewsFiltersFrame);
+    -- Ignored Words Frame (begin) ------------------------------------------------------------------------------------------------------
+	GNF.ui.ignoredWordsFrame=CreateFrame("FRAME","GNFP_IgnoredWords_Frame",CommunitiesGuildNewsFiltersFrame);
 	GNF.ui.ignoredWordsFrame:SetWidth(90);
 	GNF.ui.ignoredWordsFrame:SetHeight(20);
-	GNF.ui.ignoredWordsFrame:SetPoint("TopLeft",GuildNewsFiltersFrame,"TopLeft",170,GNF.positions.ignoredWords);
+	GNF.ui.ignoredWordsFrame:SetPoint("TopLeft",CommunitiesGuildNewsFiltersFrame,"TopLeft",190,GNF.positions.ignoredWords);
 	GNF.ui.ignoredWordsFrame:SetBackdrop(backdrop)
--- Ignored Words Frame (end) ------------------------------------------------------------------------------------------------------
+    -- Ignored Words Frame (end) ------------------------------------------------------------------------------------------------------
 
--- Ignored Words Text (begin) ------------------------------------------------------------------------------------------------------
+    -- Ignored Words Text (begin) ------------------------------------------------------------------------------------------------------
 	GNF.ui.ignoredWordsText = GNF.ui.ignoredWordsFrame:CreateFontString("WPug_DifferentTypes_Frame_Text","ARTWORK","GameFontNormal");
 	GNF.ui.ignoredWordsText:SetPoint("Right",GNF.ui.ignoredWordsFrame,"Left",-5,0);
 	GNF.ui.ignoredWordsText:SetJustifyH("Right");
@@ -120,13 +121,13 @@ function GNFP_SetupOptions()
 	GNF.ui.ignoredWordsText2:SetPoint("TopLeft",GNF.ui.ignoredWordsText,"BottomLeft",-25,-5);
 	GNF.ui.ignoredWordsText2:SetJustifyH("Right");
 	GNF.ui.ignoredWordsText2:SetText("|cff9f9f9f(".. GNF_IGNORED_WORD_INFO ..")");
--- Ignored Words Text (end) ------------------------------------------------------------------------------------------------------
+    -- Ignored Words Text (end) ------------------------------------------------------------------------------------------------------
 
--- Ignored Words CheckBox (begin) ------------------------------------------------------------------------------------------------------
-	GNF.ui.ignoredWordsCheckButton = CreateFrame("CheckButton", "GNFP_IgnoredWords_CheckButton", GuildNewsFiltersFrame, "UICheckButtonTemplate");
+    -- Ignored Words CheckBox (begin) ------------------------------------------------------------------------------------------------------
+	GNF.ui.ignoredWordsCheckButton = CreateFrame("CheckButton", "GNFP_IgnoredWords_CheckButton", CommunitiesGuildNewsFiltersFrame, "UICheckButtonTemplate");
 	GNF.ui.ignoredWordsCheckButton:SetWidth(23);
 	GNF.ui.ignoredWordsCheckButton:SetHeight(23);
-	GNF.ui.ignoredWordsCheckButton:SetPoint("TopLeft",GuildNewsFiltersFrame,"TopLeft",25,GNF.positions.ignoredWords);
+	GNF.ui.ignoredWordsCheckButton:SetPoint("TopLeft",CommunitiesGuildNewsFiltersFrame,"TopLeft",25,GNF.positions.ignoredWords);
 	GNF.ui.ignoredWordsCheckButton:SetText("");
 	GNF.ui.ignoredWordsCheckButton:SetChecked(GNFP_DB["GNFP_IgnoredWords_CheckButton"])
 	GNF.ui.ignoredWordsCheckButton:SetScript("OnClick", function(self)
@@ -134,10 +135,10 @@ function GNFP_SetupOptions()
 		customFilterChanged = true;
 		GuildNewsSort(0);
 	end)
--- Ignored Words CheckBox (end) ------------------------------------------------------------------------------------------------------
+    -- Ignored Words CheckBox (end) ------------------------------------------------------------------------------------------------------
 	
--- Ignored Words (begin) ------------------------------------------------------------------------------------------------------
-	GNF.ui.enforcedWordsBox = CreateFrame("EditBox", "GNFP_IgnoredWords_Box", GuildNewsFiltersFrame, InputBoxTemplate )
+    -- Ignored Words (begin) ------------------------------------------------------------------------------------------------------
+	GNF.ui.enforcedWordsBox = CreateFrame("EditBox", "GNFP_IgnoredWords_Box", CommunitiesGuildNewsFiltersFrame, InputBoxTemplate )
 	GNF.ui.enforcedWordsBox:SetFont("Fonts\\FRIZQT__.TTF", 12)
 	GNF.ui.enforcedWordsBox:SetAutoFocus(false)
 	GNF.ui.enforcedWordsBox:SetWidth(80)
@@ -152,17 +153,17 @@ function GNFP_SetupOptions()
 												end)
 	GNF.ui.enforcedWordsBox:SetScript("OnEnterPressed",	function(self) self:ClearFocus() 	end)
 	GNF.ui.enforcedWordsBox:SetScript("OnEscapePressed",	function(self) self:ClearFocus()	end)
--- Ignored Words (end) ------------------------------------------------------------------------------------------------------
+    -- Ignored Words (end) ------------------------------------------------------------------------------------------------------
 
--- Enforced Words Frame (begin) ------------------------------------------------------------------------------------------------------
-	GNF.ui.enforcedWordsFrame=CreateFrame("FRAME","GNFP_EnforcedWords_Frame",GuildNewsFiltersFrame);
+    -- Enforced Words Frame (begin) ------------------------------------------------------------------------------------------------------
+	GNF.ui.enforcedWordsFrame=CreateFrame("FRAME","GNFP_EnforcedWords_Frame",CommunitiesGuildNewsFiltersFrame);
 	GNF.ui.enforcedWordsFrame:SetWidth(90); 
 	GNF.ui.enforcedWordsFrame:SetHeight(20);
-	GNF.ui.enforcedWordsFrame:SetPoint("TopLeft",GuildNewsFiltersFrame,"TopLeft",170,GNF.positions.enforcedWords);
+	GNF.ui.enforcedWordsFrame:SetPoint("TopLeft",CommunitiesGuildNewsFiltersFrame,"TopLeft",190,GNF.positions.enforcedWords);
 	GNF.ui.enforcedWordsFrame:SetBackdrop(backdrop)
--- Enforced Words Frame (end) ------------------------------------------------------------------------------------------------------
+    -- Enforced Words Frame (end) ------------------------------------------------------------------------------------------------------
 
--- Enforced Words Text (begin) ------------------------------------------------------------------------------------------------------
+    -- Enforced Words Text (begin) ------------------------------------------------------------------------------------------------------
 	GNF.ui.enforcedWordsText = GNF.ui.ignoredWordsFrame:CreateFontString("WPug_DifferentTypes_Frame_Text","ARTWORK","GameFontNormal");
 	GNF.ui.enforcedWordsText:SetPoint("Right",GNF.ui.enforcedWordsFrame,"Left",-5,0);
 	GNF.ui.enforcedWordsText:SetJustifyH("Right");
@@ -172,13 +173,13 @@ function GNFP_SetupOptions()
 	GNF.ui.enforcedWordsText2:SetPoint("TopLeft",GNF.ui.enforcedWordsText,"BottomLeft",-25,-5);
 	GNF.ui.enforcedWordsText2:SetJustifyH("Right");
 	GNF.ui.enforcedWordsText2:SetText("|cff9f9f9f(".. GNF_IGNORED_WORD_INFO ..")");
--- Enforced Words Text (end) ------------------------------------------------------------------------------------------------------
+    -- Enforced Words Text (end) ------------------------------------------------------------------------------------------------------
 
--- Enforced Words CheckBox (begin) ------------------------------------------------------------------------------------------------------
-	GNF.ui.enforcedWordsCheckButton = CreateFrame("CheckButton", "GNFP_EnforcedWords_CheckButton", GuildNewsFiltersFrame, "UICheckButtonTemplate");
+    -- Enforced Words CheckBox (begin) ------------------------------------------------------------------------------------------------------
+	GNF.ui.enforcedWordsCheckButton = CreateFrame("CheckButton", "GNFP_EnforcedWords_CheckButton", CommunitiesGuildNewsFiltersFrame, "UICheckButtonTemplate");
 	GNF.ui.enforcedWordsCheckButton:SetWidth(23);
 	GNF.ui.enforcedWordsCheckButton:SetHeight(23);
-	GNF.ui.enforcedWordsCheckButton:SetPoint("TopLeft",GuildNewsFiltersFrame,"TopLeft",25,GNF.positions.enforcedWords);
+	GNF.ui.enforcedWordsCheckButton:SetPoint("TopLeft",CommunitiesGuildNewsFiltersFrame,"TopLeft",25,GNF.positions.enforcedWords);
 	GNF.ui.enforcedWordsCheckButton:SetText("");
 	GNF.ui.enforcedWordsCheckButton:SetChecked(GNFP_DB["GNFP_EnforcedWords_CheckButton"])
 	GNF.ui.enforcedWordsCheckButton:SetScript("OnClick", function(self)
@@ -186,10 +187,10 @@ function GNFP_SetupOptions()
 		customFilterChanged = true;
 		GuildNewsSort(0);
 	end)
--- Enforced Words CheckBox (end) ------------------------------------------------------------------------------------------------------
+    -- Enforced Words CheckBox (end) ------------------------------------------------------------------------------------------------------
 	
--- Enforced Words (begin) ------------------------------------------------------------------------------------------------------
-	GNF.ui.enforcedWordsBox = CreateFrame("EditBox", "GNFP_EnforcedWords_Box", GuildNewsFiltersFrame, InputBoxTemplate )
+    -- Enforced Words (begin) ------------------------------------------------------------------------------------------------------
+	GNF.ui.enforcedWordsBox = CreateFrame("EditBox", "GNFP_EnforcedWords_Box", CommunitiesGuildNewsFiltersFrame, InputBoxTemplate )
 	GNF.ui.enforcedWordsBox:SetFont("Fonts\\FRIZQT__.TTF", 12)
 	GNF.ui.enforcedWordsBox:SetAutoFocus(false)
 	GNF.ui.enforcedWordsBox:SetWidth(80)
@@ -204,30 +205,30 @@ function GNFP_SetupOptions()
 												end)
 	GNF.ui.enforcedWordsBox:SetScript("OnEnterPressed",	function(self) self:ClearFocus() 	end)
 	GNF.ui.enforcedWordsBox:SetScript("OnEscapePressed",	function(self) self:ClearFocus()	end)
--- Enforced Words (end) ------------------------------------------------------------------------------------------------------
+    -- Enforced Words (end) ------------------------------------------------------------------------------------------------------
 
--- Filter Ranks DropDown Button (begin) ------------------------------------------------------------------------------------------------------
-	GNF.ui.filterRanksButton = CreateFrame("Button", "GNFP_FilterRanks_Button", GuildNewsFiltersFrame, "UIPanelButtonTemplate");
+    -- Filter Ranks DropDown Button (begin) ------------------------------------------------------------------------------------------------------
+	GNF.ui.filterRanksButton = CreateFrame("Button", "GNFP_FilterRanks_Button", CommunitiesGuildNewsFiltersFrame, "UIPanelButtonTemplate");
 	GNF.ui.filterRanksButton:SetWidth(80);
-	GNF.ui.filterRanksButton:SetPoint("TopLeft",GuildNewsFiltersFrame,"TopLeft",170,GNF.positions.ranks);
+	GNF.ui.filterRanksButton:SetPoint("TopLeft",CommunitiesGuildNewsFiltersFrame,"TopLeft",190,GNF.positions.ranks);
 	GNF.ui.filterRanksButton:SetText(GNF_EDIT_FILTER_RANKS);
 	GNF.ui.filterRanksButton:SetScript("OnClick", function(self)
 		ToggleDropDownMenu(1, nil,GNF.ui.filterRanksDropDown , self:GetName(), 0, 0)
 	end)	
--- Filter Ranks DropDown Button (end) ------------------------------------------------------------------------------------------------------
+    -- Filter Ranks DropDown Button (end) ------------------------------------------------------------------------------------------------------
 
--- FIlter Ranks Text (begin) ------------------------------------------------------------------------------------------------------
+    -- FIlter Ranks Text (begin) ------------------------------------------------------------------------------------------------------
 	GNF.ui.filterRanksText = GNF.ui.filterRanksButton:CreateFontString("WPug_DifferentTypes_Frame_Text","ARTWORK","GameFontNormal");
 	GNF.ui.filterRanksText:SetPoint("Right",GNF.ui.filterRanksButton,"Left",-5,0);
 	GNF.ui.filterRanksText:SetJustifyH("Right");
 	GNF.ui.filterRanksText:SetText("|cffffffff" .. GNF_FILTER_RANKS .. ":");
--- Filter Ranks Text (end) ------------------------------------------------------------------------------------------------------
+    -- Filter Ranks Text (end) ------------------------------------------------------------------------------------------------------
 
--- Filter Ranks CheckBox (begin) ------------------------------------------------------------------------------------------------------
-	GNF.ui.filterRanksCheckBox = CreateFrame("CheckButton", "GNFP_FilterRanks_CheckBox", GuildNewsFiltersFrame, "UICheckButtonTemplate");
+    -- Filter Ranks CheckBox (begin) ------------------------------------------------------------------------------------------------------
+	GNF.ui.filterRanksCheckBox = CreateFrame("CheckButton", "GNFP_FilterRanks_CheckBox", CommunitiesGuildNewsFiltersFrame, "UICheckButtonTemplate");
 	GNF.ui.filterRanksCheckBox:SetWidth(23);
 	GNF.ui.filterRanksCheckBox:SetHeight(23);
-	GNF.ui.filterRanksCheckBox:SetPoint("TopLeft",GuildNewsFiltersFrame,"TopLeft",25,GNF.positions.ranks);
+	GNF.ui.filterRanksCheckBox:SetPoint("TopLeft",CommunitiesGuildNewsFiltersFrame,"TopLeft",25,GNF.positions.ranks);
 	GNF.ui.filterRanksCheckBox:SetText("");
 	GNF.ui.filterRanksCheckBox:SetChecked(GNFP_DB["GNFP_FilterRanks_CheckBox"])
 	GNF.ui.filterRanksCheckBox:SetScript("OnClick", function(self)
@@ -238,31 +239,31 @@ function GNFP_SetupOptions()
 		customFilterChanged = true;
 		GuildNewsSort(0);
 	end)
--- Filter Ranks CheckBox (end) ------------------------------------------------------------------------------------------------------
+    -- Filter Ranks CheckBox (end) ------------------------------------------------------------------------------------------------------
 	if(GNFP_DB["GNFP_FilterRanks_CheckBox"]) then
 		GNFP_CollectGuildMemberInfo();
 	end
 
--- Guild member Frame (begin) ------------------------------------------------------------------------------------------------------
-	GNF.ui.GuildMemberFrame=CreateFrame("FRAME","GNFP_GuildMember_Frame",GuildNewsFiltersFrame);
+    -- Guild member Frame (begin) ------------------------------------------------------------------------------------------------------
+	GNF.ui.GuildMemberFrame=CreateFrame("FRAME","GNFP_GuildMember_Frame",CommunitiesGuildNewsFiltersFrame);
 	GNF.ui.GuildMemberFrame:SetWidth(90); 
 	GNF.ui.GuildMemberFrame:SetHeight(20);
-	GNF.ui.GuildMemberFrame:SetPoint("TopLeft",GuildNewsFiltersFrame,"TopLeft",170, GNF.positions.guildMember);
+	GNF.ui.GuildMemberFrame:SetPoint("TopLeft",CommunitiesGuildNewsFiltersFrame,"TopLeft",190, GNF.positions.guildMember);
 	GNF.ui.GuildMemberFrame:SetBackdrop(backdrop)
--- Guild member Frame (end) ------------------------------------------------------------------------------------------------------
+    -- Guild member Frame (end) ------------------------------------------------------------------------------------------------------
 
--- Guild member Text (begin) ------------------------------------------------------------------------------------------------------
+    -- Guild member Text (begin) ------------------------------------------------------------------------------------------------------
 	GNF.ui.GuildMemberText = GNF.ui.GuildMemberFrame:CreateFontString("WPug_DifferentTypes_Frame_Text","ARTWORK","GameFontNormal");
 	GNF.ui.GuildMemberText:SetPoint("Right",GNF.ui.GuildMemberFrame,"Left",-5,0);
 	GNF.ui.GuildMemberText:SetJustifyH("Right");
 	GNF.ui.GuildMemberText:SetText("|cffffffff" .. GNF_GUILD_MEMBER .. ":");
--- Guild member Text (end) ------------------------------------------------------------------------------------------------------
+    -- Guild member Text (end) ------------------------------------------------------------------------------------------------------
 
--- Guild member CheckBox (begin) ------------------------------------------------------------------------------------------------------
-	GNF.ui.GuildMemberCheckButton = CreateFrame("CheckButton", "GNFP_GuildMember_CheckButton", GuildNewsFiltersFrame, "UICheckButtonTemplate");
+    -- Guild member CheckBox (begin) ------------------------------------------------------------------------------------------------------
+	GNF.ui.GuildMemberCheckButton = CreateFrame("CheckButton", "GNFP_GuildMember_CheckButton", CommunitiesGuildNewsFiltersFrame, "UICheckButtonTemplate");
 	GNF.ui.GuildMemberCheckButton:SetWidth(23);
 	GNF.ui.GuildMemberCheckButton:SetHeight(23);
-	GNF.ui.GuildMemberCheckButton:SetPoint("TopLeft",GuildNewsFiltersFrame,"TopLeft",25, GNF.positions.guildMember);
+	GNF.ui.GuildMemberCheckButton:SetPoint("TopLeft",CommunitiesGuildNewsFiltersFrame,"TopLeft",25, GNF.positions.guildMember);
 	GNF.ui.GuildMemberCheckButton:SetText("");
 	GNF.ui.GuildMemberCheckButton:SetChecked(GNFP_DB["GNFP_GuildMember_CheckButton"])
 	GNF.ui.GuildMemberCheckButton:SetScript("OnClick", function(self)
@@ -270,10 +271,10 @@ function GNFP_SetupOptions()
 		customFilterChanged = true;
 		GuildNewsSort(0);
 	end)
--- Guild member CheckBox (end) ------------------------------------------------------------------------------------------------------
+    -- Guild member CheckBox (end) ------------------------------------------------------------------------------------------------------
 	
--- Guild member (begin) ------------------------------------------------------------------------------------------------------
-	GNF.ui.GuildMemberCheckBox = CreateFrame("EditBox", "GNFP_GuildMember_Box", GuildNewsFiltersFrame, InputBoxTemplate )
+    -- Guild member (begin) ------------------------------------------------------------------------------------------------------
+	GNF.ui.GuildMemberCheckBox = CreateFrame("EditBox", "GNFP_GuildMember_Box", CommunitiesGuildNewsFiltersFrame, InputBoxTemplate )
 	GNF.ui.GuildMemberCheckBox:SetFont("Fonts\\FRIZQT__.TTF", 12)
 	GNF.ui.GuildMemberCheckBox:SetAutoFocus(false)
 	GNF.ui.GuildMemberCheckBox:SetWidth(80)
@@ -288,8 +289,7 @@ function GNFP_SetupOptions()
 												end)
 	GNF.ui.GuildMemberCheckBox:SetScript("OnEnterPressed",	function(self) self:ClearFocus() 	end)
 	GNF.ui.GuildMemberCheckBox:SetScript("OnEscapePressed",	function(self) self:ClearFocus()	end)
--- Guild member (end) ------------------------------------------------------------------------------------------------------
-
+    -- Guild member (end) ------------------------------------------------------------------------------------------------------
 end
 
 
@@ -413,7 +413,7 @@ end -- filtered Rank selection DropDown Menu (end)
 function GBFP_ReplaceBlizzardFunctions()
 	local orig_GetGuildNewsInfo = GetGuildNewsInfo;
 	local orig_GetNumGuildNews  = GetNumGuildNews;
-	local orig_GuildNewsButton_OnClick = GuildNewsButton_OnClick;
+	local orig_GuildNewsButton_OnClick = CommunitiesGuildNewsButton_OnClick;
 	
 	function GetNumGuildNews()
 		local noStatusChange = true;

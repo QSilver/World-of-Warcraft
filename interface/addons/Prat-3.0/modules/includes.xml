@@ -5,6 +5,7 @@
 <Include file="..\frames\popup.xml"/>
 <Include file="..\frames\pratcc.xml"/>
 
+<Script file="Achievements.lua" />
 <Script file="Alias.lua"/>
 <Script file="AltNames.lua"/>
 <!--<Script file="AddonMessages.lua"/>-->
@@ -23,7 +24,10 @@
 <Script file="Fading.lua"/>
 <Script file="Font.lua"/>
 <Script file="Filtering.lua"/>
+<Script file="Highlight.lua"/>
 <Script file="History.lua"/>
+<Script file="HoverTips.lua" />
+<Script file="Invites.lua"/>
 <Script file="Keybindings.lua"/>
 <!--<Script file="OriginalEditbox.lua"/>-->
 <Script file="Paragraph.lua"/>
@@ -31,7 +35,7 @@
 <Script file="PopupMessage.lua"/>
 <Script file="ServerNames.lua"/>
 <Script file="Scroll.lua"/>
-<Script file="Search.lua"/>
+<!--<Script file="Search.lua"/>-->
 <Script file="Sounds.lua"/>
 <Script file="Substitutions.lua"/>
 <Script file="TellTarget.lua"/>
@@ -39,5 +43,4 @@
 <Script file="UrlCopy.lua"/>
 <Script file="WIM.lua"/>
 <Script file="ldb.lua"/>
-
 </Ui>

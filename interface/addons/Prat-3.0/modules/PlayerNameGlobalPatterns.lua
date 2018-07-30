@@ -2,7 +2,7 @@
 --
 -- Prat - A framework for World of Warcraft chat mods
 --
--- Copyright (C) 2006-2011  Prat Development Team
+-- Copyright (C) 2006-2018  Prat Development Team
 --
 -- This program is free software; you can redistribute it and/or
 -- modify it under the terms of the GNU General Public License
@@ -46,13 +46,9 @@ Prat:AddModuleExtension(function()
         }
     }
 
-	local pats = Prat.GetModulePatterns(module)
-
-    -- /script Prat.Addon.modules.PlayerNames:OnPlayerDataChanged("Hateful")
-	pats[#pats+1] = { pattern = "|c.-|H.-:.-|h.-|h|r", 
+	Prat.RegisterPattern({ pattern = "|c.-|H.-:.-|h.-|h|r",
 			matchfunc=function(link) return Prat:RegisterMatch(link) end, 
-			type = "FRAME", priority = 45 }
-
+			type = "FRAME", priority = 45 }, module.name)
 
     local ColorPlayer
     do  

@@ -3,10 +3,10 @@
 -- Module Declaration
 --
 
-local mod, CL = BigWigs:NewBoss("Salyis's Warband", -807, 725)
+local mod, CL = BigWigs:NewBoss("Salyis's Warband", -376, 725)
 if not mod then return end
 mod:RegisterEnableMob(62346)
-mod.otherMenu = -862
+mod.otherMenu = -424
 mod.worldBoss = 62346
 
 --------------------------------------------------------------------------------
@@ -50,13 +50,13 @@ end
 --
 
 function mod:CannonBarrage()
-	self:Message(121600, "Urgent", nil, CL["incoming"]:format(self:SpellName(121600)))
+	self:Message(121600, "orange", nil, CL["incoming"]:format(self:SpellName(121600)))
 	self:Bar(121600, 60)
 end
 
 function mod:Stomp()
-	self:Message(121787, "Important", "Alarm", CL["incoming"]:format(self:SpellName(121787)))
+	self:Message(121787, "red", "Alarm", CL["incoming"]:format(self:SpellName(121787)))
 	self:Bar(121787, 60)
-	self:DelayedMessage(-6200, 10, "Attention", CL["adds"], 121747) -- Salyin Warmonger
+	self:DelayedMessage(-6200, 10, "yellow", CL["adds"], 121747) -- Salyin Warmonger
 end
 

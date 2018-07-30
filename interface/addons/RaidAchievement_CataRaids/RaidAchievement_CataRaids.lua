@@ -1,10 +1,10 @@
 ﻿raoldmodules=1
 function crraonload()
 
-SetMapToCurrentZone()
-if GetCurrentMapAreaID()==754 or GetCurrentMapAreaID()==758 or GetCurrentMapAreaID()==800 or GetCurrentMapAreaID()==824 then
+--SetMapToCurrentZone()
+if C_Map.GetBestMapForUnit("player")==754 or C_Map.GetBestMapForUnit("player")==758 or C_Map.GetBestMapForUnit("player")==800 or C_Map.GetBestMapForUnit("player")==824 then
 	RaidAchievement_crra:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
-	RaidAchievement_crra:RegisterEvent("UNIT_POWER")
+	RaidAchievement_crra:RegisterEvent("UNIT_POWER_UPDATE")
 	RaidAchievement_crra:RegisterEvent("CHAT_MSG_RAID_BOSS_EMOTE")
 end
 	RaidAchievement_crra:RegisterEvent("PLAYER_REGEN_DISABLED")
@@ -66,7 +66,7 @@ if ratrackdistmor and crracurtime<ratrackdistmor then
 		--тут весь трекер ачивки для сложностей и вывод инфо если мы в бою с боссом
 		if morch25 then
 			--25ка
-			if UnitName("boss1") and GetCurrentMapAreaID()==824 then
+			if UnitName("boss1") and C_Map.GetBestMapForUnit("player")==824 then
 				local i=1
 				local tab1={} --имена
 				local tab2={} --со сколькими рядом был
@@ -82,10 +82,10 @@ if ratrackdistmor and crracurtime<ratrackdistmor then
 				if #tab1>1 then
 				while i<#tab1 do
 					local j=i+1
-						local x2,y2=GetPlayerMapPosition(tab1[i])
+						local x2,y2=C_Map.GetPlayerMapPosition(C_Map.GetBestMapForUnit("player"),tab1[i])
 						if x2 and y2 and x2>0 then
 							while j<=#tab1 do
-									local x,y=GetPlayerMapPosition(tab1[j])
+									local x,y=C_Map.GetPlayerMapPosition(C_Map.GetBestMapForUnit("player"),tab1[j])
 									if x and y and x>0 then
 										local dist=math.sqrt(math.pow((x-x2),2)+math.pow((y-y2),2))
 										if dist<0.0022675181113097 then
@@ -139,25 +139,25 @@ if ratrackdistmor and crracurtime<ratrackdistmor then
 							end
 						end
 					end
-					if crraspisokon[11]==1 and raachdone1 and GetCurrentMapAreaID()==824 then
+					if crraspisokon[11]==1 and raachdone1 and C_Map.GetBestMapForUnit("player")==824 then
 						crrafailnoreason(11,failn.." - "..ranotsure)
 						ratrackdistmor=nil
 					end
 				end
 			end
 		else
-			if UnitName("boss1") and GetCurrentMapAreaID()==824 then
+			if UnitName("boss1") and C_Map.GetBestMapForUnit("player")==824 then
 				local i=1
 				local minr=6
 				local failn=""
 				while i<GetNumGroupMembers() do
 					local j=i+1
 					if UnitAffectingCombat("raid"..i) then
-						local x2,y2=GetPlayerMapPosition(UnitName("raid"..i))
+						local x2,y2=C_Map.GetPlayerMapPosition(C_Map.GetBestMapForUnit("player"),UnitName("raid"..i))
 						if x2 and y2 and x2>0 then
 							while j<=GetNumGroupMembers() do
 								if UnitAffectingCombat("raid"..j) then
-									local x,y=GetPlayerMapPosition(UnitName("raid"..j))
+									local x,y=C_Map.GetPlayerMapPosition(C_Map.GetBestMapForUnit("player"),UnitName("raid"..j))
 									if x and y and x>0 then
 										local dist=math.sqrt(math.pow((x-x2),2)+math.pow((y-y2),2))
 										if dist<0.0022675181113097 then
@@ -178,7 +178,7 @@ if ratrackdistmor and crracurtime<ratrackdistmor then
 				end
 				if minr<=5 then
 					minr=math.ceil(minr*10)/10
-					if crraspisokon[11]==1 and raachdone1 and GetCurrentMapAreaID()==824 then
+					if crraspisokon[11]==1 and raachdone1 and C_Map.GetBestMapForUnit("player")==824 then
 						crrafailnoreason(11,failn..", "..minr.." "..rayard..", "..ranotsure)
 						ratrackdistmor=nil
 					end
@@ -275,14 +275,14 @@ end
 
 if rcradelayzonech and crracurtime>rcradelayzonech then
 rcradelayzonech=nil
-SetMapToCurrentZone()
-if GetCurrentMapAreaID()==754 or GetCurrentMapAreaID()==758 or GetCurrentMapAreaID()==800 or GetCurrentMapAreaID()==824 then
+--SetMapToCurrentZone()
+if C_Map.GetBestMapForUnit("player")==754 or C_Map.GetBestMapForUnit("player")==758 or C_Map.GetBestMapForUnit("player")==800 or C_Map.GetBestMapForUnit("player")==824 then
 RaidAchievement_crra:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
-RaidAchievement_crra:RegisterEvent("UNIT_POWER")
+RaidAchievement_crra:RegisterEvent("UNIT_POWER_UPDATE")
 RaidAchievement_crra:RegisterEvent("CHAT_MSG_RAID_BOSS_EMOTE")
 else
 RaidAchievement_crra:UnregisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
-RaidAchievement_crra:UnregisterEvent("UNIT_POWER")
+RaidAchievement_crra:UnregisterEvent("UNIT_POWER_UPDATE")
 RaidAchievement_crra:UnregisterEvent("CHAT_MSG_RAID_BOSS_EMOTE")
 end
 end
@@ -313,7 +313,7 @@ racrzvukcheck2=nil
 rabaleroc1=nil
 rabaleroc2=nil
 
-if GetCurrentMapAreaID()==800 and rarhydied==nil then
+if C_Map.GetBestMapForUnit("player")==800 and rarhydied==nil then
 	raambitun=1
 else
 	raambitun=nil
@@ -346,7 +346,7 @@ end
 if event == "CHAT_MSG_RAID_BOSS_EMOTE" then
 
 
-if string.find(arg1, radeathwingemote1) and lfrenable==nil and GetCurrentMapAreaID()==824 then
+if string.find(arg1, radeathwingemote1) and lfrenable==nil and C_Map.GetBestMapForUnit("player")==824 then
 --raspinetab={1,2,1,2}
 	if crraspisokon[15]==1 and raachdone1 then
 		if raspinetab and raspinetab[1] then
@@ -362,7 +362,7 @@ if string.find(arg1, radeathwingemote1) and lfrenable==nil and GetCurrentMapArea
 	end
 end
 
-if string.find(arg1, radeathwingemote2) and lfrenable==nil and GetCurrentMapAreaID()==824 then
+if string.find(arg1, radeathwingemote2) and lfrenable==nil and C_Map.GetBestMapForUnit("player")==824 then
 	if crraspisokon[15]==1 and raachdone1 then
 		if raspinetab and raspinetab[1] then
 			if raspinetab[1]~=2 then
@@ -405,12 +405,12 @@ end
 end
 
 
-if event == "UNIT_POWER" then
+if event == "UNIT_POWER_UPDATE" then
 if UnitName("boss1") and UnitName("boss1")~="" then
 
 if racrzvukcheck then
---SetMapToCurrentZone()
---if GetCurrentMapAreaID()==754 then
+----SetMapToCurrentZone()
+--if C_Map.GetBestMapForUnit("player")==754 then
 if arg2=="ALTERNATE" and arg1 then
 	local power = UnitPower(arg1, 10)
 	if power>50 then
@@ -428,8 +428,8 @@ end
 
 
 if racrzvukcheck2 then
---SetMapToCurrentZone()
---if GetCurrentMapAreaID()==758 then
+----SetMapToCurrentZone()
+--if C_Map.GetBestMapForUnit("player")==758 then
 if arg2=="ALTERNATE" and arg1 then
 	local power = UnitPower(arg1, 10)
 	if power>30 then
@@ -483,7 +483,7 @@ local arg1, arg2, arg3,arg4,arg5,arg6,argNEW1,arg7,arg8,arg9,argNEW2,arg10,arg11
 
 
 --Blackwing Descent
-if GetCurrentMapAreaID()==754 then
+if C_Map.GetBestMapForUnit("player")==754 then
 
 if arg2=="SPELL_AURA_APPLIED" and (arg10==78941 or arg10==91913 or arg10==94678 or arg10==94679) then
 	if crraspisokon[1]==1 and raachdone1 then
@@ -543,7 +543,7 @@ end
 
 
 --Firelands
-if GetCurrentMapAreaID()==800 then
+if C_Map.GetBestMapForUnit("player")==800 then
 
 --rhyolit die
 if arg2=="UNIT_DIED" and arg7 then
@@ -701,12 +701,12 @@ end
 
 
 --Dragon Soul
-if GetCurrentMapAreaID()==824 and lfrenable==nil then --проверка что не ЛФР
+if C_Map.GetBestMapForUnit("player")==824 and lfrenable==nil then --проверка что не ЛФР
 
 --активация чека дистанции
 if arg2=="SPELL_AURA_APPLIED" and arg10==103851 then
 if crraspisokon[11]==1 and raachdone1 then
-	SetMapToCurrentZone()
+	--SetMapToCurrentZone()
 	local _, _, pppl = GetInstanceInfo()
 	if pppl==2 or pppl==4 then
 		morch25=1

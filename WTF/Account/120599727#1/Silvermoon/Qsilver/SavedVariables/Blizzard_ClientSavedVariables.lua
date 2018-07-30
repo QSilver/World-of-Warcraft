@@ -9,3 +9,5 @@ CHANNELPULLOUT_FADEFRAMES = {
 	"ChannelPulloutCloseButton", -- [2]
 	"ChannelPulloutRosterScroll", -- [3]
 }
+DISPLAYED_COMMUNITIES_INVITATIONS = {
+}

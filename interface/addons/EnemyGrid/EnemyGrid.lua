@@ -140,6 +140,9 @@ local default_config = {
 			track_method = 0x1,
 			buff_banned = {},
 			debuff_banned = {},
+			buff_tracked = {},
+			debuff_tracked = {},			
+			
 		},
 		
 		raidmarker_anchor = {side = 9, x = 0, y = 0},
@@ -581,7 +584,8 @@ local EnemyGrid_AuraOnLeave = function (self)
 	GameTooltip:Hide()
 end
 
-local AddAura = function (self, i, auraWidth, auraHeight, name, rank, texture, count, debuffType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId, isBuff)
+local AddAura = function (self, i, auraWidth, auraHeight, name, texture, count, debuffType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId, isBuff)
+
 	if (not self.debuffAnchor.buffList [i]) then
 		self.debuffAnchor.buffList [i] = CreateFrame ("Frame", self:GetName() .. "Debuff" .. i, self.debuffAnchor, "NameplateBuffButtonTemplate")
 		self.debuffAnchor.buffList [i]:SetMouseClickEnabled (false)
@@ -675,10 +679,10 @@ local namePlateOnEvent = function (self, event, ...)
 				if (self.actorType == ACTORTYPE_ENEMY_NPC) then
 					--enemy npc buffs
 					for i = 1, BUFF_MAX_DISPLAY do
-						local name, rank, texture, count, debuffType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId = UnitAura (self.NamePlateId, i, "HELPFUL")
+						local name, texture, count, debuffType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId = UnitAura (self.NamePlateId, i, "HELPFUL")
 						if (name and not buff_banned [spellId] and spellId ~= 228466) then
 						--buff 218502 from botanist tel'arn
-							AddAura (self, auraIndex, auraWidth, auraHeight, name, rank, texture, count, debuffType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId, true)
+							AddAura (self, auraIndex, auraWidth, auraHeight, name, texture, count, debuffType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId, true)
 							auraIndex = auraIndex + 1
 						end
 					end
@@ -689,9 +693,9 @@ local namePlateOnEvent = function (self, event, ...)
 					local spells = EnemyGrid.ClassBuffCache [class]
 					if (spells) then
 						for i = 1, #spells do
-							local name, rank, texture, count, debuffType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId = UnitAura (self.NamePlateId, spells[i])
+							local name, texture, count, debuffType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId = UnitAura (self.NamePlateId, spells[i])
 							if (name) then
-								AddAura (self, auraIndex, auraWidth, auraHeight, name, rank, texture, count, debuffType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId, true)
+								AddAura (self, auraIndex, auraWidth, auraHeight, name, texture, count, debuffType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId, true)
 								auraIndex = auraIndex + 1
 							end
 						end
@@ -700,9 +704,9 @@ local namePlateOnEvent = function (self, event, ...)
 
 				--unit debuffs
 				for i = 1, BUFF_MAX_DISPLAY do
-					local name, rank, texture, count, debuffType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId = UnitAura (self.NamePlateId, i, "HARMFUL|PLAYER")
+					local name, texture, count, debuffType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId = UnitAura (self.NamePlateId, i, "HARMFUL|PLAYER")
 					if (name and not debuff_banned [spellId]) then
-						AddAura (self, auraIndex, auraWidth, auraHeight, name, rank, texture, count, debuffType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId)
+						AddAura (self, auraIndex, auraWidth, auraHeight, name, texture, count, debuffType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId)
 						auraIndex = auraIndex + 1
 					end
 				end
@@ -720,9 +724,9 @@ local namePlateOnEvent = function (self, event, ...)
 			local auraIndex = 1
 			
 			for i = 1, #debuffs do
-				local name, rank, texture, count, debuffType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId = UnitAura (self.NamePlateId, debuffs [i], nil, "HARMFUL|PLAYER")
+				local name, texture, count, debuffType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId = UnitAura (self.NamePlateId, debuffs [i], nil, "HARMFUL|PLAYER")
 				if (name) then
-					AddAura (self, auraIndex, auraWidth, auraHeight, name, rank, texture, count, debuffType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId)
+					AddAura (self, auraIndex, auraWidth, auraHeight, name, texture, count, debuffType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId)
 					auraIndex = auraIndex + 1
 				elseif (profile.aura_always_show_debuffs) then
 					AddAura (self, auraIndex, auraWidth, auraHeight, false)
@@ -731,9 +735,9 @@ local namePlateOnEvent = function (self, event, ...)
 			end
 			
 			for i = 1, #buffs do
-				local name, rank, texture, count, debuffType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId = UnitAura (self.NamePlateId, buffs [i])
+				local name, texture, count, debuffType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId = UnitAura (self.NamePlateId, buffs [i])
 				if (name) then
-					AddAura (self, auraIndex, auraWidth, auraHeight, name, rank, texture, count, debuffType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId, true)
+					AddAura (self, auraIndex, auraWidth, auraHeight, name, texture, count, debuffType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId, true)
 					auraIndex = auraIndex + 1
 				end
 			end
@@ -2061,7 +2065,6 @@ function EnemyGrid.OnInit()
 	EnemyGrid:RegisterEvent ("QUEST_ACCEPT_CONFIRM")
 	EnemyGrid:RegisterEvent ("QUEST_COMPLETE")
 	EnemyGrid:RegisterEvent ("QUEST_POI_UPDATE")
-	EnemyGrid:RegisterEvent ("QUEST_QUERY_COMPLETE")
 	EnemyGrid:RegisterEvent ("QUEST_DETAIL")
 	EnemyGrid:RegisterEvent ("QUEST_FINISHED")
 	EnemyGrid:RegisterEvent ("QUEST_GREETING")
@@ -2605,7 +2608,8 @@ local update_quest_cache = function()
 		end
 	end
 	
-	local mapId = GetCurrentMapAreaID()
+	local mapId = C_Map.GetBestMapForUnit ("player")
+	
 	local worldQuests = C_TaskQuest.GetQuestsForPlayerByMapID (mapId)
 	if (type (worldQuests) == "table") then
 		for i, questTable in ipairs (worldQuests) do

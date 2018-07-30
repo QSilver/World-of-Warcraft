@@ -2,7 +2,7 @@
 --
 -- Prat - A framework for World of Warcraft chat mods
 --
--- Copyright (C) 2006-2011  Prat Development Team
+-- Copyright (C) 2006-2018  Prat Development Team
 --
 -- This program is free software; you can redistribute it and/or
 -- modify it under the terms of the GNU General Public License
@@ -29,18 +29,15 @@
 
 Prat:AddModuleToLoad(function()
 
---[[
-    2007-06-24: added option to save cmd history - fin
-]]
-
     local PRAT_MODULE = Prat:RequestModuleName("History")
 
     if PRAT_MODULE == nil then
         return
     end
 
-    local PL = Prat:GetLocalizer({})
+    local module = Prat:NewModule(PRAT_MODULE, "AceHook-3.0")
 
+    local PL = module.PL
 
     --[===[@debug@
     PL:AddLocale(PRAT_MODULE, "enUS", {
@@ -101,22 +98,22 @@ Prat:AddModuleToLoad(function()
 {
 	["History"] = {
 		["Chat history options."] = "Option de l'historique.",
-		--Translation missing 
-		-- ["Color GMOTD"] = "",
-		--Translation missing 
-		-- ["Colors the GMOTD label"] = "",
+		--[[Translation missing --]]
+		--[[ ["Color GMOTD"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Colors the GMOTD label"] = "",--]] 
 		["delaygmotd_desc"] = "Afficher le message du jour de la guilde après tous les autres messages lors de la connexion.",
-		--Translation missing 
-		-- ["delaygmotd_name"] = "",
+		--[[Translation missing --]]
+		--[[ ["delaygmotd_name"] = "",--]] 
 		["divider"] = "========== Fin de l'historique ==========",
 		["History"] = "Historique",
 		["Maximum number of lines of command history to save."] = "Nombre maximum de lignes de commande à sauvegarder dans l'historique.",
 		["Save Command History"] = "Historique de commandes",
 		["Saves command history between sessions (for use with alt+up arrow or just the up arrow)"] = "Sauvegarde l'historique des commandes entre les sessions (à utiliser avec alt+haut ou juste haut)",
-		--Translation missing 
-		-- ["Scrollback"] = "",
-		--Translation missing 
-		-- ["Scrollback Options"] = "",
+		--[[Translation missing --]]
+		--[[ ["Scrollback"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Scrollback Options"] = "",--]] 
 		["scrollbacklen_desc"] = "Nombre de lignes de discussions à sauvegarder dans l'historique.",
 		["scrollbacklen_name"] = "Taille de l'historique",
 		["Set Chat Lines"] = "Historique de discussions",
@@ -183,42 +180,42 @@ Prat:AddModuleToLoad(function()
    L=
 {
 	["History"] = {
-		--Translation missing 
-		-- ["Chat history options."] = "",
-		--Translation missing 
-		-- ["Color GMOTD"] = "",
-		--Translation missing 
-		-- ["Colors the GMOTD label"] = "",
-		--Translation missing 
-		-- ["delaygmotd_desc"] = "",
-		--Translation missing 
-		-- ["delaygmotd_name"] = "",
-		--Translation missing 
-		-- ["divider"] = "",
-		--Translation missing 
-		-- ["History"] = "",
-		--Translation missing 
-		-- ["Maximum number of lines of command history to save."] = "",
-		--Translation missing 
-		-- ["Save Command History"] = "",
-		--Translation missing 
-		-- ["Saves command history between sessions (for use with alt+up arrow or just the up arrow)"] = "",
-		--Translation missing 
-		-- ["Scrollback"] = "",
-		--Translation missing 
-		-- ["Scrollback Options"] = "",
-		--Translation missing 
-		-- ["scrollbacklen_desc"] = "",
-		--Translation missing 
-		-- ["scrollbacklen_name"] = "",
-		--Translation missing 
-		-- ["Set Chat Lines"] = "",
-		--Translation missing 
-		-- ["Set Command History"] = "",
-		--Translation missing 
-		-- ["Set the number of lines of chat history for each window."] = "",
-		--Translation missing 
-		-- ["Store the chat lines between sessions"] = "",
+		--[[Translation missing --]]
+		--[[ ["Chat history options."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Color GMOTD"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Colors the GMOTD label"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["delaygmotd_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["delaygmotd_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["divider"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["History"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Maximum number of lines of command history to save."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Save Command History"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Saves command history between sessions (for use with alt+up arrow or just the up arrow)"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Scrollback"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Scrollback Options"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["scrollbacklen_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["scrollbacklen_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Set Chat Lines"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Set Command History"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Set the number of lines of chat history for each window."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Store the chat lines between sessions"] = "",--]] 
 	}
 }
 
@@ -280,33 +277,33 @@ Prat:AddModuleToLoad(function()
 {
 	["History"] = {
 		["Chat history options."] = "Opciones del historial del chat.",
-		--Translation missing 
-		-- ["Color GMOTD"] = "",
-		--Translation missing 
-		-- ["Colors the GMOTD label"] = "",
-		--Translation missing 
-		-- ["delaygmotd_desc"] = "",
-		--Translation missing 
-		-- ["delaygmotd_name"] = "",
-		--Translation missing 
-		-- ["divider"] = "",
+		--[[Translation missing --]]
+		--[[ ["Color GMOTD"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Colors the GMOTD label"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["delaygmotd_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["delaygmotd_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["divider"] = "",--]] 
 		["History"] = "Historial",
 		["Maximum number of lines of command history to save."] = "Máximo número de líneas a guardar por el comando historial.",
 		["Save Command History"] = "Comando Guardar Historial",
 		["Saves command history between sessions (for use with alt+up arrow or just the up arrow)"] = "Guarda el historial de comandos entre sesiones (para utilizar con alt+flecha arriba o sólo la flecha arriba)",
-		--Translation missing 
-		-- ["Scrollback"] = "",
-		--Translation missing 
-		-- ["Scrollback Options"] = "",
-		--Translation missing 
-		-- ["scrollbacklen_desc"] = "",
-		--Translation missing 
-		-- ["scrollbacklen_name"] = "",
+		--[[Translation missing --]]
+		--[[ ["Scrollback"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Scrollback Options"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["scrollbacklen_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["scrollbacklen_name"] = "",--]] 
 		["Set Chat Lines"] = "Establecer Líneas de Chat",
 		["Set Command History"] = "Establecer Historial de Comandos",
 		["Set the number of lines of chat history for each window."] = "Establece el número de líneas del historial de chat para cada ventana.",
-		--Translation missing 
-		-- ["Store the chat lines between sessions"] = "",
+		--[[Translation missing --]]
+		--[[ ["Store the chat lines between sessions"] = "",--]] 
 	}
 }
 
@@ -318,35 +315,31 @@ Prat:AddModuleToLoad(function()
 		["Chat history options."] = "歷史訊息選項。",
 		["Color GMOTD"] = "顏色 GMOTD",
 		["Colors the GMOTD label"] = "顏色 GMOTD 標籤",
-		--Translation missing 
-		-- ["delaygmotd_desc"] = "",
+		--[[Translation missing --]]
+		--[[ ["delaygmotd_desc"] = "",--]] 
 		["delaygmotd_name"] = "延遲 GMOTD",
 		["divider"] = "========== 捲動結束 ==========",
 		["History"] = "歷史訊息",
 		["Maximum number of lines of command history to save."] = "最大行數的指令記錄儲存。",
 		["Save Command History"] = "儲存指令歷史",
-		--Translation missing 
-		-- ["Saves command history between sessions (for use with alt+up arrow or just the up arrow)"] = "",
+		--[[Translation missing --]]
+		--[[ ["Saves command history between sessions (for use with alt+up arrow or just the up arrow)"] = "",--]] 
 		["Scrollback"] = "捲動",
 		["Scrollback Options"] = "捲動選項",
-		--Translation missing 
-		-- ["scrollbacklen_desc"] = "",
+		--[[Translation missing --]]
+		--[[ ["scrollbacklen_desc"] = "",--]] 
 		["scrollbacklen_name"] = "捲動長度",
 		["Set Chat Lines"] = "設定聊天行數",
 		["Set Command History"] = "設定指令歷史",
 		["Set the number of lines of chat history for each window."] = "設定行數的聊天記錄每個視窗。",
-		--Translation missing 
-		-- ["Store the chat lines between sessions"] = "",
+		--[[Translation missing --]]
+		--[[ ["Store the chat lines between sessions"] = "",--]] 
 	}
 }
 
      PL:AddLocale(PRAT_MODULE, "zhTW",L)
    end
    --@end-non-debug@
-
-    -- create prat module
-    local module = Prat:NewModule(PRAT_MODULE, "AceHook-3.0")
-    module.PL = PL
 
     Prat:SetModuleDefaults(module.name, {
         profile = {
@@ -506,7 +499,9 @@ Prat:AddModuleToLoad(function()
     end
 
 
-
+    function module:GetDescription()
+        return PL["Chat history options."]
+    end
 
     -- things to do when the module is enabled
     function module:OnModuleDisable()

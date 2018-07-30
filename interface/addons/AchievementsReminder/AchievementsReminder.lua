@@ -15,7 +15,7 @@ end
 
 ralldatabase()
 
-  achievementsreminderver=7.301
+  achievementsreminderver=8.000
 
 
 	if ralloptions==nil then ralloptions={1,1,0,0,0,0,1,0,0,0,0,0} end
@@ -75,14 +75,14 @@ ralldelaycheckzone2=nil
 ralldelaycheckzone=GetTime()+0.5 --ыытест не работал инфо после релога, так заработал
 local a1, a2, a3, a4, a5 = GetInstanceInfo()
   if UnitInRaid("player") or a2=="pvp" or a2=="raid" or a2=="scenario" or a3==14 or a3==15 or a3==16 or (a2=="party" and (a3==2 or a3==23)) or a3==2 or a3==23 or (a3==1 and a2=="scenario") then
-  SetMapToCurrentZone()
+  --SetMapToCurrentZone()
   end
   local _, instanceType, pppl, _, maxPlayers, dif = GetInstanceInfo()
 if select(3,GetInstanceInfo())==17 then
 --no LFR
 elseif (a2=="pvp" and raenablebg==1) or a2=="raid" or a2=="scenario" or a3==14 or a3==15 or a3==16 or (a2=="party" and (a3==2 or a3==23)) or select(3,GetInstanceInfo())==2 or (select(3,GetInstanceInfo())==1 and a2=="scenario") then
   local found=0
-  local curZoneID=GetCurrentMapAreaID()
+  local curZoneID=C_Map.GetBestMapForUnit("player")
   for kj=1,#ralllocations do
     if ralllocations[kj]==curZoneID then
       found=found+1
@@ -91,7 +91,7 @@ elseif (a2=="pvp" and raenablebg==1) or a2=="raid" or a2=="scenario" or a3==14 o
   end
   if found>1 then
     rallcolonka=0
-	local curZoneID=GetCurrentMapAreaID()
+	local curZoneID=C_Map.GetBestMapForUnit("player")
     for bv=1,#ralllocations do
       if ralllocations[bv]==curZoneID then
         if ralltip[bv]=="10" or ralltip[bv]=="25" then
@@ -115,16 +115,16 @@ if ralldelaycheckzone and icracurtime>ralldelaycheckzone then
   local vbil=0
   local a1, a2, a3, a4, a5 = GetInstanceInfo()
   if UnitInRaid("player") or (a2=="pvp" and raenablebg==1) or a2=="raid" or a2=="scenario" or a3==14 or a3==15 or a3==16 or (a2=="party" and (a3==2 or a3==23)) or select(3,GetInstanceInfo())==2 or (select(3,GetInstanceInfo())==1 and a2=="scenario") then
-  SetMapToCurrentZone()
+  --SetMapToCurrentZone()
   end
   local _, instanceType, pppl, _, maxPlayers, dif = GetInstanceInfo()
 if select(3,GetInstanceInfo())==17 then
 --no LFR
-elseif GetMapNameByID(GetCurrentMapAreaID()) and ralllocationnames and ralllocations and GetCurrentMapAreaID() then
-local curZoneID=GetCurrentMapAreaID()
+elseif C_Map.GetMapInfo(C_Map.GetBestMapForUnit("player")) and ralllocationnames and ralllocations and C_Map.GetBestMapForUnit("player") then
+local curZoneID=C_Map.GetBestMapForUnit("player")
   for i=1,#ralllocations do
     if ralllocations[i]==curZoneID then
-      ralllocationnames[i]=GetMapNameByID(GetCurrentMapAreaID())
+      ralllocationnames[i]=C_Map.GetMapInfo(C_Map.GetBestMapForUnit("player"))
       if a2~="pvp" then
         vbil=1
       end
@@ -158,7 +158,7 @@ else
 				local a1, a2, a3, a4, a5 = GetInstanceInfo()
         if a2~="pvp" then --для пвп постоянно показываем зону, для сценариев также!
           if select(3,GetInstanceInfo())~=1 and a2~=nil then
-			local curZoneID=GetCurrentMapAreaID()
+			local curZoneID=C_Map.GetBestMapForUnit("player")
             table.insert(rallnomorereport[1],curZoneID)
             table.insert(rallnomorereport[2],a5)
           end
@@ -166,7 +166,7 @@ else
 			end
 		else
 			local bil=0
-			local curZoneID=GetCurrentMapAreaID()
+			local curZoneID=C_Map.GetBestMapForUnit("player")
 			for i=1,#rallnomorereport[1] do
 				if rallnomorereport[1][i]==curZoneID then
 					if a5==rallnomorereport[2][i] then
@@ -181,7 +181,7 @@ else
           local a1, a2, a3, a4, a5 = GetInstanceInfo()
           if a2~="pvp" then --для пвп постоянно показываем зону, для сценариев также!
             if select(3,GetInstanceInfo())~=1 and a2~=nil then
-				local curZoneID=GetCurrentMapAreaID()
+				local curZoneID=C_Map.GetBestMapForUnit("player")
               table.insert(rallnomorereport[1],curZoneID)
               table.insert(rallnomorereport[2],a5)
             end
@@ -567,12 +567,12 @@ function icll_button33()
 --out("|cff99ffffRaidAchievement|r - "..aa2)
 
 local bil=0
-SetMapToCurrentZone()
+--SetMapToCurrentZone()
 local _, instanceType, pppl, _, maxPlayers, dif = GetInstanceInfo()
 if select(3,GetInstanceInfo())==17 then
 --no LFR
 else
-local curZoneID=GetCurrentMapAreaID()
+local curZoneID=C_Map.GetBestMapForUnit("player")
 for i=1,#ralllocations do
 	if ralllocations[i]==curZoneID then
 		local a1, a2, a3, a4, a5 = GetInstanceInfo()
@@ -1296,7 +1296,7 @@ if ralloptions[1]==1 then
 
 
 local a1, a2, a3, a4, a5 = GetInstanceInfo()
-SetMapToCurrentZone()
+--SetMapToCurrentZone()
 if a2=="pvp" or a2=="raid" or a2=="scenario" or a3==14 or a3==15 or a3==16 or (a2=="party" and (a3==2 or a3==23)) or select(3,GetInstanceInfo())==2 or (select(3,GetInstanceInfo())==1 and a2=="scenario") then
 
 
@@ -1307,7 +1307,7 @@ local _, instanceType, pppl, _, maxPlayers, dif = GetInstanceInfo()
 if select(3,GetInstanceInfo())==17 then
 --no LFR
 else
-local curZoneID=GetCurrentMapAreaID()
+local curZoneID=C_Map.GetBestMapForUnit("player")
 for kj=1,#ralllocations do
 	if ralllocations[kj]==curZoneID then
 		found=found+1
@@ -1327,7 +1327,7 @@ if found==0 then
 			end
 	end
 else
-local curZoneID=GetCurrentMapAreaID()
+local curZoneID=C_Map.GetBestMapForUnit("player")
 if found>1 then
 	rallcolonka=0
 	for bv=1,#ralllocations do
@@ -1356,7 +1356,7 @@ if ralloptions[2]==1 then
 		local _, _, _, completed, _, _, _, _, _, _, _, _, wasEarnedByMe, earnedBy = GetAchievementInfo(rallachieve[rallcolonka][i])
 		if (completed==false or (completed and ralloptionTrackCharAchieves and wasEarnedByMe==false)) and rallfullver[rallcolonka][i]==0 then
 			if #texttableout==0 then
-				local cur_zone=GetMapNameByID(GetCurrentMapAreaID())
+				local cur_zone=C_Map.GetMapInfo(C_Map.GetBestMapForUnit("player"))
 				if cur_zone==nil then
 					cur_zone="Unknown zone"
 				end
@@ -1417,8 +1417,8 @@ elseif ralloptions[3]==1 then
 
 		if rallfullver[rallcolonka][i]==0 then
 			if #texttableout==0 then
-				table.insert(texttableout,"AchievementsReminder - "..rallachiverepl4.." '"..GetMapNameByID(GetCurrentMapAreaID()).."':")
-				table.insert(texttableout2,rallachiverepl4.." '"..GetMapNameByID(GetCurrentMapAreaID()).."':")
+				table.insert(texttableout,"AchievementsReminder - "..rallachiverepl4.." '"..C_Map.GetMapInfo(C_Map.GetBestMapForUnit("player")).."':")
+				table.insert(texttableout2,rallachiverepl4.." '"..C_Map.GetMapInfo(C_Map.GetBestMapForUnit("player")).."':")
 			end
 			table.insert(texttableout,GetAchievementLink(rallachieve[rallcolonka][i]))
 			table.insert(texttableout2,GetAchievementLink(rallachieve[rallcolonka][i]))
@@ -1479,8 +1479,8 @@ elseif ralloptions[4]==1 then
 		local _, _, _, completed, _, _, _, _, _, _, _, _, wasEarnedByMe, earnedBy = GetAchievementInfo(rallachieve[rallcolonka][i])
 		if (completed==false or (completed and ralloptionTrackCharAchieves and wasEarnedByMe==false)) and rallfullver[rallcolonka][i]==0 and rallmeta[rallcolonka][i]==1 then
 			if #texttableout==0 then
-				table.insert(texttableout,"AchievementsReminder - "..rallachiverepl8.." '"..GetMapNameByID(GetCurrentMapAreaID()).."':")
-				table.insert(texttableout2,rallachiverepl8.." '"..GetMapNameByID(GetCurrentMapAreaID()).."':")
+				table.insert(texttableout,"AchievementsReminder - "..rallachiverepl8.." '"..C_Map.GetMapInfo(C_Map.GetBestMapForUnit("player")).."':")
+				table.insert(texttableout2,rallachiverepl8.." '"..C_Map.GetMapInfo(C_Map.GetBestMapForUnit("player")).."':")
 			end
 			table.insert(texttableout,GetAchievementLink(rallachieve[rallcolonka][i]))
 			table.insert(texttableout2,GetAchievementLink(rallachieve[rallcolonka][i]))
@@ -1533,8 +1533,8 @@ elseif ralloptions[5]==1 then
 		local _, _, _, completed, _, _, _, _, _, _, _, _, wasEarnedByMe, earnedBy = GetAchievementInfo(rallachieve[rallcolonka][i])
 		if rallfullver[rallcolonka][i]==0 and rallmeta[rallcolonka][i]==1 then
 			if #texttableout==0 then
-				table.insert(texttableout,"AchievementsReminder - "..rallachiverepl10.." '"..GetMapNameByID(GetCurrentMapAreaID()).."':")
-				table.insert(texttableout2,rallachiverepl10.." '"..GetMapNameByID(GetCurrentMapAreaID()).."':")
+				table.insert(texttableout,"AchievementsReminder - "..rallachiverepl10.." '"..C_Map.GetMapInfo(C_Map.GetBestMapForUnit("player")).."':")
+				table.insert(texttableout2,rallachiverepl10.." '"..C_Map.GetMapInfo(C_Map.GetBestMapForUnit("player")).."':")
 			end
 			table.insert(texttableout,GetAchievementLink(rallachieve[rallcolonka][i]))
 			table.insert(texttableout2,GetAchievementLink(rallachieve[rallcolonka][i]))
@@ -1593,8 +1593,8 @@ elseif ralloptions[6]==1 then
 		local _, _, _, completed, _, _, _, _, _, _, _, _, wasEarnedByMe, earnedBy = GetAchievementInfo(rallachieve[rallcolonka][i])
 		if (completed==false or (completed and ralloptionTrackCharAchieves and wasEarnedByMe==false)) then
 			if #texttableout==0 then
-				table.insert(texttableout,"AchievementsReminder - "..rallachiverepl12.." '"..GetMapNameByID(GetCurrentMapAreaID()).."':")
-				table.insert(texttableout2,rallachiverepl12.." '"..GetMapNameByID(GetCurrentMapAreaID()).."':")
+				table.insert(texttableout,"AchievementsReminder - "..rallachiverepl12.." '"..C_Map.GetMapInfo(C_Map.GetBestMapForUnit("player")).."':")
+				table.insert(texttableout2,rallachiverepl12.." '"..C_Map.GetMapInfo(C_Map.GetBestMapForUnit("player")).."':")
 			end
 			table.insert(texttableout,GetAchievementLink(rallachieve[rallcolonka][i]))
 			table.insert(texttableout2,GetAchievementLink(rallachieve[rallcolonka][i]))

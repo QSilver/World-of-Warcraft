@@ -3,7 +3,7 @@
 --
 -- Prat - A framework for World of Warcraft chat mods
 --
--- Copyright (C) 2006-2011  Prat Development Team
+-- Copyright (C) 2006-2018  Prat Development Team
 --
 -- This program is free software; you can redistribute it and/or
 -- modify it under the terms of the GNU General Public License
@@ -36,8 +36,8 @@ if PRAT_MODULE == nil then
     return 
 end
 
-
-local PL = Prat:GetLocalizer({})
+local module = Prat:NewModule(PRAT_MODULE, "AceHook-3.0")
+local PL = module.PL
 
 --[===[@debug@
 PL:AddLocale(PRAT_MODULE, "enUS", {
@@ -109,52 +109,52 @@ PL:AddLocale(PRAT_MODULE, "enUS", L)
 L=
 {
 	["Buttons"] = {
-		--Translation missing 
-		-- ["alpha_desc"] = "",
-		--Translation missing 
-		-- ["alpha_name"] = "",
-		--Translation missing 
-		-- ["Buttons"] = "",
-		--Translation missing 
-		-- ["Chat window button options."] = "",
-		--Translation missing 
-		-- ["chatmenu_desc"] = "",
-		--Translation missing 
-		-- ["chatmenu_name"] = "",
-		--Translation missing 
-		-- ["Default"] = "",
-		--Translation missing 
-		-- ["Right, Inside Frame"] = "",
-		--Translation missing 
-		-- ["Right, Outside Frame"] = "",
-		--Translation missing 
-		-- ["scrollReminder_desc"] = "",
-		--Translation missing 
-		-- ["scrollReminder_name"] = "",
-		--Translation missing 
-		-- ["Set Position"] = "",
-		--Translation missing 
-		-- ["Sets position of chat menu and arrows for all chat windows."] = "",
-		--Translation missing 
-		-- ["Show Arrows"] = "",
-		--Translation missing 
-		-- ["Show Chat%d Arrows"] = "",
-		--Translation missing 
-		-- ["showbnet_desc"] = "",
-		--Translation missing 
-		-- ["showbnet_name"] = "",
-		--Translation missing 
-		-- ["showmenu_desc"] = "",
-		--Translation missing 
-		-- ["showmenu_name"] = "",
-		--Translation missing 
-		-- ["showminimize_desc"] = "",
-		--Translation missing 
-		-- ["showminimize_name"] = "",
-		--Translation missing 
-		-- ["Toggle showing chat arrows for each chat window."] = "",
-		--Translation missing 
-		-- ["Toggles navigation arrows on and off."] = "",
+		--[[Translation missing --]]
+		--[[ ["alpha_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["alpha_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Buttons"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Chat window button options."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["chatmenu_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["chatmenu_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Default"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Right, Inside Frame"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Right, Outside Frame"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["scrollReminder_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["scrollReminder_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Set Position"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Sets position of chat menu and arrows for all chat windows."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Show Arrows"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Show Chat%d Arrows"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showbnet_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showbnet_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showmenu_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showmenu_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showminimize_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showminimize_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Toggle showing chat arrows for each chat window."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Toggles navigation arrows on and off."] = "",--]] 
 	}
 }
 PL:AddLocale(PRAT_MODULE, "itIT", L)
@@ -163,52 +163,52 @@ PL:AddLocale(PRAT_MODULE, "itIT", L)
 L=
 {
 	["Buttons"] = {
-		--Translation missing 
-		-- ["alpha_desc"] = "",
-		--Translation missing 
-		-- ["alpha_name"] = "",
-		--Translation missing 
-		-- ["Buttons"] = "",
-		--Translation missing 
-		-- ["Chat window button options."] = "",
-		--Translation missing 
-		-- ["chatmenu_desc"] = "",
-		--Translation missing 
-		-- ["chatmenu_name"] = "",
-		--Translation missing 
-		-- ["Default"] = "",
-		--Translation missing 
-		-- ["Right, Inside Frame"] = "",
-		--Translation missing 
-		-- ["Right, Outside Frame"] = "",
-		--Translation missing 
-		-- ["scrollReminder_desc"] = "",
-		--Translation missing 
-		-- ["scrollReminder_name"] = "",
-		--Translation missing 
-		-- ["Set Position"] = "",
-		--Translation missing 
-		-- ["Sets position of chat menu and arrows for all chat windows."] = "",
-		--Translation missing 
-		-- ["Show Arrows"] = "",
-		--Translation missing 
-		-- ["Show Chat%d Arrows"] = "",
-		--Translation missing 
-		-- ["showbnet_desc"] = "",
-		--Translation missing 
-		-- ["showbnet_name"] = "",
-		--Translation missing 
-		-- ["showmenu_desc"] = "",
-		--Translation missing 
-		-- ["showmenu_name"] = "",
-		--Translation missing 
-		-- ["showminimize_desc"] = "",
-		--Translation missing 
-		-- ["showminimize_name"] = "",
-		--Translation missing 
-		-- ["Toggle showing chat arrows for each chat window."] = "",
-		--Translation missing 
-		-- ["Toggles navigation arrows on and off."] = "",
+		--[[Translation missing --]]
+		--[[ ["alpha_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["alpha_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Buttons"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Chat window button options."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["chatmenu_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["chatmenu_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Default"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Right, Inside Frame"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Right, Outside Frame"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["scrollReminder_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["scrollReminder_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Set Position"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Sets position of chat menu and arrows for all chat windows."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Show Arrows"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Show Chat%d Arrows"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showbnet_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showbnet_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showmenu_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showmenu_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showminimize_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showminimize_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Toggle showing chat arrows for each chat window."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Toggles navigation arrows on and off."] = "",--]] 
 	}
 }
 PL:AddLocale(PRAT_MODULE, "ptBR", L)
@@ -309,52 +309,52 @@ PL:AddLocale(PRAT_MODULE, "koKR",  L)
 L=
 {
 	["Buttons"] = {
-		--Translation missing 
-		-- ["alpha_desc"] = "",
-		--Translation missing 
-		-- ["alpha_name"] = "",
-		--Translation missing 
-		-- ["Buttons"] = "",
-		--Translation missing 
-		-- ["Chat window button options."] = "",
-		--Translation missing 
-		-- ["chatmenu_desc"] = "",
-		--Translation missing 
-		-- ["chatmenu_name"] = "",
-		--Translation missing 
-		-- ["Default"] = "",
-		--Translation missing 
-		-- ["Right, Inside Frame"] = "",
-		--Translation missing 
-		-- ["Right, Outside Frame"] = "",
-		--Translation missing 
-		-- ["scrollReminder_desc"] = "",
-		--Translation missing 
-		-- ["scrollReminder_name"] = "",
-		--Translation missing 
-		-- ["Set Position"] = "",
-		--Translation missing 
-		-- ["Sets position of chat menu and arrows for all chat windows."] = "",
-		--Translation missing 
-		-- ["Show Arrows"] = "",
-		--Translation missing 
-		-- ["Show Chat%d Arrows"] = "",
-		--Translation missing 
-		-- ["showbnet_desc"] = "",
-		--Translation missing 
-		-- ["showbnet_name"] = "",
-		--Translation missing 
-		-- ["showmenu_desc"] = "",
-		--Translation missing 
-		-- ["showmenu_name"] = "",
-		--Translation missing 
-		-- ["showminimize_desc"] = "",
-		--Translation missing 
-		-- ["showminimize_name"] = "",
-		--Translation missing 
-		-- ["Toggle showing chat arrows for each chat window."] = "",
-		--Translation missing 
-		-- ["Toggles navigation arrows on and off."] = "",
+		--[[Translation missing --]]
+		--[[ ["alpha_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["alpha_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Buttons"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Chat window button options."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["chatmenu_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["chatmenu_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Default"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Right, Inside Frame"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Right, Outside Frame"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["scrollReminder_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["scrollReminder_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Set Position"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Sets position of chat menu and arrows for all chat windows."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Show Arrows"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Show Chat%d Arrows"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showbnet_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showbnet_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showmenu_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showmenu_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showminimize_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showminimize_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Toggle showing chat arrows for each chat window."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Toggles navigation arrows on and off."] = "",--]] 
 	}
 }
 PL:AddLocale(PRAT_MODULE, "esMX",  L)
@@ -437,18 +437,18 @@ L=
 		["Sets position of chat menu and arrows for all chat windows."] = "Establece la posición del menú y de las flechas de todas las ventanas de chat.",
 		["Show Arrows"] = "Mostar Flechas",
 		["Show Chat%d Arrows"] = "Mostar Flechas del Chat %d",
-		--Translation missing 
-		-- ["showbnet_desc"] = "",
-		--Translation missing 
-		-- ["showbnet_name"] = "",
-		--Translation missing 
-		-- ["showmenu_desc"] = "",
-		--Translation missing 
-		-- ["showmenu_name"] = "",
-		--Translation missing 
-		-- ["showminimize_desc"] = "",
-		--Translation missing 
-		-- ["showminimize_name"] = "",
+		--[[Translation missing --]]
+		--[[ ["showbnet_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showbnet_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showmenu_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showmenu_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showminimize_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showminimize_name"] = "",--]] 
 		["Toggle showing chat arrows for each chat window."] = "Alterna el mostrar las flechas para cada ventana de chat.",
 		["Toggles navigation arrows on and off."] = "Alterna la activación de las flechas de navegación.",
 	}
@@ -488,7 +488,7 @@ end
 --@end-non-debug@
 
 
-local module = Prat:NewModule(PRAT_MODULE, "AceHook-3.0")
+
 
 Prat:SetModuleDefaults(module.name, {
 	profile = {
@@ -545,6 +545,9 @@ Prat:SetModuleOptions(module.name, {
 ------------------------------------------------]]--
 local fmt = _G.string.format
 
+function module:GetDescription()
+    return PL["Chat window button options."]
+end
 
 local function hide(self)
 	if not self.override then
@@ -627,19 +630,20 @@ function module:HideButtons()
 	local upButton, downButton, bottomButton, min
 
 	for name, frame in pairs(Prat.Frames) do
-		upButton = _G[name.."ButtonFrameUpButton"]
-		upButton:SetScript("OnShow", hide)
-		upButton:Hide()
-		downButton = _G[name.."ButtonFrameDownButton"]
-		downButton:SetScript("OnShow", hide)
-		downButton:Hide()
-		bottomButton = _G[name.."ButtonFrameBottomButton"]
-		bottomButton:SetScript("OnShow", hide)
-		bottomButton:Hide()
-		bottomButton:SetParent(frame)
-		
-		bottomButton:SetScript("OnClick", function() frame:ScrollToBottom() end)
+        if select(4, GetBuildInfo()) < 80000 then
+            upButton = _G[name.."ButtonFrameUpButton"]
+            upButton:SetScript("OnShow", hide)
+            upButton:Hide()
+            downButton = _G[name.."ButtonFrameDownButton"]
+            downButton:SetScript("OnShow", hide)
+            downButton:Hide()
+            bottomButton = _G[name.."ButtonFrameBottomButton"]
+            bottomButton:SetScript("OnShow", hide)
+            bottomButton:Hide()
+            bottomButton:SetParent(frame)
 
+            bottomButton:SetScript("OnClick", function() frame:ScrollToBottom() end)
+        end
 		self:FCF_SetButtonSide(frame)
 	end
 	
@@ -703,17 +707,19 @@ function module:ShowButtons()
 	local upButton, downButton, bottomButton
 
 	for name, frame in pairs(Prat.Frames) do
-		upButton = _G[name.."ButtonFrameUpButton"]
-		upButton:SetScript("OnShow", nil)
-		upButton:Show()
-		downButton = _G[name.."ButtonFrameDownButton"]
-		downButton:SetScript("OnShow", nil)
-		downButton:Show()
-		bottomButton = _G[name.."ButtonFrameBottomButton"]
-		bottomButton:SetScript("OnShow", nil)
-		bottomButton:Show()
-		bottomButton:SetParent(_G[name.."ButtonFrame"])
-		
+		if select(4, GetBuildInfo()) < 80000 then
+			upButton = _G[name.."ButtonFrameUpButton"]
+			upButton:SetScript("OnShow", nil)
+			upButton:Show()
+			downButton = _G[name.."ButtonFrameDownButton"]
+			downButton:SetScript("OnShow", nil)
+			downButton:Show()
+			bottomButton = _G[name.."ButtonFrameBottomButton"]
+			bottomButton:SetScript("OnShow", nil)
+			bottomButton:Show()
+			bottomButton:SetParent(_G[name.."ButtonFrame"])
+		end
+
 --		frame.buttonSide = nil
 --		bottomButton:ClearAllPoints()
 --		bottomButton:SetPoint("BOTTOMRIGHT", _G[name.."ButtonFrame"], "BOTTOMLEFT", 2, 2)
@@ -735,14 +741,16 @@ end
 function module:FCF_SetButtonSide(chatFrame, buttonSide)
 	local f = _G[chatFrame:GetName().."ButtonFrameBottomButton"]
 	local bf = _G[chatFrame:GetName().."ButtonFrame"]
-	
-	if self.db.profile.showButtons then
-    	f:ClearAllPoints()
-        f:SetPoint("BOTTOM", bf, "BOTTOM", 0, 0)
-	else
-    	f:ClearAllPoints()
-        f:SetPoint("BOTTOMRIGHT", chatFrame, "BOTTOMRIGHT", 2, 2)
-    end
+
+	if select(4, GetBuildInfo()) < 80000 then
+		if self.db.profile.showButtons then
+			f:ClearAllPoints()
+			f:SetPoint("BOTTOM", bf, "BOTTOM", 0, 0)
+		else
+			f:ClearAllPoints()
+			f:SetPoint("BOTTOMRIGHT", chatFrame, "BOTTOMRIGHT", 2, 2)
+		end
+	end
 end
 
 
@@ -783,27 +791,33 @@ function module:DisableBottomButton()
 			self:Unhook(f, "ScrollToBottom")
 			self:Unhook(f, "PageDown")
 			local button = _G[name.. "ButtonFrameBottomButton"]
-			button:Hide()
+			if button then button:Hide() end
 		end
 	end
 end
 
 function module:ScrollUp(frame)
 	local button = _G[frame:GetName() .. "ButtonFrameBottomButton"]
-	button.override = true
-	button:Show()
+	if button then
+		button.override = true
+		button:Show()
+	end
 end
 
 function module:ScrollDown(frame)
 	if frame:GetScrollOffset() == 0 then
 		local button = _G[frame:GetName() .. "ButtonFrameBottomButton"]
-		button:Hide()	
+		if button then
+			button:Hide()
+		end
 	end
 end
 
 function module:ScrollDownForce(frame)
 	local button = _G[frame:GetName() .. "ButtonFrameBottomButton"]
-	button:Hide()	
+	if button then
+		button:Hide()
+	end
 end
 
 --function module:AddMessage(frame, text, ...)

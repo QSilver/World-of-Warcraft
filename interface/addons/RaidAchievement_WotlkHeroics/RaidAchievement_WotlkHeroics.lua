@@ -164,7 +164,7 @@ if arg4==whramyname and arg2=="SPELL_AURA_REMOVED" and (arg9==58984 or arg9==66 
 whrabilresnut=GetTime()
 end
 
-if GetCurrentMapAreaID()==536 then
+if C_Map.GetBestMapForUnit("player")==536 then
 	if whraspisokon[1]=="yes" and whraachdone1 then
 		if arg2=="SPELL_PERIODIC_DAMAGE" and arg13 and arg13>0 then
 			local id=raGetUnitID(arg6)

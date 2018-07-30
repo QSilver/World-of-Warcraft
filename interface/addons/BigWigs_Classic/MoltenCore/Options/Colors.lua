@@ -1,45 +1,45 @@
 
 BigWigs:AddColors("Lucifron", {
-	[19703] = "Attention",
-	[20604] = {"Attention","Personal"},
-	[19702] = "Important",
+	[19702] = "red",
+	[19703] = "yellow",
+	[20604] = {"blue","yellow"},
 })
 
 BigWigs:AddColors("Magmadar", {
-	[19451] = "Attention",
-	[19428] = "Personal",
-	[19408] = "Positive",
+	[19408] = "green",
+	[19428] = "blue",
+	[19451] = "yellow",
 })
 
 BigWigs:AddColors("Gehennas", {
-	[19716] = {"Urgent","Attention"},
-	[19717] = "Personal",
+	[19716] = {"orange","yellow"},
+	[19717] = "blue",
 })
 
 BigWigs:AddColors("Baron Geddon", {
-	[19695] = "Important",
-	[20478] = "Urgent",
-	[20475] = "Personal",
+	[19695] = "red",
+	[20475] = "blue",
+	[20478] = "orange",
 })
 
 BigWigs:AddColors("Shazzrah", {
-	[23138] = "Important",
-	[19714] = "Urgent",
-	[19715] = "Attention",
+	[19714] = "orange",
+	[19715] = "yellow",
+	[23138] = "red",
 })
 
 BigWigs:AddColors("Sulfuron Harbinger", {
-	[19779] = "Attention",
-	[19775] = "Important",
+	[19775] = "red",
+	[19779] = "yellow",
 })
 
 BigWigs:AddColors("Majordomo Executus", {
-	[20619] = {"Important","Urgent"},
-	[21075] = {"Important","Urgent"},
+	[20619] = {"orange","red"},
+	[21075] = {"orange","red"},
 })
 
 BigWigs:AddColors("Ragnaros ", {
-	["emerge"] = {"Attention","Urgent","Positive"},
-	[20566] = "Important",
-	["submerge"] = {"Attention","Urgent"},
+	[20566] = "red",
+	["emerge"] = {"green","orange","yellow"},
+	["submerge"] = {"orange","yellow"},
 })

@@ -2,7 +2,7 @@
 --
 -- Prat - A framework for World of Warcraft chat mods
 --
--- Copyright (C) 2006-2011  Prat Development Team
+-- Copyright (C) 2006-2018  Prat Development Team
 --
 -- This program is free software; you can redistribute it and/or
 -- modify it under the terms of the GNU General Public License
@@ -32,8 +32,10 @@ Prat:AddModuleToLoad(function()
     return
   end
 
+  local module = Prat:NewModule(PRAT_MODULE,  "AceHook-3.0", "AceEvent-3.0", "AceTimer-3.0")
+
   -- define localized strings
-  local PL = Prat:GetLocalizer({})
+  local PL = module.PL
 
   --[===[@debug@
   PL:AddLocale(PRAT_MODULE, "enUS", {
@@ -83,10 +85,6 @@ Prat:AddModuleToLoad(function()
     ["How to color player's name."] = true,
     ["Unknown Common Color From TasteTheNaimbow"] = true,
     ["Let TasteTheNaimbow set the common color for unknown player names."] = true,
-    ["Enable Alt-Invite"] = true,
-    ["Toggle group invites by alt-clicking on player name."] = true,
-    ["Enable Invite Links"] = true,
-    ["Toggle group invites by alt-clicking hyperlinked keywords like 'invite'."] = true,
     ["Brackets Common Color"] = true,
     ["Sets common color of brackets to use around player names."] = true,
     ["Brackets Use Common Color"] = true,
@@ -202,10 +200,10 @@ Prat:AddModuleToLoad(function()
 		["Keep player information between session, but limit it to friends and guild members."] = "Garder les informations sur les joueurs entre les sessions, mais seulement pour les amis et membres de la guilde.",
 		["Let TasteTheNaimbow set the common color for unknown player names."] = "Laisser TasteTheNaimbow définir la couleur des joueurs inconnus.",
 		["Level Color Mode"] = "Couleur des niveaux",
-		--Translation missing 
-		-- ["linkifycommon_desc"] = "",
-		--Translation missing 
-		-- ["linkifycommon_name"] = "",
+		--[[Translation missing --]]
+		--[[ ["linkifycommon_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["linkifycommon_name"] = "",--]] 
 		["No additional coloring"] = "Pas de couleur",
 		["None"] = "Aucun",
 		["Player Color Mode"] = "Couleur des joueurs",
@@ -237,13 +235,13 @@ Prat:AddModuleToLoad(function()
 		["Toggle using a common color for unknown player names."] = "Active/Désactive l'utilisation d'une couleur commune pour les joueurs inconnus.",
 		["Too many matches (%d possible)"] = "Trop de résultats (%d possibles)",
 		["Unknown Common Color"] = "Couleur pour inconnu",
-		--Translation missing 
-		-- ["Unknown Common Color From TasteTheNaimbow"] = "",
+		--[[Translation missing --]]
+		--[[ ["Unknown Common Color From TasteTheNaimbow"] = "",--]] 
 		["Unknown Use Common Color"] = "Couleur pour inconnu",
 		["Use Channel Color"] = "Couleur du canal",
 		["Use Player Color"] = "Couleur du joueur",
-		--Translation missing 
-		-- ["Use toon name for RealID"] = "",
+		--[[Translation missing --]]
+		--[[ ["Use toon name for RealID"] = "",--]] 
 	}
 }
 
@@ -391,126 +389,126 @@ Prat:AddModuleToLoad(function()
   L=
 {
 	["PlayerNames"] = {
-		--Translation missing 
-		-- ["Actively Query Player Info"] = "",
-		--Translation missing 
-		-- ["Angled"] = "",
-		--Translation missing 
-		-- ["Brackets"] = "",
-		--Translation missing 
-		-- ["Brackets Common Color"] = "",
-		--Translation missing 
-		-- ["Brackets Use Common Color"] = "",
-		--Translation missing 
-		-- ["Class"] = "",
-		--Translation missing 
-		-- ["Color by Level Difference"] = "",
-		--Translation missing 
-		-- ["coloreverywhere_desc"] = "",
-		--Translation missing 
-		-- ["coloreverywhere_name"] = "",
-		--Translation missing 
-		-- ["Enable Alt-Invite"] = "",
-		--Translation missing 
-		-- ["Enable Invite Links"] = "",
-		--Translation missing 
-		-- ["Enable TabComplete"] = "",
-		--Translation missing 
-		-- ["hoverhilight_desc"] = "",
-		--Translation missing 
-		-- ["hoverhilight_name"] = "",
-		--Translation missing 
-		-- ["How to color other player's level."] = "",
-		--Translation missing 
-		-- ["How to color player's name."] = "",
-		--Translation missing 
-		-- ["Keep Info"] = "",
-		--Translation missing 
-		-- ["Keep Lots Of Info"] = "",
-		--Translation missing 
-		-- ["Keep player information between session for all players except cross-server players"] = "",
-		--Translation missing 
-		-- ["Keep player information between session, but limit it to friends and guild members."] = "",
-		--Translation missing 
-		-- ["Let TasteTheNaimbow set the common color for unknown player names."] = "",
-		--Translation missing 
-		-- ["Level Color Mode"] = "",
-		--Translation missing 
-		-- ["linkifycommon_desc"] = "",
-		--Translation missing 
-		-- ["linkifycommon_name"] = "",
-		--Translation missing 
-		-- ["No additional coloring"] = "",
-		--Translation missing 
-		-- ["None"] = "",
-		--Translation missing 
-		-- ["Player Color Mode"] = "",
-		--Translation missing 
-		-- ["Player name formating options."] = "",
-		--Translation missing 
-		-- ["PlayerNames"] = "",
-		--Translation missing 
-		-- ["Prat_Playernames: Stored Player Data Cleared"] = "",
-		--Translation missing 
-		-- ["Query the server for all player names we do not know. Note: This happpens pretty slowly, and this data is not saved."] = "",
-		--Translation missing 
-		-- ["Random"] = "",
-		--Translation missing 
-		-- ["realidcolor_desc"] = "",
-		--Translation missing 
-		-- ["realidcolor_name"] = "",
-		--Translation missing 
-		-- ["Reset Settings"] = "",
-		--Translation missing 
-		-- ["Restore default settings, and delete stored character data."] = "",
-		--Translation missing 
-		-- ["Set common color of unknown player names."] = "",
-		--Translation missing 
-		-- ["Sets common color of brackets to use around player names."] = "",
-		--Translation missing 
-		-- ["Sets style of brackets to use around player names."] = "",
-		--Translation missing 
-		-- ["Show Group"] = "",
-		--Translation missing 
-		-- ["Show Level"] = "",
-		--Translation missing 
-		-- ["Show Raid Target Icon"] = "",
-		--Translation missing 
-		-- ["Square"] = "",
-		--Translation missing 
-		-- ["Tab completion : "] = "",
-		--Translation missing 
-		-- ["tabcomplete_name"] = "",
-		--Translation missing 
-		-- ["Toggle group invites by alt-clicking hyperlinked keywords like 'invite'."] = "",
-		--Translation missing 
-		-- ["Toggle group invites by alt-clicking on player name."] = "",
-		--Translation missing 
-		-- ["Toggle level showing."] = "",
-		--Translation missing 
-		-- ["Toggle raid group showing."] = "",
-		--Translation missing 
-		-- ["Toggle showing the raid target icon which is currently on the player."] = "",
-		--Translation missing 
-		-- ["Toggle tab completion of player names."] = "",
-		--Translation missing 
-		-- ["Toggle using a common color for brackets around player names."] = "",
-		--Translation missing 
-		-- ["Toggle using a common color for unknown player names."] = "",
-		--Translation missing 
-		-- ["Too many matches (%d possible)"] = "",
-		--Translation missing 
-		-- ["Unknown Common Color"] = "",
-		--Translation missing 
-		-- ["Unknown Common Color From TasteTheNaimbow"] = "",
-		--Translation missing 
-		-- ["Unknown Use Common Color"] = "",
-		--Translation missing 
-		-- ["Use Channel Color"] = "",
-		--Translation missing 
-		-- ["Use Player Color"] = "",
-		--Translation missing 
-		-- ["Use toon name for RealID"] = "",
+		--[[Translation missing --]]
+		--[[ ["Actively Query Player Info"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Angled"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Brackets"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Brackets Common Color"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Brackets Use Common Color"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Class"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Color by Level Difference"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["coloreverywhere_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["coloreverywhere_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Enable Alt-Invite"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Enable Invite Links"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Enable TabComplete"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["hoverhilight_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["hoverhilight_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["How to color other player's level."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["How to color player's name."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Keep Info"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Keep Lots Of Info"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Keep player information between session for all players except cross-server players"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Keep player information between session, but limit it to friends and guild members."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Let TasteTheNaimbow set the common color for unknown player names."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Level Color Mode"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["linkifycommon_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["linkifycommon_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["No additional coloring"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["None"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Player Color Mode"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Player name formating options."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["PlayerNames"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Prat_Playernames: Stored Player Data Cleared"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Query the server for all player names we do not know. Note: This happpens pretty slowly, and this data is not saved."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Random"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["realidcolor_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["realidcolor_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Reset Settings"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Restore default settings, and delete stored character data."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Set common color of unknown player names."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Sets common color of brackets to use around player names."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Sets style of brackets to use around player names."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Show Group"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Show Level"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Show Raid Target Icon"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Square"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Tab completion : "] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["tabcomplete_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Toggle group invites by alt-clicking hyperlinked keywords like 'invite'."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Toggle group invites by alt-clicking on player name."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Toggle level showing."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Toggle raid group showing."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Toggle showing the raid target icon which is currently on the player."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Toggle tab completion of player names."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Toggle using a common color for brackets around player names."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Toggle using a common color for unknown player names."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Too many matches (%d possible)"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Unknown Common Color"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Unknown Common Color From TasteTheNaimbow"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Unknown Use Common Color"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Use Channel Color"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Use Player Color"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Use toon name for RealID"] = "",--]] 
 	}
 }
 
@@ -671,8 +669,8 @@ Prat:AddModuleToLoad(function()
 		["Enable Invite Links"] = "Habilitar Enlaces Invitar",
 		["Enable TabComplete"] = "Habilitar Ficha completa",
 		["hoverhilight_desc"] = "Resaltar líneas de chat de un jugador al situarse sobre su enlace de jugador",
-		--Translation missing 
-		-- ["hoverhilight_name"] = "",
+		--[[Translation missing --]]
+		--[[ ["hoverhilight_name"] = "",--]] 
 		["How to color other player's level."] = "Cómo el color de otro jugador de nivel.",
 		["How to color player's name."] = "Cómo el color de nombre del jugador.",
 		["Keep Info"] = "Mantener Información",
@@ -691,10 +689,10 @@ Prat:AddModuleToLoad(function()
 		["Prat_Playernames: Stored Player Data Cleared"] = "Prat_Playernames: Limpiados los Datos de Jugador Guardados",
 		["Query the server for all player names we do not know. Note: This happpens pretty slowly, and this data is not saved."] = "Consulta el servidor para todos los nombres de jugador que desconocemos. Nota: esto sucede muy lentamente, y estos datos no se guardan.",
 		["Random"] = "Aleatorio",
-		--Translation missing 
-		-- ["realidcolor_desc"] = "",
-		--Translation missing 
-		-- ["realidcolor_name"] = "",
+		--[[Translation missing --]]
+		--[[ ["realidcolor_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["realidcolor_name"] = "",--]] 
 		["Reset Settings"] = "Restablecer Ajustes",
 		["Restore default settings, and delete stored character data."] = "Restablece ajustes por defecto, y eliminar información del jugador guardada.",
 		["Set common color of unknown player names."] = "Establece el color común para los nombres de jugadores desconocidos.",
@@ -706,8 +704,8 @@ Prat:AddModuleToLoad(function()
 		["Square"] = "Cuadrado",
 		["Tab completion : "] = "Finalización de Pestaña : ",
 		["tabcomplete_name"] = "Nombres Posibles",
-		--Translation missing 
-		-- ["Toggle group invites by alt-clicking hyperlinked keywords like 'invite'."] = "",
+		--[[Translation missing --]]
+		--[[ ["Toggle group invites by alt-clicking hyperlinked keywords like 'invite'."] = "",--]] 
 		["Toggle group invites by alt-clicking on player name."] = "Activa invitar a grupo al hacer alt-click en el nombre del jugador.",
 		["Toggle level showing."] = "Alterna mostrar nivel.",
 		["Toggle raid group showing."] = "Alterna mostrar grupo de raid.",
@@ -721,8 +719,8 @@ Prat:AddModuleToLoad(function()
 		["Unknown Use Common Color"] = "Desconocido Color de Uso Común",
 		["Use Channel Color"] = "Utilizar Color Canal",
 		["Use Player Color"] = "Utilizar Color Jugador",
-		--Translation missing 
-		-- ["Use toon name for RealID"] = "",
+		--[[Translation missing --]]
+		--[[ ["Use toon name for RealID"] = "",--]] 
 	}
 }
 
@@ -744,8 +742,8 @@ Prat:AddModuleToLoad(function()
 		["Enable Alt-Invite"] = "啟用 Alt 按鍵邀請",
 		["Enable Invite Links"] = "啟用邀請連結",
 		["Enable TabComplete"] = "啟用 TabComplete",
-		--Translation missing 
-		-- ["hoverhilight_desc"] = "",
+		--[[Translation missing --]]
+		--[[ ["hoverhilight_desc"] = "",--]] 
 		["hoverhilight_name"] = "滑鼠懸停高亮",
 		["How to color other player's level."] = "如何為玩家等級著色",
 		["How to color player's name."] = "如何為玩家名稱著色",
@@ -753,8 +751,8 @@ Prat:AddModuleToLoad(function()
 		["Keep Lots Of Info"] = "保存大量資訊",
 		["Keep player information between session for all players except cross-server players"] = "保存此階段所有玩家資訊，除了跨伺服器人物。",
 		["Keep player information between session, but limit it to friends and guild members."] = "保存此階段玩家資訊，但限制為好友以及公會成員。",
-		--Translation missing 
-		-- ["Let TasteTheNaimbow set the common color for unknown player names."] = "",
+		--[[Translation missing --]]
+		--[[ ["Let TasteTheNaimbow set the common color for unknown player names."] = "",--]] 
 		["Level Color Mode"] = "等級色彩模式",
 		["linkifycommon_desc"] = "製作連結共同的訊息",
 		["linkifycommon_name"] = "製作連結共同的訊息",
@@ -779,8 +777,8 @@ Prat:AddModuleToLoad(function()
 		["Square"] = "方框",
 		["Tab completion : "] = "標籤完成:",
 		["tabcomplete_name"] = "可能的名稱 ",
-		--Translation missing 
-		-- ["Toggle group invites by alt-clicking hyperlinked keywords like 'invite'."] = "",
+		--[[Translation missing --]]
+		--[[ ["Toggle group invites by alt-clicking hyperlinked keywords like 'invite'."] = "",--]] 
 		["Toggle group invites by alt-clicking on player name."] = "組隊邀請用alt-點擊玩家名稱。",
 		["Toggle level showing."] = "切換等級顯示。",
 		["Toggle raid group showing."] = "切換團隊組隊顯示。",
@@ -794,8 +792,8 @@ Prat:AddModuleToLoad(function()
 		["Unknown Use Common Color"] = "未知的文字使用通用顏色",
 		["Use Channel Color"] = "使用頻道文字顏色",
 		["Use Player Color"] = "使用腳色名稱文字色彩",
-		--Translation missing 
-		-- ["Use toon name for RealID"] = "",
+		--[[Translation missing --]]
+		--[[ ["Use toon name for RealID"] = "",--]] 
 	}
 }
 
@@ -804,10 +802,6 @@ Prat:AddModuleToLoad(function()
 
   end
   --@end-non-debug@
-
-  local module = Prat:NewModule(PRAT_MODULE,  "AceHook-3.0", "AceEvent-3.0", "AceTimer-3.0")
-  module.PL = PL
-
 
   module.Classes = {}
   module.Levels = {}
@@ -839,8 +833,6 @@ Prat:AddModuleToLoad(function()
       realidname = false,
       coloreverywhere = true,
       usecommoncolor = true,
-      altinvite = false,
-      linkinvite = false,
       bracketscommoncolor = true,
       linkifycommon = true,
       bracketscolor = {
@@ -867,7 +859,6 @@ Prat:AddModuleToLoad(function()
 
       UnitPopupButtons["WHOIS"] = {
         text = "Who Is?",
-        dist = 0,
         func = function()
           local dropdownFrame = UIDROPDOWNMENU_INIT_MENU
           local name = dropdownFrame.name
@@ -997,18 +988,6 @@ Prat:AddModuleToLoad(function()
         get = function(info) return info.handler.db.profile.tabcomplete end,
         set = function(info, v) info.handler.db.profile.tabcomplete = v; info.handler:TabComplete(v) end
       },
-      altinvite = {
-        name = PL["Enable Alt-Invite"],
-        desc = PL["Toggle group invites by alt-clicking on player name."],
-        type = "toggle",
-        order = 151,
-      },
-      linkinvite = {
-        name = PL["Enable Invite Links"],
-        desc = PL["Toggle group invites by alt-clicking hyperlinked keywords like 'invite'."],
-        type = "toggle",
-        order = 152,
-      },
       keep = {
         name = PL["Keep Info"],
         desc = PL["Keep player information between session, but limit it to friends and guild members."],
@@ -1071,8 +1050,6 @@ Prat:AddModuleToLoad(function()
     Prat.RegisterChatEvent(self, "Prat_FrameMessage")
     Prat.RegisterChatEvent(self, "Prat_Ready")
 
-    self:SetAltInvite()
-
     Prat.RegisterMessageItem("PREPLAYERDELIM", "PLAYER", "before")
     Prat.RegisterMessageItem("POSTPLAYERDELIM", "Ss", "after")
 
@@ -1087,7 +1064,10 @@ Prat:AddModuleToLoad(function()
     self:RegisterEvent("GUILD_ROSTER_UPDATE", "updateGuild")
     self:RegisterEvent("RAID_ROSTER_UPDATE", "updateRaid")
     self:RegisterEvent("PLAYER_LEVEL_UP", "updatePlayerLevel")
-    self:RegisterEvent("PARTY_MEMBERS_CHANGED", "updateParty")
+
+    if select(4, GetBuildInfo()) < 80000 then
+      self:RegisterEvent("PARTY_MEMBERS_CHANGED", "updateParty")
+    end
     self:RegisterEvent("PLAYER_TARGET_CHANGED", "updateTarget")
     self:RegisterEvent("UPDATE_MOUSEOVER_UNIT", "updateMouseOver")
     self:RegisterEvent("WHO_LIST_UPDATE", "updateWho")
@@ -1110,9 +1090,6 @@ Prat:AddModuleToLoad(function()
     end
 
     self:TabComplete(self.db.profile.tabcomplete)
-
-    Prat.RegisterLinkType({ linkid = "invplr", linkfunc = self.Invite_Link, handler = self }, self.name)
-    Prat.RegisterLinkType({ linkid = "player", linkfunc = self.Player_Link, handler = self }, self.name)
   end
 
   function module:OnModuleDisable()
@@ -1147,6 +1124,10 @@ Prat:AddModuleToLoad(function()
   --[[------------------------------------------------
     Core Functions
   ------------------------------------------------]] --
+  function module:GetDescription()
+    return PL["Player name formating options."]
+  end
+
   function module:updateAll()
     self:updatePlayer()
     self:updateParty()
@@ -1490,14 +1471,16 @@ Prat:AddModuleToLoad(function()
     end
 
     -- Add the correct bracket style and color
-    local prof_brackets = self.db.profile.brackets
-    if prof_brackets == "Angled" then
-      message.pP = CLR:Bracket("<") .. message.pP
-      message.Pp = message.Pp .. CLR:Bracket(">")
-    elseif prof_brackets == "None" then
-    else
-      message.pP = CLR:Bracket("[") .. message.pP
-      message.Pp = message.Pp .. CLR:Bracket("]")
+    if message.pP then
+      local prof_brackets = self.db.profile.brackets
+      if prof_brackets == "Angled" then
+        message.pP = CLR:Bracket("<") .. message.pP
+        message.Pp = message.Pp .. CLR:Bracket(">")
+      elseif prof_brackets == "None" then
+      else
+        message.pP = CLR:Bracket("[") .. message.pP
+        message.Pp = message.Pp .. CLR:Bracket("]")
+      end
     end
   end
 
@@ -1691,156 +1674,6 @@ Prat:AddModuleToLoad(function()
       end
     end
   end
-
-  function module:SetAltInvite()
-    local enabled = self.db.profile.linkinvite or self.db.profile.altinvite
-
-    if (self.db.profile.altinvite) then
-        self:SecureHook("SetItemRef")
-    else
-        self:Unhook("SetItemRef")
-    end
-
-    if enabled then
-      for _, v in pairs(Prat.GetModulePatterns(self)) do
-        Prat:RegisterPattern(v, self.name)
-      end
-    else
-      Prat:UnregisterAllPatterns(self.name)
-    end
-  end
-
-  local EVENTS_FOR_INVITE = {
-    ["CHAT_MSG_GUILD"] = true,
-    ["CHAT_MSG_OFFICER"] = true,
-    ["CHAT_MSG_PARTY"] = true,
-    ["CHAT_MSG_RAID"] = true,
-    ["CHAT_MSG_RAID_LEADER"] = true,
-    ["CHAT_MSG_RAID_WARNING"] = true,
-    ["CHAT_MSG_SAY"] = true,
-    ["CHAT_MSG_YELL"] = true,
-    ["CHAT_MSG_WHISPER"] = true,
-    ["CHAT_MSG_CHANNEL"] = true,
-  }
-
-  local function Invite(text, ...)
-    if module.db.profile.linkinvite then
-      return module:ScanForLinks(text, Prat.SplitMessage.PLAYERLINK)
-    end
-  end
-
-  local INVALID_NAMES = {
-    ["meh"] = true,
-    ["now"] = true,
-    ["plz"] = true,
-    ["pls"] = true,
-    ["please"] = true,
-    ["when"] = true,
-    ["group"] = true,
-    ["raid"] = true,
-    ["grp"] = true,
-  }
-
-  local INVALID_NAME_REFERENCE = {
-    ["him"] = true,
-    ["her"] = true,
-    ["them"] = true,
-    ["someone"] = true,
-  }
-
-  local function InviteSomone(text, name)
-    if module.db.profile.linkinvite and name then
-      name = name:lower() -- TODO Use UTF8Lib
-      if name:len() > 2 and not INVALID_NAMES[name] then
-        if INVALID_NAME_REFERENCE[name] then
-          return Prat:RegisterMatch(text)
-        else
-          return module:ScanForLinks(text, name)
-        end
-      end
-    end
-  end
-
-
-  Prat:SetModulePatterns(module, {
-    { pattern = "(send%s+invite%s+to%s+" .. Prat.AnyNamePattern .. ")", matchfunc = InviteSomone },
-    { pattern = "(invi?t?e?%s+" .. Prat.AnyNamePattern .. ")", matchfunc = InviteSomone },
-    { pattern = "(" .. Prat.GetNamePattern("invites?%??") .. ")", matchfunc = Invite },
-    { pattern = "(" .. Prat.GetNamePattern("inv%??") .. ")", matchfunc = Invite },
-    { pattern = "(초대)", matchfunc = Invite },
-    { pattern = "(組%??)$", matchfunc = Invite },
-    { pattern = "(組我%??)$", matchfunc = Invite },
-  })
-
-  function module:Invite_Link(link, text, button, ...)
-    if self.db.profile.linkinvite then
-      local name = strsub(link, 8);
-      if (name and (strlen(name) > 0)) then
-        local begin = string.find(name, "%s[^%s]+$");
-        if (begin) then
-          name = strsub(name, begin + 1);
-        end
-        if (button == "LeftButton") then
-          InviteUnit(name);
-        end
-      end
-    end
-
-    return false
-  end
-
-  function module:SetItemRef(link, ...) 
-      if ( strsub(link, 1, 6) == "player" ) then
-          self:Player_Link(link, ...)
-      end
-  end
-
-  function module:Player_Link(link, text, button, ...)
-    if self.db.profile.altinvite then
-      local name = strsub(link, 8);
-      if (name and (strlen(name) > 0)) then
-        local begin, nend = string.find(name, "%s*[^%s:]+");
-        if (begin) then
-          name = strsub(name, begin, nend);
-        end
-        if (IsAltKeyDown()) then
-          InviteUnit(name);
-          if ChatEdit_GetActiveWindow() then
-            ChatEdit_OnEscapePressed(ChatEdit_GetActiveWindow())
-          end
-          return false;
-        end
-      end
-    end
-
-    return true
-  end
-
-  function module:ScanForLinks(text, name)
-    if text == nil then
-      return ""
-    end
-
-    local enabled = self.db.profile.linkinvite
-
-    if enabled and CanGroupInvite() then
-      if Prat.CurrentMessage then
-        if EVENTS_FOR_INVITE[Prat.CurrentMessage.EVENT] then
-          return self:InviteLink(text, name)
-        end
-      end
-    end
-
-    return text
-  end
-
-
-
-  function module:InviteLink(link, name)
-    return Prat:RegisterMatch(("|cff%s|Hinvplr:%s|h[%s]|h|r"):format("ffff00", name, link))
-  end
-
-
 
   return
 end) -- Prat:AddModuleToLoad

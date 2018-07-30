@@ -185,7 +185,7 @@ function mod:OnEngage()
 		energyLeakCheck = self:ScheduleRepeatingTimer("CheckUnitPower", 1)
 	end
 
-	self:RegisterUnitEvent("UNIT_POWER", nil, "boss2")
+	self:RegisterUnitEvent("UNIT_POWER_FREQUENT", nil, "boss2")
 end
 
 --------------------------------------------------------------------------------
@@ -260,7 +260,7 @@ end
 do
 	local bladeTimer = nil
 
-	function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, _, spellId)
+	function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 		if spellId == 234057 then -- Unbound Chaos
 			if self:Tank() then
 				self:Message(234059, "Attention", "Alert")
@@ -296,11 +296,11 @@ function mod:CHAT_MSG_RAID_BOSS_EMOTE(_, msg)
 	end
 end
 
-function mod:UNIT_POWER(unit)
+function mod:UNIT_POWER_FREQUENT(event, unit)
 	local power = UnitPower(unit)
 	if power >= 85 then
 		self:Message(233856, "Attention", self:Damager() and "Info", CL.soon:format(self:SpellName(233856))) -- Cleansing Protocol
-		self:UnregisterUnitEvent("UNIT_POWER", unit)
+		self:UnregisterUnitEvent(event, unit)
 	end
 end
 
@@ -411,7 +411,7 @@ end
 function mod:Malfunction()
 	self:Message(233856, "Positive", "Info", CL.removed:format(self:SpellName(233856))) -- Cleansing Protocol
 	self:StopBar(CL.cast:format(self:SpellName(233856))) -- Cleansing Protocol
-	self:RegisterUnitEvent("UNIT_POWER", nil, "boss2")
+	self:RegisterUnitEvent("UNIT_POWER_FREQUENT", nil, "boss2")
 end
 
 function mod:MaidenDeath()
@@ -419,7 +419,7 @@ function mod:MaidenDeath()
 		self:CancelTimer(energyLeakCheck)
 		energyLeakCheck = nil
 	end
-	self:UnregisterUnitEvent("UNIT_POWER", "boss2")
+	self:UnregisterUnitEvent("UNIT_POWER_FREQUENT", "boss2")
 end
 
 function mod:CorruptedMatrix(args)
@@ -454,7 +454,7 @@ function mod:Annihilation() -- Stage 2
 		energyLeakCheck = nil
 	end
 
-	self:UnregisterUnitEvent("UNIT_POWER", "boss2")
+	self:UnregisterUnitEvent("UNIT_POWER_FREQUENT", "boss2")
 
 	self:CDBar(236494, 20) -- Desolate
 	self:CDBar(239739, self:Mythic() and 31.1 or 21.5) -- Dark Mark
@@ -477,7 +477,7 @@ do
 		list[count] = args.destName
 		local icon = count == 1 and 6 or count == 2 and 4 or 3 -- (Blue -> Green -> Purple) in order of exploding/application
 
-		local _, _, _, expires = self:UnitDebuff(args.destName, args.spellName) -- random duration
+		local _, _, _, expires = self:UnitDebuff(args.destName, args.spellId) -- random duration
 		if self:Me(args.destGUID) then
 			local remaining = expires-GetTime()
 			self:Flash(args.spellId)

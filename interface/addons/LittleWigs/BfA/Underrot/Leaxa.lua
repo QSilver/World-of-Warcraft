@@ -1,4 +1,3 @@
-if not C_ChatInfo then return end -- XXX Don't load outside of 8.0
 
 --------------------------------------------------------------------------------
 -- Module Declaration
@@ -65,7 +64,7 @@ do
 		if t-prev > 2 then
 			prev = t
 			self:Message(args.spellId, "yellow")
-			self:PlaySound(args.spellId, "info", "watchstep")
+			self:PlaySound(args.spellId, "alarm", "watchstep")
 			if effigyKilled == 3 then -- Don't show bars during Blood Mirror
 				self:Bar(args.spellId, 12) -- XXX Need timers
 			end

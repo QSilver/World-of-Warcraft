@@ -2,11 +2,21 @@
 -- AddOn namespace
 -- ----------------------------------------------------------------------------
 local AddOnFolderName, private = ...
+local AchievementID = private.Enum.AchievementID
 local NPCs = private.Data.NPCs
 
 -- ----------------------------------------------------------------------------
--- Frostfire Ridge (941)
+-- Frostfire Ridge
 -- ----------------------------------------------------------------------------
+NPCs[50992] = { -- Gorok
+	mounts = {
+		{
+			itemID = 116674, -- Great Greytusk
+			spellID = 171636, -- Great Greytusk
+		},
+	},
+}
+
 NPCs[71665] = { -- Giant-Slayer Kul
 	questID = 32918, -- Giant-Slayer Kul
 }
@@ -83,6 +93,9 @@ NPCs[78621] = { -- Cyclonic Fury
 
 NPCs[78867] = { -- Breathless
 	questID = 34497, -- Breathless
+	toys = {
+		{ itemID = 111476 }, -- Stolen Breath
+	},
 }
 
 NPCs[79104] = { -- Ug'lok the Frozen
@@ -113,6 +126,12 @@ NPCs[80312] = { -- Grutush the Pillager
 
 NPCs[81001] = { -- Nok-Karosh
 	isTameable = true,
+	mounts = {
+		{
+			itemID = 116794, -- Garn Nighthowl
+			spellID = 171851, -- Garn Nighthowl
+		},
+	},
 }
 
 NPCs[82536] = { -- Gorivax
@@ -137,6 +156,9 @@ NPCs[82617] = { -- Slogtusk the Corpse-Eater
 
 NPCs[82618] = { -- Tor'goroth
 	questID = 37384, -- Tor'goroth
+	toys = {
+		{ itemID = 119163 }, -- Soul Inhaler
+	},
 }
 
 NPCs[82620] = { -- Son of Goramal
@@ -169,6 +191,9 @@ NPCs[87351] = { -- Mother of Goren
 
 NPCs[87352] = { -- Gibblette the Cowardly
 	questID = 37380, -- Giblette the Cowardly
+	toys = {
+		{ itemID = 119180 }, -- Goren "Log" Roller
+	},
 	vignetteName = "Giblette the Cowardly",
 }
 
@@ -190,7 +215,7 @@ NPCs[87622] = { -- Ogom the Mangler
 }
 
 -- ----------------------------------------------------------------------------
--- Tanaan Jungle (945)
+-- Tanaan Jungle
 -- ----------------------------------------------------------------------------
 NPCs[80398] = { -- Keravnos
 	isTameable = true,
@@ -216,6 +241,9 @@ NPCs[90122] = { -- Zoug the Heavy
 
 NPCs[90429] = { -- Imp-Master Valessa
 	questID = 38026, -- Imp-Master Valessa
+	toys = {
+		{ itemID = 127655 }, -- Sassy Imp
+	},
 }
 
 NPCs[90434] = { -- Ceraxas
@@ -242,6 +270,9 @@ NPCs[90519] = { -- Cindral the Wildfire
 
 NPCs[90777] = { -- High Priest Ikzan
 	questID = 38028, -- High Priest Ikzan
+	toys = {
+		{ itemID = 122117 }, -- Cursed Feather of Ikzan
+	},
 }
 
 NPCs[90782] = { -- Rasthe
@@ -281,6 +312,9 @@ NPCs[91087] = { -- Zeter'el
 
 NPCs[91093] = { -- Bramblefell
 	questID = 38209, -- Bramblefell
+	toys = {
+		{ itemID = 127652 }, -- Felflame Campfire
+	},
 }
 
 NPCs[91098] = { -- Felspark
@@ -289,6 +323,9 @@ NPCs[91098] = { -- Felspark
 
 NPCs[91227] = { -- Remnant of the Blood Moon
 	questID = 39159, -- Blood Moon Boss
+	toys = {
+		{ itemID = 127666 }, -- Vial of Red Goo
+	},
 	vignetteName = "Remnant of the Blood Moon",
 }
 
@@ -390,6 +427,9 @@ NPCs[92627] = { -- Rendrak
 
 NPCs[92636] = { -- The Night Haunter
 	questID = 38632, -- Night Haunter
+	toys = {
+		{ itemID = 127652 }, -- Felflame Campfire
+	},
 	vignetteName = "Night Haunter",
 }
 
@@ -448,6 +488,9 @@ NPCs[93057] = { -- Grannok
 
 NPCs[93076] = { -- Captain Ironbeard
 	questID = 38756, -- Dead Orc Captain
+	toys = {
+		{ itemID = 127659 }, -- Ghostly Iron Buccaneer's Hat
+	},
 	vignetteName = "Dead Orc Captain",
 }
 
@@ -474,31 +517,100 @@ NPCs[93279] = { -- Kris'kar the Unredeemed
 }
 
 NPCs[95044] = { -- Terrorfist
+	mounts = {
+		{
+			itemID = 116658, -- Tundra Icehoof
+			spellID = 171619, -- Tundra Icehoof
+		},
+		{
+			itemID = 116669, -- Armored Razorback
+			spellID = 171630, -- Armored Razorback
+		},
+		{
+			itemID = 116780, -- Warsong Direfang
+			spellID = 171837, -- Warsong Direfang
+		},
+	},
 	questID = 39288, -- Terrorfist
 }
 
 NPCs[95053] = { -- Deathtalon
+	mounts = {
+		{
+			itemID = 116658, -- Tundra Icehoof
+			spellID = 171619, -- Tundra Icehoof
+		},
+		{
+			itemID = 116669, -- Armored Razorback
+			spellID = 171630, -- Armored Razorback
+		},
+		{
+			itemID = 116780, -- Warsong Direfang
+			spellID = 171837, -- Warsong Direfang
+		},
+	},
 	questID = 39287, -- Deathtalon
 }
 
 NPCs[95054] = { -- Vengeance
+	mounts = {
+		{
+			itemID = 116658, -- Tundra Icehoof
+			spellID = 171619, -- Tundra Icehoof
+		},
+		{
+			itemID = 116669, -- Armored Razorback
+			spellID = 171630, -- Armored Razorback
+		},
+		{
+			itemID = 116780, -- Warsong Direfang
+			spellID = 171837, -- Warsong Direfang
+		},
+	},
 	questID = 39290, -- Vengeance
 }
 
 NPCs[95056] = { -- Doomroller
+	mounts = {
+		{
+			itemID = 116658, -- Tundra Icehoof
+			spellID = 171619, -- Tundra Icehoof
+		},
+		{
+			itemID = 116669, -- Armored Razorback
+			spellID = 171630, -- Armored Razorback
+		},
+		{
+			itemID = 116780, -- Warsong Direfang
+			spellID = 171837, -- Warsong Direfang
+		},
+	},
 	questID = 39289, -- Doomroller
+}
+
+NPCs[96235] = { -- Xemirkol
+	achievementID = AchievementID.Predator,
 }
 
 NPCs[98283] = { -- Drakum
 	questID = 40105, -- Drakum
+	toys = {
+		{ itemID = 108631 }, -- Crashin' Thrashin' Roller Controller
+	},
 }
 
 NPCs[98284] = { -- Gondar
 	questID = 40106, -- Gondar
+	toys = {
+		{ itemID = 108633 }, -- Crashin' Thrashin' Cannon Controller
+	},
 }
 
 NPCs[98285] = { -- Smashum Grabb
 	questID = 40104, -- Smashum Grabb
+	toys = {
+		{ itemID = 108634 }, -- Crashin' Thrashin' Mortar Controller
+	},
 }
 
 NPCs[98408] = { -- Fel Overseer Mudlump
@@ -506,8 +618,17 @@ NPCs[98408] = { -- Fel Overseer Mudlump
 }
 
 -- ----------------------------------------------------------------------------
--- Talador (946)
+-- Talador
 -- ----------------------------------------------------------------------------
+NPCs[51015] = { -- Silthide
+	mounts = {
+		{
+			itemID = 116767, -- Sapphire Riverbeast
+			spellID = 171824, -- Sapphire Riverbeast
+		},
+	},
+}
+
 NPCs[77529] = { -- Yazheera the Incinerator
 	questID = 34135, -- Yazheera the Incinerator
 }
@@ -548,6 +669,9 @@ NPCs[77715] = { -- Hammertooth
 NPCs[77719] = { -- Glimmerwing
 	isTameable = true,
 	questID = 34189, -- Glimmerwing
+	toys = {
+		{ itemID = 116113 }, -- Breath of Talador
+	},
 }
 
 NPCs[77741] = { -- Ra'kahn
@@ -576,26 +700,41 @@ NPCs[77795] = { -- Echo of Murmur
 
 NPCs[77828] = { -- Echo of Murmur
 	questID = 34220, -- Echo of Murmur
+	toys = {
+		{ itemID = 113670 }, -- Mournful Moan of Murmur
+	},
 }
 
 NPCs[78710] = { -- Kharazos the Triumphant
 	questID = 35219, -- Burning Front
+	toys = {
+		{ itemID = 116122 }, -- Burning Legion Missive
+	},
 	vignetteName = "Kharazos the Triumphant",
 }
 
 NPCs[78713] = { -- Galzomar
 	questID = 35219, -- Burning Front
+	toys = {
+		{ itemID = 116122 }, -- Burning Legion Missive
+	},
 	vignetteName = "Galzomar",
 }
 
 NPCs[78715] = { -- Sikthiss, Maiden of Slaughter
 	questID = 35219, -- Burning Front
+	toys = {
+		{ itemID = 116122 }, -- Burning Legion Missive
+	},
 	vignetteName = "Sikthiss, Maiden of Slaughter",
 }
 
 NPCs[78872] = { -- Klikixx
 	isTameable = true,
 	questID = 34498, -- Klikixx
+	toys = {
+		{ itemID = 116125 }, -- Klikixx's Webspinner
+	},
 	vignetteName = "Klikixx",
 }
 
@@ -679,6 +818,12 @@ NPCs[87597] = { -- Bombardier Gu'gok
 }
 
 NPCs[87668] = { -- Orumo the Observer
+	pets = {
+		{
+			itemID = 119170, -- Eye of Observation
+			npcID = 88490, -- Eye of Observation
+		},
+	},
 	questID = 37344, -- Orumo the Observer
 }
 
@@ -708,8 +853,17 @@ NPCs[88494] = { -- Legion Vanguard
 }
 
 -- ----------------------------------------------------------------------------
--- Shadowmoon Valley (947)
+-- Shadowmoon Valley
 -- ----------------------------------------------------------------------------
+NPCs[50883] = { -- Pathrunner
+	mounts = {
+		{
+			itemID = 116773, -- Swift Breezestrider
+			spellID = 171830, -- Swift Breezestrider
+		},
+	},
+}
+
 NPCs[72362] = { -- Ku'targ the Voidseer
 	questID = 33039, -- The Voidseer
 	vignetteName = "The Voidseer",
@@ -742,6 +896,9 @@ NPCs[75434] = { -- Windfang Matriarch
 
 NPCs[75435] = { -- Yggdrel
 	questID = 33389, -- Yggdrel the Corrupted
+	toys = {
+		{ itemID = 113570 }, -- Ancient's Bloom
+	},
 	vignetteName = "Yggdrel",
 }
 
@@ -776,6 +933,9 @@ NPCs[77310] = { -- Mad "King" Sporeon
 
 NPCs[79524] = { -- Hypnocroak
 	questID = 35558, -- Hypnocroak
+	toys = {
+		{ itemID = 113631 }, -- Hypnosis Goggles
+	},
 }
 
 NPCs[81406] = { -- Bahameye
@@ -797,6 +957,9 @@ NPCs[82268] = { -- Darkmaster Go'vid
 
 NPCs[82326] = { -- Ba'ruun
 	questID = 35731, -- Ba'ruun
+	toys = {
+		{ itemID = 113540 }, -- Ba'ruun's Bountiful Bloom
+	},
 	vignetteName = "Ba'ruun",
 }
 
@@ -806,6 +969,9 @@ NPCs[82362] = { -- Morva Soultwister
 
 NPCs[82374] = { -- Rai'vosh
 	questID = 35553, -- Rai'vosh
+	toys = {
+		{ itemID = 113542 }, -- Whispers of Rai'Vosh
+	},
 }
 
 NPCs[82411] = { -- Darktalon
@@ -814,6 +980,9 @@ NPCs[82411] = { -- Darktalon
 
 NPCs[82415] = { -- Shinri
 	questID = 35732, -- Shinri
+	toys = {
+		{ itemID = 113543 }, -- Spirit of Shinri
+	},
 	vignetteName = "Shinri",
 }
 
@@ -837,6 +1006,12 @@ NPCs[83553] = { -- Insha'tar
 }
 
 NPCs[84911] = { -- Demidos
+	pets = {
+		{
+			itemID = 119431, -- Servant of Demidos
+			npcID = 88692, -- Servant of Demidos
+		},
+	},
 	questID = 37351, -- Demidos
 }
 
@@ -881,7 +1056,7 @@ NPCs[86689] = { -- Sneevel
 }
 
 -- ----------------------------------------------------------------------------
--- Spires of Arak (948)
+-- Spires of Arak
 -- ----------------------------------------------------------------------------
 NPCs[79938] = { -- Shadowbark
 	questID = 36478, -- Spires - Vignette 020 - Shadowbark
@@ -977,6 +1152,9 @@ NPCs[84955] = { -- Jiasska the Sporegorger
 
 NPCs[85026] = { -- Soul-Twister Torek
 	questID = 37358, -- Soul-Twister Torek
+	toys = {
+		{ itemID = 119178 }, -- Black Whirlwind
+	},
 }
 
 NPCs[85036] = { -- Formless Nightmare
@@ -993,6 +1171,12 @@ NPCs[85078] = { -- Voidreaver Urnae
 }
 
 NPCs[85504] = { -- Rotcap
+	pets = {
+		{
+			itemID = 118107, -- Brilliant Spore
+			npcID = 86719, -- Brilliant Spore
+		},
+	},
 	questID = 36470, -- Spires - Vignette Boss 006 - Rotcap
 }
 
@@ -1029,12 +1213,25 @@ NPCs[87029] = { -- Giga Sentinel
 }
 
 -- ----------------------------------------------------------------------------
--- Gorgrond (949)
+-- Gorgrond
 -- ----------------------------------------------------------------------------
+NPCs[50985] = { -- Poundfist
+	mounts = {
+		{
+			itemID = 116792, -- Sunhide Gronnling
+			spellID = 171849, -- Sunhide Gronnling
+		},
+	},
+}
+
 NPCs[76473] = { -- Mother Araneae
 	isTameable = true,
 	questID = 34726, -- Pale Spider Broodmother
 	vignetteName = "Pale Spider Broodmother",
+}
+
+NPCs[77093] = { -- Roardan the Sky Terror
+	isTameable = true,
 }
 
 NPCs[78260] = { -- King Slime
@@ -1047,6 +1244,9 @@ NPCs[78269] = { -- Gnarljaw
 
 NPCs[79629] = { -- Stomper Kreego
 	questID = 35910, -- Stomper Kreego
+	toys = {
+		{ itemID = 118224 }, -- Ogre Brewing Kit
+	},
 	vignetteName = "Stomper Kreego",
 }
 
@@ -1056,6 +1256,9 @@ NPCs[80371] = { -- Typhon
 
 NPCs[80725] = { -- Sulfurious
 	questID = 36394, -- Sulfurious
+	toys = {
+		{ itemID = 114227 }, -- Bubble Wand
+	},
 }
 
 NPCs[80868] = { -- Glut
@@ -1067,12 +1270,23 @@ NPCs[81038] = { -- Gelgor of the Blue Flame
 	questID = 36391, -- The Blue Flame
 }
 
+NPCs[81537] = { -- Khargax the Devourer
+	isTameable = true,
+}
+
+NPCs[81548] = { -- Charl Doomwing
+	isTameable = true,
+}
+
 NPCs[82058] = { -- Depthroot
 	questID = 37370, -- Depthroot
 }
 
 NPCs[82085] = { -- Bashiok
 	questID = 35335, -- Bashiok
+	toys = {
+		{ itemID = 118222 }, -- Spirit of Bashiok
+	},
 }
 
 NPCs[82311] = { -- Char the Burning
@@ -1086,6 +1300,12 @@ NPCs[83522] = { -- Hive Queen Skrikka
 }
 
 NPCs[84406] = { -- Mandrakor
+	pets = {
+		{
+			itemID = 118709, -- Doom Bloom
+			npcID = 88103, -- Doom Bloom
+		},
+	},
 	questID = 36178, -- Mandrakor the Night Hunter
 	vignetteName = "Mandrakor the Night Hunter",
 }
@@ -1096,6 +1316,9 @@ NPCs[84431] = { -- Greldrok the Cunning
 
 NPCs[85250] = { -- Fossilwood the Petrified
 	questID = 36387, -- Fossil the Petrified
+	toys = {
+		{ itemID = 118221 }, -- Petrification Stone
+	},
 }
 
 NPCs[85264] = { -- Rolkor
@@ -1118,15 +1341,20 @@ NPCs[86137] = { -- Sunclaw
 
 NPCs[86257] = { -- Basten
 	questID = 37369, -- Protectors of the Grove
+	toys = {
+		{ itemID = 119432 }, -- Botani Camouflage
+	},
 	vignetteName = "Protectors of the Grove",
 }
 
 NPCs[86258] = { -- Nultra
+	achievementID = AchievementID.AncientNoMore,
 	questID = 37369, -- Protectors of the Grove
 	vignetteName = "Protectors of the Grove",
 }
 
 NPCs[86259] = { -- Valstil
+	achievementID = AchievementID.AncientNoMore,
 	questID = 37369, -- Protectors of the Grove
 	vignetteName = "Protectors of the Grove",
 }
@@ -1199,10 +1427,25 @@ NPCs[88672] = { -- Hunter Bal'ra
 }
 
 -- ----------------------------------------------------------------------------
--- Nagrand (950)
+-- Nagrand
 -- ----------------------------------------------------------------------------
+NPCs[50981] = { -- Luk'hok
+	mounts = {
+		{
+			itemID = 116661, -- Mottled Meadowstomper
+			spellID = 171622, -- Mottled Meadowstomper
+		},
+	},
+}
+
 NPCs[50990] = { -- Nakk the Thunderer
 	isTameable = true,
+	mounts = {
+		{
+			itemID = 116659, -- Bloodhoof Bull
+			spellID = 171620, -- Bloodhoof Bull
+		},
+	},
 }
 
 NPCs[78161] = { -- Hyperious
@@ -1216,6 +1459,9 @@ NPCs[79024] = { -- Warmaster Blugthol
 
 NPCs[79725] = { -- Captain Ironbeard
 	questID = 34727, -- Sea Lord Torglork
+	toys = {
+		{ itemID = 118244 }, -- Iron Buccaneer's Hat
+	},
 	vignetteName = "Sea Lord Torglork",
 }
 
@@ -1275,6 +1521,12 @@ NPCs[82975] = { -- Fangler
 }
 
 NPCs[83401] = { -- Netherspawn
+	pets = {
+		{
+			itemID = 116815, -- Netherspawn, Spawn of Netherspawn
+			npcID = 86081, -- Netherspawn, Spawn of Netherspawn
+		},
+	},
 	questID = 35865, -- Nagrand - Vignette Boss 018 - Void Ooze
 }
 
@@ -1399,54 +1651,44 @@ NPCs[88951] = { -- Vileclaw
 }
 
 NPCs[98198] = { -- Rukdug
+	pets = {
+		{
+			itemID = 129216, -- Vibrating Arcane Crystal
+			npcID = 98236, -- Energized Manafiend
+		},
+	},
 	questID = 40075, -- Rukdug
 }
 
 NPCs[98199] = { -- Pugg
+	pets = {
+		{
+			itemID = 129217, -- Warm Arcane Crystal
+			npcID = 98237, -- Empowered Manafiend
+		},
+	},
 	questID = 40073, -- Pugg
 }
 
 NPCs[98200] = { -- Guk
+	pets = {
+		{
+			itemID = 129218, -- Glittering Arcane Crystal
+			npcID = 98238, -- Empyreal Manafiend
+		},
+	},
 	questID = 40074, -- Guk
 }
 
 -- ----------------------------------------------------------------------------
--- Lunarfall (971)
+-- Alliance/Horde Garrisons
 -- ----------------------------------------------------------------------------
 NPCs[96323] = { -- Arachnis
 	questID = 39617, -- Vignette Tracking Quest
 }
 
 -- ----------------------------------------------------------------------------
--- Lunarfall (973)
--- ----------------------------------------------------------------------------
-NPCs[96323] = { -- Arachnis
-	questID = 39617, -- Vignette Tracking Quest
-}
-
--- ----------------------------------------------------------------------------
--- Lunarfall (974)
--- ----------------------------------------------------------------------------
-NPCs[96323] = { -- Arachnis
-	questID = 39617, -- Vignette Tracking Quest
-}
-
--- ----------------------------------------------------------------------------
--- Lunarfall (975)
--- ----------------------------------------------------------------------------
-NPCs[96323] = { -- Arachnis
-	questID = 39617, -- Vignette Tracking Quest
-}
-
--- ----------------------------------------------------------------------------
--- Frostwall (976)
--- ----------------------------------------------------------------------------
-NPCs[96323] = { -- Arachnis
-	questID = 39617, -- Vignette Tracking Quest
-}
-
--- ----------------------------------------------------------------------------
--- Ashran (978)
+-- Ashran
 -- ----------------------------------------------------------------------------
 NPCs[82876] = { -- Grand Marshal Tremblade
 	factionGroup = "Alliance",
@@ -1478,39 +1720,4 @@ NPCs[84893] = { -- Goregore
 
 NPCs[87362] = { -- Gibby
 	isTameable = true,
-}
-
--- ----------------------------------------------------------------------------
--- Frostwall (980)
--- ----------------------------------------------------------------------------
-NPCs[96323] = { -- Arachnis
-	questID = 39617, -- Vignette Tracking Quest
-}
-
--- ----------------------------------------------------------------------------
--- Frostwall (981)
--- ----------------------------------------------------------------------------
-NPCs[96323] = { -- Arachnis
-	questID = 39617, -- Vignette Tracking Quest
-}
-
--- ----------------------------------------------------------------------------
--- Frostwall (982)
--- ----------------------------------------------------------------------------
-NPCs[96323] = { -- Arachnis
-	questID = 39617, -- Vignette Tracking Quest
-}
-
--- ----------------------------------------------------------------------------
--- Frostwall (990)
--- ----------------------------------------------------------------------------
-NPCs[96323] = { -- Arachnis
-	questID = 39617, -- Vignette Tracking Quest
-}
-
--- ----------------------------------------------------------------------------
--- Lunarfall (991)
--- ----------------------------------------------------------------------------
-NPCs[96323] = { -- Arachnis
-	questID = 39617, -- Vignette Tracking Quest
 }

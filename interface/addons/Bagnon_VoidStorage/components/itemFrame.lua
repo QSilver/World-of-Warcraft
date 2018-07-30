@@ -17,7 +17,7 @@ ItemFrame.Button = Addon.VaultSlot
 function ItemFrame:New(parent, bags, title)
 	local f = Addon.ItemFrame.New(self, parent, bags)
 	f.Title = f:CreateFontString(nil, nil, 'GameFontHighlight')
-	f.Title:SetPoint('BOTTOMLEFT', f, 'TOPLEFT')
+	f.Title:SetPoint('BOTTOMLEFT', f, 'TOPLEFT', 0, 5)
 	f.Title:SetText(title)
 
 	return f
@@ -64,7 +64,7 @@ function ItemFrame:NumSlots()
 	elseif self:Type() == WITHDRAW then
 		return GetNumVoidTransferWithdrawal()
 	else
-		return 80 * 2
+		return 160
 	end
 end
 

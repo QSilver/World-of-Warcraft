@@ -157,7 +157,6 @@
 		
 	end
 	
-
 	--> simple left and right animations by delta time
 	local animation_left_simple = function (self, deltaTime)
 		self.inicio = self.inicio - (animation_speed * deltaTime)
@@ -180,6 +179,8 @@
 	--> animation with acceleration
 	local animation_left_with_accel = function (self, deltaTime)
 		local distance = self.inicio - self.fim
+		
+		-- DefaultSpeed * max of ( min of (Distance / TriggerSpeed , MaxSpeed) , LowSpeed )
 		local calcAnimationSpeed = animation_speed * _math_max (_math_min (distance/animation_speed_hightravel_trigger, animation_speed_hightravel_maxspeed), animation_speed_lowtravel_minspeed)
 		
 		self.inicio = self.inicio - (calcAnimationSpeed * deltaTime)
@@ -384,7 +385,7 @@
 				self.libwindow.x = x
 				self.libwindow.y = y
 				self.libwindow.point = point
-				self.libwindow.scale = scale
+				self.libwindow.scale = s
 			end
 		end
 		
@@ -1117,52 +1118,9 @@
 		end	
 	end
 
---> tutorial bookmark
+--> tutorial bookmark (removed)
 	function _detalhes:TutorialBookmark (instance)
-	
 		_detalhes:SetTutorialCVar ("ATTRIBUTE_SELECT_TUTORIAL1", true)
-		
-		local func = function()
-			local f = CreateFrame ("frame", nil, instance.baseframe)
-			f:SetAllPoints();
-			f:SetFrameStrata ("FULLSCREEN")
-			f:SetBackdrop ({bgFile = [[Interface\AddOns\Details\images\background]], tile = true, tileSize = 16})
-			f:SetBackdropColor (0, 0, 0, 0.8)
-			
-			f.alert = CreateFrame ("frame", "DetailsTutorialBookmarkAlert", UIParent, "ActionBarButtonSpellActivationAlert")
-			f.alert:SetPoint ("topleft", f, "topleft")
-			f.alert:SetPoint ("bottomright", f, "bottomright")
-			f.alert.animOut:Stop()
-			f.alert.animIn:Play()
-			
-			f.text = f:CreateFontString (nil, "overlay", "GameFontNormal")
-			f.text:SetText (Loc ["STRING_MINITUTORIAL_BOOKMARK1"])
-			f.text:SetWidth (f:GetWidth()-15)
-			f.text:SetPoint ("center", f)
-			f.text:SetJustifyH ("center")
-			
-			f.bg = f:CreateTexture (nil, "border")
-			f.bg:SetTexture ([[Interface\ACHIEVEMENTFRAME\UI-Achievement-Parchment-Horizontal-Desaturated]])
-			f.bg:SetAllPoints()
-			f.bg:SetAlpha (0.8)
-			
-			f.textbg = f:CreateTexture (nil, "artwork")
-			f.textbg:SetTexture ([[Interface\ACHIEVEMENTFRAME\UI-Achievement-RecentHeader]])
-			f.textbg:SetPoint ("center", f)
-			f.textbg:SetAlpha (0.4)
-			f.textbg:SetTexCoord (0, 1, 0, 24/32)
-
-			f:SetScript ("OnMouseDown", function (self, button)
-				if (button == "RightButton") then
-					f.alert.animIn:Stop()
-					f.alert.animOut:Play()
-					_detalhes.switch:ShowMe (instance)
-					f:Hide()
-				end
-			end)
-		end
-		
-		_detalhes:GetFramework():ShowTutorialAlertFrame ("How to Use Bookmarks", "switch fast between displays", func)
 	end
 
 --> translate window
@@ -2824,10 +2782,13 @@
 		end)	
 	
 	function _detalhes:CreateWelcomePanel (name, parent, width, height, make_movable)
+	
 		local f = CreateFrame ("frame", name, parent or UIParent)
-		f:SetBackdrop ({bgFile = [[Interface\AddOns\Details\images\background]], tile = true, tileSize = 128, insets = {left=3, right=3, top=3, bottom=3},
-		edgeFile = [[Interface\AddOns\Details\images\border_welcome]], edgeSize = 16})
+		
+		--f:SetBackdrop ({bgFile = [[Interface\AddOns\Details\images\background]], tile = true, tileSize = 128, insets = {left=3, right=3, top=3, bottom=3}, edgeFile = [[Interface\AddOns\Details\images\border_welcome]], edgeSize = 16})
+		f:SetBackdrop ({bgFile = [[Interface\AddOns\Details\images\background]], tile = true, tileSize = 128, insets = {left=0, right=0, top=0, bottom=0}, edgeFile = [[Interface\Buttons\WHITE8X8]], edgeSize = 1})
 		f:SetBackdropColor (1, 1, 1, 0.75)
+		f:SetBackdropBorderColor (0, 0, 0, 1)
 		f:SetSize (width or 1, height or 1)
 		
 		if (make_movable) then
@@ -3662,7 +3623,7 @@
 		_detalhes.test_bar_update = nil
 	end
 	
-	function _detalhes:CreateTestBars()
+	function _detalhes:CreateTestBars (alphabet)
 		local current_combat = _detalhes:GetCombat ("current")
 		local pclass = select (2, UnitClass ("player"))
 		
@@ -3717,6 +3678,87 @@
 				{"Archmage Trelane", "MAGE", },
 				{"Lilian Voss", "ROGUE", },
 			}
+			
+		local russian_actors_name = { --arial narrow
+			{"Экспортировать", "MAGE", 63},
+			{"Готово", "DEATHKNIGHT", },
+			{"Создать", "SHAMAN", },
+			{"Текущий", "MONK", },
+			{"список команд", "HUNTER", },
+			{"центр", "SHAMAN", },
+			{"Разное", "WARRIOR", },
+		}
+		
+		local tw_actor_name = { --GBK
+			{"造成傷害目標", "ROGUE", },
+			{"怒氣生�", "DEATHKNIGHT", },
+			{"承受治療", "WARLOCK", },
+			{"格檔", "PRIEST", },
+			{"中央", "MAGE", },
+			{"傷害", "SHAMAN", },
+			{"建立", "MONK", },
+			{"編輯", "WARRIOR", },
+			{"儲存變更", "ROGUE", },
+			{"刪除", "DEATHKNIGHT", },
+			{"從", "WARLOCK", },
+			{"吸收", "PRIEST", },
+			{"加到書籤", "MAGE", },
+			{"最大化", "SHAMAN", },
+			{"未命中", "MONK", },
+			{"�進階", "WARRIOR", },
+		}
+		
+		local cn_actor_name = { --GBK
+			{"打断", "PRIEST"},
+			{"恢复", "PRIEST", 257},
+			{"自动射击", "WARLOCK", 267},
+			{"平均", "PALADIN", },
+			{"团队", "WARRIOR", },
+			{"当前", "WARRIOR", },
+			{"完毕", "DEATHKNIGHT", },
+			{"存储变更", "MAGE", },
+			{"闪避", "MAGE", },
+			{"空的片段", "ROGUE", },
+			{"删除", "ROGUE", },
+			{"治疗暴击", "ROGUE", },
+		}
+		
+		local korean_actor_name = { --2002
+			{"적이 받은 피해", "ROGUE", },
+			{"초과 치유", "DEATHKNIGHT", },
+			{"자동 사격", "WARLOCK", },
+			{"시전", "PRIEST", },
+			{"현재", "MAGE", },
+			{"취소", "SHAMAN", },
+			{"내보내기", "MONK", },
+			{"(사용자 설정)", "WARRIOR", },
+			{"방어", "ROGUE", },
+			{"예제", "DEATHKNIGHT", },
+			{"특화", "WARLOCK", },
+			{"최소", "PRIEST", },
+			{"미러 이미지", "MAGE", },
+			{"가장자리", "SHAMAN", },
+			{"외형", "MONK", },
+			{"아바타 선택", "WARRIOR", },
+		}
+
+		if (not alphabet or alphabet == "en") then
+			actors_name = actors_name
+			
+		elseif (alphabet == "ru") then
+			actors_name = russian_actors_name
+			
+		elseif (alphabet == "cn") then
+			actors_name = cn_actor_name
+			
+		elseif (alphabet == "ko") then
+			actors_name = korean_actor_name
+
+		elseif (alphabet == "tw") then
+			actors_name = tw_actor_name
+			
+		end
+		
 		local actors_classes = CLASS_SORT_ORDER
 		
 		local total_damage = 0
@@ -3858,8 +3900,633 @@
 		current_combat.enemy = "Illidan Stormrage"
 		
 	end	
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- ~plater
+
+	function _detalhes:InitializePlaterIntegrationWindow()
+		local DetailsPlaterIntegrationPanel = gump:CreateSimplePanel (UIParent, 700, 480, "Details! Plater Nameplates Integration", "DetailsPlaterIntegrationPanel")
+		DetailsPlaterIntegrationPanel.Frame = DetailsPlaterIntegrationPanel
+		DetailsPlaterIntegrationPanel.__name = "Plater Nameplates"
+		DetailsPlaterIntegrationPanel.real_name = "DETAILS_PLATERWINDOW"
+		DetailsPlaterIntegrationPanel.__icon = [[Interface\AddOns\Details\images\plater_icon]]
+		--DetailsPlaterIntegrationPanel.__iconcoords = {0, 30/32, 0, 25/32}
+		DetailsPlaterIntegrationPanel.__iconcoords = {0, 1, 0, 1}
+		DetailsPlaterIntegrationPanel.__iconcolor = "white"
+		DetailsPluginContainerWindow.EmbedPlugin (DetailsPlaterIntegrationPanel, DetailsPlaterIntegrationPanel, true)
+		
+		function DetailsPlaterIntegrationPanel.RefreshWindow()
+			_detalhes.OpenPlaterIntegrationWindow()
+		end
+		
+		DetailsPlaterIntegrationPanel:Hide()
+	end
 	
-	-- ~API
+	function _detalhes.OpenPlaterIntegrationWindow()
+		if (not DetailsPlaterIntegrationPanel or not DetailsPlaterIntegrationPanel.Initialized) then
+			
+			DetailsPlaterIntegrationPanel.Initialized = true
+			
+			local f = DetailsPlaterIntegrationPanel or gump:CreateSimplePanel (UIParent, 700, 480, "Details! Plater Nameplates Integration", "DetailsPlaterIntegrationPanel")
+			
+			--background
+			f.bg1 = f:CreateTexture (nil, "background")
+			f.bg1:SetTexture ([[Interface\AddOns\Details\images\background]], true)
+			f.bg1:SetAlpha (0.8)
+			f.bg1:SetVertexColor (0.27, 0.27, 0.27)
+			f.bg1:SetVertTile (true)
+			f.bg1:SetHorizTile (true)
+			f.bg1:SetSize (790, 454)
+			f.bg1:SetAllPoints()
+			f:SetBackdrop ({edgeFile = [[Interface\Buttons\WHITE8X8]], edgeSize = 1, bgFile = [[Interface\AddOns\Details\images\background]], tileSize = 64, tile = true})
+			f:SetBackdropColor (.5, .5, .5, .7)
+			f:SetBackdropBorderColor (0, 0, 0, 1)
+
+			--> anchor text function
+			local anchor_names = {"Top Left", "Left", "Bottom Left", "Bottom", "Bottom Right", "Right", "Top Right", "Top", "Center", "Inner Left", "Inner Right", "Inner Top", "Inner Bottom"}
+			local build_anchor_side_table = function (member)
+				local t = {}
+				for i = 1, 13 do
+					tinsert (t, {
+						label = anchor_names[i],
+						value = i,
+						onclick = function (_, _, value)
+							Details.plater [member].side = value
+							if (Plater) then
+								Plater.UpdateAllPlates()
+							end
+						end
+					})
+				end
+				return t
+			end				
+			
+			local menu_table = {
+			
+				{type = "label", get = function() return "Add Real Time DPS Info in the Nameplate:" end, text_template = Details.gump:GetTemplate ("font", "ORANGE_FONT_TEMPLATE")},
+			
+				--> real time dps from all sources
+				{
+					type = "toggle",
+					get = function() return Details.plater.realtime_dps_enabled end,
+					set = function (self, fixedparam, value) 
+						Details.plater.realtime_dps_enabled = value
+						
+						Details:RefreshPlaterIntegration()
+						
+						if (not value) then
+							Details:Msg ("a /reload might be needed to disable this setting.")
+						end
+					end,
+					name = "Show Real Time Dps",
+					desc = "Show Real Time DPS on the nameplate.\n\nReal time DPS is how much damage has been inflicted to the unit in the last 5 seconds.",
+				},
+					--> text size
+					{
+						type = "range",
+						get = function() return Details.plater.realtime_dps_size end,
+						set = function (self, fixedparam, value) 
+							Details.plater.realtime_dps_size = value
+							if (Plater) then
+								Plater.UpdateAllPlates()
+							end
+						end,
+						min = 6,
+						max = 32,
+						step = 1,
+						name = "Text Size",
+						desc = "Text Size",
+					},
+					--> text color
+					{
+						type = "color",
+						get = function() 
+							local color = Details.plater.realtime_dps_color
+							return {color [1], color [2], color [3], color [4]}
+						end,
+						set = function (self, r, g, b, a) 
+							local color = Details.plater.realtime_dps_color
+							color[1], color[2], color[3], color[4] = r, g, b, a
+							if (Plater) then
+								Plater.UpdateAllPlates()
+							end
+						end,
+						desc = "Text Color",
+						name = "Text Color",
+						text_template = options_text_template,
+					},
+					--> text shadow
+					{
+						type = "toggle",
+						get = function() return Details.plater.realtime_dps_shadow end,
+						set = function (self, fixedparam, value) 
+							Details.plater.realtime_dps_shadow = value
+							if (Plater) then
+								Plater.UpdateAllPlates()
+							end
+						end,
+						name = "Text Shadow",
+						desc = "Text Shadow",
+					},
+					--> text anchor
+						--anchor location
+						{
+							type = "select",
+							get = function() return Details.plater.realtime_dps_anchor.side end,
+							values = function() return build_anchor_side_table ("realtime_dps_anchor") end,
+							name = "Anchor Point",
+							desc = "Which side of the nameplate the text is attach to.",
+						},
+						--anchor x offset
+						{
+							type = "range",
+							get = function() return Details.plater.realtime_dps_anchor.x end,
+							set = function (self, fixedparam, value) 
+								Details.plater.realtime_dps_anchor.x = value
+								if (Plater) then
+									Plater.UpdateAllPlates()
+								end
+							end,
+							min = -20,
+							max = 20,
+							step = 1,
+							name = "Anchor X Offset",
+							desc = "Slightly move the text horizontally.",
+						},
+						--anchor x offset
+						{
+							type = "range",
+							get = function() return Details.plater.realtime_dps_anchor.y end,
+							set = function (self, fixedparam, value) 
+								Details.plater.realtime_dps_anchor.y = value
+								if (Plater) then
+									Plater.UpdateAllPlates()
+								end
+							end,
+							min = -20,
+							max = 20,
+							step = 1,
+							name = "Anchor Y Offset",
+							desc = "Slightly move the text vertically.",
+						},	
+				
+				{type = "breakline"},
+				{type = "label", get = function() return "Add Real Time DPS Info Only From You in the Nameplate:" end, text_template = Details.gump:GetTemplate ("font", "ORANGE_FONT_TEMPLATE")},
+				
+				--> real time dps from the player only
+				{
+					type = "toggle",
+					get = function() return Details.plater.realtime_dps_player_enabled end,
+					set = function (self, fixedparam, value) 
+						Details.plater.realtime_dps_player_enabled = value
+						
+						Details:RefreshPlaterIntegration()
+						
+						if (not value) then
+							Details:Msg ("a /reload might be needed to disable this setting.")
+						end
+					end,
+					name = "Show Real Time Dps (From You)",
+					desc = "Show Real Time DPS you are currently applying in the unit.\n\nReal time DPS is how much damage has been inflicted to the unit in the last 5 seconds.",
+				},
+					--> text size
+					{
+						type = "range",
+						get = function() return Details.plater.realtime_dps_player_size end,
+						set = function (self, fixedparam, value) 
+							Details.plater.realtime_dps_player_size = value
+							if (Plater) then
+								Plater.UpdateAllPlates()
+							end
+						end,
+						min = 6,
+						max = 32,
+						step = 1,
+						name = "Text Size",
+						desc = "Text Size",
+					},
+					--> text color
+					{
+						type = "color",
+						get = function() 
+							local color = Details.plater.realtime_dps_player_color
+							return {color [1], color [2], color [3], color [4]}
+						end,
+						set = function (self, r, g, b, a) 
+							local color = Details.plater.realtime_dps_player_color
+							color[1], color[2], color[3], color[4] = r, g, b, a
+							if (Plater) then
+								Plater.UpdateAllPlates()
+							end
+						end,
+						desc = "Text Color",
+						name = "Text Color",
+						text_template = options_text_template,
+					},
+					--> text shadow
+					{
+						type = "toggle",
+						get = function() return Details.plater.realtime_dps_player_shadow end,
+						set = function (self, fixedparam, value) 
+							Details.plater.realtime_dps_player_shadow = value
+							if (Plater) then
+								Plater.UpdateAllPlates()
+							end
+						end,
+						name = "Text Shadow",
+						desc = "Text Shadow",
+					},
+					--> text anchor
+						--anchor location
+						{
+							type = "select",
+							get = function() return Details.plater.realtime_dps_player_anchor.side end,
+							values = function() return build_anchor_side_table ("realtime_dps_player_anchor") end,
+							name = "Anchor Point",
+							desc = "Which side of the nameplate the text is attach to.",
+						},
+						--anchor x offset
+						{
+							type = "range",
+							get = function() return Details.plater.realtime_dps_player_anchor.x end,
+							set = function (self, fixedparam, value) 
+								Details.plater.realtime_dps_player_anchor.x = value
+								if (Plater) then
+									Plater.UpdateAllPlates()
+								end
+							end,
+							min = -20,
+							max = 20,
+							step = 1,
+							name = "Anchor X Offset",
+							desc = "Slightly move the text horizontally.",
+						},
+						--anchor x offset
+						{
+							type = "range",
+							get = function() return Details.plater.realtime_dps_player_anchor.y end,
+							set = function (self, fixedparam, value) 
+								Details.plater.realtime_dps_player_anchor.y = value
+								if (Plater) then
+									Plater.UpdateAllPlates()
+								end
+							end,
+							min = -20,
+							max = 20,
+							step = 1,
+							name = "Anchor Y Offset",
+							desc = "Slightly move the text vertically.",
+						},	
+				
+				{type = "breakline"},
+				{type = "label", get = function() return "Add Total Damage Taken in the Nameplate:" end, text_template = Details.gump:GetTemplate ("font", "ORANGE_FONT_TEMPLATE")},
+				
+				--> total damage taken from all sources
+				{
+					type = "toggle",
+					get = function() return Details.plater.damage_taken_enabled end,
+					set = function (self, fixedparam, value) 
+						Details.plater.damage_taken_enabled = value
+						
+						Details:RefreshPlaterIntegration()
+						
+						if (not value) then
+							Details:Msg ("a /reload might be needed to disable this setting.")
+						end
+					end,
+					name = "Show Total Damage Taken",
+					desc = "Show the total damage taken by the unit",
+				},
+					--> text size
+					{
+						type = "range",
+						get = function() return Details.plater.damage_taken_size end,
+						set = function (self, fixedparam, value) 
+							Details.plater.damage_taken_size = value
+							if (Plater) then
+								Plater.UpdateAllPlates()
+							end
+						end,
+						min = 6,
+						max = 32,
+						step = 1,
+						name = "Text Size",
+						desc = "Text Size",
+					},
+					--> text color
+					{
+						type = "color",
+						get = function() 
+							local color = Details.plater.damage_taken_color
+							return {color [1], color [2], color [3], color [4]}
+						end,
+						set = function (self, r, g, b, a) 
+							local color = Details.plater.damage_taken_color
+							color[1], color[2], color[3], color[4] = r, g, b, a
+							if (Plater) then
+								Plater.UpdateAllPlates()
+							end
+						end,
+						desc = "Text Color",
+						name = "Text Color",
+						text_template = options_text_template,
+					},
+					--> text shadow
+					{
+						type = "toggle",
+						get = function() return Details.plater.damage_taken_shadow end,
+						set = function (self, fixedparam, value) 
+							Details.plater.damage_taken_shadow = value
+							if (Plater) then
+								Plater.UpdateAllPlates()
+							end
+						end,
+						name = "Text Shadow",
+						desc = "Text Shadow",
+					},
+					--> text anchor
+						--anchor location
+						{
+							type = "select",
+							get = function() return Details.plater.damage_taken_anchor.side end,
+							values = function() return build_anchor_side_table ("damage_taken_anchor") end,
+							name = "Anchor Point",
+							desc = "Which side of the nameplate the text is attach to.",
+						},
+						--anchor x offset
+						{
+							type = "range",
+							get = function() return Details.plater.damage_taken_anchor.x end,
+							set = function (self, fixedparam, value) 
+								Details.plater.damage_taken_anchor.x = value
+								if (Plater) then
+									Plater.UpdateAllPlates()
+								end
+							end,
+							min = -20,
+							max = 20,
+							step = 1,
+							name = "Anchor X Offset",
+							desc = "Slightly move the text horizontally.",
+						},
+						--anchor x offset
+						{
+							type = "range",
+							get = function() return Details.plater.damage_taken_anchor.y end,
+							set = function (self, fixedparam, value) 
+								Details.plater.damage_taken_anchor.y = value
+								if (Plater) then
+									Plater.UpdateAllPlates()
+								end
+							end,
+							min = -20,
+							max = 20,
+							step = 1,
+							name = "Anchor Y Offset",
+							desc = "Slightly move the text vertically.",
+						},
+			}
+			
+			local options_text_template = Details.gump:GetTemplate ("font", "OPTIONS_FONT_TEMPLATE")
+			local options_dropdown_template = Details.gump:GetTemplate ("dropdown", "OPTIONS_DROPDOWN_TEMPLATE")
+			local options_switch_template = Details.gump:GetTemplate ("switch", "OPTIONS_CHECKBOX_TEMPLATE")
+			local options_slider_template = Details.gump:GetTemplate ("slider", "OPTIONS_SLIDER_TEMPLATE")
+			local options_button_template = Details.gump:GetTemplate ("button", "OPTIONS_BUTTON_TEMPLATE")
+			
+			local titleBackground = CreateFrame ("frame", nil, f)
+			titleBackground:SetPoint ("topleft", f, "topleft", 10, -30)
+			titleBackground:SetPoint ("topright", f, "topright", -10, -30)
+			titleBackground:SetHeight (80)
+			
+			--background
+			titleBackground.bg1 = titleBackground:CreateTexture (nil, "background")
+			titleBackground.bg1:SetTexture ([[Interface\AddOns\Details\images\background]])
+			titleBackground.bg1:SetAlpha (0.8)
+			titleBackground.bg1:SetVertexColor (0.27, 0.27, 0.27)
+			titleBackground.bg1:SetVertTile (true)
+			titleBackground.bg1:SetHorizTile (true)
+			titleBackground.bg1:SetSize (790, 454)
+			titleBackground.bg1:SetAllPoints()
+			titleBackground:SetBackdrop ({edgeFile = [[Interface\Buttons\WHITE8X8]], edgeSize = 1, bgFile = [[Interface\AddOns\Details\images\background]], tileSize = 64, tile = true})
+			titleBackground:SetBackdropColor (.5, .5, .5, .7)
+			titleBackground:SetBackdropBorderColor (0, 0, 0, 1)
+			
+			local platerTitle = Details.gump:CreateLabel (titleBackground, "Plater Nameplates Integration", 16, "white")
+			local platerDesc1 = Details.gump:CreateLabel (titleBackground, "Add DPS and Damage information directly into the nameplate", 11, "silver")
+			local platerDesc2 = Details.gump:CreateLabel (titleBackground, "See how much damage the enemy is taking in real time!", 11, "silver")
+			local platerImage = Details.gump:CreateImage (titleBackground, "Interface\\AddOns\\Details\\images\\plater_image")
+			platerImage:SetSize (256, 64)
+			
+			platerImage:SetPoint ("topright", f, "topright", -150, -35)
+			platerTitle:SetPoint (10, -15)
+			platerDesc1:SetPoint (10, -35)
+			platerDesc2:SetPoint (10, -47)
+			
+			Details.gump:BuildMenu (f, menu_table, 10, -140, 460, true, options_text_template, options_dropdown_template, options_switch_template, true, options_slider_template, options_button_template)
+			
+			if (not Plater) then
+				for _, widget in ipairs (f.widget_list) do
+					if (widget.Disable) then
+						widget:Disable()
+					end
+				end
+				
+				local PlaterDisabled1 = Details.gump:CreateLabel (f, "Plater isn't installed! you may download it from the Twitch app.", 16, "red")
+				PlaterDisabled1:SetPoint (10, -330)
+			end
+			
+		end
+		
+		DetailsPluginContainerWindow.OpenPlugin (DetailsPlaterIntegrationPanel)
+	end
+	
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- ~run ~runcode
+
+	function _detalhes:InitializeRunCodeWindow()
+		local DetailsRunCodePanel = gump:CreateSimplePanel (UIParent, 700, 480, "Details! Run Code", "DetailsRunCodePanel")
+		DetailsRunCodePanel.Frame = DetailsRunCodePanel
+		DetailsRunCodePanel.__name = "Auto Run Code"
+		DetailsRunCodePanel.real_name = "DETAILS_RUNCODEWINDOW"
+		--DetailsRunCodePanel.__icon = [[Interface\AddOns\Details\images\lua_logo]]
+		DetailsRunCodePanel.__icon = [[Interface\AddOns\Details\images\run_code]]
+		--DetailsRunCodePanel.__iconcoords = {0, 1, 0, 1}
+		DetailsRunCodePanel.__iconcoords = {0, 30/32, 0, 25/32}
+		DetailsRunCodePanel.__iconcoords = {0, 1, 0, 1}
+		DetailsRunCodePanel.__iconcolor = "white"
+		DetailsPluginContainerWindow.EmbedPlugin (DetailsRunCodePanel, DetailsRunCodePanel, true)
+		
+		function DetailsRunCodePanel.RefreshWindow()
+			_detalhes.OpenRunCodeWindow()
+		end
+		
+		DetailsRunCodePanel:Hide()
+	end
+
+	function _detalhes.OpenRunCodeWindow()
+		if (not DetailsRunCodePanel or not DetailsRunCodePanel.Initialized) then
+		
+			DetailsRunCodePanel.Initialized = true
+			
+			local f = DetailsRunCodePanel or gump:CreateSimplePanel (UIParent, 700, 480, "Details! Run Code", "DetailsRunCodePanel")
+	
+			--> lua editor
+			local code_editor = gump:NewSpecialLuaEditorEntry (f, 885, 510, "text", "$parentCodeEditorWindow")
+			f.CodeEditor = code_editor
+			code_editor:SetPoint ("topleft", f, "topleft", 20, -56)
+			
+				--> code editor appearance
+				code_editor.scroll:SetBackdrop (nil)
+				code_editor.editbox:SetBackdrop (nil)
+				code_editor:SetBackdrop (nil)
+				
+				gump:ReskinSlider (code_editor.scroll)
+				
+				if (not code_editor.__background) then
+					code_editor.__background = code_editor:CreateTexture (nil, "background")
+				end
+				
+				code_editor:SetBackdrop ({edgeFile = [[Interface\Buttons\WHITE8X8]], edgeSize = 1})
+				code_editor:SetBackdropBorderColor (0, 0, 0, 1)
+				
+				code_editor.__background:SetColorTexture (0.2317647, 0.2317647, 0.2317647)
+				code_editor.__background:SetVertexColor (0.27, 0.27, 0.27)
+				code_editor.__background:SetAlpha (0.8)
+				code_editor.__background:SetVertTile (true)
+				code_editor.__background:SetHorizTile (true)
+				code_editor.__background:SetAllPoints()
+				
+				--> code compile error warning
+				local errortext_frame = CreateFrame ("frame", nil, code_editor)
+				errortext_frame:SetPoint ("bottomleft", code_editor, "bottomleft", 1, 1)
+				errortext_frame:SetPoint ("bottomright", code_editor, "bottomright", -1, 1)
+				errortext_frame:SetHeight (20)
+				errortext_frame:SetBackdrop ({edgeFile = [[Interface\Buttons\WHITE8X8]], edgeSize = 1, bgFile = [[Interface\Tooltips\UI-Tooltip-Background]], tileSize = 64, tile = true})
+				errortext_frame:SetBackdropBorderColor (0, 0, 0, 1)
+				errortext_frame:SetBackdropColor (0, 0, 0)
+				
+				gump:CreateFlashAnimation (errortext_frame)
+				
+				local errortext_label = gump:CreateLabel (errortext_frame, "", gump:GetTemplate ("font", "ORANGE_FONT_TEMPLATE"))
+				errortext_label.textcolor = "red"
+				errortext_label:SetPoint ("left", errortext_frame, "left", 3, 0)
+				code_editor.NextCodeCheck = 0.33
+				
+				code_editor:HookScript ("OnUpdate", function (self, deltaTime)
+					code_editor.NextCodeCheck = code_editor.NextCodeCheck - deltaTime
+
+					if (code_editor.NextCodeCheck < 0) then
+						local script = code_editor:GetText()
+						local func, errortext = loadstring (script, "Q")
+						if (not func) then
+							local firstLine = strsplit ("\n", script, 2)
+							errortext = errortext:gsub (firstLine, "")
+							errortext = errortext:gsub ("%[string \"", "")
+							errortext = errortext:gsub ("...\"]:", "")
+							errortext = errortext:gsub ("Q\"]:", "")
+							errortext = "Line " .. errortext
+							errortext_label.text = errortext
+						else
+							errortext_label.text = ""
+						end
+						
+						code_editor.NextCodeCheck = 0.33
+					end
+				end)
+				
+			--> script selector
+			local on_select_CodeType_option = function (self, fixedParameter, value)
+				--> set the current editing code type
+				f.EditingCode = _detalhes.RunCodeTypes [value].Value
+				f.EditingCodeKey = _detalhes.RunCodeTypes [value].ProfileKey
+				
+				--> load the code for the event
+				local code = _detalhes.run_code [f.EditingCodeKey]
+				code_editor:SetText (code)
+			end
+			
+			local build_CodeType_dropdown_options = function()
+				local t = {}
+				
+				for i = 1, #_detalhes.RunCodeTypes do
+					local option = _detalhes.RunCodeTypes [i]
+					t [#t + 1] = {label = option.Name, value = option.Value, onclick = on_select_CodeType_option, desc = option.Desc}
+				end
+				
+				return t
+			end
+			
+			local code_type_label = gump:CreateLabel (f, "Event:", gump:GetTemplate ("font", "ORANGE_FONT_TEMPLATE"))
+			local code_type_dropdown = gump:CreateDropDown (f, build_CodeType_dropdown_options, 1, 160, 20, "CodeTypeDropdown", _, gump:GetTemplate ("dropdown", "OPTIONS_DROPDOWN_TEMPLATE"))
+			code_type_dropdown:SetPoint ("left", code_type_label, "right", 2, 0)
+			code_type_dropdown:SetFrameLevel (code_editor:GetFrameLevel() + 10)
+			code_type_label:SetPoint ("bottomleft", code_editor, "topleft", 0, 8)
+			
+			--> create save button
+			local save_script = function()
+				local code = code_editor:GetText()
+				local func, errortext = loadstring (code, "Q")
+				
+				if (func) then
+					_detalhes.run_code [f.EditingCodeKey] = code
+					_detalhes:RecompileAutoRunCode()
+					_detalhes:Msg ("Code saved!")
+					code_editor:ClearFocus()
+				else
+					errortext_frame:Flash (0.2, 0.2, 0.4, true, nil, nil, "NONE")
+					_detalhes:Msg ("Can't save the code: it has errors.")
+				end
+			end
+			
+			local button_y = -6
+			
+			local save_script_button = gump:CreateButton (f, save_script, 120, 20, "Save", -1, nil, nil, nil, nil, nil, gump:GetTemplate ("button", "OPTIONS_BUTTON_TEMPLATE"), gump:GetTemplate ("font", "PLATER_BUTTON"))
+			save_script_button:SetIcon ([[Interface\BUTTONS\UI-Panel-ExpandButton-Up]], 20, 20, "overlay", {0.1, .9, 0.1, .9})
+			save_script_button:SetPoint ("topright", code_editor, "bottomright", 0, button_y)
+			
+			--> create cancel button
+			local cancel_script = function()
+				code_editor:SetText (_detalhes.run_code [f.EditingCodeKey])
+				_detalhes:Msg ("Code cancelled!")
+				code_editor:ClearFocus()
+			end
+			
+			local cancel_script_button = gump:CreateButton (f, cancel_script, 120, 20, "Cancel", -1, nil, nil, nil, nil, nil, gump:GetTemplate ("button", "OPTIONS_BUTTON_TEMPLATE"), gump:GetTemplate ("font", "PLATER_BUTTON"))
+			cancel_script_button:SetIcon ([[Interface\BUTTONS\UI-Panel-MinimizeButton-Up]], 20, 20, "overlay", {0.1, .9, 0.1, .9})
+			cancel_script_button:SetPoint ("topleft", code_editor, "bottomleft", 0, button_y)
+			
+			--> create run now button
+			local execute_script = function()
+				local script = code_editor:GetText()
+				local func, errortext = loadstring (script, "Q")
+				
+				if (func) then
+					gump:QuickDispatch (func)
+				else
+					errortext_frame:Flash (0.2, 0.2, 0.4, true, nil, nil, "NONE")
+				end
+			end
+			
+			local run_script_button = gump:CreateButton (f, execute_script, 120, 20, "Test Code", -1, nil, nil, nil, nil, nil, gump:GetTemplate ("button", "OPTIONS_BUTTON_TEMPLATE"), gump:GetTemplate ("font", "PLATER_BUTTON"))
+			run_script_button:SetIcon ([[Interface\BUTTONS\UI-SpellbookIcon-NextPage-Up]], 20, 20, "overlay", {0.05, 0.95, 0.05, 0.95})
+			run_script_button:SetPoint ("bottomright", code_editor, "topright", 0, 3)
+			
+		end
+		
+		DetailsPluginContainerWindow.OpenPlugin (DetailsRunCodePanel)
+		DetailsRunCodePanel.CodeTypeDropdown:Select (1, true)
+		
+		--> show the initialization code when showing up this window
+		DetailsRunCodePanel.EditingCode = _detalhes.RunCodeTypes [1].Value
+		DetailsRunCodePanel.EditingCodeKey = _detalhes.RunCodeTypes [1].ProfileKey
+
+		local code = _detalhes.run_code [DetailsRunCodePanel.EditingCodeKey]
+		DetailsRunCodePanel.CodeEditor:SetText (code)
+	end
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- ~API
+
 	function _detalhes:InitializeAPIWindow()
 		local DetailsAPIPanel = gump:CreateSimplePanel (UIParent, 700, 480, "Details! API", "DetailsAPIPanel")
 		DetailsAPIPanel.Frame = DetailsAPIPanel
@@ -3871,7 +4538,7 @@
 		DetailsPluginContainerWindow.EmbedPlugin (DetailsAPIPanel, DetailsAPIPanel, true)
 		
 		function DetailsAPIPanel.RefreshWindow()
-			 _detalhes.OpenAPI()
+			_detalhes.OpenAPI()
 		end
 	end
 	
@@ -3931,6 +4598,9 @@
 	end
 	
 	
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 function Details.OpenDpsBenchmark()
 	
 	--main frame
@@ -5301,8 +5971,11 @@ local CreateEventTrackerFrame = function (parent, name)
 			
 			--> crowd control
 			elseif (token == "SPELL_AURA_APPLIED" and (crowdControlList1 [spellid])) then
-				tinsert (CurrentShowing, 1, {SPELLTYPE_CROWDCONTROL, spellid, caster_name, target_name, time, false, GetTime(), caster_serial, is_enemy (caster_flags), target_serial})
-				added = true
+				--check if isnt a pet
+				if (target_flags and is_player (target_flags)) then
+					tinsert (CurrentShowing, 1, {SPELLTYPE_CROWDCONTROL, spellid, caster_name, target_name, time, false, GetTime(), caster_serial, is_enemy (caster_flags), target_serial})
+					added = true
+				end
 			
 			--> spell interrupt
 			elseif (token == "SPELL_INTERRUPT") then

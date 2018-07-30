@@ -1,11 +1,11 @@
 
 BigWigs:AddColors("Falric", {
-	[72422] = {"Personal","Urgent"},
-	[72426] = {"Important","Personal"},
+	[72422] = {"blue","orange"},
+	[72426] = {"blue","red"},
 })
 
 BigWigs:AddColors("Marwyn", {
-	[72363] = "Important",
-	[72368] = {"Attention","Personal"},
-	[72383] = {"Personal","Urgent"},
+	[72363] = "red",
+	[72368] = {"blue","yellow"},
+	[72383] = {"blue","orange"},
 })

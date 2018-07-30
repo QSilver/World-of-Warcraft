@@ -2,7 +2,7 @@
 --
 -- Prat - A framework for World of Warcraft chat mods
 --
--- Copyright (C) 2006-2011  Prat Development Team
+-- Copyright (C) 2006-2018  Prat Development Team
 --
 -- This program is free software; you can redistribute it and/or
 -- modify it under the terms of the GNU General Public License
@@ -31,7 +31,9 @@ Prat:AddModuleToLoad(function()
     return
   end
 
-  local PL = Prat:GetLocalizer({})
+  local module = Prat:NewModule(PRAT_MODULE)
+
+  local PL = module.PL
 
   --[===[@debug@
   PL:AddLocale(PRAT_MODULE, "enUS", {
@@ -144,30 +146,30 @@ L=
 L=
 {
 	["UrlCopy"] = {
-		--Translation missing 
-		-- ["Change the color of the URL."] = "",
-		--Translation missing 
-		-- ["Color URL"] = "",
-		--Translation missing 
-		-- ["Set Color"] = "",
-		--Translation missing 
-		-- ["Show Brackets"] = "",
-		--Translation missing 
-		-- ["Toggle"] = "",
-		--Translation missing 
-		-- ["Toggle showing brackets on and off."] = "",
-		--Translation missing 
-		-- ["Toggle the module on and off."] = "",
-		--Translation missing 
-		-- ["Toggle the URL color on and off."] = "",
-		--Translation missing 
-		-- ["URL formating options."] = "",
-		--Translation missing 
-		-- ["UrlCopy"] = "",
-		--Translation missing 
-		-- ["Use Popup"] = "",
-		--Translation missing 
-		-- ["Use popup window to show URL."] = "",
+		--[[Translation missing --]]
+		--[[ ["Change the color of the URL."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Color URL"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Set Color"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Show Brackets"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Toggle"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Toggle showing brackets on and off."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Toggle the module on and off."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Toggle the URL color on and off."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["URL formating options."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["UrlCopy"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Use Popup"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Use popup window to show URL."] = "",--]] 
 	}
 }
 
@@ -260,7 +262,6 @@ L=
 end
 --@end-non-debug@
 
-  local module = Prat:NewModule(PRAT_MODULE)
 
   Prat:SetModuleDefaults(module.name, {
     profile = {
@@ -676,6 +677,10 @@ end
   --[[------------------------------------------------
       Core Functions
   ------------------------------------------------]] --
+  function module:GetDescription()
+    return PL["URL formating options."]
+  end
+
   function module:Url_Link(link, text, button, frame, ...)
     self:ShowUrl(link, frame)
     return false

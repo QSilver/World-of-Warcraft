@@ -1,78 +1,78 @@
 
 BigWigs:AddColors("High Warlord Naj'entus", {
-	[39872] = {"Attention","Important","Positive"},
-	[39837] = {"Important","Personal"},
+	[39837] = {"blue","red"},
+	[39872] = {"green","red","yellow"},
 })
 
 BigWigs:AddColors("Supremus", {
-	[41951] = {"Important","Personal"},
-	[40126] = "Attention",
-	["stages"] = "Neutral",
-	[40265] = "Personal",
+	[40126] = "yellow",
+	[40265] = "blue",
+	[41951] = {"blue","red"},
+	["stages"] = "cyan",
 })
 
 BigWigs:AddColors("Shade of Akama", {
-	["stages"] = "Neutral",
-	[42023] = "Personal",
+	[42023] = "blue",
+	["stages"] = "cyan",
 })
 
 BigWigs:AddColors("Teron Gorefiend", {
-	[40251] = {"Important","Personal"},
-	[40243] = {"Urgent","Personal"},
+	[40243] = {"blue","orange"},
+	[40251] = {"blue","red"},
 })
 
 BigWigs:AddColors("Gurtogg Bloodboil", {
-	[40508] = {"Important","Personal"},
-	[40491] = {"Positive","Personal"},
-	[42005] = "Attention",
-	[40481] = {"Positive","Personal"},
-	[40604] = {"Urgent","Personal","Neutral"},
+	[40481] = {"blue","green"},
+	[40491] = {"blue","green"},
+	[40508] = {"blue","red"},
+	[40604] = {"blue","cyan","orange"},
+	[42005] = "yellow",
 })
 
 BigWigs:AddColors("Reliquary of Souls", {
-	[41376] = {"Important","Personal"},
-	[41294] = {"Important","Personal"},
-	[41303] = {"Attention","Personal"},
-	[41305] = {"Urgent","Positive"},
-	[41426] = {"Attention","Personal"},
-	[41410] = "Important",
-	[41431] = "Urgent",
-	["zero_mana"] = "Neutral",
+	[41294] = {"blue","red"},
+	[41303] = {"blue","yellow"},
+	[41305] = {"green","orange"},
+	[41376] = {"blue","red"},
+	[41410] = "red",
+	[41426] = {"blue","yellow"},
+	[41431] = "orange",
+	["zero_mana"] = "cyan",
 })
 
 BigWigs:AddColors("Mother Shahraz", {
-	[40896] = "Attention",
-	[40883] = "Attention",
-	[40882] = "Attention",
-	[40880] = "Attention",
-	[41001] = {"Urgent","Personal"},
-	[40891] = "Attention",
-	[40897] = "Attention",
+	[40880] = "yellow",
+	[40882] = "yellow",
+	[40883] = "yellow",
+	[40891] = "yellow",
+	[40896] = "yellow",
+	[40897] = "yellow",
+	[41001] = {"blue","orange"},
 })
 
 BigWigs:AddColors("The Illidari Council", {
-	[41482] = "Personal",
-	[41475] = {"Important","Positive"},
-	[41453] = {"Attention","Positive"},
-	[41476] = {"Attention","Positive"},
-	[41455] = "Urgent",
-	[41450] = "Important",
-	[41485] = {"Important","Personal"},
-	[41451] = "Important",
-	[41481] = "Personal",
+	[41450] = "red",
+	[41451] = "red",
+	[41453] = {"green","yellow"},
+	[41455] = "orange",
+	[41475] = {"green","red"},
+	[41476] = {"green","yellow"},
+	[41481] = "blue",
+	[41482] = "blue",
+	[41485] = {"blue","red"},
 })
 
 BigWigs:AddColors("Illidan Stormrage", {
-	[39869] = "Urgent",
-	[41032] = {"Important","Personal"},
-	[40695] = {"Important","Positive"},
-	[41117] = "Important",
-	[40585] = {"Important","Personal"},
-	[40683] = "Urgent",
-	[41126] = "Important",
-	["stages"] = "Neutral",
-	[40932] = {"Important","Personal"},
-	[40018] = {"Attention","Personal"},
-	[40506] = {"Important","Positive"},
-	[41917] = {"Personal","Attention"},
+	[39869] = "orange",
+	[40018] = {"blue","yellow"},
+	[40506] = {"green","red"},
+	[40585] = {"blue","red"},
+	[40683] = "orange",
+	[40695] = {"green","red"},
+	[40932] = {"blue","red"},
+	[41032] = {"blue","red"},
+	[41117] = "red",
+	[41126] = "red",
+	[41917] = {"blue","yellow"},
+	["stages"] = "cyan",
 })

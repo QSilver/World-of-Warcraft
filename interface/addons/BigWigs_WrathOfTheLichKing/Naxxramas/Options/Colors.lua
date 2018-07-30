@@ -1,92 +1,92 @@
 
 BigWigs:AddColors("Anub'Rekhan", {
-	[28785] = {"Attention","Important"},
+	[28785] = {"red","yellow"},
 })
 
 BigWigs:AddColors("Grand Widow Faerlina", {
-	[28794] = "Personal",
-	[28732] = {"Positive","Urgent"},
-	[28798] = {"Attention","Important","Positive","Urgent"},
+	[28732] = {"green","orange"},
+	[28794] = "blue",
+	[28798] = {"green","orange","red","yellow"},
 })
 
 BigWigs:AddColors("Gluth", {
-	[54426] = {"Attention","Urgent"},
-	[28371] = "Important",
+	[28371] = "red",
+	[54426] = {"orange","yellow"},
 })
 
 BigWigs:AddColors("Gothik the Harvester", {
-	["adddeath"] = "Important",
-	["room"] = {"Attention","Urgent","Important"},
-	["add"] = {"Attention","Urgent","Important"},
+	["add"] = {"orange","red","yellow"},
+	["adddeath"] = "red",
+	["room"] = {"orange","red","yellow"},
 })
 
 BigWigs:AddColors("Grobbulus", {
-	[28169] = "Personal",
-	[28240] = "Attention",
+	[28169] = "blue",
+	[28240] = "yellow",
 })
 
 BigWigs:AddColors("Heigan the Unclean", {
-	["engage"] = "Attention",
-	["teleport"] = {"Attention","Urgent","Important"},
+	["engage"] = "yellow",
+	["teleport"] = {"orange","red","yellow"},
 })
 
 BigWigs:AddColors("The Four Horsemen", {
-	[28883] = "Important",
-	[28884] = "Important",
-	["mark"] = {"Attention","Urgent","Important"},
-	[28863] = "Important",
-	["stages"] = "Positive",
+	[28863] = "red",
+	[28883] = "red",
+	[28884] = "red",
+	["mark"] = {"orange","red","yellow"},
+	["stages"] = "green",
 })
 
 BigWigs:AddColors("Kel'Thuzad", {
-	[27819] = {"Personal","Attention"},
-	["guardians"] = "Important",
-	[27808] = {"Important","Personal","Attention"},
-	["phase"] = {"Attention","Important"},
-	[27810] = "Important",
-	[28410] = {"Important","Personal","Urgent"},
+	[27808] = {"blue","red","yellow"},
+	[27810] = "red",
+	[27819] = {"blue","yellow"},
+	[28410] = {"blue","orange","red"},
+	["guardians"] = "red",
+	["phase"] = {"red","yellow"},
 })
 
 BigWigs:AddColors("Loatheb", {
-	[29204] = {"Attention","Urgent","Important"},
-	[29865] = {"Important","Attention"},
-	[55593] = {"Important","Attention"},
-	[29234] = "Important",
+	[29204] = {"orange","red","yellow"},
+	[29234] = "red",
+	[29865] = {"red","yellow"},
+	[55593] = {"red","yellow"},
 })
 
 BigWigs:AddColors("Maexxna", {
-	[28622] = {"Important","Personal"},
-	[29484] = {"Important","Attention"},
-	[54123] = {"Attention","Important"},
+	[28622] = {"blue","red"},
+	[29484] = {"red","yellow"},
+	[54123] = {"red","yellow"},
 })
 
 BigWigs:AddColors("Noth the Plaguebringer", {
-	[29213] = {"Important","Urgent"},
-	["blink"] = {"Attention","Important"},
-	["wave"] = "Urgent",
-	["teleport"] = {"Attention","Urgent","Important"},
+	[29213] = {"orange","red"},
+	["blink"] = {"red","yellow"},
+	["teleport"] = {"orange","red","yellow"},
+	["wave"] = "orange",
 })
 
 BigWigs:AddColors("Patchwerk", {
-	[28131] = "Attention",
+	[28131] = "yellow",
 })
 
 BigWigs:AddColors("Instructor Razuvious", {
-	[29060] = {"Positive","Attention"},
-	[29061] = {"Positive","Attention"},
-	[55550] = {"Important","Personal"},
-	[55543] = {"Attention","Important"},
+	[29060] = {"green","yellow"},
+	[29061] = {"green","yellow"},
+	[55543] = {"red","yellow"},
+	[55550] = {"blue","red"},
 })
 
 BigWigs:AddColors("Sapphiron", {
-	[28542] = {"Urgent","Important"},
-	[28522] = {"Attention","Personal"},
-	[28524] = {"Attention","Important"},
+	[28522] = {"blue","yellow"},
+	[28524] = {"red","yellow"},
+	[28542] = {"orange","red"},
 })
 
 BigWigs:AddColors("Thaddius", {
-	["phase"] = "Important",
-	[28089] = {"Personal","Positive","Important"},
-	[28134] = "Important",
-	["throw"] = "Urgent",
+	[28089] = {"blue","green","red"},
+	[28134] = "red",
+	["phase"] = "red",
+	["throw"] = "orange",
 })

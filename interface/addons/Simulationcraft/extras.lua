@@ -1,57 +1,5 @@
 local _, Simulationcraft = ...
 
--- Artifact lookup
-Simulationcraft.ArtifactTable = {
-  -- Death Knight
-  [128402] = 15,
-  [128292] = 12,
-  [128403] = 16,
-  -- Demon Hunter
-  [127829] = 3,
-  [128832] = 60,
-  -- Druid
-  [128858] = 59,
-  [128860] = 58,
-  [128821] = 57,
-  [128306] = 13,
-  -- Hunter
-  [128861] = 56,
-  [128826] = 55,
-  [128808] = 34,
-  -- Mage
-  [127857] = 4,
-  [128820] = 54,
-  [128862] = 53,
-  -- Monk
-  [128938] = 52,
-  [128937] = 51,
-  [128940] = 50,
-  -- Paladin
-  [128823] = 48,
-  [128866] = 49,
-  [120978] = 2,
-  -- Priest
-  [128868] = 46,
-  [128825] = 45,
-  [128827] = 47,
-  -- Rogue
-  [128870] = 43,
-  [128872] = 44,
-  [128476] = 17,
-  -- Shaman
-  [128935] = 40,
-  [128819] = 41,
-  [128911] = 42,
-  -- Warlock
-  [128942] = 39,
-  [128943] = 37,
-  [128941] = 38,
-  -- Warrior
-  [128910] = 36,
-  [128908] = 35,
-  [128289] = 11
-}
-
 Simulationcraft.RoleTable = {
   -- Death Knight
   [250] = 'tank',
@@ -64,7 +12,7 @@ Simulationcraft.RoleTable = {
   [102] = 'spell',
   [103] = 'attack',
   [104] = 'tank',
-  [105] = 'heal',
+  [105] = 'attack',
   -- Hunter
   [253] = 'attack',
   [254] = 'attack',
@@ -78,12 +26,12 @@ Simulationcraft.RoleTable = {
   [269] = 'attack',
   [270] = 'hybrid',
   -- Paladin
-  [65] = 'heal',
+  [65] = 'attack',
   [66] = 'tank',
   [70] = 'attack',
   -- Priest
   [256] = 'spell',
-  [257] = 'heal',
+  [257] = 'attack',
   [258] = 'spell',
   -- Rogue
   [259] = 'attack',
@@ -92,7 +40,7 @@ Simulationcraft.RoleTable = {
   -- Shaman
   [262] = 'spell',
   [263] = 'attack',
-  [264] = 'heal',
+  [264] = 'attack',
   -- Warlock
   [265] = 'spell',
   [266] = 'spell',

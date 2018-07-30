@@ -1,12 +1,22 @@
-tag 0ae7951d341460642ea063e9c710f95837418daa v70300-1.0.0
-Author:	Jim Whitehead <jnwhiteh@gmail.com>
-Date:	Mon Nov 13 22:26:57 2017 +0100
+lightweight tag b6be6279a0b12e47a828a903c91817c4a25f5247 v80001-1.0.1
+Author:	Ludovicus <ludovicus.maior@gmail.com>
+Date:	Thu Jul 26 18:27:03 2018 -0400
 
-Tagging v70300-1.0.0
+commit b6be6279a0b12e47a828a903c91817c4a25f5247
+Author: Ludovicus <ludovicus.maior@gmail.com>
+Date:   Thu Jul 26 18:27:03 2018 -0400
 
-commit 17dabc91c2b2bae4573ca542a7e943104b05ef8e
-Author: Jim Whitehead <jnwhiteh@gmail.com>
-Date:   Mon Nov 13 22:25:50 2017 +0100
+    If the WorldMap is open, use the map's MapID, else guess the current players' map for a QuestPOI.
 
-    Update for 7.3
+commit 2e0152a032066f6da27b3991f3d4adc81733fb72
+Author: Ludovicus <ludovicus.maior@gmail.com>
+Date:   Thu Jul 26 17:56:37 2018 -0400
+
+    Enable POI integration using QuestPOIButton_OnClick
+
+commit 3baa9f67909a4edf907cd116984cc720d7d4de7c
+Author: Ludovicus <ludovicus.maior@gmail.com>
+Date:   Thu Jul 26 17:52:00 2018 -0400
+
+    Fix TomTom:AddWaypointToCurrentZone() to use AddWaypoint()
 

@@ -77,7 +77,7 @@ end
 --
 
 function mod:Adrenaline(args)
-	self:Message(args.spellId, "Attention", nil, L["adrenaline_message"]:format(args.amount or 1))
+	self:Message(args.spellId, "yellow", nil, L["adrenaline_message"]:format(args.amount or 1))
 	 -- this is power based, not time. Power regen is affected by adrenaline
 	 -- adrenaline gets stacked every special
 	specialCounter = specialCounter + 1
@@ -100,7 +100,7 @@ do
 				mod:Say(spellId, L["leap_say"])
 				mod:Flash(spellId)
 			end
-			mod:TargetMessage(spellId, player, "Urgent", "Long") -- Leaping Flames
+			mod:TargetMessage(spellId, player, "orange", "Long") -- Leaping Flames
 			mod:PrimaryIcon(spellId, player)
 			return
 		end
@@ -139,11 +139,11 @@ end
 
 function mod:CatForm(args)
 	form = "cat"
-	self:Message(args.spellId, "Important", "Alert")
+	self:Message(args.spellId, "red", "Alert")
 	specialCounter = 1
 	self:Bar(98476, specialCD[specialCounter]) -- Leaping Flames
 	--Don't open if already opened from seed
-	local hasDebuff, _, _, _, _, _, remaining = UnitDebuff("player", self:SpellName(98450)) -- Searing Seeds
+	local hasDebuff, _, _, remaining = self:UnitDebuff("player", self:SpellName(98450)) -- Searing Seeds
 	if not hasDebuff or (remaining - GetTime() > 6) then
 		self:OpenProximity(args.spellId, 10)
 	end
@@ -151,7 +151,7 @@ end
 
 function mod:ScorpionForm(args)
 	form = "scorpion"
-	self:Message(args.spellId, "Important", "Alert")
+	self:Message(args.spellId, "red", "Alert")
 	self:PrimaryIcon(98476)
 	self:CloseProximity(98374)
 	specialCounter = 1
@@ -176,7 +176,7 @@ end
 
 do
 	local function searingSeed(spellId)
-		mod:Message(spellId, "Personal", "Alarm", L["seed_explosion"])
+		mod:Message(spellId, "blue", "Alarm", L["seed_explosion"])
 		mod:Flash(spellId)
 		mod:OpenProximity(spellId, 12)
 	end
@@ -184,7 +184,7 @@ do
 	function mod:SearingSeeds(args)
 		self:StopBar(98476) -- Leaping Flames
 		if not self:Me(args.destGUID) then return end
-		local _, _, _, _, _, _, remaining = UnitDebuff("player", args.spellName)
+		local _, _, _, remaining = self:UnitDebuff("player", args.spellName)
 		remaining = remaining - GetTime()
 		self:Bar(args.spellId, remaining, L["seed_bar"])
 		if remaining < 5 then

@@ -98,8 +98,8 @@ end
 
 if rachtimerhoo and GetTime()>rachtimerhoo then
 rachtimerhoo=nil
-SetMapToCurrentZone()
-if GetCurrentMapAreaID()==759 then
+--SetMapToCurrentZone()
+if C_Map.GetBestMapForUnit("player")==759 then
 if chraspisokon[16]==1 and chraachdone1 then
 chrafailnoreason(16)
 end
@@ -108,7 +108,7 @@ end
 
 if rachtimervanessa and GetTime()>rachtimervanessa then
 rachtimervanessa=nil
-if GetCurrentMapAreaID()==756 then
+if C_Map.GetBestMapForUnit("player")==756 then
 if chraspisokon[5]==1 and chraachdone1 then
 chrafailnoreason(5)
 end
@@ -117,7 +117,7 @@ end
 
 if chratimerstart and GetTime()>chratimerstart+15 then --убрать все psfailoklala
 chratimerstart=nil
-if GetCurrentMapAreaID()==759 then
+if C_Map.GetBestMapForUnit("player")==759 then
   if chracounter1==2 then
     chrafailnoreason(15) --ыытест проверить ИД совпадает ли в конце
   end
@@ -238,7 +238,7 @@ end
 
 if event == "CHAT_MSG_MONSTER_YELL" or event=="CHAT_MSG_MONSTER_SAY" then
 
-if arg1==chhrbrannyell and GetCurrentMapAreaID()==759 then
+if arg1==chhrbrannyell and C_Map.GetBestMapForUnit("player")==759 then
 if chraspisokon[16]==1 and chraachdone1 then
 rachtimerhoo=GetTime()+298
 ratempadd_c=nil
@@ -281,7 +281,7 @@ end
 end
 
 
-if GetCurrentMapAreaID()==756 then
+if C_Map.GetBestMapForUnit("player")==756 then
 if (arg2=="SPELL_DAMAGE" or (arg2=="SPELL_MISSED" and arg13 and (arg13=="ABSORB" or arg13=="RESIST"))) and arg10==91397 then
 if chraspisokon[2]==1 and chraachdone1 then
 local _, _, _, chramyach = GetAchievementInfo(5366)
@@ -353,7 +353,7 @@ end
 
 
 --Shadowfang Keep
-if GetCurrentMapAreaID()==764 then
+if C_Map.GetBestMapForUnit("player")==764 then
 
 if arg2=="SPELL_CAST_SUCCESS" and arg10==93710 then
 ralldelaycombatrezet=GetTime()+15
@@ -411,7 +411,7 @@ end
 
 
 --blackrock
-if GetCurrentMapAreaID()==753 then
+if C_Map.GetBestMapForUnit("player")==753 then
 
 if arg2=="SPELL_DAMAGE" and arg10==93454 then
 	if chraspisokon[9]==1 and chraachdone1 then
@@ -486,7 +486,7 @@ end
 
 
 --grim batol
-if GetCurrentMapAreaID()==757 then
+if C_Map.GetBestMapForUnit("player")==757 then
 
 if arg2=="SPELL_AURA_APPLIED" and arg10==90170 then
 	if chraspisokon[14]==1 and chraachdone1 then
@@ -515,7 +515,7 @@ end
 --
 
 --halls of orig
-if GetCurrentMapAreaID()==759 then
+if C_Map.GetBestMapForUnit("player")==759 then
 if arg2=="SPELL_AURA_APPLIED" and arg10==75322 then                 --ЫЫТЕСТ меняя тут ИД менять также и в онапдейт функции!
 	if chraspisokon[15]==1 and chraachdone1 then
 		chratimerstart=GetTime()
@@ -550,7 +550,7 @@ end
 end
 
 --lost city
---if GetCurrentMapAreaID()==747 then
+--if C_Map.GetBestMapForUnit("player")==747 then
 
 
 
@@ -559,7 +559,7 @@ end
 --
 
 --Zul'Aman
-if GetCurrentMapAreaID()==781 then
+if C_Map.GetBestMapForUnit("player")==781 then
 
 if chraspisokon[18]==1 and chraachdone1 then
 	if arg2=="SPELL_PERIODIC_DAMAGE" and arg14 and arg14>0 then
@@ -624,7 +624,7 @@ end
 --
 
 --Zul'Gurub
-if GetCurrentMapAreaID()==793 then
+if C_Map.GetBestMapForUnit("player")==793 then
 --кто попал в 3 абилки!
 if arg2=="SPELL_DAMAGE" and (arg10==96515 or arg10==96638 or arg10==96685) then
 	if chraspisokon[19]==1 and chraachdone1 then
@@ -695,7 +695,7 @@ end
 
 if arg2=="UNIT_DIED" and chraspisokon[22]==1 and chraachdone1 then
 	local id=raGetUnitID(arg7)
-	if id==54191 and GetCurrentMapAreaID()==820 then
+	if id==54191 and C_Map.GetBestMapForUnit("player")==820 then
 		chracounter1=chracounter1+1
 		if chracounter1==2 then
 			chraachcompl(22)

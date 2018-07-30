@@ -235,7 +235,7 @@ end
 
 
 --Black Rook Hold
-if GetCurrentMapAreaID()==1081 then
+if C_Map.GetBestMapForUnit("player")==1081 then
 
 if arg2=="UNIT_DIED" and legionbosskilled==nil then
   if legionhraspisokon[1]==1 and legionhraachdone1 then

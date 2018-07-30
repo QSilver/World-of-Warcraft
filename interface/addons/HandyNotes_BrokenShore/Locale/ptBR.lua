@@ -62,8 +62,4 @@ L["Veiled Wyrmtongue Chest"] = "Baús de Língua de Serpe Velado"
 L["What to display"] = "O que exibir"
 L["Wyrmtongue Chest"] = "Baús de Língua de Serpe"
 
--- ToC
-L["Description"] = "Mostra os POIs em Costa Partida"
-L["Title"] = "HandyNotes - Costa Partida"
-
 end

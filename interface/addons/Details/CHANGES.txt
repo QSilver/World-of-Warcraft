@@ -1,5 +1,59 @@
-changeset:   715:b025504ef9dd
+changeset:   724:c37a7672ea3a
 tag:         tip
+user:        Tercio
+date:        Tue Jul 24 13:56:44 2018 -0300
+summary:     - Removed bookmark tutorial popup.
+
+
+changeset:   723:7269c15128aa
+user:        Tercio
+date:        Fri Jul 20 18:23:25 2018 -0300
+summary:     - Added Cyclone to crowd control.
+
+
+changeset:   722:905512562025
+user:        Tercio
+date:        Thu Jul 19 16:40:11 2018 -0300
+summary:     - Missing localization for the welcome window has been added.
+
+
+changeset:   721:d62a7bb07482
+user:        Tercio
+date:        Wed Jul 18 16:42:30 2018 -0300
+summary:     - Attempt to fix a load file error.
+
+
+changeset:   720:6cf5b11ae1f7
+user:        Tercio
+date:        Wed Jul 18 16:29:26 2018 -0300
+summary:     - Fixing a red alert load fail which was happening for some users.
+
+
+changeset:   719:4fe1a6f189e6
+user:        Tercio
+date:        Tue Jul 17 13:31:22 2018 -0300
+summary:     - Second pass on Patch 8.0.1
+
+
+changeset:   718:100a0bcd8c7e
+user:        Tercio
+date:        Tue Jul 17 12:07:40 2018 -0300
+summary:     - Patch 8.0.1
+
+
+changeset:   717:e63e22c9c4af
+user:        Tercio
+date:        Fri May 04 13:14:49 2018 -0300
+summary:     - Attempt to make the packager work.
+
+
+changeset:   716:d021b8e5392f
+user:        Tercio
+date:        Thu May 03 14:51:47 2018 -0300
+summary:     - Changes to make the live version work with the BfA Beta.
+
+
+changeset:   715:b025504ef9dd
 user:        Tercio
 date:        Fri Apr 27 13:31:55 2018 -0300
 summary:     - Fixed major issue with the statistics sharing.

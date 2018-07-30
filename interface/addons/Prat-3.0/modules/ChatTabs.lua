@@ -2,7 +2,7 @@
 --
 -- Prat - A framework for World of Warcraft chat mods
 --
--- Copyright (C) 2006-2011  Prat Development Team
+-- Copyright (C) 2006-2018  Prat Development Team
 --
 -- This program is free software; you can redistribute it and/or
 -- modify it under the terms of the GNU General Public License
@@ -37,7 +37,9 @@ if PRAT_MODULE == nil then
     return 
 end
 
-local PL = Prat:GetLocalizer({})
+local module = Prat:NewModule(PRAT_MODULE, "AceHook-3.0")
+
+local PL = module.PL
 
 --[===[@debug@
 PL:AddLocale(PRAT_MODULE, "enUS", {
@@ -101,44 +103,44 @@ PL:AddLocale(PRAT_MODULE, "enUS", L)
 L=
 {
 	["ChatTabs"] = {
-		--Translation missing 
-		-- ["Active Alpha"] = "",
-		--Translation missing 
-		-- ["All"] = "",
-		--Translation missing 
-		-- ["Always"] = "",
-		--Translation missing 
-		-- ["Chat window tab options."] = "",
-		--Translation missing 
-		-- ["Default"] = "",
-		--Translation missing 
-		-- ["disableflash_desc"] = "",
-		--Translation missing 
-		-- ["disableflash_name"] = "",
-		--Translation missing 
-		-- ["Hidden"] = "",
-		--Translation missing 
-		-- ["Individual"] = "",
-		--Translation missing 
-		-- ["Not Active Alpha"] = "",
-		--Translation missing 
-		-- ["preventdrag_desc"] = "",
-		--Translation missing 
-		-- ["preventdrag_name"] = "",
-		--Translation missing 
-		-- ["Set ChatFrame%d Display Mode"] = "",
-		--Translation missing 
-		-- ["Set Display Mode"] = "",
-		--Translation missing 
-		-- ["Set tab display mode for each chat window."] = "",
-		--Translation missing 
-		-- ["Set tab display to always, hidden or the Blizzard default."] = "",
-		--Translation missing 
-		-- ["Sets alpha of chat tab for active chat frame."] = "",
-		--Translation missing 
-		-- ["Sets alpha of chat tab for not active chat frame."] = "",
-		--Translation missing 
-		-- ["Tabs"] = "",
+		--[[Translation missing --]]
+		--[[ ["Active Alpha"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["All"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Always"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Chat window tab options."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Default"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["disableflash_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["disableflash_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Hidden"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Individual"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Not Active Alpha"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["preventdrag_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["preventdrag_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Set ChatFrame%d Display Mode"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Set Display Mode"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Set tab display mode for each chat window."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Set tab display to always, hidden or the Blizzard default."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Sets alpha of chat tab for active chat frame."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Sets alpha of chat tab for not active chat frame."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Tabs"] = "",--]] 
 	}
 }
 PL:AddLocale(PRAT_MODULE, "itIT", L)
@@ -147,44 +149,44 @@ PL:AddLocale(PRAT_MODULE, "itIT", L)
 L=
 {
 	["ChatTabs"] = {
-		--Translation missing 
-		-- ["Active Alpha"] = "",
-		--Translation missing 
-		-- ["All"] = "",
-		--Translation missing 
-		-- ["Always"] = "",
-		--Translation missing 
-		-- ["Chat window tab options."] = "",
-		--Translation missing 
-		-- ["Default"] = "",
-		--Translation missing 
-		-- ["disableflash_desc"] = "",
-		--Translation missing 
-		-- ["disableflash_name"] = "",
-		--Translation missing 
-		-- ["Hidden"] = "",
-		--Translation missing 
-		-- ["Individual"] = "",
-		--Translation missing 
-		-- ["Not Active Alpha"] = "",
-		--Translation missing 
-		-- ["preventdrag_desc"] = "",
-		--Translation missing 
-		-- ["preventdrag_name"] = "",
-		--Translation missing 
-		-- ["Set ChatFrame%d Display Mode"] = "",
-		--Translation missing 
-		-- ["Set Display Mode"] = "",
-		--Translation missing 
-		-- ["Set tab display mode for each chat window."] = "",
-		--Translation missing 
-		-- ["Set tab display to always, hidden or the Blizzard default."] = "",
-		--Translation missing 
-		-- ["Sets alpha of chat tab for active chat frame."] = "",
-		--Translation missing 
-		-- ["Sets alpha of chat tab for not active chat frame."] = "",
-		--Translation missing 
-		-- ["Tabs"] = "",
+		--[[Translation missing --]]
+		--[[ ["Active Alpha"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["All"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Always"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Chat window tab options."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Default"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["disableflash_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["disableflash_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Hidden"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Individual"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Not Active Alpha"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["preventdrag_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["preventdrag_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Set ChatFrame%d Display Mode"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Set Display Mode"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Set tab display mode for each chat window."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Set tab display to always, hidden or the Blizzard default."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Sets alpha of chat tab for active chat frame."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Sets alpha of chat tab for not active chat frame."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Tabs"] = "",--]] 
 	}
 }
 PL:AddLocale(PRAT_MODULE, "ptBR", L)
@@ -271,44 +273,44 @@ PL:AddLocale(PRAT_MODULE, "koKR",L)
 L=
 {
 	["ChatTabs"] = {
-		--Translation missing 
-		-- ["Active Alpha"] = "",
-		--Translation missing 
-		-- ["All"] = "",
-		--Translation missing 
-		-- ["Always"] = "",
-		--Translation missing 
-		-- ["Chat window tab options."] = "",
-		--Translation missing 
-		-- ["Default"] = "",
-		--Translation missing 
-		-- ["disableflash_desc"] = "",
-		--Translation missing 
-		-- ["disableflash_name"] = "",
-		--Translation missing 
-		-- ["Hidden"] = "",
-		--Translation missing 
-		-- ["Individual"] = "",
-		--Translation missing 
-		-- ["Not Active Alpha"] = "",
-		--Translation missing 
-		-- ["preventdrag_desc"] = "",
-		--Translation missing 
-		-- ["preventdrag_name"] = "",
-		--Translation missing 
-		-- ["Set ChatFrame%d Display Mode"] = "",
-		--Translation missing 
-		-- ["Set Display Mode"] = "",
-		--Translation missing 
-		-- ["Set tab display mode for each chat window."] = "",
-		--Translation missing 
-		-- ["Set tab display to always, hidden or the Blizzard default."] = "",
-		--Translation missing 
-		-- ["Sets alpha of chat tab for active chat frame."] = "",
-		--Translation missing 
-		-- ["Sets alpha of chat tab for not active chat frame."] = "",
-		--Translation missing 
-		-- ["Tabs"] = "",
+		--[[Translation missing --]]
+		--[[ ["Active Alpha"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["All"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Always"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Chat window tab options."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Default"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["disableflash_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["disableflash_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Hidden"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Individual"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Not Active Alpha"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["preventdrag_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["preventdrag_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Set ChatFrame%d Display Mode"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Set Display Mode"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Set tab display mode for each chat window."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Set tab display to always, hidden or the Blizzard default."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Sets alpha of chat tab for active chat frame."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Sets alpha of chat tab for not active chat frame."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Tabs"] = "",--]] 
 	}
 }
 PL:AddLocale(PRAT_MODULE, "esMX",L)
@@ -416,7 +418,6 @@ end
 --@end-non-debug@
 
 
-local module = Prat:NewModule(PRAT_MODULE, "AceHook-3.0")
 
 Prat:SetModuleDefaults(module.name, {
 	profile = {
@@ -508,6 +509,9 @@ end
     Core Functions
 ------------------------------------------------]]--
 
+function module:GetDescription()
+    return PL["Chat window tab options."]
+end
 
 function module:HookedMode(hooked)
     if hooked then

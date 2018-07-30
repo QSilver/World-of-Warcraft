@@ -111,7 +111,7 @@ local function Overlay_OnEnter(b)
 			local slot = GetInventorySlotInfo(b.aura_id)
 			if slot then GameTooltip:SetInventoryItem("player", slot) end
 		elseif b.aura_tt == "buff" then
-			if not UnitBuff("player", b.aura_id) then return end
+			if not UnitAura("player", b.aura_id, "HELPFUL") then return end
 			GameTooltip:SetUnitAura("player", b.aura_id, "HELPFUL")
 		elseif b.aura_tt == "spell name" then
 			local auraList = MOD:CheckAura("player", b.aura_id, true)
@@ -292,7 +292,7 @@ function MOD:UpdateInCombatBarOverlays()
 			local v = g.overlays[i]
 			local id, buff, icon, duration, expires, _ = v.buffName, nil, nil, 0, 0, nil
 			if not g.hidden and (g.opt.ooc or InCombatLockdown()) then -- check if in combat or have out-of-combat enabled
-				buff, _, icon, _, _, duration, expires = UnitBuff("player", id)
+				buff, icon, _, _, duration, expires = MOD.UnitAuraSpellName("player", id, "HELPFUL")
 			end
 			if buff then
 				v.highlight:SetTexture(icon); v.highlight:Show(); v.container:EnableMouse(false)
@@ -328,7 +328,7 @@ function MOD:RefreshInCombatBar()
 			local v = g.overlays[i]
 			local id, buff, icon, duration, expires, _ = v.buffName, nil, nil, 0, 0, nil
 			if not g.hidden and (g.opt.ooc or InCombatLockdown()) then -- check if in combat or have out-of-combat enabled
-				buff, _, icon, _, _, duration, expires = UnitBuff("player", id)
+				buff, icon, _, _, duration, expires = MOD.UnitAuraSpellName("player", id, "HELPFUL")
 			end
 			if buff then
 				local alpha = 1

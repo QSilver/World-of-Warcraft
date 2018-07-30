@@ -1,41 +1,41 @@
 
 BigWigs:AddColors("Hydross the Unstable", {
-	[38246] = {"Attention","Personal"},
-	["mark"] = "Important",
-	[38235] = {"Attention","Personal"},
-	["stance"] = "Important",
+	[38235] = {"blue","yellow"},
+	[38246] = {"blue","yellow"},
+	["mark"] = "red",
+	["stance"] = "red",
 })
 
 BigWigs:AddColors("Fathom-Lord Karathress", {
-	[38330] = "Important",
-	["totem"] = {"Urgent","Attention"},
+	[38330] = "red",
+	["totem"] = {"orange","yellow"},
 })
 
 BigWigs:AddColors("Leotheras the Blind", {
-	[37640] = {"Important","Attention"},
-	["whisper"] = {"Attention","Personal"},
-	["phase"] = {"Urgent","Important","Attention"},
-	["mindcontrol"] = {"Urgent","Personal"},
-	["image"] = {"Important","Urgent"},
+	[37640] = {"red","yellow"},
+	["image"] = {"orange","red"},
+	["mindcontrol"] = {"blue","orange"},
+	["phase"] = {"orange","red","yellow"},
+	["whisper"] = {"blue","yellow"},
 })
 
 BigWigs:AddColors("The Lurker Below", {
-	["dive"] = {"Attention","Positive","Urgent"},
-	["spout"] = {"Attention","Important"},
+	["dive"] = {"green","orange","yellow"},
+	["spout"] = {"red","yellow"},
 })
 
 BigWigs:AddColors("Morogrim Tidewalker", {
-	[37850] = {"Important","Personal"},
-	["murloc"] = {"Positive","Attention"},
-	[37730] = "Urgent",
-	["globules"] = {"Important","Positive"},
+	[37730] = "orange",
+	[37850] = {"blue","red"},
+	["globules"] = {"green","red"},
+	["murloc"] = {"green","yellow"},
 })
 
 BigWigs:AddColors("Lady Vashj", {
-	["elemental"] = "Important",
-	["naga"] = "Attention",
-	["phase"] = {"Attention","Important"},
-	["strider"] = "Attention",
-	[38280] = {"Important","Personal"},
-	["barrier"] = "Attention",
+	[38280] = {"blue","red"},
+	["barrier"] = "yellow",
+	["elemental"] = "red",
+	["naga"] = "yellow",
+	["phase"] = {"red","yellow"},
+	["strider"] = "yellow",
 })

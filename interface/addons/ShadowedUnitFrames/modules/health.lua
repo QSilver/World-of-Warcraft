@@ -40,7 +40,7 @@ function Health:OnEnable(frame)
 	frame:RegisterUnitEvent("UNIT_TARGETABLE_CHANGED", self, "UpdateColor")
 	
 	if( frame.unit == "pet" ) then
-		frame:RegisterUnitEvent("UNIT_POWER", self, "UpdateColor")
+		frame:RegisterUnitEvent("UNIT_POWER_UPDATE", self, "UpdateColor")
 	end
 
 	if ( ShadowUF.db.profile.units[frame.unitType].healthBar.colorDispel ) then
@@ -63,7 +63,7 @@ function Health:UpdateAura(frame)
 		local id = 0
 		while( true ) do
 			id = id + 1
-			local name, _, _, _, auraType = UnitDebuff(frame.unit, id)
+			local name, _, _, auraType = UnitDebuff(frame.unit, id)
 			if( not name ) then break end
 
 			if( canCure[auraType] ) then

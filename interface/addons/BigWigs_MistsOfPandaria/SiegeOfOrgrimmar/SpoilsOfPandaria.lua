@@ -18,8 +18,6 @@ local bossUnitPowers = {}
 local massiveCrates = 2
 local stoutCrates = 6
 local prevEnrage = 0
-local GetNumWorldStateUI = GetNumWorldStateUI
-local GetWorldStateUIInfo = GetWorldStateUIInfo
 
 local function checkPlayerSide()
 	return 1 -- XXX fixme
@@ -116,7 +114,7 @@ function mod:OnEngage()
 	wipe(setToBlow)
 	wipe(bossUnitPowers)
 	self:RegisterUnitEvent("UNIT_POWER_FREQUENT", nil, "boss1", "boss2")
-	self:RegisterEvent("UPDATE_WORLD_STATES")
+	--self:RegisterWidgetEvent(527, "UpdateBerserkTimer") -- XXX get the correct widget
 	self:OpenProximity("proximity", 3)
 end
 
@@ -124,7 +122,7 @@ end
 -- Event Handlers
 --
 
-function mod:UNIT_POWER_FREQUENT(unit, powerType)
+function mod:UNIT_POWER_FREQUENT(_, unit, powerType)
 	if powerType ~= "ALTERNATE" then return end
 
 	local power = UnitPower(unit, 10) -- Enum.PowerType.Alternate = 10
@@ -144,7 +142,7 @@ function mod:UNIT_POWER_FREQUENT(unit, powerType)
 			stoutCrates = stoutCrates - 1
 		end
 		if power == 50 then
-			self:Message("crates", "Important", "Long", L.full_power, L.crates_icon)
+			self:Message("crates", "red", "Long", L.full_power, L.crates_icon)
 			massiveCrates = 2
 			stoutCrates = 6
 		else
@@ -153,10 +151,10 @@ function mod:UNIT_POWER_FREQUENT(unit, powerType)
 			small = max(0, small - (massiveCrates * 14))
 			local medium = min(floor(small / 3), stoutCrates)
 			small = max(0, small - (medium * 3))
-			self:Message("crates", "Attention", nil, L.power_left:format(remaining, massiveCrates, medium, small), L.crates_icon)
+			self:Message("crates", "yellow", nil, L.power_left:format(remaining, massiveCrates, medium, small), L.crates_icon)
 		end
 	elseif self:Mythic() then
-		self:Message(146815, "Important", "Alert", CL.incoming:format(self:SpellName(-8469))) -- Unstable Spark
+		self:Message(146815, "red", "Alert", CL.incoming:format(self:SpellName(-8469))) -- Unstable Spark
 		if self:Damager() then
 			self:Flash(146815)
 		end
@@ -171,7 +169,7 @@ do
 		local t = GetTime()
 		if t-prev > 2 and self:Me(args.destGUID) then -- don't spam
 			prev = t
-			self:Message(args.spellId, "Personal", "Info", CL.underyou:format(args.spellName))
+			self:Message(args.spellId, "blue", "Info", CL.underyou:format(args.spellName))
 		end
 	end
 end
@@ -183,8 +181,8 @@ function mod:BreathOfFire(args)
 
 	-- XXX no range checking now
 	if not player then --or self:Range(player) < 30 then
-		self:Message(args.spellId, "Attention")
-		if UnitDebuff("player", self:SpellName(146217)) then -- Keg Toss
+		self:Message(args.spellId, "yellow")
+		if self:UnitDebuff("player", self:SpellName(146217)) then -- Keg Toss
 			self:PlaySound(args.spellId, "Long")
 			self:Flash(146217) -- flash again
 		end
@@ -193,7 +191,7 @@ end
 
 function mod:KegToss(args)
 	if self:Me(args.destGUID) then
-		self:Message(args.spellId, "Personal", "Info")
+		self:Message(args.spellId, "blue", "Info")
 		self:Flash(args.spellId)
 	end
 end
@@ -201,7 +199,7 @@ end
 -- Mogu crate
 function mod:CrimsonReconstitution(args)
 	if checkPlayerSide() < 0 then
-		self:Message(args.spellId, "Urgent", "Warning", CL.casting:format(args.spellName))
+		self:Message(args.spellId, "orange", "Warning", CL.casting:format(args.spellName))
 	end
 end
 
@@ -211,20 +209,20 @@ do
 		local t = GetTime()
 		if t-prev > 2 and checkPlayerSide() < 0 then
 			prev = t
-			self:Message(142947, "Urgent", "Alarm")
+			self:Message(142947, "orange", "Alarm")
 		end
 	end
 end
 
 function mod:MoguRuneOfPower(args)
 	if checkPlayerSide() < 0 then
-		self:Message(args.spellId, "Urgent", "Alarm")
+		self:Message(args.spellId, "orange", "Alarm")
 	end
 end
 
 function mod:MatterScramble(args)
 	if checkPlayerSide() < 0 then
-		self:Message(args.spellId, "Important", "Alert", ("%s - %s"):format(args.spellName, CL.incoming:format(self:SpellName(125619))))
+		self:Message(args.spellId, "red", "Alert", ("%s - %s"):format(args.spellName, CL.incoming:format(self:SpellName(125619))))
 		self:Bar(args.spellId, 8, 125619) -- 125619 = Explosion
 	end
 end
@@ -232,7 +230,7 @@ end
 function mod:SparkOfLife()
 	if checkPlayerSide() < 0 then
 		sparkCounter = sparkCounter + 1
-		self:Message(142694, "Attention", nil, CL.count:format(self:SpellName(-8380), sparkCounter))
+		self:Message(142694, "yellow", nil, CL.count:format(self:SpellName(-8380), sparkCounter))
 	end
 end
 
@@ -249,20 +247,20 @@ do
 		local t = GetTime()
 		if t-prev > 2 and checkPlayerSide() > 0 and self:Dispeller("magic", true, 145786) then
 			prev = t
-			self:Message(145786, "Urgent", "Alarm")
+			self:Message(145786, "orange", "Alarm")
 		end
 	end
 end
 
 function mod:ResidueStart(args)
 	if checkPlayerSide() > 0 and self:Dispeller("magic", true, args.spellId) then
-		self:Message(args.spellId, "Attention", nil, CL.casting:format(args.spellName))
+		self:Message(args.spellId, "yellow", nil, CL.casting:format(args.spellName))
 	end
 end
 
 function mod:WarcallerEnrage(args)
 	if checkPlayerSide() > 0 then
-		self:TargetMessage(args.spellId, args.destName, "Urgent", "Alarm")
+		self:TargetMessage(args.spellId, args.destName, "orange", "Alarm")
 	end
 end
 
@@ -272,7 +270,7 @@ do
 		local t = GetTime()
 		if t-prev > 2 and self:Me(args.destGUID) then -- don't spam
 			prev = t
-			self:Message(args.spellId, "Personal", "Info", CL.underyou:format(args.spellName))
+			self:Message(args.spellId, "blue", "Info", CL.underyou:format(args.spellName))
 		end
 	end
 end
@@ -283,7 +281,7 @@ do
 		local t = GetTime()
 		if t-prev > 2 and self:Me(args.destGUID) then -- don't spam
 			prev = t
-			self:Message(args.spellId, "Personal", "Info", CL.underyou:format(args.spellName))
+			self:Message(args.spellId, "blue", "Info", CL.underyou:format(args.spellName))
 		end
 	end
 end
@@ -304,7 +302,7 @@ do
 
 	function mod:SetToBlowRemoved(args)
 		if self:Me(args.destGUID) then
-			self:Message(args.spellId, "Positive", nil, CL.over:format(args.spellName))
+			self:Message(args.spellId, "green", nil, CL.over:format(args.spellName))
 			self:StopBar(args.spellId, args.destName)
 			openForMe = nil
 		else
@@ -322,7 +320,7 @@ do
 		if self:Me(args.destGUID) then
 			self:CloseProximity("proximity")
 			self:OpenProximity(args.spellId, 12) -- 10, but be more safe
-			self:Message(args.spellId, "Important", "Warning", CL.you:format(args.spellName))
+			self:Message(args.spellId, "red", "Warning", CL.you:format(args.spellName))
 			self:TargetBar(args.spellId, 30, args.destName)
 			self:Flash(args.spellId)
 			openForMe = true
@@ -333,7 +331,7 @@ do
 	end
 end
 
-function mod:UPDATE_WORLD_STATES()
+function mod:UpdateBerserkTimer(_, text)
 	-- NEW MISSION! I want you to blow up... THE OCEAN!
 	-- If it wasn't clear from this code, I don't trust this API at all.
 	-- Hardcoding the values and firing :Berserk on engage/room change seemed to end up with timers going out of sync.
@@ -341,24 +339,18 @@ function mod:UPDATE_WORLD_STATES()
 	-- Repeatedly running through LFR to test various methods was also a delightful experience.
 	-- Pretty much, I hate it. The only positive from this is that we don't need to schedule the messages.
 	-- If this ever breaks in a future patch, $#!+.
-	for i = 1, GetNumWorldStateUI() do
-		local _, state, _, enrage = GetWorldStateUIInfo(i)
-		if state > 0 and enrage then -- Check if state is visible and if text exists.
-			local remaining = enrage:match("%d+")
-			if remaining then
-				local timeRemaining = tonumber(remaining)
-				if timeRemaining and timeRemaining > 0 then
-					if timeRemaining > prevEnrage or timeRemaining % 60 == 0 then
-						self:Bar("berserk", timeRemaining+1, 26662) -- +1s to compensate for timer rounding.
-					end
-					-- It shouldn't fire the same value twice, but throttle for safety.
-					if timeRemaining ~= prevEnrage and (timeRemaining == 60 or timeRemaining == 30 or timeRemaining == 10 or timeRemaining == 5) then
-						self:Message("berserk", "Positive", nil, format(CL.custom_sec, self:SpellName(26662), timeRemaining), 26662)
-					end
-					prevEnrage = timeRemaining
-				end
+	local remaining = text:match("%d+")
+	if remaining then
+		local timeRemaining = tonumber(remaining)
+		if timeRemaining and timeRemaining > 0 then
+			if timeRemaining > prevEnrage or timeRemaining % 60 == 0 then
+				self:Bar("berserk", timeRemaining+1, 26662) -- +1s to compensate for timer rounding.
 			end
+			-- It shouldn't fire the same value twice, but throttle for safety.
+			if timeRemaining ~= prevEnrage and (timeRemaining == 60 or timeRemaining == 30 or timeRemaining == 10 or timeRemaining == 5) then
+				self:Message("berserk", "green", nil, format(CL.custom_sec, self:SpellName(26662), timeRemaining), 26662)
+			end
+			prevEnrage = timeRemaining
 		end
 	end
 end
-

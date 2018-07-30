@@ -61,11 +61,6 @@ local function CreatePluginFrames (data)
 			
 			ChartViewer:RefreshScale()
 			
-			if (ChartViewer.welcome_panel) then
-				ChartViewer.welcome_panel:Show()
-				ChartViewer.welcome_panel = nil
-			end
-			
 		elseif (event == "PLUGIN_DISABLED") then
 			ChartViewer:HideButton()
 		
@@ -473,8 +468,6 @@ end
 		
 		ChartViewer.CanShowOrHideButtonEvents = {
 			["GROUP_ROSTER_UPDATE"] = true,
-			["PARTY_MEMBERS_CHANGED"] = true,
-			["PARTY_CONVERTED_TO_RAID"] = true,
 			["ZONE_CHANGED_NEW_AREA"] = true,
 			["PLAYER_ENTERING_WORLD"] = true,
 		}
@@ -666,7 +659,7 @@ end
 											data_name = name:gsub ((".*%~"), "")
 											boss_index = boss_index + 1
 										else
-											data_name = "#" .. boss_index
+											data_name = "segment #" .. boss_index
 											boss_index = boss_index + 1
 										end
 										
@@ -687,7 +680,7 @@ end
 										data_name = capture_name
 										boss_index = boss_index + 1
 									else
-										data_name = "#" .. boss_index
+										data_name = "segment #" .. boss_index
 										boss_index = boss_index + 1
 									end
 									
@@ -763,11 +756,53 @@ end
 			
 			--ChartViewerWindowFrame:Show()
 			DetailsPluginContainerWindow.OpenPlugin (ChartViewer)
+			
+			if (ChartViewer.welcome_panel) then
+				ChartViewer.welcome_panel:Show()
+				ChartViewer.welcome_panel = nil
+			end
 		end
 		
 	
 ----------> Create the icon
-		ChartViewer.ToolbarButton = _detalhes.ToolBar:NewPluginToolbarButton (ChartViewer.OpenWindow, [[Interface\Addons\Details_ChartViewer\icon]], Loc ["STRING_PLUGIN_NAME"], Loc ["STRING_TOOLTIP"], 14, 14, "CHARTVIEWER_BUTTON")
+
+	local cooltip_menu = function()
+		
+		local CoolTip = GameCooltip2
+		
+		CoolTip:Reset()
+		CoolTip:SetType ("menu")
+		
+		CoolTip:SetOption ("TextSize", Details.font_sizes.menus)
+		CoolTip:SetOption ("TextFont", Details.font_faces.menus)		
+
+		CoolTip:SetOption ("LineHeightSizeOffset", 3)
+		CoolTip:SetOption ("VerticalOffset", 2)
+		CoolTip:SetOption ("VerticalPadding", -4)
+		CoolTip:SetOption ("FrameHeightSizeOffset", -3)
+		
+		Details:SetTooltipMinWidth()
+		
+		--build the menu with the available tabs
+			for index, tab in ipairs (ChartViewer.tabs) do 
+				CoolTip:AddLine (tab.name .. " Graphic")
+				CoolTip:AddIcon ([[Interface\Addons\Details_ChartViewer\icon]], 1, 1, 16, 16, 0, 1, 0, 1, "orange")
+				
+				CoolTip:AddMenu (1, function() 
+					ChartViewer:OpenWindow()
+					local tab = ChartViewer:TabGetFrame (index)
+					tab:Click()
+					CoolTip:Hide()
+				end, "main")
+			end
+			
+		--apply the backdrop settings to the menu
+		Details:FormatCooltipBackdrop()
+		CoolTip:SetOwner (CHARTVIEWER_BUTTON, "bottom", "top", 0, 0)
+		CoolTip:ShowCooltip()
+	end	
+
+		ChartViewer.ToolbarButton = _detalhes.ToolBar:NewPluginToolbarButton (ChartViewer.OpenWindow, [[Interface\Addons\Details_ChartViewer\icon]], Loc ["STRING_PLUGIN_NAME"], Loc ["STRING_TOOLTIP"], 14, 14, "CHARTVIEWER_BUTTON", cooltip_menu)
 		ChartViewer.ToolbarButton.shadow = true
 		
 end
@@ -1215,8 +1250,6 @@ function ChartViewer:OnEvent (_, event, ...)
 				
 				--> register wow events
 				CVF:RegisterEvent ("GROUP_ROSTER_UPDATE")
-				CVF:RegisterEvent ("PARTY_MEMBERS_CHANGED")
-				CVF:RegisterEvent ("PARTY_CONVERTED_TO_RAID")
 				CVF:RegisterEvent ("ZONE_CHANGED_NEW_AREA")
 				CVF:RegisterEvent ("PLAYER_ENTERING_WORLD")
 				

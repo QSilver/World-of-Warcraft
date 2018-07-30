@@ -1,13 +1,15 @@
 ------------------------------------------------------------------------
-r381 | mitch0 | 2018-04-07 19:10:35 +0000 (Sat, 07 Apr 2018) | 4 lines
+r385 | mitch0 | 2018-07-23 08:07:42 +0000 (Mon, 23 Jul 2018) | 1 line
+Changed paths:
+   M /trunk/RangeDisplay.toc
+   M /trunk/RangeDisplay_Options/RangeDisplay_Options.toc
+
+toc bump
+------------------------------------------------------------------------
+r384 | mitch0 | 2018-06-27 11:51:09 +0000 (Wed, 27 Jun 2018) | 1 line
 Changed paths:
    M /trunk/RangeDisplay.lua
-   M /trunk/RangeDisplay_Options/Options.lua
-   M /trunk/RangeDisplay_Options/localizations.lua
 
-Add 'Check visibility' option (issue #10 in LibRangeCheck-2.0)
-
-Increase max distance to 200 (issue #9 in LibRangeCheck-2.0)
-
+SetTexture -> SetColorTexture
 ------------------------------------------------------------------------
 

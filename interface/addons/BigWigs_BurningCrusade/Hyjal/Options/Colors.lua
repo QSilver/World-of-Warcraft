@@ -1,26 +1,26 @@
 
 BigWigs:AddColors("Anetheron", {
-	[31306] = "Attention",
-	[31299] = {"Important","Personal","Positive"},
+	[31299] = {"blue","green","red"},
+	[31306] = "yellow",
 })
 
 BigWigs:AddColors("ArchimondeHyjal", {
-	[31970] = {"Urgent","Important"},
-	[31972] = {"Attention","Personal"},
-	[32014] = {"Important","Personal"},
+	[31970] = {"orange","red"},
+	[31972] = {"blue","yellow"},
+	[32014] = {"blue","red"},
 })
 
 BigWigs:AddColors("Azgalor", {
-	[31340] = "Urgent",
-	[31344] = "Important",
-	[31347] = {"Attention","Personal"},
+	[31340] = "orange",
+	[31344] = "red",
+	[31347] = {"blue","yellow"},
 })
 
 BigWigs:AddColors("Kaz'rogal", {
-	[31447] = {"Positive","Attention"},
+	[31447] = {"green","yellow"},
 })
 
 BigWigs:AddColors("Rage Winterchill", {
-	[31249] = {"Important","Personal"},
-	[31258] = "Personal",
+	[31249] = {"blue","red"},
+	[31258] = "blue",
 })

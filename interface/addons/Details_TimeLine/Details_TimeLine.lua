@@ -339,11 +339,15 @@ local function CreatePluginFrames()
 		
 		TimeLine:Refresh()
 
-		TimeLine:ScheduleTimer ("DelaySegmentRefresh", 2)
+		TimeLine:ScheduleTimer ("DelaySegmentRefresh", 1)
 		
 		--> show
 		--TimeLineFrame:Show()
 		DetailsPluginContainerWindow.OpenPlugin (TimeLine)
+		
+		--> hide cooltip
+		GameCooltip2:Hide()
+		
 		return true
 	end
 	
@@ -354,8 +358,56 @@ local function CreatePluginFrames()
 		return true
 	end
 	
+	local cooltip_menu = function()
+		
+		local CoolTip = GameCooltip2
+		
+		CoolTip:Reset()
+		CoolTip:SetType ("menu")
+		
+		CoolTip:SetOption ("TextSize", Details.font_sizes.menus)
+		CoolTip:SetOption ("TextFont", Details.font_faces.menus)		
+
+		CoolTip:SetOption ("LineHeightSizeOffset", 3)
+		CoolTip:SetOption ("VerticalOffset", 2)
+		CoolTip:SetOption ("VerticalPadding", -4)
+		CoolTip:SetOption ("FrameHeightSizeOffset", -3)
+		
+		Details:SetTooltipMinWidth()
+
+		--build the menu options
+			--> debuffs
+			CoolTip:AddLine ("Enemy Debuff Timeline")
+			CoolTip:AddMenu (1, function() 
+				DetailsPluginContainerWindow.OpenPlugin (TimeLine)
+				current_type = type_debuff
+				TimeLine:Refresh()
+				TimeLine:RefreshButtons()
+				TimeLine:ScheduleTimer ("DelaySegmentRefresh", 1)
+				CoolTip:Hide()
+			end, "main")
+			CoolTip:AddIcon ([[Interface\ICONS\Spell_Shadow_ShadowWordPain]], 1, 1, 16, 16, 5/64, 59/64, 5/64, 59/64)
+		
+			--> cooldowns
+			CoolTip:AddLine ("Raid Cooldown Timeline")
+			CoolTip:AddMenu (1, function() 
+				DetailsPluginContainerWindow.OpenPlugin (TimeLine)
+				current_type = type_cooldown
+				TimeLine:Refresh()
+				TimeLine:RefreshButtons()
+				TimeLine:ScheduleTimer ("DelaySegmentRefresh", 1)
+				CoolTip:Hide()
+			end, "graph")
+			CoolTip:AddIcon ([[Interface\ICONS\Spell_Holy_GuardianSpirit]], 1, 1, 16, 16, 5/64, 59/64, 5/64, 59/64)
+		
+		--apply the backdrop settings to the menu
+		Details:FormatCooltipBackdrop()
+		CoolTip:SetOwner (TIMELINE_BUTTON, "bottom", "top", 0, 0)
+		CoolTip:ShowCooltip()
+	end
+	
 	--> create the button to show on toolbar [1] function OnClick [2] texture [3] tooltip [4] width or 14 [5] height or 14 [6] frame name or nil
-	TimeLine.ToolbarButton = _detalhes.ToolBar:NewPluginToolbarButton (TimeLine.OpenWindow, [[Interface\Addons\Details_TimeLine\icon]], Loc ["STRING_PLUGIN_NAME"], Loc ["STRING_TOOLTIP"], 12, 12, "TIMELINE_BUTTON")
+	TimeLine.ToolbarButton = _detalhes.ToolBar:NewPluginToolbarButton (TimeLine.OpenWindow, [[Interface\Addons\Details_TimeLine\icon]], Loc ["STRING_PLUGIN_NAME"], Loc ["STRING_TOOLTIP"], 12, 12, "TIMELINE_BUTTON", cooltip_menu)
 	TimeLine.ToolbarButton.shadow = true
 	
 	--> setpoint anchors mod if needed

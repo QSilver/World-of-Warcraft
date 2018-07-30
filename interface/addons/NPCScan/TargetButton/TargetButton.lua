@@ -147,7 +147,9 @@ end
 -- ----------------------------------------------------------------------------
 -- Event and message handlers.
 -- ----------------------------------------------------------------------------
-function TargetButton:COMBAT_LOG_EVENT_UNFILTERED(_, _, subEvent, _, _, _, _, _, destGUID)
+function TargetButton:COMBAT_LOG_EVENT_UNFILTERED()
+	local _, subEvent, _, _, _, _, _, destGUID = _G.CombatLogGetCurrentEventInfo()
+
 	if subEvent == "UNIT_DIED" and destGUID and private.GUIDToCreatureID(destGUID) == self.npcID then
 		self.isDead = true
 	end
@@ -388,7 +390,7 @@ function TargetButton:SetSpecialText(fakeCriteriaCompleted)
 	local npcData = self.npcData
 
 	if npcData and npcData.achievementID then
-		local isCriteriaCompleted = fakeCriteriaCompleted or npcData.isCriteriaCompleted
+		local isCriteriaCompleted = fakeCriteriaCompleted or private.IsNPCAchievementCriteriaComplete(Data.NPCs[self.npcID])
 		local achievementName = Data.Achievements[npcData.achievementID].name
 
 		self.SpecialText:SetFormattedText("%s%s|r", isCriteriaCompleted and _G.GREEN_FONT_COLOR_CODE or _G.RED_FONT_COLOR_CODE, achievementName)

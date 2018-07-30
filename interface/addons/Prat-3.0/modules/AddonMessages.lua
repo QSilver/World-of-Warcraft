@@ -2,7 +2,7 @@
 --
 -- Prat - A framework for World of Warcraft chat mods
 --
--- Copyright (C) 2006-2011  Prat Development Team
+-- Copyright (C) 2006-2018  Prat Development Team
 --
 -- This program is free software; you can redistribute it and/or
 -- modify it under the terms of the GNU General Public License
@@ -33,8 +33,10 @@ if PRAT_MODULE == nil then
     return 
 end
 
+local mod = Prat:NewModule(PRAT_MODULE, "AceEvent-3.0")
+
 -- define localized strings
-local PL = Prat:GetLocalizer({})
+local PL = mod.PL
 
 --[===[@debug@
 PL:AddLocale(PRAT_MODULE, "enUS", {
@@ -73,18 +75,18 @@ PL:AddLocale(PRAT_MODULE, "enUS", L)
 L=
 {
 	["AddonMsgs"] = {
-		--Translation missing 
-		-- ["Addon message options."] = "",
-		--Translation missing 
-		-- ["AddonMsgs"] = "",
-		--Translation missing 
-		-- ["show_desc"] = "",
-		--Translation missing 
-		-- ["show_name"] = "",
-		--Translation missing 
-		-- ["show_perframedesc"] = "",
-		--Translation missing 
-		-- ["show_perframename"] = "",
+		--[[Translation missing --]]
+		--[[ ["Addon message options."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["AddonMsgs"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["show_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["show_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["show_perframedesc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["show_perframename"] = "",--]] 
 	}
 }
 PL:AddLocale(PRAT_MODULE, "itIT", L)
@@ -94,18 +96,18 @@ PL:AddLocale(PRAT_MODULE, "itIT", L)
 L=
 {
 	["AddonMsgs"] = {
-		--Translation missing 
-		-- ["Addon message options."] = "",
-		--Translation missing 
-		-- ["AddonMsgs"] = "",
-		--Translation missing 
-		-- ["show_desc"] = "",
-		--Translation missing 
-		-- ["show_name"] = "",
-		--Translation missing 
-		-- ["show_perframedesc"] = "",
-		--Translation missing 
-		-- ["show_perframename"] = "",
+		--[[Translation missing --]]
+		--[[ ["Addon message options."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["AddonMsgs"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["show_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["show_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["show_perframedesc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["show_perframename"] = "",--]] 
 	}
 }
 PL:AddLocale(PRAT_MODULE, "ptBR", L)
@@ -115,18 +117,18 @@ PL:AddLocale(PRAT_MODULE, "ptBR", L)
 L=
 {
 	["AddonMsgs"] = {
-		--Translation missing 
-		-- ["Addon message options."] = "",
-		--Translation missing 
-		-- ["AddonMsgs"] = "",
-		--Translation missing 
-		-- ["show_desc"] = "",
-		--Translation missing 
-		-- ["show_name"] = "",
-		--Translation missing 
-		-- ["show_perframedesc"] = "",
-		--Translation missing 
-		-- ["show_perframename"] = "",
+		--[[Translation missing --]]
+		--[[ ["Addon message options."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["AddonMsgs"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["show_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["show_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["show_perframedesc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["show_perframename"] = "",--]] 
 	}
 }
 PL:AddLocale(PRAT_MODULE, "frFR", L)
@@ -166,18 +168,18 @@ PL:AddLocale(PRAT_MODULE, "koKR", L)
 L=
 {
 	["AddonMsgs"] = {
-		--Translation missing 
-		-- ["Addon message options."] = "",
-		--Translation missing 
-		-- ["AddonMsgs"] = "",
-		--Translation missing 
-		-- ["show_desc"] = "",
-		--Translation missing 
-		-- ["show_name"] = "",
-		--Translation missing 
-		-- ["show_perframedesc"] = "",
-		--Translation missing 
-		-- ["show_perframename"] = "",
+		--[[Translation missing --]]
+		--[[ ["Addon message options."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["AddonMsgs"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["show_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["show_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["show_perframedesc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["show_perframename"] = "",--]] 
 	}
 }
 PL:AddLocale(PRAT_MODULE, "esMX", L)
@@ -247,7 +249,7 @@ end
 --@end-non-debug@
 
 
-local mod = Prat:NewModule(PRAT_MODULE, "AceEvent-3.0")
+
 
 Prat:SetModuleDefaults(mod.name, {
 	profile = {
@@ -286,6 +288,10 @@ end
 --[[------------------------------------------------
     Core Functions
 ------------------------------------------------]]--
+
+function mod:GetDescription()
+    return PL["Addon message options."]
+end
 
 local CLR = Prat.CLR
 

@@ -1,7 +1,7 @@
-changeset:   81:6ae5c1247640
-tag:         v7.3.5.081
+changeset:   83:03fad8433cbf
+tag:         v8.0.1.083
 user:        Tercio
-date:        Sat Mar 10 11:33:48 2018 -0300
-summary:     - Fixed endurance tooltip where sometimes it won't attach to the frame.
+date:        Fri Jul 20 18:37:06 2018 -0300
+summary:     - 8.0.1 Update.
 
 

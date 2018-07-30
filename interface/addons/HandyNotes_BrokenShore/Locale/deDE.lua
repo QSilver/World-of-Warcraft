@@ -62,8 +62,4 @@ L["Veiled Wyrmtongue Chest"] = "Verhüllte Wyrmzungenschatztruhe"
 L["What to display"] = "Zeige folgendes"
 L["Wyrmtongue Chest"] = "Verhüllte Wyrmzungenschatztruhe"
 
--- ToC
-L["Description"] = "Zeigt interessante Orte der Verheerten Küste"
-L["Title"] = "HandyNotes - Verheerte Küste"
-
 end

@@ -158,15 +158,15 @@ if(DBM)then
 		DBM:CreatePizzaTimer(pstime, pstext, sender22)
 
 else
-		SendAddonMessage("D4", ("%s\t%s\t%s"):format("U",pstime, pstext), "RAID")
+		C_ChatInfo.SendAddonMessage("D4", ("%s\t%s\t%s"):format("U",pstime, pstext), "RAID")
 end
 
 --BIGWIGS
-SendAddonMessage("BigWigs", "T:BWCustomBar "..pstime.." "..pstext, "RAID")
+C_ChatInfo.SendAddonMessage("BigWigs", "T:BWCustomBar "..pstime.." "..pstext, "RAID")
 
 
 --DXE
-SendAddonMessage("DXE", "^1^SAlertsRaidBar^N"..pstime.."^S~`"..pstext.."^^", "RAID")
+C_ChatInfo.SendAddonMessage("DXE", "^1^SAlertsRaidBar^N"..pstime.."^S~`"..pstext.."^^", "RAID")
 
 if IsAddOnLoaded("DXE") then
 	SlashCmdList.DXEALERTLOCALBAR(pstime.." "..pstext)
@@ -174,6 +174,6 @@ end
 
 
 --RW2
-SendAddonMessage("RW2","^1^SStartCommBar^F"..(math.random()*10).."^f-53^N"..pstime.."^S"..pstext.."^^", "RAID")
+C_ChatInfo.SendAddonMessage("RW2","^1^SStartCommBar^F"..(math.random()*10).."^f-53^N"..pstime.."^S"..pstext.."^^", "RAID")
 
 end

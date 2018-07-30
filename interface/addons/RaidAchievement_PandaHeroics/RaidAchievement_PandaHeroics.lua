@@ -5,7 +5,7 @@ function phraonload()
 	_, phraenglishclass = UnitClass("player")
 	phrahuntertime=0
 	
-	raPandaModVers=7.300
+	raPandaModVers=8.000
 
 local _, a2 = GetInstanceInfo()
 if select(3,GetInstanceInfo())==2 and a2=="party" then
@@ -231,7 +231,7 @@ end
 
 --achieves tracker:
 --Scarlet Halls
-if GetCurrentMapAreaID()==871 then
+if C_Map.GetBestMapForUnit("player")==871 then
 if arg2=="UNIT_DIED" and phbosskilled==nil and rablockuntilreset==nil then
   if phraspisokon[1]==1 and phraachdone1 then
   local id=raGetUnitID(arg7)
@@ -288,7 +288,7 @@ end
 
 
 --Scarlet Monastery
-if GetCurrentMapAreaID()==874 then
+if C_Map.GetBestMapForUnit("player")==874 then
 if arg2=="SPELL_SUMMON" and arg10==115250 then
 if razombiidtable==nil then
   razombiidtable={}
@@ -369,7 +369,7 @@ end
 
 
 --Scholomance
-if GetCurrentMapAreaID()==898 then
+if C_Map.GetBestMapForUnit("player")==898 then
 
 
 
@@ -390,7 +390,7 @@ end
 
 
 --Siege of Niuzao Temple
-if GetCurrentMapAreaID()==887 then
+if C_Map.GetBestMapForUnit("player")==887 then
 if arg2=="UNIT_DIED" then
   if phraspisokon[7]==1 and phraachdone1 then
   local id=raGetUnitID(arg7)
@@ -414,7 +414,7 @@ end
 
 
 --Stormstout Brewery
-if GetCurrentMapAreaID()==876 then
+if C_Map.GetBestMapForUnit("player")==876 then
 
 if arg2=="SPELL_DAMAGE" and arg10==106784 and UnitGUID("boss1") and arg7==UnitGUID("boss1") then
   phracounter1=phracounter1+1
@@ -433,7 +433,7 @@ end
 
 
 --Temple of the Jade Serpent
-if GetCurrentMapAreaID()==867 then
+if C_Map.GetBestMapForUnit("player")==867 then
 
 if (arg2=="SPELL_DAMAGE" or arg2=="SPELL_MISSED") and (arg10==115167 or arg10==106105 or arg10==106334) and UnitName("player")==arg8 then
   if phraspisokon[10]==1 and phraachdone1 then
@@ -449,7 +449,7 @@ end
 
 
 --Shado-Pan Monastery
-if GetCurrentMapAreaID()==877 then
+if C_Map.GetBestMapForUnit("player")==877 then
 
 --12
 --ыытест ИЗМЕНЯЯ ЦИФРУ, ИЗМЕНЯТЬ ТАК ЖЕ И В ОНАПДЕЙТ ФУНКЦИИ\
@@ -487,7 +487,7 @@ end
 
 
 --Gate of the Setting Sun
-if GetCurrentMapAreaID()==875 then
+if C_Map.GetBestMapForUnit("player")==875 then
 
 if arg2=="UNIT_DIED" and UnitName("boss1") then
   if phraspisokon[12]==1 and phraachdone1 then

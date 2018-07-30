@@ -18,7 +18,7 @@ local Enum = private.Enum
 local LibStub = _G.LibStub
 
 local AceConfigDialog = LibStub("AceConfigDialog-3.0")
-local HereBeDragons = LibStub("HereBeDragons-1.0")
+local HereBeDragons = LibStub("HereBeDragons-2.0")
 local NPCScan = LibStub("AceAddon-3.0"):NewAddon(AddOnFolderName, "AceConsole-3.0", "AceEvent-3.0", "AceTimer-3.0", "AceBucket-3.0", "LibSink-2.0", "LibToast-1.0")
 local VL = LibStub("AceLocale-3.0"):GetLocale(AddOnFolderName .. "Vignette")
 
@@ -74,6 +74,7 @@ function NPCScan:OnInitialize()
 	-- Data initialization
 	-- ----------------------------------------------------------------------------
 	local DefaultPreferences = private.DefaultPreferences
+	local UIMapType = _G.Enum.UIMapType
 
 	for _, achievementID in pairs(Enum.AchievementID) do
 		DefaultPreferences.profile.detection.achievementIDs[achievementID] = Enum.DetectionGroupStatus.Enabled
@@ -97,12 +98,12 @@ function NPCScan:OnInitialize()
 	end
 
 	for mapID, map in pairs(Data.Maps) do
-		local continentID = private.ContinentIDByDungeonMapID[mapID]
+		local continentInfo = _G.MapUtil.GetMapParentInfo(mapID, _G.Enum.UIMapType.Continent)
+		local continentID = continentInfo and Enum.MapContinentID[continentInfo.mapID] or Enum.ContinentID.Cosmic
+		local mapInfo = _G.C_Map.GetMapInfo(mapID)
 
-		if continentID then
+		if mapInfo.mapType == UIMapType.Dungeon or mapInfo.mapType == UIMapType.Orphan then
 			map.isDungeon = true
-		else
-			continentID = HereBeDragons:GetCZFromMapID(mapID)
 		end
 
 		map.continentID = continentID
@@ -210,15 +211,15 @@ function NPCScan:OnEnable()
 	end
 
 	for achievementID, achievement in pairs(Data.Achievements) do
+		local _, _, _, isAchievementCompleted = _G.GetAchievementInfo(achievementID)
+
 		achievement.ID = achievementID
+		achievement.isCompleted = isAchievementCompleted
 
 		table.wipe(missingNPCs)
 
 		for criteriaIndex = 1, _G.GetAchievementNumCriteria(achievementID) do
 			local assetName, criteriaType, isCriteriaCompleted, _, _, _, _, assetID, _, criteriaID = _G.GetAchievementCriteriaInfo(achievementID, criteriaIndex)
-			local _, _, _, isAchievementCompleted = _G.GetAchievementInfo(achievementID)
-
-			achievement.isCompleted = isAchievementCompleted
 
 			if criteriaType == CriteriaType.NPCKill then
 				if assetID > 0 then
@@ -303,10 +304,11 @@ function NPCScan:OnEnable()
 	self:RegisterBucketEvent("CRITERIA_UPDATE", 5)
 	self:RegisterEvent("LOOT_CLOSED")
 	self:RegisterEvent("NAME_PLATE_UNIT_ADDED")
+	self:RegisterEvent("PLAYER_ENTERING_WORLD")
 	self:RegisterEvent("PLAYER_TARGET_CHANGED")
 	self:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
-	self:RegisterEvent("VIGNETTE_ADDED")
-	self:RegisterBucketEvent("WORLD_MAP_UPDATE", 0.5)
+	self:RegisterEvent("VIGNETTE_MINIMAP_UPDATED")
+	self:RegisterBucketEvent("VIGNETTES_UPDATED", 0.5)
 
 	HereBeDragons.RegisterCallback(NPCScan, "PlayerZoneChanged", "UpdateScanList")
 

@@ -1,9 +1,9 @@
 ﻿function prraonload()
 
-SetMapToCurrentZone()
-if GetCurrentMapAreaID()==897 or GetCurrentMapAreaID()==896 or GetCurrentMapAreaID()==886 or GetCurrentMapAreaID()==930 or GetCurrentMapAreaID()==953 then
+--SetMapToCurrentZone()
+if C_Map.GetBestMapForUnit("player")==897 or C_Map.GetBestMapForUnit("player")==896 or C_Map.GetBestMapForUnit("player")==886 or C_Map.GetBestMapForUnit("player")==930 or C_Map.GetBestMapForUnit("player")==953 then
 	RaidAchievement_prra:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
-	RaidAchievement_prra:RegisterEvent("UNIT_POWER")
+	RaidAchievement_prra:RegisterEvent("UNIT_POWER_UPDATE")
 	RaidAchievement_prra:RegisterEvent("CHAT_MSG_RAID_BOSS_EMOTE")
 end
 	RaidAchievement_prra:RegisterEvent("PLAYER_REGEN_DISABLED")
@@ -94,14 +94,14 @@ end
 
 if rpradelayzonech and curtime>rpradelayzonech then
 rpradelayzonech=nil
-SetMapToCurrentZone()
-if GetCurrentMapAreaID()==897 or GetCurrentMapAreaID()==896 or GetCurrentMapAreaID()==886 or GetCurrentMapAreaID()==930 or GetCurrentMapAreaID()==953 then
+--SetMapToCurrentZone()
+if C_Map.GetBestMapForUnit("player")==897 or C_Map.GetBestMapForUnit("player")==896 or C_Map.GetBestMapForUnit("player")==886 or C_Map.GetBestMapForUnit("player")==930 or C_Map.GetBestMapForUnit("player")==953 then
 RaidAchievement_prra:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
-RaidAchievement_prra:RegisterEvent("UNIT_POWER")
+RaidAchievement_prra:RegisterEvent("UNIT_POWER_UPDATE")
 RaidAchievement_prra:RegisterEvent("CHAT_MSG_RAID_BOSS_EMOTE")
 else
 RaidAchievement_prra:UnregisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
-RaidAchievement_prra:UnregisterEvent("UNIT_POWER")
+RaidAchievement_prra:UnregisterEvent("UNIT_POWER_UPDATE")
 RaidAchievement_prra:UnregisterEvent("CHAT_MSG_RAID_BOSS_EMOTE")
 end
 end
@@ -242,7 +242,7 @@ end
 end
 
 
-if event == "UNIT_POWER" then
+if event == "UNIT_POWER_UPDATE" then
 if UnitName("boss1") and UnitName("boss1")~="" then
 
 
@@ -262,7 +262,7 @@ local arg1, arg2, arg3,arg4,arg5,arg6,argNEW1,arg7,arg8,arg9,argNEW2,arg10,arg11
 
 
 --Heart of Fear
-if GetCurrentMapAreaID()==897 then
+if C_Map.GetBestMapForUnit("player")==897 then
 
 if arg2=="SPELL_CAST_SUCCESS" and arg10==122786 then
 	if prraspisokon[1]==1 and raachdone1 then
@@ -274,7 +274,7 @@ end
 --
 
 --Mogushan
-if GetCurrentMapAreaID()==896 then
+if C_Map.GetBestMapForUnit("player")==896 then
 
 if arg2=="SPELL_DAMAGE" and arg10==116809 then
   if (ratrackgoodattack2==nil or (ratrackgoodattack2 and ratrackgoodattack2>GetTime()+10)) then
@@ -326,7 +326,7 @@ end
 
 
 --ToES
-if GetCurrentMapAreaID()==886 then
+if C_Map.GetBestMapForUnit("player")==886 then
 
 
 if arg2=="SPELL_DAMAGE" and arg14 and arg14>0 then
@@ -361,7 +361,7 @@ end
 
 
 --Thunder Throne
-if GetCurrentMapAreaID()==930 then
+if C_Map.GetBestMapForUnit("player")==930 then
 
 --5
 if (arg2=="SPELL_DAMAGE" or arg2=="SPELL_AURA_APPLIED") and arg10==137507 then
@@ -409,7 +409,7 @@ end
 
 
 --Orgrimmar
-if GetCurrentMapAreaID()==953 then
+if C_Map.GetBestMapForUnit("player")==953 then
 
 
 if arg2=="SPELL_CAST_SUCCESS" and arg10==143812 then
@@ -419,12 +419,12 @@ end
 
 if arg2=="SPELL_CAST_SUCCESS" and arg10==143842 then
   if raramapwidth==nil and raramapheight==nil then
-    SetMapToCurrentZone()
+    --SetMapToCurrentZone()
     raramapwidth,raramapheight=raGetMapSize()
   end
   if raramapwidth and raramapheight then
-    local x1,y1=GetPlayerMapPosition(arg5)
-    local x2,y2=GetPlayerMapPosition(arg8)
+    local x1,y1=C_Map.GetPlayerMapPosition(C_Map.GetBestMapForUnit("player"),arg5)
+    local x2,y2=C_Map.GetPlayerMapPosition(C_Map.GetBestMapForUnit("player"),arg8)
     if x1 and x1>0 and y2 and y2>0 then
       local range=math.ceil(math.sqrt(math.pow(raramapwidth*(x2-x1),2)+math.pow(raramapheight*(y2-y1),2))*10)/10
       if psranormgolong==nil then

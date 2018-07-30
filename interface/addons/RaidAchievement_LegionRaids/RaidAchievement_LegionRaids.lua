@@ -5,10 +5,10 @@
 	legionrratimerkromog=nil
 	rscupdhpcheckhr=GetTime()
 
-SetMapToCurrentZone()
-if GetCurrentMapAreaID()==1094 or GetCurrentMapAreaID()==1088 or GetCurrentMapAreaID()==1147 then
+--SetMapToCurrentZone()
+if C_Map.GetBestMapForUnit("player")==1094 or C_Map.GetBestMapForUnit("player")==1088 or C_Map.GetBestMapForUnit("player")==1147 then
 	RaidAchievement_legionrra:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
-	RaidAchievement_legionrra:RegisterEvent("UNIT_POWER")
+	RaidAchievement_legionrra:RegisterEvent("UNIT_POWER_UPDATE")
 	RaidAchievement_legionrra:RegisterEvent("CHAT_MSG_RAID_BOSS_EMOTE")
 end
 	RaidAchievement_legionrra:RegisterEvent("PLAYER_REGEN_DISABLED")
@@ -132,7 +132,7 @@ end
 end
 
 
-if event == "UNIT_POWER" then
+if event == "UNIT_POWER_UPDATE" then
 if UnitName("boss1") and UnitName("boss1")~="" then
 
 
@@ -218,7 +218,7 @@ end
 -- OLD
 if (1==2) then
 --BRF (2 dung)
-if GetCurrentMapAreaID()==988 then
+if C_Map.GetBestMapForUnit("player")==988 then
 
 if arg2=="UNIT_DIED" then
   if legionrraspisokon[1]==1 and legionrraachdone1 then
@@ -279,7 +279,7 @@ end
 --
 --
 
-if GetCurrentMapAreaID()==1026 then
+if C_Map.GetBestMapForUnit("player")==1026 then
 if arg2=="UNIT_DIED" then
   if legionrraspisokon[6]==1 and legionrraachdone1 then
      local id=raGetUnitID(arg7)

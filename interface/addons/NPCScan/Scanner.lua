@@ -3,7 +3,6 @@
 -- ----------------------------------------------------------------------------
 -- Functions
 local pairs = _G.pairs
-local tostring = _G.tostring
 local time = _G.time
 
 -- Libraries
@@ -19,7 +18,7 @@ local EventMessage = private.EventMessage
 
 
 local LibStub = _G.LibStub
-local HereBeDragons = LibStub("HereBeDragons-1.0")
+local HereBeDragons = LibStub("HereBeDragons-2.0")
 local LibSharedMedia = LibStub("LibSharedMedia-3.0")
 local NPCScan = LibStub("AceAddon-3.0"):GetAddon(AddOnFolderName)
 
@@ -107,30 +106,30 @@ local function CanAddToScanList(npcID)
 		local detection = profile.detection
 
 		if isTameable and not detection.tameables then
-			private.Debug("Skipping %s (%d) - not tracking tameables.", NPCScan:GetNPCNameFromID(npcID), npcID)
 			return false
 		end
 
 		if not isTameable and not detection.rares then
-			private.Debug("Skipping %s (%d) - not tracking rares.", NPCScan:GetNPCNameFromID(npcID), npcID)
 			return false
 		end
 
-		local achievementID = npc.achievementID
-		if achievementID then
-			if detection.achievementIDs[achievementID] == Enum.DetectionGroupStatus.Disabled then
-				private.Debug("Skipping %s (%d) - not tracking the achievement.", NPCScan:GetNPCNameFromID(npcID), npcID)
-				return false
-			end
+		local isquestCompleted = private.IsNPCQuestComplete(npc)
 
-			if detection.ignoreCompletedAchievementCriteria and (Data.Achievements[achievementID].isCompleted or npc.isCriteriaCompleted) then
-				private.Debug("Skipping %s (%d) - criteria already met or achievement completed.", NPCScan:GetNPCNameFromID(npcID), npcID)
-				return false
+		if not npc.questID or isquestCompleted then
+			local achievementID = npc.achievementID
+
+			if achievementID then
+				if detection.achievementIDs[achievementID] == Enum.DetectionGroupStatus.Disabled then
+					return false
+				end
+
+				if detection.ignoreCompletedAchievementCriteria and private.IsNPCAchievementCriteriaComplete(npc) then
+					return false
+				end
 			end
 		end
 
-		if detection.ignoreCompletedQuestObjectives and private.IsNPCQuestComplete(npcID) then
-			private.Debug("Skipping %s (%d) - already killed.", NPCScan:GetNPCNameFromID(npcID), npcID)
+		if isquestCompleted and detection.ignoreCompletedQuestObjectives then
 			return false
 		end
 	end
@@ -141,26 +140,21 @@ end
 local function MergeUserDefinedWithScanList(npcList)
 	if npcList and private.db.profile.detection.userDefined then
 		for npcID in pairs(npcList) do
-			Data.Scanner.NPCs[npcID] = Data.NPCs[npcID]
+			Data.Scanner.NPCs[npcID] = {}
 		end
 	end
 end
 
-function NPCScan:UpdateScanList(eventName, mapID)
+function NPCScan:UpdateScanList(_, mapID)
 	local scannerData = Data.Scanner
 	mapID = mapID or HereBeDragons:GetPlayerZone()
 
-	if mapID and mapID >= 0 then
-		scannerData.mapID = mapID
-		scannerData.continentID = HereBeDragons:GetCZFromMapID(mapID)
-	end
-
-	if not scannerData.mapID or not scannerData.continentID then
-		private.Debug("No mapID or no continentID.")
+	if not mapID or mapID < 0 then
 		return
 	end
 
-	private.Debug("eventName: %s Data.Scanner.mapID: %d Data.Scanner.continentID: %d", eventName or _G.NONE, scannerData.mapID, scannerData.continentID)
+	scannerData.mapID = mapID
+	scannerData.continentID = Data.Maps[mapID].continentID
 
 	for npcID in pairs(scannerData.NPCs) do
 		private.Overlays.Remove(npcID)
@@ -211,7 +205,7 @@ local function UpdateScanListAchievementCriteria()
 	local needsUpdate = false
 
 	for _, npc in pairs(Data.Scanner.NPCs) do
-		if npc.achievementID and npc.achievementCriteriaID and not npc.isCriteriaCompleted then
+		if npc.achievementID and npc.achievementCriteriaID and not private.IsNPCAchievementCriteriaComplete(npc) then
 			local _, _, isCompleted = _G.GetAchievementCriteriaInfoByID(npc.achievementID, npc.achievementCriteriaID)
 
 			if isCompleted then
@@ -237,8 +231,10 @@ local function UpdateScanListQuestObjectives()
 	local needsUpdate = false
 
 	if private.db.profile.detection.ignoreCompletedQuestObjectives then
-		for npcID in pairs(Data.Scanner.NPCs) do
-			if private.IsNPCQuestComplete(npcID) then
+		local NPCs = Data.Scanner.NPCs
+
+		for npcID in pairs(NPCs) do
+			if private.IsNPCQuestComplete(NPCs[npcID]) then
 				needsUpdate = true
 			end
 		end
@@ -277,6 +273,10 @@ function NPCScan:NAME_PLATE_UNIT_ADDED(_, unitToken)
 	ProcessUnit(unitToken, _G.UNIT_NAMEPLATES)
 end
 
+function NPCScan:PLAYER_ENTERING_WORLD()
+	self:UpdateScanList("PLAYER_ENTERING_WORLD", _G.C_Map.GetBestMapForUnit("player"))
+end
+
 function NPCScan:PLAYER_TARGET_CHANGED()
 	ProcessUnit("target", _G.TARGET)
 end
@@ -290,53 +290,6 @@ function NPCScan:UPDATE_MOUSEOVER_UNIT()
 end
 
 do
-	local function ProcessQuestDetection(questID, sourceText)
-		for npcID in pairs(private.QuestNPCs[questID]) do
-			ProcessDetection({
-				npcID = npcID,
-				sourceText = sourceText
-			})
-		end
-	end
-
-	local function ProcessVignetteNameDetection(vignetteName, sourceText)
-		for npcID in pairs(private.VignetteNPCs[vignetteName]) do
-			if Data.Scanner.NPCs[npcID] then
-				ProcessDetection({
-					npcID = npcID,
-					sourceText = sourceText
-				})
-			end
-		end
-	end
-
-	local function ProcessVignette(vignetteName, sourceText)
-		local questID = private.QuestIDFromName[vignetteName]
-		if questID then
-			ProcessQuestDetection(questID, sourceText)
-			return true
-		elseif sourceText == _G.WORLD_MAP then
-			return false
-		end
-
-		if private.VignetteNPCs[vignetteName] then
-			ProcessVignetteNameDetection(vignetteName, sourceText)
-			return true
-		end
-
-		local npcID = private.NPCIDFromName[vignetteName]
-		if npcID then
-			ProcessDetection({
-				npcID = npcID,
-				sourceText = sourceText
-			})
-
-			return true
-		end
-
-		return false
-	end
-
 	local VIGNETTE_SOURCE_TO_PREFERENCE = {
 		[_G.MINIMAP_LABEL] = "ignoreMiniMap",
 		[_G.WORLD_MAP] = "ignoreWorldMap",
@@ -346,27 +299,85 @@ do
 		return private.db.profile.detection[VIGNETTE_SOURCE_TO_PREFERENCE[sourceText]]
 	end
 
-	function NPCScan:VIGNETTE_ADDED(_, instanceID)
-		if IsIgnoringSource(_G.MINIMAP_LABEL) then
+	local function ProcessVignetteGUID(vignetteGUID)
+		if not vignetteGUID then
 			return
 		end
 
-		local _, _, vignetteName, iconID = _G.C_Vignettes.GetVignetteInfoFromInstanceID(instanceID)
+		local vignetteInfo = _G.C_VignetteInfo.GetVignetteInfo(vignetteGUID);
 
-		if not ProcessVignette(vignetteName, _G.MINIMAP_LABEL) then
-			private.Debug("Unknown vignette: %s with iconID %s", vignetteName or _G.UNKNOWN, tostring(iconID))
+		if not vignetteInfo then
+			return
+		end
+
+		local sourceText = vignetteInfo.onWorldMap and _G.WORLD_MAP or _G.MINIMAP_LABEL
+
+		if IsIgnoringSource(sourceText) then
+			return
+		end
+
+		local npcID = private.GUIDToCreatureID(vignetteInfo.objectGUID)
+
+		-- The objectGUID can be but isn't always an NPC ID, since some NPCs must be summoned from the vignette object.
+		if npcID and Data.Scanner.NPCs[npcID] then
+			ProcessDetection({
+				npcID = npcID,
+				sourceText = sourceText
+			})
+
+			return
+		end
+
+		local vignetteName = vignetteInfo.name
+		local questID = private.QuestIDFromName[vignetteName]
+
+		if questID then
+			for ID in pairs(private.QuestNPCs[questID]) do
+				ProcessDetection({
+					npcID = ID,
+					sourceText = sourceText
+				})
+			end
+
+			return
+		elseif sourceText == _G.WORLD_MAP then
+			return
+		end
+
+		if private.VignetteNPCs[vignetteName] then
+			for ID in pairs(private.VignetteNPCs[vignetteName]) do
+				if Data.Scanner.NPCs[ID] then
+					ProcessDetection({
+						npcID = ID,
+						sourceText = sourceText
+					})
+				end
+			end
+
+			return
+		end
+
+		npcID = private.NPCIDFromName[vignetteName]
+
+		if npcID then
+			ProcessDetection({
+				npcID = npcID,
+				sourceText = sourceText
+			})
+
+			return
 		end
 	end
 
-	function NPCScan:WORLD_MAP_UPDATE()
-		if IsIgnoringSource(_G.WORLD_MAP) then
-			return
-		end
+	function NPCScan:VIGNETTE_MINIMAP_UPDATED(_, vignetteGUID)
+		ProcessVignetteGUID(vignetteGUID)
+	end
 
-		for landmarkIndex = 1, _G.GetNumMapLandmarks() do
-			local _, landmarkName = _G.C_WorldMap.GetMapLandmarkInfo(landmarkIndex)
+	function NPCScan:VIGNETTES_UPDATED()
+		local vignetteGUIDs = _G.C_VignetteInfo.GetVignettes()
 
-			ProcessVignette(landmarkName, _G.WORLD_MAP)
+		for index = 1, #vignetteGUIDs do
+			ProcessVignetteGUID(vignetteGUIDs[index])
 		end
 	end
 end -- do-block

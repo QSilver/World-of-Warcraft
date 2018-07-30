@@ -1,6 +1,6 @@
 --[[
 Name: LibRangeCheck-2.0
-Revision: $Revision: 188 $
+Revision: $Revision: 192 $
 Author(s): mitch0
 Website: http://www.wowace.com/projects/librangecheck-2-0/
 Description: A range checking library based on interact distances and spell ranges
@@ -10,7 +10,7 @@ License: Public Domain
 
 --- LibRangeCheck-2.0 provides an easy way to check for ranges and get suitable range checking functions for specific ranges.\\
 -- The checkers use spell and item range checks, or interact based checks for special units where those two cannot be used.\\
--- The lib handles the refreshing of checker lists in case talents / spells / glyphs change and in some special cases when equipment changes (for example some of the mage pvp gloves change the range of the Fire Blast spell), and also handles the caching of items used for item-based range checks.\\
+-- The lib handles the refreshing of checker lists in case talents / spells change and in some special cases when equipment changes (for example some of the mage pvp gloves change the range of the Fire Blast spell), and also handles the caching of items used for item-based range checks.\\
 -- A callback is provided for those interested in checker changes.
 -- @usage
 -- local rc = LibStub("LibRangeCheck-2.0")
@@ -41,7 +41,7 @@ License: Public Domain
 -- @class file
 -- @name LibRangeCheck-2.0
 local MAJOR_VERSION = "LibRangeCheck-2.0"
-local MINOR_VERSION = tonumber(("$Revision: 188 $"):match("%d+")) + 100000
+local MINOR_VERSION = tonumber(("$Revision: 192 $"):match("%d+")) + 100000
 
 local lib, oldminor = LibStub:NewLibrary(MAJOR_VERSION, MINOR_VERSION)
 if not lib then
@@ -52,8 +52,6 @@ end
 
 local UpdateDelay = .5
 local ItemRequestTimeout = 10.0
-local FriendColor = 'ff22ff22'
-local HarmColor = 'ffff2222'
 
 -- interact distance based checks. ranges are based on my own measurements (thanks for all the folks who helped me with this)
 local DefaultInteractList = {
@@ -960,18 +958,6 @@ function lib:PLAYER_TALENT_UPDATE()
     self:scheduleInit()
 end
 
-function lib:GLYPH_ADDED()
-    self:scheduleInit()
-end
-
-function lib:GLYPH_REMOVED()
-    self:scheduleInit()
-end
-
-function lib:GLYPH_UPDATED()
-    self:scheduleInit()
-end
-
 function lib:SPELLS_CHANGED()
     self:scheduleInit()
 end
@@ -1340,9 +1326,6 @@ function lib:activate()
         frame:RegisterEvent("LEARNED_SPELL_IN_TAB")
         frame:RegisterEvent("CHARACTER_POINTS_CHANGED")
         frame:RegisterEvent("PLAYER_TALENT_UPDATE")
-        frame:RegisterEvent("GLYPH_ADDED")
-        frame:RegisterEvent("GLYPH_REMOVED")
-        frame:RegisterEvent("GLYPH_UPDATED")
         frame:RegisterEvent("SPELLS_CHANGED")
         local _, playerClass = UnitClass("player")
         if playerClass == "MAGE" or playerClass == "SHAMAN" then

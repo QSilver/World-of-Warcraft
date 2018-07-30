@@ -102,26 +102,33 @@ function WeakAuras.regionPrototype.AddProperties(properties)
 end
 
 local function SoundRepeatStop(self)
+  WeakAuras.StartProfileSystem("sound");
   if (self.soundRepeatTimer) then
     WeakAuras.timer:CancelTimer(self.soundRepeatTimer);
     self.soundRepeatTimer = nil;
   end
+  WeakAuras.StopProfileSystem("sound");
 end
 
 local function SoundStop(self)
+  WeakAuras.StartProfileSystem("sound");
   if (self.soundHandle) then
     StopSound(self.soundHandle);
   end
+  WeakAuras.StopProfileSystem("sound");
 end
 
 local function SoundPlayHelper(self)
+  WeakAuras.StartProfileSystem("sound");
   local options = self.soundOptions;
   self.soundHandle = nil;
   if (options.sound_type == "Stop") then
+    WeakAuras.StopProfileSystem("sound");
     return;
   end
 
   if (WeakAuras.IsOptionsOpen() or WeakAuras.SquelchingActions() or WeakAuras.InLoadingScreen()) then
+    WeakAuras.StopProfileSystem("sound");
     return;
   end
 
@@ -139,9 +146,11 @@ local function SoundPlayHelper(self)
     local _, handle = PlaySoundFile(options.sound, options.sound_channel or "Master");
     self.soundHandle = handle;
   end
+  WeakAuras.StopProfileSystem("sound");
 end
 
 local function SoundPlay(self, options)
+  WeakAuras.StartProfileSystem("sound");
   self:SoundStop();
   self:SoundRepeatStop();
 
@@ -152,6 +161,7 @@ local function SoundPlay(self, options)
   if (loop and options.sound_repeat and options.sound_repeat < WeakAuras.maxTimerDuration) then
     self.soundRepeatTimer = WeakAuras.timer:ScheduleRepeatingTimer(SoundPlayHelper, options.sound_repeat, self);
   end
+  WeakAuras.StopProfileSystem("sound");
 end
 
 local function SendChat(self, options)
@@ -259,7 +269,9 @@ function WeakAuras.regionPrototype.modify(parent, region, data)
 
   region:SetOffset(data.xOffset or 0, data.yOffset or 0);
   region:SetOffsetAnim(0, 0);
-  WeakAuras.AnchorFrame(data, region, parent);
+  if not parent or parent.regionType ~= "dynamicgroup" then
+    WeakAuras.AnchorFrame(data, region, parent);
+  end
 end
 
 local function SetProgressValue(region, value, total)
@@ -323,8 +335,12 @@ local function UpateRegionValues(region)
 end
 
 function WeakAuras.TimerTick(region)
+  WeakAuras.StartProfileSystem("text")
+  WeakAuras.StartProfileAura(region.id);
   UpateRegionValues(region);
   region:TimerTick();
+  WeakAuras.StopProfileAura(region.id);
+  WeakAuras.StopProfileSystem("text")
 end
 
 function WeakAuras.regionPrototype.AddSetDurationInfo(region)
@@ -332,10 +348,14 @@ function WeakAuras.regionPrototype.AddSetDurationInfo(region)
     region.generatedSetDurationInfo = true;
 
     region.SetValueFromCustomValueFunc = function()
+      WeakAuras.StartProfileSystem("text")
+      WeakAuras.StartProfileAura(region.id);
       local value, total, _ = region.customValueFunc(region.state.trigger);
       value = type(value) == "number" and value or 0
       total = type(total) == "number" and total or 0
       SetProgressValue(region, value, total);
+      WeakAuras.StopProfileAura(region.id);
+      WeakAuras.StopProfileSystem("text")
     end
 
     region.SetDurationInfo = function(self, duration, expirationTime, customValue, inverse)
@@ -504,6 +524,14 @@ function WeakAuras.regionPrototype.SetTextOnText(text, str)
   text:SetWidth(0); -- This makes the text use its internal text size calculation
   text:SetText(str);
   local w = text:GetWidth();
-  w = w + max(4, w / 40);
+  w = w + max(15, w / 20);
   text:SetWidth(w); -- But that internal text size calculation is wrong, see ticket 1014
+end
+
+function WeakAuras.SetTextureOrAtlas(texture, path, wrapModeH, wrapModeV)
+  if type(path) == "string" and GetAtlasInfo(path) then
+    texture:SetAtlas(path);
+  else
+    texture:SetTexture(path, wrapModeH, wrapModeV);
+  end
 end

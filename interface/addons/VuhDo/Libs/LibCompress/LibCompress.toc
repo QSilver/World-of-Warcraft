@@ -7,7 +7,7 @@
 ## X-Website: http://www.wowace.com/addons/libcompress/
 ## X-Category: Library
 ## X-eMail: galmok AT gmail DOT com, sheets DOT jeff AT gmail DOT com
-## X-License: LGPL v2.1
+## X-License: GPL v2
 ## LoadOnDemand: 1
 
 LibStub\LibStub.lua

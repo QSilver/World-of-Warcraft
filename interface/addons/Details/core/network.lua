@@ -683,13 +683,19 @@
 	}
 
 	function _detalhes:IsInCity()
-		SetMapToCurrentZone()
-		local mapFileName, _, _, _, microDungeonMapName = GetMapInfo()
-		
-		if (city_zones [mapFileName]) then
-			return true
-		elseif (microDungeonMapName and type (microDungeonMapName) == "string" and sub_zones [microDungeonMapName]) then
-			return true
+		if (SetMapToCurrentZone and SetMapToCurrentZone()) then
+			local mapID = C_Map.GetBestMapForUnit ("player")
+			if (not mapID) then
+				--print ("Details! exeption handled: zone has no map")
+				return
+			end
+			local mapFileName, _, _, _, microDungeonMapName = C_Map.GetMapInfo (mapID)
+			
+			if (city_zones [mapFileName]) then
+				return true
+			elseif (microDungeonMapName and type (microDungeonMapName) == "string" and sub_zones [microDungeonMapName]) then
+				return true
+			end
 		end
 	end
 

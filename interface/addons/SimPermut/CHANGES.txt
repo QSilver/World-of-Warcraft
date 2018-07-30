@@ -1,34 +1,26 @@
-lightweight tag 37512fac5d61e2718d46ee92c319b06bf38b4c06 1.14.15-release
-Author:	GitHub <noreply@github.com>
-Date:	Sun Mar 18 08:50:46 2018 +0100
+lightweight tag ce6d2b2688c2bece0518472b597a01d88bf4f567 1.15.0
+Author:	Julien Rechaussat <Kutikuti@users.noreply.github.com>
+Date:	Thu Jul 19 15:39:47 2018 +0200
 
-commit 2d03c1e47525bf73ef56762d7752859ffe3aef41
-Author: smfcoding <smfcoding@gmx.de>
-Date:   Sat Mar 17 12:00:24 2018 +0100
-
-    fixed error for monks WW, UIParameters.artifactID was set wrong in extras.lua
-
-commit 2d03c1e47525bf73ef56762d7752859ffe3aef41
-Author: smfcoding <smfcoding@gmx.de>
-Date:   Sat Mar 17 12:00:24 2018 +0100
-
-    fixed error for monks WW, UIParameters.artifactID was set wrong in extras.lua
-
-commit fb5deb3aab1eaaa252bd57695b2e7f9a970dc265
+commit ce6d2b2688c2bece0518472b597a01d88bf4f567
 Author: Julien Rechaussat <Kutikuti@users.noreply.github.com>
-Date:   Tue Mar 13 12:50:02 2018 +0100
+Date:   Thu Jul 19 15:39:47 2018 +0200
 
-    Add wod cloak enchant
+    BFA Release
 
-commit e46f08c292a428369aaa9b8569e1bd549a27d206
-Author: Julien Rechaussat <Kutikuti@users.noreply.github.com>
-Date:   Thu Feb 1 10:17:49 2018 +0100
+commit 40f608a1c9cba14317bb5cb2a7bac3db079d50f6
+Author: Watcheur <moriceau.mathieu@gmail.com>
+Date:   Wed Jul 18 21:30:40 2018 +0200
 
-    small bump
+    BFA Update
+    
+    Remove artifact & relics info, remove Lib ArtifactData library
 
-commit e556f1e44f930b616e7d70b8f434e55af8043e0f
-Author: Julien Rechaussat <Kutikuti@users.noreply.github.com>
-Date:   Thu Feb 1 09:35:40 2018 +0100
+commit 40f608a1c9cba14317bb5cb2a7bac3db079d50f6
+Author: Watcheur <moriceau.mathieu@gmail.com>
+Date:   Wed Jul 18 21:30:40 2018 +0200
 
-    Various fix for low level and non artifact
+    BFA Update
+    
+    Remove artifact & relics info, remove Lib ArtifactData library
 

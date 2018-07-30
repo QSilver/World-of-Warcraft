@@ -112,7 +112,18 @@
 	
 		local boss_found = function (index, name, zone, mapid, diff, encounterid)
 		
-			local ejid = EJ_GetCurrentInstance()
+			local mapID = C_Map.GetBestMapForUnit ("player")
+			local ejid
+			if (mapID) then
+				ejid = EJ_GetInstanceForMap (mapID)
+			end
+			
+			if (not mapID) then
+				--print ("Details! exeption handled: zone has no map")
+				return
+			end
+		
+			--local ejid = EJ_GetCurrentInstance()
 			if (ejid == 0) then
 				ejid = _detalhes:GetInstanceEJID()
 			end
@@ -300,7 +311,7 @@
 		-- ~start ~inicio ~novo �ovo
 		function _detalhes:EntrarEmCombate (...)
 			if (_detalhes.debug) then
-				--_detalhes:Msg ("(debug) |cFFFFFF00started a new combat|r|cFFFF7700", _detalhes.encounter_table and _detalhes.encounter_table.name or "")
+				_detalhes:Msg ("(debug) |cFFFFFF00started a new combat|r|cFFFF7700", _detalhes.encounter_table and _detalhes.encounter_table.name or "")
 				--local from = debugstack (2, 1, 0)
 				--print (from)
 			end
@@ -519,7 +530,17 @@
 				local encounterID, encounterName, difficultyID, raidSize, endStatus = unpack (from_encounter_end)
 				if (encounterID) then
 					local ZoneName, InstanceType, DifficultyID, DifficultyName, _, _, _, ZoneMapID = GetInstanceInfo()
-					local ejid = EJ_GetCurrentInstance()
+					
+					local mapID = C_Map.GetBestMapForUnit ("player")
+					
+					if (not mapID) then
+						mapID = 0
+					end
+					
+					local ejid = EJ_GetInstanceForMap (mapID)
+					
+					--local ejid = EJ_GetCurrentInstance()
+					
 					if (ejid == 0) then
 						ejid = _detalhes:GetInstanceEJID()
 					end

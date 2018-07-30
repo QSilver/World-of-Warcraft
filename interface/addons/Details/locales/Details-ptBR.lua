@@ -588,6 +588,8 @@ L["STRING_OPTIONS_CENERGY_DESC"] = [=[Ativa a Captura de:
 - |cFFFFFFFFPoder Rúnico Gerado|r]=]
 L["STRING_OPTIONS_CHANGE_CLASSCOLORS"] = "Modificar Cores Das Classes"
 L["STRING_OPTIONS_CHANGE_CLASSCOLORS_DESC"] = "Escolha novas cores para as cores das classes."
+--[[Translation missing --]]
+--[[ L["STRING_OPTIONS_CHANGECOLOR"] = ""--]] 
 L["STRING_OPTIONS_CHANGELOG"] = "Notas da Versão"
 L["STRING_OPTIONS_CHART_ADD"] = "Adicionar Dados"
 L["STRING_OPTIONS_CHART_ADD2"] = "Adicionar"
@@ -1692,6 +1694,20 @@ L["STRING_WELCOME_7"] = "usado em rankings, este método usa o tempo total da lu
 L["STRING_WELCOME_70"] = "Config da Barra de Título"
 L["STRING_WELCOME_71"] = "Config das Barras"
 L["STRING_WELCOME_72"] = "Config das Janelas"
+--[[Translation missing --]]
+--[[ L["STRING_WELCOME_73"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["STRING_WELCOME_74"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["STRING_WELCOME_75"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["STRING_WELCOME_76"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["STRING_WELCOME_77"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["STRING_WELCOME_78"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["STRING_WELCOME_79"] = ""--]] 
 L["STRING_WINDOW_NOTFOUND"] = "Nenhuma janela encontrada."
 L["STRING_WINDOW_NUMBER"] = "número da janela"
 L["STRING_WINDOW1ATACH_DESC"] = "Para criar um grupo de janelas, mova a janela #2 para perto da janela #1."

@@ -9,7 +9,8 @@ local floor = floor
 
 local GetNumGroupMembers = GetNumGroupMembers
 local ItemUpgradeInfo = LibStub ("LibItemUpgradeInfo-1.0")
-local LibGroupInSpecT = LibStub ("LibGroupInSpecT-1.1")
+--local LibGroupInSpecT = LibStub ("LibGroupInSpecT-1.1")
+local LibGroupInSpecT = false
 
 local storageDebug = false
 local store_instances = _detalhes.InstancesToStoreData

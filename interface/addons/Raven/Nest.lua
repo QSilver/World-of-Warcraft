@@ -62,9 +62,9 @@ local bgTemplate = { -- these fields are cleared when a bar group is deleted
 	labelOffset = 0, labelInset = 0, labelWrap = 0, labelAlign = 0, labelCenter = 0,
 	timeOffset = 0, timeInset = 0, timeAlign = 0, timeIcon = 0, iconOffset = 0, iconInset = 0,
 	configuration = 0, reverse = 0, wrap = 0, wrapDirection = 0, snapCenter = 0, maxBars = 0, width = 0, height = 0,
-	labelFont = 0, labelFSize = 0, labelAlpha = 0, labelColor = 0, labelFlags = 0, labelShadow = 0,
-	timeFont = 0, timeFSize = 0, timeAlpha = 0, timeColor = 0, timeFlags = 0, timeShadow = 0,
-	iconFont = 0, iconFSize = 0, iconAlpha = 0, iconColor = 0, iconFlags = 0, iconShadow = 0,
+	labelFont = 0, labelFSize = 0, labelAlpha = 0, labelColor = 0, labelFlags = 0, labelShadow = 0, labelSpecial = 0,
+	timeFont = 0, timeFSize = 0, timeAlpha = 0, timeColor = 0, timeFlags = 0, timeShadow = 0, timeSpecial = 0,
+	iconFont = 0, iconFSize = 0, iconAlpha = 0, iconColor = 0, iconFlags = 0, iconShadow = 0, iconSpecial = 0,
 	fgTexture = 0, bgTexture = 0, fgAlpha = 0, bgAlpha = 0, fgSaturation = 0, fgBrightness = 0, bgSaturation = 0, bgBrightness = 0,
 	timeFormat = 0, timeSpaces = 0, timeCase = 0, fgNotTimer = 0,
 	showIcon = 0, showCooldown = 0, showBar = 0, showSpark = 0, showLabelText = 0, showTimeText = 0,
@@ -132,6 +132,13 @@ local function SetFrameLevel(frame, level)
 		frame:SetFrameLevel(level); local a = frame:GetFrameLevel()
 		i = i + 1; if i > 10 then print("Raven: warning SetFrameLevel failed"); return end
 	until level == a
+end
+
+-- Validate that have a valid font reference
+local function ValidFont(name)
+	local result = (name and (type(name) == "string") and (name ~= ""))
+	-- MOD.Debug("ValidFont", name, result)
+	return result
 end
 
 -- Initialize and return a splash animation based on a bar's icon image
@@ -441,29 +448,29 @@ local function TextFlags(outline, thick, mono)
 end
 
 -- Set label font options for a bar group
-function MOD.Nest_SetBarGroupLabelFont(bg, font, fsize, alpha, color, outline, shadow, thick, mono)
+function MOD.Nest_SetBarGroupLabelFont(bg, font, fsize, alpha, color, outline, shadow, thick, mono, special)
 	if not color then color = { r = 1, g = 1, b = 1, a = 1 } end
 	if UseTukui() then font = GetTukuiFont(font) end
 	bg.labelFont = font; bg.labelFSize = fsize or 9; bg.labelAlpha = alpha or 1; bg.labelColor = color
-	bg.labelFlags = TextFlags(outline, thick, mono); bg.labelShadow = shadow
+	bg.labelFlags = TextFlags(outline, thick, mono); bg.labelShadow = shadow; bg.labelSpecial = special
 	bg.update = true
 end
 
 -- Set time text font options for a bar group
-function MOD.Nest_SetBarGroupTimeFont(bg, font, fsize, alpha, color, outline, shadow, thick, mono)
+function MOD.Nest_SetBarGroupTimeFont(bg, font, fsize, alpha, color, outline, shadow, thick, mono, special)
 	if not color then color = { r = 1, g = 1, b = 1, a = 1 } end
 	if UseTukui() then font = GetTukuiFont(font) end
 	bg.timeFont = font; bg.timeFSize = fsize or 9; bg.timeAlpha = alpha or 1; bg.timeColor = color
-	bg.timeFlags = TextFlags(outline, thick, mono); bg.timeShadow = shadow
+	bg.timeFlags = TextFlags(outline, thick, mono); bg.timeShadow = shadow; bg.timeSpecial = special
 	bg.update = true
 end
 
 -- Set icon text font options for a bar group
-function MOD.Nest_SetBarGroupIconFont(bg, font, fsize, alpha, color, outline, shadow, thick, mono)
+function MOD.Nest_SetBarGroupIconFont(bg, font, fsize, alpha, color, outline, shadow, thick, mono, special)
 	if not color then color = defaultBackdropColor end
 	if UseTukui() then font = GetTukuiFont(font) end
 	bg.iconFont = font; bg.iconFSize = fsize or 9; bg.iconAlpha = alpha or 1; bg.iconColor = color
-	bg.iconFlags = TextFlags(outline, thick, mono); bg.iconShadow = shadow
+	bg.iconFlags = TextFlags(outline, thick, mono); bg.iconShadow = shadow; bg.iconSpecial = special
 	bg.update = true
 end
 
@@ -665,7 +672,7 @@ function MOD.Nest_CreateBar(bg, name)
 		bar.cooldown = CreateFrame("Cooldown", bname .. "Cooldown", bar.frame, "CooldownFrameTemplate") -- cooldown overlay to animate timer
 		bar.cooldown.noCooldownCount = Raven.db.global.HideOmniCC
 		bar.cooldown.noOCC = Raven.db.global.HideOmniCC -- added for Tukui
-		bar.cooldown:SetHideCountdownNumbers(true); bar.cooldown:SetDrawBling(false); bar.cooldown:SetDrawEdge(false) -- added for WoD
+		bar.cooldown:SetHideCountdownNumbers(true); bar.cooldown:SetDrawBling(false); bar.cooldown:SetDrawEdge(Raven.db.global.IconClockEdge) -- added in WoD
 		bar.iconTextFrame = CreateFrame("Frame", bname .. "IconTextFrame", bar.frame)
 		bar.iconText = bar.iconTextFrame:CreateFontString(nil, "OVERLAY", nil, 4)
 		bar.iconBorder = bar.iconTextFrame:CreateTexture(nil, "BACKGROUND", nil, 3)		
@@ -983,7 +990,7 @@ local function BarGroup_UpdateBackground(bg, config)
 					if not back.labelCount then back.labelCount = 0 end
 					if i > back.labelCount then back.labels[i] = back:CreateFontString(nil, "OVERLAY"); back.labelCount = back.labelCount + 1 end
 					local fs = back.labels[i]
-					fs:SetFontObject(ChatFontNormal); fs:SetFont(bg.labelFont, bg.labelFSize, bg.labelFlags)
+					fs:SetFontObject(ChatFontNormal); if ValidFont(bg.labelFont) then fs:SetFont(bg.labelFont, bg.labelFSize, bg.labelFlags) end
 					local t = bg.labelColor; fs:SetTextColor(t.r, t.g, t.b, bg.labelAlpha); fs:SetShadowColor(0, 0, 0, bg.labelShadow and 1 or 0)
 					fs:SetText(v); fs:SetJustifyH(justH); fs:SetJustifyV(justV); fs:ClearAllPoints()
 					local delta = Timeline_Offset(bg, secs) + ((bg.iconSize + bg.labelFSize) / 2)
@@ -1140,12 +1147,33 @@ local function Bar_UpdateLayout(bg, bar, config)
 	bar.labelText:SetWordWrap(bg.labelWrap)
 	PSetHeight(bar.labelText, h + bg.spacingY) -- limit label height to frame's height plus vertical spacing
 	bar.labelText:SetFontObject(ChatFontNormal); bar.timeText:SetFontObject(ChatFontNormal); bar.iconText:SetFontObject(ChatFontNormal)
-	bar.labelText:SetFont(bg.labelFont, bg.labelFSize, bg.labelFlags)
-	bar.timeText:SetFont(bg.timeFont, bg.timeFSize, bg.timeFlags)
-	bar.iconText:SetFont(bg.iconFont, bg.iconFSize, bg.iconFlags)
-	local t = bg.labelColor; bar.labelText:SetTextColor(t.r, t.g, t.b, bg.labelAlpha); bar.labelText:SetShadowColor(0, 0, 0, bg.labelShadow and 1 or 0)
-	t = bg.timeColor; bar.timeText:SetTextColor(t.r, t.g, t.b, bg.timeAlpha); bar.timeText:SetShadowColor(0, 0, 0, bg.timeShadow and 1 or 0)
-	t = bg.iconColor; bar.iconText:SetTextColor(t.r, t.g, t.b, bg.iconAlpha); bar.iconText:SetShadowColor(0, 0, 0, bg.iconShadow and 1 or 0)
+	if ValidFont(bg.labelFont) then bar.labelText:SetFont(bg.labelFont, bg.labelFSize, bg.labelFlags) end
+	if ValidFont(bg.timeFont) then bar.timeText:SetFont(bg.timeFont, bg.timeFSize, bg.timeFlags) end
+	if ValidFont(bg.iconFont) then bar.iconText:SetFont(bg.iconFont, bg.iconFSize, bg.iconFlags) end
+	
+	if bg.labelSpecial then
+		bar.labelText:SetTextColor(bar.ibr, bar.ibg, bar.ibb, bg.labelAlpha)
+	else
+		local t = bg.labelColor
+		bar.labelText:SetTextColor(t.r, t.g, t.b, bg.labelAlpha)
+	end
+	bar.labelText:SetShadowColor(0, 0, 0, bg.labelShadow and 1 or 0)
+	
+	if bg.timeSpecial then
+		bar.timeText:SetTextColor(bar.ibr, bar.ibg, bar.ibb, bg.timeAlpha)
+	else
+		local t = bg.timeColor
+		bar.timeText:SetTextColor(t.r, t.g, t.b, bg.timeAlpha)
+	end
+	bar.timeText:SetShadowColor(0, 0, 0, bg.timeShadow and 1 or 0)
+
+	if bg.iconSpecial then
+		bar.iconText:SetTextColor(bar.ibr, bar.ibg, bar.ibb, bg.iconAlpha)
+	else
+		local t = bg.iconColor
+		bar.iconText:SetTextColor(t.r, t.g, t.b, bg.iconAlpha)
+	end
+	bar.iconText:SetShadowColor(0, 0, 0, bg.iconShadow and 1 or 0)
 
 	if config.bars ~= "timeline" then SetBarFrameLevel(bar, bg.frame:GetFrameLevel() + 5, config.iconOnly) end
 	if bg.showIcon then
@@ -1200,7 +1228,7 @@ local function Bar_UpdateLayout(bg, bar, config)
 		PSetSize(bar.backdrop, bg.barWidth + offset, bg.barHeight + offset)
 		PSetPoint(bar.backdrop, "CENTER", bar.bgTexture, "CENTER")
 		bar.backdrop:SetBackdrop(bg.borderTable)
-		t = bg.borderColor; bar.backdrop:SetBackdropBorderColor(t.r, t.g, t.b, t.a)
+		local t = bg.borderColor; bar.backdrop:SetBackdropBorderColor(t.r, t.g, t.b, t.a)
 		bar.backdrop:Show()
 	else
 		bar.backdrop:SetBackdrop(nil); bar.backdrop:Hide()
@@ -1360,7 +1388,7 @@ local function Bar_UpdateSettings(bg, bar, config)
 	if bar.flash then alpha = MOD.Nest_FlashAlpha(alpha, 1) end -- adjust alpha if flashing
 	if bat.header and bag.headerGaps then alpha = 0 end
 	bar.frame:SetAlpha(alpha) -- final alpha adjustment
-	bar.cooldown:SetSwipeColor(0, 0, 0, 0.8 * bar.icon:GetEffectiveAlpha()) -- hack to fix cooldown alpha not tracking rest of bar
+	-- bar.cooldown:SetSwipeColor(0, 0, 0, 0.8 * bar.icon:GetEffectiveAlpha()) -- hack to fix cooldown alpha not tracking rest of bar (removed for BfA)
 	if not isHeader and (bag.noMouse or (bag.iconMouse and not bg.showIcon)) then -- non-interactive or "only icon" but icon disabled
 		bar.icon:EnableMouse(false); bar.frame:EnableMouse(false); if callbacks.deactivate then callbacks.deactivate(bar.overlay) end
 	elseif not isHeader and bag.iconMouse then -- only icon is interactive
@@ -1439,7 +1467,7 @@ local function Bar_RefreshAnimations(bg, bar, config)
 	if bar.flash then alpha = MOD.Nest_FlashAlpha(alpha, 1) end -- adjust alpha if flashing
 	if bat.header and bag.headerGaps then alpha = 0 end
 	bar.frame:SetAlpha(alpha) -- final alpha adjustment
-	bar.cooldown:SetSwipeColor(0, 0, 0, 0.8 * bar.icon:GetEffectiveAlpha()) -- hack to fix cooldown alpha not tracking rest of bar
+	-- bar.cooldown:SetSwipeColor(0, 0, 0, 0.8 * bar.icon:GetEffectiveAlpha()) -- hack to fix cooldown alpha not tracking rest of bar (removed for BfA)
 	if bat.soundStart and (not bar.soundDone or (bat.replay and (now > (bar.soundDone + bat.replayTime)))) then
 		PlaySoundFile(bat.soundStart, Raven.db.global.SoundChannel); bar.soundDone = now
 	end

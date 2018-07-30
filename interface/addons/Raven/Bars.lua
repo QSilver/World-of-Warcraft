@@ -635,11 +635,11 @@ function MOD:UpdateBarGroup(bp)
 			bp.timeOffset, bp.timeInset, bp.timeAlign, bp.timeIcon, bp.iconOffset, bp.iconInset, bp.iconHide, bp.iconAlign,
 			bp.configuration, bp.growDirection, bp.wrap, bp.wrapDirection, bp.snapCenter, bp.fillBars, bp.maxBars, bp.strata)
 		MOD.Nest_SetBarGroupLabelFont(bg, media:Fetch("font", bp.labelFont), bp.labelFSize, bp.labelAlpha, bp.labelColor,
-			bp.labelOutline, bp.labelShadow, bp.labelThick, bp.labelMono)
+			bp.labelOutline, bp.labelShadow, bp.labelThick, bp.labelMono, bp.labelSpecial)
 		MOD.Nest_SetBarGroupTimeFont(bg, media:Fetch("font", bp.timeFont), bp.timeFSize, bp.timeAlpha, bp.timeColor,
-			bp.timeOutline, bp.timeShadow, bp.timeThick, bp.timeMono)
+			bp.timeOutline, bp.timeShadow, bp.timeThick, bp.timeMono, bp.timeSpecial)
 		MOD.Nest_SetBarGroupIconFont(bg, media:Fetch("font", bp.iconFont), bp.iconFSize, bp.iconAlpha, bp.iconColor,
-			bp.iconOutline, bp.iconShadow, bp.iconThick, bp.iconMono)
+			bp.iconOutline, bp.iconShadow, bp.iconThick, bp.iconMono, bp.iconSpecial)
 		MOD.Nest_SetBarGroupBackdrop(bg, panelTexture, backdropTexture, bp.backdropWidth, bp.backdropInset, bp.backdropPadding, bp.backdropColor, bp.backdropFill,
 			bp.backdropOffsetX, bp.backdropOffsetY, bp.backdropPadW, bp.backdropPadH)
 		MOD.Nest_SetBarGroupBorder(bg, borderTexture, bp.borderWidth, bp.borderOffset, bp.borderColor)
@@ -760,10 +760,10 @@ local function Bar_OnUpdate(bar)
 	elseif (tt == "inventory") or (tt == "weapon") then
 		local slot = GetInventorySlotInfo(id)
 		if slot then GameTooltip:SetInventoryItem("player", slot) end
-	elseif (tt == "spell link") or (tt == "item link") then
-		GameTooltip:SetHyperlink(id)
 	elseif (tt == "spell id") or (tt == "internal") then
 		GameTooltip:SetSpellByID(id)
+	elseif (tt == "item id") then
+		GameTooltip:SetItemByID(id)
 	elseif tt == "effect" then
 		local ect = MOD.db.global.SpellEffects[id]
 		if ect and ect.id then GameTooltip:SetSpellByID(ect.id) else GameTooltip:SetText(id) end
@@ -944,10 +944,10 @@ local function GetTooltipNumber(ttType, ttID, ttUnit, ttOffset)
 		tt = MOD:GetBuffTooltip(); tt:SetUnitAura(ttUnit, ttID, "HELPFUL") -- fill in the tooltip for the buff
 	elseif ttType == "debuff" then
 		tt = MOD:GetBuffTooltip(); tt:SetUnitAura(ttUnit, ttID, "HARMFUL") -- fill in the tooltip for the debuff
-	elseif (ttType == "spell link") or (ttType == "item link") then
-		tt = MOD:GetBuffTooltip(); tt:SetHyperlink(ttID)
 	elseif (ttType == "spell id") or (ttType == "internal") then
 		tt = MOD:GetBuffTooltip(); tt:SetSpellByID(ttID)
+	elseif (tt == "item id") then
+		GameTooltip:SetItemByID(ttID)
 	elseif (ttType == "inventory") or (ttType == "weapon") then
 		tt = MOD:GetBuffTooltip()
 		local slot = GetInventorySlotInfo(ttID)
@@ -1311,7 +1311,7 @@ end
 -- Check if a cooldown is of right type for the specified bar group
 local function CheckCooldownType(cd, bp)
 	local other, t, s = true, cd[5], cd[6]
-	if (t == "spell link") or (t == "spell") or (t == "spell id") then
+	if (t == "spell") or (t == "spell id") then
 		other = false; if bp.detectSpellCooldowns then return true end
 	elseif (t == "inventory") and ((s == "Trinket0Slot") or (s == "Trinket1Slot")) then
 		other = false; if bp.detectTrinketCooldowns then return true end
@@ -1455,7 +1455,9 @@ local function UpdateBarGroupBars(bp, vbp, bg)
 			end
 		else
 			for _, bar in pairs(bp.bars) do -- iterate over each bar in the bar group
-				if bar.enableBar and (IsOff(bar.hideBar) or (bar.hideBar ~= MOD:CheckCondition(bar.hideCondition))) then
+				local classCheck = not (bar.showClasses and bar.showClasses[MOD.myClass]) -- true if class is enabled
+				local hideCheck = IsOff(bar.hideBar) or (bar.hideBar ~= MOD:CheckCondition(bar.hideCondition)) -- true if hide condition not met
+				if bar.enableBar and hideCheck and classCheck then
 					local t = bar.barType
 					local found = false
 					if (t == "Buff")  or (t == "Debuff") then
@@ -1475,15 +1477,12 @@ local function UpdateBarGroupBars(bp, vbp, bg)
 							end
 							bar.barLabel = saveLabel -- restore in case of multiple bar copies
 						end
-						if not found and bar.enableReady then -- see if need to create a ready bar for the buff/debuff
+						if not found and bar.enableReady and (bar.readyNotUsable or IsUsableSpell(aname) or IsUsableItem(aname)) then -- see if need aura ready bar
 							if not bar.readyTime then bar.readyTime = 0 end
 							if bar.readyTime == 0 then bar.startReady = nil end
 							if not bar.startReady or ((GetTime() - bar.startReady) < bar.readyTime) then
 								if not bar.startReady then bar.startReady = GetTime() end
-								local link = GetSpellLink(aname)
-								local ttype = "spell link"
-								if not link then ttype = "text"; link = aname end
-								UpdateBar(bp, vbp, bg, bar, MOD:GetIcon(aname), 0, 0, nil, nil, ttype, link, nil, nil, nil)
+								UpdateBar(bp, vbp, bg, bar, MOD:GetIcon(aname), 0, 0, nil, nil, "text", aname, nil, nil, nil)
 							end
 						end
 					elseif t == "Cooldown" then
@@ -1496,17 +1495,15 @@ local function UpdateBarGroupBars(bp, vbp, bg)
 								found = true
 							end
 						end
-						if not found and bar.enableReady and (bar.readyNotUsable or IsUsableSpell(aname) or IsUsableItem(aname)) then -- see if need ready bar
+						if not found and bar.enableReady and (bar.readyNotUsable or IsUsableSpell(aname) or IsUsableItem(aname)) then -- see if need cooldown ready bar
 							if not bar.readyTime then bar.readyTime = 0 end
 							if bar.readyTime == 0 then bar.startReady = nil end
 							if not bar.startReady or ((GetTime() - bar.startReady) < bar.readyTime) then
 								if not bar.startReady then bar.startReady = GetTime() end
-								local iname, link, _, _, _, _, _, _, _, icon = GetItemInfo(aname)
+								local iname, _, _, _, _, _, _, _, _, icon = GetItemInfo(aname)
+								if not iname then icon = MOD:GetIcon(aname) end
 								local _, charges = GetSpellCharges(aname); if charges and charges <= 1 then charges = nil end -- show max charges on ready bar
-								local ttype = "item link"
-								if not iname then ttype = "spell link"; link = MOD:GetHyperlink(aname); icon = MOD:GetIcon(aname) end
-								if not link then ttype = "text"; link = aname end
-								UpdateBar(bp, vbp, bg, bar, icon, 0, 0, charges, nil, ttype, link, nil, nil, true)
+								UpdateBar(bp, vbp, bg, bar, icon, 0, 0, charges, nil, "text", aname, nil, nil, true)
 							end
 						end
 					elseif t == "Notification" then
@@ -1618,7 +1615,7 @@ function MOD:UpdateBars()
 		hidden = false
 		MOD:UpdateAllBarGroups()
 	end
-	
+
 	for _, bp in pairs(MOD.db.profile.BarGroups) do -- iterate through the all bar groups
 		if IsOn(bp) then
 			local bg = MOD.Nest_GetBarGroup(bp.name) -- match the profile bar group to the graphics library bar group

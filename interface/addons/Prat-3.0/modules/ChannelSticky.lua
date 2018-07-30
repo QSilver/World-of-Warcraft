@@ -2,7 +2,7 @@
 --
 -- Prat - A framework for World of Warcraft chat mods
 --
--- Copyright (C) 2006-2011  Prat Development Team
+-- Copyright (C) 2006-2018  Prat Development Team
 --
 -- This program is free software; you can redistribute it and/or
 -- modify it under the terms of the GNU General Public License
@@ -36,7 +36,9 @@ if PRAT_MODULE == nil then
     return
 end
 
-local PL = Prat:GetLocalizer({})
+    local module = Prat:NewModule(PRAT_MODULE, "AceEvent-3.0", "AceTimer-3.0", "AceHook-3.0")
+
+local PL = module.PL
 
 --[===[@debug@
 PL:AddLocale(PRAT_MODULE, "enUS", {
@@ -85,26 +87,26 @@ PL:AddLocale(PRAT_MODULE, "enUS",L)
 L=
 {
 	["ChannelSticky"] = {
-		--Translation missing 
-		-- ["Channel"] = "",
-		--Translation missing 
-		-- ["ChannelSticky"] = "",
-		--Translation missing 
-		-- ["Chat channel sticky options."] = "",
-		--Translation missing 
-		-- ["ChatType"] = "",
-		--Translation missing 
-		-- ["Per chat type options."] = "",
+		--[[Translation missing --]]
+		--[[ ["Channel"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["ChannelSticky"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Chat channel sticky options."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["ChatType"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Per chat type options."] = "",--]] 
 		["smartgroup_desc"] = "Ajouter une commande /gr qui sélectionne automatiquement le bon type de chat : raid, groupe, champ de bataille",
 		["smartgroup_name"] = "Groupes intelligents",
-		--Translation missing 
-		-- ["Sticky %s"] = "",
-		--Translation missing 
-		-- ["Sticky Per Chat Frame"] = "",
-		--Translation missing 
-		-- ["Toggle remembering the chat type last used per chat frame."] = "",
-		--Translation missing 
-		-- ["Toggles sticky on and off for %s."] = "",
+		--[[Translation missing --]]
+		--[[ ["Sticky %s"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Sticky Per Chat Frame"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Toggle remembering the chat type last used per chat frame."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Toggles sticky on and off for %s."] = "",--]] 
 	}
 }
 
@@ -154,28 +156,28 @@ PL:AddLocale(PRAT_MODULE, "koKR",L)
 L=
 {
 	["ChannelSticky"] = {
-		--Translation missing 
-		-- ["Channel"] = "",
-		--Translation missing 
-		-- ["ChannelSticky"] = "",
-		--Translation missing 
-		-- ["Chat channel sticky options."] = "",
-		--Translation missing 
-		-- ["ChatType"] = "",
-		--Translation missing 
-		-- ["Per chat type options."] = "",
-		--Translation missing 
-		-- ["smartgroup_desc"] = "",
-		--Translation missing 
-		-- ["smartgroup_name"] = "",
-		--Translation missing 
-		-- ["Sticky %s"] = "",
-		--Translation missing 
-		-- ["Sticky Per Chat Frame"] = "",
-		--Translation missing 
-		-- ["Toggle remembering the chat type last used per chat frame."] = "",
-		--Translation missing 
-		-- ["Toggles sticky on and off for %s."] = "",
+		--[[Translation missing --]]
+		--[[ ["Channel"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["ChannelSticky"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Chat channel sticky options."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["ChatType"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Per chat type options."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["smartgroup_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["smartgroup_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Sticky %s"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Sticky Per Chat Frame"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Toggle remembering the chat type last used per chat frame."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Toggles sticky on and off for %s."] = "",--]] 
 	}
 }
 
@@ -250,15 +252,15 @@ L=
 		["Chat channel sticky options."] = "聊天頻道固定選項",
 		["ChatType"] = "聊天類型",
 		["Per chat type options."] = "每聊天類型選項。",
-		--Translation missing 
-		-- ["smartgroup_desc"] = "",
+		--[[Translation missing --]]
+		--[[ ["smartgroup_desc"] = "",--]] 
 		["smartgroup_name"] = "智慧化群組",
 		["Sticky %s"] = "固定 %s",
 		["Sticky Per Chat Frame"] = "個別聊天視窗固定",
-		--Translation missing 
-		-- ["Toggle remembering the chat type last used per chat frame."] = "",
-		--Translation missing 
-		-- ["Toggles sticky on and off for %s."] = "",
+		--[[Translation missing --]]
+		--[[ ["Toggle remembering the chat type last used per chat frame."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Toggles sticky on and off for %s."] = "",--]] 
 	}
 }
 
@@ -286,7 +288,6 @@ local chatList = {
     "BN_CONVERSATION",
 }
 
-local module = Prat:NewModule(PRAT_MODULE, "AceEvent-3.0", "AceTimer-3.0", "AceHook-3.0")
 
 Prat:SetModuleDefaults(module, {
 	profile = {
@@ -383,6 +384,10 @@ end
     Core Functions
 ------------------------------------------------]]--
 
+function module:GetDescription()
+    return PL["Chat channel sticky options."]
+end
+
 -- rebuild options menu is chat colors change
 function module:UPDATE_CHAT_COLOR()
 	self:ScheduleTimer("BuildChannelList", 1)
@@ -432,7 +437,7 @@ function module:BuildChannelList()
         local val = va:lower()
         local chan
         if va ~= "CHANNEL" then
-            chan = TEXT(_G["CHAT_MSG_"..va])
+            chan = _G["CHAT_MSG_"..va]
         else
             chan = PL["Channel"]
         end

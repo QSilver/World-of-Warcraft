@@ -781,24 +781,24 @@ Bagnon_Sets = {
 					["borderColor"] = {
 					},
 					["spacing"] = 3,
+					["options"] = true,
+					["alpha"] = 1,
+					["enabled"] = true,
+					["brokerObject"] = "WeakAuras",
 					["columns"] = 15,
 					["bagFrame"] = true,
-					["enabled"] = true,
-					["reverseBags"] = false,
-					["options"] = true,
+					["money"] = true,
+					["itemScale"] = 1,
 					["hiddenRules"] = {
 						["contain"] = true,
 					},
-					["money"] = true,
-					["alpha"] = 1,
-					["itemScale"] = 1,
-					["y"] = 242.755920410156,
+					["y"] = 163.986679077148,
 					["bagBreak"] = true,
-					["x"] = -56.89111328125,
+					["x"] = -128.002563476562,
 					["search"] = false,
 					["broker"] = true,
 					["reverseSlots"] = false,
-					["brokerObject"] = "WeakAuras",
+					["reverseBags"] = false,
 					["actPanel"] = false,
 					["scale"] = 1,
 				},
@@ -870,15 +870,15 @@ Bagnon_Sets = {
 						"contain/all", -- [24]
 						"misc/all", -- [25]
 					},
-					["point"] = "BOTTOMLEFT",
+					["point"] = "TOPLEFT",
 					["hiddenBags"] = {
 						[-1] = true,
 					},
 					["color"] = {
 					},
 					["itemScale"] = 1,
-					["y"] = 75.8086547851563,
-					["x"] = 652.547729492188,
+					["y"] = -112.242553710938,
+					["x"] = 764.137756347656,
 					["borderColor"] = {
 					},
 					["hiddenRules"] = {

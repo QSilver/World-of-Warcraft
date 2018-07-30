@@ -1,5 +1,5 @@
 		------------------------------------------------
-		-- Paragon Reputation 1.18 by Sev US-Drakkari --
+		-- Paragon Reputation 1.19 by Sev US-Drakkari --
 		------------------------------------------------
 
 		  --[[	  Special thanks to Ammako for
@@ -21,41 +21,29 @@ local rewardid = {
 	[46749] = 1894, -- The Wardens
 	[46746] = 1948  -- Valarjar
 }
-
 reward:RegisterEvent("QUEST_ACCEPTED") --RegisterQuestAccepted
 
--- Paragon Tooltip
-hooksecurefunc("ReputationParagonFrame_SetupParagonTooltip",function(frame, factionID)
-	ReputationParagonTooltip:ClearLines()
-	local factionName = GetFactionInfoByID(factionID)
-	local _, _, rewardQuestID = C_Reputation.GetFactionParagonInfo(factionID)
-	local description = PARAGON_REPUTATION_TOOLTIP_TEXT:format(factionName)
-	local questIndex = GetQuestLogIndexByID(rewardQuestID)
-	local text = GetQuestLogCompletionText(questIndex)
-	local style = TOOLTIP_QUEST_REWARDS_STYLE_DEFAULT
-	if text and text ~= "" then description = text end
-	ReputationParagonTooltip:SetText(L["PARAGON"])
-	ReputationParagonTooltip:AddLine(description, HIGHLIGHT_FONT_COLOR.r, HIGHLIGHT_FONT_COLOR.g, HIGHLIGHT_FONT_COLOR.b, 1)
-	GameTooltip_AddBlankLinesToTooltip(ReputationParagonTooltip, style.prefixBlankLineCount)
-	ReputationParagonTooltip:AddLine(style.headerText, style.headerColor.r, style.headerColor.g, style.headerColor.b, style.wrapHeaderText)
-	EmbeddedItemTooltip_SetItemByQuestReward(ReputationParagonTooltip.ItemTooltip, 1, rewardQuestID)
-	ReputationParagonTooltip:Show()
-end)
-
 -- Reputation Watchbar (Thanks Hoalz)
-hooksecurefunc("MainMenuBar_UpdateExperienceBars",function()
-	local _, _, _, _, _, factionID = GetWatchedFactionInfo()
-	if factionID and ReputationWatchBar:IsShown() and C_Reputation.IsFactionParagon(factionID) then
-		ReputationWatchBar.StatusBar:SetStatusBarColor(ParagonReputationDB.r, ParagonReputationDB.g, ParagonReputationDB.b)
+hooksecurefunc(ReputationBarMixin,"Update",function(self)
+	local _,_,_,_,_,factionID = GetWatchedFactionInfo()
+	if factionID and C_Reputation.IsFactionParagon(factionID) then
+		self:SetBarColor(ParagonReputationDB.r,ParagonReputationDB.g,ParagonReputationDB.b,1)
 	end
 end)
 
 -- Reputation Watchbar - Paragon Tooltip Hide
-hooksecurefunc("ReputationParagonWatchBar_OnEnter",function(self)
-	local _, _, _, _, _, factionID = GetWatchedFactionInfo()
-	local _, _, _, hasRewardPending = C_Reputation.GetFactionParagonInfo(factionID)
-	if not hasRewardPending then
-		ReputationParagonTooltip:Hide()
+hooksecurefunc("ReputationParagonFrame_SetupParagonTooltip",function(frame)
+	local _,_,rewardQuestID,hasRewardPending = C_Reputation.GetFactionParagonInfo(frame.factionID)
+	if hasRewardPending then
+		local factionName = GetFactionInfoByID(frame.factionID)
+		local questIndex = GetQuestLogIndexByID(rewardQuestID)
+		local description = GetQuestLogCompletionText(questIndex) or ""
+		EmbeddedItemTooltip:SetText(L["PARAGON"])
+		EmbeddedItemTooltip:AddLine(description,HIGHLIGHT_FONT_COLOR.r,HIGHLIGHT_FONT_COLOR.g,HIGHLIGHT_FONT_COLOR.b,1)
+		GameTooltip_AddQuestRewardsToTooltip(EmbeddedItemTooltip,rewardQuestID)
+		EmbeddedItemTooltip:Show()
+	else
+		EmbeddedItemTooltip:Hide()
 	end
 end)
 
@@ -104,12 +92,14 @@ hooksecurefunc("ReputationFrame_Update",function()
 		local factionIndex = factionOffset + i
 		local factionRow = _G["ReputationBar"..i]
 		local factionBar = _G["ReputationBar"..i.."ReputationBar"]
+		local factionTitle = _G["ReputationBar"..i.."FactionName"]
 		local factionStanding = _G["ReputationBar"..i.."ReputationBarFactionStanding"]
 		if factionIndex <= numFactions then
-			local _, _, _, _, _, _, _, _, _, _, _, _, _, factionID = GetFactionInfo(factionIndex)
+			local name,_,_,_,_,_,_,_,_,_,_,_,_,factionID = GetFactionInfo(factionIndex)
 			if factionID and C_Reputation.IsFactionParagon(factionID) then
 				local currentValue, threshold, _, hasRewardPending = C_Reputation.GetFactionParagonInfo(factionID)
 				if currentValue then
+--					factionTitle:SetText("|cff808080(x"..floor(currentValue/threshold)..")|r "..name)
 					local value = mod(currentValue, threshold)
 					if hasRewardPending then
 						local paragonFrame = ReputationFrame.paragonFramesPool:Acquire()

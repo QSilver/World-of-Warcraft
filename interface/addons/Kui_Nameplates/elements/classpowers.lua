@@ -63,7 +63,7 @@
     PostPowerUpdate
         Called after icons are set to active or inactive.
 
-    PostRuneUpdate(icon,rune_id)
+    PostRuneUpdate
         Called after updating rune icon cooldown data for death knights.
 
     PostPositionFrame(cpf,parent)
@@ -130,13 +130,15 @@ local BAR_TEXTURE,BAR_WIDTH,BAR_HEIGHT
 local FRAME_POINT
 local ICON_SPRITE
 
-local ANTICIPATION_TALENT_ID=19240
 local BALANCE_FERAL_AFFINITY_TALENT_ID=22155
 local GUARDIAN_FERAL_AFFINITY_TALENT_ID=22156
 local RESTO_FERAL_AFFINITY_TALENT_ID=22367
 local FIRES_OF_JUSTICE_SPELL_ID=209785
-local FIRES_OF_JUSTICE_NAME
 -- local functions #############################################################
+local function AuraUtil_IDPredicate(IDToFind,_,_,_,_,_,_,_,_,_,_,_,spellID)
+    -- spell ID predicate for AuraUtil
+    return spellID == IDToFind
+end
 local function IsTalentKnown(id)
     return select(10,GetTalentInfoByID(id))
 end
@@ -269,9 +271,7 @@ end
 local function UpdateIcons()
     -- create/destroy icons based on player power max
     local power_max
-    if class == 'ROGUE' and IsTalentKnown(ANTICIPATION_TALENT_ID) then
-        power_max = 5
-    elseif power_type == 'stagger' then
+    if power_type == 'stagger' then
         -- corrected by StaggerUpdate
         power_max = 1
     else
@@ -587,7 +587,6 @@ function ele:PowerInit()
         if class == 'PALADIN' then
             if power_type then
                 -- ret paladin; watch for fires of justice procs
-                FIRES_OF_JUSTICE_NAME = GetSpellInfo(FIRES_OF_JUSTICE_SPELL_ID)
                 highlight_at = 3
 
                 cpf:RegisterUnitEvent('UNIT_AURA','player')
@@ -652,9 +651,7 @@ function ele:PowerInit()
         if power_type == 'stagger' then
             self:StaggerUpdate()
         elseif class == 'DEATHKNIGHT' then
-            for i=1,6 do
-                self:RuneUpdate(nil,i)
-            end
+            self:RuneUpdate()
         else
             -- icon/generic bar powers
             PowerUpdate()
@@ -668,38 +665,40 @@ function ele:PowerInit()
         cpf:Hide()
     end
 end
-function ele:RuneUpdate(event,rune_id,energise)
-    -- set cooldown on rune icons
-    local startTime, duration, charged = GetRuneCooldown(rune_id)
-    local icon = cpf.icons[rune_id]
-    if not icon then return end
+function ele:RuneUpdate(event)
+    -- set/clear cooldown on rune icons
+    for i=1,6 do
+        local startTime, duration, charged = GetRuneCooldown(i)
+        local icon = cpf.icons[i]
+        if not icon then return end
 
-    if charged or energise then
-        icon:SetVertexColor(unpack(colours.DEATHKNIGHT))
-        icon:SetAlpha(1)
-        icon:GraduateFill(1)
+        if charged or energise then
+            icon:SetVertexColor(unpack(colours.DEATHKNIGHT))
+            icon:SetAlpha(1)
+            icon:GraduateFill(1)
 
-        icon.startTime = nil
-        icon.duration = nil
+            icon.startTime = nil
+            icon.duration = nil
 
-        if icon.glow then
-            icon.glow:Show()
-        end
-    else
-        icon:SetVertexColor(unpack(colours.inactive))
-        icon:SetAlpha(1)
-        icon:GraduateFill((GetTime() - startTime) / duration)
+            if icon.glow then
+                icon.glow:Show()
+            end
+        else
+            icon:SetVertexColor(unpack(colours.inactive))
+            icon:SetAlpha(1)
+            icon:GraduateFill((GetTime() - startTime) / duration)
 
-        icon.startTime = startTime
-        icon.duration = duration
-        cpf.RuneDaemon:Show()
+            icon.startTime = startTime
+            icon.duration = duration
+            cpf.RuneDaemon:Show()
 
-        if icon.glow then
-            icon.glow:Hide()
+            if icon.glow then
+                icon.glow:Hide()
+            end
         end
     end
 
-    self:RunCallback('PostRuneUpdate',icon,rune_id)
+    self:RunCallback('PostRuneUpdate')
 end
 function ele:StaggerUpdate()
     if not cpf.bar then return end
@@ -739,7 +738,8 @@ function ele:UPDATE_SHAPESHIFT_FORM()
     self:PowerInit()
 end
 function ele:Paladin_WatchFiresOfJustice(_,unit)
-    if UnitBuff(unit,FIRES_OF_JUSTICE_NAME) then
+    -- TODO it would probably be more efficient to watch the combat log for this
+    if AuraUtil.FindAura(AuraUtil_IDPredicate,unit,nil,FIRES_OF_JUSTICE_SPELL_ID) then
         highlight_at = 2
     else
         highlight_at = 3

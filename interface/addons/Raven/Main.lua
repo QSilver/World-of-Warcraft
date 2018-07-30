@@ -1,6 +1,6 @@
 -- Raven is an addon to monitor auras and cooldowns, providing timer bars and icons plus helpful notifications.
 -- Author: Tomber
--- Copyright 2010-2016, All Rights Reserved
+-- Copyright 2010-2018, All Rights Reserved
 
 -- Main.lua contains initialization and update routines supporting Raven's core capability of tracking active auras and cooldowns.
 -- It includes special cases for weapon buffs, stances, and trinkets.
@@ -12,6 +12,8 @@
 -- Raven:IterateCooldowns(func, p1, p2, p3) calls func for each active cooldown, parameters include a table with detailed cooldown info
 -- Raven:UnitHasBuff(unit, type) returns true and table with detailed info if unit has an active buff of the specified type (e.g., "Mainhand")
 -- Raven:UnitHasDebuff(unit, type) returns true and table with detailed info if unit has an active debuff of the specified type (e.g., "Poison")
+
+-- Changes for "Battle for Azertoth" are flagged with xxBfAxx except for the numerous changes related to UnitAura
 
 Raven = LibStub("AceAddon-3.0"):NewAddon("Raven", "AceConsole-3.0", "AceEvent-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("Raven")
@@ -104,6 +106,20 @@ local ignoreGUID = nil -- set when need to start ignoring trackers from a unit t
 local activeBrokers = {} -- table of brokers that trigger update events
 local hidingRunes = false -- used to prevent trying to show runes if didn't hide them
 
+-- UnitAura no longer works with spell names in xxBfAxx so this function searches for them by scanning
+-- While not the most efficient way to do this, it is generally used with a filter that should limit the depth of the search
+-- This is only called for combat log events related to spell auras
+function MOD.UnitAuraSpellName(unit, spellName, filter)
+	local name, icon, count, btype, duration, expire, caster, isStealable, nameplateShowSelf, spellID, apply, boss
+	if type(spellName) == "string" then -- sanity check only being called with a spell name
+		for i = 1, 100 do
+			name, icon, count, btype, duration, expire, caster, isStealable, nameplateShowSelf, spellID, apply, boss = UnitAura(unit, i, nil, filter)
+			if name == spellName then break end
+		end
+	end
+	return name, icon, count, btype, duration, expire, caster, isStealable, nameplateShowSelf, spellID, boss, apply
+end
+
 -- This table is used to fix the "not cast by player" bug for Jade Spirit, River's Song, and Dancing Steel introduced in 5.1
 -- and the legendary meta gem procs Tempus Repit, Fortitude, Capacitance, and Lucidity added in 5.2
 local fixEnchants = { [104993] = true, [120032] = true, [118334] = true, [118335] = true, [116660] = true,
@@ -171,7 +187,7 @@ local function CheckUnitIDs(uid, guid)
 end
 
 -- Add or update a tracker entry, including an option tag useful for mark/sweep type garbage collection
-local function AddTracker(dstGUID, dstName, isBuff, name, rank, icon, count, btype, duration, expire, caster, isStealable, spellID, boss, apply, tag)
+local function AddTracker(dstGUID, dstName, isBuff, name, icon, count, btype, duration, expire, caster, isStealable, spellID, boss, apply, tag)
 	doUpdate = true
 	local tracker = isBuff and unitBuffs[dstGUID] or unitDebuffs[dstGUID] -- get or create the aura tracking table
 	if not tracker then tracker = AllocateTable() if isBuff then unitBuffs[dstGUID] = tracker else unitDebuffs[dstGUID] = tracker end end
@@ -180,7 +196,7 @@ local function AddTracker(dstGUID, dstName, isBuff, name, rank, icon, count, bty
 	if not t then t = AllocateTable(); tracker[id] = t end -- create the tracker if necessary
 	local vehicle = UnitHasVehicleUI("player")
 	t[1], t[2], t[3], t[4], t[5], t[6], t[7], t[8], t[9], t[10], t[11], t[12], t[13], t[14], t[15], t[16], t[17], t[18], t[19], t[20], t[21], t[22] =
-		true, 0, count, btype, duration, caster, isStealable, icon, rank, expire, "spell id", spellID, name, spellID,
+		true, 0, count, btype, duration, caster, isStealable, icon, nil, expire, "spell id", spellID, name, spellID,
 		boss, UnitName("player"), apply, nil, vehicle, dstGUID, dstName, tag
 end
 
@@ -239,13 +255,13 @@ function MOD:AddTrackers(unit)
 	local dstGUID, dstName = UnitGUID(unit), UnitName(unit)
 	if dstGUID and dstName and not refreshUnits[dstGUID] and (dstGUID ~= ignoreGUID) then
 		refreshUnits[dstGUID] = true
-		local name, rank, icon, count, btype, duration, expire, caster, isStealable, _, spellID, boss, apply
+		local name, icon, count, btype, duration, expire, caster, isStealable, _, spellID, boss, apply
 		trackerTag = trackerTag + 1 -- unique tag for this pass
 		local i = 1
 		repeat
-			name, rank, icon, count, btype, duration, expire, caster, isStealable, _, spellID, apply = UnitAura(unit, i, "HELPFUL|PLAYER")
+			name, icon, count, btype, duration, expire, caster, isStealable, _, spellID, apply = UnitAura(unit, i, "HELPFUL|PLAYER")
 			if name and caster == "player" then
-				AddTracker(dstGUID, dstName, true, name, rank, icon, count, btype, duration, expire, caster, isStealable, spellID, nil, apply, trackerTag)
+				AddTracker(dstGUID, dstName, true, name, icon, count, btype, duration, expire, caster, isStealable, spellID, nil, apply, trackerTag)
 				MOD.SetDuration(name, spellID, duration)
 				MOD.SetSpellType(spellID, btype)
 			end
@@ -253,10 +269,10 @@ function MOD:AddTrackers(unit)
 		until not name
 		i = 1
 		repeat
-			name, rank, icon, count, btype, duration, expire, caster, isStealable, _, spellID, apply, boss = UnitAura(unit, i, "HARMFUL|PLAYER")
+			name, icon, count, btype, duration, expire, caster, isStealable, _, spellID, apply, boss = UnitAura(unit, i, "HARMFUL|PLAYER")
 			if name and caster == "player" then
 				if spellID ~= 146739 or duration ~= 0 or InCombatLockdown() then -- don't add Corruption if out-of-combat
-					AddTracker(dstGUID, dstName, false, name, rank, icon, count, btype, duration, expire, caster, isStealable, spellID, boss, apply, trackerTag)
+					AddTracker(dstGUID, dstName, false, name, icon, count, btype, duration, expire, caster, isStealable, spellID, boss, apply, trackerTag)
 					MOD.SetDuration(name, spellID, duration)
 					MOD.SetSpellType(spellID, btype)
 				end
@@ -308,7 +324,8 @@ local function GetUnitIDFromGUID(guid)
 end
 
 -- Function called for combat log events to track hots and dots
-local function CombatLogTracker(event, timeStamp, e, hc, srcGUID, srcName, sf1, sf2, dstGUID, dstName, df1, df2, spellID, spellName, spellSchool, auraType, amount)
+local function CombatLogTracker() -- xxBFAxx no longer passes in arguments with the event
+	timeStamp, e, hc, srcGUID, srcName, sf1, sf2, dstGUID, dstName, df1, df2, spellID, spellName, spellSchool, auraType, amount = CombatLogGetCurrentEventInfo()
 	if bit.band(sf1, COMBATLOG_OBJECT_AFFILIATION_MASK) == COMBATLOG_OBJECT_AFFILIATION_MINE then -- make sure event controlled by the player
 		-- MOD.Debug(e, srcGUID, srcName, sf1, sf2, dstGUID, dstName, df1, df2, spellID, spellName, spellSchool, auraType, tostring(amount)) -- display all events
 		doUpdate = true
@@ -325,13 +342,13 @@ local function CombatLogTracker(event, timeStamp, e, hc, srcGUID, srcName, sf1, 
 			end
 		end
 		if e == "SPELL_AURA_APPLIED" or e == "SPELL_AURA_APPLIED_DOSE" or e == "SPELL_AURA_REMOVED_DOSE" or e == "SPELL_AURA_REFRESH" then
-			local name, rank, icon, count, btype, duration, expire, caster, isStealable, boss, sid, apply, _
+			local name, icon, count, btype, duration, expire, caster, isStealable, boss, sid, apply, _
 			local isBuff, dst = true, GetUnitIDFromGUID(dstGUID)
 			if dst and UnitExists(dst) then
-				name, rank, icon, count, btype, duration, expire, caster, isStealable, _, sid, apply = UnitAura(dst, spellName, nil, "HELPFUL|PLAYER")
+				name, icon, count, btype, duration, expire, caster, isStealable, _, sid, apply = MOD.UnitAuraSpellName(dst, spellName, "HELPFUL|PLAYER")
 				if not name and (srcGUID ~= dstGUID) then -- don't get debuffs cast by player on self (e.g., Sated)
 					isBuff = false
-					name, rank, icon, count, btype, duration, expire, caster, isStealable, _, sid, apply, boss = UnitAura(dst, spellName, nil, "HARMFUL|PLAYER")
+					name, icon, count, btype, duration, expire, caster, isStealable, _, sid, apply, boss = MOD.UnitAuraSpellName(dst, spellName, "HARMFUL|PLAYER")
 				end
 				if sid and spellID and spellID ~= sid then name = nil end -- not a match so must be a duplicate name
 				if name then MOD.SetDuration(name, spellID, duration); MOD.SetSpellType(spellID, btype) end
@@ -339,7 +356,7 @@ local function CombatLogTracker(event, timeStamp, e, hc, srcGUID, srcName, sf1, 
 			if not spellID then spellID = MOD:GetSpellID(spellName) end
 			if spellID and not icon then icon = MOD:GetIcon(spellName, spellID) end
 			if not name then
-				name = spellName; rank = ""; count = 1; btype = MOD.GetSpellType(spellID); duration = MOD.GetDuration(name, spellID); isBuff = (auraType == "BUFF")
+				name = spellName; count = 1; btype = MOD.GetSpellType(spellID); duration = MOD.GetDuration(name, spellID); isBuff = (auraType == "BUFF")
 				if duration > 0 then expire = now + duration else duration = 0; expire = 0 end
 				if e == "SPELL_AURA_APPLIED_DOSE" or e == "SPELL_AURA_REMOVED_DOSE" then -- may be refresh of existing spell's stack count (e.g., Agony)
 					count = amount
@@ -349,7 +366,7 @@ local function CombatLogTracker(event, timeStamp, e, hc, srcGUID, srcName, sf1, 
 				caster = "player"; isStealable = nil; boss = nil; apply = nil
 			end
 			if name and caster == "player" and (isBuff or (srcGUID ~= dstGUID)) then
-				AddTracker(dstGUID, dstName, isBuff, name, rank, icon, count, btype, duration, expire, caster, isStealable, spellID, boss, apply, nil)
+				AddTracker(dstGUID, dstName, isBuff, name, icon, count, btype, duration, expire, caster, isStealable, spellID, boss, apply, nil)
 			end
 			if dstGUID == UnitGUID("target") and not IsBeingTracked(dstGUID) then ValidateUnitIDs() end -- refresh all auras when target changes
 			if MOD.db.global.DetectInternalCooldowns then MOD:DetectInternalCooldown(spellName, false) end -- check internal cooldowns
@@ -444,7 +461,7 @@ function MOD:OnEnable()
 	-- Register events called prior to starting play
 	self:RegisterEvent("PLAYER_ENTERING_WORLD")
 	self:RegisterEvent("UNIT_AURA")
-	self:RegisterEvent("UNIT_POWER")
+	self:RegisterEvent("UNIT_POWER_UPDATE") -- xxBFAxx changed name of event
 	self:RegisterEvent("UNIT_PET")
 	self:RegisterEvent("UNIT_TARGET")
 	self:RegisterEvent("PLAYER_FOCUS_CHANGED")
@@ -465,7 +482,7 @@ function MOD:OnEnable()
 	self:RegisterEvent("ACTIONBAR_SLOT_CHANGED", TriggerActionsUpdate)
 	self:RegisterEvent("ACTIONBAR_PAGE_CHANGED", TriggerActionsUpdate)
 	self:RegisterEvent("RUNE_POWER_UPDATE", TriggerCooldownUpdate)
-	self:RegisterEvent("RUNE_TYPE_UPDATE", TriggerCooldownUpdate)
+	-- self:RegisterEvent("RUNE_TYPE_UPDATE", TriggerCooldownUpdate) xxBFAxx deleted event
 	self:RegisterEvent("PLAYER_TOTEM_UPDATE", TriggerPlayerUpdate)
 	self:RegisterEvent("UNIT_SPELLCAST_START", CheckGCD)
 	self:RegisterEvent("UNIT_SPELLCAST_SUCCEEDED", CheckSpellCasts)
@@ -534,7 +551,7 @@ function MOD:UNIT_AURA(e, unit)
 end
 
 -- Event called when a unit's power changes
-function MOD:UNIT_POWER(e, unit) if unit == "player" then unitUpdate[unit] = true; doUpdate = true end end
+function MOD:UNIT_POWER_UPDATE(e, unit) if unit == "player" then unitUpdate[unit] = true; doUpdate = true end end -- xxBFAxx renamed event
 
 -- Event for when vehicle info changes
 function MOD:VEHICLE_UPDATE() TriggerPlayerUpdate() end
@@ -781,7 +798,7 @@ end
 
 -- Aura tables have this structure:
 -- b[1] = isBuff, b[2] = timeLeft, b[3] = stackCount, b[4] = auraType, b[5] = duration, b[6] = caster, b[7] = isStealable/effectCaster, b[8] = icon,
--- b[9] = rank, b[10] = expireTime, b[11] = tooltipType, b[12] = tooltipArgument, b[13] = name, b[14] = spellID, b[15] = isBoss, b[16] = casterName,
+-- b[9] = nil (was rank pre-xxBFAxx), b[10] = expireTime, b[11] = tooltipType, b[12] = tooltipArgument, b[13] = name, b[14] = spellID, b[15] = isBoss, b[16] = casterName,
 -- b[17] = castable, b[18] = casterIsNPC, b[19] = casterVehicle
 
 -- Calculate aura time left from expiration time and current time, this is always done before returning aura descriptors
@@ -802,7 +819,7 @@ function MOD.CheckLibBossIDs(guid)
 end
 	
 -- Add an active aura to the table for the specified unit
-local function AddAura(unit, name, isBuff, spellID, count, btype, duration, caster, steal, boss, apply, icon, rank, expire, tt_type, tt_arg)
+local function AddAura(unit, name, isBuff, spellID, count, btype, duration, caster, steal, boss, apply, icon, expire, tt_type, tt_arg)
 	local auraTable = isBuff and activeBuffs[unit] or activeDebuffs[unit]
 	local auraCache = isBuff and cacheBuffs[unit] or cacheDebuffs[unit]
 	if auraTable then
@@ -817,7 +834,7 @@ local function AddAura(unit, name, isBuff, spellID, count, btype, duration, cast
 			end
 		end
 		b[1], b[2], b[3], b[4], b[5], b[6], b[7], b[8], b[9], b[10], b[11], b[12], b[13], b[14], b[15], b[16], b[17], b[18], b[19] =
-			isBuff, 0, count, btype, duration, caster, steal, icon, rank, expire, tt_type, tt_arg, name, spellID, boss, cname, apply, isNPC, vehicle
+			isBuff, 0, count, btype, duration, caster, steal, icon, nil, expire, tt_type, tt_arg, name, spellID, boss, cname, apply, isNPC, vehicle
 		auraTable[#auraTable + 1] = b
 		if auraCache then auraCache[name] = true end
 		MOD:SetIcon(name, icon) --  cache icon for this aura
@@ -991,7 +1008,7 @@ local function GetWeaponBuffs()
 		local timeLeft = mhms / 1000
 		local expire = now + timeLeft
 		local duration = GetWeaponBuffDuration(mhbuff, timeLeft)
-		AddAura("player", mhbuff, true, nil, mhc, "Mainhand", duration, "player", nil, nil, 1, icon, nil, expire, "weapon", "MainHandSlot")
+		AddAura("player", mhbuff, true, nil, mhc, "Mainhand", duration, "player", nil, nil, 1, icon, expire, "weapon", "MainHandSlot")
 		mhLastBuff = mhbuff -- caches the name of the weapon buff so can clear it later
 	elseif mhLastBuff then ResetWeaponBuffDuration(mhLastBuff); mhLastBuff = nil end
 	
@@ -1007,33 +1024,35 @@ local function GetWeaponBuffs()
 		local timeLeft = ohms / 1000
 		local expire = now + timeLeft
 		local duration = GetWeaponBuffDuration(ohbuff, timeLeft)
-		AddAura("player", ohbuff, true, nil, ohc, "Offhand", duration, "player", nil, nil, 1, icon, nil, expire, "weapon", "SecondaryHandSlot")
+		AddAura("player", ohbuff, true, nil, ohc, "Offhand", duration, "player", nil, nil, 1, icon, expire, "weapon", "SecondaryHandSlot")
 		ohLastBuff = ohbuff -- caches the name of the weapon buff so can clear it later
 	elseif ohLastBuff then ResetWeaponBuffDuration(ohLastBuff); ohLastBuff = nil end
 end
 
 -- Add buffs for the specified unit to the active buffs table
 local function GetBuffs(unit)
-	local name, rank, icon, count, btype, duration, expire, caster, isStealable, _, spellID, apply, boss
+	local name, icon, count, btype, duration, expire, caster, isStealable, nameplatePersonal, spellID, apply, boss, castByPlayer, showOnNameplate
 	local i = 1
 	repeat
-		name, rank, icon, count, btype, duration, expire, caster, isStealable, _, spellID, apply, boss = UnitAura(unit, i, "HELPFUL")
+		name, icon, count, btype, duration, expire, caster, isStealable, nameplatePersonal, spellID, apply, boss, castByPlayer, showOnNameplate = UnitAura(unit, i, "HELPFUL")
 		if name then
 			if not caster then if spellID and fixEnchants[spellID] then caster = "player" else caster = "unknown" end -- fix Jade Spirit, Dancing Steel, River's Song
 			elseif caster == "vehicle" then caster = "player" end -- vehicle buffs treated like player buffs
-			if caster == "player" then MOD.SetDuration(name, spellID, duration); MOD.SetSpellType(spellID, btype) end
-			AddAura(unit, name, true, spellID, count, btype, duration, caster, isStealable, boss, apply, icon, rank, expire, "buff", i)
+			if caster == "player" then MOD.SetDuration(name, spellID, duration); MOD.SetSpellType(spellID, btype)
+				-- MOD.Debug("GetBuffs", name, castByPlayer, nameplatePersonal, showOnNameplate)
+			end
+			AddAura(unit, name, true, spellID, count, btype, duration, caster, isStealable, boss, apply, icon, expire, "buff", i)
 		end
 		i = i + 1
 	until not name
 	if unit ~= "player" or not UnitHasVehicleUI("player") then return end -- done for all but player, players also need to add vehicle buffs
 	i = 1
 	repeat
-		name, rank, icon, count, btype, duration, expire, caster, isStealable, _, spellID, apply, boss = UnitAura("vehicle", i, "HELPFUL")
+		name, icon, count, btype, duration, expire, caster, isStealable, _, spellID, apply, boss = UnitAura("vehicle", i, "HELPFUL")
 		if name then
 			if not caster then caster = "unknown" elseif caster == "vehicle" then caster = "player" end -- vehicle buffs treated like player buffs
 			if caster == "player" then MOD.SetDuration(name, spellID, duration); MOD.SetSpellType(spellID, btype) end
-			AddAura(unit, name, true, spellID, count, btype, duration, caster, isStealable, boss, apply, icon, rank, expire, "vehicle buff", i)
+			AddAura(unit, name, true, spellID, count, btype, duration, caster, isStealable, boss, apply, icon, expire, "vehicle buff", i)
 		end
 		i = i + 1
 	until not name
@@ -1041,25 +1060,25 @@ end
 
 -- Add debuffs for the specified unit to the active debuffs table
 local function GetDebuffs(unit)
-	local name, rank, icon, count, btype, duration, expire, caster, isStealable, _, spellID, apply, boss
+	local name, icon, count, btype, duration, expire, caster, isStealable, nameplatePersonal, spellID, apply, boss, castByPlayer, showOnNameplate
 	local i = 1
 	repeat
-		name, rank, icon, count, btype, duration, expire, caster, isStealable, _, spellID, apply, boss = UnitAura(unit, i, "HARMFUL")
+		name, icon, count, btype, duration, expire, caster, isStealable, nameplatePersonal, spellID, apply, boss, castByPlayer, showOnNameplate = UnitAura(unit, i, "HARMFUL")
 		if name then
 			if not caster then caster = "unknown" elseif caster == "vehicle" then caster = "player" end -- vehicle debuffs treated like player debuffs
 			if caster == "player" then MOD.SetDuration(name, spellID, duration); MOD.SetSpellType(spellID, btype) end
-			AddAura(unit, name, false, spellID, count, btype, duration, caster, isStealable, boss, apply, icon, rank, expire, "debuff", i)
+			AddAura(unit, name, false, spellID, count, btype, duration, caster, isStealable, boss, apply, icon, expire, "debuff", i)
 		end
 		i = i + 1
 	until not name
 	if unit ~= "player" or not UnitHasVehicleUI("player") then return end -- done for all but player, players also need to add vehicle debuffs
 	i = 1
 	repeat
-		name, rank, icon, count, btype, duration, expire, caster, isStealable, _, spellID, apply, boss = UnitAura("vehicle", i, "HARMFUL")
+		name, icon, count, btype, duration, expire, caster, isStealable, _, spellID, apply, boss = UnitAura("vehicle", i, "HARMFUL")
 		if name then
 			if not caster then caster = "unknown" elseif caster == "vehicle" then caster = "player" end -- vehicle debuffs treated like player debuffs
 			if caster == "player" then MOD.SetDuration(name, spellID, duration); MOD.SetSpellType(spellID, btype) end
-			AddAura(unit, name, false, spellID, count, btype, duration, caster, isStealable, boss, apply, icon, rank, expire, "vehicle debuff", i)
+			AddAura(unit, name, false, spellID, count, btype, duration, caster, isStealable, boss, apply, icon, expire, "vehicle debuff", i)
 		end
 		i = i + 1
 	until not name
@@ -1072,11 +1091,11 @@ local function GetTracking()
 		local tracking, trackingIcon, active = GetTrackingInfo(i)
 		if active then
 			found = true
-			AddAura("player", tracking, true, nil, 1, "Tracking", 0, "player", nil, nil, nil, trackingIcon, nil, 0, "tracking", tracking)
+			AddAura("player", tracking, true, nil, 1, "Tracking", 0, "player", nil, nil, nil, trackingIcon, 0, "tracking", tracking)
 		end
 	end
 	if not found then
-		AddAura("player", notTracking, true, nil, 1, "Tracking", 0, "player", nil, nil, nil, notTrackingIcon, nil, 0, "tracking", notTracking)
+		AddAura("player", notTracking, true, nil, 1, "Tracking", 0, "player", nil, nil, nil, notTrackingIcon, 0, "tracking", notTracking)
 	end
 end
 
@@ -1111,22 +1130,7 @@ local function GetSpellEffectAuras()
 		local ect = MOD.db.global.SpellEffects[name]
 		if ect and not ect.disable and ect.kind ~= "cooldown" then
 			local spell = ect.spell or name
-			AddAura("player", spell, not ect.kind, ect.id, 1, nil, ect.duration, ec.caster, UnitName(ec.caster), nil, nil, ect.icon, nil, ec.expire, "effect", name)
-		end
-	end
-end
-
--- Create an aura for current stance for classes that don't include stance buffs
-local function GetStanceAura()
-	if MOD.myClass == "PALADIN" or MOD.myClass == "MONK" then
-		local stance = GetShapeshiftForm()
-		if stance and stance > 0 then
-			local _, name = GetShapeshiftFormInfo(stance)
-			if name then
-				local icon = GetSpellTexture(name)
-				local link = GetSpellLink(name)
-				AddAura("player", name, true, nil, 1, "Stance", 0, "player", nil, nil, nil, icon, nil, 0, "spell link", link)
-			end
+			AddAura("player", spell, not ect.kind, ect.id, 1, nil, ect.duration, ec.caster, UnitName(ec.caster), nil, nil, ect.icon, ec.expire, "effect", name)
 		end
 	end
 end
@@ -1135,48 +1139,47 @@ end
 local function GetPowerBuffs()
 	local power, id = nil, nil
 	local myClass = MOD.myClass
-	if myClass == "PALADIN" and IsSpellKnown(35395) then power = UnitPower("player", SPELL_POWER_HOLY_POWER); id = 85247
-	elseif myClass == "PRIEST" and IsSpellKnown(8092) then power = UnitPower("player", SPELL_POWER_INSANITY); id = 57496
-	elseif myClass == "WARLOCK" then power = UnitPower("player", SPELL_POWER_SOUL_SHARDS); id = 138556
-	elseif myClass == "SHAMAN" and IsSpellKnown(193786) then power = UnitPower("player", SPELL_POWER_MAELSTROM); id = 190185
+	if myClass == "PALADIN" and IsSpellKnown(35395) then power = UnitPower("player", Enum.PowerType.HolyPower); id = 85247
+	elseif myClass == "PRIEST" and IsSpellKnown(8092) then power = UnitPower("player", Enum.PowerType.Insanity); id = 57496
+	elseif myClass == "WARLOCK" then power = UnitPower("player", Enum.PowerType.SoulShards); id = 138556
+	elseif myClass == "SHAMAN" and IsSpellKnown(193786) then power = UnitPower("player", Enum.PowerType.Maelstrom); id = 190185
 	elseif myClass == "MAGE" then
 		if IsSpellKnown(116011) then -- rune of power
 			local haveTotem, name, startTime, duration, icon = GetTotemInfo(1)
 			if haveTotem and name and name ~= "" and now <= (startTime + duration) then
 				local sp = GetSpellInfo(52623)
-				AddAura("player", sp, true, 52623, 1, "Power", duration, "player", nil, nil, 1, icon, nil, startTime + duration, "text", sp)
+				AddAura("player", sp, true, 52623, 1, "Power", duration, "player", nil, nil, 1, icon, startTime + duration, "text", sp)
 			end
 		end
-		if IsSpellKnown(30451) then power = UnitPower("player", SPELL_POWER_ARCANE_CHARGES); id = 190427 end
+		if IsSpellKnown(30451) then power = UnitPower("player", Enum.PowerType.ArcaneCharges); id = 190427 end
 	elseif myClass == "DEMONHUNTER" then
 		if IsSpellKnown(203720) then -- vengeanance
-			power = UnitPower("player", SPELL_POWER_PAIN); id = 185244
+			power = UnitPower("player", Enum.PowerType.Pain); id = 185244
 		else -- havoc
-			power = UnitPower("player", SPELL_POWER_FURY); id = 67671
+			power = UnitPower("player", Enum.PowerType.Fury); id = 67671
 		end
 	elseif myClass == "MONK" and IsSpellKnown(100780) then -- only windwalker has chi now
-		local chi = UnitPower("player", SPELL_POWER_CHI)
+		local chi = UnitPower("player", Enum.PowerType.Chi)
 		local _, pToken = UnitPowerType("player")
 		local name = _G[pToken]
 		local icon = GetSpellTexture(179126)
 		if chi and chi > 0 then
-			AddAura("player", name, true, nil, chi, "Power", 0, "player", nil, nil, nil, icon, nil, 0, "text", name)
+			AddAura("player", name, true, nil, chi, "Power", 0, "player", nil, nil, nil, icon, 0, "text", name)
 			return
 		end
 	elseif myClass == "DRUID" then
 		if IsSpellKnown(145205) then -- restoration druid has one mushroom linked to Efflorescence
 			local haveTotem, name, startTime, duration, icon = GetTotemInfo(1)
 			if haveTotem and name and name ~= "" and now <= (startTime + duration) then
-				AddAura("player", name, true, 145205, 1, nil, duration or 0, "player", nil, nil, nil, icon, nil,
-					(startTime or 0) + (duration or 0), "text", name)
+				AddAura("player", name, true, 145205, 1, nil, duration or 0, "player", nil, nil, nil, icon, (startTime or 0) + (duration or 0), "text", name)
 				return
 			end
 		elseif IsSpellKnown(190984) then -- balance druid has astral power
-			local ap = UnitPower("player", SPELL_POWER_LUNAR_POWER)
+			local ap = UnitPower("player", Enum.PowerType.LunarPower)
 			local _, pToken = UnitPowerType("player")
 			local name = _G[pToken]
 			local icon = GetSpellTexture(164686) -- dark eclipse
-			AddAura("player", name, true, nil, ap, "Power", 0, "player", nil, nil, nil, icon, nil, 0, "text", name)
+			AddAura("player", name, true, nil, ap, "Power", 0, "player", nil, nil, nil, icon, 0, "text", name)
 			return
 		end
 	end
@@ -1184,7 +1187,7 @@ local function GetPowerBuffs()
 		local name = GetSpellInfo(id)
 		local icon = GetSpellTexture(id)
 		if name and (name ~= "") then
-			AddAura("player", name, true, id, power, "Power", 0, "player", nil, nil, nil, icon, nil, 0, "text", name)
+			AddAura("player", name, true, id, power, "Power", 0, "player", nil, nil, nil, icon, 0, "text", name)
 		end
 	end
 end
@@ -1195,7 +1198,7 @@ local function GetTotemBuffs()
 	for i = 1, MAX_TOTEMS do
 		local haveTotem, name, startTime, duration, icon = GetTotemInfo(i)
 		if haveTotem and name and name ~= "" and now <= (startTime + duration) then -- generate buff for an active totem in the slot
-			AddAura("player", name, true, nil, 1, "Totem", duration, "player", nil, nil, nil, icon, nil, startTime + duration, "totem", i)
+			AddAura("player", name, true, nil, 1, "Totem", duration, "player", nil, nil, nil, icon, startTime + duration, "totem", i)
 		end
 	end
 end
@@ -1207,7 +1210,7 @@ function MOD:UnitStatusUpdate(unit)
 		if status ~= 1 then unit = status end
 		if unitUpdate[unit] then -- need to do an update for this unit
 			ReleaseAuras(unit); GetBuffs(unit); GetDebuffs(unit)
-			if unit == "player" then GetTracking(); GetSpellEffectAuras(); GetStanceAura(); GetPowerBuffs(); GetTotemBuffs() end
+			if unit == "player" then GetTracking(); GetSpellEffectAuras(); GetPowerBuffs(); GetTotemBuffs() end
 			unitUpdate[unit] = false
 		end
 		return unit
@@ -1406,7 +1409,7 @@ local function CheckItemCooldown(itemID)
 				end
 			end
 			if not found then
-				AddCooldown(name, itemID, icon, start, duration, "item link", link, "player")
+				AddCooldown(name, itemID, icon, start, duration, "item id", itemID, "player")
 			end
 		end
 	end
@@ -1558,13 +1561,15 @@ function MOD:UpdateCooldowns()
 		local numSpells = HasPetSpells() -- returns the number of pet spells
 		if numSpells and UnitExists("pet") then
 			for i = 1, numSpells do
-				local start, duration, enable = GetSpellCooldown(i, "pet")
-				if start and (start > 0) and (enable == 1) and (duration > 1.5) then -- don't include global cooldowns
-					local name = GetSpellInfo(i, "pet")
-					if name and name ~= "" then
-						local _, spellID = GetSpellBookItemInfo(i, "pet")
-						local icon = GetSpellTexture(spellID)
-						AddCooldown(name, spellID, icon, start, duration, "spell id", spellID, "pet")
+				local stype = GetSpellBookItemInfo(i, "pet")
+				if stype == "PETACTION" then -- use spellbook index to check for cooldown
+					local start, duration, enable = GetSpellCooldown(i, "pet")
+					if start and (start > 0) and (enable == 1) and (duration > 1.5) then -- don't include global cooldowns
+						local name, _, _, _, _, _, spellID = GetSpellInfo(i, "pet")
+						if name and name ~= "" and spellID then
+							local icon = GetSpellTexture(i, "pet")
+							AddCooldown(name, spellID, icon, start, duration, "spell id", spellID, "pet")
+						end
 					end
 				end
 			end

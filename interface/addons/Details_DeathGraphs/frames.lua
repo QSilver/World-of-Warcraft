@@ -1374,21 +1374,23 @@ do
 		local current_encounter_button = framework:NewButton (f, _, "$parentModeCurrentEncounterButton", "ModeCurrentEncounterButton", mode_buttons_width, mode_buttons_height, change_mode, BUTTON_INDEX_CURRENT, nil, nil, "Current Encounter", 1)
 		current_encounter_button:SetPoint ("bottomleft", f, "bottomleft", 10, mode_buttons_y_pos)
 		current_encounter_button:SetTemplate (framework:GetTemplate ("button", "ADL_MENUBUTTON_TEMPLATE"))
-		current_encounter_button:SetIcon ([[Interface\Buttons\UI-MicroButton-Raid-Up]], nil, nil, nil, {0, 1, 0.4, 1}, nil, nil, 2)
+		
+		current_encounter_button:SetIcon ([[Interface\WORLDSTATEFRAME\SkullBones]], nil, nil, nil, {4/64, 28/64, 4/64, 28/64}, "orange", nil, 2)
 		--current_encounter_button:SetTextColor ("orange")
 		
 		--> timeline
 		local timeline_button = framework:NewButton (f, _, "$parentModeTimelineButton", "ModeTimelineButton", mode_buttons_width, mode_buttons_height, change_mode, BUTTON_INDEX_TIMELINE, nil, nil, "Timeline", 1, options_button_template)
 		timeline_button:SetPoint ("bottomleft", current_encounter_button, "bottomright", 5, 0)
 		timeline_button:SetTemplate (framework:GetTemplate ("button", "ADL_MENUBUTTON_TEMPLATE"))
-		timeline_button:SetIcon ([[Interface\Buttons\UI-MicroButton-Talents-Up]], nil, nil, nil, {0, 1, 0.4, 1}, nil, nil, 2)
+		timeline_button:SetIcon ([[Interface\CHATFRAME\ChatFrameExpandArrow]], nil, nil, nil, {0, 1, 0, 1}, "orange", nil, 2)
 		--timeline_button:SetTextColor ("orange")
 		
 		--> endurance
 		local endurance_button = framework:NewButton (f, _, "$parentModeEnduranceButton", "ModeEnduranceButton", mode_buttons_width, mode_buttons_height, change_mode, BUTTON_INDEX_ENDURANCE, nil, nil, "Endurance", 1, options_button_template)
 		endurance_button:SetPoint ("bottomleft", timeline_button, "bottomright", 5, 0)
 		endurance_button:SetTemplate (framework:GetTemplate ("button", "ADL_MENUBUTTON_TEMPLATE"))
-		endurance_button:SetIcon ([[Interface\Buttons\UI-MicroButton-Mounts-Up]], nil, nil, nil, {0, 1, 0.4, 1}, nil, nil, 2)
+		endurance_button:SetIcon ([[Interface\RAIDFRAME\Raid-Icon-Rez]], nil, nil, nil, {0, 1, 0, 1}, "orange", nil, 2)
+		
 		--endurance_button:SetTextColor ("orange")
 		
 		--> overall ~overall

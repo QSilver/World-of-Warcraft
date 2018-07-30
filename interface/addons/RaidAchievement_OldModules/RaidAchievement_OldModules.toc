@@ -1,4 +1,4 @@
-﻿## Interface: 70300
+﻿## Interface: 80000
 ## Author: Shurshik
 ## Title: Raid|cff7fff7fAchievement|r_OldModules
 ## Notes: Raid|cff7fff7fAchievement|r_OldModules

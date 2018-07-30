@@ -1,5 +1,5 @@
 		------------------------------------------------
-		-- Paragon Reputation 1.18 by Sev US-Drakkari --
+		-- Paragon Reputation 1.19 by Sev US-Drakkari --
 		------------------------------------------------
 
 		  --[[	  Special thanks to Ammako for
@@ -26,7 +26,7 @@ if LOCALE == "esES" or LOCALE == "esMX" then
 	L["SOUND"] = "Sonido de Advertencia"
 	L["ANCHOR"] = "Posicionar el Ancla"
 	
--- Italian (MISSING TRANSLATIONS)
+-- Italian (MISSING  TRANSLATIONS)
 elseif LOCALE == "itIT" then
 	L["PARAGON"] = "Eccellenza"
 	L["OPTIONDESC"] = "This options allow you to customize some settings of Paragon Reputation."

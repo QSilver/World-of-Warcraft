@@ -2,7 +2,7 @@
 --
 -- Prat - A framework for World of Warcraft chat mods
 --
--- Copyright (C) 2006-2011  Prat Development Team
+-- Copyright (C) 2006-2018  Prat Development Team
 --
 -- This program is free software; you can redistribute it and/or
 -- modify it under the terms of the GNU General Public License
@@ -31,7 +31,9 @@ Prat:AddModuleToLoad(function()
     return
   end
 
-  local PL = Prat:GetLocalizer({})
+  local module = Prat:NewModule(PRAT_MODULE)
+
+  local PL = module.PL
 
   --[===[@debug@
   PL:AddLocale(PRAT_MODULE, "enUS", {
@@ -74,10 +76,10 @@ Prat:AddModuleToLoad(function()
 	["ServerNames"] = {
 		["autoabbreviate_desc"] = "Raccourcir le nom des serveurs à 3 lettres.",
 		["autoabbreviate_name"] = "Abréviation",
-		--Translation missing 
-		-- ["colon_desc"] = "",
-		--Translation missing 
-		-- ["colon_name"] = "",
+		--[[Translation missing --]]
+		--[[ ["colon_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["colon_name"] = "",--]] 
 		["randomclr_desc"] = "Utiliser une couleur aléatoire pour chaque serveur.",
 		["randomclr_name"] = "Couleurs aléatoires",
 		["Server name abbreviation options."] = "Options d'abréviation des noms de serveur.",
@@ -125,22 +127,22 @@ Prat:AddModuleToLoad(function()
  L=
 {
 	["ServerNames"] = {
-		--Translation missing 
-		-- ["autoabbreviate_desc"] = "",
-		--Translation missing 
-		-- ["autoabbreviate_name"] = "",
-		--Translation missing 
-		-- ["colon_desc"] = "",
-		--Translation missing 
-		-- ["colon_name"] = "",
-		--Translation missing 
-		-- ["randomclr_desc"] = "",
-		--Translation missing 
-		-- ["randomclr_name"] = "",
-		--Translation missing 
-		-- ["Server name abbreviation options."] = "",
-		--Translation missing 
-		-- ["ServerNames"] = "",
+		--[[Translation missing --]]
+		--[[ ["autoabbreviate_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["autoabbreviate_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["colon_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["colon_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["randomclr_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["randomclr_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Server name abbreviation options."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["ServerNames"] = "",--]] 
 	}
 }
 
@@ -184,10 +186,10 @@ Prat:AddModuleToLoad(function()
  L=
 {
 	["ServerNames"] = {
-		--Translation missing 
-		-- ["autoabbreviate_desc"] = "",
-		--Translation missing 
-		-- ["autoabbreviate_name"] = "",
+		--[[Translation missing --]]
+		--[[ ["autoabbreviate_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["autoabbreviate_name"] = "",--]] 
 		["colon_desc"] = "Alterna añadir dos puntos despues del servidor reemplazado.",
 		["colon_name"] = "Mostrar dos puntos",
 		["randomclr_desc"] = "Utiliza un color aleatorio para cada servidor.",
@@ -203,11 +205,11 @@ Prat:AddModuleToLoad(function()
  L=
 {
 	["ServerNames"] = {
-		--Translation missing 
-		-- ["autoabbreviate_desc"] = "",
+		--[[Translation missing --]]
+		--[[ ["autoabbreviate_desc"] = "",--]] 
 		["autoabbreviate_name"] = "自動縮短",
-		--Translation missing 
-		-- ["colon_desc"] = "",
+		--[[Translation missing --]]
+		--[[ ["colon_desc"] = "",--]] 
 		["colon_name"] = "顯示冒號",
 		["randomclr_desc"] = "伺服器名稱使用隨機色彩",
 		["randomclr_name"] = "隨機色彩",
@@ -222,7 +224,6 @@ Prat:AddModuleToLoad(function()
  end
  --@end-non-debug@
 
-  local module = Prat:NewModule(PRAT_MODULE)
 
   Prat:SetModuleDefaults(module.name, {
     profile = {
@@ -342,7 +343,10 @@ Prat:AddModuleToLoad(function()
   --[[------------------------------------------------
       Core Functions
   ------------------------------------------------]] --
-
+  function module:GetDescription()
+    return PL["Server name abbreviation options."]
+  end
+  
   -- replace text using prat event implementation
   function module:Prat_PreAddMessage(e, m, frame, event)
     local serverKey = self:GetServerKey(m.SERVER)

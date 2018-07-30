@@ -141,28 +141,49 @@ local function createOptions(id, data)
       values = function()
         return data.controlledChildren
       end,
-      get = function(info, id)
-        return data.sortHybridTable and data.sortHybridTable [id] or false;
+      get = function(info, index)
+        local id = data.controlledChildren[index]
+        return data.sortHybridTable and data.sortHybridTable[id] or false;
       end,
-      set = function(info, id)
+      set = function(info, index)
         if not data.sortHybridTable then data.sortHybridTable = {}; end
+        local id = data.controlledChildren[index]
         local cur = data.sortHybridTable and data.sortHybridTable[id] or false;
         data.sortHybridTable[id] = not(cur);
       end,
     },
+    scale = {
+      type = "range",
+      name = L["Group Scale"],
+      order = 50,
+      min = 0.05,
+      softMax = 2,
+      bigStep = 0.05,
+      get = function()
+        return data.scale or 1
+      end,
+      set = function(info, v)
+        data.scale = data.scale or 1
+        local change = 1 - (v/data.scale)
+        data.xOffset = data.xOffset/(1-change)
+        data.yOffset = data.yOffset/(1-change)
+        data.scale = v
+        WeakAuras.Add(data);
+        WeakAuras.SetThumbnail(data);
+        WeakAuras.ResetMoverSizer();
+      end
+    },
     spacer = {
       type = "header",
       name = "",
-      order = 50
+      order = 51
     }
   };
-  options = WeakAuras.AddPositionOptions(options, id, data);
 
-  options.width = nil;
-  options.height = nil;
-  options.selfPoint.disabled = true;
-
-  return options;
+  return {
+    dynamicgroup = options,
+    position = WeakAuras.PositionOptions(id, data, true, true),
+  };
 end
 
 local function createThumbnail(parent)

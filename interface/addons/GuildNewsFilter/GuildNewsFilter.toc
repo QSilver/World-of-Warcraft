@@ -1,17 +1,18 @@
-## Interface: 70300
+## Interface: 80000
 ## Title: Guild News Filter
 ## Former author: Musou
 ## Author: Esko
 ## Contributor: Alletich
 ## Notes: Filter your guild news.
 ## SavedVariablesPerCharacter: GNFP_DB
-## Version: 1.1.0
+## Version: 1.1.1
 
-localization.en.lua
-localization.fr.lua
-localization.de.lua
-localization.pt.lua
-localization.ru.lua
-localization.es.lua
-localization.it.lua
+Locales\enUS.lua
+Locales\frFR.lua
+Locales\deDE.lua
+Locales\esES.lua
+Locales\itIT.lua
+Locales\ruRU.lua
+Locales\ptBR.lua
+
 GuildNewsFilter.lua

@@ -7,8 +7,8 @@ function icraonload()
 	icratavleach={}
 	rsciccbuffvalitria=GetSpellInfo(70766)
 
-SetMapToCurrentZone()
-if GetCurrentMapAreaID()==604 then
+--SetMapToCurrentZone()
+if C_Map.GetBestMapForUnit("player")==604 then
 	RaidAchievement_icra:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
 end
 	RaidAchievement_icra:RegisterEvent("PLAYER_REGEN_DISABLED")
@@ -146,8 +146,8 @@ end
 	else
 --фейл ачива и обнуление всего
 if icraspisokon[7]=="yes" and raachdone1 then
-SetMapToCurrentZone()
-if GetCurrentMapAreaID()==604 then
+--SetMapToCurrentZone()
+if C_Map.GetBestMapForUnit("player")==604 then
 icrafailnoreason(7, #rsciccinportal.." "..raiccof.." "..qport.." "..raiccused)
 end
 end
@@ -250,8 +250,8 @@ rsciccinportal=nil
 rsciccportalopen=nil
 rsciccportalspawnwait=nil
 
-SetMapToCurrentZone()
-if GetCurrentMapAreaID()==604 then
+--SetMapToCurrentZone()
+if C_Map.GetBestMapForUnit("player")==604 then
 RaidAchievement_icra:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
 else
 RaidAchievement_icra:UnregisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
@@ -287,8 +287,8 @@ end
 	else
 --фейл ачива и обнуление всего
 if icraspisokon[7]=="yes" and raachdone1 then
-SetMapToCurrentZone()
-if GetCurrentMapAreaID()==604 then
+--SetMapToCurrentZone()
+if C_Map.GetBestMapForUnit("player")==604 then
 icrafailnoreason(7, #rsciccinportal.." "..raiccof.." "..qport.." "..raiccused)
 end
 end

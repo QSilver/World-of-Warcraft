@@ -1,21 +1,21 @@
 
 BigWigs:AddColors("Trial of the King", {
-	[-6024] = {"Attention","Personal"},
-	[-6017] = {"Attention","Personal"},
-	[119922] = "Urgent",
-	[120195] = {"Important","Personal"},
-	[123655] = {"Personal","Positive"},
+	[-6024] = {"blue","yellow"},
+	[-6017] = {"blue","yellow"},
+	[119922] = "orange",
+	[120195] = {"blue","red"},
+	[123655] = {"blue","green"},
 })
 
 BigWigs:AddColors("Gekkan", {
-	[118903] = {"Important","Personal"},
-	[118963] = {"Attention","Personal"},
-	["heal"] = "Urgent",
-	["stages"] = "Positive",
+	[118903] = {"blue","red"},
+	[118963] = {"blue","yellow"},
+	["heal"] = "orange",
+	["stages"] = "green",
 })
 
 BigWigs:AddColors("Xin the Weaponmaster", {
-	[119684] = "Urgent",
-	["blades"] = {"Attention","Positive"},
-	["crossbows"] = {"Attention","Positive"},
+	[119684] = "orange",
+	["blades"] = {"green","yellow"},
+	["crossbows"] = {"green","yellow"},
 })

@@ -2,13 +2,13 @@
 AUCTIONATOR_SAVEDVARS = {
 	["_50000"] = 500,
 	["_2000"] = 100,
-	["_500"] = 5,
-	["STARTING_DISCOUNT"] = 1,
-	["_1000000"] = 2500,
-	["_10000"] = 200,
 	["LOG_DE_DATA_X"] = true,
+	["_500"] = 5,
+	["_1000000"] = 2500,
 	["_200000"] = 1000,
+	["STARTING_DISCOUNT"] = 1,
 	["_5000000"] = 10000,
+	["_10000"] = 200,
 }
 AUCTIONATOR_PRICING_HISTORY = {
 	["Troll Tablet"] = {
@@ -19,10 +19,6 @@ AUCTIONATOR_PRICING_HISTORY = {
 		["is"] = "135479:0:0:0:0",
 		["5042364"] = "139990000:1",
 	},
-	["Ancient Suramar Scroll"] = {
-		["is"] = "130903:0:0:0:0",
-		["4993678"] = "1265000:1",
-	},
 	["Obliterum"] = {
 		["is"] = "124125:0:0:0:0",
 		["5002255"] = "4080000:1",
@@ -31,17 +27,20 @@ AUCTIONATOR_PRICING_HISTORY = {
 AUCTIONATOR_SHOPPING_LISTS = {
 	{
 		["items"] = {
-			"lost mail", -- [1]
-			"lovely charm", -- [2]
-			"Dalewind", -- [3]
-			"binding of mastery", -- [4]
-			"binding of intellect", -- [5]
-			"fireweed", -- [6]
-			"nagrand arrowbloom", -- [7]
-			"frostweed", -- [8]
-			"Gorgrond flytrap", -- [9]
-			"starflower", -- [10]
-			"talador orchid", -- [11]
+			"falling leaves", -- [1]
+			"Delicate ornate", -- [2]
+			"trained soldier", -- [3]
+			"lost mail", -- [4]
+			"lovely charm", -- [5]
+			"Dalewind", -- [6]
+			"binding of mastery", -- [7]
+			"binding of intellect", -- [8]
+			"fireweed", -- [9]
+			"nagrand arrowbloom", -- [10]
+			"frostweed", -- [11]
+			"Gorgrond flytrap", -- [12]
+			"starflower", -- [13]
+			"talador orchid", -- [14]
 		},
 		["isRecents"] = 1,
 		["name"] = "Recent Searches",
@@ -61,19 +60,12 @@ AUCTIONATOR_SHOPPING_LISTS_MIGRATED_V2 = true
 AUCTIONATOR_PRICE_DATABASE = {
 	["__dbversion"] = 4,
 	["Silvermoon_Alliance"] = {
-		["Ancient Suramar Scroll"] = {
-			["mr"] = 1267500,
-			["sc"] = 11,
-			["id"] = "130903:0:0:0:0",
-			["cc"] = 7,
-			["H2631"] = 1267500,
-		},
-		["Obliterum"] = {
-			["mr"] = 4082499,
+		["Enchant Neck - Mark of the Trained Soldier"] = {
+			["mr"] = 5435100,
 			["cc"] = 8,
-			["id"] = "124125:0:0:0:0",
-			["sc"] = 11,
-			["H2637"] = 4082499,
+			["id"] = "141909:0:0:0:0",
+			["sc"] = 1,
+			["H2802"] = 5435100,
 		},
 		["Enchant Ring - Binding of Mastery"] = {
 			["mr"] = 14990254,
@@ -81,6 +73,41 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["H2638"] = 14990254,
 			["id"] = "128543:0:0:0:0",
 			["cc"] = 8,
+		},
+		["Delicate Ornate Ruby"] = {
+			["mr"] = 46979999,
+			["cc"] = 3,
+			["id"] = "28362:0:0:0:0",
+			["H2803"] = 46979999,
+			["sc"] = 1,
+		},
+		["Troll Tablet"] = {
+			["H2632"] = 1299996,
+			["mr"] = 1299996,
+			["cc"] = 7,
+			["id"] = "63128:0:0:0:0",
+			["sc"] = 11,
+		},
+		["Mark of the Deceiver"] = {
+			["mr"] = 89999,
+			["cc"] = 7,
+			["id"] = "130905:0:0:0:0",
+			["H2803"] = 89999,
+			["sc"] = 11,
+		},
+		["Enchant Cloak - Binding of Intellect"] = {
+			["mr"] = 25989999,
+			["sc"] = 3,
+			["H2638"] = 25989999,
+			["id"] = "128550:0:0:0:0",
+			["cc"] = 8,
+		},
+		["Formula: Enchant Neck - Mark of the Trained Soldier"] = {
+			["mr"] = 400000,
+			["cc"] = 9,
+			["id"] = "141918:0:0:0:0",
+			["sc"] = 8,
+			["H2802"] = 400000,
 		},
 		["Dalewind Trousers"] = {
 			["L2638"] = 145500,
@@ -90,19 +117,12 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "13008:0:0:0:4269",
 			["cc"] = 4,
 		},
-		["Troll Tablet"] = {
-			["H2632"] = 1299996,
-			["mr"] = 1299996,
-			["cc"] = 7,
-			["id"] = "63128:0:0:0:0",
-			["sc"] = 11,
-		},
-		["Enchant Cloak - Binding of Intellect"] = {
-			["mr"] = 25989999,
-			["sc"] = 3,
-			["H2638"] = 25989999,
-			["id"] = "128550:0:0:0:0",
+		["Obliterum"] = {
+			["mr"] = 4082499,
 			["cc"] = 8,
+			["id"] = "124125:0:0:0:0",
+			["sc"] = 11,
+			["H2637"] = 4082499,
 		},
 	},
 }
@@ -114,6 +134,7 @@ AUCTIONATOR_TOONS = {
 	},
 	["Qsilver"] = {
 		["firstSeen"] = 1517165326,
+		["guid"] = "Player-3391-068AEF10",
 		["firstVersion"] = "4.0.19",
 	},
 	["Lachrymas"] = {

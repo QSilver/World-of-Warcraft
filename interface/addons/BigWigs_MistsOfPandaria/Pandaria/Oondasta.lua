@@ -2,10 +2,10 @@
 -- Module Declaration
 --
 
-local mod, CL = BigWigs:NewBoss("Oondasta", -929, 826)
+local mod, CL = BigWigs:NewBoss("Oondasta", -507, 826)
 if not mod then return end
 mod:RegisterEnableMob(69161)
-mod.otherMenu = -862
+mod.otherMenu = -424
 mod.worldBoss = 69161
 
 --------------------------------------------------------------------------------
@@ -44,17 +44,17 @@ end
 --
 
 function mod:Crush(args)
-	self:StackMessage(args.spellId, args.destName, args.amount, "Urgent", "Info")
+	self:StackMessage(args.spellId, args.destName, args.amount, "orange", "Info")
 end
 
 function mod:PiercingRoar(args)
 	roarCounter = roarCounter + 1
-	self:Message(args.spellId, "Attention", UnitPowerType("player") == 0 and "Long", CL["count"]:format(args.spellName, roarCounter)) -- sound for mana users
+	self:Message(args.spellId, "yellow", UnitPowerType("player") == 0 and "Long", CL["count"]:format(args.spellName, roarCounter)) -- sound for mana users
 	self:CDBar(args.spellId, 25, CL["count"]:format(args.spellName, roarCounter+1))
 end
 
 function mod:FrillBlast(args)
-	self:Message(args.spellId, "Important", "Alert")
+	self:Message(args.spellId, "red", "Alert")
 	self:CDBar(args.spellId, 25)
 end
 

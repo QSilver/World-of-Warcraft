@@ -1,5 +1,5 @@
 		------------------------------------------------
-		-- Paragon Reputation 1.18 by Sev US-Drakkari --
+		-- Paragon Reputation 1.19 by Sev US-Drakkari --
 		------------------------------------------------
 
 		  --[[	  Special thanks to Ammako for
@@ -193,7 +193,6 @@ function ParagonReputation:Options()
 		ParagonReputationDB.r = 0
 		ParagonReputationDB.g = .5
 		ParagonReputationDB.b = .9
-		MainMenuBar_UpdateExperienceBars()
 	end)
 
 	-- Default Green CheckButton
@@ -217,7 +216,6 @@ function ParagonReputation:Options()
 		ParagonReputationDB.r = 0
 		ParagonReputationDB.g = .6
 		ParagonReputationDB.b = .1
-		MainMenuBar_UpdateExperienceBars()
 	end)
 
 	-- Neutral Yellow CheckButton
@@ -241,7 +239,6 @@ function ParagonReputation:Options()
 		ParagonReputationDB.r = .9
 		ParagonReputationDB.g = .7
 		ParagonReputationDB.b = 0
-		MainMenuBar_UpdateExperienceBars()
 	end)
 
 	-- Unfriendly Orange CheckButton
@@ -265,7 +262,6 @@ function ParagonReputation:Options()
 		ParagonReputationDB.r = .75
 		ParagonReputationDB.g = .27
 		ParagonReputationDB.b = 0
-		MainMenuBar_UpdateExperienceBars()
 	end)
 
 	-- Lightish Red CheckButton
@@ -289,7 +285,6 @@ function ParagonReputation:Options()
 		ParagonReputationDB.r = 1
 		ParagonReputationDB.g = .25
 		ParagonReputationDB.b = .62
-		MainMenuBar_UpdateExperienceBars()
 	end)
 
 	-- Paragon CheckButton

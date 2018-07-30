@@ -161,27 +161,13 @@ function Indicators:UpdatePVPFlag(frame)
 
 	local faction = UnitFactionGroup(frame.unit)
 	if( UnitIsPVPFreeForAll(frame.unit) ) then
-		local prestige = UnitPrestige(frame.unit)
-		if (prestige > 0) then
-			frame.indicators.pvp:SetTexture(GetPrestigeInfo(prestige))
-			frame.indicators.pvp:SetTexCoord(0.1,1.1,0.1,1.1)
-			frame.indicators.pvp:Show()
-		else
-			frame.indicators.pvp:SetTexture("Interface\\TargetingFrame\\UI-PVP-FFA")
-			frame.indicators.pvp:SetTexCoord(0,1,0,1)
-			frame.indicators.pvp:Show()
-		end
+		frame.indicators.pvp:SetTexture("Interface\\TargetingFrame\\UI-PVP-FFA")
+		frame.indicators.pvp:SetTexCoord(0,1,0,1)
+		frame.indicators.pvp:Show()
 	elseif( faction and faction ~= "Neutral" and UnitIsPVP(frame.unit) ) then
-		local prestige = UnitPrestige(frame.unit)
-		if (prestige > 0) then
-			frame.indicators.pvp:SetTexture(GetPrestigeInfo(prestige))
-			frame.indicators.pvp:SetTexCoord(0.1,1.1,0.1,1.1)
-			frame.indicators.pvp:Show()
-		else
-			frame.indicators.pvp:SetTexture(string.format("Interface\\TargetingFrame\\UI-PVP-%s", faction))
-			frame.indicators.pvp:SetTexCoord(0,1,0,1)
-			frame.indicators.pvp:Show()
-		end
+		frame.indicators.pvp:SetTexture(string.format("Interface\\TargetingFrame\\UI-PVP-%s", faction))
+		frame.indicators.pvp:SetTexCoord(0,1,0,1)
+		frame.indicators.pvp:Show()
 	else
 		frame.indicators.pvp:Hide()
 	end
@@ -338,14 +324,14 @@ function Indicators:OnEnable(frame)
 	end
 
 	if( config.indicators.arenaSpec and config.indicators.arenaSpec.enabled ) then
-		frame:RegisterUnitEvent("ARENA_OPPONENT_UPDATE", self, "UpdateArenaSpec")
+		frame:RegisterNormalEvent("ARENA_OPPONENT_UPDATE", self, "UpdateArenaSpec")
 		frame:RegisterUpdateFunc(self, "UpdateArenaSpec")
         frame.indicators.arenaSpec = frame.indicators.arenaSpec or frame.indicators:CreateTexture(nil, "OVERLAY")
 	end
 
 	if( config.indicators.phase and config.indicators.phase.enabled ) then
 		-- Player phase changes do not generate a phase change event. This seems to be the best
-		frame:RegisterNormalEvent("UPDATE_WORLD_STATES", self, "UpdatePhase")
+		-- TODO: what event does fire here? frame:RegisterNormalEvent("UPDATE_WORLD_STATES", self, "UpdatePhase")
         frame:RegisterUpdateFunc(self, "UpdatePhase")
         frame.indicators.phase = frame.indicators.phase or frame.indicators:CreateTexture(nil, "OVERLAY")
     end
@@ -362,8 +348,6 @@ function Indicators:OnEnable(frame)
 	if( config.indicators.pvp and config.indicators.pvp.enabled ) then
 		frame:RegisterUnitEvent("PLAYER_FLAGS_CHANGED", self, "UpdatePVPFlag")
 		frame:RegisterUnitEvent("UNIT_FACTION", self, "UpdatePVPFlag")
-		frame:RegisterNormalEvent("HONOR_PRESTIGE_UPDATE", self, "UpdatePVPFlag")
-		frame:RegisterNormalEvent("PRESTIGE_AND_HONOR_INVOLUNTARILY_CHANGED", self, "UpdatePVPFlag")
 		frame:RegisterUpdateFunc(self, "UpdatePVPFlag")
 
 		frame.indicators.pvp = frame.indicators.pvp or frame.indicators:CreateTexture(nil, "OVERLAY")

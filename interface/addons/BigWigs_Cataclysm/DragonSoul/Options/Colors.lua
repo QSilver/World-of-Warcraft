@@ -1,76 +1,76 @@
 
 BigWigs:AddColors("Morchok", {
-	["stomp_boss"] = "Important",
-	["crush"] = {"Urgent","Personal"},
-	["crystal_boss"] = "Urgent",
-	[103846] = "Positive",
-	["stomp_add"] = "Important",
-	["crystal_add"] = "Urgent",
-	[109017] = "Positive",
-	[103851] = "Personal",
+	[103846] = "green",
+	[103851] = "blue",
+	[109017] = "green",
+	["crush"] = {"blue","orange"},
+	["crystal_add"] = "orange",
+	["crystal_boss"] = "orange",
+	["stomp_add"] = "red",
+	["stomp_boss"] = "red",
 })
 
 BigWigs:AddColors("Warlord Zon'ozz", {
-	["drain"] = "Urgent",
-	["ball"] = "Urgent",
-	["darkness"] = "Important",
-	[103434] = {"Attention","Personal"},
-	["bounce"] = "Important",
+	[103434] = {"blue","yellow"},
+	["ball"] = "orange",
+	["bounce"] = "red",
+	["darkness"] = "red",
+	["drain"] = "orange",
 })
 
 BigWigs:AddColors("Yor'sahj the Unsleeping", {
-	["blobs"] = "Urgent",
-	[-4321] = "Personal",
-	["bolt"] = {"Urgent","Personal"},
+	[-4321] = "blue",
+	["blobs"] = "orange",
+	["bolt"] = {"blue","orange"},
 })
 
 BigWigs:AddColors("Hagara the Stormbinder", {
-	[105409] = "Attention",
-	[108934] = "Attention",
-	[105256] = "Attention",
-	[104448] = {"Attention","Important","Personal"},
-	[-4159] = "Urgent",
-	[109325] = "Personal",
-	[105316] = {"Urgent","Personal"},
+	[-4159] = "orange",
+	[104448] = {"blue","red","yellow"},
+	[105256] = "yellow",
+	[105316] = {"blue","orange"},
+	[105409] = "yellow",
+	[108934] = "yellow",
+	[109325] = "blue",
 })
 
 BigWigs:AddColors("Ultraxion", {
-	[106371] = "Important",
-	[105925] = {"Attention","Personal"},
-	["crystal"] = "Positive",
-	["lighttank"] = {"Attention","Personal"},
+	[105925] = {"blue","yellow"},
+	[106371] = "red",
+	["crystal"] = "green",
+	["lighttank"] = {"blue","yellow"},
 })
 
 BigWigs:AddColors("Warmaster Blackhorn", {
-	[108076] = "Personal",
-	["sapper"] = "Important",
-	["warmup"] = "Positive",
-	[108046] = {"Attention","Personal"},
-	[107588] = "Urgent",
-	["sunder"] = {"Urgent","Personal"},
-	[108044] = "Positive",
+	[107588] = "orange",
+	[108044] = "green",
+	[108046] = {"blue","yellow"},
+	[108076] = "blue",
+	["sapper"] = "red",
+	["sunder"] = {"blue","orange"},
+	["warmup"] = "green",
 })
 
 BigWigs:AddColors("Spine of Deathwing", {
-	[105248] = {"Urgent","Important"},
-	[105490] = {"Urgent","Personal"},
-	["roll"] = {"Personal","Attention","Positive"},
-	[105848] = "Important",
-	[105845] = "Important",
-	["residue"] = "Attention",
+	[105248] = {"orange","red"},
+	[105490] = {"blue","orange"},
+	[105845] = "red",
+	[105848] = "red",
+	["residue"] = "yellow",
+	["roll"] = {"blue","green","yellow"},
 })
 
 BigWigs:AddColors("Madness of Deathwing", {
-	["bigtentacle"] = "Urgent",
-	[-4347] = {"Urgent","Personal"},
-	["hemorrhage"] = "Urgent",
-	[106794] = "Important",
-	[-4351] = "Positive",
-	["fragment"] = "Urgent",
-	[106523] = "Attention",
-	["smalltentacles"] = "Urgent",
-	["impale"] = "Urgent",
-	[105651] = "Important",
-	["terror"] = "Important",
-	["last_phase"] = "Attention",
+	[-4351] = "green",
+	[-4347] = {"blue","orange"},
+	[105651] = "red",
+	[106523] = "yellow",
+	[106794] = "red",
+	["bigtentacle"] = "orange",
+	["fragment"] = "orange",
+	["hemorrhage"] = "orange",
+	["impale"] = "orange",
+	["last_phase"] = "yellow",
+	["smalltentacles"] = "orange",
+	["terror"] = "red",
 })

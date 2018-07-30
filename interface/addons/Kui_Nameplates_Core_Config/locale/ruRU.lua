@@ -6,6 +6,10 @@ L["page_names"] = {
 	["bossmod"] = "Босс моды",
 	["castbars"] = "Полоса заклинания",
 	["classpowers"] = "Энергия классов",
+--[[Translation missing --]]
+	["cvars"] = "CVars",
+--[[Translation missing --]]
+	["fade_rules"] = "Fade rules",
 	["framesizes"] = "Размеры рамок",
 	["general"] = "Основное",
 	["healthbars"] = "Полоса здоровья",
@@ -36,7 +40,7 @@ L["titles"] = {
 	["bar_animation"] = "Полоса анимации",
 	["bar_texture"] = "Полоса текстуры",
 	["bossmod_clickthrough"] = "Включить сквозной щелчок, при автоматическом отображении",
-	["bossmod_control_visibility"] = [=[Позволить босс-модам управлять
+	["bossmod_control_visibility"] = [=[Позволить босс-модам управлять 
 видимостью индикаторами здоровья]=],
 	["bossmod_enable"] = "Включить босс мод, модуль взаимодействия",
 	["bossmod_icon_size"] = "Размер значка",
@@ -48,6 +52,8 @@ L["titles"] = {
 	["castbar_height"] = "Высота полосы заклинания",
 	["castbar_icon"] = "Показать значок заклинания",
 	["castbar_name"] = "Показать название заклинания",
+--[[Translation missing --]]
+	["castbar_name_vertical_offset"] = "Spell name v.offset",
 	["castbar_shield"] = "Показать не прерываемый щит",
 	["castbar_showall"] = "Показать полосу заклинания, на всех индикаторах здоровья",
 	["castbar_showenemy"] = "Показать полосу заклинания противников",
@@ -85,6 +91,26 @@ L["titles"] = {
 	["combat_hostile"] = "Боевое действие: враждебное",
 	["copy_profile_label"] = "Введите имя для нового профиля",
 	["copy_profile_title"] = "Копир. профиль",
+--[[Translation missing --]]
+	["cvar_clamp_bottom"] = "Bottom clamp distance",
+--[[Translation missing --]]
+	["cvar_clamp_top"] = "Top clamp distance",
+--[[Translation missing --]]
+	["cvar_enable"] = "Allow Kui Nameplates to modify CVars",
+--[[Translation missing --]]
+	["cvar_max_distance"] = "Max render distance",
+--[[Translation missing --]]
+	["cvar_name_only"] = "Hide default health bar",
+--[[Translation missing --]]
+	["cvar_overlap_v"] = "Vertical overlap",
+--[[Translation missing --]]
+	["cvar_personal_show_always"] = "Always show personal nameplate",
+--[[Translation missing --]]
+	["cvar_personal_show_combat"] = "Show personal nameplate when in combat",
+--[[Translation missing --]]
+	["cvar_personal_show_target"] = "Show personal nameplate with a target",
+--[[Translation missing --]]
+	["cvar_show_friendly_npcs"] = "Always show friendly NPCs' nameplates",
 	["dd_auras_sort_index"] = "Индекс аур",
 	["dd_auras_sort_time"] = "Оставшееся время",
 	["dd_bar_animation_cutaway"] = "Срез",
@@ -99,6 +125,10 @@ L["titles"] = {
 	["dd_font_style_shadowandoutline"] = "Тень+контур",
 	["dd_health_text_blank"] = "Пусто",
 	["dd_health_text_current"] = "Текущие",
+--[[Translation missing --]]
+	["dd_health_text_current_deficit"] = "Current + deficit",
+--[[Translation missing --]]
+	["dd_health_text_current_percent"] = "Current + percent",
 	["dd_health_text_deficit"] = "Дефицит",
 	["dd_health_text_maximum"] = "Максимальное",
 	["dd_health_text_percent"] = "Процентов",
@@ -111,13 +141,27 @@ L["titles"] = {
 	["execute_sep"] = "Диапазон добивания",
 	["fade_all"] = "Затухание по умолчанию",
 	["fade_alpha"] = "Прозрачность затухания",
+--[[Translation missing --]]
+	["fade_avoid_casting_friendly"] = "Avoid casting (friendly)",
+--[[Translation missing --]]
+	["fade_avoid_casting_hostile"] = "Avoid casting (hostile)",
+--[[Translation missing --]]
+	["fade_avoid_casting_interruptible"] = "Interruptible",
+--[[Translation missing --]]
+	["fade_avoid_casting_uninterruptible"] = "Uninterruptible",
+--[[Translation missing --]]
+	["fade_avoid_combat"] = "Avoid in combat",
 	["fade_avoid_execute_friend"] = "Искл. союзников с низким УЗ",
 	["fade_avoid_execute_hostile"] = "Искл. врагов с низким УЗ",
 	["fade_avoid_nameonly"] = "Исключить только-имя",
 	["fade_avoid_raidicon"] = "Искл. рейдовою иконку",
 	["fade_avoid_tracked"] = "Искл. отслеживание или в бою",
+--[[Translation missing --]]
+	["fade_conditional_alpha"] = "Conditional alpha",
 	["fade_friendly_npc"] = "Затухание союзных НИПов",
 	["fade_neutral_enemy"] = "Затухание нейтрал. противников",
+--[[Translation missing --]]
+	["fade_non_target_alpha"] = "Non-target alpha",
 	["fade_rules_sep"] = "Затемнение рамки",
 	["fade_speed"] = "Скорость затухания анимации",
 	["fade_untracked"] = "Затухание не отслеж. юнита",
@@ -145,6 +189,20 @@ L["titles"] = {
 	["hide_names"] = "Скрыть не отслеживаемые имена",
 	["ignore_uiscale"] = "Игнорировать масштаб ПИ",
 	["level_text"] = "Показать уровень текстом",
+--[[Translation missing --]]
+	["name_colour_npc_friendly"] = "Friendly",
+--[[Translation missing --]]
+	["name_colour_npc_hostile"] = "Hostile",
+--[[Translation missing --]]
+	["name_colour_npc_neutral"] = "Neutral",
+--[[Translation missing --]]
+	["name_colour_player_friendly"] = "Friendly player",
+--[[Translation missing --]]
+	["name_colour_player_hostile"] = "Hostile player",
+--[[Translation missing --]]
+	["name_colour_sep"] = "Name text colour",
+--[[Translation missing --]]
+	["name_colour_white_in_bar_mode"] = "White names with visible health bar",
 	["name_text"] = "Показать имя текстом",
 	["name_vertical_offset"] = "В.смещение имени",
 	["nameonly"] = "Использ. режим только-имя",
@@ -157,6 +215,10 @@ L["titles"] = {
 	["nameonly_no_font_style"] = "Нет контура текста",
 	["nameonly_on_default"] = "Скрыть панель здоровья по умолчанию",
 	["nameonly_target"] = "На цель",
+--[[Translation missing --]]
+	["nameonly_text_sep"] = "Text",
+--[[Translation missing --]]
+	["nameonly_visibility_sep"] = "Visibility",
 	["new_profile"] = "Новый профиль...",
 	["new_profile_label"] = "Введите имя профиля",
 	["powerbar_height"] = "Высота полосы энергии",
@@ -210,6 +272,8 @@ L["tooltips"] = {
 	["bossmod_y_offset"] = "Вертикальное смещение значков ауры босса",
 	["bot_vertical_offset"] = "Вертикальное смещение строк уровня и здоровья",
 	["castbar_enable"] = "Включить элемент полосы заклинания",
+--[[Translation missing --]]
+	["castbar_name_vertical_offset"] = "Vertical offset of the spell name text",
 	["castbar_shield"] = "Показывать значок щита на полосе применения во время применения, которые невозможно прервать",
 	["castbar_showall"] = "Показать полосу заклинания, на всех индикаторах здоровья, а не только на текущей цели",
 	["castbar_showenemy"] = "Показывать полосу заклинания противников на индикаторах здоровья",
@@ -235,19 +299,49 @@ L["tooltips"] = {
 	["colour_self_class"] = "Использовать цвет вашего класса, на вашем индикаторе личного ресурса",
 	["combat_friendly"] = "Действия, направленные на то, чтобы принять союзные рамки после вступления в бой и покидания из него.",
 	["combat_hostile"] = "Действия, направленные на то, чтобы принять враждебные рамки после вступления в бой и покидания из него.",
+--[[Translation missing --]]
+	["cvar_clamp_bottom"] = "|cffffcc00nameplate{Other,Large}BottomInset|r",
+--[[Translation missing --]]
+	["cvar_clamp_top"] = "|cffffcc00nameplate{Other,Large}TopInset|r|n|nHow close nameplates will be rendered to the top edge of the screen, where 0 means on the edge. Set to -0.1 to disable clamping on the top of the screen.|n|nClamping only affects your current target.",
+--[[Translation missing --]]
+	["cvar_enable"] = "When enabled, Kui Nameplates will attempt to lock the CVars on this page to the values set here.|n|nIf this option is disabled, KNP will not modify CVars, even to return them to defaults.",
+--[[Translation missing --]]
+	["cvar_max_distance"] = "|cffffcc00nameplateMaxDistance|r|n|nMaximum distance at which to render nameplates (not including your current target).",
+--[[Translation missing --]]
+	["cvar_name_only"] = "|cffffcc00nameplateShowOnlyNames|r|n|nHide the health bar of the default nameplates in situations where friendly nameplates cannot be otherwise modified by addons.",
+--[[Translation missing --]]
+	["cvar_overlap_v"] = "|cffffcc00nameplateOverlapV|r|n|nVertical distance between nameplates (only valid when motion type is set to stacking in the default interface options).",
+--[[Translation missing --]]
+	["cvar_personal_show_always"] = "|cffffcc00nameplatePersonalShowAlways|r",
+--[[Translation missing --]]
+	["cvar_personal_show_combat"] = "|cffffcc00nameplatePersonalShowInCombat|r",
+--[[Translation missing --]]
+	["cvar_personal_show_target"] = "|cffffcc00nameplatePersonalShowWithTarget|r|n|nShow the personal nameplate whenever you have an attackable target.",
+--[[Translation missing --]]
+	["cvar_show_friendly_npcs"] = "|cffffcc00nameplateShowFriendlyNPCs|r",
 	["execute_auto"] = "Автоматически определять соответствующий диапазон добивания из ваших талантов, по умолчанию на 20% на персонаже без добивания",
 	["execute_colour"] = "Окрасить добивание в пределах диапазона",
 	["execute_enabled"] = "Перекрашивать полоски здоровья, когда юниты, находятся в пределах диапазона добивания",
 	["execute_percent"] = "Вручную установить диапазон добивания (проценты)",
 	["fade_all"] = "Затухать все рамки по умолчанию",
 	["fade_alpha"] = "Непрозрачность для потухших рамках. Обратите внимание, что если задано значение 0 (т. е. невидимые рамки), невидимые индикаторы здоровья будут кликабельны. Аддоны не могут произвольно отключать индикаторы здоровья",
+--[[Translation missing --]]
+	["fade_avoid_casting_friendly"] = "Don't fade friendly nameplates when they are casting",
+--[[Translation missing --]]
+	["fade_avoid_casting_hostile"] = "Don't fade hostile nameplates when they are casting",
+--[[Translation missing --]]
+	["fade_avoid_combat"] = "Don't fade nameplates which are affecting combat with you",
 	["fade_avoid_execute_friend"] = "Не затухать на союзных индикаторах здоровья, в диапазоне добивания (устанавливается на странице \"Полоса здоровья\")",
 	["fade_avoid_execute_hostile"] = "Не затухать на вражеских индикаторах здоровья, в диапазоне добивания (устанавливается на странице \"Полоса здоровья\")",
 	["fade_avoid_nameonly"] = "Не затухать индикаторам, которые в настоящее время находятся в режиме только-имя",
 	["fade_avoid_raidicon"] = "Не затухать индикаторам здоровья, у которых есть рейдовая иконка",
 	["fade_avoid_tracked"] = "Не затухать, отслеживаемым индикаторам или индикаторами здоровья, которые в бою с вами.|nНезависимо от того, отслеживается ли юнит, можно установить, изменив выпадающем списке \"имена НИП\" и другие флажки в настройках интерфейса по умолчанию в разделе Esc > Интерфейс > Имена",
+--[[Translation missing --]]
+	["fade_conditional_alpha"] = "Opacity frames will fade to when matching one of the conditions below",
 	["fade_friendly_npc"] = "Затухание союзных НИП, индикаторы здоровья, по умолчанию (в том числе в режиме только-имя)",
 	["fade_neutral_enemy"] = "Затухание нейтральных индикаторах здоровья, по умолчанию (в том числе в режиме только-имя)",
+--[[Translation missing --]]
+	["fade_non_target_alpha"] = "Opacity other frames will fade to when you have a target.|nIf set to 0, the nameplate will still be clickable despite being invisible. Addons cannot arbitrarily disable nameplate clickboxes",
 	["fade_speed"] = "Скорость замирания анимации рамки, где 1 — самая медленная и 0 — мгновенная анимация",
 	["fade_untracked"] = "Затухание не отслеживаемого индикатора здоровья, по умолчанию (в том числе в режиме только-имя).|nНезависимо от того, отслеживается ли юнит, можно установить, изменив раскрывающийся списке \"имена НИП\" и другие флажки в параметрах интерфейса по умолчанию в разделе Esc > Интерфейс > Имена",
 	["font_face"] = "Шрифт, используемый для всех строк на индикаторах здоровья (предоставляется LibSharedMedia)",
@@ -269,6 +363,8 @@ L["tooltips"] = {
 	["health_text_hostile_max"] = "Формат текста для здоровья, используемый для враждебных юнитах при полном здоровье",
 	["hide_names"] = "Независимо от того, отслеживается ли юнит, можно установить, раскрывающимся меню \"имена НИП\" и другие флажки в параметрах интерфейса по умолчанию в разделе Esc > Интерфейс > Имена.|n|nЭто не влияет на режим только-имя.",
 	["ignore_uiscale"] = "Игнорировать масштабирование ПИ, по умолчанию. Это позволяет индикаторам здоровья сохранять четкость изображения независимо от разрешения.",
+--[[Translation missing --]]
+	["name_colour_white_in_bar_mode"] = "Colour NPC's and player's names white (unless class colour is enabled).|n|nIf this is enabled, the colours below only apply to name-only mode.",
 	["name_vertical_offset"] = "Вертикальное смещение текста имени",
 	["nameonly"] = "Скрыть полосу здоровья для союзников, или не атакующих юнитов. В режиме только-имя, текст имени окрашен в проценты от состояния здоровья",
 	["nameonly_all_enemies"] = "Использовать режим только-имя для всех противников",
@@ -278,7 +374,7 @@ L["tooltips"] = {
 	["nameonly_in_combat"] = "Использовать режим только-имя, даже если в бою имеется юнит (также позволяет включить режим только-имя для вражеских игроков).|n|nОбратите внимание, что это не относится к учебным манекенам или другим юнитам, у которых нет таблицы угроз.",
 	["nameonly_neutral"] = "Использовать режим только-имя, на атакующих нейтральных юнитов",
 	["nameonly_no_font_style"] = "Скрыть текст контура, в режиме только-имя (путем установки стиля шрифта на ноль)",
-	["nameonly_on_default"] = "Скрыть полосу здоровья по умолчанию в ситуациях, когда полосы здоровья дружественных целей не могут быть иным образом изменены аддонами.|n|nЭто модифицирует таблицу CVar |cffffff88табличкаПоказатьТолькоИмена|r.",
+	["nameonly_on_default"] = "Скрыть полосу здоровья по умолчанию в ситуациях, когда полосы здоровья дружественных целей не могут быть иным образом изменены аддонами.|n|nЭто модифицирует таблицу CVar |cffffff88nameplateShowOnlyNames|r.",
 	["nameonly_target"] = "Также использовать режим только-имя, на вашей цели",
 	["powerbar_height"] = "Высота полосы энергии. Не будет увеличиваться за пределами высоты рамки",
 	["state_icons"] = "Отображать значок на боссов и редких юнитов (скрывается при отображении текста уровня)",

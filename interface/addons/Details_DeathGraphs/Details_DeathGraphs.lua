@@ -71,7 +71,67 @@ local function CreatePluginFunctions()
 		DeathGraphsFrame:Hide()
 	end
 	
-	DeathGraphs.ToolbarButton = DeathGraphs.ToolBar:NewPluginToolbarButton (DeathGraphs.OpenWindow, "Interface\\AddOns\\Details_DeathGraphs\\icon", Loc ["STRING_PLUGIN_NAME"], Loc ["STRING_TOOLTIP"], 16, 16, "DEATHGRAPHICS_BUTTON")
+	local cooltip_menu = function()
+		
+		local CoolTip = GameCooltip2
+		
+		CoolTip:Reset()
+		CoolTip:SetType ("menu")
+		
+		CoolTip:SetOption ("TextSize", Details.font_sizes.menus)
+		CoolTip:SetOption ("TextFont", Details.font_faces.menus)		
+
+		CoolTip:SetOption ("LineHeightSizeOffset", 3)
+		CoolTip:SetOption ("VerticalOffset", 2)
+		CoolTip:SetOption ("VerticalPadding", -4)
+		CoolTip:SetOption ("FrameHeightSizeOffset", -3)
+		
+		Details:SetTooltipMinWidth()
+
+		--build the menu options
+			--> death log
+			CoolTip:AddLine ("Advanced Death Log")
+			CoolTip:AddMenu (1, function() 
+				DeathGraphs:OpenWindow()
+				DeathGraphs:HideAll()
+				DeathGraphs:ShowCurrent()
+				DeathGraphs:RefreshButtons()
+
+				CoolTip:Hide()
+			end, "main")
+			CoolTip:AddIcon ([[Interface\WORLDSTATEFRAME\SkullBones]], 1, 1, 16, 16, 4/64, 28/64, 4/64, 28/64, "orange")
+		
+			--> enemy spell timeline
+			CoolTip:AddLine ("Boss Ability Timeline")
+			CoolTip:AddMenu (1, function() 
+				DeathGraphs:OpenWindow()
+				DeathGraphs:HideAll()
+				DeathGraphs:ShowTimeline()
+				DeathGraphs:RefreshButtons()
+
+				CoolTip:Hide()
+			end, "main")
+			CoolTip:AddIcon ([[Interface\Transmogrify\transmog-tooltip-arrow]], 1, 1, 16, 14, 0, 1, 0, 1, "orange")
+
+			--> player endurance
+			CoolTip:AddLine ("Player Endurance")
+			CoolTip:AddMenu (1, function() 
+				DeathGraphs:OpenWindow()
+				DeathGraphs:HideAll()
+				DeathGraphs:ShowEndurance()
+				DeathGraphs:RefreshButtons()
+
+				CoolTip:Hide()
+			end, "main")
+			CoolTip:AddIcon ([[Interface\RAIDFRAME\Raid-Icon-Rez]], 1, 1, 16, 16, 0.03, 0.97, 0, 1, "orange")
+
+		--apply the backdrop settings to the menu
+		Details:FormatCooltipBackdrop()
+		CoolTip:SetOwner (DEATHGRAPHICS_BUTTON, "bottom", "top", 0, 0)
+		CoolTip:ShowCooltip()
+	end	
+	
+	DeathGraphs.ToolbarButton = DeathGraphs.ToolBar:NewPluginToolbarButton (DeathGraphs.OpenWindow, "Interface\\AddOns\\Details_DeathGraphs\\icon", Loc ["STRING_PLUGIN_NAME"], Loc ["STRING_TOOLTIP"], 16, 16, "DEATHGRAPHICS_BUTTON", cooltip_menu)
 	DeathGraphs.ToolbarButton.shadow = true
 	
 	function DeathGraphs:CanShowIcon()

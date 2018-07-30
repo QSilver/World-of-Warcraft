@@ -373,8 +373,8 @@ end
 -- Check balance druid lunar power
 local function CheckLunarPower(minPower)
 	if (MOD.myClass == "DRUID") and IsSpellKnown(78674) and minPower then -- only Balance if know Starsurge spell
-		local power = UnitPower("player", SPELL_POWER_LUNAR_POWER)
-		local maxPower = UnitPowerMax("player", SPELL_POWER_LUNAR_POWER)
+		local power = UnitPower("player", Enum.PowerType.LunarPower)
+		local maxPower = UnitPowerMax("player", Enum.PowerType.LunarPower)
 		if (maxPower <= 0) or (power > maxPower) then return false end -- avoid errors from the lunar power API
 		local e = 100 * power / maxPower
 		return e >= minPower
@@ -755,13 +755,13 @@ function MOD:UpdateConditions()
 	stat.level = UnitLevel("player")
 	local m = UnitHealthMax("player"); if m > 0 then stat.health = (100 * UnitHealth("player") / m) else stat.health = 0 end
 	m = UnitPowerMax("player"); if m > 0 then stat.power = (100 * UnitPower("player") / m) else stat.power = 0 end
-	if MOD.myClass == "PALADIN" then stat.holyPower = UnitPower("player", SPELL_POWER_HOLY_POWER) else stat.holyPower = 0 end
-	if MOD.myClass == "WARLOCK" then stat.shards = UnitPower("player", SPELL_POWER_SOUL_SHARDS) else stat.shards = 0 end
-	if MOD.myClass == "PRIEST" then stat.insanity = UnitPower("player", SPELL_POWER_INSANITY) else stat.insanity = 0 end
-	if MOD.myClass == "MONK" then stat.chi = UnitPower("player", SPELL_POWER_CHI) else stat.chi = 0 end
-	if MOD.myClass == "SHAMAN" then stat.maelstrom = UnitPower("player", SPELL_POWER_MAELSTROM) else stat.maelstrom = 0 end
-	if MOD.myClass == "MAGE" then stat.arcane = UnitPower("player", SPELL_POWER_ARCANE_CHARGES) else stat.arcane = 0 end
-	stat.combo = UnitPower("player", SPELL_POWER_COMBO_POINTS) or 0 -- replaces GetComboPoints call
+	if MOD.myClass == "PALADIN" then stat.holyPower = UnitPower("player", Enum.PowerType.HolyPower) else stat.holyPower = 0 end
+	if MOD.myClass == "WARLOCK" then stat.shards = UnitPower("player", Enum.PowerType.SoulShards) else stat.shards = 0 end
+	if MOD.myClass == "PRIEST" then stat.insanity = UnitPower("player", Enum.PowerType.Insanity) else stat.insanity = 0 end
+	if MOD.myClass == "MONK" then stat.chi = UnitPower("player", Enum.PowerType.Chi) else stat.chi = 0 end
+	if MOD.myClass == "SHAMAN" then stat.maelstrom = UnitPower("player", Enum.PowerType.Maelstrom) else stat.maelstrom = 0 end
+	if MOD.myClass == "MAGE" then stat.arcane = UnitPower("player", Enum.PowerType.ArcaneCharges) else stat.arcane = 0 end
+	stat.combo = UnitPower("player", Enum.PowerType.ComboPoints) or 0 -- replaces GetComboPoints call
 	stat.stance = GetStance()
 	stat.specialization = GetSpecialization()
 	stat.noPet = not UnitExists("pet")

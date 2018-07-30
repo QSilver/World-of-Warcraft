@@ -727,13 +727,16 @@ end
 -- Generate a list of conditions to select from
 local function GetSelectConditionList()
 	local i, t = 0, {}
-	for _, n in pairs(MOD.db.profile.Conditions[MOD.myClass]) do
-		if IsOn(n) and n.name then
-			i = i + 1
-			t[i] = n.name
+	local myConditions = MOD.db.profile.Conditions[MOD.myClass]
+	if myConditions then
+		for _, n in pairs(myConditions) do
+			if IsOn(n) and n.name then
+				i = i + 1
+				t[i] = n.name
+			end
 		end
+		table.sort(t)
 	end
-	table.sort(t)
 	return t, i
 end
 
@@ -1592,6 +1595,19 @@ local function DrawVerticalLine(pos, c, alpha, w, h) -- draw a vertical line
 	t:SetColorTexture(c.r, c.g, c.b, alpha); t:Show()
 end
 
+local function ShowCursorCoordinates()
+	if gridFrame then
+		local cx, cy = GetCursorPosition() -- display cursor coordinates
+		local cw, ch = WorldFrame:GetSize() -- coordinates are with respect to WorldFrame
+		local scale = GetScreenHeight() / ch -- transform to coordinates for UIParent
+		local x, y = math.floor(cx * scale + 0.5), math.floor(cy  * scale + 0.5) -- round to nearest whole number
+		cx = math.floor(1000 * cx / cw + 0.5) / 10; cy = math.floor(1000 * cy / ch + 0.5) / 10
+		gridFrame._coordinates:SetText("Cursor: "..x..", "..y.." |cff00ffff("..cx.."%, "..cy.."%)|r")		
+		gridFrame._coordinates:Show() -- turn on the coordinates display
+		-- MOD.Debug("ShowCursorCoordinates", cx, cy)
+	end
+end
+
 local function DisplayGridPattern(toggle)
 	if not gridFrame then -- if first time then create the frame and figure out the scale for pixels
 		gridFrame = CreateFrame('Frame', nil, UIParent) 
@@ -1600,15 +1616,6 @@ local function DisplayGridPattern(toggle)
 		fs:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 10, -10) -- will show in upper corner
 		fs:SetFontObject(ChatFontNormal); fs:SetTextColor(1, 1, 0, 1); fs:Hide()
 		gridFrame._coordinates = fs
-		gridFrame:SetScript("OnUpdate", function(frame)
-			local cx, cy = GetCursorPosition() -- display cursor coordinates
-			local cw, ch = WorldFrame:GetSize() -- coordinates are with respect to WorldFrame
-			local scale = GetScreenHeight() / ch -- transform to coordinates for UIParent
-			local x, y = math.floor(cx * scale + 0.5), math.floor(cy  * scale + 0.5) -- round to nearest whole number
-			cx = math.floor(1000 * cx / cw + 0.5) / 10; cy = math.floor(1000 * cy / ch + 0.5) / 10
-			frame._coordinates:SetText("Cursor: "..x..", "..y.." |cff00ffff("..cx.."%, "..cy.."%)|r")		
-			frame._coordinates:Show() -- turn on the coordinates display
-		end )
 	end
 	
 	local w, h = GetScreenWidth(), GetScreenHeight()
@@ -1619,10 +1626,10 @@ local function DisplayGridPattern(toggle)
 	local c = MOD.db.global.GridCenterColor
 
 	if gridFrame:IsShown() and toggle then
-		gridFrame:UnregisterEvent("OnUpdate") -- stop tracking the cursor
+		gridFrame:SetScript("OnUpdate", nil) -- stop tracking the cursor
 		gridFrame._coordinates:Hide() -- turn on the coordinates display
 		gridFrame:Hide() -- if toggling it off then just hide the frame to remove all the lines
-	elseif gridFrame:IsShown() or toggle then				
+	elseif gridFrame:IsShown() or toggle then	
 		DrawHorizontalLine(0, c, alpha, w, h); DrawVerticalLine(0, c, alpha, w, h) -- draw center horizontal and vertical lines	
 		c = MOD.db.global.GridLineColor -- switch to line color
 		
@@ -1636,7 +1643,7 @@ local function DisplayGridPattern(toggle)
 			DrawVerticalLine(-offset, c, alpha, w, h) -- draw vertical line left of center
 			DrawVerticalLine(offset, c, alpha, w, h) -- draw vertical line right of center
 		end
-		gridFrame:RegisterEvent("OnUpdate") -- track cursor and display coordinates
+		gridFrame:SetScript("OnUpdate", ShowCursorCoordinates) -- track cursor and display coordinates
 		gridFrame:Show()
 	end
 	while gridCount < gridAllocated do gridCount = gridCount + 1; t = gridTextures[gridCount]; t:Hide() end -- hide any extra textures
@@ -2200,6 +2207,12 @@ MOD.OptionsTable = {
 									get = function(info) return MOD.db.global.Defaults.labelShadow end,
 									set = function(info, value) MOD.db.global.Defaults.labelShadow = value; MOD:UpdateAllBarGroups() end,
 								},
+								LabelSpecial = {
+									type = "toggle", order = 55, name = L["Border"], width = "half",
+									desc = L["Use icon border color for text."],
+									get = function(info) return MOD.db.global.Defaults.labelSpecial end,
+									set = function(info, value) MOD.db.global.Defaults.labelSpecial = value; MOD:UpdateAllBarGroups() end,
+								},
 							},
 						},
 						TimeText = {
@@ -2263,6 +2276,12 @@ MOD.OptionsTable = {
 									get = function(info) return MOD.db.global.Defaults.timeShadow end,
 									set = function(info, value) MOD.db.global.Defaults.timeShadow = value; MOD:UpdateAllBarGroups() end,
 								},
+								TimeSpecial = {
+									type = "toggle", order = 55, name = L["Border"], width = "half",
+									desc = L["Use icon border color for text."],
+									get = function(info) return MOD.db.global.Defaults.timeSpecial end,
+									set = function(info, value) MOD.db.global.Defaults.timeSpecial = value; MOD:UpdateAllBarGroups() end,
+								},
 							},
 						},
 						IconText = {
@@ -2325,6 +2344,12 @@ MOD.OptionsTable = {
 									desc = L["Show shadow with text."],
 									get = function(info) return MOD.db.global.Defaults.iconShadow end,
 									set = function(info, value) MOD.db.global.Defaults.iconShadow = value; MOD:UpdateAllBarGroups() end,
+								},
+								IconSpecial = {
+									type = "toggle", order = 55, name = L["Border"], width = "half",
+									desc = L["Use icon border color for text."],
+									get = function(info) return MOD.db.global.Defaults.iconSpecial end,
+									set = function(info, value) MOD.db.global.Defaults.iconSpecial = value; MOD:UpdateAllBarGroups() end,
 								},
 							},
 						},
@@ -2781,11 +2806,17 @@ MOD.OptionsTable = {
 							set = function(info, value) MOD.db.global.RectIcons = value; MOD:UpdateAllBarGroups() end,
 						},
 						Zoom = {
-							type = "toggle", order = 40, name = L["Zoom Icons"],
+							type = "toggle", order = 41, name = L["Zoom Icons"],
 							disabled = function(info) return not MOD.db.global.RectIcons end,
 							desc = L["If checked, rectangular icons are zoomed, rather than stretched (requires /reload)."],
 							get = function(info) return MOD.db.global.ZoomIcons end,
 							set = function(info, value) MOD.db.global.ZoomIcons = value; MOD:UpdateAllBarGroups() end,
+						},
+						IconClockEdge = {
+							type = "toggle", order = 45, name = L["Icon Clock Edge"],
+							desc = L["If checked, icon clock overlays will be displayed with an edge (requires /reload)."],
+							get = function(info) return MOD.db.global.IconClockEdge end,
+							set = function(info, value) MOD.db.global.IconClockEdge = value; MOD:UpdateAllBarGroups() end,
 						},
 						DefaultBorderColor = {
 							type = "color", order = 50, name = L["Default Border Color"], hasAlpha = false,
@@ -3888,7 +3919,7 @@ MOD.OptionsTable = {
 											end
 										},
 										DeathKnight = {
-											type = "toggle", order = 55, name = L["Death Knight"],
+											type = "toggle", order = 55, name = L["Death Knight"], width = "half",
 											get = function(info) local t = GetBarGroupField("showClasses"); return not t or not t.DEATHKNIGHT end,
 											set = function(info, value)
 												local t = GetBarGroupField("showClasses")
@@ -3896,7 +3927,7 @@ MOD.OptionsTable = {
 											end
 										},
 										DemonHunter = {
-											type = "toggle", order = 60, name = L["Demon Hunter"],
+											type = "toggle", order = 60, name = L["Demon Hunter"], width = "half",
 											get = function(info) local t = GetBarGroupField("showClasses"); return not t or not t.DEMONHUNTER end,
 											set = function(info, value)
 												local t = GetBarGroupField("showClasses")
@@ -4086,7 +4117,7 @@ MOD.OptionsTable = {
 								},
 								space5 = { type = "description", name = "", order = 94 },
 								ExpireTime = {
-									type = "range", order = 95, name = L["Expire Time"], min = 0, max = 300, step = 1,
+									type = "range", order = 95, name = L["Expire Time"], min = 0, max = 300, step = 0.1,
 									desc = L["Set number of seconds before expiration that bar should change color and/or play expire sound."],
 									disabled = function(info) return not GetBarGroupField("colorExpiring")
 										and not GetBarGroupField("expireMSBT") and not GetBarGroupField("soundSpellExpire")
@@ -6286,6 +6317,13 @@ MOD.OptionsTable = {
 											get = function(info) return GetBarGroupField("labelShadow") end,
 											set = function(info, value) SetBarGroupField("labelShadow", value) end,
 										},
+										LabelSpecial = {
+											type = "toggle", order = 55, name = L["Border"], width = "half",
+											desc = L["Use icon border color for text."],
+											disabled = function(info) return GetBarGroupField("useDefaultFontsAndTextures") end,
+											get = function(info) return GetBarGroupField("labelSpecial") end,
+											set = function(info, value) SetBarGroupField("labelSpecial", value) end,
+										},
 									},
 								},
 								TimeText = {
@@ -6357,6 +6395,13 @@ MOD.OptionsTable = {
 											get = function(info) return GetBarGroupField("timeShadow") end,
 											set = function(info, value) SetBarGroupField("timeShadow", value) end,
 										},
+										TimeSpecial = {
+											type = "toggle", order = 55, name = L["Border"], width = "half",
+											desc = L["Use icon border color for text."],
+											disabled = function(info) return GetBarGroupField("useDefaultFontsAndTextures") end,
+											get = function(info) return GetBarGroupField("timeSpecial") end,
+											set = function(info, value) SetBarGroupField("timeSpecial", value) end,
+										},
 									},
 								},
 								IconText = {
@@ -6427,6 +6472,13 @@ MOD.OptionsTable = {
 											disabled = function(info) return GetBarGroupField("useDefaultFontsAndTextures") end,
 											get = function(info) return GetBarGroupField("iconShadow") end,
 											set = function(info, value) SetBarGroupField("iconShadow", value) end,
+										},
+										IconSpecial = {
+											type = "toggle", order = 55, name = L["Border"], width = "half",
+											desc = L["Use icon border color for text."],
+											disabled = function(info) return GetBarGroupField("useDefaultFontsAndTextures") end,
+											get = function(info) return GetBarGroupField("iconSpecial") end,
+											set = function(info, value) SetBarGroupField("iconSpecial", value) end,
 										},
 									},
 								},
@@ -11072,7 +11124,8 @@ MOD.barOptions = {
 			EnableUsableTest = {
 				type = "toggle", order = 70, name = L["Usable"], width = "half",
 				desc = L["If checked, show ready bar only if spell is usable (i.e., enough mana, reagents, etc.)."],
-				hidden = function(info) return GetBarField(info, "barType") ~= "Cooldown" end,
+				-- hidden = function(info) return GetBarField(info, "barType") ~= "Cooldown" end,
+				hidden = function(info) local t = GetBarField(info, "barType"); return (t ~= "Buff") and (t ~= "Debuff") and (t ~= "Cooldown") end,
 				disabled = function(info) return not GetBarField(info, "enableReady") end,
 				get = function(info) return not GetBarField(info, "readyNotUsable") end,
 				set = function(info, value) SetBarField(info, "readyNotUsable", not value); MOD:UpdateAllBarGroups() end,
@@ -11217,6 +11270,108 @@ MOD.barOptions = {
 				hidden = function(info) return GetBarField(info, "barType") ~= "Broker" end,
 				get = function(info) return not GetBarField(info, "brokerAlign") end,
 				set = function(info, v) if v then SetBarField(info, "brokerAlign", nil) end end,
+			},
+		},
+	},
+	SelectPlayerClass = {
+		type = "group", order = 15, name = L["Player Class"], inline = true,
+		hidden = function(info) return NoBar() end,
+		args = {
+			Druid = {
+				type = "toggle", order = 10, name = L["Druid"], width = "half",
+				get = function(info) local t = GetBarField(info, "showClasses"); return not t or not t.DRUID end,
+				set = function(info, value)
+					local t = GetBarField(info, "showClasses")
+					if not t then SetBarField(info, "showClasses", { DRUID = not value } ) else t.DRUID = not value end
+				end
+			},
+			Hunter = {
+				type = "toggle", order = 15, name = L["Hunter"], width = "half",
+				get = function(info) local t = GetBarField(info, "showClasses"); return not t or not t.HUNTER end,
+				set = function(info, value)
+					local t = GetBarField(info, "showClasses")
+					if not t then SetBarField(info, "showClasses", { HUNTER = not value } ) else t.HUNTER = not value end
+				end
+			},
+			Mage = {
+				type = "toggle", order = 20, name = L["Mage"], width = "half",
+				get = function(info) local t = GetBarField(info, "showClasses"); return not t or not t.MAGE end,
+				set = function(info, value)
+					local t = GetBarField(info, "showClasses")
+					if not t then SetBarField(info, "showClasses", { MAGE = not value } ) else t.MAGE = not value end
+				end
+			},
+			Monk = {
+				type = "toggle", order = 22, name = L["Monk"], width = "half",
+				get = function(info) local t = GetBarField(info, "showClasses"); return not t or not t.MONK end,
+				set = function(info, value)
+					local t = GetBarField(info, "showClasses")
+					if not t then SetBarField(info, "showClasses", { MONK = not value } ) else t.MONK = not value end
+				end
+			},
+			Paladin = {
+				type = "toggle", order = 25, name = L["Paladin"], width = "half",
+				get = function(info) local t = GetBarField(info, "showClasses"); return not t or not t.PALADIN end,
+				set = function(info, value)
+					local t = GetBarField(info, "showClasses")
+					if not t then SetBarField(info, "showClasses", { PALADIN = not value } ) else t.PALADIN = not value end
+				end
+			},
+			Priest = {
+				type = "toggle", order = 30, name = L["Priest"], width = "half",
+				get = function(info) local t = GetBarField(info, "showClasses"); return not t or not t.PRIEST end,
+				set = function(info, value)
+					local t = GetBarField(info, "showClasses")
+					if not t then SetBarField(info, "showClasses", { PRIEST = not value } ) else t.PRIEST = not value end
+				end
+			},
+			Rogue = {
+				type = "toggle", order = 35, name = L["Rogue"], width = "half",
+				get = function(info) local t = GetBarField(info, "showClasses"); return not t or not t.ROGUE end,
+				set = function(info, value)
+					local t = GetBarField(info, "showClasses")
+					if not t then SetBarField(info, "showClasses", { ROGUE = not value } ) else t.ROGUE = not value end
+				end
+			},
+			Shaman = {
+				type = "toggle", order = 40, name = L["Shaman"], width = "half",
+				get = function(info) local t = GetBarField(info, "showClasses"); return not t or not t.SHAMAN end,
+				set = function(info, value)
+					local t = GetBarField(info, "showClasses")
+					if not t then SetBarField(info, "showClasses", { SHAMAN = not value } ) else t.SHAMAN = not value end
+				end
+			},
+			Warlock = {
+				type = "toggle", order = 45, name = L["Warlock"], width = "half",
+				get = function(info) local t = GetBarField(info, "showClasses"); return not t or not t.WARLOCK end,
+				set = function(info, value)
+					local t = GetBarField(info, "showClasses")
+					if not t then SetBarField(info, "showClasses", { WARLOCK = not value } ) else t.WARLOCK = not value end
+				end
+			},
+			Warrior = {
+				type = "toggle", order = 50, name = L["Warrior"], width = "half",
+				get = function(info) local t = GetBarField(info, "showClasses"); return not t or not t.WARRIOR end,
+				set = function(info, value)
+					local t = GetBarField(info, "showClasses")
+					if not t then SetBarField(info, "showClasses", { WARRIOR = not value } ) else t.WARRIOR = not value end
+				end
+			},
+			DeathKnight = {
+				type = "toggle", order = 55, name = L["Death Knight"], width = "half",
+				get = function(info) local t = GetBarField(info, "showClasses"); return not t or not t.DEATHKNIGHT end,
+				set = function(info, value)
+					local t = GetBarField(info, "showClasses")
+					if not t then SetBarField(info, "showClasses", { DEATHKNIGHT = not value } ) else t.DEATHKNIGHT = not value end
+				end
+			},
+			DemonHunter = {
+				type = "toggle", order = 60, name = L["Demon Hunter"], width = "half",
+				get = function(info) local t = GetBarField(info, "showClasses"); return not t or not t.DEMONHUNTER end,
+				set = function(info, value)
+					local t = GetBarField(info, "showClasses")
+					if not t then SetBarField(info, "showClasses", { DEMONHUNTER = not value } ) else t.DEMONHUNTER = not value end
+				end
 			},
 		},
 	},
@@ -11449,7 +11604,7 @@ MOD.barOptions = {
 			},
 			space3d = { type = "description", name = "", order = 74 },
 			ExpireTime = {
-				type = "range", order = 75, name = L["Expire Time"], min = 0, max = 300, step = 1,
+				type = "range", order = 75, name = L["Expire Time"], min = 0, max = 300, step = 0.1,
 				desc = L["Set number of seconds before expiration that bar should change color and/or play expire sound."],
 				disabled = function(info) return not GetBarField(info, "colorExpiring") and not GetBarField(info, "expireMSBT")
 					and not GetBarField(info, "soundSpellExpire") and not (GetBarField(info, "soundAltExpire")

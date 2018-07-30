@@ -140,7 +140,7 @@ function mod:OnEngage()
 	-- Belac
 	self:CDBar(235230, 35) -- Fel Squall
 
-	self:RegisterUnitEvent("UNIT_POWER", nil, "player")
+	self:RegisterUnitEvent("UNIT_POWER_FREQUENT", nil, "player")
 
 	self:Berserk(720, true, nil, 248671, 248671) -- confirmed for nm/hc/my - 248671 has a nice description, 248669 is the aura applied
 
@@ -202,7 +202,7 @@ do
 	end
 end
 
-function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, _, spellId)
+function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 	if spellId == 233895 then -- Suffocating Dark
 		self:Message(spellId, "Attention", "Info")
 		suffocatingDarkCounter = suffocatingDarkCounter + 1
@@ -212,7 +212,7 @@ end
 
 do
 	local lastPower, prev = 0, 0
-	function mod:UNIT_POWER(unit, pType)
+	function mod:UNIT_POWER_FREQUENT(event, unit, pType)
 		if pType == "ALTERNATE" then
 			local power = UnitPower(unit, 10) -- Enum.PowerType.Alternate = 10
 			if power < lastPower or power >= nextAltPowerWarning then

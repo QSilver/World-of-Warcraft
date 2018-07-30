@@ -1,10 +1,9 @@
 # LittleWigs
 
-## [v7.3.27](https://github.com/BigWigsMods/LittleWigs/tree/v7.3.27) (2018-05-04)
-[Full Changelog](https://github.com/BigWigsMods/LittleWigs/compare/v7.3.26...v7.3.27)
+## [v8.0.6](https://github.com/BigWigsMods/LittleWigs/tree/v8.0.6) (2018-07-27)
+[Full Changelog](https://github.com/BigWigsMods/LittleWigs/compare/v8.0.5...v8.0.6)
 
-- EyeOfAzshara/LadyHatecoil: Use spell id for debuff check  
-- BfA: Throttle fixes and minor cleanups  
-- Cataclysm/BlackrockCaverns/Corla: Fix DarkCommandRemoved  
-- BfA/Underrot/Leaxa: Fix throttles on some spells  
-- BfA/Underrot/Abomination: Fix icon when killing bloods  
+- Legion/CourtOfStars/Trash: Update UnitBuff usage.  
+- Update color usage in our API calls.  
+- Legion/BlackRookHold/Trash: Improve reliability of Arcane Blitz warning showing.  
+- Legion/VaultOfTheWardens/Tormentorum: Replace the Flesh To Stone warnings with an info box.  

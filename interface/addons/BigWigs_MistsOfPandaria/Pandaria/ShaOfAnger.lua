@@ -3,10 +3,10 @@
 -- Module Declaration
 --
 
-local mod, CL = BigWigs:NewBoss("Sha of Anger", -809, 691)
+local mod, CL = BigWigs:NewBoss("Sha of Anger", -379, 691)
 if not mod then return end
 mod:RegisterEnableMob(60491)
-mod.otherMenu = -862
+mod.otherMenu = -424
 mod.worldBoss = 60491
 
 --------------------------------------------------------------------------------
@@ -40,7 +40,7 @@ end
 --
 
 function mod:UnleashedWrath(args)
-	self:Message(args.spellId, "Important")
+	self:Message(args.spellId, "red")
 	self:Bar(args.spellId, 25)
 end
 
@@ -48,11 +48,11 @@ do
 	local prev = 0
 	local bitterThoughts = mod:SpellName(119610)
 	function mod:BitterThoughts()
-		if UnitDebuff("player", bitterThoughts) then
+		if self:UnitDebuff("player", bitterThoughts) then
 			local t = GetTime()
 			if t-prev > 2 then -- throttle so the timer can catch it sooner
 				prev = t
-				self:Message(119610, "Personal", "Info", CL["underyou"]:format(bitterThoughts))
+				self:Message(119610, "blue", "Info", CL["underyou"]:format(bitterThoughts))
 				self:Flash(119610)
 			end
 		end
@@ -65,13 +65,13 @@ do
 		if self:Me(args.destGUID) then
 			self:OpenProximity(args.spellId, 5)
 			self:Flash(args.spellId)
-			self:Message(args.spellId, "Personal", "Alert", CL["you"]:format(args.spellName))
+			self:Message(args.spellId, "blue", "Alert", CL["you"]:format(args.spellName))
 			self:Bar(args.spellId, 6, CL["you"]:format(args.spellName))
 		else
 			local t = GetTime()
 			if t-prev > 6 then
 				prev = t
-				self:Message(119626, "Attention", "Alarm", CL["soon"]:format(self:SpellName(119626))) -- Aggressive Behavior
+				self:Message(119626, "yellow", "Alarm", CL["soon"]:format(self:SpellName(119626))) -- Aggressive Behavior
 			end
 		end
 	end
@@ -85,7 +85,7 @@ end
 do
 	local aggressiveTargets, scheduled = mod:NewTargetList(), nil
 	local function warnAggressiveBehavior(spellId)
-		mod:TargetMessage(spellId, aggressiveTargets, "Urgent")
+		mod:TargetMessage(spellId, aggressiveTargets, "orange")
 		scheduled = nil
 	end
 	function mod:AggressiveBehavior(args)

@@ -2,7 +2,7 @@
 --
 -- Prat - A framework for World of Warcraft chat mods
 --
--- Copyright (C) 2006-2011  Prat Development Team
+-- Copyright (C) 2006-2018  Prat Development Team
 --
 -- This program is free software; you can redistribute it and/or
 -- modify it under the terms of the GNU General Public License
@@ -36,8 +36,9 @@ if PRAT_MODULE == nil then
     return
 end
 
--- define localized strings
-local PL = Prat:GetLocalizer({})
+local module = Prat:NewModule(PRAT_MODULE, "AceEvent-3.0", "AceTimer-3.0", "AceHook-3.0")
+
+local PL = module.PL
 
 --[===[@debug@
 PL:AddLocale(PRAT_MODULE, "enUS", {
@@ -128,40 +129,40 @@ L=
 		["<string>"] = "<chaîne>",
 		["Add Channel Abbreviation"] = "Ajouter une abréviation",
 		["addnick_desc"] = "Ajoute une abréviation pour le nom de ce canal. Préfixer le nom avec '#' permet d'inclure le numéro du canal. (Exemple : '#Commerce')",
-		--Translation missing 
-		-- ["Blank"] = "",
-		--Translation missing 
-		-- ["chanlink_desc"] = "",
-		--Translation missing 
-		-- ["chanlink_name"] = "",
+		--[[Translation missing --]]
+		--[[ ["Blank"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["chanlink_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["chanlink_name"] = "",--]] 
 		["Channel %d"] = "Canal %d",
 		["Channel name abbreviation options."] = "Options d'abréviations des noms de canaux.",
 		["ChannelNames"] = "Noms des canaux",
 		["channelnick_desc"] = "Abréviations des noms des canaux.",
 		["channelnick_name"] = "Abréviations",
-		--Translation missing 
-		-- ["Clear Channel Abbreviation"] = "",
-		--Translation missing 
-		-- ["Clears an abbreviated channel name."] = "",
-		--Translation missing 
-		-- ["colon_desc"] = "",
-		--Translation missing 
-		-- ["colon_name"] = "",
-		--Translation missing 
-		-- ["Dont display the channel/chat type name"] = "",
+		--[[Translation missing --]]
+		--[[ ["Clear Channel Abbreviation"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Clears an abbreviated channel name."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["colon_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["colon_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Dont display the channel/chat type name"] = "",--]] 
 		["otheropts_desc"] = "Options supplémentaires du formatage des noms de canaux.",
 		["otheropts_name"] = "Autres options",
-		--Translation missing 
-		-- ["Remove Channel Abbreviation"] = "",
-		--Translation missing 
-		-- ["Removes an an abbreviated channel name."] = "",
+		--[[Translation missing --]]
+		--[[ ["Remove Channel Abbreviation"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Removes an an abbreviated channel name."] = "",--]] 
 		["Replace"] = "Remplacer",
-		--Translation missing 
-		-- ["Set"] = "",
-		--Translation missing 
-		-- ["space_desc"] = "",
-		--Translation missing 
-		-- ["space_name"] = "",
+		--[[Translation missing --]]
+		--[[ ["Set"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["space_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["space_name"] = "",--]] 
 		["Toggle replacing this channel."] = "Active/Désactive le texte de remplacement pour ce canal.",
 		["Use a custom replacement for the chat %s text."] = "Utiliser un texte de remplacement pour le canal %s.",
 	}
@@ -246,60 +247,60 @@ PL:AddLocale(PRAT_MODULE, "koKR",L)
 L=
 {
 	["ChannelNames"] = {
-		--Translation missing 
-		-- ["%s settings."] = "",
-		--Translation missing 
-		-- ["<string>"] = "",
-		--Translation missing 
-		-- ["Add Channel Abbreviation"] = "",
-		--Translation missing 
-		-- ["addnick_desc"] = "",
-		--Translation missing 
-		-- ["Blank"] = "",
-		--Translation missing 
-		-- ["chanlink_desc"] = "",
-		--Translation missing 
-		-- ["chanlink_name"] = "",
-		--Translation missing 
-		-- ["Channel %d"] = "",
-		--Translation missing 
-		-- ["Channel name abbreviation options."] = "",
-		--Translation missing 
-		-- ["ChannelNames"] = "",
-		--Translation missing 
-		-- ["channelnick_desc"] = "",
-		--Translation missing 
-		-- ["channelnick_name"] = "",
-		--Translation missing 
-		-- ["Clear Channel Abbreviation"] = "",
-		--Translation missing 
-		-- ["Clears an abbreviated channel name."] = "",
-		--Translation missing 
-		-- ["colon_desc"] = "",
-		--Translation missing 
-		-- ["colon_name"] = "",
-		--Translation missing 
-		-- ["Dont display the channel/chat type name"] = "",
-		--Translation missing 
-		-- ["otheropts_desc"] = "",
-		--Translation missing 
-		-- ["otheropts_name"] = "",
-		--Translation missing 
-		-- ["Remove Channel Abbreviation"] = "",
-		--Translation missing 
-		-- ["Removes an an abbreviated channel name."] = "",
-		--Translation missing 
-		-- ["Replace"] = "",
-		--Translation missing 
-		-- ["Set"] = "",
-		--Translation missing 
-		-- ["space_desc"] = "",
-		--Translation missing 
-		-- ["space_name"] = "",
-		--Translation missing 
-		-- ["Toggle replacing this channel."] = "",
-		--Translation missing 
-		-- ["Use a custom replacement for the chat %s text."] = "",
+		--[[Translation missing --]]
+		--[[ ["%s settings."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["<string>"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Add Channel Abbreviation"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["addnick_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Blank"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["chanlink_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["chanlink_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Channel %d"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Channel name abbreviation options."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["ChannelNames"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["channelnick_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["channelnick_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Clear Channel Abbreviation"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Clears an abbreviated channel name."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["colon_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["colon_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Dont display the channel/chat type name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["otheropts_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["otheropts_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Remove Channel Abbreviation"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Removes an an abbreviated channel name."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Replace"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Set"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["space_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["space_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Toggle replacing this channel."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Use a custom replacement for the chat %s text."] = "",--]] 
 	}
 }
 
@@ -420,11 +421,11 @@ L=
 		["%s settings."] = "%s 設定。",
 		["<string>"] = true,
 		["Add Channel Abbreviation"] = "新增頻道縮寫",
-		--Translation missing 
-		-- ["addnick_desc"] = "",
+		--[[Translation missing --]]
+		--[[ ["addnick_desc"] = "",--]] 
 		["Blank"] = "空白",
-		--Translation missing 
-		-- ["chanlink_desc"] = "",
+		--[[Translation missing --]]
+		--[[ ["chanlink_desc"] = "",--]] 
 		["chanlink_name"] = "新建聊天連結",
 		["Channel %d"] = "頻道 %d",
 		["Channel name abbreviation options."] = "頻道名稱縮寫選項",
@@ -433,19 +434,19 @@ L=
 		["channelnick_name"] = "頻道簡稱",
 		["Clear Channel Abbreviation"] = "清除頻道名稱縮寫",
 		["Clears an abbreviated channel name."] = "清除縮短頻道名稱。",
-		--Translation missing 
-		-- ["colon_desc"] = "",
+		--[[Translation missing --]]
+		--[[ ["colon_desc"] = "",--]] 
 		["colon_name"] = "顯示冒號",
 		["Dont display the channel/chat type name"] = "不要顯示頻道/聊天類型名稱",
-		--Translation missing 
-		-- ["otheropts_desc"] = "",
+		--[[Translation missing --]]
+		--[[ ["otheropts_desc"] = "",--]] 
 		["otheropts_name"] = "其他選項",
 		["Remove Channel Abbreviation"] = "移除頻道縮寫",
 		["Removes an an abbreviated channel name."] = "移除縮短頻道名稱。",
 		["Replace"] = "替換",
 		["Set"] = "設定",
-		--Translation missing 
-		-- ["space_desc"] = "",
+		--[[Translation missing --]]
+		--[[ ["space_desc"] = "",--]] 
 		["space_name"] = "顯示空格",
 		["Toggle replacing this channel."] = "切換替代此頻道。",
 		["Use a custom replacement for the chat %s text."] = "用自訂更換聊天 %s 文字。",
@@ -522,7 +523,6 @@ local eventMap = {
     CHAT_MSG_BN_CONVERSATION = "bnconversation"
 }
 
-local module = Prat:NewModule(PRAT_MODULE, "AceEvent-3.0", "AceTimer-3.0", "AceHook-3.0")
 
 local CLR = Prat.CLR
 
@@ -743,7 +743,7 @@ function module:OnModuleEnable()
 	Prat.EnableProcessingForEvent("CHAT_MSG_CHANNEL_LEAVE")
 	Prat.EnableProcessingForEvent("CHAT_MSG_CHANNEL_JOIN")
 
-    --self:AddOutboundWhisperColoring()
+    self:AddOutboundWhisperColoring()
 
     --self:RawHook("ChatEdit_UpdateHeader", true)
 end
@@ -753,7 +753,9 @@ function module:OnModuleDisable()
 	Prat.UnregisterAllChatEvents(self)
 end
 
-
+function module:GetDescription()
+    return PL["Channel name abbreviation options."]
+end
 
 --function module:ChatEdit_UpdateHeader(editBox, ...)
 --    self.hooks["ChatEdit_UpdateHeader"](...)
@@ -795,18 +797,25 @@ function module:RefreshOptions()
 	LibStub("AceConfigRegistry-3.0"):NotifyChange("Prat")
 end
 
---function module:AddOutboundWhisperColoring()
---    if not CHAT_CONFIG_CHAT_RIGHT then return end
---
---	CHAT_CONFIG_CHAT_RIGHT[7] = {
---		text = CHAT_MSG_WHISPER_INFORM,
---		type = "WHISPER_INFORM",
---		checked = function () return IsListeningForMessageType("WHISPER"); end;
---		func = function (checked) ToggleChatMessageGroup(checked, "WHISPER"); end;
---	}
---
---	CHAT_CONFIG_CHAT_LEFT[#CHAT_CONFIG_CHAT_LEFT].text = CHAT_MSG_WHISPER
---end
+function module:AddOutboundWhisperColoring()
+    if not CHAT_CONFIG_CHAT_LEFT then return end
+
+    for i,v in ipairs(CHAT_CONFIG_CHAT_LEFT) do
+        if v.type == "WHISPER" then
+            v.text = CHAT_MSG_WHISPER
+            v.func = function (self, checked) ToggleChatMessageGroup(checked, "WHISPER"); end;
+
+            table.insert(CHAT_CONFIG_CHAT_LEFT, i, {
+                text = CHAT_MSG_WHISPER_INFORM,
+                type = "WHISPER_INFORM",
+                checked = function () return IsListeningForMessageType("WHISPER"); end;
+                func = function (self, checked) ToggleChatMessageGroup(checked, "WHISPER"); end;
+            })
+
+            break
+        end
+    end
+end
 
 function module:AddNickname(info, name)
     self.db.profile.nickname[info[#info-1]] = name

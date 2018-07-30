@@ -17,10 +17,10 @@ L["S_AGGROCOLORS_TANK_NOAGGRO_DESC"] = "Quando você é um tank e o mob não est
 L["S_AGGROCOLORS_TANK_NOCOMBAT"] = "[tank] Fora de Combate"
 L["S_AGGROCOLORS_TANK_NOCOMBAT_DESC"] = "Quando você esta em combate e o inimigo não esta fora de combate."
 L["S_ALPHA"] = "Transparência"
---Translation missing 
--- L["S_ALWAYSSHOWDEBUFFS"] = ""
---Translation missing 
--- L["S_ALWAYSSHOWDEBUFFS_DESC"] = ""
+--[[Translation missing --]]
+--[[ L["S_ALWAYSSHOWDEBUFFS"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["S_ALWAYSSHOWDEBUFFS_DESC"] = ""--]] 
 L["S_ANCHOR"] = "Âncora"
 L["S_ANCHOR_TOOLTIP"] = [=[|cFFFFFF00Botão Direito|r or '|cFFFFFF00/enemygrid|r' para configurar.
 Você pode trancar o frame lá.]=]
@@ -96,18 +96,18 @@ L["S_SHOWTAB_DESC"] = "Mostra a aba do frame."
 L["S_SHOWTIMER"] = "Mostrar Cronometro"
 L["S_SHOWTIMER_DESC"] = "Tempo restante que a aura possui."
 L["S_SHOWTITLE"] = "Mostrar Título"
---Translation missing 
--- L["S_SHOWTOOLTIP"] = ""
+--[[Translation missing --]]
+--[[ L["S_SHOWTOOLTIP"] = ""--]] 
 L["S_SIZE"] = "Tamanho"
 L["S_SPECBAN"] = "Especialização"
 L["S_SPECBAN_TOOLTIP"] = "Mostrar o frame quando você estiver nesta especialização."
 L["S_TEXT"] = "Texto"
 L["S_TEXTURE"] = "Textura"
 L["S_TEXTUREBACKGROUND"] = "Textura de Fundo"
---Translation missing 
--- L["S_UNIT_ENEMY"] = ""
---Translation missing 
--- L["S_UNIT_FRIENDLY"] = ""
+--[[Translation missing --]]
+--[[ L["S_UNIT_ENEMY"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["S_UNIT_FRIENDLY"] = ""--]] 
 L["S_WIDTH"] = "Largura"
 L["S_XOFFSET"] = "X Offset"
 L["S_YOFFSET"] = "Y Offset"

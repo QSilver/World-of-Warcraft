@@ -2,7 +2,7 @@
 --
 -- Prat - A framework for World of Warcraft chat mods
 --
--- Copyright (C) 2006-2011  Prat Development Team
+-- Copyright (C) 2006-2018  Prat Development Team
 --
 -- This program is free software; you can redistribute it and/or
 -- modify it under the terms of the GNU General Public License
@@ -35,7 +35,8 @@ if PRAT_MODULE == nil then
     return 
 end
 
-local PL = Prat:GetLocalizer({})
+local module = Prat:NewModule(PRAT_MODULE, "AceHook-3.0")
+local PL = module.PL
 
 local function dbg(...) end
 
@@ -147,86 +148,86 @@ PL:AddLocale(PRAT_MODULE, "enUS", L)
 L=
 {
 	["Alias"] = {
-		--Translation missing 
-		-- [" - list all aliases; supply <keyword> to search for matching aliases (cmd aliases: /listallaliases)"] = "",
-		--Translation missing 
-		-- ["%s() called with blank string!"] = "",
-		--Translation missing 
-		-- ["%s() called with nil argument!"] = "",
-		--Translation missing 
-		-- ["/%s aliased to \"/%s\""] = "",
-		--Translation missing 
-		-- ["/%s aliased to: /%s"] = "",
-		--Translation missing 
-		-- ["<alias> - remove the alias <alias> (cmd aliases: /delalias, /remalias)"] = "",
-		--Translation missing 
-		-- ["<command>[ <value>] - alias <command> to be executed as <value>, or return the value of the currently defined alias for <command> if <command> has not been assigned a value. eg: \"/alias /examplehello /say hello there\" - typing \"/examplehello\" will now cause your character to say \"hello there\"; \"/alias examplehello\" - s \"/examplehello is aliased to /say hello there\" (cmd aliases: /addalias)"] = "",
-		--Translation missing 
-		-- ["<keyword> - finds all aliases matching <keyword> (cmd aliases: /findalias)"] = "",
-		--Translation missing 
-		-- ["add"] = "",
-		--Translation missing 
-		-- ["add an alias"] = "",
-		--Translation missing 
-		-- ["alias \"/%s\" does not exist"] = "",
-		--Translation missing 
-		-- ["dealiasing command /%s to /%s"] = "",
-		--Translation missing 
-		-- ["deleting alias \"/%s\" (previously aliased as \"/%s\")"] = "",
-		--Translation missing 
-		-- ["Display extra information in the chat frame when commands are dealiased"] = "",
-		--Translation missing 
-		-- ["Don't overwrite existing aliases when using /addalias"] = "",
-		--Translation missing 
-		-- ["Expand aliases as you are typing"] = "",
-		--Translation missing 
-		-- ["find aliases matching a given search term"] = "",
-		--Translation missing 
-		-- ["findaliases"] = "",
-		--Translation missing 
-		-- ["infinite loop detected for alias /%s - ignoring"] = "",
-		--Translation missing 
-		-- ["inline"] = "",
-		--Translation missing 
-		-- ["list all aliases"] = "",
-		--Translation missing 
-		-- ["listaliases"] = "",
-		--Translation missing 
-		-- ["matching aliases found: %d"] = "",
-		--Translation missing 
-		-- ["module_desc"] = "",
-		--Translation missing 
-		-- ["module_name"] = "",
-		--Translation missing 
-		-- ["No aliases have been defined"] = "",
-		--Translation missing 
-		-- ["noclobber"] = "",
-		--Translation missing 
-		-- ["noclobber set - skipping new alias: /%s already expands to /%s"] = "",
-		--Translation missing 
-		-- ["Options"] = "",
-		--Translation missing 
-		-- ["Options for altering the behaviour of Alias"] = "",
-		--Translation missing 
-		-- ["overwriting existing alias \"/%s\" (was aliased to \"/%s\")"] = "",
-		--Translation missing 
-		-- ["refusing to alias \"/%s\" to anything in the interests of Not Buggering Everything Up"] = "",
-		--Translation missing 
-		-- ["remove an alias"] = "",
-		--Translation missing 
-		-- ["There is no alias current defined for \"%s\""] = "",
-		--Translation missing 
-		-- ["total aliases: %d"] = "",
-		--Translation missing 
-		-- ["tried to show value for alias \"%s\" but undefined in module.Aliases!"] = "",
-		--Translation missing 
-		-- ["unalias"] = "",
-		--Translation missing 
-		-- ["verbose"] = "",
-		--Translation missing 
-		-- ["warnUser() called with nil argument!"] = "",
-		--Translation missing 
-		-- ["warnUser() called with zero length string!"] = "",
+		--[[Translation missing --]]
+		--[[ [" - list all aliases; supply <keyword> to search for matching aliases (cmd aliases: /listallaliases)"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["%s() called with blank string!"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["%s() called with nil argument!"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["/%s aliased to \"/%s\""] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["/%s aliased to: /%s"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["<alias> - remove the alias <alias> (cmd aliases: /delalias, /remalias)"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["<command>[ <value>] - alias <command> to be executed as <value>, or return the value of the currently defined alias for <command> if <command> has not been assigned a value. eg: \"/alias /examplehello /say hello there\" - typing \"/examplehello\" will now cause your character to say \"hello there\"; \"/alias examplehello\" - s \"/examplehello is aliased to /say hello there\" (cmd aliases: /addalias)"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["<keyword> - finds all aliases matching <keyword> (cmd aliases: /findalias)"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["add"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["add an alias"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["alias \"/%s\" does not exist"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["dealiasing command /%s to /%s"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["deleting alias \"/%s\" (previously aliased as \"/%s\")"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Display extra information in the chat frame when commands are dealiased"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Don't overwrite existing aliases when using /addalias"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Expand aliases as you are typing"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["find aliases matching a given search term"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["findaliases"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["infinite loop detected for alias /%s - ignoring"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["inline"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["list all aliases"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["listaliases"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["matching aliases found: %d"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["module_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["module_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["No aliases have been defined"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["noclobber"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["noclobber set - skipping new alias: /%s already expands to /%s"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Options"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Options for altering the behaviour of Alias"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["overwriting existing alias \"/%s\" (was aliased to \"/%s\")"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["refusing to alias \"/%s\" to anything in the interests of Not Buggering Everything Up"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["remove an alias"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["There is no alias current defined for \"%s\""] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["total aliases: %d"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["tried to show value for alias \"%s\" but undefined in module.Aliases!"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["unalias"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["verbose"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["warnUser() called with nil argument!"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["warnUser() called with zero length string!"] = "",--]] 
 	}
 }
 PL:AddLocale(PRAT_MODULE, "itIT", L)
@@ -236,86 +237,85 @@ PL:AddLocale(PRAT_MODULE, "itIT", L)
 L=
 {
 	["Alias"] = {
-		--Translation missing 
-		-- [" - list all aliases; supply <keyword> to search for matching aliases (cmd aliases: /listallaliases)"] = "",
-		--Translation missing 
-		-- ["%s() called with blank string!"] = "",
-		--Translation missing 
-		-- ["%s() called with nil argument!"] = "",
-		--Translation missing 
-		-- ["/%s aliased to \"/%s\""] = "",
-		--Translation missing 
-		-- ["/%s aliased to: /%s"] = "",
-		--Translation missing 
-		-- ["<alias> - remove the alias <alias> (cmd aliases: /delalias, /remalias)"] = "",
-		--Translation missing 
-		-- ["<command>[ <value>] - alias <command> to be executed as <value>, or return the value of the currently defined alias for <command> if <command> has not been assigned a value. eg: \"/alias /examplehello /say hello there\" - typing \"/examplehello\" will now cause your character to say \"hello there\"; \"/alias examplehello\" - s \"/examplehello is aliased to /say hello there\" (cmd aliases: /addalias)"] = "",
-		--Translation missing 
-		-- ["<keyword> - finds all aliases matching <keyword> (cmd aliases: /findalias)"] = "",
-		--Translation missing 
-		-- ["add"] = "",
-		--Translation missing 
-		-- ["add an alias"] = "",
-		--Translation missing 
-		-- ["alias \"/%s\" does not exist"] = "",
-		--Translation missing 
-		-- ["dealiasing command /%s to /%s"] = "",
-		--Translation missing 
-		-- ["deleting alias \"/%s\" (previously aliased as \"/%s\")"] = "",
-		--Translation missing 
-		-- ["Display extra information in the chat frame when commands are dealiased"] = "",
-		--Translation missing 
-		-- ["Don't overwrite existing aliases when using /addalias"] = "",
-		--Translation missing 
-		-- ["Expand aliases as you are typing"] = "",
-		--Translation missing 
-		-- ["find aliases matching a given search term"] = "",
-		--Translation missing 
-		-- ["findaliases"] = "",
-		--Translation missing 
-		-- ["infinite loop detected for alias /%s - ignoring"] = "",
-		--Translation missing 
-		-- ["inline"] = "",
-		--Translation missing 
-		-- ["list all aliases"] = "",
-		--Translation missing 
-		-- ["listaliases"] = "",
-		--Translation missing 
-		-- ["matching aliases found: %d"] = "",
-		--Translation missing 
-		-- ["module_desc"] = "",
-		--Translation missing 
-		-- ["module_name"] = "",
-		--Translation missing 
-		-- ["No aliases have been defined"] = "",
-		--Translation missing 
-		-- ["noclobber"] = "",
-		--Translation missing 
-		-- ["noclobber set - skipping new alias: /%s already expands to /%s"] = "",
-		--Translation missing 
-		-- ["Options"] = "",
-		--Translation missing 
-		-- ["Options for altering the behaviour of Alias"] = "",
-		--Translation missing 
-		-- ["overwriting existing alias \"/%s\" (was aliased to \"/%s\")"] = "",
-		--Translation missing 
-		-- ["refusing to alias \"/%s\" to anything in the interests of Not Buggering Everything Up"] = "",
-		--Translation missing 
-		-- ["remove an alias"] = "",
-		--Translation missing 
-		-- ["There is no alias current defined for \"%s\""] = "",
-		--Translation missing 
-		-- ["total aliases: %d"] = "",
-		--Translation missing 
-		-- ["tried to show value for alias \"%s\" but undefined in module.Aliases!"] = "",
-		--Translation missing 
-		-- ["unalias"] = "",
-		--Translation missing 
-		-- ["verbose"] = "",
-		--Translation missing 
-		-- ["warnUser() called with nil argument!"] = "",
-		--Translation missing 
-		-- ["warnUser() called with zero length string!"] = "",
+		--[[Translation missing --]]
+		--[[ [" - list all aliases; supply <keyword> to search for matching aliases (cmd aliases: /listallaliases)"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["%s() called with blank string!"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["%s() called with nil argument!"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["/%s aliased to \"/%s\""] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["/%s aliased to: /%s"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["<alias> - remove the alias <alias> (cmd aliases: /delalias, /remalias)"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["<command>[ <value>] - alias <command> to be executed as <value>, or return the value of the currently defined alias for <command> if <command> has not been assigned a value. eg: \"/alias /examplehello /say hello there\" - typing \"/examplehello\" will now cause your character to say \"hello there\"; \"/alias examplehello\" - s \"/examplehello is aliased to /say hello there\" (cmd aliases: /addalias)"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["<keyword> - finds all aliases matching <keyword> (cmd aliases: /findalias)"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["add"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["add an alias"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["alias \"/%s\" does not exist"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["dealiasing command /%s to /%s"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["deleting alias \"/%s\" (previously aliased as \"/%s\")"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Display extra information in the chat frame when commands are dealiased"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Don't overwrite existing aliases when using /addalias"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Expand aliases as you are typing"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["find aliases matching a given search term"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["findaliases"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["infinite loop detected for alias /%s - ignoring"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["inline"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["list all aliases"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["listaliases"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["matching aliases found: %d"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["module_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["module_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["No aliases have been defined"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["noclobber"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["noclobber set - skipping new alias: /%s already expands to /%s"] = "",--]] 
+		["Options"] = "Opções",
+		--[[Translation missing --]]
+		--[[ ["Options for altering the behaviour of Alias"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["overwriting existing alias \"/%s\" (was aliased to \"/%s\")"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["refusing to alias \"/%s\" to anything in the interests of Not Buggering Everything Up"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["remove an alias"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["There is no alias current defined for \"%s\""] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["total aliases: %d"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["tried to show value for alias \"%s\" but undefined in module.Aliases!"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["unalias"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["verbose"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["warnUser() called with nil argument!"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["warnUser() called with zero length string!"] = "",--]] 
 	}
 }
 PL:AddLocale(PRAT_MODULE, "ptBR", L)
@@ -472,86 +472,86 @@ PL:AddLocale(PRAT_MODULE, "koKR", L)
 L=
 {
 	["Alias"] = {
-		--Translation missing 
-		-- [" - list all aliases; supply <keyword> to search for matching aliases (cmd aliases: /listallaliases)"] = "",
-		--Translation missing 
-		-- ["%s() called with blank string!"] = "",
-		--Translation missing 
-		-- ["%s() called with nil argument!"] = "",
-		--Translation missing 
-		-- ["/%s aliased to \"/%s\""] = "",
-		--Translation missing 
-		-- ["/%s aliased to: /%s"] = "",
-		--Translation missing 
-		-- ["<alias> - remove the alias <alias> (cmd aliases: /delalias, /remalias)"] = "",
-		--Translation missing 
-		-- ["<command>[ <value>] - alias <command> to be executed as <value>, or return the value of the currently defined alias for <command> if <command> has not been assigned a value. eg: \"/alias /examplehello /say hello there\" - typing \"/examplehello\" will now cause your character to say \"hello there\"; \"/alias examplehello\" - s \"/examplehello is aliased to /say hello there\" (cmd aliases: /addalias)"] = "",
-		--Translation missing 
-		-- ["<keyword> - finds all aliases matching <keyword> (cmd aliases: /findalias)"] = "",
-		--Translation missing 
-		-- ["add"] = "",
-		--Translation missing 
-		-- ["add an alias"] = "",
-		--Translation missing 
-		-- ["alias \"/%s\" does not exist"] = "",
-		--Translation missing 
-		-- ["dealiasing command /%s to /%s"] = "",
-		--Translation missing 
-		-- ["deleting alias \"/%s\" (previously aliased as \"/%s\")"] = "",
-		--Translation missing 
-		-- ["Display extra information in the chat frame when commands are dealiased"] = "",
-		--Translation missing 
-		-- ["Don't overwrite existing aliases when using /addalias"] = "",
-		--Translation missing 
-		-- ["Expand aliases as you are typing"] = "",
-		--Translation missing 
-		-- ["find aliases matching a given search term"] = "",
-		--Translation missing 
-		-- ["findaliases"] = "",
-		--Translation missing 
-		-- ["infinite loop detected for alias /%s - ignoring"] = "",
-		--Translation missing 
-		-- ["inline"] = "",
-		--Translation missing 
-		-- ["list all aliases"] = "",
-		--Translation missing 
-		-- ["listaliases"] = "",
-		--Translation missing 
-		-- ["matching aliases found: %d"] = "",
-		--Translation missing 
-		-- ["module_desc"] = "",
-		--Translation missing 
-		-- ["module_name"] = "",
-		--Translation missing 
-		-- ["No aliases have been defined"] = "",
-		--Translation missing 
-		-- ["noclobber"] = "",
-		--Translation missing 
-		-- ["noclobber set - skipping new alias: /%s already expands to /%s"] = "",
-		--Translation missing 
-		-- ["Options"] = "",
-		--Translation missing 
-		-- ["Options for altering the behaviour of Alias"] = "",
-		--Translation missing 
-		-- ["overwriting existing alias \"/%s\" (was aliased to \"/%s\")"] = "",
-		--Translation missing 
-		-- ["refusing to alias \"/%s\" to anything in the interests of Not Buggering Everything Up"] = "",
-		--Translation missing 
-		-- ["remove an alias"] = "",
-		--Translation missing 
-		-- ["There is no alias current defined for \"%s\""] = "",
-		--Translation missing 
-		-- ["total aliases: %d"] = "",
-		--Translation missing 
-		-- ["tried to show value for alias \"%s\" but undefined in module.Aliases!"] = "",
-		--Translation missing 
-		-- ["unalias"] = "",
-		--Translation missing 
-		-- ["verbose"] = "",
-		--Translation missing 
-		-- ["warnUser() called with nil argument!"] = "",
-		--Translation missing 
-		-- ["warnUser() called with zero length string!"] = "",
+		--[[Translation missing --]]
+		--[[ [" - list all aliases; supply <keyword> to search for matching aliases (cmd aliases: /listallaliases)"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["%s() called with blank string!"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["%s() called with nil argument!"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["/%s aliased to \"/%s\""] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["/%s aliased to: /%s"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["<alias> - remove the alias <alias> (cmd aliases: /delalias, /remalias)"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["<command>[ <value>] - alias <command> to be executed as <value>, or return the value of the currently defined alias for <command> if <command> has not been assigned a value. eg: \"/alias /examplehello /say hello there\" - typing \"/examplehello\" will now cause your character to say \"hello there\"; \"/alias examplehello\" - s \"/examplehello is aliased to /say hello there\" (cmd aliases: /addalias)"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["<keyword> - finds all aliases matching <keyword> (cmd aliases: /findalias)"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["add"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["add an alias"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["alias \"/%s\" does not exist"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["dealiasing command /%s to /%s"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["deleting alias \"/%s\" (previously aliased as \"/%s\")"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Display extra information in the chat frame when commands are dealiased"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Don't overwrite existing aliases when using /addalias"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Expand aliases as you are typing"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["find aliases matching a given search term"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["findaliases"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["infinite loop detected for alias /%s - ignoring"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["inline"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["list all aliases"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["listaliases"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["matching aliases found: %d"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["module_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["module_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["No aliases have been defined"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["noclobber"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["noclobber set - skipping new alias: /%s already expands to /%s"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Options"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Options for altering the behaviour of Alias"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["overwriting existing alias \"/%s\" (was aliased to \"/%s\")"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["refusing to alias \"/%s\" to anything in the interests of Not Buggering Everything Up"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["remove an alias"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["There is no alias current defined for \"%s\""] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["total aliases: %d"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["tried to show value for alias \"%s\" but undefined in module.Aliases!"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["unalias"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["verbose"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["warnUser() called with nil argument!"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["warnUser() called with zero length string!"] = "",--]] 
 	}
 }
 PL:AddLocale(PRAT_MODULE, "esMX", L)
@@ -670,10 +670,10 @@ L=
 		["add"] = "Añadir",
 		["add an alias"] = "Añadir un alias",
 		["alias \"/%s\" does not exist"] = "El alias \"/%s\" no existe",
-		--Translation missing 
-		-- ["dealiasing command /%s to /%s"] = "",
-		--Translation missing 
-		-- ["deleting alias \"/%s\" (previously aliased as \"/%s\")"] = "",
+		--[[Translation missing --]]
+		--[[ ["dealiasing command /%s to /%s"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["deleting alias \"/%s\" (previously aliased as \"/%s\")"] = "",--]] 
 		["Display extra information in the chat frame when commands are dealiased"] = "Muestra información extra en el marco de chat cuando los comandos no tienen alias",
 		["Don't overwrite existing aliases when using /addalias"] = "No sobreescribir alias existentes usando /addalias",
 		["Expand aliases as you are typing"] = "Expandir alias mientras tecleas",
@@ -687,15 +687,15 @@ L=
 		["module_desc"] = "Agrega el comando /alias, que puede utilizarse para comandos de la barra de alias de una manera similar a la orden de alias de UNIX.",
 		["module_name"] = "Alias",
 		["No aliases have been defined"] = "Ningún alias ha sido definido",
-		--Translation missing 
-		-- ["noclobber"] = "",
-		--Translation missing 
-		-- ["noclobber set - skipping new alias: /%s already expands to /%s"] = "",
+		--[[Translation missing --]]
+		--[[ ["noclobber"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["noclobber set - skipping new alias: /%s already expands to /%s"] = "",--]] 
 		["Options"] = "Opciones",
 		["Options for altering the behaviour of Alias"] = "Opciones para alterar el comportamiento de Alias",
 		["overwriting existing alias \"/%s\" (was aliased to \"/%s\")"] = "sobrescribiendo alias existente \"/%s\" (era alias de \"/%s\")",
-		--Translation missing 
-		-- ["refusing to alias \"/%s\" to anything in the interests of Not Buggering Everything Up"] = "",
+		--[[Translation missing --]]
+		--[[ ["refusing to alias \"/%s\" to anything in the interests of Not Buggering Everything Up"] = "",--]] 
 		["remove an alias"] = "Eliminar un alias",
 		["There is no alias current defined for \"%s\""] = "No hay ningún alias definido para \"%s\"",
 		["total aliases: %d"] = "total alias: %d",
@@ -744,8 +744,8 @@ L=
 		["Options"] = "選項",
 		["Options for altering the behaviour of Alias"] = "修改別稱執行狀態選項",
 		["overwriting existing alias \"/%s\" (was aliased to \"/%s\")"] = "複寫已存在別稱 \"/%s\"（為 \"/%s\" 之別稱）",
-		--Translation missing 
-		-- ["refusing to alias \"/%s\" to anything in the interests of Not Buggering Everything Up"] = "",
+		--[[Translation missing --]]
+		--[[ ["refusing to alias \"/%s\" to anything in the interests of Not Buggering Everything Up"] = "",--]] 
 		["remove an alias"] = "移除別稱",
 		["There is no alias current defined for \"%s\""] = "\"%s\" 尚未定義至任何別稱",
 		["total aliases: %d"] = "總計別稱：%d",
@@ -762,7 +762,7 @@ PL:AddLocale(PRAT_MODULE, "zhTW", L)
 end
 --@end-non-debug@
 
-local module = Prat:NewModule(PRAT_MODULE, "AceHook-3.0")
+
 
 Prat:SetModuleDefaults(module.name, {
 	profile = {

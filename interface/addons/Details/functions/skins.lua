@@ -119,7 +119,7 @@ local _
 				true, -- [4]
 				true, -- [5]
 				false, -- [6]
-				["space"] = -2,
+				["space"] = -1,
 				["shadow"] = true,
 			},
 			["show_sidebars"] = true,
@@ -165,8 +165,8 @@ local _
 				["start_after_icon"] = true,
 				["font_face_file"] = "Fonts\\ARIALN.TTF",
 				["textL_custom_text"] = "{data1}. {data3}{data2}",
-				["font_size"] = 10,
-				["height"] = 14,
+				["font_size"] = 14,
+				["height"] = 18,
 				["texture_file"] = "Interface\\AddOns\\Details\\images\\bar4",
 				["icon_file"] = "Interface\\AddOns\\Details\\images\\classes_small",
 				["textR_bracket"] = "(",
@@ -310,10 +310,10 @@ local _
 		instance_cprops = {
 			["menu_icons_size"] = 0.850000023841858,
 			["color"] = {
-				0.333333333333333, -- [1]
-				0.333333333333333, -- [2]
-				0.333333333333333, -- [3]
-				0.3777777777777, -- [4]
+				0.0705882352941177, -- [1]
+				0.0705882352941177, -- [2]
+				0.0705882352941177, -- [3]
+				0.639196664094925, -- [4]
 			},
 			["menu_anchor"] = {
 				16, -- [1]
@@ -350,7 +350,7 @@ local _
 				},
 				["enable_custom_text"] = false,
 			},
-			["bg_alpha"] = 0.0984569266438484,
+			["bg_alpha"] = 0.183960914611816,
 			["plugins_grow_direction"] = 1,
 			["menu_icons"] = {
 				true, -- [1]
@@ -359,7 +359,7 @@ local _
 				true, -- [4]
 				true, -- [5]
 				false, -- [6]
-				["space"] = -2,
+				["space"] = -1,
 				["shadow"] = true,
 			},
 			["desaturated_menu"] = false,
@@ -407,11 +407,13 @@ local _
 				["textR_outline"] = false,
 				["spec_file"] = "Interface\\AddOns\\Details\\images\\spec_icons_normal",
 				["textL_outline"] = false,
+				["textR_outline_small"] = true,
+				["textL_outline_small"] = true,
 				["texture_highlight"] = "Interface\\FriendsFrame\\UI-FriendsList-Highlight",
 				["textR_show_data"] = {
 					true, -- [1]
 					true, -- [2]
-					true, -- [3]
+					false, -- [3]
 				},
 				["textL_enable_custom_text"] = false,
 				["fixed_text_color"] = {
@@ -422,16 +424,16 @@ local _
 				["space"] = {
 					["right"] = 0,
 					["left"] = 0,
-					["between"] = 0,
+					["between"] = 1,
 				},
 				["texture_background_class_color"] = false,
 				["start_after_icon"] = true,
 				["font_face_file"] = "Interface\\Addons\\Details\\fonts\\Accidental Presidency.ttf",
 				["textL_custom_text"] = "{data1}. {data3}{data2}",
-				["font_size"] = 10,
-				["height"] = 14,
+				["font_size"] = 14,
+				["height"] = 17,
 				["texture_file"] = "Interface\\AddOns\\Details\\images\\BantoBar",
-				["icon_file"] = "Interface\\AddOns\\Details\\images\\classes_small_alpha",
+				["icon_file"] = "Interface\\AddOns\\Details\\images\\classes_small",
 				["textR_bracket"] = "(",
 				["textR_enable_custom_text"] = false,
 				["fixed_texture_color"] = {
@@ -467,7 +469,7 @@ local _
 					["upper_enabled"] = false,
 				},
 				["fast_ps_update"] = false,
-				["textR_separator"] = ",",
+				["textR_separator"] = "NONE",
 				["backdrop"] = {
 					["enabled"] = false,
 					["size"] = 12,
@@ -574,10 +576,10 @@ local _
 				["start_after_icon"] = true,
 				["font_face_file"] = "Fonts\\ARIALN.TTF",
 				["textL_custom_text"] = "{data1}. {data3}{data2}",
-				["font_size"] = 10,
-				["height"] = 14,
+				["font_size"] = 12,
+				["height"] = 18,
 				["texture_file"] = "Interface\\AddOns\\Details\\images\\bar_serenity",
-				["icon_file"] = "Interface\\AddOns\\Details\\images\\classes_small_alpha",
+				["icon_file"] = "Interface\\AddOns\\Details\\images\\classes_small",
 				["textR_bracket"] = "(",
 				["textR_enable_custom_text"] = false,
 				["fixed_texture_color"] = {
@@ -628,7 +630,7 @@ local _
 			},
 			["micro_displays_side"] = 2,
 			["strata"] = "LOW",
-			["bg_alpha"] = 0.3181,
+			["bg_alpha"] = 0.4181,
 			["plugins_grow_direction"] = 1,
 			["menu_icons"] = {
 				true, -- [1]
@@ -637,7 +639,7 @@ local _
 				true, -- [4]
 				true, -- [5]
 				false, -- [6]
-				["space"] = -2,
+				["space"] = -1,
 				["shadow"] = false,
 			},
 			["desaturated_menu"] = false,
@@ -776,20 +778,25 @@ local _
 				["enabled"] = true,
 				["shadow"] = false,
 				["side"] = 1,
-				["text_color"] = {
-					1, -- [1]
-					1, -- [2]
-					1, -- [3]
-					0.7, -- [4]
-				},
+				["text_size"] = 13,
 				["custom_text"] = "{name}",
 				["text_face"] = "Accidental Presidency",
 				["anchor"] = {
 					-17, -- [1]
-					2, -- [2]
+					1, -- [2]
 				},
-				["text_size"] = 12,
+				["text_color"] = {
+					0.976470588235294, -- [1]
+					1, -- [2]
+					0.988235294117647, -- [3]
+					1, -- [4]
+				},
 				["enable_custom_text"] = false,
+				["show_timer"] = {
+					true, -- [1]
+					true, -- [2]
+					true, -- [3]
+				},
 			},
 			["micro_displays_side"] = 2,
 			["auto_hide_menu"] = {
@@ -805,7 +812,7 @@ local _
 				true, -- [4]
 				true, -- [5]
 				false, -- [6]
-				["space"] = -2,
+				["space"] = -1,
 				["shadow"] = false,
 			},
 			["show_sidebars"] = false,
@@ -830,64 +837,40 @@ local _
 				["textR_outline"] = false,
 				["spec_file"] = "Interface\\AddOns\\Details\\images\\spec_icons_normal",
 				["textL_outline"] = false,
-				["texture_highlight"] = "Interface\\FriendsFrame\\UI-FriendsList-Highlight",
-				["textR_show_data"] = {
-					true, -- [1]
-					true, -- [2]
-					true, -- [3]
-				},
-				["textL_enable_custom_text"] = false,
+				["textR_outline_small"] = true,
+				["textL_outline_small"] = true,
+				["textL_enable_custom_text"] = true,
 				["fixed_text_color"] = {
-					1, -- [1]
-					1, -- [2]
+					0.956862745098039, -- [1]
+					0.980392156862745, -- [2]
 					1, -- [3]
+					1, -- [4]
 				},
 				["space"] = {
 					["right"] = 0,
 					["left"] = 0,
-					["between"] = 0,
+					["between"] = 1,
 				},
 				["texture_background_class_color"] = false,
 				["start_after_icon"] = true,
 				["font_face_file"] = "Interface\\Addons\\Details\\fonts\\Accidental Presidency.ttf",
-				["textL_custom_text"] = "{data1}. {data3}{data2}",
-				["font_size"] = 10,
-				["height"] = 14,
-				["texture_file"] = "Interface\\AddOns\\Details\\images\\BantoBar",
-				["icon_file"] = "Interface\\AddOns\\Details\\images\\classes_small",
-				["textR_bracket"] = "(",
-				["textR_enable_custom_text"] = false,
-				["fixed_texture_color"] = {
-					0, -- [1]
-					0, -- [2]
-					0, -- [3]
-				},
-				["textL_show_number"] = true,
-				["textR_custom_text"] = "{data1} ({data2}, {data3}%)",
-				["texture"] = "BantoBar",
+				["textL_custom_text"] = "{data1} - {data3}{data2}",
 				["models"] = {
 					["upper_model"] = "Spells\\AcidBreath_SuperGreen.M2",
 					["lower_model"] = "World\\EXPANSION02\\DOODADS\\Coldarra\\COLDARRALOCUS.m2",
-					["upper_alpha"] = 0.5,
+					["upper_alpha"] = 0.501719892024994,
 					["lower_enabled"] = false,
 					["lower_alpha"] = 0.1,
 					["upper_enabled"] = false,
 				},
-				["texture_background"] = "DGround",
-				["textL_class_colors"] = false,
+				["height"] = 20,
+				["texture_file"] = "Interface\\AddOns\\Details\\images\\bar_background",
+				["textR_bracket"] = "[",
+				["icon_file"] = "Interface\\AddOns\\Details\\images\\classes_small",
+				["icon_grayscale"] = false,
+				["font_size"] = 16,
 				["use_spec_icons"] = true,
-				["textR_class_colors"] = false,
-				["alpha"] = 1,
-				["no_icon"] = false,
-				["percent_type"] = 1,
-				["fixed_texture_background_color"] = {
-					0, -- [1]
-					0, -- [2]
-					0, -- [3]
-					0.440652102231979, -- [4]
-				},
-				["font_face"] = "Accidental Presidency",
-				["texture_class_colors"] = true,
+				["texture_custom"] = "",
 				["backdrop"] = {
 					["enabled"] = false,
 					["texture"] = "Details BarBorder 2",
@@ -899,11 +882,54 @@ local _
 					},
 					["size"] = 1,
 				},
+				["fixed_texture_color"] = {
+					0, -- [1]
+					0, -- [2]
+					0, -- [3]
+					1, -- [4]
+				},
+				["textL_show_number"] = true,
+				["fixed_texture_background_color"] = {
+					0, -- [1]
+					0.0862745098039216, -- [2]
+					0.180392156862745, -- [3]
+					0.350894033908844, -- [4]
+				},
+				["textL_outline_small_color"] = {
+					0, -- [1]
+					0, -- [2]
+					0, -- [3]
+					1, -- [4]
+				},
+				["textR_custom_text"] = "{data1} ({data2}, {data3}%)",
+				["texture"] = "DGround",
+				["texture_highlight"] = "Interface\\FriendsFrame\\UI-FriendsList-Highlight",
+				["textR_show_data"] = {
+					true, -- [1]
+					true, -- [2]
+					false, -- [3]
+				},
+				["textL_class_colors"] = false,
+				["textR_class_colors"] = false,
+				["textR_outline_small_color"] = {
+					0, -- [1]
+					0, -- [2]
+					0, -- [3]
+					1, -- [4]
+				},
+				["texture_background"] = "Details D'ictum",
+				["alpha"] = 1,
+				["no_icon"] = false,
+				["textR_enable_custom_text"] = false,
+				["percent_type"] = 1,
+				["font_face"] = "Accidental Presidency",
+				["texture_class_colors"] = true,
+				["texture_background_file"] = "Interface\\AddOns\\Details\\images\\bar4",
 				["fast_ps_update"] = false,
-				["textR_separator"] = ",",
-				["texture_background_file"] = "Interface\\AddOns\\Details\\images\\bar_background",
+				["textR_separator"] = "NONE",
+				["texture_custom_file"] = "Interface\\",
 			},
-			["bg_alpha"] = 0.123711690306664,
+			["bg_alpha"] = 0.0216164588928223,
 			["wallpaper"] = {
 				["enabled"] = false,
 				["width"] = 266.000061035156,
@@ -1144,7 +1170,7 @@ local _
 				true,
 				true, -- [5]
 				false, -- [6]
-				["space"] = -2,
+				["space"] = -1,
 				["shadow"] = true,
 			},
 			["desaturated_menu"] = false,
@@ -1222,11 +1248,11 @@ local _
 				["textR_class_colors"] = false,
 				["alpha"] = 1,
 				["no_icon"] = false,
-				["font_size"] = 10,
+				["font_size"] = 14,
 				["texture_background"] = "Details Serenity",
 				["font_face"] = "FORCED SQUARE",
 				["texture_class_colors"] = true,
-				["height"] = 14,
+				["height"] = 18,
 				["texture_file"] = "Interface\\AddOns\\Details\\images\\bar4",
 				["texture_highlight"] = "Interface\\FriendsFrame\\UI-FriendsList-Highlight",
 				["percent_type"] = 1,
@@ -1520,11 +1546,11 @@ local _
 				["start_after_icon"] = true,
 				["font_face_file"] = "Interface\\Addons\\Details\\fonts\\FORCED SQUARE.ttf",
 				["textL_custom_text"] = "{data1}. {data3}{data2}",
-				["font_size"] = 10,
-				["height"] = 14,
+				["font_size"] = 14,
+				["height"] = 18,
 				["texture_file"] = "Interface\\AddOns\\Details\\images\\bar4",
-				["icon_file"] = "Interface\\AddOns\\Details\\images\\classes_small_alpha",
-				["textR_bracket"] = "(",
+				["icon_file"] = "Interface\\AddOns\\Details\\images\\classes_small",
+				["textR_bracket"] = "[",
 				["textR_enable_custom_text"] = false,
 				["fixed_texture_color"] = {
 					0, -- [1]
@@ -1559,7 +1585,7 @@ local _
 					["upper_enabled"] = false,
 				},
 				["fast_ps_update"] = false,
-				["textR_separator"] = ",",
+				["textR_separator"] = "|",
 				["backdrop"] = {
 					["enabled"] = false,
 					["size"] = 4,
@@ -1588,7 +1614,7 @@ local _
 				true, -- [4]
 				true, -- [5]
 				false, -- [6]
-				["space"] = -2,
+				["space"] = -1,
 				["shadow"] = true,
 			},
 			["show_sidebars"] = true,
@@ -1719,7 +1745,7 @@ local _
 					["left_noborder"] = 1,
 					["between"] = 1,
 				},
-				["texture"] = "Skyline",
+				["texture"] = "DGround",
 				["texture_background_class_color"] = false,
 				["fixed_texture_background_color"] = {0,0,0,0.295484036207199},
 				["font_face_file"] = "Fonts\\ARIALN.TTF",
@@ -1742,12 +1768,12 @@ local _
 				["texture_background"] = "BantoBar",
 				["textL_custom_text"] = "{data1}. {data3}{data2}",
 				["no_icon"] = false,
-				["font_size"] = 10,
+				["font_size"] = 14,
 				["textL_class_colors"] = false,
 				["font_face"] = "FORCED SQUARE",
 				["texture_class_colors"] = true,
-				["height"] = 14,
-				["texture_file"] = "Interface\\AddOns\\Details\\images\\bar_skyline",
+				["height"] = 18,
+				["texture_file"] = "Interface\\AddOns\\Details\\images\\bar_background",
 				["textL_show_number"] = true,
 				["fixed_texture_color"] = {0.862745098039216,0.862745098039216,0.862745098039216,1},
 			},
@@ -1770,7 +1796,7 @@ local _
 			["show_sidebars"] = true,
 			["show_sidebars_need_resize_by"] = 1,
 			["hide_in_combat_alpha"] = 0,
-			["menu_icons"] = {true, true, true, true, true, false, ["space"] = -2, ["shadow"] = true},
+			["menu_icons"] = {true, true, true, true, true, false, ["space"] = -1, ["shadow"] = true},
 			["desaturated_menu"] = false,
 			["auto_hide_menu"] = {
 				["left"] = false,
@@ -1992,14 +2018,16 @@ local _
 			["stretch_button_side"] = 1,
 			["micro_displays_locked"] = true,
 			["row_info"] = {
-				["textR_outline"] = false,
-				["spec_file"] = "Interface\\AddOns\\Details\\images\\spec_icons_normal_alpha",
 				["textL_outline"] = true,
+				["textR_outline"] = true,
+				["textL_outline_small"] = false,
+				["textR_outline_small"] = false,
+				["spec_file"] = "Interface\\AddOns\\Details\\images\\spec_icons_normal_alpha",
 				["texture_highlight"] = "Interface\\FriendsFrame\\UI-FriendsList-Highlight",
 				["textR_show_data"] = {
 					true, -- [1]
 					true, -- [2]
-					true, -- [3]
+					false, -- [3]
 				},
 				["textL_enable_custom_text"] = false,
 				["fixed_text_color"] = {
@@ -2016,8 +2044,8 @@ local _
 				["start_after_icon"] = false,
 				["font_face_file"] = "Interface\\Addons\\Details\\fonts\\Accidental Presidency.ttf",
 				["textL_custom_text"] = "{data1}. {data3}{data2}",
-				["font_size"] = 10,
-				["height"] = 14,
+				["font_size"] = 14,
+				["height"] = 18,
 				["texture_file"] = "Interface\\AddOns\\Details\\images\\bar_background",
 				["icon_file"] = "Interface\\AddOns\\Details\\images\\classes_small_alpha",
 				["textR_bracket"] = "(",
@@ -2044,21 +2072,21 @@ local _
 				["percent_type"] = 1,
 				["textR_enable_custom_text"] = false,
 				["fixed_texture_background_color"] = {
-					0, -- [1]
-					0, -- [2]
-					0, -- [3]
-					0.150228589773178, -- [4]
+					0.188235294117647, -- [1]
+					0.188235294117647, -- [2]
+					0.188235294117647, -- [3]
+					0.3492591381073, -- [4]
 				},
 				["textR_class_colors"] = false,
 				["alpha"] = 0.439999997615814,
 				["no_icon"] = false,
-				["texture_background_file"] = "Interface\\AddOns\\Details\\images\\bar4_reverse",
-				["texture_background"] = "Details D'ictum (reverse)",
+				["texture_background_file"] = "Interface\\AddOns\\Details\\images\\bar_background",
+				["texture_background"] = "DGround",
 				["font_face"] = "Accidental Presidency",
 				["texture_class_colors"] = false,
 				["textL_class_colors"] = false,
 				["fast_ps_update"] = false,
-				["textR_separator"] = ",",
+				["textR_separator"] = "NONE",
 				["backdrop"] = {
 					["enabled"] = false,
 					["texture"] = "Details BarBorder 2",
@@ -2085,8 +2113,8 @@ local _
 		}
 		
 	})	
-	
-	_detalhes:InstallSkin ("Safe Skin Legion Beta", {
+
+		_detalhes:InstallSkin ("Safe Skin Legion Beta", {
 		file = [[Interface\AddOns\Details\images\skins\classic_skin_v1.blp]],
 		author = "Details!", 
 		version = "1.0", 
@@ -2371,4 +2399,3 @@ local _
 		}
 		
 	})
-	

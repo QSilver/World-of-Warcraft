@@ -2,7 +2,7 @@
 --
 -- Prat - A framework for World of Warcraft chat mods
 --
--- Copyright (C) 2006-2011  Prat Development Team
+-- Copyright (C) 2006-2018  Prat Development Team
 --
 -- This program is free software; you can redistribute it and/or
 -- modify it under the terms of the GNU General Public License
@@ -59,6 +59,7 @@ local eventMap = {
   CHAT_MSG_BN_WHISPER = true,
   CHAT_MSG_BN_WHISPER_INFORM = true,
   CHAT_MSG_BN_CONVERSATION = true,
+  CHAT_MSG_LOOT = true
 }
 
 function EnableProcessingForEvent(event, flag)

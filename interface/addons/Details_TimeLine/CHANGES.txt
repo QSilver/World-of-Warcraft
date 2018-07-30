@@ -1,7 +1,7 @@
-changeset:   83:f91fa5423ab5
-tag:         v7.3.5.083
+changeset:   85:72a0e3685c25
+tag:         v8.0.1.085
 user:        Tercio
-date:        Sat Mar 10 11:05:21 2018 -0300
-summary:     - Fixed spell icons being stretch within the block size.
+date:        Fri Jul 20 18:40:51 2018 -0300
+summary:     - 8.0.1 Update.
 
 

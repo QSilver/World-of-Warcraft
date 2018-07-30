@@ -2,7 +2,7 @@
 --
 -- Prat - A framework for World of Warcraft chat mods
 --
--- Copyright (C) 2006-2011  Prat Development Team
+-- Copyright (C) 2006-2018  Prat Development Team
 --
 -- This program is free software; you can redistribute it and/or
 -- modify it under the terms of the GNU General Public License
@@ -36,7 +36,9 @@ end
 
 local MAX_SCRAPE_TIME = 5 -- seconds
 
-local PL = Prat:GetLocalizer({})
+local module = Prat:NewModule(PRAT_MODULE, "AceHook-3.0", "AceTimer-3.0")
+
+local PL = module.PL
 
 --[===[@debug@
 PL:AddLocale(PRAT_MODULE, "enUS", {
@@ -106,50 +108,50 @@ PL:AddLocale(PRAT_MODULE, "enUS", L)
 L=
 {
 	["CopyChat"] = {
-		--Translation missing 
-		-- [" Text"] = "",
-		--Translation missing 
-		-- ["BBCode"] = "",
-		--Translation missing 
-		-- ["BOTTOMLEFT"] = "",
-		--Translation missing 
-		-- ["BOTTOMRIGHT"] = "",
-		--Translation missing 
-		-- ["buttonpos_desc"] = "",
-		--Translation missing 
-		-- ["buttonpos_name"] = "",
-		--Translation missing 
-		-- ["ChatFrame"] = "",
-		--Translation missing 
-		-- ["Copy all of the text in the selected chat frame into an edit box"] = "",
-		--Translation missing 
-		-- ["Copy Text"] = "",
-		--Translation missing 
-		-- ["Copy Text Format"] = "",
-		--Translation missing 
-		-- ["Copy text from the active chat window."] = "",
-		--Translation missing 
-		-- ["Copy To Editbox"] = "",
-		--Translation missing 
-		-- ["CopyChat"] = "",
-		--Translation missing 
-		-- ["HTML"] = "",
-		--Translation missing 
-		-- ["Message From : %s"] = "",
-		--Translation missing 
-		-- ["Plain"] = "",
-		--Translation missing 
-		-- ["Should the copied text be plain, or formatted so you can see the colors."] = "",
-		--Translation missing 
-		-- ["showbutton_desc"] = "",
-		--Translation missing 
-		-- ["showbutton_name"] = "",
-		--Translation missing 
-		-- ["TOPLEFT"] = "",
-		--Translation missing 
-		-- ["TOPRIGHT"] = "",
-		--Translation missing 
-		-- ["Wowace.com Forums"] = "",
+		--[[Translation missing --]]
+		--[[ [" Text"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["BBCode"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["BOTTOMLEFT"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["BOTTOMRIGHT"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["buttonpos_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["buttonpos_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["ChatFrame"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Copy all of the text in the selected chat frame into an edit box"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Copy Text"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Copy Text Format"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Copy text from the active chat window."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Copy To Editbox"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["CopyChat"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["HTML"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Message From : %s"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Plain"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Should the copied text be plain, or formatted so you can see the colors."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showbutton_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showbutton_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["TOPLEFT"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["TOPRIGHT"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Wowace.com Forums"] = "",--]] 
 	}
 }
 PL:AddLocale(PRAT_MODULE, "itIT", L)
@@ -158,50 +160,50 @@ PL:AddLocale(PRAT_MODULE, "itIT", L)
 L=
 {
 	["CopyChat"] = {
-		--Translation missing 
-		-- [" Text"] = "",
-		--Translation missing 
-		-- ["BBCode"] = "",
-		--Translation missing 
-		-- ["BOTTOMLEFT"] = "",
-		--Translation missing 
-		-- ["BOTTOMRIGHT"] = "",
-		--Translation missing 
-		-- ["buttonpos_desc"] = "",
-		--Translation missing 
-		-- ["buttonpos_name"] = "",
-		--Translation missing 
-		-- ["ChatFrame"] = "",
-		--Translation missing 
-		-- ["Copy all of the text in the selected chat frame into an edit box"] = "",
-		--Translation missing 
-		-- ["Copy Text"] = "",
-		--Translation missing 
-		-- ["Copy Text Format"] = "",
-		--Translation missing 
-		-- ["Copy text from the active chat window."] = "",
-		--Translation missing 
-		-- ["Copy To Editbox"] = "",
-		--Translation missing 
-		-- ["CopyChat"] = "",
-		--Translation missing 
-		-- ["HTML"] = "",
-		--Translation missing 
-		-- ["Message From : %s"] = "",
-		--Translation missing 
-		-- ["Plain"] = "",
-		--Translation missing 
-		-- ["Should the copied text be plain, or formatted so you can see the colors."] = "",
-		--Translation missing 
-		-- ["showbutton_desc"] = "",
-		--Translation missing 
-		-- ["showbutton_name"] = "",
-		--Translation missing 
-		-- ["TOPLEFT"] = "",
-		--Translation missing 
-		-- ["TOPRIGHT"] = "",
-		--Translation missing 
-		-- ["Wowace.com Forums"] = "",
+		--[[Translation missing --]]
+		--[[ [" Text"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["BBCode"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["BOTTOMLEFT"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["BOTTOMRIGHT"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["buttonpos_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["buttonpos_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["ChatFrame"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Copy all of the text in the selected chat frame into an edit box"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Copy Text"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Copy Text Format"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Copy text from the active chat window."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Copy To Editbox"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["CopyChat"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["HTML"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Message From : %s"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Plain"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Should the copied text be plain, or formatted so you can see the colors."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showbutton_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showbutton_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["TOPLEFT"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["TOPRIGHT"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Wowace.com Forums"] = "",--]] 
 	}
 }
 PL:AddLocale(PRAT_MODULE, "ptBR", L)
@@ -211,22 +213,22 @@ L=
 	["CopyChat"] = {
 		[" Text"] = "Texte",
 		["BBCode"] = true,
-		--Translation missing 
-		-- ["BOTTOMLEFT"] = "",
-		--Translation missing 
-		-- ["BOTTOMRIGHT"] = "",
-		--Translation missing 
-		-- ["buttonpos_desc"] = "",
-		--Translation missing 
-		-- ["buttonpos_name"] = "",
-		--Translation missing 
-		-- ["ChatFrame"] = "",
+		--[[Translation missing --]]
+		--[[ ["BOTTOMLEFT"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["BOTTOMRIGHT"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["buttonpos_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["buttonpos_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["ChatFrame"] = "",--]] 
 		["Copy all of the text in the selected chat frame into an edit box"] = "Copier tout le texte de la fenêtre de discussion sélectionnée dans une boîte d'édition.",
 		["Copy Text"] = "Copier le texte",
 		["Copy Text Format"] = "Format du texte copié",
 		["Copy text from the active chat window."] = "Copier le texte à partir de la fenêtre de discussion active.",
-		--Translation missing 
-		-- ["Copy To Editbox"] = "",
+		--[[Translation missing --]]
+		--[[ ["Copy To Editbox"] = "",--]] 
 		["CopyChat"] = "Copier",
 		["HTML"] = true,
 		["Message From : %s"] = "Message de : %s",
@@ -234,10 +236,10 @@ L=
 		["Should the copied text be plain, or formatted so you can see the colors."] = "Le texte copié doit-il être seul, ou formaté de tel manière à voir les couleurs.",
 		["showbutton_desc"] = "Montrer un bouton sur la fenêtre de discussion.",
 		["showbutton_name"] = "Bouton de copie",
-		--Translation missing 
-		-- ["TOPLEFT"] = "",
-		--Translation missing 
-		-- ["TOPRIGHT"] = "",
+		--[[Translation missing --]]
+		--[[ ["TOPLEFT"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["TOPRIGHT"] = "",--]] 
 		["Wowace.com Forums"] = "Forums wowace.com",
 	}
 }
@@ -305,50 +307,50 @@ PL:AddLocale(PRAT_MODULE, "koKR",L)
 L=
 {
 	["CopyChat"] = {
-		--Translation missing 
-		-- [" Text"] = "",
-		--Translation missing 
-		-- ["BBCode"] = "",
-		--Translation missing 
-		-- ["BOTTOMLEFT"] = "",
-		--Translation missing 
-		-- ["BOTTOMRIGHT"] = "",
-		--Translation missing 
-		-- ["buttonpos_desc"] = "",
-		--Translation missing 
-		-- ["buttonpos_name"] = "",
-		--Translation missing 
-		-- ["ChatFrame"] = "",
-		--Translation missing 
-		-- ["Copy all of the text in the selected chat frame into an edit box"] = "",
-		--Translation missing 
-		-- ["Copy Text"] = "",
-		--Translation missing 
-		-- ["Copy Text Format"] = "",
-		--Translation missing 
-		-- ["Copy text from the active chat window."] = "",
-		--Translation missing 
-		-- ["Copy To Editbox"] = "",
-		--Translation missing 
-		-- ["CopyChat"] = "",
-		--Translation missing 
-		-- ["HTML"] = "",
-		--Translation missing 
-		-- ["Message From : %s"] = "",
-		--Translation missing 
-		-- ["Plain"] = "",
-		--Translation missing 
-		-- ["Should the copied text be plain, or formatted so you can see the colors."] = "",
-		--Translation missing 
-		-- ["showbutton_desc"] = "",
-		--Translation missing 
-		-- ["showbutton_name"] = "",
-		--Translation missing 
-		-- ["TOPLEFT"] = "",
-		--Translation missing 
-		-- ["TOPRIGHT"] = "",
-		--Translation missing 
-		-- ["Wowace.com Forums"] = "",
+		--[[Translation missing --]]
+		--[[ [" Text"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["BBCode"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["BOTTOMLEFT"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["BOTTOMRIGHT"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["buttonpos_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["buttonpos_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["ChatFrame"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Copy all of the text in the selected chat frame into an edit box"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Copy Text"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Copy Text Format"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Copy text from the active chat window."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Copy To Editbox"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["CopyChat"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["HTML"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Message From : %s"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Plain"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Should the copied text be plain, or formatted so you can see the colors."] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showbutton_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showbutton_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["TOPLEFT"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["TOPRIGHT"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Wowace.com Forums"] = "",--]] 
 	}
 }
 PL:AddLocale(PRAT_MODULE, "esMX",L)
@@ -413,21 +415,21 @@ L=
 	["CopyChat"] = {
 		[" Text"] = "Texto",
 		["BBCode"] = true,
-		--Translation missing 
-		-- ["BOTTOMLEFT"] = "",
-		--Translation missing 
-		-- ["BOTTOMRIGHT"] = "",
-		--Translation missing 
-		-- ["buttonpos_desc"] = "",
-		--Translation missing 
-		-- ["buttonpos_name"] = "",
+		--[[Translation missing --]]
+		--[[ ["BOTTOMLEFT"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["BOTTOMRIGHT"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["buttonpos_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["buttonpos_name"] = "",--]] 
 		["ChatFrame"] = "MarcoChat",
 		["Copy all of the text in the selected chat frame into an edit box"] = "Copiar todo el texto seleccionado en el marco del chat a una caja de edición",
 		["Copy Text"] = "Copiar Texto",
 		["Copy Text Format"] = "Copiar Texto con fomato",
 		["Copy text from the active chat window."] = "Copiar texto desde la ventana de chat activa.",
-		--Translation missing 
-		-- ["Copy To Editbox"] = "",
+		--[[Translation missing --]]
+		--[[ ["Copy To Editbox"] = "",--]] 
 		["CopyChat"] = "ChatCopiar",
 		["HTML"] = true,
 		["Message From : %s"] = "Mensaje de : %s",
@@ -435,10 +437,10 @@ L=
 		["Should the copied text be plain, or formatted so you can see the colors."] = "El texto copiado debería ser llano, o con formato para que pueda ver los colores. ",
 		["showbutton_desc"] = "Muestra un botón en el marco del chat",
 		["showbutton_name"] = "Botón Copiar",
-		--Translation missing 
-		-- ["TOPLEFT"] = "",
-		--Translation missing 
-		-- ["TOPRIGHT"] = "",
+		--[[Translation missing --]]
+		--[[ ["TOPLEFT"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["TOPRIGHT"] = "",--]] 
 		["Wowace.com Forums"] = "Foros Wowace.com",
 	}
 }
@@ -450,12 +452,12 @@ L=
 		["BBCode"] = true,
 		["BOTTOMLEFT"] = "下, 左",
 		["BOTTOMRIGHT"] = "下, 右",
-		--Translation missing 
-		-- ["buttonpos_desc"] = "",
+		--[[Translation missing --]]
+		--[[ ["buttonpos_desc"] = "",--]] 
 		["buttonpos_name"] = "按鈕位置",
 		["ChatFrame"] = "聊天視窗",
-		--Translation missing 
-		-- ["Copy all of the text in the selected chat frame into an edit box"] = "",
+		--[[Translation missing --]]
+		--[[ ["Copy all of the text in the selected chat frame into an edit box"] = "",--]] 
 		["Copy Text"] = "複製文字",
 		["Copy Text Format"] = "複製文字格式",
 		["Copy text from the active chat window."] = "複製使用中聊天視窗文字",
@@ -463,10 +465,10 @@ L=
 		["CopyChat"] = true,
 		["HTML"] = true,
 		["Message From : %s"] = "來自 %s 的訊息",
-		--Translation missing 
-		-- ["Plain"] = "",
-		--Translation missing 
-		-- ["Should the copied text be plain, or formatted so you can see the colors."] = "",
+		--[[Translation missing --]]
+		--[[ ["Plain"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["Should the copied text be plain, or formatted so you can see the colors."] = "",--]] 
 		["showbutton_desc"] = "於聊天視窗中顯示按鈕",
 		["showbutton_name"] = "複製按鈕",
 		["TOPLEFT"] = "上, 左",
@@ -478,7 +480,6 @@ PL:AddLocale(PRAT_MODULE, "zhTW",L)
 end
 --@end-non-debug@
 
-local module = Prat:NewModule(PRAT_MODULE, "AceHook-3.0", "AceTimer-3.0")
 
 Prat:SetModuleDefaults(module.name, {
     profile = {
@@ -555,6 +556,8 @@ Prat:SetModuleInit(module.name,
     end)
 
 
+
+
 function module:OnModuleEnable()
     self.buttons = {}
     for k,v in pairs(Prat.Frames) do
@@ -579,7 +582,11 @@ function module:OnModuleEnable()
 --    self:SecureHook("ChatFrame_OnHyperlinkShow")
     Prat.RegisterChatEvent(self, Prat.Events.FRAMES_UPDATED)
 end
-    
+
+function module:GetDescription()
+    return PL["Copy text from the active chat window."]
+end
+
 function module:Prat_FramesUpdated(info, name, chatFrame, ...)
     local id = chatFrame:GetID()
     self.buttons[id] = self:MakeReminder(id)

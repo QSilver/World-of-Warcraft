@@ -1,24 +1,15 @@
 local L = LibStub("AceLocale-3.0"):NewLocale("Details_ChartViewer", "deDE") 
 if not L then return end 
 
---Translation missing 
--- L["STRING_ADDEDOKAY"] = ""
---Translation missing 
--- L["STRING_CONFIRM"] = ""
---Translation missing 
--- L["STRING_NEWTAB"] = ""
---Translation missing 
--- L["STRING_OPTIONS"] = ""
---Translation missing 
--- L["STRING_OPTIONS_SHOWICON"] = ""
---Translation missing 
--- L["STRING_OPTIONS_WINDOWSCALE"] = ""
---Translation missing 
--- L["STRING_PLUGIN_DESC"] = ""
---Translation missing 
--- L["STRING_PLUGIN_NAME"] = ""
---Translation missing 
--- L["STRING_TOOLTIP"] = ""
---Translation missing 
--- L["STRING_TOOSHORTNAME"] = ""
+L["STRING_ADDEDOKAY"] = "Erfolgreich hinzugefügt."
+L["STRING_CONFIRM"] = "Bestätigt"
+L["STRING_NEWTAB"] = "Neuer Tab"
+L["STRING_OPTIONS"] = "Chart Viewer Optionen"
+L["STRING_OPTIONS_SHOWICON"] = "Zeige Icon"
+L["STRING_OPTIONS_WINDOWSCALE"] = "Fenstergröße"
+L["STRING_PLUGIN_DESC"] = [=[Daten anzeigen, die durch Details erfasst wurden, als einfaches Liniendiagrammen!
+]=]
+L["STRING_PLUGIN_NAME"] = "Chart Viewer"
+L["STRING_TOOLTIP"] = "Öffne Chart Viewer"
+L["STRING_TOOSHORTNAME"] = "Der Name ist zu kurz."
 

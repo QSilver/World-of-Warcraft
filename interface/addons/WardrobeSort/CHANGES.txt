@@ -1,16 +1,18 @@
-lightweight tag 94a2cf3334cdb5e8b083058a6e031c938eae06ed v1.3
+lightweight tag 16e95e4803ff42728e1ac6636ad792083eb5040c v1.4.1
 Author:	Ketho <sghs17@outlook.com>
-Date:	Wed Sep 20 04:42:06 2017 +0200
+Date:	Thu Jul 26 01:42:52 2018 +0200
 
-commit 94a2cf3334cdb5e8b083058a6e031c938eae06ed
+commit 16e95e4803ff42728e1ac6636ad792083eb5040c
 Author: Ketho <sghs17@outlook.com>
-Date:   Wed Sep 20 04:42:06 2017 +0200
+Date:   Thu Jul 26 01:42:52 2018 +0200
 
-    Update 7.3.0 FileData
+    Added appearance name to ID sorting option
+    
+    Fixed tooltip error on mouseover
 
-commit 8a17c1294210475ea1ef91477e3e0589bfe8f9b0
+commit 470c96edd15bab4bed792c1c7047802868e5c5c3
 Author: Ketho <sghs17@outlook.com>
-Date:   Wed Sep 20 04:41:54 2017 +0200
+Date:   Thu Jul 26 01:29:02 2018 +0200
 
-    Update LibUIDropDownMenu
+    Fixed reverse sort order by ID
 
