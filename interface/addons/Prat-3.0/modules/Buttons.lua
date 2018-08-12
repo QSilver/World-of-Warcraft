@@ -64,6 +64,10 @@ PL:AddLocale(PRAT_MODULE, "enUS", {
     ["showbnet_desc"] = "Show Social Menu",
     ["showminimize_name"] = "Show Minimize Button",
     ["showminimize_desc"] = "Show Minimize Button",
+    ["showvoice_name"] = "Show Voice Buttons",
+    ["showvoice_desc"] = "Show Voice Buttons",
+    ["showchannel_name"] = "Show Channel Button",
+    ["showchannel_desc"] = "Show Channel Button",
 })
 --@end-debug@]===]
 
@@ -95,10 +99,14 @@ L=
 		["Show Chat%d Arrows"] = true,
 		["showbnet_desc"] = "Show Social Menu",
 		["showbnet_name"] = "Show Social Menu",
+		["showchannel_desc"] = "Show Channel Button",
+		["showchannel_name"] = "Show Channel Button",
 		["showmenu_desc"] = "Show Chat Menu",
 		["showmenu_name"] = "Show Menu",
 		["showminimize_desc"] = "Show Minimize Button",
 		["showminimize_name"] = "Show Minimize Button",
+		["showvoice_desc"] = "Show Voice Buttons",
+		["showvoice_name"] = "Show Voice Buttons",
 		["Toggle showing chat arrows for each chat window."] = true,
 		["Toggles navigation arrows on and off."] = true,
 	}
@@ -144,6 +152,10 @@ L=
 		--[[Translation missing --]]
 		--[[ ["showbnet_name"] = "",--]] 
 		--[[Translation missing --]]
+		--[[ ["showchannel_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showchannel_name"] = "",--]] 
+		--[[Translation missing --]]
 		--[[ ["showmenu_desc"] = "",--]] 
 		--[[Translation missing --]]
 		--[[ ["showmenu_name"] = "",--]] 
@@ -151,6 +163,10 @@ L=
 		--[[ ["showminimize_desc"] = "",--]] 
 		--[[Translation missing --]]
 		--[[ ["showminimize_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showvoice_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showvoice_name"] = "",--]] 
 		--[[Translation missing --]]
 		--[[ ["Toggle showing chat arrows for each chat window."] = "",--]] 
 		--[[Translation missing --]]
@@ -198,6 +214,10 @@ L=
 		--[[Translation missing --]]
 		--[[ ["showbnet_name"] = "",--]] 
 		--[[Translation missing --]]
+		--[[ ["showchannel_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showchannel_name"] = "",--]] 
+		--[[Translation missing --]]
 		--[[ ["showmenu_desc"] = "",--]] 
 		--[[Translation missing --]]
 		--[[ ["showmenu_name"] = "",--]] 
@@ -205,6 +225,10 @@ L=
 		--[[ ["showminimize_desc"] = "",--]] 
 		--[[Translation missing --]]
 		--[[ ["showminimize_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showvoice_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showvoice_name"] = "",--]] 
 		--[[Translation missing --]]
 		--[[ ["Toggle showing chat arrows for each chat window."] = "",--]] 
 		--[[Translation missing --]]
@@ -234,10 +258,18 @@ L=
 		["Show Chat%d Arrows"] = "Afficher les boutons fléchés du chat",
 		["showbnet_desc"] = "Montrer le menu Social.",
 		["showbnet_name"] = "Montrer le menu Social",
+		--[[Translation missing --]]
+		--[[ ["showchannel_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showchannel_name"] = "",--]] 
 		["showmenu_desc"] = "Montrer le menu de la fenêtre de discussion.",
 		["showmenu_name"] = "Montrer le menu",
 		["showminimize_desc"] = "Montrer le bouton pour minimiser la discussion.",
 		["showminimize_name"] = "Montrer Minimiser",
+		--[[Translation missing --]]
+		--[[ ["showvoice_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showvoice_name"] = "",--]] 
 		["Toggle showing chat arrows for each chat window."] = "Activer l'affichage des flèches pour chaque fenêtre de discussion.",
 		["Toggles navigation arrows on and off."] = "Activer et désactiver les flèches de navigations",
 	}
@@ -265,10 +297,18 @@ L=
 		["Show Chat%d Arrows"] = "Navigationspfeile im Chat%d anzeigen",
 		["showbnet_desc"] = "Geselligkeitsmenü anzeigen",
 		["showbnet_name"] = "Geselligkeitsmenü anzeigen",
+		--[[Translation missing --]]
+		--[[ ["showchannel_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showchannel_name"] = "",--]] 
 		["showmenu_desc"] = "Chatmenü anzeigen",
 		["showmenu_name"] = "Menü anzeigen",
 		["showminimize_desc"] = "Zeigt den Schalter zum Minimieren an",
 		["showminimize_name"] = "Zeige Minimieren-Knopf",
+		--[[Translation missing --]]
+		--[[ ["showvoice_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showvoice_name"] = "",--]] 
 		["Toggle showing chat arrows for each chat window."] = "Anzeige der Navigationspfeile für jedes Chatfenster ein- und ausschalten.",
 		["Toggles navigation arrows on and off."] = "Schaltet die Anzeige der Navigationspfeile an und aus",
 	}
@@ -296,10 +336,18 @@ L=
 		["Show Chat%d Arrows"] = "대화창%d의 화살표 보이기",
 		["showbnet_desc"] = "커뮤니티 메뉴 표시",
 		["showbnet_name"] = "커뮤니티 메뉴 표시",
+		--[[Translation missing --]]
+		--[[ ["showchannel_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showchannel_name"] = "",--]] 
 		["showmenu_desc"] = "대화 메뉴 표시",
 		["showmenu_name"] = "메뉴 표시",
 		["showminimize_desc"] = "최소화 버튼 표시",
 		["showminimize_name"] = "최소화 버튼 표시",
+		--[[Translation missing --]]
+		--[[ ["showvoice_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showvoice_name"] = "",--]] 
 		["Toggle showing chat arrows for each chat window."] = "각 채팅창 별로 화살표 표시를 끄고 켭니다.",
 		["Toggles navigation arrows on and off."] = "상하 화살표를 끄고 켭니다.",
 	}
@@ -344,6 +392,10 @@ L=
 		--[[Translation missing --]]
 		--[[ ["showbnet_name"] = "",--]] 
 		--[[Translation missing --]]
+		--[[ ["showchannel_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showchannel_name"] = "",--]] 
+		--[[Translation missing --]]
 		--[[ ["showmenu_desc"] = "",--]] 
 		--[[Translation missing --]]
 		--[[ ["showmenu_name"] = "",--]] 
@@ -351,6 +403,10 @@ L=
 		--[[ ["showminimize_desc"] = "",--]] 
 		--[[Translation missing --]]
 		--[[ ["showminimize_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showvoice_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showvoice_name"] = "",--]] 
 		--[[Translation missing --]]
 		--[[ ["Toggle showing chat arrows for each chat window."] = "",--]] 
 		--[[Translation missing --]]
@@ -379,10 +435,18 @@ L=
 		["Show Chat%d Arrows"] = "Показывать стрелки %d чата",
 		["showbnet_desc"] = "Показать меню Общение",
 		["showbnet_name"] = "Показать меню Общение",
+		--[[Translation missing --]]
+		--[[ ["showchannel_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showchannel_name"] = "",--]] 
 		["showmenu_desc"] = "Отображать меню команд",
 		["showmenu_name"] = "Отображать меню",
 		["showminimize_desc"] = "Показать Кнопку минимизации",
 		["showminimize_name"] = "Показать Кнопку минимизации",
+		--[[Translation missing --]]
+		--[[ ["showvoice_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showvoice_name"] = "",--]] 
 		["Toggle showing chat arrows for each chat window."] = "Показывать стрелки для каждого окна чата.",
 		["Toggles navigation arrows on and off."] = "Вкл/выкл навигационных стрелок.",
 	}
@@ -409,10 +473,18 @@ L=
 		["Show Chat%d Arrows"] = "显示聊天%d箭头",
 		["showbnet_desc"] = "显示社交菜单",
 		["showbnet_name"] = "显示社交菜单",
+		--[[Translation missing --]]
+		--[[ ["showchannel_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showchannel_name"] = "",--]] 
 		["showmenu_desc"] = "显示聊天菜单",
 		["showmenu_name"] = "显示菜单",
 		["showminimize_desc"] = "显示最小化按钮",
 		["showminimize_name"] = "显示最小化按钮",
+		--[[Translation missing --]]
+		--[[ ["showvoice_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showvoice_name"] = "",--]] 
 		["Toggle showing chat arrows for each chat window."] = "为各个聊天窗口显示上下翻页箭头",
 		["Toggles navigation arrows on and off."] = "切换导航箭头开与关",
 	}
@@ -442,6 +514,10 @@ L=
 		--[[Translation missing --]]
 		--[[ ["showbnet_name"] = "",--]] 
 		--[[Translation missing --]]
+		--[[ ["showchannel_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showchannel_name"] = "",--]] 
+		--[[Translation missing --]]
 		--[[ ["showmenu_desc"] = "",--]] 
 		--[[Translation missing --]]
 		--[[ ["showmenu_name"] = "",--]] 
@@ -449,6 +525,10 @@ L=
 		--[[ ["showminimize_desc"] = "",--]] 
 		--[[Translation missing --]]
 		--[[ ["showminimize_name"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showvoice_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showvoice_name"] = "",--]] 
 		["Toggle showing chat arrows for each chat window."] = "Alterna el mostrar las flechas para cada ventana de chat.",
 		["Toggles navigation arrows on and off."] = "Alterna la activación de las flechas de navegación.",
 	}
@@ -475,10 +555,18 @@ L=
 		["Show Chat%d Arrows"] = "顯示聊天 %d 的箭頭",
 		["showbnet_desc"] = "顯示社交選單",
 		["showbnet_name"] = "顯示社交選單",
+		--[[Translation missing --]]
+		--[[ ["showchannel_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showchannel_name"] = "",--]] 
 		["showmenu_desc"] = "顯示聊天選單",
 		["showmenu_name"] = "顯示選單",
 		["showminimize_desc"] = "顯示最小化按鈕",
 		["showminimize_name"] = "顯示最小化按鈕",
+		--[[Translation missing --]]
+		--[[ ["showvoice_desc"] = "",--]] 
+		--[[Translation missing --]]
+		--[[ ["showvoice_name"] = "",--]] 
 		["Toggle showing chat arrows for each chat window."] = "點擊顯示每個聊天視窗的聊天箭頭",
 		["Toggles navigation arrows on and off."] = "開啟/關閉輸入箭頭",
 	}
@@ -486,7 +574,6 @@ L=
 PL:AddLocale(PRAT_MODULE, "zhTW",  L)
 end
 --@end-non-debug@
-
 
 
 
@@ -498,6 +585,8 @@ Prat:SetModuleDefaults(module.name, {
 		showBnet = true,
 		showMenu = true,
 		showminimize = true,
+		showvoice = true,
+        showchannel = true,
 	}
 } )
 
@@ -535,7 +624,19 @@ Prat:SetModuleOptions(module.name, {
 				desc = PL["showminimize_desc"],
 				type = "toggle",
 				order = 140 
-			},									
+			},
+			showvoice = {
+				name = PL["showvoice_name"],
+				desc = PL["showvoice_desc"],
+				type = "toggle",
+				order = 150,
+			},
+            showchannel = {
+                name = PL["showchannel_name"],
+                desc = PL["showchannel_desc"],
+                type = "toggle",
+                order = 160,
+            }
         }
     }
 )
@@ -583,7 +684,11 @@ function module:APLyAllSettings()
 	self:UpdateMenuButtons()
 	
 	self:AdjustMinimizeButtons()
-	
+
+	self:UpdateVoiceButtons()
+
+    self:UpdateChannelButton()
+
 	self:AdjustButtonFrames(self.db.profile.showButtons)
 	
     self:UpdateReminder()
@@ -624,6 +729,36 @@ function module:UpdateMenuButtons()
         ChatFrameMenuButton:Hide()	
     end
 end
+
+
+function module:UpdateVoiceButtons()
+	if self.db.profile.showvoice then
+        ChatFrameToggleVoiceDeafenButton:SetScript("OnShow", nil)
+        ChatFrameToggleVoiceMuteButton:SetScript("OnShow", nil)
+
+        if C_VoiceChat.IsLoggedIn() then
+            ChatFrameToggleVoiceDeafenButton:Show()
+            ChatFrameToggleVoiceMuteButton:Show()
+        end
+    else
+        ChatFrameToggleVoiceDeafenButton:SetScript("OnShow", hide)
+		ChatFrameToggleVoiceDeafenButton:Hide()
+
+        ChatFrameToggleVoiceMuteButton:SetScript("OnShow", hide)
+		ChatFrameToggleVoiceMuteButton:Hide()
+	end
+end
+
+function module:UpdateChannelButton()
+    if self.db.profile.showchannel then
+        ChatFrameChannelButton:SetScript("OnShow", nil)
+        ChatFrameChannelButton:Show()
+    else
+        ChatFrameChannelButton:SetScript("OnShow", hide)
+        ChatFrameChannelButton:Hide()
+    end
+end
+
 function module:HideButtons()
     self:UpdateMenuButtons()
     

@@ -36,6 +36,8 @@ Clic en la ventana 'Consejo actual' para ver su selección.]=]
 L["All items"] = "Todos los objetos"
 L["All items has been awarded and  the loot session concluded"] = "Todos los objetos han sido repartidos y la sesion del reparto ha finalizado"
 --[[Translation missing --]]
+--[[ L["All items have been awarded and the loot session concluded"] = ""--]] 
+--[[Translation missing --]]
 --[[ L["All items usable by the candidate"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["All unawarded items"] = ""--]] 
@@ -222,6 +224,8 @@ L["Diff"] = "Diferente"
 --[[Translation missing --]]
 --[[ L["Discord friendly output."] = ""--]] 
 L["disenchant_desc"] = "Seleccionar para usar esta razon en la adjudicacion de un elemento a traves del boton 'Desencantar'"
+--[[Translation missing --]]
+--[[ L["Do you want to keep %s for yourself?"] = ""--]] 
 L["Done syncing"] = "Sincronización completa"
 L["Double click to delete this entry."] = "Doble click para borrar esta entrada."
 L["Dropped by:"] = "Despojado de"
@@ -293,6 +297,8 @@ L["loot_history_desc"] = [=[RCLootCouncil registra automaticamente informacion r
 Los datos se almacena en "... / SavedVariables/RCLootCouncil.lua".
 
 Nota: Los NO Maestros despojadores pueden guardar solo datos que el el Maestro despojador a mostrado]=]
+--[[Translation missing --]]
+--[[ L["Looted by:"] = ""--]] 
 L["Looting options"] = "Opciones de botin"
 L["Lower Quality Limit"] = "Limite Inferior de Calidad"
 L["lower_quality_limit_desc"] = [=[Seleccionar la calidad mas baja de los objetos a repartir automaticamente (calidad seleccionada incluida).
@@ -329,6 +335,14 @@ L["No items to award later registered"] = "No hay elementos para adjudicar mas t
 --[[ L["No recipients available"] = ""--]] 
 L["No session running"] = "Ninguna sesion iniciada"
 L["No winners registered"] = "No hay ganadores registrados"
+--[[Translation missing --]]
+--[[ L["non_tradeable_reason_nil"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["non_tradeable_reason_not_tradeable"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["non_tradeable_reason_rejected_trade"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["Non-tradeable reason:"] = ""--]] 
 L["Not announced"] = "No anunciado"
 L["Not cached, please reopen."] = "Nada en cache,por favor vuelva a abrir."
 L["Not Found"] = "No encontrado"
@@ -354,6 +368,14 @@ L["open"] = "Abrir"
 L["Open the Loot History"] = "Abrir Hitorial de botin"
 L["open_the_loot_history_desc"] = "Pulsar para abrir historial de botin"
 L["Opens the synchronizer"] = "Abrir el sincronizador"
+--[[Translation missing --]]
+--[[ L["opt_printCompletedTrade_Desc"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_printCompletedTrade_Name"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_rejectTrade_Desc"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_rejectTrade_Name"] = ""--]] 
 L["Other piece"] = "Otra pieza"
 --[[Translation missing --]]
 --[[ L["Out of instance"] = ""--]] 
@@ -536,6 +558,10 @@ L["Tokens received"] = "Fichas de conjunto recibidas"
 L["Total awards"] = "Total de objetos repartidos"
 L["Total items received:"] = "objetos recibidos en total:"
 L["Total items won:"] = "Total de objetos ganados:"
+--[[Translation missing --]]
+--[[ L["trade_complete_message"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["trade_wrongwinner_message"] = ""--]] 
 L["tVersion_outdated_msg"] = "La version de prueba mas reciente de RCLootCouncil es: %s"
 --[[Translation missing --]]
 --[[ L["Unable to give 'item' to 'player'"] = ""--]] 

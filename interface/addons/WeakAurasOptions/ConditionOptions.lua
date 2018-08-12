@@ -640,7 +640,7 @@ local function addControlsForChange(args, order, data, conditionVariable, condit
     }
     order = order + 1;
 
-    local function customHiden()
+    local function customHidden()
       local message = type(conditions[i].changes[j].value) == "table" and conditions[i].changes[j].value.message;
       if (not message) then return true; end
       return not WeakAuras.ContainsPlaceHolders(message, "c");
@@ -653,7 +653,7 @@ local function addControlsForChange(args, order, data, conditionVariable, condit
       desc = descIfNoValue2(data, conditions[i].changes[j], "value", "custom", propertyType),
       order = order,
       multiline = true,
-      hidden = customHiden,
+      hidden = customHidden,
       get = function()
         return type(conditions[i].changes[j].value) == "table" and conditions[i].changes[j].value.custom;
       end,
@@ -949,7 +949,11 @@ local function addControlsForCondition(args, order, data, conditionVariable, con
 
   local optionsName = blueIfSubset (data, conditions[i].check);
   if (conditions[i].check.trigger) then
-    optionsName = optionsName .. string.format(L["If Trigger %s"], conditions[i].check.trigger + 1);
+    if (conditions[i].check.trigger == -1) then
+      optionsName = optionsName .. L["If"];
+    else
+      optionsName = optionsName .. string.format(L["If Trigger %s"], conditions[i].check.trigger + 1);
+    end
   else
     optionsName = optionsName .. L["If"];
   end
@@ -1007,21 +1011,6 @@ local function addControlsForCondition(args, order, data, conditionVariable, con
         end
         WeakAuras.ReloadTriggerOptions(data);
         return;
-      elseif (conditionTemplates.indexToTrigger[v] == "DELETE") then
-        if (data.controlledChildren) then
-          for id, reference in pairs(conditions[i].check.references) do
-            local auraData = WeakAuras.GetData(id);
-            tremove(auraData[conditionVariable], reference.conditionIndex);
-            WeakAuras.Add(auraData);
-          end
-          WeakAuras.ReloadTriggerOptions(data);
-          return;
-        else
-          tremove(conditions, i);
-          WeakAuras.Add(data);
-          WeakAuras.ReloadTriggerOptions(data);
-          return;
-        end
       end
 
       local trigger = conditionTemplates.indexToTrigger[v];
@@ -1303,6 +1292,8 @@ local function createConditionTemplates(data)
     numTriggers = data.numTriggers;
   end
 
+  allConditionTemplates[-1] = WeakAuras.GetGlobalConditions();
+
   local conditionTemplates = {};
   conditionTemplates.all = allConditionTemplates;
   conditionTemplates.indexToTrigger = {};
@@ -1311,7 +1302,7 @@ local function createConditionTemplates(data)
   conditionTemplates.display = {};
 
   local index = 1;
-  for triggernum = 0, numTriggers - 1 do
+  for triggernum = -1, numTriggers - 1 do
     local templatesForTrigger = allConditionTemplates[triggernum];
 
     -- Sort Conditions for one trigger
@@ -1325,7 +1316,11 @@ local function createConditionTemplates(data)
       end);
 
       if (#sorted > 0) then
-        conditionTemplates.display[index]  = string.format(L["Trigger %d"], triggernum + 1);
+        if (triggernum == -1) then
+          conditionTemplates.display[index]  = string.format(L["Global Conditions"]);
+        else
+          conditionTemplates.display[index]  = string.format(L["Trigger %d"], triggernum + 1);
+        end
         index = index + 1;
       end
 
@@ -1338,10 +1333,6 @@ local function createConditionTemplates(data)
       end
     end
   end
-
-  conditionTemplates.display[9999] = "•" .. L["Remove this condition"] .. "•";
-  conditionTemplates.indexToTrigger[9999] = "DELETE";
-  conditionTemplates.indexToVariable[9999] = "DELETE";
 
   if (data.controlledChildren) then
     conditionTemplates.displayWithCopy = {};

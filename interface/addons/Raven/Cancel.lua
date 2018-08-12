@@ -381,7 +381,8 @@ local function ActivateOverlay(bar, frame)
 			b:ClearAllPoints()
 			b:SetSize(frame:GetWidth(), frame:GetHeight())
 			b:SetAllPoints(frame)
-			b:SetFrameLevel(frame:GetFrameLevel() + 5)
+			b:SetFrameStrata(frame:GetFrameStrata()) -- make sure using the same strata as the reference frame
+			b:SetFrameLevel(frame:GetFrameLevel() + 5) -- and also make sure on top of the reference frame
 			b:EnableMouse(true); b:Show()
 		end
 	end

@@ -126,7 +126,7 @@ function Overachiever.CreateOptions(THIS_TITLE, BuildCriteriaLookupTab_check, Au
 	  tooltip = L.OPT_SELECTSOUND_CHECKCOMBAT_TIP, xOffset = 15 },
 
 	{ type = "labelwrap", text = L.OPT_LABEL_MISC, topBuffer = 4, xOffset = 0 },
-	{ variable = "Throttle_AchLookup", text = L.OPT_THROTTLE_ACHLOOKUP, tooltip = L.OPT_THROTTLE_ACHLOOKUP_TIP },
+	{ variable = "Throttle_AchLookup", text = L.OPT_THROTTLE_ACHLOOKUP, tooltip = L.OPT_THROTTLE_ACHLOOKUP_TIP, tooltip2 = L.OPT_THROTTLE_ACHLOOKUP_TIP2 },
 	{ variable = "Slash_SearchTab", text = L.OPT_SLASHSEARCH_TAB, tooltip = L.OPT_SLASHSEARCH_TAB_TIP, tooltip2 = L.OPT_SLASHSEARCH_TIP2 },
   }
 

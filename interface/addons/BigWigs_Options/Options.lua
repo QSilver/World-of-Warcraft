@@ -19,10 +19,12 @@ local C = BigWigs.C
 
 local L = BigWigsAPI:GetLocale("BigWigs")
 
-local icon = LibStub("LibDBIcon-1.0", true)
+local ldbi = LibStub("LibDBIcon-1.0")
 local acr = LibStub("AceConfigRegistry-3.0")
 local acd = LibStub("AceConfigDialog-3.0")
 local AceGUI = LibStub("AceGUI-3.0")
+local adbo = LibStub("AceDBOptions-3.0")
+local lds = LibStub("LibDualSpec-1.0")
 
 local loader = BigWigsLoader
 local API = BigWigsAPI
@@ -61,13 +63,12 @@ local acOptions = {
 					set = function(_, v)
 						if v then
 							BigWigsIconDB.hide = nil
-							icon:Show("BigWigs")
+							ldbi:Show("BigWigs")
 						else
 							BigWigsIconDB.hide = true
-							icon:Hide("BigWigs")
+							ldbi:Hide("BigWigs")
 						end
 					end,
-					hidden = function() return not icon end,
 					width = "full",
 				},
 				separator2 = {
@@ -199,9 +200,9 @@ do
 	local function Initialize(_, _, addon)
 		if addon ~= addonName then return end
 
-		acOptions.args.general.args.profileOptions = LibStub("AceDBOptions-3.0"):GetOptionsTable(BigWigs.db)
+		acOptions.args.general.args.profileOptions = adbo:GetOptionsTable(BigWigs.db)
 		acOptions.args.general.args.profileOptions.order = 1
-		LibStub("LibDualSpec-1.0"):EnhanceOptions(acOptions.args.general.args.profileOptions, BigWigs.db)
+		lds:EnhanceOptions(acOptions.args.general.args.profileOptions, BigWigs.db)
 
 		acr:RegisterOptionsTable("BigWigs", getOptions, true)
 		acd:SetDefaultSize("BigWigs", 858, 660)
@@ -647,8 +648,11 @@ do
 				if o > 0 then
 					local link = GetSpellLink(o)
 					if not link then
-						BigWigs:Print(("Failed to fetch the link for spell id %d."):format(o))
-					else
+						local name = GetSpellInfo(o)
+						link = ("\124cff71d5ff\124Hspell:%d:0\124h[%s]\124h\124r"):format(o, name)
+						--BigWigs:Error(("Failed to fetch the link for spell id %d, tell the authors."):format(o))
+					end
+					--else -- XXX Waiting for GetSpellLink fix to stop returning nil for some spells
 						if currentSize + #link + 1 > 255 then
 							printList(channel, header, abilities)
 							wipe(abilities)
@@ -656,11 +660,11 @@ do
 						end
 						abilities[#abilities + 1] = link
 						currentSize = currentSize + #link + 1
-					end
+					--end
 				else
 					local tbl = C_EncounterJournal.GetSectionInfo(-o)
 					if not tbl or not tbl.link then
-						BigWigs:Print(("Failed to fetch the link for journal id (-)%d."):format(-o))
+						BigWigs:Error(("Failed to fetch the link for journal id (-)%d, tell the authors."):format(-o))
 					else
 						local link = tbl.link
 						if currentSize + #link + 1 > 255 then

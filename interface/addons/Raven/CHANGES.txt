@@ -1,9 +1,11 @@
 ------------------------------------------------------------------------
-r402 | Tomber | 2018-07-19 20:17:16 +0000 (Thu, 19 Jul 2018) | 2 lines
+r426 | Tomber | 2018-08-10 22:28:54 +0000 (Fri, 10 Aug 2018) | 1 line
 Changed paths:
+   M /trunk/Bars.lua
+   M /trunk/Localizations/enUS.lua
+   M /trunk/Profile.lua
    M /trunk/Raven_Options/Options.lua
 
-Fix bug with the grid overlay (helps align UI elements).
-Allow Expire Time to be set with one decimal place precision.
+Add Time Format settings to the Defaults tab. Use Defaults and Restore Defaults options are added for Time Format on each bar group's Timer Options tab. This makes it possible to easily switch between time formats when using the same one across bar groups. Note that this will not affect existing bar groups. New bar groups, however, will be created with Use Defaults enabled for time format.
 ------------------------------------------------------------------------
 

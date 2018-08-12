@@ -637,8 +637,7 @@ L=
 		["Bar colour"] = "Color de la barra",
 		--[[Translation missing --]]
 		--[[ ["Border colour"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["Border width"] = "",--]] 
+		["Border width"] = "Ancho del borde",
 		--[[Translation missing --]]
 		--[[ ["Bottom"] = "",--]] 
 		--[[Translation missing --]]

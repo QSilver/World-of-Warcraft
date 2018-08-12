@@ -1,3 +1,6 @@
+VER 3 000000000000002D "AAP_MACRO" "INV_MISC_QUESTIONMARK"
+/script print('no button yet')
+END
 VER 3 000000000000002A "Barrel WQ" "1542861"
 /tar Captive
 END

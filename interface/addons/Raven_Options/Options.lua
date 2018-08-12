@@ -244,6 +244,7 @@ local function CreateBarGroup(name, auto, link, style, offsetX, offsetY)
 	bp.auto = auto
 	bp.linkSettings = link
 	bp.locked = false
+	bp.useDefaultTimeFormat = true -- this only gets set automatically for created bar groups
 	bp.bars = {}
 
 	AddNameEntry("BarGroups", MOD.db.profile.BarGroups, bp)
@@ -748,6 +749,7 @@ local function GetChangedSpellsList()
 	for k, v in pairs(MOD.db.global.Sounds) do if not temp[k] then temp[k] = true; table.insert(changedSpells, k) end end
 	for k, v in pairs(MOD.db.global.SpellColors) do if not temp[k] and not MOD:CheckColorDefault(k) then temp[k] = true; table.insert(changedSpells, k) end end
 	for k, v in pairs(MOD.db.global.SpellIcons) do if not temp[k] then temp[k] = true; table.insert(changedSpells, k) end end
+	for k, v in pairs(MOD.db.global.ExpireTimes) do if not temp[k] then temp[k] = true; table.insert(changedSpells, k) end end
 	table.sort(changedSpells)
 	return changedSpells
 end
@@ -2701,6 +2703,41 @@ MOD.OptionsTable = {
 						},
 					},
 				},
+				TimeFormatGroup = {
+					type = "group", order = 35, name = L["Time Format"],  inline = true,
+					args = {
+						TimeFormat = {
+							type = "select", order = 10, name = L["Options"], width = "double",
+							desc = L["Time format string"],
+							get = function(info) return MOD.db.global.Defaults.timeFormat end,
+							set = function(info, value) MOD.db.global.Defaults.timeFormat = value; MOD:UpdateAllBarGroups() end,
+							values = function(info)
+								local s, c = MOD.db.global.Defaults.timeSpaces, MOD.db.global.Defaults.timeCase
+								return GetTimeFormatList(s, c)
+							end,
+							style = "dropdown",
+						},
+						Space1 = { type = "description", name = "", order = 15, width = "half" },
+						Spaces = {
+							type = "toggle", order = 20, name = L["Spaces"], width = "half",
+							desc = L["Include spaces between values in time format."],
+							get = function(info) return MOD.db.global.Defaults.timeSpaces end,
+							set = function(info, value) MOD.db.global.Defaults.timeSpaces = value; MOD:UpdateAllBarGroups() end,
+						},
+						Capitals = {
+							type = "toggle", order = 30, name = L["Uppercase"],
+							desc = L["If checked, use uppercase H, M and S in time format, otherwise use lowercase."],
+							get = function(info) return MOD.db.global.Defaults.timeCase end,
+							set = function(info, value) MOD.db.global.Defaults.timeCase = value; MOD:UpdateAllBarGroups() end,
+						},
+						ResetTimeFormat = {
+							type = "execute", order = 109, name = L["Reset Time Format"],
+							desc = L["Reset time format to default settings."],
+							confirm = function(info) return L["RESET TIME FORMAT\nAre you sure you want to reset the time format options?"] end,
+							func = function(info) MOD:SetTimeFormatDefaults(MOD.db.global.Defaults); MOD:UpdateAllBarGroups() end,
+						},
+					},
+				},
 				OmniCCGroup = {
 					type = "group", order = 40, name = L["OmniCC"], inline = true,
 					hidden = function(info) return not OmniCC end,
@@ -3008,7 +3045,13 @@ MOD.OptionsTable = {
 							image = function(info) local t = MOD:GetIcon(conditions.name); return t end,
 							imageWidth = 24, imageHeight = 24,
 						},
-						Space1 = { type = "description", name = "", order = 52 },
+						SpellWarnings = {
+							type = "toggle", order = 52, name = L["Warnings"],
+							desc = L["Enable warnings about invalid spells."],
+							get = function(info) return MOD.db.profile.spellDebug end,
+							set = function(info, value) MOD.db.profile.spellDebug = value end,
+						},
+						Space1 = { type = "description", name = "", order = 53 },
 						SpellLabel = {
 							type = "input", order = 55, name = L["Spell Label"],
 							desc = L["Enter a label to be used by default with this spell."],
@@ -3029,11 +3072,11 @@ MOD.OptionsTable = {
 							get = function(info) return MOD:GetSound(conditions.name) end,
 							set = function(info, value) MOD:SetSound(conditions.name, value) end,
 						},
-						SpellWarnings = {
-							type = "toggle", order = 58, name = L["Warnings"],
-							desc = L["Enable warnings about invalid spells."],
-							get = function(info) return MOD.db.profile.spellDebug end,
-							set = function(info, value) MOD.db.profile.spellDebug = value end,
+						SpellExpireTime = {
+							type = "range", order = 58, name = L["Spell Expire Time"], min = 0, max = 300, step = 0.1,
+							desc = L["Set number of seconds for this spell to use with expiration sound and color special effects."],
+							get = function(info) return MOD:GetSpellExpireTime(conditions.name) end,
+							set = function(info, value) MOD:SetSpellExpireTime(conditions.name, value) end,
 						},
 						Space2 = { type = "description", name = "", order = 80 },
 						ResetSpellColors = {
@@ -3043,26 +3086,32 @@ MOD.OptionsTable = {
 							func = function(info) MOD:ResetColorDefaults(); MOD:UpdateAllBarGroups() end,
 						},
 						ResetSpellLabels = {
-							type = "execute", order = 87, name = L["Reset Labels"],
+							type = "execute", order = 86, name = L["Reset Labels"],
 							desc = L["Reset spell labels back to defaults."],
 							confirm = function(info) return L["RESET SPELL LABELS\nAre you sure you want to reset all spell labels back to defaults?"] end,
 							func = function(info) MOD:ResetLabelDefaults(); MOD:UpdateAllBarGroups() end,
 						},
 						ResetSpellIcons = {
-							type = "execute", order = 88, name = L["Reset Icons"],
+							type = "execute", order = 87, name = L["Reset Icons"],
 							desc = L["Reset spell icons back to defaults."],
 							confirm = function(info) return L["RESET SPELL ICONS\nAre you sure you want to reset all spell icons back to defaults?"] end,
 							func = function(info) MOD:ResetIconDefaults(); MOD:UpdateAllBarGroups() end,
 						},
 						ResetSpellSounds = {
-							type = "execute", order = 89, name = L["Reset Sounds"],
+							type = "execute", order = 88, name = L["Reset Sounds"],
 							desc = L["Reset spell sounds back to defaults."],
 							confirm = function(info) return L["RESET SPELL SOUNDS\nAre you sure you want to reset all spell sounds back to defaults?"] end,
 							func = function(info) MOD:ResetSoundDefaults(); MOD:UpdateAllBarGroups() end,
 						},
-						Space3 = { type = "description", name = "", order = 90, width = "half" },
+						Space3 = { type = "description", name = "", order = 90, },
+						ResetSpellExpireTimes = {
+							type = "execute", order = 91, name = L["Reset Expire Times"],
+							desc = L["Reset expire times back to defaults."],
+							confirm = function(info) return L["RESET EXPIRE TIMES\nAre you sure you want to reset all expire times back to defaults?"] end,
+							func = function(info) MOD:ResetExpireTimeDefaults(); MOD:UpdateAllBarGroups() end,
+						},
 						ResetSpellColor = {
-							type = "execute", order = 95, name = L["Reset"], width = "half",
+							type = "execute", order = 95, name = L["Reset Spell"],
 							desc = function(info) return L["Reset color and label string"](conditions.name) end,
 							hidden = function(info) return not conditions.name or (conditions.name == "") end,
 							confirm = function(info) return L["Reset color and label confirm"](conditions.name) end,
@@ -3072,6 +3121,7 @@ MOD.OptionsTable = {
 									MOD:SetLabel(conditions.name, conditions.name)
 									MOD:SetSound(conditions.name, nil)
 									MOD.db.global.SpellIcons[conditions.name] = nil
+									MOD.db.global.ExpireTimes[conditions.name] = nil
 									MOD:UpdateAllBarGroups()
 								end
 							end,
@@ -4052,7 +4102,7 @@ MOD.OptionsTable = {
 									set = function(info, value) SetBarGroupField("ghost", value) end,
 								},
 								FadeDelay = {
-									type = "range", order = 45, name = L["Delay"], min = 0, max = 300, step = 1,
+									type = "range", order = 45, name = L["Delay Time"], min = 0, max = 300, step = 1,
 									desc = L["Set number of seconds before bar (or ghost) will hide or fade."],
 									disabled = function(info) return not GetBarGroupField("fade") and not GetBarGroupField("hide") and not GetBarGroupField("ghost") end,
 									get = function(info) return GetBarGroupField("delayTime") or 5 end,
@@ -4118,7 +4168,7 @@ MOD.OptionsTable = {
 								space5 = { type = "description", name = "", order = 94 },
 								ExpireTime = {
 									type = "range", order = 95, name = L["Expire Time"], min = 0, max = 300, step = 0.1,
-									desc = L["Set number of seconds before expiration that bar should change color and/or play expire sound."],
+									desc = L["Set number of seconds before expiration to trigger sound and color options."],
 									disabled = function(info) return not GetBarGroupField("colorExpiring")
 										and not GetBarGroupField("expireMSBT") and not GetBarGroupField("soundSpellExpire")
 										and not (GetBarGroupField("soundAltExpire") and GetBarGroupField("soundAltExpire") ~= "None") end,
@@ -4144,9 +4194,15 @@ MOD.OptionsTable = {
 									set = function(info, value) if value == 0 then value = nil else value = value * 60 end
 										SetBarGroupField("expireMinimum", value) end,
 								},
+								SpellOverride = {
+									type = "toggle", order = 98, name = L["Use Spell"], width = "half",
+									desc = L["Use spell's expire time when set on the Spells tab (applies to special effects for both bar group and custom bars, if any)."],
+									get = function(info) return not GetBarGroupField("spellExpireTimes") end,
+									set = function(info, value) SetBarGroupField("spellExpireTimes", not value) end,
+								},
 								space6 = { type = "description", name = "", order = 100 },
 								ColorExpiring = {
-									type = "toggle", order = 105, name = L["Color When Expiring"],
+									type = "toggle", order = 105, name = L["Expire Color Options"],
 									desc = L["Enable color changes for expiring bars (and, for icon configurations, make background visible if opacity is set to invisible to enable bar as highlight)."],
 									get = function(info) return GetBarGroupField("colorExpiring") end,
 									set = function(info, value) SetBarGroupField("colorExpiring", value) end,
@@ -4190,6 +4246,20 @@ MOD.OptionsTable = {
 										MOD:UpdateAllBarGroups()
 									end,
 								},
+								TickColor = {
+									type = "color", order = 109, name = L["Tick"], hasAlpha = true, width = "half",
+									desc = L["Set color for expire time tick (set invisible opacity to disable showing tick on bar)."],
+									disabled = function(info) return not GetBarGroupField("colorExpiring") end,
+									get = function(info)
+										local t = GetBarGroupField("tickColor"); if t then return t.r, t.g, t.b, t.a else return 1, 0, 0, 0 end
+									end,
+									set = function(info, r, g, b, a)
+										local t = GetBarGroupField("tickColor"); if t then t.r = r; t.g = g; t.b = b; t.a = a else
+											t = { r = r, g = g, b = b, a = a }; SetBarGroupField("tickColor", t) end
+										MOD:UpdateAllBarGroups()
+									end,
+								},
+								space7 = { type = "description", name = "", order = 110 },
 								MSBTWarning = {
 									type = "toggle", order = 111, name = L["Combat Text"],
 									desc = L["Enable warning in combat text for expiring bars."],
@@ -4201,7 +4271,7 @@ MOD.OptionsTable = {
 									desc = L["Set color for combat text warning."],
 									disabled = function(info) return not GetBarGroupField("expireMSBT") end,
 									get = function(info)
-										local t = GetBarGroupField("colorMSBT"); if t then return t.r, t.g, t.b, t.a else return 1, 1, 1, 1 end
+										local t = GetBarGroupField("colorMSBT"); if t then return t.r, t.g, t.b, t.a else return 1, 0, 0, 1 end
 									end,
 									set = function(info, r, g, b, a)
 										local t = GetBarGroupField("colorMSBT"); if t then t.r = r; t.g = g; t.b = b; t.a = a else
@@ -4744,15 +4814,16 @@ MOD.OptionsTable = {
 									get = function(info) return GetBarGroupField("showBuff") end,
 									set = function(info, v) SetBarGroupField("showBuff", v); if v then SetBarGroupField("filterBuff", false) end  end,
 								},
-								SpellList = {
-									type = "toggle", order = 16, name = L["Use Spell List"],
+								Space0 = { type = "description", name = "", order = 14 },
+								SpellList1 = {
+									type = "toggle", order = 16, name = L["Spell List #1"],
 									desc = L["If checked, filter list includes spells in specified spell list (these are set up on the Spells tab)."],
 									disabled = function(info) return not GetBarGroupField("detectBuffs") or not (GetBarGroupField("filterBuff") or GetBarGroupField("showBuff")) end,
 									get = function(info) return GetBarGroupField("filterBuffSpells") end,
 									set = function(info, value) SetBarGroupField("filterBuffSpells", value) end,
 								},
-								SelectSpellList = {
-									type = "select", order = 18, name = L["Spell List"],
+								SelectSpellList1 = {
+									type = "select", order = 18, name = L["Spell List #1"],
 									disabled = function(info) return not GetBarGroupField("detectBuffs") or not (GetBarGroupField("filterBuff") or GetBarGroupField("showBuff")) or not GetBarGroupField("filterBuffSpells") end,
 									get = function(info) local k, t = GetBarGroupField("filterBuffTable"), GetSpellList()
 										if k and not MOD.db.global.SpellLists[k] then k = nil; SetBarGroupField("filterBuffTable", k) end
@@ -4762,16 +4833,92 @@ MOD.OptionsTable = {
 									values = function(info) return GetSpellList() end,
 									style = "dropdown",
 								},
-								Space1 = { type = "description", name = "", order = 25 },
+								Space1a = { type = "description", name = "", order = 20 },
+								SpellList2 = {
+									type = "toggle", order = 22, name = L["Spell List #2"],
+									desc = L["If checked, filter list includes spells in specified spell list (these are set up on the Spells tab)."],
+									disabled = function(info) return not GetBarGroupField("detectBuffs") or not (GetBarGroupField("filterBuff") or GetBarGroupField("showBuff")) end,
+									get = function(info) return GetBarGroupField("filterBuffSpells2") end,
+									set = function(info, value) SetBarGroupField("filterBuffSpells2", value) end,
+								},
+								SelectSpellList2 = {
+									type = "select", order = 24, name = L["Spell List #2"],
+									disabled = function(info) return not GetBarGroupField("detectBuffs") or not (GetBarGroupField("filterBuff") or GetBarGroupField("showBuff")) or not GetBarGroupField("filterBuffSpells2") end,
+									get = function(info) local k, t = GetBarGroupField("filterBuffTable2"), GetSpellList()
+										if k and not MOD.db.global.SpellLists[k] then k = nil; SetBarGroupField("filterBuffTable2", k) end
+										if not k and next(t) then k = t[1]; SetBarGroupField("filterBuffTable2", k) end
+										return GetSpellListEntry(k) end,
+									set = function(info, value) local k = GetSpellList()[value]; SetBarGroupField("filterBuffTable2", k) end,
+									values = function(info) return GetSpellList() end,
+									style = "dropdown",
+								},
+								Space1b = { type = "description", name = "", order = 25 },
+								SpellList3 = {
+									type = "toggle", order = 26, name = L["Spell List #3"],
+									desc = L["If checked, filter list includes spells in specified spell list (these are set up on the Spells tab)."],
+									disabled = function(info) return not GetBarGroupField("detectBuffs") or not (GetBarGroupField("filterBuff") or GetBarGroupField("showBuff")) end,
+									get = function(info) return GetBarGroupField("filterBuffSpells3") end,
+									set = function(info, value) SetBarGroupField("filterBuffSpells3", value) end,
+								},
+								SelectSpellList3 = {
+									type = "select", order = 28, name = L["Spell List #3"],
+									disabled = function(info) return not GetBarGroupField("detectBuffs") or not (GetBarGroupField("filterBuff") or GetBarGroupField("showBuff")) or not GetBarGroupField("filterBuffSpells3") end,
+									get = function(info) local k, t = GetBarGroupField("filterBuffTable3"), GetSpellList()
+										if k and not MOD.db.global.SpellLists[k] then k = nil; SetBarGroupField("filterBuffTable3", k) end
+										if not k and next(t) then k = t[1]; SetBarGroupField("filterBuffTable3", k) end
+										return GetSpellListEntry(k) end,
+									set = function(info, value) local k = GetSpellList()[value]; SetBarGroupField("filterBuffTable3", k) end,
+									values = function(info) return GetSpellList() end,
+									style = "dropdown",
+								},
+								Space1c = { type = "description", name = "", order = 30 },
+								SpellList4 = {
+									type = "toggle", order = 32, name = L["Spell List #4"],
+									desc = L["If checked, filter list includes spells in specified spell list (these are set up on the Spells tab)."],
+									disabled = function(info) return not GetBarGroupField("detectBuffs") or not (GetBarGroupField("filterBuff") or GetBarGroupField("showBuff")) end,
+									get = function(info) return GetBarGroupField("filterBuffSpells4") end,
+									set = function(info, value) SetBarGroupField("filterBuffSpells4", value) end,
+								},
+								SelectSpellList4 = {
+									type = "select", order = 34, name = L["Spell List #4"],
+									disabled = function(info) return not GetBarGroupField("detectBuffs") or not (GetBarGroupField("filterBuff") or GetBarGroupField("showBuff")) or not GetBarGroupField("filterBuffSpells4") end,
+									get = function(info) local k, t = GetBarGroupField("filterBuffTable4"), GetSpellList()
+										if k and not MOD.db.global.SpellLists[k] then k = nil; SetBarGroupField("filterBuffTable4", k) end
+										if not k and next(t) then k = t[1]; SetBarGroupField("filterBuffTable4", k) end
+										return GetSpellListEntry(k) end,
+									set = function(info, value) local k = GetSpellList()[value]; SetBarGroupField("filterBuffTable4", k) end,
+									values = function(info) return GetSpellList() end,
+									style = "dropdown",
+								},
+								Space1d = { type = "description", name = "", order = 40 },
+								SpellList5 = {
+									type = "toggle", order = 42, name = L["Spell List #5"],
+									desc = L["If checked, filter list includes spells in specified spell list (these are set up on the Spells tab)."],
+									disabled = function(info) return not GetBarGroupField("detectBuffs") or not (GetBarGroupField("filterBuff") or GetBarGroupField("showBuff")) end,
+									get = function(info) return GetBarGroupField("filterBuffSpells5") end,
+									set = function(info, value) SetBarGroupField("filterBuffSpells5", value) end,
+								},
+								SelectSpellList5 = {
+									type = "select", order = 44, name = L["Spell List #5"],
+									disabled = function(info) return not GetBarGroupField("detectBuffs") or not (GetBarGroupField("filterBuff") or GetBarGroupField("showBuff")) or not GetBarGroupField("filterBuffSpells5") end,
+									get = function(info) local k, t = GetBarGroupField("filterBuffTable5"), GetSpellList()
+										if k and not MOD.db.global.SpellLists[k] then k = nil; SetBarGroupField("filterBuffTable5", k) end
+										if not k and next(t) then k = t[1]; SetBarGroupField("filterBuffTable5", k) end
+										return GetSpellListEntry(k) end,
+									set = function(info, value) local k = GetSpellList()[value]; SetBarGroupField("filterBuffTable5", k) end,
+									values = function(info) return GetSpellList() end,
+									style = "dropdown",
+								},
+								Space2 = { type = "description", name = "", order = 50 },
 								AddFilter = {
-									type = "input", order = 30, name = L["Enter Buff"],
-									desc = L["Enter a buff to be added to the filter list."],
+									type = "input", order = 55, name = L["Enter Buff"],
+									desc = L["Enter a spell name (or numeric identifier, optionally preceded by # for a specific spell id) for a buff to be added to the filter list."],
 									disabled = function(info) return not GetBarGroupField("detectBuffs") or not (GetBarGroupField("filterBuff") or GetBarGroupField("showBuff")) end,
 									get = function(info) return nil end,
 									set = function(info, value) value = ValidateSpellName(value); AddBarGroupFilter("Buff", value) end,
 								},
 								SelectFilter = {
-									type = "select", order = 40, name = L["Filter List"],
+									type = "select", order = 60, name = L["Filter List"],
 									disabled = function(info) return not GetBarGroupField("detectBuffs") or not (GetBarGroupField("filterBuff") or GetBarGroupField("showBuff")) end,
 									get = function(info) return GetBarGroupFilterSelection("Buff") end,
 									set = function(info, value) SetBarGroupField("filterBuffSelection", value) end,
@@ -4779,20 +4926,20 @@ MOD.OptionsTable = {
 									style = "dropdown",
 								},
 								DeleteFilter = {
-									type = "execute", order = 50, name = L["Delete"], width = "half",
+									type = "execute", order = 65, name = L["Delete"], width = "half",
 									disabled = function(info) return not GetBarGroupField("detectBuffs") or not (GetBarGroupField("filterBuff") or GetBarGroupField("showBuff")) end,
 									desc = L["Delete the selected buff from the filter list."],
 									func = function(info) DeleteBarGroupFilter("Buff", GetBarGroupField("filterBuffSelection")) end,
 								},
 								ResetFilter = {
-									type = "execute", order = 60, name = L["Reset"], width = "half",
+									type = "execute", order = 70, name = L["Reset"], width = "half",
 									desc = L["Reset the buff filter list."],
 									disabled = function(info) return not GetBarGroupField("detectBuffs") or not (GetBarGroupField("filterBuff") or GetBarGroupField("showBuff")) end,
 									confirm = function(info) return L['RESET\nAre you sure you want to reset the buff filter list?'] end,
 									func = function(info) ResetBarGroupFilter("Buff") end,
 								},
 								LinkFilters = {
-									type = "toggle", order = 65, name = L["Link"],
+									type = "toggle", order = 75, name = L["Link"],
 									desc = L["If checked, the filter list is shared with bar groups in other profiles with the same name."],
 									disabled = function(info) return not GetBarGroupField("detectBuffs") or not (GetBarGroupField("filterBuff") or GetBarGroupField("showBuff")) end,
 									get = function(info) return GetBarGroupField("filterBuffLink") end,
@@ -5189,34 +5336,111 @@ MOD.OptionsTable = {
 									get = function(info) return GetBarGroupField("showDebuff") end,
 									set = function(info, v) SetBarGroupField("showDebuff", v); if v then SetBarGroupField("filterDebuff", false) end  end,
 								},
-								SpellList = {
-									type = "toggle", order = 16, name = L["Use Spell List"],
+								Space0 = { type = "description", name = "", order = 14 },
+								SpellList1 = {
+									type = "toggle", order = 16, name = L["Spell List #1"],
 									desc = L["If checked, filter list includes spells in specified spell list (these are set up on the Spells tab)."],
 									disabled = function(info) return not GetBarGroupField("detectDebuffs") or not (GetBarGroupField("filterDebuff") or GetBarGroupField("showDebuff")) end,
 									get = function(info) return GetBarGroupField("filterDebuffSpells") end,
 									set = function(info, value) SetBarGroupField("filterDebuffSpells", value) end,
 								},
-								SelectSpellList = {
-									type = "select", order = 18, name = L["Spell List"],
+								SelectSpellList1 = {
+									type = "select", order = 18, name = L["Spell List #1"],
 									disabled = function(info) return not GetBarGroupField("detectDebuffs") or not (GetBarGroupField("filterDebuff") or GetBarGroupField("showDebuff")) or not GetBarGroupField("filterDebuffSpells") end,
 									get = function(info) local k, t = GetBarGroupField("filterDebuffTable"), GetSpellList()
 										if k and not MOD.db.global.SpellLists[k] then k = nil; SetBarGroupField("filterDebuffTable", k) end
 										if not k and next(t) then k = t[1]; SetBarGroupField("filterDebuffTable", k) end
 										return GetSpellListEntry(k) end,
-									set = function(info, value) SetBarGroupField("filterDebuffTable", GetSpellList()[value])end,
+									set = function(info, value) local k = GetSpellList()[value]; SetBarGroupField("filterDebuffTable", k) end,
 									values = function(info) return GetSpellList() end,
 									style = "dropdown",
 								},
-								Space1 = { type = "description", name = "", order = 25 },
+								Space1a = { type = "description", name = "", order = 20 },
+								SpellList2 = {
+									type = "toggle", order = 22, name = L["Spell List #2"],
+									desc = L["If checked, filter list includes spells in specified spell list (these are set up on the Spells tab)."],
+									disabled = function(info) return not GetBarGroupField("detectDebuffs") or not (GetBarGroupField("filterDebuff") or GetBarGroupField("showDebuff")) end,
+									get = function(info) return GetBarGroupField("filterDebuffSpells2") end,
+									set = function(info, value) SetBarGroupField("filterDebuffSpells2", value) end,
+								},
+								SelectSpellList2 = {
+									type = "select", order = 24, name = L["Spell List #2"],
+									disabled = function(info) return not GetBarGroupField("detectDebuffs") or not (GetBarGroupField("filterDebuff") or GetBarGroupField("showDebuff")) or not GetBarGroupField("filterDebuffSpells2") end,
+									get = function(info) local k, t = GetBarGroupField("filterDebuffTable2"), GetSpellList()
+										if k and not MOD.db.global.SpellLists[k] then k = nil; SetBarGroupField("filterDebuffTable2", k) end
+										if not k and next(t) then k = t[1]; SetBarGroupField("filterDebuffTable2", k) end
+										return GetSpellListEntry(k) end,
+									set = function(info, value) local k = GetSpellList()[value]; SetBarGroupField("filterDebuffTable2", k) end,
+									values = function(info) return GetSpellList() end,
+									style = "dropdown",
+								},
+								Space1b = { type = "description", name = "", order = 25 },
+								SpellList3 = {
+									type = "toggle", order = 26, name = L["Spell List #3"],
+									desc = L["If checked, filter list includes spells in specified spell list (these are set up on the Spells tab)."],
+									disabled = function(info) return not GetBarGroupField("detectDebuffs") or not (GetBarGroupField("filterDebuff") or GetBarGroupField("showDebuff")) end,
+									get = function(info) return GetBarGroupField("filterDebuffSpells3") end,
+									set = function(info, value) SetBarGroupField("filterDebuffSpells3", value) end,
+								},
+								SelectSpellList3 = {
+									type = "select", order = 28, name = L["Spell List #3"],
+									disabled = function(info) return not GetBarGroupField("detectDebuffs") or not (GetBarGroupField("filterDebuff") or GetBarGroupField("showDebuff")) or not GetBarGroupField("filterDebuffSpells3") end,
+									get = function(info) local k, t = GetBarGroupField("filterDebuffTable3"), GetSpellList()
+										if k and not MOD.db.global.SpellLists[k] then k = nil; SetBarGroupField("filterDebuffTable3", k) end
+										if not k and next(t) then k = t[1]; SetBarGroupField("filterDebuffTable3", k) end
+										return GetSpellListEntry(k) end,
+									set = function(info, value) local k = GetSpellList()[value]; SetBarGroupField("filterDebuffTable3", k) end,
+									values = function(info) return GetSpellList() end,
+									style = "dropdown",
+								},
+								Space1c = { type = "description", name = "", order = 30 },
+								SpellList4 = {
+									type = "toggle", order = 32, name = L["Spell List #4"],
+									desc = L["If checked, filter list includes spells in specified spell list (these are set up on the Spells tab)."],
+									disabled = function(info) return not GetBarGroupField("detectDebuffs") or not (GetBarGroupField("filterDebuff") or GetBarGroupField("showDebuff")) end,
+									get = function(info) return GetBarGroupField("filterDebuffSpells4") end,
+									set = function(info, value) SetBarGroupField("filterDebuffSpells4", value) end,
+								},
+								SelectSpellList4 = {
+									type = "select", order = 34, name = L["Spell List #4"],
+									disabled = function(info) return not GetBarGroupField("detectDebuffs") or not (GetBarGroupField("filterDebuff") or GetBarGroupField("showDebuff")) or not GetBarGroupField("filterDebuffSpells4") end,
+									get = function(info) local k, t = GetBarGroupField("filterDebuffTable4"), GetSpellList()
+										if k and not MOD.db.global.SpellLists[k] then k = nil; SetBarGroupField("filterDebuffTable4", k) end
+										if not k and next(t) then k = t[1]; SetBarGroupField("filterDebuffTable4", k) end
+										return GetSpellListEntry(k) end,
+									set = function(info, value) local k = GetSpellList()[value]; SetBarGroupField("filterDebuffTable4", k) end,
+									values = function(info) return GetSpellList() end,
+									style = "dropdown",
+								},
+								Space1d = { type = "description", name = "", order = 40 },
+								SpellList5 = {
+									type = "toggle", order = 42, name = L["Spell List #5"],
+									desc = L["If checked, filter list includes spells in specified spell list (these are set up on the Spells tab)."],
+									disabled = function(info) return not GetBarGroupField("detectDebuffs") or not (GetBarGroupField("filterDebuff") or GetBarGroupField("showDebuff")) end,
+									get = function(info) return GetBarGroupField("filterDebuffSpells5") end,
+									set = function(info, value) SetBarGroupField("filterDebuffSpells5", value) end,
+								},
+								SelectSpellList5 = {
+									type = "select", order = 44, name = L["Spell List #5"],
+									disabled = function(info) return not GetBarGroupField("detectDebuffs") or not (GetBarGroupField("filterDebuff") or GetBarGroupField("showDebuff")) or not GetBarGroupField("filterDebuffSpells5") end,
+									get = function(info) local k, t = GetBarGroupField("filterDebuffTable5"), GetSpellList()
+										if k and not MOD.db.global.SpellLists[k] then k = nil; SetBarGroupField("filterDebuffTable5", k) end
+										if not k and next(t) then k = t[1]; SetBarGroupField("filterDebuffTable5", k) end
+										return GetSpellListEntry(k) end,
+									set = function(info, value) local k = GetSpellList()[value]; SetBarGroupField("filterDebuffTable5", k) end,
+									values = function(info) return GetSpellList() end,
+									style = "dropdown",
+								},
+								Space2 = { type = "description", name = "", order = 50 },
 								AddFilter = {
-									type = "input", order = 30, name = L["Enter Debuff"],
-									desc = L["Enter a debuff to be added to the filter list."],
+									type = "input", order = 55, name = L["Enter Debuff"],
+									desc = L["Enter a spell name (or numeric identifier, optionally preceded by # for a specific spell id) for a debuff to be added to the filter list."],
 									disabled = function(info) return not GetBarGroupField("detectDebuffs") or not (GetBarGroupField("filterDebuff") or GetBarGroupField("showDebuff")) end,
 									get = function(info) return nil end,
 									set = function(info, value) value = ValidateSpellName(value); AddBarGroupFilter("Debuff", value) end,
 								},
 								SelectFilter = {
-									type = "select", order = 40, name = L["Filter List"],
+									type = "select", order = 60, name = L["Filter List"],
 									disabled = function(info) return not GetBarGroupField("detectDebuffs") or not (GetBarGroupField("filterDebuff") or GetBarGroupField("showDebuff")) end,
 									get = function(info) return GetBarGroupField("filterDebuffSelection") end,
 									set = function(info, value) SetBarGroupField("filterDebuffSelection", value) end,
@@ -5224,20 +5448,20 @@ MOD.OptionsTable = {
 									style = "dropdown",
 								},
 								DeleteFilter = {
-									type = "execute", order = 50, name = L["Delete"], width = "half",
+									type = "execute", order = 65, name = L["Delete"], width = "half",
 									disabled = function(info) return not GetBarGroupField("detectDebuffs") or not (GetBarGroupField("filterDebuff") or GetBarGroupField("showDebuff")) end,
 									desc = L["Delete the selected debuff from the filter list."],
 									func = function(info) DeleteBarGroupFilter("Debuff", GetBarGroupField("filterDebuffSelection")) end,
 								},
 								ResetFilter = {
-									type = "execute", order = 60, name = L["Reset"], width = "half",
+									type = "execute", order = 70, name = L["Reset"], width = "half",
 									desc = L["Reset the debuff filter list."],
 									disabled = function(info) return not GetBarGroupField("detectDebuffs") or not (GetBarGroupField("filterDebuff") or GetBarGroupField("showDebuff")) end,
 									confirm = function(info) return L['RESET\nAre you sure you want to reset the debuff filter list?'] end,
 									func = function(info) ResetBarGroupFilter("Debuff") end,
 								},
 								LinkFilters = {
-									type = "toggle", order = 65, name = L["Link"],
+									type = "toggle", order = 75, name = L["Link"],
 									desc = L["If checked, the filter list is shared with bar groups in other profiles with the same name."],
 									disabled = function(info) return not GetBarGroupField("detectDebuffs") or not (GetBarGroupField("filterDebuff") or GetBarGroupField("showDebuff")) end,
 									get = function(info) return GetBarGroupField("filterDebuffLink") end,
@@ -5384,34 +5608,111 @@ MOD.OptionsTable = {
 									get = function(info) return GetBarGroupField("showCooldown") end,
 									set = function(info, v) SetBarGroupField("showCooldown", v); if v then SetBarGroupField("filterCooldown", false) end  end,
 								},
-								SpellList = {
-									type = "toggle", order = 16, name = L["Use Spell List"],
+								Space0 = { type = "description", name = "", order = 14 },
+								SpellList1 = {
+									type = "toggle", order = 16, name = L["Spell List #1"],
 									desc = L["If checked, filter list includes spells in specified spell list (these are set up on the Spells tab)."],
 									disabled = function(info) return not GetBarGroupField("detectCooldowns") or not (GetBarGroupField("filterCooldown") or GetBarGroupField("showCooldown")) end,
 									get = function(info) return GetBarGroupField("filterCooldownSpells") end,
 									set = function(info, value) SetBarGroupField("filterCooldownSpells", value) end,
 								},
-								SelectSpellList = {
-									type = "select", order = 18, name = L["Spell List"],
+								SelectSpellList1 = {
+									type = "select", order = 18, name = L["Spell List #1"],
 									disabled = function(info) return not GetBarGroupField("detectCooldowns") or not (GetBarGroupField("filterCooldown") or GetBarGroupField("showCooldown")) or not GetBarGroupField("filterCooldownSpells") end,
 									get = function(info) local k, t = GetBarGroupField("filterCooldownTable"), GetSpellList()
 										if k and not MOD.db.global.SpellLists[k] then k = nil; SetBarGroupField("filterCooldownTable", k) end
 										if not k and next(t) then k = t[1]; SetBarGroupField("filterCooldownTable", k) end
 										return GetSpellListEntry(k) end,
-									set = function(info, value) SetBarGroupField("filterCooldownTable", GetSpellList()[value])end,
+									set = function(info, value) local k = GetSpellList()[value]; SetBarGroupField("filterCooldownTable", k) end,
 									values = function(info) return GetSpellList() end,
 									style = "dropdown",
 								},
-								Space1 = { type = "description", name = "", order = 25 },
+								Space1a = { type = "description", name = "", order = 20 },
+								SpellList2 = {
+									type = "toggle", order = 22, name = L["Spell List #2"],
+									desc = L["If checked, filter list includes spells in specified spell list (these are set up on the Spells tab)."],
+									disabled = function(info) return not GetBarGroupField("detectCooldowns") or not (GetBarGroupField("filterCooldown") or GetBarGroupField("showCooldown")) end,
+									get = function(info) return GetBarGroupField("filterCooldownSpells2") end,
+									set = function(info, value) SetBarGroupField("filterCooldownSpells2", value) end,
+								},
+								SelectSpellList2 = {
+									type = "select", order = 24, name = L["Spell List #2"],
+									disabled = function(info) return not GetBarGroupField("detectCooldowns") or not (GetBarGroupField("filterCooldown") or GetBarGroupField("showCooldown")) or not GetBarGroupField("filterCooldownSpells2") end,
+									get = function(info) local k, t = GetBarGroupField("filterCooldownTable2"), GetSpellList()
+										if k and not MOD.db.global.SpellLists[k] then k = nil; SetBarGroupField("filterCooldownTable2", k) end
+										if not k and next(t) then k = t[1]; SetBarGroupField("filterCooldownTable2", k) end
+										return GetSpellListEntry(k) end,
+									set = function(info, value) local k = GetSpellList()[value]; SetBarGroupField("filterCooldownTable2", k) end,
+									values = function(info) return GetSpellList() end,
+									style = "dropdown",
+								},
+								Space1b = { type = "description", name = "", order = 25 },
+								SpellList3 = {
+									type = "toggle", order = 26, name = L["Spell List #3"],
+									desc = L["If checked, filter list includes spells in specified spell list (these are set up on the Spells tab)."],
+									disabled = function(info) return not GetBarGroupField("detectCooldowns") or not (GetBarGroupField("filterCooldown") or GetBarGroupField("showCooldown")) end,
+									get = function(info) return GetBarGroupField("filterCooldownSpells3") end,
+									set = function(info, value) SetBarGroupField("filterCooldownSpells3", value) end,
+								},
+								SelectSpellList3 = {
+									type = "select", order = 28, name = L["Spell List #3"],
+									disabled = function(info) return not GetBarGroupField("detectCooldowns") or not (GetBarGroupField("filterCooldown") or GetBarGroupField("showCooldown")) or not GetBarGroupField("filterCooldownSpells3") end,
+									get = function(info) local k, t = GetBarGroupField("filterCooldownTable3"), GetSpellList()
+										if k and not MOD.db.global.SpellLists[k] then k = nil; SetBarGroupField("filterCooldownTable3", k) end
+										if not k and next(t) then k = t[1]; SetBarGroupField("filterCooldownTable3", k) end
+										return GetSpellListEntry(k) end,
+									set = function(info, value) local k = GetSpellList()[value]; SetBarGroupField("filterCooldownTable3", k) end,
+									values = function(info) return GetSpellList() end,
+									style = "dropdown",
+								},
+								Space1c = { type = "description", name = "", order = 30 },
+								SpellList4 = {
+									type = "toggle", order = 32, name = L["Spell List #4"],
+									desc = L["If checked, filter list includes spells in specified spell list (these are set up on the Spells tab)."],
+									disabled = function(info) return not GetBarGroupField("detectCooldowns") or not (GetBarGroupField("filterCooldown") or GetBarGroupField("showCooldown")) end,
+									get = function(info) return GetBarGroupField("filterCooldownSpells4") end,
+									set = function(info, value) SetBarGroupField("filterCooldownSpells4", value) end,
+								},
+								SelectSpellList4 = {
+									type = "select", order = 34, name = L["Spell List #4"],
+									disabled = function(info) return not GetBarGroupField("detectCooldowns") or not (GetBarGroupField("filterCooldown") or GetBarGroupField("showCooldown")) or not GetBarGroupField("filterCooldownSpells4") end,
+									get = function(info) local k, t = GetBarGroupField("filterCooldownTable4"), GetSpellList()
+										if k and not MOD.db.global.SpellLists[k] then k = nil; SetBarGroupField("filterCooldownTable4", k) end
+										if not k and next(t) then k = t[1]; SetBarGroupField("filterCooldownTable4", k) end
+										return GetSpellListEntry(k) end,
+									set = function(info, value) local k = GetSpellList()[value]; SetBarGroupField("filterCooldownTable4", k) end,
+									values = function(info) return GetSpellList() end,
+									style = "dropdown",
+								},
+								Space1d = { type = "description", name = "", order = 40 },
+								SpellList5 = {
+									type = "toggle", order = 42, name = L["Spell List #5"],
+									desc = L["If checked, filter list includes spells in specified spell list (these are set up on the Spells tab)."],
+									disabled = function(info) return not GetBarGroupField("detectCooldowns") or not (GetBarGroupField("filterCooldown") or GetBarGroupField("showCooldown")) end,
+									get = function(info) return GetBarGroupField("filterCooldownSpells5") end,
+									set = function(info, value) SetBarGroupField("filterCooldownSpells5", value) end,
+								},
+								SelectSpellList5 = {
+									type = "select", order = 44, name = L["Spell List #5"],
+									disabled = function(info) return not GetBarGroupField("detectCooldowns") or not (GetBarGroupField("filterCooldown") or GetBarGroupField("showCooldown")) or not GetBarGroupField("filterCooldownSpells5") end,
+									get = function(info) local k, t = GetBarGroupField("filterCooldownTable5"), GetSpellList()
+										if k and not MOD.db.global.SpellLists[k] then k = nil; SetBarGroupField("filterCooldownTable5", k) end
+										if not k and next(t) then k = t[1]; SetBarGroupField("filterCooldownTable5", k) end
+										return GetSpellListEntry(k) end,
+									set = function(info, value) local k = GetSpellList()[value]; SetBarGroupField("filterCooldownTable5", k) end,
+									values = function(info) return GetSpellList() end,
+									style = "dropdown",
+								},
+								Space2 = { type = "description", name = "", order = 50 },
 								AddFilter = {
-									type = "input", order = 30, name = L["Enter Cooldown"],
-									desc = L["Enter a cooldown to be added to the filter list."],
+									type = "input", order = 60, name = L["Enter Cooldown"],
+									desc = L["Enter a spell name (or numeric identifier, optionally preceded by # for a specific spell id) for a cooldown to be added to the filter list."],
 									disabled = function(info) return not GetBarGroupField("detectCooldowns") or not (GetBarGroupField("filterCooldown") or GetBarGroupField("showCooldown"))end,
 									get = function(info) return nil end,
 									set = function(info, value) AddBarGroupFilter("Cooldown", value) end, -- don't validate spell names for cooldowns
 								},
 								SelectFilter = {
-									type = "select", order = 40, name = L["Filter List"],
+									type = "select", order = 65, name = L["Filter List"],
 									disabled = function(info) return not GetBarGroupField("detectCooldowns") or not (GetBarGroupField("filterCooldown") or GetBarGroupField("showCooldown"))end,
 									get = function(info) return GetBarGroupField("filterCooldownSelection") end,
 									set = function(info, value) SetBarGroupField("filterCooldownSelection", value) end,
@@ -5419,20 +5720,20 @@ MOD.OptionsTable = {
 									style = "dropdown",
 								},
 								DeleteFilter = {
-									type = "execute", order = 50, name = L["Delete"], width = "half",
+									type = "execute", order = 70, name = L["Delete"], width = "half",
 									disabled = function(info) return not GetBarGroupField("detectCooldowns") or not (GetBarGroupField("filterCooldown") or GetBarGroupField("showCooldown"))end,
 									desc = L["Delete the selected cooldown from the filter list."],
 									func = function(info) DeleteBarGroupFilter("Cooldown", GetBarGroupField("filterCooldownSelection")) end,
 								},
 								ResetFilter = {
-									type = "execute", order = 60, name = L["Reset"], width = "half",
+									type = "execute", order = 75, name = L["Reset"], width = "half",
 									desc = L["Reset the cooldown filter list."],
 									disabled = function(info) return not GetBarGroupField("detectCooldowns") or not (GetBarGroupField("filterCooldown") or GetBarGroupField("showCooldown"))end,
 									confirm = function(info) return 'RESET\nAre you sure you want to reset the cooldown filter list?' end,
 									func = function(info) ResetBarGroupFilter("Cooldown") end,
 								},
 								LinkFilters = {
-									type = "toggle", order = 65, name = L["Link"],
+									type = "toggle", order = 80, name = L["Link"],
 									desc = L["If checked, the filter list is shared with bar groups in other profiles with the same name."],
 									disabled = function(info) return not GetBarGroupField("detectCooldowns") or not (GetBarGroupField("filterCooldown") or GetBarGroupField("showCooldown"))end,
 									get = function(info) return GetBarGroupField("filterCooldownLink") end,
@@ -6915,6 +7216,12 @@ MOD.OptionsTable = {
 									get = function(info) return GetBarGroupField("barColors") == "Spell" end,
 									set = function(info, value) SetBarGroupField("barColors", "Spell") end,
 								},
+								ClassColors = {
+									type = "toggle", order = 31, name = L["Class"], width = "half",
+									desc = L["Show bars using the player's class color."],
+									get = function(info) return GetBarGroupField("barColors") == "Class" end,
+									set = function(info, value) SetBarGroupField("barColors", "Class") end,
+								},
 								spacer1 = { type = "description", name = "", order = 40 },
 								BackgroundText = { type = "description", name = L["Background:"], order = 41, width = "half" },
 								NormalBackground = {
@@ -7055,7 +7362,7 @@ MOD.OptionsTable = {
 							args = {
 								LongDurationCheck = {
 									type = "toggle", order = 1, name = L["Enable"], width = "half",
-									desc = L["Show bars for actions with unlimited duration (e.g., paladin auras)."],
+									desc = L["Show bars for actions with unlimited duration (e.g., buffs that don't expire)."],
 									get = function(info) return GetBarGroupField("showNoDuration") end,
 									set = function(info, value) SetBarGroupField("showNoDuration", value) end,
 								},
@@ -7069,14 +7376,24 @@ MOD.OptionsTable = {
 								NoDurationFirst = {
 									type = "toggle", order = 15, name = L["Unlimited As Zero"],
 									desc = L["If checked, bars with unlimited duration sort as zero duration, otherwise as very long duration."],
+									disabled = function(info) return not GetBarGroupField("showNoDuration") end,
 									get = function(info) return GetBarGroupField("noDurationFirst") end,
 									set = function(info, value) SetBarGroupField("noDurationFirst", value) end,
 								},
 								ForegroundBackground = {
-									type = "toggle", order = 20, name = L["Full Bars"],
+									type = "toggle", order = 20, name = L["Show As Full Bars"],
 									desc = L["If checked, bars with unlimited duration show as full bars, otherwise they show as empty bars."],
+									disabled = function(info) return not GetBarGroupField("showNoDuration") end,
 									get = function(info) return not GetBarGroupField("showNoDurationBackground") end,
 									set = function(info, value) SetBarGroupField("showNoDurationBackground", not value) end,
+								},
+								ReadyReverse = {
+									type = "toggle", order = 70, name = L["Ready Reverse"],
+									desc = L["If checked, ready bars show with reverse of Full Bars setting."],
+									hidden = function(info) return GetBarGroupField("auto") end,
+									disabled = function(info) return not GetBarGroupField("showNoDuration") end,
+									get = function(info) return GetBarGroupField("readyReverse") end,
+									set = function(info, value) SetBarGroupField("readyReverse", value); MOD:UpdateAllBarGroups() end,
 								},
 							},
 						},
@@ -7158,9 +7475,23 @@ MOD.OptionsTable = {
 						TimeFormatGroup = {
 							type = "group", order = 50, name = L["Time Format"],  inline = true,
 							args = {
+								UseDefaultsGroup = {
+									type = "toggle", order = 1, name = L["Use Defaults"],
+									desc = L["If checked, time format options are set to default values."],
+									get = function(info) return GetBarGroupField("useDefaultTimeFormat") end,
+									set = function(info, value) SetBarGroupField("useDefaultTimeFormat", value) end,
+								},
+								RestoreDefaults = {
+									type = "execute", order = 2, name = L["Restore Defaults"],
+									desc = L["Reset time format for this bar group back to the current defaults."],
+									disabled = function(info) return GetBarGroupField("useDefaultTimeFormat") end,
+									func = function(info) MOD:CopyTimeFormat(MOD.db.global.Defaults, GetBarGroupEntry()); MOD:UpdateAllBarGroups() end,
+								},
+								Space1 = { type = "description", name = "", order = 3 },
 								TimeFormat = {
 									type = "select", order = 10, name = L["Options"], width = "double",
 									desc = L["Time format string"],
+									disabled = function(info) return GetBarGroupField("useDefaultTimeFormat") end,
 									get = function(info) return GetBarGroupField("timeFormat") end,
 									set = function(info, value) SetBarGroupField("timeFormat", value) end,
 									values = function(info)
@@ -7170,16 +7501,18 @@ MOD.OptionsTable = {
 									end,
 									style = "dropdown",
 								},
-								Space1 = { type = "description", name = "", order = 15, width = "half" },
+								Space2 = { type = "description", name = "", order = 15, width = "half" },
 								Spaces = {
 									type = "toggle", order = 20, name = L["Spaces"], width = "half",
 									desc = L["Include spaces between values in time format."],
+									disabled = function(info) return GetBarGroupField("useDefaultTimeFormat") end,
 									get = function(info) return GetBarGroupField("timeSpaces") end,
 									set = function(info, value) SetBarGroupField("timeSpaces", value) end,
 								},
 								Capitals = {
 									type = "toggle", order = 30, name = L["Uppercase"],
 									desc = L["If checked, use uppercase H, M and S in time format, otherwise use lowercase."],
+									disabled = function(info) return GetBarGroupField("useDefaultTimeFormat") end,
 									get = function(info) return GetBarGroupField("timeCase") end,
 									set = function(info, value) SetBarGroupField("timeCase", value) end,
 								},
@@ -11109,14 +11442,14 @@ MOD.barOptions = {
 			spacer2 = { type = "description", name = "", order = 50, },
 			EnableCooldownReadyBar = {
 				type = "toggle", order = 60, name = L["Show When Ready"],
-				desc = L["If checked, show ready bar when action is not on cooldown."],
+				desc = L["If checked, show ready bar when action is not on cooldown. Ready bars are a special kind of unlimited duration bar so make sure Timer Options are set appropriately."],
 				hidden = function(info) return GetBarField(info, "barType") ~= "Cooldown" end,
 				get = function(info) return GetBarField(info, "enableReady") end,
 				set = function(info, value) SetBarField(info, "enableReady", value); MOD:UpdateAllBarGroups() end,
 			},
 			EnableAuraReadyBar = {
 				type = "toggle", order = 65, name = L["Show Not Active"],
-				desc = L["If checked, show ready bar when action is not active."],
+				desc = L["If checked, show ready bar when action is not active. Ready bars are a special kind of unlimited duration bar so make sure Timer Options are set appropriately."],
 				hidden = function(info) local t = GetBarField(info, "barType"); return (t ~= "Buff") and (t ~= "Debuff") end,
 				get = function(info) return GetBarField(info, "enableReady") end,
 				set = function(info, value) SetBarField(info, "enableReady", value); MOD:UpdateAllBarGroups() end,
@@ -11124,7 +11457,6 @@ MOD.barOptions = {
 			EnableUsableTest = {
 				type = "toggle", order = 70, name = L["Usable"], width = "half",
 				desc = L["If checked, show ready bar only if spell is usable (i.e., enough mana, reagents, etc.)."],
-				-- hidden = function(info) return GetBarField(info, "barType") ~= "Cooldown" end,
 				hidden = function(info) local t = GetBarField(info, "barType"); return (t ~= "Buff") and (t ~= "Debuff") and (t ~= "Cooldown") end,
 				disabled = function(info) return not GetBarField(info, "enableReady") end,
 				get = function(info) return not GetBarField(info, "readyNotUsable") end,
@@ -11517,7 +11849,7 @@ MOD.barOptions = {
 			},
 			spacer2a = { type = "description", name = "", order = 44 },
 			FadeDelay = {
-				type = "range", order = 45, name = L["Delay"], min = 0, max = 300, step = 1,
+				type = "range", order = 45, name = L["Delay Time"], min = 0, max = 300, step = 1,
 				desc = L["Set number of seconds before bar (or ghost) will hide or fade."],
 				disabled = function(info) return not GetBarField(info, "fade") and not GetBarField(info, "hide") and not GetBarField(info, "ghost") end,
 				get = function(info) return GetBarField(info, "delayTime") or 5 end,
@@ -11605,7 +11937,7 @@ MOD.barOptions = {
 			space3d = { type = "description", name = "", order = 74 },
 			ExpireTime = {
 				type = "range", order = 75, name = L["Expire Time"], min = 0, max = 300, step = 0.1,
-				desc = L["Set number of seconds before expiration that bar should change color and/or play expire sound."],
+				desc = L["Set number of seconds before expiration to trigger sound and color options."],
 				disabled = function(info) return not GetBarField(info, "colorExpiring") and not GetBarField(info, "expireMSBT")
 					and not GetBarField(info, "soundSpellExpire") and not (GetBarField(info, "soundAltExpire")
 					and GetBarField(info, "soundAltExpire") ~= "None") end,
@@ -11630,15 +11962,15 @@ MOD.barOptions = {
 				get = function(info) return GetBarField(info, "expireMinimum") or 0 end,
 				set = function(info, value) if value == 0 then value = nil end SetBarField(info, "expireMinimum", value) end,
 			},
-			space3e = { type = "description", name = "", order = 78 },
+			space3e = { type = "description", name = "", order = 80 },
 			ColorExpiring = {
-				type = "toggle", order = 79, name = L["Color When Expiring"],
+				type = "toggle", order = 81, name = L["Expire Color Options"],
 				desc = L["Enable color changes for expiring bars (and, for icon configurations, make background visible if opacity is set to invisible to enable bar as highlight)."],
 				get = function(info) return GetBarField(info, "colorExpiring") end,
 				set = function(info, value) SetBarField(info, "colorExpiring", value) end,
 			},
 			BarExpireColor = {
-				type = "color", order = 80, name = L["Bar"], hasAlpha = true, width = "half",
+				type = "color", order = 82, name = L["Bar"], hasAlpha = true, width = "half",
 				desc = L["Set bar color for when about to expire (set invisible opacity to disable color change)."],
 				disabled = function(info) return not GetBarField(info, "colorExpiring") end,
 				get = function(info)
@@ -11653,7 +11985,7 @@ MOD.barOptions = {
 				end,
 			},
 			LabelTextColor = {
-				type = "color", order = 81, name = L["Label"], hasAlpha = true, width = "half",
+				type = "color", order = 83, name = L["Label"], hasAlpha = true, width = "half",
 				desc = L["Set label color for when bar is about to expire (set invisible opacity to disable color change)."],
 				disabled = function(info) return not GetBarField(info, "colorExpiring") end,
 				get = function(info)
@@ -11668,7 +12000,7 @@ MOD.barOptions = {
 				end,
 			},
 			TimeTextColor = {
-				type = "color", order = 82, name = L["Time"], hasAlpha = true, width = "half",
+				type = "color", order = 84, name = L["Time"], hasAlpha = true, width = "half",
 				desc = L["Set time color for when bar is about to expire (set invisible opacity to disable color change)."],
 				disabled = function(info) return not GetBarField(info, "colorExpiring") end,
 				get = function(info)
@@ -11679,6 +12011,19 @@ MOD.barOptions = {
 					local t = GetBarField(info, "expireTimeColor")
 					if t then t.r = r; t.g = g; t.b = b; t.a = a else
 						t = { r = r, g = g, b = b, a = a }; SetBarField(info, "expireTimeColor", t) end
+					MOD:UpdateAllBarGroups()
+				end,
+			},
+			TickColor = {
+				type = "color", order = 85, name = L["Tick"], hasAlpha = true, width = "half",
+				desc = L["Set color for expire time tick (set invisible opacity to disable showing tick on bar)."],
+				disabled = function(info) return not GetBarField(info, "colorExpiring") end,
+				get = function(info)
+					local t = GetBarField(info, "tickColor"); if t then return t.r, t.g, t.b, t.a else return 1, 0, 0, 0 end
+				end,
+				set = function(info, r, g, b, a)
+					local t = GetBarField(info, "tickColor"); if t then t.r = r; t.g = g; t.b = b; t.a = a else
+						t = { r = r, g = g, b = b, a = a }; SetBarField(info, "tickColor", t) end
 					MOD:UpdateAllBarGroups()
 				end,
 			},
@@ -11813,7 +12158,7 @@ MOD.barOptions = {
 			spacer7 = { type = "description", name = "", order = 130 },
 			ColorCondition = {
 				type = "toggle", order = 131, name = L["Color"], width = "half",
-				desc = L["If checked, bar color is based on the value of the condition."],
+				desc = L["If checked, spell color is overridden based on the value of the condition (in order to show spell color, the Bar Color Scheme on Appearance tab for Foreground must be set to Spell)."],
 				get = function(info) return GetBarField(info, "colorBar") end,
 				set = function(info, value) SetBarField(info, "colorBar", value) end,
 			},
@@ -11864,35 +12209,35 @@ MOD.barOptions = {
 			SelectBarType = {
 				type = "group", order = 1, name = L["Type"], inline = true,
 				args = {
-					NotificationBar = {
-						type = "toggle", order = 10, name = L["Notify"], width = "half",
-						desc = L["If checked, this is a notify bar."],
-						get = function(info) return bars.template.barType == "Notification" end,
-						set = function(info, value) SetSelectedBarType("Notification") end,
-					},
-					BrokerBar = {
-						type = "toggle", order = 20, name = L["Broker"], width = "half",
-						desc = L["If checked, this is a data broker bar."],
-						get = function(info) return bars.template.barType == "Broker" end,
-						set = function(info, value) SetSelectedBarType("Broker") end,
-					},
 					BuffBar = {
-						type = "toggle", order = 30, name = L["Buff"], width = "half",
+						type = "toggle", order = 10, name = L["Buff"], width = "half",
 						desc = L["If checked, this is a buff bar."],
 						get = function(info) return bars.template.barType == "Buff" end,
 						set = function(info, value) SetSelectedBarType("Buff") end,
 					},
 					DebuffBar = {
-						type = "toggle", order = 40, name = L["Debuff"], width = "half",
+						type = "toggle", order = 20, name = L["Debuff"], width = "half",
 						desc = L["If checked, this is a debuff bar."],
 						get = function(info) return bars.template.barType == "Debuff" end,
 						set = function(info, value) SetSelectedBarType("Debuff") end,
 					},
 					CooldownBar = {
-						type = "toggle", order = 50, name = L["Cooldown"],
+						type = "toggle", order = 30, name = L["Cooldown"],
 						desc = L["If checked, this is a cooldown bar."],
 						get = function(info) return bars.template.barType == "Cooldown" end,
 						set = function(info, value) SetSelectedBarType("Cooldown") end,
+					},
+					NotificationBar = {
+						type = "toggle", order = 40, name = L["Notify"], width = "half",
+						desc = L["If checked, this is a notify bar."],
+						get = function(info) return bars.template.barType == "Notification" end,
+						set = function(info, value) SetSelectedBarType("Notification") end,
+					},
+					BrokerBar = {
+						type = "toggle", order = 50, name = L["Broker"], width = "half",
+						desc = L["If checked, this is a data broker bar."],
+						get = function(info) return bars.template.barType == "Broker" end,
+						set = function(info, value) SetSelectedBarType("Broker") end,
 					},
 				},
 			},

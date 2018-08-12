@@ -1331,3 +1331,6 @@ Change Log:
 
 4.46.1
 * Added Battle for Azeroth launch event spells (special)
+
+4.46.2
+* Added Battle for Azeroth launch event spells (special)

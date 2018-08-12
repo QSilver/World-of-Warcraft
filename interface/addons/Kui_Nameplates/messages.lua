@@ -6,6 +6,7 @@
 -- Handle frame event listeners, dispatch messages, init plugins/elements/layout
 --------------------------------------------------------------------------------
 local addon = KuiNameplates
+local kui = LibStub('Kui-1.0')
 
 local k,listener,plugin,_
 local listeners = {}
@@ -57,9 +58,54 @@ local function PrintDebugForCallback(plugin,callback,...)
     addon:print('|cff88ffffc:'..fn..'|r:'..cbc..(ac and ' |cffaaaaaa'..ac or ''))
 end
 
+-- event/message performance tracer
+local TraceStart,TraceEnd
+do
+    local ev_start,ev_sum,ev_count
+    function TraceStart(uid)
+        if not addon.profiling then return end
+        UpdateAddOnCPUUsage()
+        ev_start = GetAddOnCPUUsage('Kui_Nameplates')
+    end
+    function TraceEnd(uid)
+        if not addon.profiling or not ev_start then return end
+        UpdateAddOnCPUUsage()
+        local ev_end = GetAddOnCPUUsage('Kui_Nameplates')
+        local ev_delta = ev_end - ev_start
+        ev_start = nil
+
+        ev_sum = ev_sum or {}
+        ev_count = ev_count or {}
+
+        ev_count[uid] = 1 + (ev_count[uid] or 0)
+        ev_sum[uid] = ev_delta + (ev_sum[uid] or 0)
+    end
+    function addon:PrintTrace(sort_key)
+        if not ev_count or not ev_sum then return end
+        sort_key = (sort_key or 3)+1
+        local ev_sort = {}
+        for uid,count in pairs(ev_count) do
+            local sum = ev_sum[uid]
+            local avg = sum / count
+            tinsert(ev_sort,{uid,count,sum,avg})
+        end
+        table.sort(ev_sort,function(a,b)
+            return a[sort_key] > b[sort_key]
+        end)
+        local d = kui:DebugPopup()
+        for i,v in ipairs(ev_sort) do
+            d:AddText('|cffffff88'..v[1]..'|r #'..v[2]..' | sum:'..format('%.4f',v[3])..'ms | avg:'..format('%.4f',v[4])..'ms')
+        end
+        d:Show()
+    end
+end
 ----------------------------------------------------- core message dispatcher --
 function addon:DispatchMessage(message, ...)
     if listeners[message] then
+        --[===[@debug@
+        TraceStart('m:'..message)
+        --@end-debug@]===]
+
         for i,listener_tbl in ipairs(listeners[message]) do
             local listener,func = unpack(listener_tbl)
 
@@ -79,6 +125,10 @@ function addon:DispatchMessage(message, ...)
                 addon:print('|cffff0000no listener for m:'..message..' in '..(listener.name or 'nil'))
             end
         end
+
+        --[===[@debug@
+        TraceEnd('m:'..message)
+        --@end-debug@]===]
     end
 end
 ----------------------------------------------------------------- event frame --
@@ -90,6 +140,10 @@ local function event_frame_OnEvent(self,event,...)
         self:UnregisterEvent(event)
         return
     end
+
+    --[===[@debug@
+    TraceStart('e:'..event)
+    --@end-debug@]===]
 
     local unit,unit_frame,unit_not_found
     for i,table_tbl in ipairs(event_index[event]) do
@@ -133,6 +187,10 @@ local function event_frame_OnEvent(self,event,...)
             end
         end
     end
+
+    --[===[@debug@
+    TraceEnd('e:'..event)
+    --@end-debug@]===]
 end
 
 event_frame:SetScript('OnEvent',event_frame_OnEvent)
@@ -388,14 +446,27 @@ function message.RunCallback(table,name,...)
     if addon.debug_callbacks then
         PrintDebugForCallback(table,name,...)
     end
+    --[===[@debug@
+    TraceStart('c:'..name)
+    --@end-debug@]===]
 
     if table.__CALLBACKS[name] == 2 then
         -- inherit return from forced single callback
+        --[===[@debug@
+        if addon.profiling then
+            local r = {table.callbacks[name][1](...)}
+            TraceEnd('c:'..name)
+            return unpack(r)
+        end
+        --@end-debug@]===]
         return table.callbacks[name][1](...)
     else
         for i,cb in ipairs(table.callbacks[name]) do
             cb[1](...)
         end
+        --[===[@debug@
+        TraceEnd('c:'..name)
+        --@end-debug@]===]
         return true
     end
 end

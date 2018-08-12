@@ -11,36 +11,29 @@ AUCTIONATOR_SAVEDVARS = {
 	["_10000"] = 200,
 }
 AUCTIONATOR_PRICING_HISTORY = {
-	["Troll Tablet"] = {
-		["is"] = "63128:0:0:0:0",
-		["4995122"] = "1297500:1",
-	},
 	["Lost Mail"] = {
 		["is"] = "135479:0:0:0:0",
 		["5042364"] = "139990000:1",
-	},
-	["Obliterum"] = {
-		["is"] = "124125:0:0:0:0",
-		["5002255"] = "4080000:1",
 	},
 }
 AUCTIONATOR_SHOPPING_LISTS = {
 	{
 		["items"] = {
-			"falling leaves", -- [1]
-			"Delicate ornate", -- [2]
-			"trained soldier", -- [3]
-			"lost mail", -- [4]
-			"lovely charm", -- [5]
-			"Dalewind", -- [6]
-			"binding of mastery", -- [7]
-			"binding of intellect", -- [8]
-			"fireweed", -- [9]
-			"nagrand arrowbloom", -- [10]
-			"frostweed", -- [11]
-			"Gorgrond flytrap", -- [12]
-			"starflower", -- [13]
-			"talador orchid", -- [14]
+			"seventh demon", -- [1]
+			"falling leaves", -- [2]
+			"Delicate ornate", -- [3]
+			"trained soldier", -- [4]
+			"lost mail", -- [5]
+			"lovely charm", -- [6]
+			"Dalewind", -- [7]
+			"binding of mastery", -- [8]
+			"binding of intellect", -- [9]
+			"fireweed", -- [10]
+			"nagrand arrowbloom", -- [11]
+			"frostweed", -- [12]
+			"Gorgrond flytrap", -- [13]
+			"starflower", -- [14]
+			"talador orchid", -- [15]
 		},
 		["isRecents"] = 1,
 		["name"] = "Recent Searches",
@@ -60,19 +53,12 @@ AUCTIONATOR_SHOPPING_LISTS_MIGRATED_V2 = true
 AUCTIONATOR_PRICE_DATABASE = {
 	["__dbversion"] = 4,
 	["Silvermoon_Alliance"] = {
-		["Enchant Neck - Mark of the Trained Soldier"] = {
-			["mr"] = 5435100,
-			["cc"] = 8,
-			["id"] = "141909:0:0:0:0",
-			["sc"] = 1,
-			["H2802"] = 5435100,
-		},
-		["Enchant Ring - Binding of Mastery"] = {
-			["mr"] = 14990254,
-			["sc"] = 10,
-			["H2638"] = 14990254,
-			["id"] = "128543:0:0:0:0",
-			["cc"] = 8,
+		["Mark of the Deceiver"] = {
+			["mr"] = 89999,
+			["cc"] = 7,
+			["id"] = "130905:0:0:0:0",
+			["H2803"] = 89999,
+			["sc"] = 11,
 		},
 		["Delicate Ornate Ruby"] = {
 			["mr"] = 46979999,
@@ -81,26 +67,12 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["H2803"] = 46979999,
 			["sc"] = 1,
 		},
-		["Troll Tablet"] = {
-			["H2632"] = 1299996,
-			["mr"] = 1299996,
-			["cc"] = 7,
-			["id"] = "63128:0:0:0:0",
-			["sc"] = 11,
-		},
-		["Mark of the Deceiver"] = {
-			["mr"] = 89999,
-			["cc"] = 7,
-			["id"] = "130905:0:0:0:0",
-			["H2803"] = 89999,
-			["sc"] = 11,
-		},
-		["Enchant Cloak - Binding of Intellect"] = {
-			["mr"] = 25989999,
-			["sc"] = 3,
-			["H2638"] = 25989999,
-			["id"] = "128550:0:0:0:0",
+		["Enchant Neck - Mark of the Trained Soldier"] = {
+			["mr"] = 5435100,
 			["cc"] = 8,
+			["id"] = "141909:0:0:0:0",
+			["sc"] = 1,
+			["H2802"] = 5435100,
 		},
 		["Formula: Enchant Neck - Mark of the Trained Soldier"] = {
 			["mr"] = 400000,
@@ -108,21 +80,6 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "141918:0:0:0:0",
 			["sc"] = 8,
 			["H2802"] = 400000,
-		},
-		["Dalewind Trousers"] = {
-			["L2638"] = 145500,
-			["mr"] = 145500,
-			["sc"] = 1,
-			["H2638"] = 149500,
-			["id"] = "13008:0:0:0:4269",
-			["cc"] = 4,
-		},
-		["Obliterum"] = {
-			["mr"] = 4082499,
-			["cc"] = 8,
-			["id"] = "124125:0:0:0:0",
-			["sc"] = 11,
-			["H2637"] = 4082499,
 		},
 	},
 }

@@ -1,5 +1,5 @@
 ## Interface: 80000
-## Version: v8.0.1
+## Version: v8.0.2
 ## Author: Funkydude
 ## Notes: Redirect character errors, system messages and information messages.
 ## Notes-deDE: Redirect character errors, system messages and information messages.

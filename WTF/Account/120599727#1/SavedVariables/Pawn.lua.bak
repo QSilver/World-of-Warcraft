@@ -6,9 +6,9 @@ PawnCommon = {
 	["ShowItemID"] = false,
 	["ShowRelicUpgrades"] = true,
 	["ShowValuesForUpgradesOnly"] = false,
+	["LastVersion"] = 2.0223,
 	["ShownGettingStarted"] = true,
-	["LastVersion"] = 2.0219,
-	["Debug"] = false,
+	["ShowEnchanted"] = true,
 	["ColorTooltipBorder"] = true,
 	["ShowTooltipIcons"] = true,
 	["Scales"] = {
@@ -408,19 +408,22 @@ PawnCommon = {
 			["UnenchantedColor"] = "2f95b0",
 			["SpecID"] = 1,
 		},
-		["\"MrRobot\":PALADIN2"] = {
-			["IconTexturePath"] = 236264,
+		["\"MrRobot\":DRUID2"] = {
+			["IconTexturePath"] = 132115,
 			["PerCharacterOptions"] = {
+				["Myvanna-Silvermoon"] = {
+					["Visible"] = true,
+				},
 			},
-			["Color"] = "f58cba",
-			["LocalizedName"] = "Paladin: Protection",
-			["ClassID"] = 2,
-			["DoNotShow1HUpgrades"] = false,
-			["Role"] = "TANK",
-			["DoNotShow2HUpgrades"] = true,
+			["Color"] = "ff7d0a",
+			["LocalizedName"] = "Druid: Feral",
+			["ClassID"] = 11,
+			["DoNotShow1HUpgrades"] = true,
+			["Role"] = "DAMAGER",
+			["DoNotShow2HUpgrades"] = false,
 			["UpgradesFollowSpecialization"] = true,
 			["Provider"] = "MrRobot",
-			["UnenchantedColor"] = "b7698b",
+			["UnenchantedColor"] = "bf5d07",
 			["SpecID"] = 2,
 		},
 		["\"MrRobot\":MAGE2"] = {
@@ -543,22 +546,19 @@ PawnCommon = {
 			["UnenchantedColor"] = "0054a6",
 			["SpecID"] = 3,
 		},
-		["\"MrRobot\":DRUID2"] = {
-			["IconTexturePath"] = 132115,
+		["\"MrRobot\":PALADIN2"] = {
+			["IconTexturePath"] = 236264,
 			["PerCharacterOptions"] = {
-				["Myvanna-Silvermoon"] = {
-					["Visible"] = true,
-				},
 			},
-			["Color"] = "ff7d0a",
-			["LocalizedName"] = "Druid: Feral",
-			["ClassID"] = 11,
-			["DoNotShow1HUpgrades"] = true,
-			["Role"] = "DAMAGER",
-			["DoNotShow2HUpgrades"] = false,
+			["Color"] = "f58cba",
+			["LocalizedName"] = "Paladin: Protection",
+			["ClassID"] = 2,
+			["DoNotShow1HUpgrades"] = false,
+			["Role"] = "TANK",
+			["DoNotShow2HUpgrades"] = true,
 			["UpgradesFollowSpecialization"] = true,
 			["Provider"] = "MrRobot",
-			["UnenchantedColor"] = "bf5d07",
+			["UnenchantedColor"] = "b7698b",
 			["SpecID"] = 2,
 		},
 		["\"MrRobot\":ROGUE1"] = {
@@ -649,6 +649,6 @@ PawnCommon = {
 	["ButtonPosition"] = 2,
 	["ShowLootUpgradeAdvisor"] = true,
 	["ShowQuestUpgradeAdvisor"] = true,
-	["ShowEnchanted"] = true,
+	["Debug"] = false,
 	["ShowUpgradesOnTooltips"] = true,
 }

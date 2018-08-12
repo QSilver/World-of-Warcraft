@@ -1,63 +1,13 @@
 ------------------------------------------------------------------------
-r216 | Tuhljin | 2018-07-17 07:19:16 +0000 (Tue, 17 Jul 2018) | 2 lines
+r223 | Tuhljin | 2018-08-05 15:53:44 +0000 (Sun, 05 Aug 2018) | 1 line
 Changed paths:
-   M /trunk/AchieveSearch.lua
-   M /trunk/libs/TjAchieve.lua
-
-- Whether achievement search is throttled now depends on a variable, allowing advanced users to disable it.
-- Reduce steps before yield in criteria searches to make FPS somewhat smoother.
-------------------------------------------------------------------------
-r215 | Tuhljin | 2018-07-03 07:08:36 +0000 (Tue, 03 Jul 2018) | 2 lines
-Changed paths:
-   M /trunk/GameTip.lua
-   M /trunk/Options.lua
-   M /trunk/Overachiever.lua
-   M /trunk/libs/TjAchieve.lua
-   M /trunk/localization.lua
-   M /trunk/readme.txt
-
-- Minimap tooltips are now properly supported by the tooltip reminders feature. Up/down arrows (indicating a node's relative vertical position) do not prevent the reminder from showing and multiple nodes showing in the tooltip at once are now handled.
-- Option "Startup: Throttle achievement lookup" is now disabled by default and it is automatically disabled for users upgrading from a pre-1.0 version of Overachiever.
-------------------------------------------------------------------------
-r214 | Tuhljin | 2018-06-23 00:38:16 +0000 (Sat, 23 Jun 2018) | 14 lines
-Changed paths:
-   M /trunk/AchieveID.lua
-   A /trunk/AchieveSearch.lua
-   M /trunk/AchieveTip.lua
-   M /trunk/Calendar.lua
-   M /trunk/GameTip.lua
-   M /trunk/Options.lua
-   M /trunk/Overachiever.lua
+   M /trunk/.pkgmeta
    M /trunk/Overachiever.toc
-   M /trunk/Overachiever_Tabs/CalendarNotice.lua
+   M /trunk/Overachiever_Cache/Overachiever_Cache.toc
    M /trunk/Overachiever_Tabs/Overachiever_Tabs.toc
-   M /trunk/Overachiever_Tabs/Related.lua
-   M /trunk/Overachiever_Tabs/Search.lua
-   M /trunk/Overachiever_Tabs/Suggestions.lua
-   M /trunk/Overachiever_Tabs/Watch.lua
-   M /trunk/Overachiever_Tabs/build.lua
-   M /trunk/Overachiever_Tabs/localization.lua
    M /trunk/Overachiever_Trade/Overachiever_Trade.toc
-   M /trunk/Overachiever_Trade/TradeSkills.lua
-   M /trunk/libs/TjAchieve.lua
-   M /trunk/libs/TjCalendar.lua
-   M /trunk/libs/TjThreads.lua
-   M /trunk/localization.lua
    M /trunk/readme.txt
 
-- Updated for Battle for Azeroth beta and pre-patch, WoW patch 8.0.x. Updated TOC and made many required changes.
--- Use new Map API.
--- Use new Calendar API (used previously in places but it wasn't required for all functions until now).
--- Numerous other adjustments.
-- This release is backward compatible with Legion. (This may not be the case for future releases.)
-- Reworked the achievement search system. Searches should generally take less time and they now allow other activity to continue during a search.
-- Search Tab: Added an option to direct searches started by slash commands (like "/ach") to the Search tab.
-- When not directed to the Search tab, slash commands that searched for achievements will now also search through unlisted achievements. Excludes the "silent" slash commands such as "/achs". (When directed to the tab, whether they include unlisted achievements is determined by the relevant checkbox found there.)
-- Suggestions Tab:
--- Added suggestions for Seething Shore.
--- "Personal" type split into "Personal" and "Other." The latter are achievements that do not have a category which belongs in the base UI. (Since all of them are unlisted achievements, selecting the "Other" type causes the search to include unlisted achievements even when the box to do so is unchecked.)
--- Add ability to use instance IDs to disambiguate between locations in order to find the proper suggestions. Now using this with Dalaran, Shadowmoon Valley, and Karazhan / Return to Karazhan instead of using map IDs (for which there are multiple so it can be complicated).
-- Tabs module: Added text overlay to indicate when the achievement completion filter (earned or incomplete) has caused an achievement to be omitted from the Suggestions or Related tabs.
-- Improved ability to toggle tracking an achievement by ctrl+clicking on its link. Overachiever will now attempt to toggle tracking when the selected achievement is part of a series to which the linked achievement belongs (rather than requiring the linked achievement itself to be selected).
+- Correct an issue that prevents the cache module from being loaded.
 ------------------------------------------------------------------------
 

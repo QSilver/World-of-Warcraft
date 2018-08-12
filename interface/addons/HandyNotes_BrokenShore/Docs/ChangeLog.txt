@@ -1,7 +1,16 @@
-$Id: ChangeLog.txt 94 2018-07-27 14:59:32Z arith $
+$Id: ChangeLog.txt 98 2018-08-11 17:12:26Z arith $
 
 Revision History:
 =================
+
+* v1.29 (Aug. 12, 2018)
+-----------------------
+- Lib Update: LibBabble-SubZone-3.0
+
+* v1.28 (Aug. 06, 2018)
+-----------------------
+- Remove LibUIDropDown
+- Fixed TomTom waypoint's function call issue
 
 * v1.27 (Jul. 27, 2018)
 -----------------------

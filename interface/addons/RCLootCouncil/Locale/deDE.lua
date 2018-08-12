@@ -35,6 +35,8 @@ Klicke auf den Reiter Aktueller Rat, um deine Auswahl zu sehen.]=]
 L["add_rolls_desc"] = "Allen Sessions automatisch einen Zufallswurf von 1 bis 100 hinzufügen."
 L["All items"] = "Alle Gegenstände"
 L["All items has been awarded and  the loot session concluded"] = "Alle Gegenstände wurden vergeben und die Plündersitzung ist abgeschlossen."
+--[[Translation missing --]]
+--[[ L["All items have been awarded and the loot session concluded"] = ""--]] 
 L["All items usable by the candidate"] = "Alle vom Kandidaten benutzbaren Gegenstände"
 L["All unawarded items"] = "Alle nicht vergebenen Gegenstände"
 L["Alt click Looting"] = "Alt-Klick-Plündern"
@@ -199,6 +201,8 @@ L["Diff"] = "Diff."
 --[[Translation missing --]]
 --[[ L["Discord friendly output."] = ""--]] 
 L["disenchant_desc"] = "Auswählen, um diesen Grund zu benutzen, wenn du einen Gegenstand über den Button 'Entzaubern' vergibst."
+--[[Translation missing --]]
+--[[ L["Do you want to keep %s for yourself?"] = ""--]] 
 L["Done syncing"] = "Synchronisierung abgeschlossen"
 L["Double click to delete this entry."] = "Doppelklick, um diesen Eintrag zu löschen"
 L["Dropped by:"] = "Fallengelassen von:"
@@ -264,6 +268,8 @@ Die Rohdaten werden in ".../SavedVariables/RCLootCouncil.lua" gespeichert.
 
 Hinweis: Nicht-Plündermeister können nur Daten speichern, die vom Plündermeister gesendet wurden.
 ]=]
+--[[Translation missing --]]
+--[[ L["Looted by:"] = ""--]] 
 L["Looting options"] = "Plünderoptionen"
 L["Lower Quality Limit"] = "Untere Qualitätsgrenze"
 L["lower_quality_limit_desc"] = [=[Wähle die untere Qualitätsgrenze der Gegenstände, die automatisch vergeben werden (Diese Qualität inbegriffen!).
@@ -295,6 +301,14 @@ L["No items to award later registered"] = "Keine Gegenstände wurden zur später
 L["No recipients available"] = "Kein Empfänger verfügbar."
 L["No session running"] = "Es läuft keine Sitzung."
 L["No winners registered"] = "Keine Gewinner wurden registriert"
+--[[Translation missing --]]
+--[[ L["non_tradeable_reason_nil"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["non_tradeable_reason_not_tradeable"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["non_tradeable_reason_rejected_trade"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["Non-tradeable reason:"] = ""--]] 
 L["Not announced"] = [=[Nicht angekündigt
 ]=]
 L["Not cached, please reopen."] = "Ist nicht zwischengespeichert, bitte erneut öffnen."
@@ -320,6 +334,14 @@ L["open"] = "Öffnen"
 L["Open the Loot History"] = "Beuteverlauf öffnen"
 L["open_the_loot_history_desc"] = "Klicken, um den Beuteverlauf zu öffnen."
 L["Opens the synchronizer"] = "Öffnet den Synchronisierer"
+--[[Translation missing --]]
+--[[ L["opt_printCompletedTrade_Desc"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_printCompletedTrade_Name"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_rejectTrade_Desc"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_rejectTrade_Name"] = ""--]] 
 L["Other piece"] = "Anderes Teil"
 L["Out of instance"] = "Keine Instanz"
 L["'player' can't receive 'type'"] = "%s kann %s nicht empfangen – Version stimmt nicht überein?"
@@ -460,6 +482,10 @@ L["Tokens received"] = "Erhaltene Marken"
 L["Total awards"] = "Zuteilungen insgesamt"
 L["Total items received:"] = "Insgesamt erhaltene Gegenstände:"
 L["Total items won:"] = "Insgesamt gewonnene Gegenstände:"
+--[[Translation missing --]]
+--[[ L["trade_complete_message"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["trade_wrongwinner_message"] = ""--]] 
 L["tVersion_outdated_msg"] = "Die neueste RCLootCouncil-Testversion ist: %s"
 L["Unable to give 'item' to 'player'"] = "Konnte %s nicht an %s geben"
 L["Unable to give 'item' to 'player' - (player offline, left group or instance?)"] = "%s konnte nicht an %s gegeben werden – (Spieler offline oder hat die Gruppe oder Instanz verlassen?)"

@@ -1,6 +1,8 @@
 # BigWigs [Classic]
 
-## [v8.0.2](https://github.com/BigWigsMods/BigWigs_Classic/tree/v8.0.2) (2018-07-26)
-[Full Changelog](https://github.com/BigWigsMods/BigWigs_Classic/compare/v8.0.1...v8.0.2)
+## [v8.0.3](https://github.com/BigWigsMods/BigWigs_Classic/tree/v8.0.3) (2018-07-30)
+[Full Changelog](https://github.com/BigWigsMods/BigWigs_Classic/compare/v8.0.2...v8.0.3)
 
-- Update color usage in our API calls.  
+- Add website to toc.  
+- cleanups  
+- AQ20/Buru: Fix locale error, closes #6  

@@ -101,6 +101,10 @@ CrucibleWeightDB = {
 			["onlyPickedCount"] = true,
 		},
 		["Lachrymas - Silvermoon"] = {
+			[128942] = {
+			},
+			["artifactWeight"] = {
+			},
 			["presets"] = {
 				[128942] = {
 					{
@@ -140,10 +144,6 @@ CrucibleWeightDB = {
 					"252906:1-252207:0-199214:0-199153:1-199212:0", -- [2]
 					"252888:1-252207:0-199111:0-238072:0-199214:0", -- [3]
 				},
-			},
-			[128942] = {
-			},
-			["artifactWeight"] = {
 			},
 		},
 		["Alyara - Silvermoon"] = {

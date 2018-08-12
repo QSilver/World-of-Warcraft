@@ -149,6 +149,9 @@ local default_config = {
     auras_icon_normal_size = 24,
     auras_icon_minus_size = 18,
     auras_icon_squareness = .7,
+    auras_colour_short = {1,.3,.3},
+    auras_colour_medium = {1,.8,.3},
+    auras_colour_long = {1,1,1},
 
     castbar_enable = true,
     castbar_colour = {.75,.75,.9},
@@ -160,6 +163,8 @@ local default_config = {
     castbar_showall = true,
     castbar_showfriend = true,
     castbar_showenemy = true,
+    castbar_animate = true,
+    castbar_animate_change_colour = true,
     castbar_name_vertical_offset = -1,
 
     tank_mode = true,
@@ -203,7 +208,8 @@ local default_config = {
     cvar_max_distance = GetCVarDefault('nameplateMaxDistance'),
     cvar_clamp_top = GetCVarDefault('nameplateOtherTopInset'),
     cvar_clamp_bottom = GetCVarDefault('nameplateOtherBottomInset'),
-    cvar_overlap_v = GetCVarDefault('nameplateOverlapV')
+    cvar_overlap_v = GetCVarDefault('nameplateOverlapV'),
+    cvar_disable_scale = true,
 }
 -- local functions #############################################################
 local function UpdateClickboxSize()
@@ -533,6 +539,11 @@ configChanged.nameonly_neutral = configChanged.nameonly
 configChanged.nameonly_in_combat = configChanged.nameonly
 
 local function configChangedAuras()
+    core.Auras.colour_short = core.profile.auras_colour_short
+    core.Auras.colour_medium = core.profile.auras_colour_medium
+    core.Auras.colour_long = core.profile.auras_colour_long
+
+    addon:GetPlugin('Auras'):UpdateConfig()
     core:SetAurasConfig()
 end
 function configChanged.auras_enabled(v)
@@ -542,7 +553,7 @@ function configChanged.auras_enabled(v)
         addon:GetPlugin('Auras'):Disable()
     end
 
-    configChangedAuras()
+    core:SetAurasConfig()
 end
 configChanged.auras_pulsate = configChangedAuras
 configChanged.auras_centre = configChangedAuras
@@ -556,6 +567,9 @@ configChanged.auras_icon_squareness = configChangedAuras
 configChanged.auras_on_personal = configChangedAuras
 configChanged.auras_show_all_self = configChangedAuras
 configChanged.auras_hide_all_other = configChangedAuras
+configChanged.auras_colour_short = configChangedAuras
+configChanged.auras_colour_medium = configChangedAuras
+configChanged.auras_colour_long = configChangedAuras
 
 local function configChangedCastBar()
     core:SetCastBarConfig()
@@ -576,6 +590,8 @@ configChanged.castbar_icon = configChangedCastBar
 configChanged.castbar_name = configChangedCastBar
 configChanged.castbar_shield = configChangedCastBar
 configChanged.castbar_name_vertical_offset = configChangedCastBar
+configChanged.castbar_animate = configChangedCastBar
+configChanged.castbar_animate_change_colour = configChangedCastBar
 
 function configChanged.classpowers_enable(v)
     if v then
@@ -589,10 +605,7 @@ local function configChangedClassPowers()
     core.ClassPowers.icon_size = core.profile.classpowers_size
     core.ClassPowers.bar_width = core.profile.classpowers_bar_width
     core.ClassPowers.bar_height = core.profile.classpowers_bar_height
-
-    if addon:GetPlugin('ClassPowers').enabled then
-        addon:GetPlugin('ClassPowers'):UpdateConfig()
-    end
+    addon:GetPlugin('ClassPowers'):UpdateConfig()
 end
 configChanged.classpowers_size = configChangedClassPowers
 configChanged.classpowers_on_target = configChangedClassPowers
@@ -717,6 +730,11 @@ local function UpdateCVars()
     SetCVar('nameplateOtherBottomInset',core.profile.cvar_clamp_bottom)
     SetCVar('nameplateLargeBottomInset',core.profile.cvar_clamp_bottom)
     SetCVar('nameplateOverlapV',core.profile.cvar_overlap_v)
+
+    if core.profile.cvar_disable_scale then
+        SetCVar('nameplateMinScale',1)
+        SetCVar('nameplateMaxScale',1)
+    end
 end
 local function configChangedCVar()
     if InCombatLockdown() then
@@ -740,6 +758,7 @@ configChanged.cvar_max_distance = configChangedCVar
 configChanged.cvar_clamp_top = configChangedCVar
 configChanged.cvar_clamp_bottom = configChangedCVar
 configChanged.cvar_overlap_v = configChangedCVar
+configChanged.cvar_disable_scale = configChangedCVar
 
 -- config loaded functions #####################################################
 local configLoaded = {}

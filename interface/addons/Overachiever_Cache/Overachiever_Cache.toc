@@ -1,0 +1,10 @@
+## Interface: 80000
+## Title: Overachiever - Cache
+## Version: 1.0.2
+## Author: Tuhljin
+## Notes: Cache module. Used to shorten load times.
+## Dependencies: Overachiever
+## SavedVariables: Overachiever_Cache_CritAssets
+## X-Child-Of: Overachiever
+
+Cache.lua

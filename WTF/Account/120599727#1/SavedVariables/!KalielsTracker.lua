@@ -16,7 +16,7 @@ KalielsTrackerDB = {
 	},
 	["global"] = {
 		["helpTutorial"] = 11,
-		["version"] = "3.0.0",
+		["version"] = "3.0.1",
 	},
 	["profiles"] = {
 		["Default"] = {

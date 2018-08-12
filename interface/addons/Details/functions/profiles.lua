@@ -1014,10 +1014,11 @@ local default_profile = {
 	
 	--> cloud capture
 		cloud_capture = true,
-		
+	
 	--> combat
-		minimum_combat_time = 5,
-		overall_flag = 0xD,
+		minimum_combat_time = 5, --combats with less then this in elapsed time is discarted
+		minimum_overall_combat_time = 10, --minimum time the combat must have to be added into the overall data
+		overall_flag = 0x10,
 		overall_clear_newboss = true,
 		overall_clear_newchallenge = true,
 		overall_clear_logout = false,
@@ -1040,6 +1041,8 @@ local default_profile = {
 			enabled = false,
 			tab_name = "",
 			single_window = false,
+			x_offset = 0,
+			y_offset = 0,
 		},
 	
 	--> broadcaster options

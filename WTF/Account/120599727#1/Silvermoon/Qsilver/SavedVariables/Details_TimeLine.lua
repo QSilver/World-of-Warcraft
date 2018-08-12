@@ -1,5 +1,7 @@
 
 DetailsTimeLineDB = {
+	["window_scale"] = 1,
+	["max_segments"] = 4,
 	["deaths_data"] = {
 		{
 			["Troopcsd"] = {
@@ -722,7 +724,6 @@ DetailsTimeLineDB = {
 			},
 		}, -- [6]
 	},
-	["max_segments"] = 4,
 	["combat_data"] = {
 		{
 			["date_end"] = "18:54:15",
@@ -748,12 +749,6 @@ DetailsTimeLineDB = {
 			["name"] = "Kael'thas Sunstrider",
 			["total_time"] = 256.791000000085,
 		}, -- [4]
-	},
-	["backdrop_color"] = {
-		0, -- [1]
-		0, -- [2]
-		0, -- [3]
-		0.4, -- [4]
 	},
 	["debuff_timeline"] = {
 		{
@@ -1301,38 +1296,6 @@ DetailsTimeLineDB = {
 					["active"] = false,
 				},
 			},
-			["Maemi"] = {
-				[179867] = {
-					62.1020000000717, -- [1]
-					89.4800000000978, -- [2]
-					["source"] = "Gorefiend",
-					["active"] = false,
-				},
-				[180148] = {
-					88.9440000000177, -- [1]
-					89.4409999999916, -- [2]
-					["source"] = "Gorebound Construct",
-					["active"] = false,
-				},
-				[179995] = {
-					17.3810000000522, -- [1]
-					18.2550000000047, -- [2]
-					["source"] = "Gorefiend",
-					["active"] = false,
-				},
-				[179864] = {
-					56.8960000000661, -- [1]
-					62.0650000000605, -- [2]
-					["source"] = "Gorefiend",
-					["active"] = false,
-				},
-				[179977] = {
-					8.95900000003167, -- [1]
-					17.0590000000084, -- [2]
-					["source"] = "Gorefiend",
-					["active"] = false,
-				},
-			},
 			["Teìwaz"] = {
 				[180148] = {
 					81.9409999999916, -- [1]
@@ -1361,6 +1324,38 @@ DetailsTimeLineDB = {
 				[179867] = {
 					88.9090000001015, -- [1]
 					107.716000000015, -- [2]
+					["source"] = "Gorefiend",
+					["active"] = false,
+				},
+			},
+			["Maemi"] = {
+				[179867] = {
+					62.1020000000717, -- [1]
+					89.4800000000978, -- [2]
+					["source"] = "Gorefiend",
+					["active"] = false,
+				},
+				[180148] = {
+					88.9440000000177, -- [1]
+					89.4409999999916, -- [2]
+					["source"] = "Gorebound Construct",
+					["active"] = false,
+				},
+				[179995] = {
+					17.3810000000522, -- [1]
+					18.2550000000047, -- [2]
+					["source"] = "Gorefiend",
+					["active"] = false,
+				},
+				[179864] = {
+					56.8960000000661, -- [1]
+					62.0650000000605, -- [2]
+					["source"] = "Gorefiend",
+					["active"] = false,
+				},
+				[179977] = {
+					8.95900000003167, -- [1]
+					17.0590000000084, -- [2]
 					["source"] = "Gorefiend",
 					["active"] = false,
 				},
@@ -1816,15 +1811,15 @@ DetailsTimeLineDB = {
 					["source"] = "Gorefiend",
 					["active"] = false,
 				},
-				[179909] = {
-					47.0100000000093, -- [1]
-					47.9120000000112, -- [2]
-					["source"] = "Gorefiend",
-					["active"] = false,
-				},
 				[179867] = {
 					47.9290000000037, -- [1]
 					53.902999999933, -- [2]
+					["source"] = "Gorefiend",
+					["active"] = false,
+				},
+				[179909] = {
+					47.0100000000093, -- [1]
+					47.9120000000112, -- [2]
 					["source"] = "Gorefiend",
 					["active"] = false,
 				},
@@ -1899,16 +1894,22 @@ DetailsTimeLineDB = {
 					["active"] = false,
 				},
 			},
-			["Maemi"] = {
-				[179909] = {
-					19.0599999999395, -- [1]
-					29.0540000000037, -- [2]
+			["Teìwaz"] = {
+				[179995] = {
+					39.0420000000158, -- [1]
+					39.4699999999721, -- [2]
 					["source"] = "Gorefiend",
 					["active"] = false,
 				},
 				[179867] = {
-					29.0969999999506, -- [1]
+					48.5339999999851, -- [1]
 					53.902999999933, -- [2]
+					["source"] = "Gorefiend",
+					["active"] = false,
+				},
+				[179977] = {
+					34.0509999999777, -- [1]
+					39.4699999999721, -- [2]
 					["source"] = "Gorefiend",
 					["active"] = false,
 				},
@@ -1947,22 +1948,16 @@ DetailsTimeLineDB = {
 					["active"] = false,
 				},
 			},
-			["Teìwaz"] = {
-				[179995] = {
-					39.0420000000158, -- [1]
-					39.4699999999721, -- [2]
+			["Maemi"] = {
+				[179909] = {
+					19.0599999999395, -- [1]
+					29.0540000000037, -- [2]
 					["source"] = "Gorefiend",
 					["active"] = false,
 				},
 				[179867] = {
-					48.5339999999851, -- [1]
+					29.0969999999506, -- [1]
 					53.902999999933, -- [2]
-					["source"] = "Gorefiend",
-					["active"] = false,
-				},
-				[179977] = {
-					34.0509999999777, -- [1]
-					39.4699999999721, -- [2]
 					["source"] = "Gorefiend",
 					["active"] = false,
 				},
@@ -1992,10 +1987,10 @@ DetailsTimeLineDB = {
 		}, -- [3]
 		{
 			["Qsilver"] = {
-				[36834] = {
-					243.988000000012, -- [1]
-					254.853000000003, -- [2]
-					["source"] = "Kael'thas Sunstrider",
+				[44863] = {
+					51.3940000000876, -- [1]
+					55.4060000000754, -- [2]
+					["source"] = "Lord Sanguinar",
 					["active"] = false,
 				},
 				[36965] = {
@@ -2004,16 +1999,22 @@ DetailsTimeLineDB = {
 					["source"] = "Thaladred the Darkener",
 					["active"] = false,
 				},
-				[44863] = {
-					51.3940000000876, -- [1]
-					55.4060000000754, -- [2]
-					["source"] = "Lord Sanguinar",
+				[36834] = {
+					243.988000000012, -- [1]
+					254.853000000003, -- [2]
+					["source"] = "Kael'thas Sunstrider",
 					["active"] = false,
 				},
 				[37018] = {
 					190.867000000086, -- [1]
 					200.866000000038, -- [2]
 					["source"] = "Grand Astromancer Capernian",
+					["active"] = false,
+				},
+				[37027] = {
+					196.327000000048, -- [1]
+					256.323000000091, -- [2]
+					["source"] = "Master Engineer Telonicus",
 					["active"] = false,
 				},
 				[30225] = {
@@ -2028,16 +2029,9 @@ DetailsTimeLineDB = {
 					["source"] = "Thaladred the Darkener",
 					["active"] = false,
 				},
-				[37027] = {
-					196.327000000048, -- [1]
-					256.323000000091, -- [2]
-					["source"] = "Master Engineer Telonicus",
-					["active"] = false,
-				},
 			},
 		}, -- [4]
 	},
-	["hide_on_combat"] = false,
 	["cooldowns_timeline"] = {
 		{
 			["Cajlol"] = {
@@ -2287,5 +2281,11 @@ DetailsTimeLineDB = {
 		{
 		}, -- [4]
 	},
-	["window_scale"] = 1,
+	["hide_on_combat"] = false,
+	["backdrop_color"] = {
+		0, -- [1]
+		0, -- [2]
+		0, -- [3]
+		0.4, -- [4]
+	},
 }

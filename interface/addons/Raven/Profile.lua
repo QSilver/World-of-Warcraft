@@ -14,7 +14,8 @@
 -- Raven:GetLabel(name) returns cached label for spell with the specified name, nil if not found
 -- Raven:SetSound(name, sound) save sound in cache
 -- Raven:GetSound(name) returns cached sound for spell with the specified name, nil if not found
--- Raven:GetHyperlink(name) return a hyperlink for the spell with the specified name, nil if not found
+-- Raven:SetSpellExpireTime(name, sound) save expire time for a spell in cache
+-- Raven:GetSpellExpireTime(name) returns expire time for spell with the specified name, nil if not found
 -- Raven:FormatTime(time, index, spaces, upperCase) returns time in seconds converted into a text string
 -- Raven:RegisterTimeFormat(func) adds a custom time format and returns its assigned index
 -- Raven:ResetBarGroupFilter(barGroupName, "Buff"|"Debuff"|"Cooldown")
@@ -41,11 +42,13 @@ function MOD.HexColor(hex)
 	local blue = n % 256
 
 	return { r = red/255, g = green/255, b = blue/255, a = 1.0 }
+	-- return CreateColor(red/255, green/255, blue/255, 1)
 end
 
--- Return a copy of a color, if c is nil then return white
+-- Return a copy of a color, if c is nil then return nil
 function MOD.CopyColor(c)
 	if not c then return nil end
+	-- return CreateColor(c.r, c.g, c.b, c.a)
 	return { r = c.r, g = c.g, b = c.b, a = c.a }
 end
 
@@ -80,6 +83,13 @@ MOD.ColorPalette = {
 	Pink=MOD.HexColor("ff6eb4"), Cyan=MOD.HexColor("7adbf2"), Gray=MOD.HexColor("888a85"),
 }
 
+-- Global palette of class colors
+MOD.ClassColors = {
+	DEATHKNIGHT = MOD.HexColor("C41F3B"), DRUID = MOD.HexColor("FF7D0A"), HUNTER = MOD.HexColor("ABD473"), MAGE = MOD.HexColor("40C7EB"),
+	PALADIN = MOD.HexColor("F58CBA"), PRIEST = MOD.HexColor("FFFFFF"), ROGUE = MOD.HexColor("FFF569"), SHAMAN = MOD.HexColor("0070DE"),
+	WARLOCK = MOD.HexColor("8787ED"), WARRIOR = MOD.HexColor("C79C6E"), MONK = MOD.HexColor("00FF96"), DEMONHUNTER = MOD.HexColor("A330C9"),
+}
+
 -- Remove unneeded variables from the profile before logout
 local function OnProfileShutDown()
 	for n, k in pairs(MOD.db.global.SpellIDs) do if k == 0 then MOD.db.global.SpellIDs[n] = nil end end
@@ -100,6 +110,7 @@ function MOD:InitializeProfile()
 	MOD:SetSpellNameDefaults()
 	MOD:SetDimensionDefaults(MOD.DefaultProfile.global.Defaults)
 	MOD:SetFontTextureDefaults(MOD.DefaultProfile.global.Defaults)
+	MOD:SetTimeFormatDefaults(MOD.DefaultProfile.global.Defaults)
 	MOD:SetInCombatBarDefaults()
 	
 	-- Get profile from database, providing default profile for initialization
@@ -291,6 +302,11 @@ function MOD:SetDimensionDefaults(p)
 	p.i_hideLabel = true; p.i_hideCount = true; p.i_hideValue = false; p.i_showTooltips = true
 end
 
+-- Initialize time format defaults
+function MOD:SetTimeFormatDefaults(p)
+	p.timeFormat = 6; p.timeSpaces = false; p.timeCase = false
+end
+
 -- Copy dimensions, destination is always a bar group, check which configuration type and copy either bar or icon defaults
 function MOD:CopyDimensions(s, d)
 	local iconOnly = d.configuration and MOD.Nest_SupportedConfigurations[d.configuration].iconOnly or false
@@ -355,6 +371,13 @@ function MOD:CopyStandardColors(s, d)
 	end
 end
 
+-- Copy time format settings between tables
+function MOD:CopyTimeFormat(s, d)
+	if s and d and (s ~= d) then
+		d.timeFormat = s.timeFormat; d.timeSpaces = s.timeSpaces; d.timeCase = s.timeCase
+	end
+end
+
 -- Find and cache spell ids (this should be used rarely, primarily when entering spell names manually
 function MOD:GetSpellID(name)
 	if not name then return nil end -- prevent parameter error
@@ -408,17 +431,6 @@ function MOD:GetIcon(name, spellID)
 		end
 	end
 	return tex
-end
-
--- Get a hyperlink for a spell, looking up as a spell identifier if name is unknown
-function MOD:GetHyperlink(name)
-	if not name or (name == "") then return nil end
-	local link = GetSpellLink(name) -- first try to find it based on the name
-	if not link then
-		local id = MOD:GetSpellID(name)
-		if id then link = GetSpellLink(id) end -- then try based on id
-	end
-	return link
 end
 
 -- Add a color to the cache, update values in case they have changed
@@ -483,6 +495,20 @@ end
 
 -- Reset all sounds to default values
 function MOD:ResetSoundDefaults() table.wipe(MOD.db.global.Sounds) end
+
+-- Add an expire time to the cache
+function MOD:SetSpellExpireTime(name, t) if name then MOD.db.global.ExpireTimes[name] = t end end
+
+-- Get an expire time from the cache, return nil if none specified
+function MOD:GetSpellExpireTime(name, spellID)
+	local t = nil
+	if spellID then t = MOD.db.global.ExpireTimes["#" .. tostring(spellID)] end -- allow names stored as #spellid
+	if name and not t then t = MOD.db.global.ExpireTimes[name] end
+	return t
+end
+
+-- Reset all expire times to default values
+function MOD:ResetExpireTimeDefaults() table.wipe(MOD.db.global.ExpireTimes) end
 
 -- Add a spell duration to the per-profile cache, always save latest value since could change with haste
 -- When the spell id is known, save duration indexed by spell id; otherwise save indexed by name
@@ -733,6 +759,7 @@ MOD.DefaultProfile = {
 	global = {
 		Labels = {},					-- cache of labels for actions and spells
 		Sounds = {},					-- cache of sounds for actions and spells
+		ExpireTimes = {},				-- cache of expire times for actions and spells
 		SpellColors = {},				-- cache of colors for actions and spells
 		SpellIcons = {},				-- cache of spell icons that override default icons
 		SpellIDs = {},					-- cache of spell ids that had to be looked up

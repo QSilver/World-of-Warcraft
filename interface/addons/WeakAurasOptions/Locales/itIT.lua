@@ -300,6 +300,8 @@ local L = WeakAuras.L
 	--[[Translation missing --]]
 	L["Duration Info"] = "Duration Info"
 	--[[Translation missing --]]
+	L["Dynamic Duration"] = "Dynamic Duration"
+	--[[Translation missing --]]
 	L["Dynamic Group"] = "Dynamic Group"
 	--[[Translation missing --]]
 	L["Dynamic Information"] = "Dynamic Information"
@@ -344,6 +346,8 @@ local L = WeakAuras.L
 	--[[Translation missing --]]
 	L["False"] = "False"
 	--[[Translation missing --]]
+	L["Filter by Group Role"] = "Filter by Group Role"
+	--[[Translation missing --]]
 	L["Finish"] = "Finish"
 	--[[Translation missing --]]
 	L["Fire Orb"] = "Fire Orb"
@@ -370,6 +374,8 @@ local L = WeakAuras.L
 	--[[Translation missing --]]
 	L["General Text Settings"] = "General Text Settings"
 	--[[Translation missing --]]
+	L["Global Conditions"] = "Global Conditions"
+	--[[Translation missing --]]
 	L["Glow"] = "Glow"
 	--[[Translation missing --]]
 	L["Glow Action"] = "Glow Action"
@@ -383,6 +389,8 @@ local L = WeakAuras.L
 	L["Group aura count description"] = "Group aura count description"
 	--[[Translation missing --]]
 	L["Group Member Count"] = "Group Member Count"
+	--[[Translation missing --]]
+	L["Group Role"] = "Group Role"
 	--[[Translation missing --]]
 	L["Group Scale"] = "Group Scale"
 	--[[Translation missing --]]
@@ -414,6 +422,8 @@ local L = WeakAuras.L
 	--[[Translation missing --]]
 	L["Icon"] = "Icon"
 	--[[Translation missing --]]
+	L["Icon Alpha"] = "Icon Alpha"
+	--[[Translation missing --]]
 	L["Icon Color"] = "Icon Color"
 	--[[Translation missing --]]
 	L["Icon Info"] = "Icon Info"
@@ -425,6 +435,8 @@ local L = WeakAuras.L
 	L["If this option is enabled, you are no longer able to import auras."] = "If this option is enabled, you are no longer able to import auras."
 	--[[Translation missing --]]
 	L["If Trigger %s"] = "If Trigger %s"
+	--[[Translation missing --]]
+	L["Ignore self"] = "Ignore self"
 	--[[Translation missing --]]
 	L["Ignored"] = "Ignored"
 	--[[Translation missing --]]
@@ -599,8 +611,6 @@ local L = WeakAuras.L
 	L["Remaining Time Precision"] = "Remaining Time Precision"
 	--[[Translation missing --]]
 	L["Remove"] = "Remove"
-	--[[Translation missing --]]
-	L["Remove this condition"] = "Remove this condition"
 	--[[Translation missing --]]
 	L["Remove this display from its group"] = "Remove this display from its group"
 	--[[Translation missing --]]

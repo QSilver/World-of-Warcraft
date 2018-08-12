@@ -20,18 +20,16 @@ local CreateFrame, error, setmetatable, UIParent = CreateFrame, error, setmetata
 if not LibStub then error("LibCandyBar-3.0 requires LibStub.") end
 local cbh = LibStub:GetLibrary("CallbackHandler-1.0")
 if not cbh then error("LibCandyBar-3.0 requires CallbackHandler-1.0") end
-local lib, old = LibStub:NewLibrary("LibCandyBar-3.0", 95) -- Bump minor on changes
+local lib = LibStub:NewLibrary("LibCandyBar-3.0", 95) -- Bump minor on changes
 if not lib then return end
 lib.callbacks = lib.callbacks or cbh:New(lib)
 local cb = lib.callbacks
--- ninjaed from LibBars-1.0
 lib.dummyFrame = lib.dummyFrame or CreateFrame("Frame")
 lib.barFrameMT = lib.barFrameMT or {__index = lib.dummyFrame}
 lib.barPrototype = lib.barPrototype or setmetatable({}, lib.barFrameMT)
 lib.barPrototype_mt = lib.barPrototype_mt or {__index = lib.barPrototype}
 lib.barCache = lib.barCache or {}
 
-local bar = {}
 local barPrototype = lib.barPrototype
 local barPrototype_meta = lib.barPrototype_mt
 local barCache = lib.barCache
@@ -42,6 +40,7 @@ local scripts = {
 	"OnShow", "OnMouseDown", "OnMouseUp",
 	"OnMouseWheel", "OnSizeChanged", "OnEvent"
 }
+local numScripts = #scripts
 local GameFontHighlightSmallOutline = GameFontHighlightSmallOutline
 local _fontName, _fontSize = GameFontHighlightSmallOutline:GetFont()
 local _fontShadowX, _fontShadowY = GameFontHighlightSmallOutline:GetShadowOffset()
@@ -460,7 +459,7 @@ function lib:New(texture, width, height)
 	bar.fill = nil
 	bar.showTime = true
 	bar.iconPosition = nil
-	for i = 1, 12 do -- Update if scripts table is changed, faster than doing #scripts
+	for i = 1, numScripts do -- Update if scripts table is changed, faster than doing #scripts
 		bar:SetScript(scripts[i], nil)
 	end
 

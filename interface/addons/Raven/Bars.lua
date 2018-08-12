@@ -8,6 +8,7 @@ local MOD = Raven
 local L = LibStub("AceLocale-3.0"):GetLocale("Raven")
 local LSPELL = MOD.LocalSpellNames
 local media = LibStub("LibSharedMedia-3.0")
+local wc = { r = 1, g = 1, b = 1, a = 1 }
 local rc = { r = 1, g = 0, b = 0, a = 1 }
 local vc = { r = 1, g = 0, b = 0, a = 0 }
 local gc = { r = 0.5, g = 0.5, b = 0.5, a = 0.5 }
@@ -28,8 +29,7 @@ local Off = 0 -- value used to designate an option is turned off
 local function IsOff(value) return value == nil or value == Off end -- return true if option is turned off
 local function IsOn(value) return value ~= nil and value ~= Off end -- return true if option is turned on
 
-local colorTemplate = { timeColor = 0, iconColor = 0, labelColor = 0, colorMSBT = 0, }
-local defaultWhite = { r = 1, g = 1, b = 1, a = 1 }
+local colorTemplate = { timeColor = 0, iconColor = 0, labelColor = 0, backdropColor = 0, backdropFill = 0, borderColor = 0, } -- colors in default fonts and textures
 local function DefaultColor(c) return not c or not next(c) or ((c.r == 1) and (c.g == 1) and (c.b == 1) and (c.a == 1)) end
 local defaultLabels = { 0, 1, 10, 30, "1m", "2m", "5m" }
 function MOD:GetTimelineLabels() return defaultLabels end
@@ -37,7 +37,7 @@ function MOD:GetTimelineLabels() return defaultLabels end
 MOD.BarGroupTemplate = { -- default bar group settings
 	enabled = true, locked = true, merged = false, linkSettings = false, linkBars = false, checkCondition = false, noMouse = false, iconMouse = true,
 	barColors = "Spell", bgColors = "Normal", iconColors = "None", combatTips = true, casterTips = true, spellTips = true, anchorTips = "DEFAULT",
-	useDefaultDimensions = true, useDefaultFontsAndTextures = true, useDefaultColors = true, strata = "MEDIUM",
+	useDefaultDimensions = true, useDefaultFontsAndTextures = true, useDefaultColors = true, useDefaultTimeFormat = false, strata = "MEDIUM",
 	sor = "A", reverseSort = false, timeSort = true, playerSort = false,
 	configuration = 1, anchor = false, anchorX = 0, anchorY = 0, anchorLastBar = false, anchorRow = false, anchorColumn = true, anchorEmpty = false,
 	growDirection = true, fillBars = false, wrap = 0, wrapDirection = false, snapCenter = false, maxBars = 0, desaturateReadyIcon = false,
@@ -47,7 +47,8 @@ MOD.BarGroupTemplate = { -- default bar group settings
 	labelOffset = 0, labelInset = 0, labelWrap = false, labelCenter = false, labelAlign = "MIDDLE",
 	timeOffset = 0, timeInset = 0, timeAlign = "normal", timeIcon = false, iconOffset = 0, iconInset = 0, iconHide = false, iconAlign = "CENTER",
 	expireTime = 5, expirePercentage = 0, expireMinimum = 0, colorExpiring = false, expireMSBT = false, criticalMSBT = false, clockReverse = true,
-	expireColor = false, expireLabelColor = false, expireTimeColor = false, desaturate = false, desaturateFriend = false, disableAlpha = false,
+	expireColor = false, expireLabelColor = false, expireTimeColor = false, tickColor = false, spellExpireTimes = false,
+	desaturate = false, desaturateFriend = false, disableAlpha = false,
 	timelineWidth = 225, timelineHeight = 25, timelineDuration = 300, timelineExp = 3, timelineHide = false, timelineAlternate = true,
 	timelineSwitch = 2, timelineTexture = "Blizzard", timelineAlpha = 1, timelineColor = false, timelineLabels = false,
 	timelineSplash = true, timelineSplashX = 0, timelineSplashY = 0, timelinePercent = 50, timelineOffset = 0, timelineDelta = 0,
@@ -69,10 +70,16 @@ MOD.BarGroupTemplate = { -- default bar group settings
 	detectSharedGrimoires = true, detectSharedInfernals = true,
 	setDuration = false, setOnlyLongDuration = false, uniformDuration = 120, checkDuration = false, minimumDuration = true, filterDuration = 120,
 	checkTimeLeft = false, minimumTimeLeft = true, filterTimeLeft = 120, showNoDuration = false, showOnlyNoDuration = false,
-	showNoDurationBackground = false, noDurationFirst = false, timeFormat = 6, timeSpaces = false, timeCase = false,
+	showNoDurationBackground = false, readyReverse = false, noDurationFirst = false, timeFormat = 6, timeSpaces = false, timeCase = false,
 	filterBuff = true, filterBuffLink = true, filterBuffSpells = false, filterBuffTable = nil,
+	filterBuffSpells2 = false, filterBuffTable2 = nil, filterBuffSpells3 = false, filterBuffTable3 = nil,
+	filterBuffSpells4 = false, filterBuffTable4 = nil, filterBuffSpells5 = false, filterBuffTable5 = nil,
 	filterDebuff = true, filterDebuffLink = true, filterDebuffSpells = false, filterDebuffTable = nil,
+	filterDebuffSpells2 = false, filterDebuffTable2 = nil, filterDebuffSpells3 = false, filterDebuffTable3 = nil,
+	filterDebuffSpells4 = false, filterDebuffTable4 = nil, filterDebuffSpells5 = false, filterDebuffTable5 = nil,
 	filterCooldown = true, filterCooldownLink = true, filterCooldownSpells = false, filterCooldownTable = nil,
+	filterCooldownSpells2 = false, filterCooldownTable2 = nil, filterCooldownSpells3 = false, filterCooldownTable3 = nil,
+	filterCooldownSpells4 = false, filterCooldownTable4 = nil, filterCooldownSpells5 = false, filterCooldownTable5 = nil,
 	showBuff = false, showDebuff = false, showCooldown = false, filterBuffBars = false, filterDebuffBars = false, filterCooldownBars = false,
 }
 
@@ -102,9 +109,12 @@ function MOD:InitializeBars()
 		
 	for _, bg in pairs(MOD.db.profile.BarGroups) do -- then set up the ones specified in the profile
 		if IsOn(bg) then
-			for n, k in pairs(MOD.db.global.Defaults) do if bg[n] == nil then bg[n] = k end end -- add default settings for layout, fonts and textures
-			for n, k in pairs(MOD.BarGroupTemplate) do if bg[n] == nil then bg[n] = k end end -- add defaults from the bar group template
-			for n in pairs(colorTemplate) do if bg[n] == nil then bg[n] = MOD.CopyColor(defaultWhite) end end -- default basic colors
+			for n, k in pairs(MOD.db.global.Defaults) do -- add default settings for layout, fonts and textures
+				if bg[n] == nil then -- only add ones not already set in the bar group's profile
+					if colorTemplate[n] then bg[n] = MOD.CopyColor(k) else bg[n] = k end -- colors must be handled specially
+				end
+			end
+			for n, k in pairs(MOD.BarGroupTemplate) do if bg[n] == nil then bg[n] = k end end -- add additional default values from the bar group template
 			MOD:InitializeBarGroup(bg, 0, 0)
 			if not bg.auto then for _, bar in pairs(bg.bars) do bar.startReady = nil end end -- remove extra settings in custom bars
 		end
@@ -145,7 +155,7 @@ function MOD:InitializeSettings()
 	settingsTemplate.enabled = nil; settingsTemplate.locked = nil; settingsTemplate.merged = nil; settingsTemplate.linkSettings = nil; settingsTemplate.linkBars = nil
 	for _, settings in pairs(MOD.db.global.Settings) do
 		for n, k in pairs(settingsTemplate) do if settings[n] == nil then settings[n] = k end end -- add missing defaults from settings template
-		for n in pairs(colorTemplate) do if settings[n] == nil then settings[n] = MOD.CopyColor(defaultWhite) end end -- default basic colors
+		for n in pairs(colorTemplate) do if settings[n] == nil then settings[n] = MOD.CopyColor(wc) end end -- default basic colors
 	end
 end
 
@@ -324,6 +334,9 @@ local function UpdateLinkedSettings(bp, dir)
 	for n in pairs(settingsTemplate) do q[n] = p[n] end -- copy every setting in the template
 	q.pointX = p.pointX; q.pointXR = p.pointXR; q.pointY = p.pointY; q.pointYT = p.pointYT -- always copy the location
 	q.pointW = p.pointW; q.pointH = p.pointH
+	if p.fgColor then q.fgColor = MOD.CopyColor(p.fgColor) else q.fgColor = nil end -- foreground and background custom colors must be hand copied
+	if p.bgColor then q.bgColor = MOD.CopyColor(p.bgColor) else q.bgColor = nil end
+	if p.iconBorderColor then q.iconBorderColor = MOD.CopyColor(p.iconBorderColor) else q.iconBorderColor = nil end
 end
 
 -- Update linked custom bars. If dir is true then update the shared bars, otherwise update the ones in the bar group.
@@ -426,10 +439,13 @@ end
 -- Get the right color for the bar based on bar group settings
 local function GetColorForBar(bg, bar, btype)
 	local bt, ba, b, c = bar.barType, bar.action, nil, nil
-	if bg.barColors == "Spell" then
+	local scheme = bg.barColors
+	if scheme == "Spell" then
 		if bar.color then c = bar.color else c = MOD:GetSpellColorForBar(bar) end
-	elseif bg.barColors == "Custom" then
-		c = bg.fgColor or defaultWhite
+	elseif scheme == "Class" then
+		c = MOD.ClassColors[MOD.myClass] or wc
+	elseif scheme == "Custom" then
+		c = bg.fgColor or wc
 	end
 	if not c then -- get the best default color for this bar type
 		local cc = not bg.useDefaultColors -- indicates the bar group has overrides for standard colors
@@ -480,6 +496,7 @@ function MOD:GetSpecialColorForBar(bg, bar, btype)
 end
 
 -- Return a bar's expiration time and minimum duration based on settings for either bar or bar group
+-- If bar group allows override then use spell's expire time when one has been set on the Spells tab
 local function GetExpireTime(bg, bar, duration, useBar, useBg)
 	local et, mt, pt = nil, nil, 0
 	if useBar then
@@ -488,6 +505,10 @@ local function GetExpireTime(bg, bar, duration, useBar, useBg)
 	elseif useBg then
 		et = bg.expireTime or 5; mt = bg.expireMinimum or 0
 		pt = (duration or 0) * (bg.expirePercentage or 0) / 100
+	end
+	if not bg.spellExpireTimes then
+		local st = MOD:GetSpellExpireTime(bar.action)
+		if st then et = st end
 	end
 	if et and (pt > et) then et = pt end
 	return et, mt
@@ -523,7 +544,7 @@ function MOD:InitializeBarGroup(bp, offsetX, offsetY)
 	if bp.auto then -- initialize the auto bar group filter lists
 		if (bp.filterBuff or bp.showBuff) and bp.filterBuffLink then UpdateLinkedFilter(bp, false, "Buff") end -- shared settings for buffs
 		if (bp.filterDebuff or bp.showDebuff) and bp.filterDebuffLink then UpdateLinkedFilter(bp, false, "Debuff") end -- shared settings for debuffs
-		if (bp.filterCooldown or bp.showCooldown) and bp.filterCooldownLink then UpdateLinkedFilter(bp, false, "Cooldown") end -- shared settings for buffs
+		if (bp.filterCooldown or bp.showCooldown) and bp.filterCooldownLink then UpdateLinkedFilter(bp, false, "Cooldown") end -- shared settings for cooldowns
 	end
 	if not bp.pointX or not bp.pointY then bp.pointX = 0.5 + (offsetX / 600); bp.pointXR = nil; bp.pointY = 0.5 + (offsetY / 600); bp.pointYT = nil end
 	if not bp.pointW or not bp.pointH then bp.pointW = MOD.db.global.Defaults.barWidth; bp.pointH = MOD.db.global.Defaults.barHeight end
@@ -592,7 +613,7 @@ local function ResetCache(bg, block)
 	if bg.cache and bg.cache.block then table.wipe(bg.cache.block) end
 end
 
--- Update a bar group in with the current values in the profile
+-- Update a bar group with the current values in the profile
 function MOD:UpdateBarGroup(bp)
 	if bp.enabled then
 		if bp.linkSettings then UpdateLinkedSettings(bp, true) end -- update shared settings in a linked bar group
@@ -620,6 +641,7 @@ function MOD:UpdateBarGroup(bp)
 		local bg = MOD.Nest_GetBarGroup(bp.name)
 		if not bg then MOD:InitializeBarGroup(bp); bg = MOD.Nest_GetBarGroup(bp.name) end
 
+		if bp.useDefaultTimeFormat then MOD:CopyTimeFormat(MOD.db.global.Defaults, bp) end
 		if bp.useDefaultDimensions then MOD:CopyDimensions(MOD.db.global.Defaults, bp) end
 		if bp.useDefaultFontsAndTextures then MOD:CopyFontsAndTextures(MOD.db.global.Defaults, bp) end
 		local panelTexture = bp.backdropEnable and media:Fetch("background", bp.backdropPanel) or nil
@@ -1075,17 +1097,18 @@ local function UpdateBar(bp, vbp, bg, b, icon, timeLeft, duration, count, btype,
 		if vbp.casterTips then bat.caster = ttCaster else bat.caster = nil end
 		bat.saveBar = b -- not valid in auto bar group since it then points to a local not a permanent table!
 		bat.pulseStart = b.pulseStart; bat.pulseEnd = b.pulseEnd -- pulse icon when expiring
+		bat.fullReverse = b.startReady and bp.readyReverse -- ready bar can use reverse setting of the Full Bars option
 		
 		if b.colorExpiring then -- set color to switch at expiration time, default is red
 			bat.expireColor = (b.expireColor or rc); bat.expireLabelColor = (b.expireLabelColor or vc)
-			bat.expireTimeColor = (b.expireTimeColor or vc)
+			bat.expireTimeColor = (b.expireTimeColor or vc); bat.tickColor = (b.tickColor or vc)
 			bat.colorTime, bat.colorMinimum = GetExpireTime(vbp, b, duration, true, false)
 		elseif vbp.colorExpiring then
 			bat.expireColor = (vbp.expireColor or rc); bat.expireLabelColor = (vbp.expireLabelColor or vc)
-			bat.expireTimeColor = (vbp.expireTimeColor or vc)
+			bat.expireTimeColor = (vbp.expireTimeColor or vc); bat.tickColor = (vbp.tickColor or vc)
 			bat.colorTime, bat.colorMinimum = GetExpireTime(vbp, b, duration, false, true)
 		else
-			bat.expireColor = nil; bat.expireLabelColor = nil; bat.expireTimeColor = nil; bat.colorTime = nil; bat.colorMinimum = nil
+			bat.expireColor = nil; bat.expireLabelColor = nil; bat.expireTimeColor = nil; bat.tickColor = nil; bat.colorTime = nil; bat.colorMinimum = nil
 		end
 		
 		if b.expireMSBT then -- set color to switch at expiration time, default is red
@@ -1197,9 +1220,34 @@ local fixDups = 0
 local function DetectNewBuffs(unit, n, aura, isBuff, bp, vbp, bg)
 	local listID = nil
 	if bp.showBuff or bp.filterBuff then -- check black lists and white lists
-		local spellList = nil; if bp.filterBuffSpells and bp.filterBuffTable then spellList = MOD.db.global.SpellLists[bp.filterBuffTable] end
-		if spellList then listID = spellList[n] end
-		local listed = (bp.filterBuffList and bp.filterBuffList[n]) or (spellList and (listID or (aura[14] and spellList["#" .. tostring(aura[14])])))
+		local spellNum = aura[14] and ("#" .. tostring(aura[14])) -- string to look up the spell id in lists
+		local listed = bp.filterBuffList and (bp.filterBuffList[n] or (spellNum and bp.filterBuffList[spellNum]))
+		if not listed then -- not found in the bar group's filter list, so check spell lists
+			local spellList = nil -- check the first spell list, if specified
+			if bp.filterBuffSpells and bp.filterBuffTable then spellList = MOD.db.global.SpellLists[bp.filterBuffTable] end
+			if spellList then listed = spellList[n] or (spellNum and spellList[spellNum]) end -- check first spell list, if specified
+			if not listed then
+				spellList = nil -- check second spell list, if specified
+				if bp.filterBuffSpells2 and bp.filterBuffTable2 then spellList = MOD.db.global.SpellLists[bp.filterBuffTable2] end
+				if spellList then listed = spellList[n] or (spellNum and spellList[spellNum]) end
+				if not listed then
+					spellList = nil -- check third spell list, if specified
+					if bp.filterBuffSpells3 and bp.filterBuffTable3 then spellList = MOD.db.global.SpellLists[bp.filterBuffTable3] end
+					if spellList then listed = spellList[n] or (spellNum and spellList[spellNum]) end
+					if not listed then
+						spellList = nil -- check fourth spell list, if specified
+						if bp.filterBuffSpells4 and bp.filterBuffTable4 then spellList = MOD.db.global.SpellLists[bp.filterBuffTable4] end
+						if spellList then listed = spellList[n] or (spellNum and spellList[spellNum]) end
+						if not listed then
+							spellList = nil -- check fifth spell list, if specified
+							if bp.filterBuffSpells5 and bp.filterBuffTable5 then spellList = MOD.db.global.SpellLists[bp.filterBuffTable5] end
+							if spellList then listed = spellList[n] or (spellNum and spellList[spellNum]) end
+						end
+					end
+				end
+			end
+			if listed then listID = listed end -- if found in a spell list then save for tooltip display
+		end
 		if (bp.filterBuff and listed) or (bp.showBuff and not listed) then return end
 	end
 	if bp.filterBuffBars and CheckFilterBarGroup(bp.filterBuffBarGroup, "Buff", n, bp.detectBuffsMonitor) then return end -- check if in filter bar group
@@ -1258,9 +1306,34 @@ end
 local function DetectNewDebuffs(unit, n, aura, isBuff, bp, vbp, bg)
 	local listID = nil
 	if bp.showDebuff or bp.filterDebuff then -- check black lists and white lists
-		local spellList = nil; if bp.filterDebuffSpells and bp.filterDebuffTable then spellList = MOD.db.global.SpellLists[bp.filterDebuffTable] end
-		if spellList then listID = spellList[n] end
-		local listed = (bp.filterDebuffList and bp.filterDebuffList[n]) or (spellList and (listID or (aura[14] and spellList["#" .. tostring(aura[14])])))
+		local spellNum = aura[14] and ("#" .. tostring(aura[14])) -- string to look up the spell id in lists
+		local listed = bp.filterDebuffList and (bp.filterDebuffList[n] or (spellNum and bp.filterDebuffList[spellNum]))
+		if not listed then -- not found in the bar group's filter list, so check spell lists
+			local spellList = nil -- check the first spell list, if specified
+			if bp.filterDebuffSpells and bp.filterDebuffTable then spellList = MOD.db.global.SpellLists[bp.filterDebuffTable] end
+			if spellList then listed = spellList[n] or (spellNum and spellList[spellNum]) end -- check first spell list, if specified
+			if not listed then
+				spellList = nil -- check second spell list, if specified
+				if bp.filterDebuffSpells2 and bp.filterDebuffTable2 then spellList = MOD.db.global.SpellLists[bp.filterDebuffTable2] end
+				if spellList then listed = spellList[n] or (spellNum and spellList[spellNum]) end
+				if not listed then
+					spellList = nil -- check third spell list, if specified
+					if bp.filterDebuffSpells3 and bp.filterDebuffTable3 then spellList = MOD.db.global.SpellLists[bp.filterDebuffTable3] end
+					if spellList then listed = spellList[n] or (spellNum and spellList[spellNum]) end
+					if not listed then
+						spellList = nil -- check fourth spell list, if specified
+						if bp.filterDebuffSpells4 and bp.filterDebuffTable4 then spellList = MOD.db.global.SpellLists[bp.filterDebuffTable4] end
+						if spellList then listed = spellList[n] or (spellNum and spellList[spellNum]) end
+						if not listed then
+							spellList = nil -- check fifth spell list, if specified
+							if bp.filterDebuffSpells5 and bp.filterDebuffTable5 then spellList = MOD.db.global.SpellLists[bp.filterDebuffTable5] end
+							if spellList then listed = spellList[n] or (spellNum and spellList[spellNum]) end
+						end
+					end
+				end
+			end
+			if listed then listID = listed end -- if found in a spell list then save for tooltip display
+		end
 		if (bp.filterDebuff and listed) or (bp.showDebuff and not listed) then return end
 	end
 	if bp.filterDebuffBars and CheckFilterBarGroup(bp.filterDebuffBarGroup, "Debuff", n, bp.detectDebuffsMonitor) then return end -- check if in filter bar group
@@ -1389,9 +1462,34 @@ end
 local function DetectNewCooldowns(n, cd, bp, vbp, bg)
 	local listID = nil
 	if bp.showCooldown or bp.filterCooldown then -- check black lists and white lists
-		local spellList = nil; if bp.filterCooldownSpells and bp.filterCooldownTable then spellList = MOD.db.global.SpellLists[bp.filterCooldownTable] end
-		if spellList then listID = spellList[n] end
-		local listed = (bp.filterCooldownList and bp.filterCooldownList[n]) or (spellList and (listID or (cd[8] and spellList["#" .. tostring(cd[8])])))
+		local spellNum = cd[8] and ("#" .. tostring(cd[8])) -- string to look up the spell id in lists
+		local listed = bp.filterCooldownList and (bp.filterCooldownList[n] or (spellNum and bp.filterCooldownList[spellNum]))
+		if not listed then -- not found in the bar group's filter list, so check up spell lists
+			local spellList = nil -- check the first spell list, if specified
+			if bp.filterCooldownSpells and bp.filterCooldownTable then spellList = MOD.db.global.SpellLists[bp.filterCooldownTable] end
+			if spellList then listed = spellList[n] or (spellNum and spellList[spellNum]) end -- check first spell list, if specified
+			if not listed then
+				spellList = nil -- check second spell list, if specified
+				if bp.filterCooldownSpells2 and bp.filterCooldownTable2 then spellList = MOD.db.global.SpellLists[bp.filterCooldownTable2] end
+				if spellList then listed = spellList[n] or (spellNum and spellList[spellNum]) end
+				if not listed then
+					spellList = nil -- check third spell list, if specified
+					if bp.filterCooldownSpells3 and bp.filterCooldownTable3 then spellList = MOD.db.global.SpellLists[bp.filterCooldownTable3] end
+					if spellList then listed = spellList[n] or (spellNum and spellList[spellNum]) end
+					if not listed then
+						spellList = nil -- check fourth spell list, if specified
+						if bp.filterCooldownSpells4 and bp.filterCooldownTable4 then spellList = MOD.db.global.SpellLists[bp.filterCooldownTable4] end
+						if spellList then listed = spellList[n] or (spellNum and spellList[spellNum]) end
+						if not listed then
+							spellList = nil -- check fifth spell list, if specified
+							if bp.filterCooldownSpells5 and bp.filterCooldownTable5 then spellList = MOD.db.global.SpellLists[bp.filterCooldownTable5] end
+							if spellList then listed = spellList[n] or (spellNum and spellList[spellNum]) end
+						end
+					end
+				end
+			end
+			if listed then listID = listed end -- if found in a spell list then save for tooltip display
+		end
 		if (bp.filterCooldown and listed) or (bp.showCooldown and not listed) then return end
 	end
 	if bp.filterCooldownBars and CheckFilterBarGroup(bp.filterCooldownBarGroup, "Cooldown", n, true) then return end -- check if in filter bar group

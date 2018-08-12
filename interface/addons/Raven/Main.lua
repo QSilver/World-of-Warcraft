@@ -4,6 +4,10 @@
 
 -- Main.lua contains initialization and update routines supporting Raven's core capability of tracking active auras and cooldowns.
 -- It includes special cases for weapon buffs, stances, and trinkets.
+-- It works primarily by tracking events that indicate when auras and spell casts occur. It maintains internal
+-- tables of active auras to facilitate seamless tracking of auras, including casts that refresh ongoing auras.
+-- In addition, it tracks combat log events in order to detect auras that the player has cast on multiple targets.
+-- And, for cooldowns, it monitors events related to spells going onto cooldown.
 
 -- Exported functions:
 -- Raven:CheckAura(unit, name, isBuff) checks if an aura is active on a unit, returning detailed info if found
@@ -169,9 +173,10 @@ local function CheckGCD(event, unit, spell)
 end
 
 -- Function called for successful spell cast
-local function CheckSpellCasts(event, unit, spell)
-	CheckGCD(event, unit, spell)
-	if MOD.db.global.DetectSpellEffects then MOD:DetectSpellEffect(spell, unit) end -- check if spell triggers a spell effect
+local function CheckSpellCasts(event, unit, lineID, spellID)
+	CheckGCD(event, unit, spellID)
+	local name = GetSpellInfo(spellID)
+	if name and MOD.db.global.DetectSpellEffects then MOD:DetectSpellEffect(name, unit) end -- check if spell triggers a spell effect
 end
 
 -- Create and delete routines for managing tables, using a recycling pool to minimize garbage collection

@@ -76,7 +76,7 @@ local function get_encounters_list()
     encounter_list = encounter_list .. "\n"
   end
 
-  return encounter_list:sub(1, -3) .. L["\n\nSupports multiple entries, separated by commas\n"]
+  return encounter_list:sub(1, -3) .. "\n\n" .. L["Supports multiple entries, separated by commas\n"]
 end
 
 WeakAuras.function_strings = {
@@ -675,11 +675,11 @@ WeakAuras.load_prototype = {
       optional = true
     },
     {
-      name = "petbattle",
-      display = L["In Pet Battle"],
+      name = "warmode",
+      display = L["War Mode Active"],
       type = "tristate",
       init = "arg",
-      width = "normal",
+      width = "double",
       optional = true
     },
     {
@@ -688,6 +688,14 @@ WeakAuras.load_prototype = {
       type = "toggle",
       width = "normal",
       init = "false"
+    },
+    {
+      name = "petbattle",
+      display = L["In Pet Battle"],
+      type = "tristate",
+      init = "arg",
+      width = "normal",
+      optional = true
     },
     {
       name = "vehicle",
@@ -796,6 +804,16 @@ WeakAuras.load_prototype = {
       test = "WeakAuras.CheckTalentByIndex(%d)",
       enable = function(trigger)
         return trigger.use_talent ~= nil or trigger.use_talent2 ~= nil;
+      end,
+    },
+    {
+      name = "talent3",
+      display = L["And Talent selected"],
+      type = "multiselect",
+      values = valuesForTalentFunction,
+      test = "WeakAuras.CheckTalentByIndex(%d)",
+      enable = function(trigger)
+        return (trigger.use_talent ~= nil and trigger.use_talent2 ~= nil) or trigger.use_talent3 ~= nil;
       end,
     },
     {
@@ -1260,6 +1278,23 @@ WeakAuras.event_prototypes = {
                   state.cost = costInfo.cost;
                   break;
                 end
+              end
+            end
+            state.changed = true;
+          elseif (event == "UNIT_DISPLAYPOWER") then
+            local spellID = select(9, UnitCastingInfo("player"));
+            if spellID then
+              local costTable = GetSpellPowerCost(spellID);
+              local cost;
+              for _, costInfo in pairs(costTable) do
+                if costInfo.type == powerTypeToCheck then
+                  cost = costInfo.cost;
+                  break;
+                end
+              end
+              if (state.cost ~= cost) then
+                state.cost = cost;
+                state.changed = true;
               end
             end
             state.changed = true;
@@ -1766,17 +1801,6 @@ WeakAuras.event_prototypes = {
         conditionType = "bool"
       },
       {
-        name = "multistrike",
-        display = L["Multistrike"],
-        type = "tristate",
-        init = "arg",
-        enable = function(trigger)
-          return trigger.subeventSuffix and trigger.subeventPrefix and (trigger.subeventSuffix == "_DAMAGE" or trigger.subeventPrefix == "DAMAGE_SHIELD" or trigger.subeventPrefix == "DAMAGE_SPLIT" or trigger.subeventSuffix == "_HEAL")
-        end,
-        store = true,
-        conditionType = "bool"
-      },
-      {
         name = "number",
         display = L["Number"],
         type = "number",
@@ -1914,8 +1938,9 @@ WeakAuras.event_prototypes = {
         if (charges == nil) then
           charges = (duration == 0) and 1 or 0;
         end
-        local showOn = %s
+        local genericShowOn = %s
         local expirationTime = startTime + duration
+        state.spellname = spellname;
       ]=];
       if (not trigger.use_trackcharge or not trigger.trackcharge) then
         ret = ret .. [=[
@@ -1983,7 +2008,7 @@ WeakAuras.event_prototypes = {
         local trackedCharge = tonumber(trigger.trackcharge or 1) or 1;
         ret = ret .. ret2:format(trackedCharge - 1);
       end
-      if(trigger.use_remaining and trigger.showOn ~= "showOnReady") then
+      if(trigger.use_remaining and trigger.genericShowOn ~= "showOnReady") then
         local ret2 = [[
           local remaining = expirationTime > 0 and (expirationTime - GetTime()) or 0;
           local remainingCheck = %s;
@@ -1996,7 +2021,7 @@ WeakAuras.event_prototypes = {
       return ret:format(spellName,
         (trigger.use_matchedRune and "true" or "false"),
         (trigger.use_showgcd and "true" or "false"),
-        "[[" .. (trigger.showOn or "") .. "]]");
+        "[[" .. (trigger.genericShowOn or "") .. "]]");
     end,
     statesParameter = "one",
     canHaveDuration = "timed",
@@ -2026,7 +2051,7 @@ WeakAuras.event_prototypes = {
         name = "remaining",
         display = L["Remaining Time"],
         type = "number",
-        enable = function(trigger) return (trigger.showOn ~= "showOnReady") end
+        enable = function(trigger) return (trigger.genericShowOn ~= "showOnReady") end
       },
       {
         name = "charges",
@@ -2055,12 +2080,12 @@ WeakAuras.event_prototypes = {
         name = "trackcharge",
         display = L["Show CD of Charge"],
         type = "number",
-        enable = function(trigger) return (trigger.showOn ~= "showOnReady") end,
+        enable = function(trigger) return (trigger.genericShowOn ~= "showOnReady") end,
         test = "true",
         noOperator = true,
       },
       {
-        name = "showOn",
+        name = "genericShowOn",
         display =  L["Show"],
         type = "select",
         values = "cooldown_progress_behavior_types",
@@ -2083,10 +2108,48 @@ WeakAuras.event_prototypes = {
         test = "true"
       },
       {
+        name = "spellUsable",
+        display = L["Spell Usable"],
         hidden = true,
-        test = "(showOn == \"showOnReady\" and (startTime == 0 or gcdCooldown)) " ..
-        "or (showOn == \"showOnCooldown\" and startTime > 0 and not gcdCooldown) " ..
-        "or (showOn == \"showAlways\")"
+        test = "true",
+        conditionType = "bool",
+        conditionTest = "(state and state.show and (IsUsableSpell(state.spellname) == (%s == 1)))",
+        conditionEvents = {
+          "SPELL_UPDATE_USABLE",
+          "PLAYER_TARGET_CHANGED",
+          "UNIT_POWER_FREQUENT",
+        },
+      },
+      {
+        name = "insufficientResources",
+        display = L["Insufficient Resources"],
+        hidden = true,
+        test = "true",
+        conditionType = "bool",
+        conditionTest = "state and state.show and (select(2, IsUsableSpell(state.spellname)) == (%s == 1))",
+        conditionEvents = {
+          "SPELL_UPDATE_USABLE",
+          "PLAYER_TARGET_CHANGED",
+          "UNIT_POWER_FREQUENT",
+        }
+      },
+      {
+        name = "spellInRange",
+        display = L["Spell in Range"],
+        hidden = true,
+        test = "true",
+        conditionType = "bool",
+        conditionTest = "state and state.show and (UnitExists('target') and WeakAuras.IsSpellInRange(state.spellname, 'target') == %s)",
+        conditionEvents = {
+          "PLAYER_TARGET_CHANGED",
+          "WA_SPELL_RANGECHECK",
+        }
+      },
+      {
+        hidden = true,
+        test = "(genericShowOn == \"showOnReady\" and (startTime == 0 or gcdCooldown)) " ..
+        "or (genericShowOn == \"showOnCooldown\" and startTime > 0 and not gcdCooldown) " ..
+        "or (genericShowOn == \"showAlways\")"
       }
     },
     nameFunc = function(trigger)
@@ -2109,7 +2172,6 @@ WeakAuras.event_prototypes = {
     end,
     hasSpellID = true,
     automaticrequired = true,
-    automaticAutoHide = false
   },
   ["Cooldown Ready (Spell)"] = {
     type = "event",
@@ -2234,11 +2296,13 @@ WeakAuras.event_prototypes = {
       --trigger.itemName = WeakAuras.CorrectItemName(trigger.itemName) or 0;
       trigger.itemName = trigger.itemName or 0;
       local itemName = type(trigger.itemName) == "number" and trigger.itemName or "[["..trigger.itemName.."]]";
-      local ret = [[
-        local startTime, duration = WeakAuras.GetItemCooldown(%s);
-        local showOn = %s
-      ]];
-      if(trigger.use_remaining and trigger.showOn ~= "showOnReady") then
+      local ret = [=[
+        local itemname = %s;
+        local startTime, duration, enabled = WeakAuras.GetItemCooldown(itemname);
+        local genericShowOn = %s
+        state.itemname = itemname;
+      ]=];
+      if(trigger.use_remaining and trigger.genericShowOn ~= "showOnReady") then
         local ret2 = [[
           local expirationTime = startTime + duration
           local remaining = expirationTime > 0 and (expirationTime - GetTime()) or 0;
@@ -2249,8 +2313,9 @@ WeakAuras.event_prototypes = {
         ]];
         ret = ret..ret2:format(tonumber(trigger.remaining or 0) or 0);
       end
-      return ret:format(itemName,  "[[" .. (trigger.showOn or "") .. "]]");
+      return ret:format(itemName,  "[[" .. (trigger.genericShowOn or "") .. "]]");
     end,
+    statesParameter = "one",
     args = {
       {
         name = "itemName",
@@ -2263,11 +2328,11 @@ WeakAuras.event_prototypes = {
         name = "remaining",
         display = L["Remaining Time"],
         type = "number",
-        enable = function(trigger) return (trigger.showOn ~= "showOnReady") end,
+        enable = function(trigger) return (trigger.genericShowOn ~= "showOnReady") end,
         init = "remaining"
       },
       {
-        name = "showOn",
+        name = "genericShowOn",
         display =  L["Show"],
         type = "select",
         values = "cooldown_progress_behavior_types",
@@ -2277,17 +2342,35 @@ WeakAuras.event_prototypes = {
       },
       {
         hidden = true,
+        name = "enabled",
+        store = true,
+        test = "true",
+      },
+      {
+        hidden = true,
         name = "onCooldown",
         test = "true",
         display = L["On Cooldown"],
         conditionType = "bool",
-        conditionTest = "(state and state.show and state.expirationTime and state.expirationTime > GetTime()) == (%s == 1)",
+        conditionTest = "(state and state.show and (state.expirationTime and state.expirationTime > GetTime() or state.enabled == 0)) == (%s == 1)",
+      },
+      {
+        name = "itemInRange",
+        display = L["Item in Range"],
+        hidden = true,
+        test = "true",
+        conditionType = "bool",
+        conditionTest = "state and state.show and (UnitExists('target') and IsItemInRange(state.itemname, 'target')) == (%s == 1)",
+        conditionEvents = {
+          "PLAYER_TARGET_CHANGED",
+          "WA_SPELL_RANGECHECK",
+        }
       },
       {
         hidden = true,
-        test = "(showOn == \"showOnReady\" and startTime == 0) " ..
-        "or (showOn == \"showOnCooldown\" and startTime > 0) " ..
-        "or (showOn == \"showAlways\")"
+        test = "(genericShowOn == \"showOnReady\" and startTime == 0 and enabled == 1) " ..
+        "or (genericShowOn == \"showOnCooldown\" and (startTime > 0 or enabled == 0)) " ..
+        "or (genericShowOn == \"showAlways\")"
       }
     },
     durationFunc = function(trigger)
@@ -2330,10 +2413,10 @@ WeakAuras.event_prototypes = {
     init = function(trigger)
       local ret = [[
         local startTime, duration, enable = WeakAuras.GetItemSlotCooldown(%s);
-        local showOn = %s
+        local genericShowOn = %s
         local remaining = startTime + duration - GetTime();
       ]];
-      if(trigger.use_remaining and trigger.showOn ~= "showOnReady") then
+      if(trigger.use_remaining and trigger.genericShowOn ~= "showOnReady") then
         local ret2 = [[
           local expirationTime = startTime + duration
           local remaining = expirationTime > 0 and (expirationTime - GetTime()) or 0;
@@ -2344,7 +2427,7 @@ WeakAuras.event_prototypes = {
         ]];
         ret = ret..ret2:format(tonumber(trigger.remaining or 0) or 0);
       end
-      return ret:format(trigger.itemSlot or "0",  "[[" .. (trigger.showOn or "") .. "]]");
+      return ret:format(trigger.itemSlot or "0",  "[[" .. (trigger.genericShowOn or "") .. "]]");
     end,
     args = {
       {
@@ -2359,7 +2442,7 @@ WeakAuras.event_prototypes = {
         name = "remaining",
         display = L["Remaining Time"],
         type = "number",
-        enable = function(trigger) return (trigger.showOn ~= "showOnReady") end,
+        enable = function(trigger) return (trigger.genericShowOn ~= "showOnReady") end,
         init = "remaining"
       },
       {
@@ -2369,7 +2452,7 @@ WeakAuras.event_prototypes = {
         test = "enable == 1"
       },
       {
-        name = "showOn",
+        name = "genericShowOn",
         display =  L["Show"],
         type = "select",
         values = "cooldown_progress_behavior_types",
@@ -2387,9 +2470,9 @@ WeakAuras.event_prototypes = {
       },
       {
         hidden = true,
-        test = "(showOn == \"showOnReady\" and startTime == 0) " ..
-        "or (showOn == \"showOnCooldown\" and startTime > 0) " ..
-        "or (showOn == \"showAlways\")"
+        test = "(genericShowOn == \"showOnReady\" and startTime == 0) " ..
+        "or (genericShowOn == \"showOnCooldown\" and startTime > 0) " ..
+        "or (genericShowOn == \"showAlways\")"
       }
     },
     durationFunc = function(trigger)
@@ -2408,7 +2491,6 @@ WeakAuras.event_prototypes = {
       return GetInventoryItemTexture("player", trigger.itemSlot or 0) or "Interface\\Icons\\INV_Misc_QuestionMark";
     end,
     automaticrequired = true,
-    automaticAutoHide = false
   },
   ["Cooldown Ready (Item)"] = {
     type = "event",
@@ -2595,6 +2677,12 @@ WeakAuras.event_prototypes = {
           local triggerSpellId = nil;
         ]];
       end
+
+      local ret2 = [[
+        local extendTimer = %s;
+      ]]
+      ret = ret .. ret2:format(trigger.use_extend and tonumber(trigger.extend or 0) or 0)
+
       local copyOrSchedule;
       if (trigger.use_remaining) then
         local ret2 = [[
@@ -2602,21 +2690,21 @@ WeakAuras.event_prototypes = {
         ]];
         ret = ret .. ret2:format(trigger.remaining or 0);
         copyOrSchedule = [[
-          local remainingTime = bar.expirationTime - GetTime()
+          local remainingTime = bar.expirationTime - GetTime() + extendTimer;
           if (remainingTime %s %s) then
-            WeakAuras.CopyBarToState(bar, states, id);
+            WeakAuras.CopyBarToState(bar, states, id, extendTimer);
           elseif (states[id] and states[id].show) then
               states[id].show = false;
               states[id].changed = true;
           end
           if (remainingTime >= remainingCheck) then
-            WeakAuras.ScheduleDbmCheck(bar.expirationTime - remainingCheck);
+            WeakAuras.ScheduleDbmCheck(bar.expirationTime - remainingCheck + extendTimer);
           end
         ]]
         copyOrSchedule = copyOrSchedule:format(trigger.remaining_operator or "<", trigger.remaining or 0);
       else
         copyOrSchedule = [[
-          WeakAuras.CopyBarToState(bar, states, id);
+          WeakAuras.CopyBarToState(bar, states, id, extendTimer);
           ]];
       end
       if (trigger.use_cloneId) then
@@ -2639,8 +2727,11 @@ WeakAuras.event_prototypes = {
 
           elseif (event == "DBM_TimerStop") then
             if (states[id]) then
-              states[id].show = false;
-              states[id].changed = true;
+              local bar_remainingTime = GetTime() - states[id].expirationTime + states[id].extend;
+              if (states[id].extend == 0 or bar_remainingTime > 0.2) then
+                states[id].show = false;
+                states[id].changed = true;
+              end
             end
           elseif (event == "DBM_TimerStopAll") then
             for _, state in pairs(states) do
@@ -2664,16 +2755,31 @@ WeakAuras.event_prototypes = {
         return ret
       else -- no clones
         ret = ret .. [[
-          local bar = WeakAuras.GetDBMTimer(triggerId, triggerMessage, triggerOperator, triggerSpellId);
+          if (event == "DBM_TimerStart") then
+            if (extendTimer ~= 0) then
+              if (WeakAuras.DBMTimerMatches(id, triggerId, triggerMessage, triggerOperator, triggerSpellId)) then
+                local bar = WeakAuras.GetDBMTimerById(id);
+                WeakAuras.ScheduleDbmCheck(bar.expirationTime + extendTimer);
+              end
+            end
+          end
+          local bar = WeakAuras.GetDBMTimer(triggerId, triggerMessage, triggerOperator, triggerSpellId, extendTimer);
           local id = "";
           if (bar) then
+            if (extendTimer == 0)
+              or (not (states[""] and states[""].show)
+              or (states[""] and states[""].show and states[""].expirationTime > (bar.expirationTime + extendTimer))) then
         ]]
       ret = ret .. copyOrSchedule;
       ret = ret .. [[
+            end
           else
             if (states[""] and states[""].show) then
-              states[""].show = false;
-              states[""].changed = true;
+              local bar_remainingTime = GetTime() - states[""].expirationTime + states[""].extend;
+              if (states[""].extend == 0 or bar_remainingTime > 0.2) then
+                states[""].show = false;
+                states[""].changed = true;
+              end
             end
           end
           return true;
@@ -2707,6 +2813,11 @@ WeakAuras.event_prototypes = {
         name = "remaining",
         display = L["Remaining Time"],
         type = "number",
+      },
+      {
+        name = "extend",
+        display = L["Adjust Timer"],
+        type = "string",
       },
       {
         name = "cloneId",
@@ -2803,6 +2914,11 @@ WeakAuras.event_prototypes = {
         trigger.use_text and trigger.text_operator or ""
       );
 
+      local ret2 = [[
+        local extendTimer = %s;
+      ]]
+      ret = ret .. ret2:format(trigger.use_extend and tonumber(trigger.extend or 0) or 0)
+
       local copyOrSchedule;
       if (trigger.use_remaining) then
         local ret2 = [[
@@ -2810,21 +2926,21 @@ WeakAuras.event_prototypes = {
         ]];
         ret = ret .. ret2:format(trigger.remaining or 0);
         copyOrSchedule = [[
-          local remainingTime = bar.expirationTime - GetTime()
+          local remainingTime = bar.expirationTime - GetTime() + extendTimer;
           if (remainingTime %s %s) then
-            WeakAuras.CopyBigWigsTimerToState(bar, states, id);
+            WeakAuras.CopyBigWigsTimerToState(bar, states, id, extendTimer);
           elseif (states[id] and states[id].show) then
               states[id].show = false;
               states[id].changed = true;
           end
           if (remainingTime >= remainingCheck) then
-            WeakAuras.ScheduleBigWigsCheck(bar.expirationTime - remainingCheck);
+            WeakAuras.ScheduleBigWigsCheck(bar.expirationTime - remainingCheck + extendTimer);
           end
           ]]
         copyOrSchedule = copyOrSchedule:format(trigger.remaining_operator or "", trigger.remaining or 0);
       else
         copyOrSchedule = [[
-          WeakAuras.CopyBigWigsTimerToState(bar, states, id);
+          WeakAuras.CopyBigWigsTimerToState(bar, states, id, extendTimer);
           ]];
       end
 
@@ -2839,8 +2955,11 @@ WeakAuras.event_prototypes = {
             end
           elseif (event == "BigWigs_StopBar") then
             if (states[id]) then
-              states[id].show = false;
-              states[id].changed = true;
+              local bar_remainingTime = GetTime() - states[id].expirationTime + states[id].extend;
+              if (states[id].extend == 0 or bar_remainingTime > 0.2) then
+                states[id].show = false;
+                states[id].changed = true;
+              end
             end
           elseif (event == "BigWigs_Timer_Update") then
             for id, bar in pairs(WeakAuras.GetAllBigWigsTimers()) do
@@ -2866,16 +2985,31 @@ WeakAuras.event_prototypes = {
         return ret;
       else
         ret = ret .. [[
-          local bar = WeakAuras.GetBigWigsTimer(triggerAddon, triggerSpellId, triggerTextOperator, triggerText);
+          if (event == "BigWigs_StartBar") then
+            if (extendTimer ~= 0) then
+              if (WeakAuras.BigWigsTimerMatches(id, triggerAddon, triggerSpellId, triggerTextOperator, triggerText)) then
+                local bar = WeakAuras.GetBigWigsTimerById(id);
+                WeakAuras.ScheduleBigWigsCheck(bar.expirationTime + extendTimer);
+              end
+            end
+          end
+          local bar = WeakAuras.GetBigWigsTimer(triggerAddon, triggerSpellId, triggerTextOperator, triggerText, extendTimer);
           local id = "";
           if (bar) then
+            if (extendTimer == 0)
+              or (not (states[""] and states[""].show)
+              or (states[""] and states[""].show and states[""].expirationTime > (bar.expirationTime + extendTimer))) then
         ]]
         ret = ret .. copyOrSchedule;
         ret = ret .. [[
+            end
           else
             if (states[""] and states[""].show) then
-              states[""].show = false;
-              states[""].changed = true;
+              local bar_remainingTime = GetTime() - states[""].expirationTime + states[""].extend;
+              if (states[""].extend == 0 or bar_remainingTime > 0.2) then
+                states[""].show = false;
+                states[""].changed = true;
+              end
             end
           end
           return true;
@@ -2909,6 +3043,11 @@ WeakAuras.event_prototypes = {
         type = "number",
       },
       {
+        name = "extend",
+        display = L["Adjust Timer"],
+        type = "string",
+      },
+      {
         name = "cloneId",
         display = L["Clone per Event"],
         type = "toggle",
@@ -2917,7 +3056,6 @@ WeakAuras.event_prototypes = {
       }
     },
     automaticrequired = true,
-    automaticAutoHide = false
   },
   ["Global Cooldown"] = {
     type = "status",
@@ -3540,7 +3678,8 @@ WeakAuras.event_prototypes = {
       "CHAT_MSG_SAY",
       "CHAT_MSG_WHISPER",
       "CHAT_MSG_YELL",
-      "CHAT_MSG_SYSTEM"
+      "CHAT_MSG_SYSTEM",
+      "CHAT_MSG_TEXT_EMOTE"
     },
     name = L["Chat Message"],
     init = function(trigger)
@@ -3645,7 +3784,7 @@ WeakAuras.event_prototypes = {
       local ret = [[
       local rune = %s;
       local startTime, duration = WeakAuras.GetRuneCooldown(rune);
-      local showOn = %s
+      local genericShowOn = %s
 
       local numRunes = 0;
       for index = 1, 6 do
@@ -3667,7 +3806,7 @@ WeakAuras.event_prototypes = {
       ]];
         ret = ret..ret2:format(tonumber(trigger.remaining or 0) or 0);
       end
-      return ret:format(trigger.rune, "[[" .. (trigger.showOn or "") .. "]]");
+      return ret:format(trigger.rune, "[[" .. (trigger.genericShowOn or "") .. "]]");
     end,
     args = {
       {
@@ -3675,9 +3814,9 @@ WeakAuras.event_prototypes = {
         display = L["Rune"],
         type = "select",
         values = "rune_specific_types",
-        test = "(showOn == \"showOnReady\" and (startTime == 0)) " ..
-        "or (showOn == \"showOnCooldown\" and startTime > 0) "  ..
-        "or (showOn == \"showAlways\")",
+        test = "(genericShowOn == \"showOnReady\" and (startTime == 0)) " ..
+        "or (genericShowOn == \"showOnCooldown\" and startTime > 0) "  ..
+        "or (genericShowOn == \"showAlways\")",
         enable = function(trigger) return not trigger.use_runesCount end,
         reloadOptions = true
       },
@@ -3685,10 +3824,10 @@ WeakAuras.event_prototypes = {
         name = "remaining",
         display = L["Remaining Time"],
         type = "number",
-        enable = function(trigger) return trigger.use_rune and not(trigger.showOn == "showOnReady") end
+        enable = function(trigger) return trigger.use_rune and not(trigger.genericShowOn == "showOnReady") end
       },
       {
-        name = "showOn",
+        name = "genericShowOn",
         display =  L["Show"],
         type = "select",
         values = "cooldown_progress_behavior_types",
@@ -3748,7 +3887,6 @@ WeakAuras.event_prototypes = {
       return "Interface\\PlayerFrame\\UI-PlayerFrame-Deathknight-SingleRune";
     end,
     automaticrequired = true,
-    automaticAutoHide = false
   },
   ["Item Equipped"] = {
     type = "status",
@@ -4520,7 +4658,7 @@ WeakAuras.dynamic_texts = {
     value = "stacks",
     static = 1
   },
-  ["%c"] = {
+  ["%c%d*"] = {
     unescaped = "%c",
     name = L["Custom"],
     value = "custom",

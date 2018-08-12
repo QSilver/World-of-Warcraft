@@ -730,8 +730,7 @@ Prat:AddModuleToLoad(function()
 		--[[ ["grats_link"] = "",--]] 
 		--[[Translation missing --]]
 		--[[ ["module_desc"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["module_name"] = "",--]] 
+		["module_name"] = "Logros",
 		--[[Translation missing --]]
 		--[[ ["showCompletedDate_desc"] = "",--]] 
 		--[[Translation missing --]]

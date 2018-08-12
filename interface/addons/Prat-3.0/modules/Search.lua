@@ -173,10 +173,8 @@ Suche]=],
    L=
 {
 	["Search"] = {
-		--[[Translation missing --]]
-		--[[ ["err_notfound"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["err_tooshort"] = "",--]] 
+		["err_notfound"] = "No encontrado",
+		["err_tooshort"] = "Termino de búsqueda demasiado corto",
 		--[[Translation missing --]]
 		--[[ ["find_results"] = "",--]] 
 		--[[Translation missing --]]

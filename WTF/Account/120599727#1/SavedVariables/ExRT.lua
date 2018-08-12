@@ -11570,6 +11570,25 @@ VExRT = {
 				"^2092^16^1532035209^62^0^20^250.29^Rukawa", -- [11413]
 				"^2092^16^1532035335^261^0^20^250.29^Duiveldari", -- [11414]
 				"^2092^16^1532035627^22^0^20^250.29^Pawnhub", -- [11415]
+				"^2076^16^1533231727^193^1^20^250.00^Roselutea", -- [11416]
+				"^2063^16^1533232645^221^0^20^251.06^Sanchi", -- [11417]
+				"^2063^16^1533232992^376^1^20^251.13^Fransk", -- [11418]
+				"^2092^16^1533233846^534^1^20^251.56^Rukawa", -- [11419]
+				"^2069^16^1533234801^69^0^20^251.27^Krazoapalace", -- [11420]
+				"^2069^16^1533234947^194^1^20^251.59^", -- [11421]
+				"^2073^16^1533235186^8^0^20^251.61^Abbimist", -- [11422]
+				"^2073^16^1533235239^8^0^20^251.44^", -- [11423]
+				"^2073^16^1533235448^198^0^20^251.41^Iamw", -- [11424]
+				"^2073^16^1533235673^5^0^20^251.44^", -- [11425]
+				"^2073^16^1533235816^362^1^20^251.45^Chenenxi", -- [11426]
+				"^2074^16^1533236359^13^0^20^251.47^", -- [11427]
+				"^2074^16^1533236604^186^1^20^250.11^", -- [11428]
+				"^2064^16^1533237179^4^0^20^249.65^", -- [11429]
+				"^2064^16^1533237218^10^0^20^249.65^", -- [11430]
+				"^2075^16^1533237387^110^0^20^249.48^", -- [11431]
+				"^2075^16^1533237654^505^1^20^248.01^Abbey", -- [11432]
+				"^2070^16^1533238627^6^0^20^249.01^", -- [11433]
+				"^2070^16^1533238760^306^1^20^250.21^Xelenor", -- [11434]
 			},
 			["Lachrymas"] = {
 				"^1964^2^1517590459^74^1^5^823.81^", -- [1]
@@ -26549,6 +26568,67 @@ VExRT = {
 			"3250582Rukawa1532032853", -- [14546]
 			"B250582Iamw1532032856", -- [14547]
 			"8250582Gulrot1532032872", -- [14548]
+			"8250541Gulrot1533231922", -- [14549]
+			"B250541Sonneillon1533231924", -- [14550]
+			"7250541Gréenfinger1533231929", -- [14551]
+			"B250541Abbimist1533231975", -- [14552]
+			"7250582Tjani1533233369", -- [14553]
+			"B250582Sonneillon1533233369", -- [14554]
+			"8250582Gulrot1533233370", -- [14555]
+			"!8152138Gulrot1533233370:3:3612:1502:3528", -- [14556]
+			"1250582Fransk1533233388", -- [14557]
+			"2250582Feskmás1533233389", -- [14558]
+			"!2152052Feskmás1533233389:3:3612:1502:3528", -- [14559]
+			"4250582Saresi1533233407", -- [14560]
+			"!4152062Saresi1533233408:4:3612:42:1527:3337", -- [14561]
+			"4250583Saresi1533234382", -- [14562]
+			"7250583Tjani1533234383", -- [14563]
+			"8250583Gulrot1533234383", -- [14564]
+			"1250583Fransk1533234384", -- [14565]
+			"B250583Iamw1533234384", -- [14566]
+			"3250583Rukawa1533234391", -- [14567]
+			"C250583Duiveldari1533234394", -- [14568]
+			"!C155846Duiveldari1533234394:3:3612:1527:3337", -- [14569]
+			"9250583Wobbers1533234395", -- [14570]
+			"2250583Feskmás1533234428", -- [14571]
+			"!2155851Feskmás1533234429:3:3612:1512:3528", -- [14572]
+			"B250583Sonneillon1533234435", -- [14573]
+			"5250583Olivem1533234446", -- [14574]
+			"B250580Iamw1533235148", -- [14575]
+			"9250580Wobbers1533235162", -- [14576]
+			"6250580Xelenor1533235166", -- [14577]
+			"7250581Tjani1533236180", -- [14578]
+			"!7152289Tjani1533236180:3:3612:1502:3528", -- [14579]
+			"1250581Fransk1533236181", -- [14580]
+			"!1152010Fransk1533236181:4:3612:1808:1502:3528", -- [14581]
+			"5250581Olivem1533236181", -- [14582]
+			"8250581Gulrot1533236181", -- [14583]
+			"9250581Wobbers1533236182", -- [14584]
+			"!9152177Wobbers1533236182:4:3612:1808:1502:3528", -- [14585]
+			"4250581Saresi1533236187", -- [14586]
+			"!4151984Saresi1533236187:4:3612:1808:1507:3336", -- [14587]
+			"2250581Feskmás1533236196", -- [14588]
+			"B250581Iamw1533236234", -- [14589]
+			"!B152129Iamw1533236234:3:3612:1502:3528", -- [14590]
+			"A250581Sanchi1533236238", -- [14591]
+			"!A152058Sanchi1533236238:3:3612:1517:3337", -- [14592]
+			"6250574Xelenor1533236794", -- [14593]
+			"!6152056Xelenor1533236795:3:3612:1507:3336", -- [14594]
+			"8250574Gulrot1533236798", -- [14595]
+			"3250574Rukawa1533236824", -- [14596]
+			"7250577Tjani1533238161", -- [14597]
+			"7250577Gréenfinger1533238164", -- [14598]
+			"8250577Gulrot1533238165", -- [14599]
+			"9250577Summonium1533238176", -- [14600]
+			"7250577Chenenxi1533238180", -- [14601]
+			"3250577Rukawa1533238197", -- [14602]
+			"7250575Gréenfinger1533239073", -- [14603]
+			"9250575Summonium1533239075", -- [14604]
+			"!9152172Summonium1533239075:3:3612:1517:3337", -- [14605]
+			"8250575Gulrot1533239089", -- [14606]
+			"!8152424Gulrot1533239089:4:3612:1808:1502:3528", -- [14607]
+			"8250575Troopcsd1533239173", -- [14608]
+			"!8151953Troopcsd1533239173:3:3612:1507:3336", -- [14609]
 		},
 	},
 	["ExCD2"] = {
@@ -26557,487 +26637,7 @@ VExRT = {
 			},
 		},
 		["gnGUIDs"] = {
-			["Pawnhub"] = 105,
-			["Korehdron-CultedelaRivenoire"] = 251,
-			["Ezikiel-AeriePeak"] = 253,
-			["Laendron-Mazrigos"] = 103,
-			["Sapfw"] = 259,
-			["Shiwi-Aggramar"] = 64,
-			["Karmaelectra-Frostmane"] = 269,
-			["Kulj-Minahonda"] = 105,
-			["Lukrid-Terenas"] = 104,
-			["Myren"] = 253,
-			["Tirinoob-Outland"] = 71,
-			["Terriwogan-Kilrogg"] = 104,
-			["Wunjuw"] = 72,
-			["Animation-BurningLegion"] = 71,
-			["Syntslap"] = 72,
-			["Casanovà"] = 251,
-			["Vhaerun-Ravencrest"] = 71,
-			["Jurika-Ravencrest"] = 105,
-			["Vannus-Khadgar"] = 251,
-			["Hemulen-ScarshieldLegion"] = 66,
-			["Yeager-TheSha'tar"] = 253,
-			["Oshammy-GrimBatol"] = 264,
-			["Nityanandi-DefiasBrotherhood"] = 257,
-			["Chenenxi"] = 263,
-			["Эммилисса-Гордунни"] = 254,
-			["Labelle-Uldum"] = 256,
-			["Tyrhelða-TheSha'tar"] = 64,
-			["Onenote-BurningLegion"] = 262,
-			["Rosealba"] = 257,
-			["Bolleke-Shadowsong"] = 64,
-			["Jín-Outland"] = 259,
-			["Evangelyne-ArgentDawn"] = 265,
-			["Iolw"] = 262,
-			["Koraru-Antonidas"] = 102,
-			["Bullrog"] = 70,
-			["Kanchii"] = 105,
-			["Deathduivel-Turalyon"] = 251,
-			["Tyriol-Drak'thul"] = 70,
-			["Zellyà-Outland"] = 267,
-			["Victur"] = 62,
-			["Alwilda-Ravencrest"] = 102,
-			["Zeafex-Stormrage"] = 256,
-			["Pezuñsúcia-DunModr"] = 264,
-			["Hishiro-Turalyon"] = 269,
-			["Nictia"] = 577,
-			["Blowmymace"] = 263,
-			["Lurifaksen-Stormreaver"] = 251,
-			["Fróstí-Aegwynn"] = 63,
-			["Emuhunt-ArgentDawn"] = 254,
-			["Binky"] = 258,
-			["Akanil-Magtheridon"] = 577,
-			["Vorsan-Elune"] = 251,
-			["Terondashi"] = 267,
-			["Malalel-Pozzodell'Eternità"] = 257,
-			["Shaska-ArgentDawn"] = 267,
-			["Вирриан-Дракономор"] = 254,
-			["Иудалион-Гордунни"] = 258,
-			["Voldas"] = 254,
-			["Njoma-Outland"] = 254,
-			["Keraail-Draenor"] = 253,
-			["Pratectar"] = 66,
-			["Zapphira"] = 267,
-			["Monara-LosErrantes"] = 257,
-			["Luckyowll-Outland"] = 102,
-			["Natuurboom"] = 104,
-			["Humanhammer-Magtheridon"] = 70,
-			["Queegster-Quel'Thalas"] = 253,
-			["Pandorha-Blackmoore"] = 254,
-			["Itharion-Archimonde"] = 577,
-			["Bromon-ChamberofAspects"] = 71,
-			["Starboy-DunModr"] = 269,
-			["Cajnab"] = 262,
-			["Gaymer-Outland"] = 102,
-			["Yelin"] = 270,
-			["Nighteyes"] = 266,
-			["Etlipilav-Outland"] = 577,
-			["Shattahunt-Drak'thul"] = 253,
-			["Dinaca"] = 265,
-			["Abbey"] = 104,
-			["Ferrandie"] = 252,
-			["Nydiell-BurningLegion"] = 577,
-			["Halfgard-Antonidas"] = 265,
-			["Hopfazupfa-Echsenkessel"] = 259,
-			["Däme-ChamberofAspects"] = 577,
-			["Prcojeb-Sylvanas"] = 265,
-			["Cara"] = 577,
-			["Shýda-Ravencrest"] = 62,
-			["Shócka"] = 262,
-			["Expelcius"] = 64,
-			["Avci-Aegwynn"] = 253,
-			["Líghtsworn"] = 258,
-			["Dâkóta-DarkmoonFaire"] = 103,
-			["Niyaah-Hellscream"] = 258,
-			["Betongadam"] = 265,
-			["Helpimblind"] = 577,
-			["Sylvieus-Outland"] = 64,
-			["Ion-Thunderhorn"] = 261,
-			["Tellos-DerAbyssischeRat"] = 73,
-			["Troopcsd"] = 63,
-			["Meggedayum"] = 251,
-			["Rahiria-AzjolNerub"] = 72,
-			["Zeanna-SteamwheedleCartel"] = 263,
-			["Defappy-Ravencrest"] = 72,
-			["Rosebleu"] = 64,
-			["Ludaja-Sylvanas"] = 258,
-			["Kírstín"] = 66,
-			["Zanjih"] = 105,
-			["Ertranki-Exodar"] = 103,
-			["Shoucki"] = 103,
-			["Lachrymas"] = 265,
-			["Cukrowewaty-BurningLegion"] = 269,
-			["Fallenblood-Zuluhed"] = 254,
-			["Deathpool-BurningLegion"] = 259,
-			["Brannvìn"] = 254,
-			["Muffinlady-Blackmoore"] = 577,
-			["Holocaustas"] = 577,
-			["Tackcalb"] = 102,
-			["Duskygloom"] = 103,
-			["Bolardo"] = 265,
-			["Mellchizedek"] = 64,
-			["Суйсэйсеки-Гордунни"] = 264,
-			["Tropcsd"] = 269,
-			["Olivum"] = 65,
-			["Maemi"] = 70,
-			["Rocz-Wildhammer"] = 265,
-			["Laaqueel"] = 257,
-			["Беличьиушки-Гром"] = 252,
-			["Bafomdad"] = 258,
-			["Cptkuiz-Ysondre"] = 72,
-			["Gladatrix-Draenor"] = 73,
-			["Velf-Vek'nilash"] = 64,
-			["Evalettes-Ravencrest"] = 265,
-			["Lotharftw"] = 70,
-			["Plaguess-Ravencrest"] = 66,
-			["Kaysaa"] = 64,
-			["Url"] = 258,
-			["Garyrouge"] = 261,
-			["Stormpeaker"] = 263,
-			["Myekha"] = 66,
-			["Scottw-Outland"] = 70,
-			["Volthumn-Tyrande"] = 262,
-			["Flynn-Magtheridon"] = 66,
-			["Garydiving"] = 577,
-			["Донканзо-Голдринн"] = 72,
-			["Kawander-AzjolNerub"] = 253,
-			["Delilla-Ragnaros"] = 577,
-			["Xpire"] = 251,
-			["Гранёныч-Галакронд"] = 257,
-			["Tjanster"] = 65,
-			["Soise"] = 73,
-			["Zaedia-Outland"] = 257,
-			["Kiars"] = 255,
-			["Deity-Jaedenar"] = 251,
-			["Ieel"] = 577,
-			["Idilux-Vek'nilash"] = 64,
-			["Tinks-Arathor"] = 64,
-			["Aurellìa"] = 264,
-			["Redzie-Ravencrest"] = 250,
-			["Keyghan-EmeraldDream"] = 259,
-			["Alexutzul"] = 64,
-			["Mounira-Mal'Ganis"] = 263,
-			["Arnvall-Archimonde"] = 70,
-			["Duivell"] = 265,
-			["Fabioso"] = 264,
-			["Hélsinki-Ravencrest"] = 267,
-			["Morgulwen"] = 577,
-			["Zeptä-Dalaran"] = 65,
-			["Keth-DerMithrilorden"] = 259,
-			["Dflex-Quel'Thalas"] = 251,
-			["Deggán-Frostmane"] = 577,
-			["Garynitro"] = 258,
-			["Theruggedman-Turalyon"] = 254,
-			["Милисиндра-Гордунни"] = 105,
-			["Kalzahar-Mazrigos"] = 577,
-			["Aerelion-Blackmoore"] = 250,
-			["Porthrip-Darkspear"] = 63,
-			["Duchezz-Ravencrest"] = 251,
-			["Ethèlon"] = 268,
-			["Sneaky-Karazhan"] = 260,
-			["Slíckdaddy"] = 70,
-			["Tjani"] = 264,
-			["Fropsy"] = 254,
-			["Dårtêx"] = 72,
-			["Jolaani-DunModr"] = 257,
-			["Gudä-DunModr"] = 250,
-			["Shåz-Archimonde"] = 71,
-			["Landster"] = 269,
-			["Мордоринка-Азурегос"] = 267,
-			["Tetman-Antonidas"] = 64,
-			["Êlênôrê-Blackmoore"] = 577,
-			["Bowdicca-Shadowsong"] = 253,
-			["Akemí"] = 64,
-			["Esidrix-Nethersturm"] = 73,
-			["Drapsmann"] = 265,
-			["Досвидулия-Гордунни"] = 257,
-			["Lynda-Outland"] = 251,
-			["Pelden-Sen'jin"] = 268,
-			["Simroth"] = 250,
-			["Shulk-Sylvanas"] = 66,
-			["Moradino"] = 577,
-			["Mcbefi-Drak'thul"] = 63,
-			["Corålus"] = 577,
-			["Toendra"] = 253,
-			["Sonneillon"] = 102,
-			["Magicks-Thunderhorn"] = 64,
-			["Xyhan"] = 269,
-			["Reywal-Vol'jin"] = 103,
-			["Relnos-Pozzodell'Eternità"] = 105,
-			["Fenhir-Ravencrest"] = 70,
-			["Hefestione-DunModr"] = 253,
-			["Lylianna-Ragnaros"] = 254,
-			["Hirla-AzjolNerub"] = 103,
-			["Keenii"] = 259,
-			["Duiveldari"] = 581,
-			["Abbimist"] = 102,
-			["Alsindra-DefiasBrotherhood"] = 70,
-			["Bassinoo"] = 250,
-			["Litr-ArgentDawn"] = 70,
-			["Cecitiel"] = 256,
-			["Dolirean"] = 104,
-			["Stallaria-ZirkeldesCenarius"] = 253,
-			["Dimadina"] = 66,
-			["Daikonran-Outland"] = 259,
-			["Sarukin-Bloodscalp"] = 254,
-			["Coäben-LesSentinelles"] = 62,
-			["Zirconyx"] = 253,
-			["Narthalax"] = 262,
-			["Elïnia-KirinTor"] = 64,
-			["Cummington"] = 252,
-			["Momokan-Aggramar"] = 251,
-			["Иронит-Гордунни"] = 103,
-			["Thogondor-GrimBatol"] = 263,
-			["Theblin-BurningLegion"] = 265,
-			["Aquilius-Frostmane"] = 70,
-			["Loliette-DefiasBrotherhood"] = 102,
-			["Karu-Saurfang"] = 70,
-			["Vîrùs-Blackmoore"] = 253,
-			["Tayllen"] = 261,
-			["Alsolmo"] = 263,
-			["Notliquid-Alonsus"] = 269,
-			["Duivel"] = 268,
-			["Frostybowman"] = 253,
-			["Estina-ArgentDawn"] = 72,
-			["Lenwê-Karazhan"] = 102,
-			["Stan-Anachronos"] = 269,
-			["Furnaladin-KulTiras"] = 65,
-			["Corallis-Ravencrest"] = 577,
-			["Rðgue-Ravencrest"] = 259,
-			["Feskmás"] = 65,
-			["Delethia-Bladefist"] = 264,
-			["Kszoczek"] = 577,
-			["Каплина-Гордунни"] = 65,
-			["Mordeya-DefiasBrotherhood"] = 65,
-			["Niloya-Mal'Ganis"] = 257,
-			["Tokmer-Frostmane"] = 265,
-			["Xelenor"] = 251,
-			["Troopdc"] = 250,
-			["Olivem"] = 257,
-			["Fann-Saurfang"] = 253,
-			["Saience"] = 254,
-			["Easydamage-BurningBlade"] = 269,
-			["Ciopin-Pozzodell'Eternità"] = 253,
-			["Prittstift-GrimBatol"] = 577,
-			["Óshea-Neptulon"] = 581,
-			["Noxxai-Aegwynn"] = 103,
-			["Meloentjee"] = 577,
-			["Jancarlo"] = 72,
-			["Kakaodrinker-BronzeDragonflight"] = 72,
-			["Кисандрис-Гордунни"] = 102,
-			["Loaldan-Frostmane"] = 71,
-			["Dhoko-ConfrérieduThorium"] = 270,
-			["Крейсери-Гордунни"] = 265,
-			["Alysrian"] = 105,
-			["Lelé-Pozzodell'Eternità"] = 63,
-			["Moistclaw-Frostmane"] = 104,
-			["Êdwïn-DunModr"] = 264,
-			["Addunie-DunModr"] = 63,
-			["Uthorina-KulTiras"] = 577,
-			["Vianaa-ChamberofAspects"] = 253,
-			["Sxm"] = 258,
-			["Stairfax"] = 257,
-			["Meowgi"] = 253,
-			["Gorek-KulTiras"] = 72,
-			["Jajcka-Bronzebeard"] = 70,
-			["Madvicar"] = 258,
-			["Fransk"] = 577,
-			["Lorleen-KultderVerdammten"] = 257,
-			["Xänder-DunModr"] = 259,
-			["Iamw"] = 103,
-			["Thoem-ArgentDawn"] = 264,
-			["Shigo-Sylvanas"] = 72,
-			["Madokha-Archimonde"] = 270,
-			["Cerridwenn-Exodar"] = 266,
-			["Thorlaria-Ravencrest"] = 70,
-			["Paladinutza"] = 66,
-			["Ignaxio-Ravencrest"] = 265,
-			["Paiun-ArgentDawn"] = 255,
-			["Llëks-DunModr"] = 254,
-			["Rularak-DefiasBrotherhood"] = 269,
-			["Chepeto"] = 269,
-			["Elladaari-Magtheridon"] = 64,
-			["Tannalina-Frostmane"] = 105,
-			["Ellunea-Vol'jin"] = 257,
-			["Emriala-ArgentDawn"] = 105,
-			["Punkman-BurningLegion"] = 251,
-			["Dkhead"] = 250,
-			["Кейсони-Гордунни"] = 258,
-			["Mtorulez-Bronzebeard"] = 63,
-			["Асди-Голдринн"] = 577,
-			["Petswow-DefiasBrotherhood"] = 253,
-			["Cíerñ-BurningLegion"] = 254,
-			["Nictwo"] = 265,
-			["Dèvona"] = 581,
-			["Garyshaman"] = 262,
-			["Tariah"] = 269,
-			["Thejin"] = 268,
-			["Arola-Shadowsong"] = 254,
-			["Bloowie"] = 269,
-			["Ariana-Neptulon"] = 251,
-			["Spirax"] = 64,
-			["Alleriamena-Alleria"] = 253,
-			["Jumpstyle-DunModr"] = 105,
-			["Betchlock"] = 265,
-			["Xara-Magtheridon"] = 256,
-			["Vilhoinen"] = 72,
-			["Zongy"] = 265,
-			["Sheala-DerMithrilorden"] = 262,
-			["Felknight-Nordrassil"] = 581,
-			["Sïni-Dalaran"] = 62,
-			["Davyenn"] = 266,
-			["Wuthios"] = 257,
-			["Lokece-Ravencrest"] = 64,
-			["Daavulín-Stormrage"] = 268,
-			["Triplenine-Outland"] = 70,
-			["Darkwing-Nordrassil"] = 102,
-			["Karthain"] = 251,
-			["Lykaa"] = 265,
-			["Caerdrath-TheMaelstrom"] = 260,
-			["Endlessrage-Outland"] = 251,
-			["Ebonywarrior"] = 71,
-			["Felmire"] = 266,
-			["Getstebbed"] = 261,
-			["Syrop-Outland"] = 66,
-			["Naylita-Kazzak"] = 65,
-			["Abyell"] = 252,
-			["Silfia-Nordrassil"] = 70,
-			["Aethelstan-Terenas"] = 268,
-			["Immersion"] = 269,
-			["Eluvion-Outland"] = 62,
-			["Divinebutts"] = 70,
-			["Djsoda-ShatteredHand"] = 581,
-			["Krazoapalace"] = 268,
-			["Mayzin-Draenor"] = 268,
-			["Zipih"] = 257,
-			["Áwful"] = 105,
-			["Belzarion-Terokkar"] = 265,
-			["Makobtxh-BurningBlade"] = 259,
-			["Sanchi"] = 270,
-			["Penorbu-Frostmane"] = 269,
-			["Mónie-Sylvanas"] = 65,
-			["Zred-Doomhammer"] = 577,
-			["Isillith"] = 66,
-			["Mexai-Aegwynn"] = 105,
-			["Лагавуллин-Гордунни"] = 65,
-			["Rukilock"] = 265,
-			["Zouzilla"] = 257,
-			["Shamzade-BurningLegion"] = 263,
-			["Clarine"] = 72,
-			["Niogtres"] = 269,
-			["Hylus-ArgentDawn"] = 72,
-			["Мону-ВечнаяПесня"] = 269,
-			["Løthar-Mazrigos"] = 66,
-			["Bëär"] = 102,
-			["Verisar-DerMithrilorden"] = 104,
-			["Vircolac-Blade'sEdge"] = 72,
-			["Notbehindyou-Ragnaros"] = 259,
-			["Barborella-Hyjal"] = 267,
-			["Gury-Nordrassil"] = 581,
-			["Vedania-Frostmane"] = 259,
-			["Jehew-Aman'thul"] = 70,
-			["Ranchi"] = 63,
-			["Hiqsilver"] = 102,
-			["Pungkow-Ravencrest"] = 270,
-			["Dogberry-Outland"] = 264,
-			["Éléma-KirinTor"] = 262,
-			["Yilnmiis-ArgentDawn"] = 66,
-			["Silmaril"] = 104,
-			["Tøtal"] = 254,
-			["Hoxy-Thunderhorn"] = 251,
-			["Gulrot"] = 63,
-			["Eawy-Frostmane"] = 261,
-			["Cajj"] = 265,
-			["Micropriest"] = 257,
-			["Fnótti-AeriePeak"] = 71,
-			["Nanina-Darksorrow"] = 263,
-			["Kìnky-Sylvanas"] = 62,
-			["Rukawa"] = 253,
-			["Gemmes-Krasus"] = 267,
-			["Justowl"] = 104,
-			["Anabriel"] = 255,
-			["Sëd-Pozzodell'Eternità"] = 71,
-			["Redsonic"] = 70,
-			["Микка-Гром"] = 253,
-			["Bofu-ArgentDawn"] = 71,
-			["Principale-EarthenRing"] = 70,
-			["Melfire"] = 63,
-			["Myärhas-KirinTor"] = 105,
-			["Råziel-BronzeDragonflight"] = 577,
-			["Cajlmao"] = 258,
-			["Knuffelboom"] = 104,
-			["Hagrir"] = 253,
-			["Widowmakergr"] = 251,
-			["Klorze-Ragnaros"] = 71,
-			["Summonium"] = 265,
-			["Vanera"] = 72,
-			["Warumer-Outland"] = 577,
-			["Zørgue-Garona"] = 250,
-			["Athelstaan-Outland"] = 256,
-			["Дольче-Гордунни"] = 258,
-			["Tropcd"] = 105,
-			["Ambiórix-DunModr"] = 252,
-			["Nyz-Arthas"] = 105,
-			["Chardruid"] = 103,
-			["Líandrá"] = 70,
-			["Artiks"] = 65,
-			["Capetanios"] = 70,
-			["Kurenaiyuhi-Anachronos"] = 577,
-			["Bluebirdeyes"] = 258,
-			["Grimmx"] = 265,
 			["Qsilver"] = 253,
-			["Qerat"] = 73,
-			["Duiveltard"] = 253,
-			["Smeqt-Outland"] = 269,
-			["Ibp-Thunderhorn"] = 265,
-			["Endling-Vek'nilash"] = 577,
-			["Barachus-BronzeDragonflight"] = 70,
-			["Nightsoúl"] = 259,
-			["Frëyá-Nethersturm"] = 262,
-			["Salvation"] = 70,
-			["Shaamaniie-Alonsus"] = 262,
-			["Edzerdla-Shattrath"] = 261,
-			["Poucica-Thunderhorn"] = 259,
-			["Thúnderpáws-ArgentDawn"] = 262,
-			["Leronix-Karazhan"] = 73,
-			["Orichio-Ghostlands"] = 105,
-			["Marlboralajt-BurningLegion"] = 251,
-			["Nithraniel-Draenor"] = 269,
-			["Asmò-Aegwynn"] = 70,
-			["Crnkabeograd-Sylvanas"] = 254,
-			["Wunjhu"] = 269,
-			["Feldance-Alonsus"] = 581,
-			["Minseca-DefiasBrotherhood"] = 105,
-			["Shanaki-Tyrande"] = 264,
-			["Meeske"] = 64,
-			["Меникусл-Галакронд"] = 104,
-			["Krautkopf-Aegwynn"] = 251,
-			["Vaama"] = 253,
-			["Cherize-Shadowsong"] = 64,
-			["Beeroism-DefiasBrotherhood"] = 264,
-			["Zipi"] = 64,
-			["Cårolus"] = 71,
-			["Balveren-Magtheridon"] = 73,
-			["Thegrinch-Alonsus"] = 250,
-			["Leparg"] = 251,
-			["Varock"] = 251,
-			["Alegnowar"] = 72,
-			["Xellan"] = 64,
-			["Lafvendel-ArgentDawn"] = 251,
-			["Midgetmafia-BronzeDragonflight"] = 258,
-			["Chillpills-BurningLegion"] = 250,
-			["Kitno-Mal'Ganis"] = 105,
-			["Anerae-ArgentDawn"] = 103,
-			["Líaz"] = 265,
-			["Calimehtar-GrimBatol"] = 259,
-			["Wolfsane-Thunderhorn"] = 254,
-			["Garybanned"] = 577,
-			["Önus-Exodar"] = 259,
-			["Roselutea"] = 253,
-			["Kukka-Outland"] = 270,
-			["Gippis-Dentarg"] = 253,
-			["Slicedbacon"] = 72,
 		},
 		["NoRaid"] = true,
 		["CDECol"] = {
@@ -27367,22 +26967,22 @@ VExRT = {
 		["Ilgynoth"] = {
 			nil, -- [1]
 			"Qsilver", -- [2]
-			["name"] = "Artiks-Silvermoon",
-			["time"] = 1477247274,
+			["sync"] = true,
+			[19] = "Xelenor",
 			[15] = "Skrylax",
 			[14] = "Troopcsd",
-			[19] = "Xelenor",
+			[10] = "Artizt",
 			[4] = "Putrohunt",
 			[8] = "Olivam",
 			[16] = "Duiveldari",
 			[17] = "Cårolus",
 			[18] = "Beeble",
-			[10] = "Artizt",
+			["name"] = "Artiks-Silvermoon",
 			[20] = "Chenenxi",
 			[21] = "Maemi",
 			[6] = "Klaymën",
 			[12] = "Sonneillon",
-			["sync"] = true,
+			["time"] = 1477247274,
 		},
 		["ArchimondeDisableText"] = true,
 		["DragonsLeft"] = 1522.74389648438,
@@ -27391,16 +26991,21 @@ VExRT = {
 		["MargokTop"] = 1065.57263183594,
 		["ArchimondeInfernalPosY"] = 802.803466796875,
 		["ModuleViewed3580"] = true,
+		["ArchimondeDisableMarking"] = false,
+		["ArchimondeLeft"] = 2875.46411132813,
 		["IskarDisableClassColors"] = false,
+		["IskarTop"] = 722.050964355469,
+		["ArchimondeRadius"] = 40,
+		["IskarShowNames"] = true,
 		["Kormrok"] = {
 			[31] = "Gulrot",
 			[38] = "Klitzy",
 			[46] = "Edonus",
 			[54] = "Dkhead",
-			[254] = "Dkhead",
+			[33] = "Troopcsd",
 			[125] = "Otarion",
 			[126] = "Klaymën",
-			[33] = "Troopcsd",
+			[254] = "Dkhead",
 			[246] = "Edonus",
 			[39] = "Beeble",
 			[41] = "Summonium",
@@ -27413,7 +27018,7 @@ VExRT = {
 			[40] = "Maemi",
 			[131] = "Gulrot",
 			[259] = "Artiks",
-			[226] = "Klaymën",
+			[29] = "Terean",
 			[231] = "Gulrot",
 			[253] = "Skrylax",
 			[159] = "Artiks",
@@ -27424,11 +27029,11 @@ VExRT = {
 			[130] = "Chenenxi",
 			[225] = "Otarion",
 			[25] = "Otarion",
-			[29] = "Terean",
+			[226] = "Klaymën",
 			[132] = "Xelenor",
 			[42] = "Olivam",
 			[133] = "Troopcsd",
-			[263] = "Deâthtank",
+			[228] = "Nyna",
 			[26] = "Klaymën",
 			[229] = "Terean",
 			[140] = "Maemi",
@@ -27447,7 +27052,7 @@ VExRT = {
 			[236] = "Qsilver",
 			[142] = "Olivam",
 			[237] = "Pangis",
-			[228] = "Nyna",
+			[263] = "Deâthtank",
 			[238] = "Klitzy",
 			[37] = "Pangis",
 			["sync"] = true,
@@ -27457,11 +27062,6 @@ VExRT = {
 			[241] = "Summonium",
 			[242] = "Olivam",
 		},
-		["ArchimondeDisableMarking"] = false,
-		["IskarTop"] = 722.050964355469,
-		["ArchimondeRadius"] = 40,
-		["IskarShowNames"] = true,
-		["ArchimondeLeft"] = 2875.46411132813,
 		["ArchimondeLock"] = true,
 		["ArchimondeScale"] = 0.68,
 		["RaDenTop"] = 1118.08557128906,
@@ -27488,11 +27088,11 @@ VExRT = {
 		["ColorizeNoValorUpgrade"] = false,
 	},
 	["Addon"] = {
-		["Version"] = 3930,
+		["Version"] = 3940,
 		["IconMiniMapHide"] = true,
 		["Scale"] = 1,
 		["Timer"] = 0.1,
-		["PreVersion"] = 3930,
+		["PreVersion"] = 3940,
 	},
 	["InspectArtifact"] = {
 		["players"] = {
@@ -27531,10 +27131,10 @@ VExRT = {
 		["OnlyPromoted"] = true,
 		["Fix"] = true,
 		["ScaleBack"] = 0,
-		["Text1"] = "Left Close: ||cffa330c9Garybanned||r \nLeft Far: ||cffc41f3bXpire||r \nRight Close: ||cfffff468Saresi||r \nRight Far: ||cffff7d0aIamw||r \nOn Abbey Sometimes: Chen",
+		["Text1"] = "Pods:\n1: ||cffffffffOlivem||r ||cfff58cbaFeskmás||r\n2: ||cff0070ddChenenxi||r ||cff0070ddGréenfinger||r ||cfffff468Saresi||r \n3: ||cff3fc7ebTroopcsd||r ||cffaad372Roselutea||r \n4: ||cffaad372Qsilver||r \n\nClick: ||cffc69b6dFransk||r ",
 		["DefName"] = "Eonar Mythic*",
 		["LastUpdateName"] = "Troopcsd-Silvermoon",
-		["LastUpdateTime"] = 1532033265,
+		["LastUpdateTime"] = 1533238709,
 		["Width"] = 276.580383300781,
 		["Top"] = 996.324768066406,
 		["Black"] = {
@@ -27577,8 +27177,8 @@ VExRT = {
 		["Top"] = 915.8974609375,
 		["fix"] = true,
 		["enabled"] = true,
-		["Left"] = 2036.51293945313,
 		["HideTimer"] = true,
+		["Left"] = 2036.51293945313,
 	},
 	["Attendance"] = {
 		["enabled"] = 2,
@@ -27605,13 +27205,13 @@ VExRT = {
 				"BArtiks", -- [18]
 				"KSonneillon", -- [19]
 				"EEdonus", -- [20]
-				["eN"] = "Mannoroth",
-				["k"] = false,
-				["t"] = 1457635866,
 				["eI"] = 1795,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1457635866,
+				["eN"] = "Mannoroth",
 				["d"] = 16,
 				["g"] = 20,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = false,
 			}, -- [1]
 			{
 				"KAbbey", -- [1]
@@ -27634,13 +27234,13 @@ VExRT = {
 				"KSonneillon", -- [18]
 				"EEdonus", -- [19]
 				"BArtiks", -- [20]
-				["eI"] = 1799,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1458249372,
 				["eN"] = "Archimonde",
+				["k"] = false,
+				["t"] = 1458249372,
+				["eI"] = 1799,
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = false,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [2]
 			{
 				"KAbbey", -- [1]
@@ -27663,13 +27263,13 @@ VExRT = {
 				"KSonneillon", -- [18]
 				"EEdonus", -- [19]
 				"BArtiks", -- [20]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = false,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 16,
-				["eN"] = "Archimonde",
+				["eI"] = 1799,
 				["t"] = 1458250272,
 				["g"] = 20,
-				["eI"] = 1799,
+				["eN"] = "Archimonde",
 			}, -- [3]
 			{
 				"KAbbey", -- [1]
@@ -27692,13 +27292,13 @@ VExRT = {
 				"EEdonus", -- [18]
 				"IKlaymën", -- [19]
 				"ISummonium", -- [20]
-				["eN"] = "Mannoroth",
-				["k"] = true,
-				["t"] = 1459448834,
 				["eI"] = 1795,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1459448834,
+				["eN"] = "Mannoroth",
 				["d"] = 16,
 				["g"] = 20,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [4]
 			{
 				"CValín", -- [1]
@@ -27721,13 +27321,13 @@ VExRT = {
 				"EEdonus", -- [18]
 				"IKlaymën", -- [19]
 				"ISummonium", -- [20]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 16,
-				["eI"] = 1799,
+				["eN"] = "Archimonde",
 				["t"] = 1459450647,
 				["g"] = 20,
-				["eN"] = "Archimonde",
+				["eI"] = 1799,
 			}, -- [5]
 			{
 				"KAbbey", -- [1]
@@ -27750,13 +27350,13 @@ VExRT = {
 				"GCajnab", -- [18]
 				"GKlitzy", -- [19]
 				"KNeerves", -- [20]
-				["eI"] = 1795,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1460051156,
 				["eN"] = "Mannoroth",
+				["k"] = true,
+				["t"] = 1460051156,
+				["eI"] = 1795,
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [6]
 			{
 				"KAbbey", -- [1]
@@ -27779,13 +27379,13 @@ VExRT = {
 				"ISummonium", -- [18]
 				"IKlaymën", -- [19]
 				"EEdonus", -- [20]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 16,
-				["eI"] = 1788,
+				["eN"] = "Shadow-Lord Iskar",
 				["t"] = 1460655932,
 				["g"] = 20,
-				["eN"] = "Shadow-Lord Iskar",
+				["eI"] = 1788,
 			}, -- [7]
 			{
 				"FDkhead", -- [1]
@@ -27806,13 +27406,13 @@ VExRT = {
 				"KNeerves", -- [16]
 				"BArtiks", -- [17]
 				"EEdonus", -- [18]
-				["eI"] = 1788,
-				["k"] = true,
-				["t"] = 1461260645,
 				["eN"] = "Shadow-Lord Iskar",
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1461260645,
+				["eI"] = 1788,
 				["d"] = 16,
 				["g"] = 20,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [8]
 			{
 				"FDkhead", -- [1]
@@ -27835,13 +27435,13 @@ VExRT = {
 				"IKlaymën", -- [18]
 				"EEdonus", -- [19]
 				"ISummonium", -- [20]
-				["eN"] = "Shadow-Lord Iskar",
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1463075141,
 				["eI"] = 1788,
+				["k"] = true,
+				["t"] = 1463075141,
+				["eN"] = "Shadow-Lord Iskar",
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [9]
 			{
 				"FDkhead", -- [1]
@@ -27864,13 +27464,13 @@ VExRT = {
 				"IKlaymën", -- [18]
 				"HOlivam", -- [19]
 				"GCajnab", -- [20]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 16,
-				["eI"] = 1788,
+				["eN"] = "Shadow-Lord Iskar",
 				["t"] = 1463679909,
 				["g"] = 20,
-				["eN"] = "Shadow-Lord Iskar",
+				["eI"] = 1788,
 			}, -- [10]
 			{
 				"FDkhead", -- [1]
@@ -27893,13 +27493,13 @@ VExRT = {
 				"KKanchii", -- [18]
 				"HAlaurien", -- [19]
 				"BArtiks", -- [20]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 16,
-				["eI"] = 1795,
+				["eN"] = "Mannoroth",
 				["t"] = 1464285365,
 				["g"] = 20,
-				["eN"] = "Mannoroth",
+				["eI"] = 1795,
 			}, -- [11]
 			{
 				"FDkhead", -- [1]
@@ -27922,13 +27522,13 @@ VExRT = {
 				"KKanchii", -- [18]
 				"HAlaurien", -- [19]
 				"BArtiks", -- [20]
-				["eI"] = 1800,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1464289566,
 				["eN"] = "Xhul'horac",
+				["k"] = true,
+				["t"] = 1464289566,
+				["eI"] = 1800,
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [12]
 			{
 				"FDkhead", -- [1]
@@ -27951,13 +27551,13 @@ VExRT = {
 				"BArtiks", -- [18]
 				"CQsilver", -- [19]
 				"GCajnab", -- [20]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 16,
-				["eI"] = 1795,
+				["eN"] = "Mannoroth",
 				["t"] = 1464889630,
 				["g"] = 20,
-				["eN"] = "Mannoroth",
+				["eI"] = 1795,
 			}, -- [13]
 			{
 				"FDkhead", -- [1]
@@ -27980,13 +27580,13 @@ VExRT = {
 				"BPangis", -- [18]
 				"EEdonus", -- [19]
 				"BAstrozombies", -- [20]
-				["eN"] = "Blackhand",
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1465494049,
 				["eI"] = 1704,
+				["k"] = true,
+				["t"] = 1465494049,
+				["eN"] = "Blackhand",
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [14]
 			{
 				"FDkhead", -- [1]
@@ -28009,13 +27609,13 @@ VExRT = {
 				"ISummonium", -- [18]
 				"EEdonus", -- [19]
 				"AQabul", -- [20]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 16,
-				["eI"] = 1795,
+				["eN"] = "Mannoroth",
 				["t"] = 1465496982,
 				["g"] = 20,
-				["eN"] = "Mannoroth",
+				["eI"] = 1795,
 			}, -- [15]
 			{
 				"FDkhead", -- [1]
@@ -28038,13 +27638,13 @@ VExRT = {
 				"JNyna", -- [18]
 				"CQsilver", -- [19]
 				"KKanchii", -- [20]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 16,
-				["eI"] = 1704,
+				["eN"] = "Blackhand",
 				["t"] = 1466099009,
 				["g"] = 20,
-				["eN"] = "Blackhand",
+				["eI"] = 1704,
 			}, -- [16]
 			{
 				"FDkhead", -- [1]
@@ -28067,13 +27667,13 @@ VExRT = {
 				"KKanchii", -- [18]
 				"JNyna", -- [19]
 				"KDelei", -- [20]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 16,
-				["eI"] = 1704,
+				["eN"] = "Blackhand",
 				["t"] = 1466703531,
 				["g"] = 20,
-				["eN"] = "Blackhand",
+				["eI"] = 1704,
 			}, -- [17]
 			{
 				"FDkhead", -- [1]
@@ -28096,13 +27696,13 @@ VExRT = {
 				"JNyna", -- [18]
 				"KKanchii", -- [19]
 				"IPookers", -- [20]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 16,
-				["eN"] = "Blackhand",
+				["eI"] = 1704,
 				["t"] = 1467308326,
 				["g"] = 20,
-				["eI"] = 1704,
+				["eN"] = "Blackhand",
 			}, -- [18]
 			{
 				"FDkhead", -- [1]
@@ -28125,13 +27725,13 @@ VExRT = {
 				"ACårolus", -- [18]
 				"BPangis", -- [19]
 				"BCaqaz", -- [20]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 16,
-				["eI"] = 1704,
+				["eN"] = "Blackhand",
 				["t"] = 1467913129,
 				["g"] = 20,
-				["eN"] = "Blackhand",
+				["eI"] = 1704,
 			}, -- [19]
 			{
 				"FDkhead", -- [1]
@@ -28154,13 +27754,13 @@ VExRT = {
 				"DTeìwaz", -- [18]
 				"CQsilver", -- [19]
 				"EEvilbeáuty-Sylvanas", -- [20]
-				["eN"] = "Xhul'horac",
-				["k"] = true,
-				["t"] = 1467924315,
 				["eI"] = 1800,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1467924315,
+				["eN"] = "Xhul'horac",
 				["d"] = 16,
 				["g"] = 20,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [20]
 			{
 				"KAbbey", -- [1]
@@ -28183,13 +27783,13 @@ VExRT = {
 				"BArtiks", -- [18]
 				"IKlaymën", -- [19]
 				"CSmashîe", -- [20]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 16,
-				["eN"] = "Blackhand",
+				["eI"] = 1704,
 				["t"] = 1468518228,
 				["g"] = 20,
-				["eI"] = 1704,
+				["eN"] = "Blackhand",
 			}, -- [21]
 			{
 				"BArtiks", -- [1]
@@ -28207,13 +27807,13 @@ VExRT = {
 				"CQsilver", -- [13]
 				"HOlivam", -- [14]
 				"DTeìwaz", -- [15]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 15,
-				["eN"] = "Hellfire Assault",
+				["eI"] = 1778,
 				["t"] = 1469036715,
 				["g"] = 13,
-				["eI"] = 1778,
+				["eN"] = "Hellfire Assault",
 			}, -- [22]
 			{
 				"BArtiks", -- [1]
@@ -28231,13 +27831,13 @@ VExRT = {
 				"CQsilver", -- [13]
 				"HOlivam", -- [14]
 				"FTerean", -- [15]
-				["eN"] = "Hellfire High Council",
-				["k"] = true,
-				["t"] = 1469038202,
 				["eI"] = 1798,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1469038202,
+				["eN"] = "Hellfire High Council",
 				["d"] = 15,
 				["g"] = 15,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [23]
 			{
 				"BArtiks", -- [1]
@@ -28255,13 +27855,13 @@ VExRT = {
 				"CQsilver", -- [13]
 				"HOlivam", -- [14]
 				"FTerean", -- [15]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 15,
-				["eI"] = 1783,
+				["eN"] = "Gorefiend",
 				["t"] = 1469038967,
 				["g"] = 15,
-				["eN"] = "Gorefiend",
+				["eI"] = 1783,
 			}, -- [24]
 			{
 				"BArtiks", -- [1]
@@ -28282,13 +27882,13 @@ VExRT = {
 				"GChenenxi", -- [16]
 				"GCajnab", -- [17]
 				"DBeeble", -- [18]
-				["eN"] = "Tyrant Velhari",
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1469042310,
 				["eI"] = 1784,
+				["k"] = true,
+				["t"] = 1469042310,
+				["eN"] = "Tyrant Velhari",
 				["d"] = 15,
 				["g"] = 17,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [25]
 			{
 				"HTroopcsd", -- [1]
@@ -28311,13 +27911,13 @@ VExRT = {
 				"GKlitzy", -- [18]
 				"GCajnab", -- [19]
 				"KKanchii", -- [20]
-				["eN"] = "Hellfire Assault",
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1469130243,
 				["eI"] = 1778,
+				["k"] = true,
+				["t"] = 1469130243,
+				["eN"] = "Hellfire Assault",
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [26]
 			{
 				"FDkhead", -- [1]
@@ -28340,13 +27940,13 @@ VExRT = {
 				"ALionwar", -- [18]
 				"CQsilver", -- [19]
 				"JNyna", -- [20]
-				["eI"] = 1704,
-				["k"] = true,
-				["t"] = 1469728315,
 				["eN"] = "Blackhand",
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1469728315,
+				["eI"] = 1704,
 				["d"] = 16,
 				["g"] = 20,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [27]
 			{
 				"FDkhead", -- [1]
@@ -28369,13 +27969,13 @@ VExRT = {
 				"ISummonium", -- [18]
 				"FXelenor", -- [19]
 				"JNyna", -- [20]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 16,
-				["eI"] = 1787,
+				["eN"] = "Kormrok",
 				["t"] = 1469734645,
 				["g"] = 20,
-				["eN"] = "Kormrok",
+				["eI"] = 1787,
 			}, -- [28]
 			{
 				"FDkhead", -- [1]
@@ -28398,13 +27998,13 @@ VExRT = {
 				"CQsilver", -- [18]
 				"GCajnab", -- [19]
 				"JNyna", -- [20]
-				["eI"] = 1704,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1470937531,
 				["eN"] = "Blackhand",
+				["k"] = true,
+				["t"] = 1470937531,
+				["eI"] = 1704,
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [29]
 			{
 				"HOlivam", -- [1]
@@ -28427,13 +28027,13 @@ VExRT = {
 				"GKlitzy", -- [18]
 				"EArtizt", -- [19]
 				"EEdonus", -- [20]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 16,
-				["eN"] = "Hellfire Assault",
+				["eI"] = 1778,
 				["t"] = 1471542453,
 				["g"] = 20,
-				["eI"] = 1778,
+				["eN"] = "Hellfire Assault",
 			}, -- [30]
 			{
 				"FDkhead", -- [1]
@@ -28456,13 +28056,13 @@ VExRT = {
 				"BArtiks", -- [18]
 				"KKanchii", -- [19]
 				"EArtizt", -- [20]
-				["eN"] = "Blackhand",
-				["k"] = true,
-				["t"] = 1472146722,
 				["eI"] = 1704,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1472146722,
+				["eN"] = "Blackhand",
 				["d"] = 16,
 				["g"] = 20,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [31]
 			{
 				"GChenenxi", -- [1]
@@ -28491,13 +28091,13 @@ VExRT = {
 				"IKlaymën", -- [24]
 				"JNyna", -- [25]
 				"GCajnab", -- [26]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 15,
-				["eI"] = 1853,
+				["eN"] = "Nythendra",
 				["t"] = 1474567643,
 				["g"] = 26,
-				["eN"] = "Nythendra",
+				["eI"] = 1853,
 			}, -- [32]
 			{
 				"LDuiveldari", -- [1]
@@ -28525,13 +28125,13 @@ VExRT = {
 				"JNyna", -- [23]
 				"KKanchii", -- [24]
 				"GCajnab", -- [25]
-				["eI"] = 1853,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1475171186,
 				["eN"] = "Nythendra",
+				["k"] = true,
+				["t"] = 1475171186,
+				["eI"] = 1853,
 				["d"] = 15,
 				["g"] = 25,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [33]
 			{
 				"LDuiveldari", -- [1]
@@ -28559,13 +28159,13 @@ VExRT = {
 				"JNyna", -- [23]
 				"GCajnab", -- [24]
 				"KKanchii", -- [25]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 15,
-				["eN"] = "Elerethe Renferal",
+				["eI"] = 1876,
 				["t"] = 1475175484,
 				["g"] = 25,
-				["eI"] = 1876,
+				["eN"] = "Elerethe Renferal",
 			}, -- [34]
 			{
 				"LDuiveldari", -- [1]
@@ -28593,13 +28193,13 @@ VExRT = {
 				"JNyna", -- [23]
 				"GCajnab", -- [24]
 				"KKanchii", -- [25]
-				["eN"] = "Xavius",
-				["k"] = true,
-				["t"] = 1475177220,
 				["eI"] = 1864,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1475177220,
+				["eN"] = "Xavius",
 				["d"] = 15,
 				["g"] = 25,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [35]
 			{
 				"BArtiks", -- [1]
@@ -28622,13 +28222,13 @@ VExRT = {
 				"IKlaymën", -- [18]
 				"FXelenor", -- [19]
 				"KSonneillon", -- [20]
-				["eN"] = "Elerethe Renferal",
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1475441397,
 				["eI"] = 1876,
+				["k"] = true,
+				["t"] = 1475441397,
+				["eN"] = "Elerethe Renferal",
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [36]
 			{
 				"LFerean", -- [1]
@@ -28658,13 +28258,13 @@ VExRT = {
 				"JNyna", -- [25]
 				"CQsilver", -- [26]
 				"GKlitzy", -- [27]
-				["eN"] = "Nythendra",
-				["k"] = true,
-				["t"] = 1475775923,
 				["eI"] = 1853,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1475775923,
+				["eN"] = "Nythendra",
 				["d"] = 15,
 				["g"] = 27,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [37]
 			{
 				"KAbbey", -- [1]
@@ -28697,13 +28297,13 @@ VExRT = {
 				"JNyna", -- [28]
 				"EOlivum", -- [29]
 				"BArtiks", -- [30]
-				["eN"] = "Xavius",
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1476902398,
 				["eI"] = 1864,
+				["k"] = true,
+				["t"] = 1476902398,
+				["eN"] = "Xavius",
 				["d"] = 14,
 				["g"] = 29,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [38]
 			{
 				"LDeedrah", -- [1]
@@ -28736,13 +28336,13 @@ VExRT = {
 				"GCajnab", -- [28]
 				"KKanchii", -- [29]
 				"JNyna", -- [30]
-				["eN"] = "Nythendra",
-				["k"] = true,
-				["t"] = 1476985528,
 				["eI"] = 1853,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1476985528,
+				["eN"] = "Nythendra",
 				["d"] = 15,
 				["g"] = 30,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [39]
 			{
 				"FDeâthtank", -- [1]
@@ -28765,13 +28365,13 @@ VExRT = {
 				"KKanchii", -- [18]
 				"CPutrohunt", -- [19]
 				"CQsilver", -- [20]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 16,
-				["eI"] = 1841,
+				["eN"] = "Ursoc",
 				["t"] = 1477245264,
 				["g"] = 20,
-				["eN"] = "Ursoc",
+				["eI"] = 1841,
 			}, -- [40]
 			{
 				"KAbbey", -- [1]
@@ -28799,13 +28399,13 @@ VExRT = {
 				"EEdonus", -- [23]
 				"KKanchii", -- [24]
 				"JNyna", -- [25]
-				["eN"] = "Nythendra",
-				["k"] = true,
-				["t"] = 1477590220,
 				["eI"] = 1853,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1477590220,
+				["eN"] = "Nythendra",
 				["d"] = 15,
 				["g"] = 25,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [41]
 			{
 				"FDeâthtank", -- [1]
@@ -28828,13 +28428,13 @@ VExRT = {
 				"JNyna", -- [18]
 				"KKanchii", -- [19]
 				"GCajnab", -- [20]
-				["eI"] = 1877,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1477859933,
 				["eN"] = "Cenarius",
+				["k"] = true,
+				["t"] = 1477859933,
+				["eI"] = 1877,
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [42]
 			{
 				"KAbbey", -- [1]
@@ -28859,13 +28459,13 @@ VExRT = {
 				"KKanchii", -- [20]
 				"HOlivam", -- [21]
 				"EEdonus", -- [22]
-				["eN"] = "Nythendra",
-				["k"] = true,
-				["t"] = 1478545014,
 				["eI"] = 1853,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1478545014,
+				["eN"] = "Nythendra",
 				["d"] = 14,
 				["g"] = 22,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [43]
 			{
 				"KAbbey", -- [1]
@@ -28890,13 +28490,13 @@ VExRT = {
 				"GCajnab", -- [20]
 				"EArtizt", -- [21]
 				"CQsilver", -- [22]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 14,
-				["eI"] = 1876,
+				["eN"] = "Elerethe Renferal",
 				["t"] = 1478547582,
 				["g"] = 22,
-				["eN"] = "Elerethe Renferal",
+				["eI"] = 1876,
 			}, -- [44]
 			{
 				"KAbbey", -- [1]
@@ -28927,13 +28527,13 @@ VExRT = {
 				"CGrimjowmotas", -- [26]
 				"LDeedrah", -- [27]
 				"CQsilver", -- [28]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 14,
-				["eN"] = "Odyn",
+				["eI"] = 1958,
 				["t"] = 1478717899,
 				["g"] = 29,
-				["eI"] = 1958,
+				["eN"] = "Odyn",
 			}, -- [45]
 			{
 				"KAbbey", -- [1]
@@ -28963,13 +28563,13 @@ VExRT = {
 				"EEdonus", -- [25]
 				"HTroopcsd", -- [26]
 				"CQsilver", -- [27]
-				["eN"] = "Nythendra",
-				["k"] = true,
-				["t"] = 1478803249,
 				["eI"] = 1853,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1478803249,
+				["eN"] = "Nythendra",
 				["d"] = 15,
 				["g"] = 27,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [46]
 			{
 				"LDuiveldari", -- [1]
@@ -28992,13 +28592,13 @@ VExRT = {
 				"KSonneillon", -- [18]
 				"JNyna", -- [19]
 				"EEdonus", -- [20]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 16,
-				["eN"] = "Nythendra",
+				["eI"] = 1853,
 				["t"] = 1479063129,
 				["g"] = 20,
-				["eI"] = 1853,
+				["eN"] = "Nythendra",
 			}, -- [47]
 			{
 				"KAbbey", -- [1]
@@ -29026,13 +28626,13 @@ VExRT = {
 				"GCajnab", -- [23]
 				"KCilnia", -- [24]
 				"KCätilinus", -- [25]
-				["eI"] = 1876,
-				["k"] = true,
-				["t"] = 1479324717,
 				["eN"] = "Elerethe Renferal",
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1479324717,
+				["eI"] = 1876,
 				["d"] = 15,
 				["g"] = 25,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [48]
 			{
 				"ASkrylax", -- [1]
@@ -29058,13 +28658,13 @@ VExRT = {
 				"GKlitzy", -- [21]
 				"ISummonium", -- [22]
 				"CQsilver", -- [23]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 15,
-				["eI"] = 1958,
+				["eN"] = "Odyn",
 				["t"] = 1479418072,
 				["g"] = 23,
-				["eN"] = "Odyn",
+				["eI"] = 1958,
 			}, -- [49]
 			{
 				"FXelenor", -- [1]
@@ -29079,13 +28679,13 @@ VExRT = {
 				"EVálín", -- [10]
 				"ASkrylax", -- [11]
 				"KKnuffelboom", -- [12]
-				["eI"] = 1841,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1479841545,
 				["eN"] = "Ursoc",
+				["k"] = true,
+				["t"] = 1479841545,
+				["eI"] = 1841,
 				["d"] = 15,
 				["g"] = 12,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [50]
 			{
 				"FXelenor", -- [1]
@@ -29108,13 +28708,13 @@ VExRT = {
 				"EArtizt", -- [18]
 				"GCajnab", -- [19]
 				"JNyna", -- [20]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 16,
-				["eI"] = 1877,
+				["eN"] = "Cenarius",
 				["t"] = 1480020482,
 				["g"] = 20,
-				["eN"] = "Cenarius",
+				["eI"] = 1877,
 			}, -- [51]
 			{
 				"KAbbey", -- [1]
@@ -29139,13 +28739,13 @@ VExRT = {
 				"KKanchii", -- [20]
 				"EArtizt", -- [21]
 				"GChenenxi", -- [22]
-				["eI"] = 1958,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1480023315,
 				["eN"] = "Odyn",
+				["k"] = true,
+				["t"] = 1480023315,
+				["eI"] = 1958,
 				["d"] = 15,
 				["g"] = 22,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [52]
 			{
 				"KAbbey", -- [1]
@@ -29168,13 +28768,13 @@ VExRT = {
 				"KSonneillon", -- [18]
 				"EEdonus", -- [19]
 				"GCajnab", -- [20]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 16,
-				["eI"] = 1853,
+				["eN"] = "Nythendra",
 				["t"] = 1480617804,
 				["g"] = 20,
-				["eN"] = "Nythendra",
+				["eI"] = 1853,
 			}, -- [53]
 			{
 				"DBeeble", -- [1]
@@ -29197,13 +28797,13 @@ VExRT = {
 				"CQsilver", -- [18]
 				"CCoyotestark", -- [19]
 				"EEdonus", -- [20]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 16,
-				["eN"] = "Guarm",
+				["eI"] = 1962,
 				["t"] = 1481486825,
 				["g"] = 20,
-				["eI"] = 1962,
+				["eN"] = "Guarm",
 			}, -- [54]
 			{
 				"BCajlol", -- [1]
@@ -29226,13 +28826,13 @@ VExRT = {
 				"HAlexutzul", -- [18]
 				"HOtarion", -- [19]
 				"HMorffeus", -- [20]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 15,
-				["eI"] = 1853,
+				["eN"] = "Nythendra",
 				["t"] = 1481741515,
 				["g"] = 20,
-				["eN"] = "Nythendra",
+				["eI"] = 1853,
 			}, -- [55]
 			{
 				"KAbbey", -- [1]
@@ -29254,13 +28854,13 @@ VExRT = {
 				"GCajnab", -- [17]
 				"EIsomorphism", -- [18]
 				"BArtiks", -- [19]
-				["eN"] = "Il'gynoth, The Heart of Corruption",
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1482348247,
 				["eI"] = 1873,
+				["k"] = true,
+				["t"] = 1482348247,
+				["eN"] = "Il'gynoth, The Heart of Corruption",
 				["d"] = 15,
 				["g"] = 18,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [56]
 			{
 				"ACårolus", -- [1]
@@ -29283,13 +28883,13 @@ VExRT = {
 				"GCajnab", -- [18]
 				"EArtizt", -- [19]
 				"KKanchii", -- [20]
-				["eN"] = "Nythendra",
-				["k"] = true,
-				["t"] = 1482432343,
 				["eI"] = 1853,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1482432343,
+				["eN"] = "Nythendra",
 				["d"] = 16,
 				["g"] = 20,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [57]
 			{
 				"ACårolus", -- [1]
@@ -29312,13 +28912,13 @@ VExRT = {
 				"GCajnab", -- [18]
 				"EArtizt", -- [19]
 				"KKanchii", -- [20]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 16,
-				["eI"] = 1877,
+				["eN"] = "Cenarius",
 				["t"] = 1482433965,
 				["g"] = 20,
-				["eN"] = "Cenarius",
+				["eI"] = 1877,
 			}, -- [58]
 			{
 				"KAbbey", -- [1]
@@ -29341,13 +28941,13 @@ VExRT = {
 				"EArtizt", -- [18]
 				"JNyna", -- [19]
 				"EEdonus", -- [20]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 16,
-				["eN"] = "Nythendra",
+				["eI"] = 1853,
 				["t"] = 1483037033,
 				["g"] = 20,
-				["eI"] = 1853,
+				["eN"] = "Nythendra",
 			}, -- [59]
 			{
 				"KAbbey", -- [1]
@@ -29370,13 +28970,13 @@ VExRT = {
 				"CPutrohunt", -- [18]
 				"CCoyotestark", -- [19]
 				"CQsilver", -- [20]
-				["eN"] = "Guarm",
-				["k"] = true,
-				["t"] = 1483049909,
 				["eI"] = 1962,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1483049909,
+				["eN"] = "Guarm",
 				["d"] = 16,
 				["g"] = 20,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [60]
 			{
 				"KAbbey", -- [1]
@@ -29392,13 +28992,13 @@ VExRT = {
 				"KKanchii", -- [11]
 				"KFjorgi", -- [12]
 				"BMaemi", -- [13]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 14,
-				["eN"] = "Ursoc",
+				["eI"] = 1841,
 				["t"] = 1483395585,
 				["g"] = 12,
-				["eI"] = 1841,
+				["eN"] = "Ursoc",
 			}, -- [61]
 			{
 				"KAbbey", -- [1]
@@ -29421,13 +29021,13 @@ VExRT = {
 				"EEdonus", -- [18]
 				"JNyna", -- [19]
 				"KKanchii", -- [20]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 16,
-				["eN"] = "Nythendra",
+				["eI"] = 1853,
 				["t"] = 1483641822,
 				["g"] = 20,
-				["eI"] = 1853,
+				["eN"] = "Nythendra",
 			}, -- [62]
 			{
 				"KAbbey", -- [1]
@@ -29450,13 +29050,13 @@ VExRT = {
 				"EEdonus", -- [18]
 				"CCoyotestark", -- [19]
 				"GChenenxi", -- [20]
-				["eN"] = "Guarm",
-				["k"] = true,
-				["t"] = 1483654219,
 				["eI"] = 1962,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1483654219,
+				["eN"] = "Guarm",
 				["d"] = 16,
 				["g"] = 20,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [63]
 			{
 				"KAbbey", -- [1]
@@ -29469,13 +29069,13 @@ VExRT = {
 				"KKanchii", -- [8]
 				"EArtizt", -- [9]
 				"KTropcd", -- [10]
-				["eI"] = 1841,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1483915568,
 				["eN"] = "Ursoc",
+				["k"] = true,
+				["t"] = 1483915568,
+				["eI"] = 1841,
 				["d"] = 14,
 				["g"] = 10,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [64]
 			{
 				"LIllidabbidan", -- [1]
@@ -29502,13 +29102,13 @@ VExRT = {
 				"HTroopcsd", -- [22]
 				"KKanchii", -- [23]
 				"EMicropriest", -- [24]
-				["eN"] = "Nythendra",
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1484160225,
 				["eI"] = 1853,
+				["k"] = true,
+				["t"] = 1484160225,
+				["eN"] = "Nythendra",
 				["d"] = 15,
 				["g"] = 23,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [65]
 			{
 				"KAbbey", -- [1]
@@ -29539,13 +29139,13 @@ VExRT = {
 				"ISummonium", -- [26]
 				"EArtizt", -- [27]
 				"ELolthepriest", -- [28]
-				["eI"] = 1849,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1484764978,
 				["eN"] = "Skorpyron",
+				["k"] = true,
+				["t"] = 1484764978,
+				["eI"] = 1849,
 				["d"] = 14,
 				["g"] = 28,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [66]
 			{
 				"LDuiveldari", -- [1]
@@ -29571,13 +29171,13 @@ VExRT = {
 				"HTroopcsd", -- [21]
 				"HGulrot", -- [22]
 				"EArtizt", -- [23]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 15,
-				["eN"] = "Skorpyron",
+				["eI"] = 1849,
 				["t"] = 1484851436,
 				["g"] = 23,
-				["eI"] = 1849,
+				["eN"] = "Skorpyron",
 			}, -- [67]
 			{
 				"LDuiveldari", -- [1]
@@ -29603,13 +29203,13 @@ VExRT = {
 				"HTroopcsd", -- [21]
 				"HGulrot", -- [22]
 				"EArtizt", -- [23]
-				["eN"] = "High Botanist Tel'arn",
-				["k"] = true,
-				["t"] = 1484860078,
 				["eI"] = 1886,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1484860078,
+				["eN"] = "High Botanist Tel'arn",
 				["d"] = 15,
 				["g"] = 23,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [68]
 			{
 				"FTroopdc", -- [1]
@@ -29635,13 +29235,13 @@ VExRT = {
 				"CQsilver", -- [21]
 				"CSonnice-Ravencrest", -- [22]
 				"GAnsari-Outland", -- [23]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 14,
-				["eI"] = 1872,
+				["eN"] = "Grand Magistrix Elisande",
 				["t"] = 1485031338,
 				["g"] = 23,
-				["eN"] = "Grand Magistrix Elisande",
+				["eI"] = 1872,
 			}, -- [69]
 			{
 				"LDuiveldari", -- [1]
@@ -29666,13 +29266,13 @@ VExRT = {
 				"KKanchii", -- [20]
 				"KSonneillon", -- [21]
 				"ISummonium", -- [22]
-				["eN"] = "Gul'dan",
-				["k"] = true,
-				["t"] = 1485119959,
 				["eI"] = 1866,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1485119959,
+				["eN"] = "Gul'dan",
 				["d"] = 15,
 				["g"] = 22,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [70]
 			{
 				"LDuiveldari", -- [1]
@@ -29695,13 +29295,13 @@ VExRT = {
 				"JNyna", -- [18]
 				"EEdonus", -- [19]
 				"KKanchii", -- [20]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 16,
-				["eN"] = "Helya",
+				["eI"] = 2008,
 				["t"] = 1485199892,
 				["g"] = 20,
-				["eI"] = 2008,
+				["eN"] = "Helya",
 			}, -- [71]
 			{
 				"KAbbey", -- [1]
@@ -29731,13 +29331,13 @@ VExRT = {
 				"JNyna", -- [25]
 				"CQsilver", -- [26]
 				"ELolthepriest", -- [27]
-				["eN"] = "Skorpyron",
-				["k"] = true,
-				["t"] = 1485369934,
 				["eI"] = 1849,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1485369934,
+				["eN"] = "Skorpyron",
 				["d"] = 14,
 				["g"] = 27,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [72]
 			{
 				"LDuiveldari", -- [1]
@@ -29762,13 +29362,13 @@ VExRT = {
 				"EEdonus", -- [20]
 				"KSonneillon", -- [21]
 				"ISummonium", -- [22]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 15,
-				["eI"] = 1849,
+				["eN"] = "Skorpyron",
 				["t"] = 1485456136,
 				["g"] = 22,
-				["eN"] = "Skorpyron",
+				["eI"] = 1849,
 			}, -- [73]
 			{
 				"KAbbey", -- [1]
@@ -29791,13 +29391,13 @@ VExRT = {
 				"EArtizt", -- [18]
 				"EEdonus", -- [19]
 				"KKanchii", -- [20]
-				["eI"] = 1865,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1485718446,
 				["eN"] = "Chronomatic Anomaly",
+				["k"] = true,
+				["t"] = 1485718446,
+				["eI"] = 1865,
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [74]
 			{
 				"KAbbey", -- [1]
@@ -29830,13 +29430,13 @@ VExRT = {
 				"EMicropriest", -- [28]
 				"BBubbleduivel", -- [29]
 				"KIlya", -- [30]
-				["eN"] = "Skorpyron",
-				["k"] = true,
-				["t"] = 1485974898,
 				["eI"] = 1849,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1485974898,
+				["eN"] = "Skorpyron",
 				["d"] = 14,
 				["g"] = 30,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [75]
 			{
 				"KAbbey", -- [1]
@@ -29869,13 +29469,13 @@ VExRT = {
 				"GCajnab", -- [28]
 				"EEdonus", -- [29]
 				"KKanchii", -- [30]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 15,
-				["eN"] = "Skorpyron",
+				["eI"] = 1849,
 				["t"] = 1486060833,
 				["g"] = 28,
-				["eI"] = 1849,
+				["eN"] = "Skorpyron",
 			}, -- [76]
 			{
 				"KAbbey", -- [1]
@@ -29908,13 +29508,13 @@ VExRT = {
 				"EMicropriest", -- [28]
 				"EEmlinity", -- [29]
 				"BBubbleduivel", -- [30]
-				["eI"] = 1849,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1486579402,
 				["eN"] = "Skorpyron",
+				["k"] = true,
+				["t"] = 1486579402,
+				["eI"] = 1849,
 				["d"] = 14,
 				["g"] = 27,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [77]
 			{
 				"KAbbey", -- [1]
@@ -29946,13 +29546,13 @@ VExRT = {
 				"KIlya", -- [27]
 				"EMicropriest", -- [28]
 				"EEmlinity", -- [29]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 14,
-				["eN"] = "Star Augur Etraeus",
+				["eI"] = 1863,
 				["t"] = 1486582463,
 				["g"] = 27,
-				["eI"] = 1863,
+				["eN"] = "Star Augur Etraeus",
 			}, -- [78]
 			{
 				"ASkrylax", -- [1]
@@ -29985,13 +29585,13 @@ VExRT = {
 				"EEdonus", -- [28]
 				"KKanchii", -- [29]
 				"GCajnab", -- [30]
-				["eI"] = 1849,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1486665670,
 				["eN"] = "Skorpyron",
+				["k"] = true,
+				["t"] = 1486665670,
+				["eI"] = 1849,
 				["d"] = 15,
 				["g"] = 30,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [79]
 			{
 				"KAbbey", -- [1]
@@ -30020,13 +29620,13 @@ VExRT = {
 				"EMicropriest", -- [24]
 				"BBubbleduivel", -- [25]
 				"CKarnesius", -- [26]
-				["eN"] = "Skorpyron",
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1487184342,
 				["eI"] = 1849,
+				["k"] = true,
+				["t"] = 1487184342,
+				["eN"] = "Skorpyron",
 				["d"] = 14,
 				["g"] = 26,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [80]
 			{
 				"DBeeble", -- [1]
@@ -30059,13 +29659,13 @@ VExRT = {
 				"EEdonus", -- [28]
 				"KKanchii", -- [29]
 				"GCajnab", -- [30]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 15,
-				["eN"] = "Skorpyron",
+				["eI"] = 1849,
 				["t"] = 1487270569,
 				["g"] = 29,
-				["eI"] = 1849,
+				["eN"] = "Skorpyron",
 			}, -- [81]
 			{
 				"AKvikkas-Frostwhisper", -- [1]
@@ -30082,13 +29682,13 @@ VExRT = {
 				"KVanelle-Frostmane", -- [12]
 				"CQsilver", -- [13]
 				"IZiri-Aggra(Português)", -- [14]
-				["eN"] = "Skorpyron",
-				["k"] = true,
-				["t"] = 1487360504,
 				["eI"] = 1849,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1487360504,
+				["eN"] = "Skorpyron",
 				["d"] = 14,
 				["g"] = 14,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [82]
 			{
 				"LDuiveldari", -- [1]
@@ -30111,13 +29711,13 @@ VExRT = {
 				"BArtiks", -- [18]
 				"JNyna", -- [19]
 				"GCajnab", -- [20]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 16,
-				["eI"] = 1871,
+				["eN"] = "Spellblade Aluriel",
 				["t"] = 1487533117,
 				["g"] = 20,
-				["eN"] = "Spellblade Aluriel",
+				["eI"] = 1871,
 			}, -- [83]
 			{
 				"KAbbey", -- [1]
@@ -30147,13 +29747,13 @@ VExRT = {
 				"KAnferae", -- [25]
 				"EMicropriest", -- [26]
 				"ASkrylax", -- [27]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 14,
-				["eI"] = 1849,
+				["eN"] = "Skorpyron",
 				["t"] = 1487788981,
 				["g"] = 25,
-				["eN"] = "Skorpyron",
+				["eI"] = 1849,
 			}, -- [84]
 			{
 				"KAbbey", -- [1]
@@ -30183,13 +29783,13 @@ VExRT = {
 				"KAnferae", -- [25]
 				"EMicropriest", -- [26]
 				"GLoveheal", -- [27]
-				["eI"] = 1863,
-				["k"] = true,
-				["t"] = 1487792232,
 				["eN"] = "Star Augur Etraeus",
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1487792232,
+				["eI"] = 1863,
 				["d"] = 14,
 				["g"] = 27,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [85]
 			{
 				"FKarthain", -- [1]
@@ -30222,13 +29822,13 @@ VExRT = {
 				"IWobberc", -- [28]
 				"ISummonium", -- [29]
 				"HTroopcsd", -- [30]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 15,
-				["eI"] = 1849,
+				["eN"] = "Skorpyron",
 				["t"] = 1487875459,
 				["g"] = 30,
-				["eN"] = "Skorpyron",
+				["eI"] = 1849,
 			}, -- [86]
 			{
 				"GChenenxi", -- [1]
@@ -30251,13 +29851,13 @@ VExRT = {
 				"KKanchii", -- [18]
 				"BArtiks", -- [19]
 				"GCajnab", -- [20]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 16,
-				["eI"] = 1867,
+				["eN"] = "Trilliax",
 				["t"] = 1487885278,
 				["g"] = 20,
-				["eN"] = "Trilliax",
+				["eI"] = 1867,
 			}, -- [87]
 			{
 				"LDuiveldari", -- [1]
@@ -30280,13 +29880,13 @@ VExRT = {
 				"GCajnab", -- [18]
 				"BArtiks", -- [19]
 				"EEdonus", -- [20]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 16,
-				["eN"] = "Spellblade Aluriel",
+				["eI"] = 1871,
 				["t"] = 1488136831,
 				["g"] = 20,
-				["eI"] = 1871,
+				["eN"] = "Spellblade Aluriel",
 			}, -- [88]
 			{
 				"LDuiveldari", -- [1]
@@ -30319,13 +29919,13 @@ VExRT = {
 				"JNyna", -- [28]
 				"KKanchii", -- [29]
 				"GCajnab", -- [30]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 15,
-				["eI"] = 1849,
+				["eN"] = "Skorpyron",
 				["t"] = 1488480069,
 				["g"] = 30,
-				["eN"] = "Skorpyron",
+				["eI"] = 1849,
 			}, -- [89]
 			{
 				"LDuiveldari", -- [1]
@@ -30348,13 +29948,13 @@ VExRT = {
 				"GCajnab", -- [18]
 				"KKanchii", -- [19]
 				"KCilnia", -- [20]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 16,
-				["eI"] = 1867,
+				["eN"] = "Trilliax",
 				["t"] = 1488488947,
 				["g"] = 20,
-				["eN"] = "Trilliax",
+				["eI"] = 1867,
 			}, -- [90]
 			{
 				"LDuiveldari", -- [1]
@@ -30377,13 +29977,13 @@ VExRT = {
 				"JNyna", -- [18]
 				"KCilnia", -- [19]
 				"GCajnab", -- [20]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 16,
-				["eI"] = 1842,
+				["eN"] = "Krosus",
 				["t"] = 1488743621,
 				["g"] = 20,
-				["eN"] = "Krosus",
+				["eI"] = 1842,
 			}, -- [91]
 			{
 				"LDuiveldari", -- [1]
@@ -30406,13 +30006,13 @@ VExRT = {
 				"JNyna", -- [18]
 				"BArtiks", -- [19]
 				"GCajnab", -- [20]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 16,
-				["eN"] = "High Botanist Tel'arn",
+				["eI"] = 1886,
 				["t"] = 1488753018,
 				["g"] = 20,
-				["eI"] = 1886,
+				["eN"] = "High Botanist Tel'arn",
 			}, -- [92]
 			{
 				"GChenenxi", -- [1]
@@ -30435,13 +30035,13 @@ VExRT = {
 				"EArtizt", -- [18]
 				"IWobberc", -- [19]
 				"GCajnab", -- [20]
-				["eN"] = "Tichondrius",
-				["k"] = true,
-				["t"] = 1488833117,
 				["eI"] = 1862,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1488833117,
+				["eN"] = "Tichondrius",
 				["d"] = 16,
 				["g"] = 20,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [93]
 			{
 				"KAbbey", -- [1]
@@ -30474,13 +30074,13 @@ VExRT = {
 				"KKanchii", -- [28]
 				"KCilnia", -- [29]
 				"JNyna", -- [30]
-				["eI"] = 1872,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1489085840,
 				["eN"] = "Grand Magistrix Elisande",
+				["k"] = true,
+				["t"] = 1489085840,
+				["eI"] = 1872,
 				["d"] = 15,
 				["g"] = 30,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [94]
 			{
 				"KAbbey", -- [1]
@@ -30503,13 +30103,13 @@ VExRT = {
 				"EEmlinity", -- [18]
 				"JNyna", -- [19]
 				"EArtizt", -- [20]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 16,
-				["eN"] = "Krosus",
+				["eI"] = 1842,
 				["t"] = 1489094838,
 				["g"] = 20,
-				["eI"] = 1842,
+				["eN"] = "Krosus",
 			}, -- [95]
 			{
 				"BMaemi", -- [1]
@@ -30532,13 +30132,13 @@ VExRT = {
 				"KCilnia", -- [18]
 				"KKanchii", -- [19]
 				"GCajnab", -- [20]
-				["eI"] = 1871,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1489345312,
 				["eN"] = "Spellblade Aluriel",
+				["k"] = true,
+				["t"] = 1489345312,
+				["eI"] = 1871,
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [96]
 			{
 				"KAbbey", -- [1]
@@ -30564,13 +30164,13 @@ VExRT = {
 				"KAstrilar-GrimBatol", -- [21]
 				"CQsilver", -- [22]
 				"CPutrohunt", -- [23]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 15,
-				["eN"] = "Skorpyron",
+				["eI"] = 1849,
 				["t"] = 1489603642,
 				["g"] = 21,
-				["eI"] = 1849,
+				["eN"] = "Skorpyron",
 			}, -- [97]
 			{
 				"LDuiveldari", -- [1]
@@ -30593,13 +30193,13 @@ VExRT = {
 				"KCilnia", -- [18]
 				"GCajnab", -- [19]
 				"KKanchii", -- [20]
-				["eI"] = 1871,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1489700064,
 				["eN"] = "Spellblade Aluriel",
+				["k"] = true,
+				["t"] = 1489700064,
+				["eI"] = 1871,
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [98]
 			{
 				"GKlitzy", -- [1]
@@ -30622,13 +30222,13 @@ VExRT = {
 				"JNyna", -- [18]
 				"BArtiks", -- [19]
 				"GCajnab", -- [20]
-				["eI"] = 1886,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1489949882,
 				["eN"] = "High Botanist Tel'arn",
+				["k"] = true,
+				["t"] = 1489949882,
+				["eI"] = 1886,
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [99]
 			{
 				"KAbbey", -- [1]
@@ -30658,13 +30258,13 @@ VExRT = {
 				"KCilnia", -- [25]
 				"KCätilinus", -- [26]
 				"HTroopcsd", -- [27]
-				["eI"] = 1872,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1490294911,
 				["eN"] = "Grand Magistrix Elisande",
+				["k"] = true,
+				["t"] = 1490294911,
+				["eI"] = 1872,
 				["d"] = 15,
 				["g"] = 27,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [100]
 			{
 				"HTroopcsd", -- [1]
@@ -30681,13 +30281,13 @@ VExRT = {
 				"BMaemi", -- [12]
 				"KKanchii", -- [13]
 				"ACårolus", -- [14]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 14,
-				["eN"] = "Nythendra",
+				["eI"] = 1853,
 				["t"] = 1490539228,
 				["g"] = 14,
-				["eI"] = 1853,
+				["eN"] = "Nythendra",
 			}, -- [101]
 			{
 				"JOlivmm", -- [1]
@@ -30710,13 +30310,13 @@ VExRT = {
 				"IWobberc", -- [18]
 				"CQsilver", -- [19]
 				"JNyna", -- [20]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 16,
-				["eN"] = "Tichondrius",
+				["eI"] = 1862,
 				["t"] = 1490550823,
 				["g"] = 20,
-				["eI"] = 1862,
+				["eN"] = "Tichondrius",
 			}, -- [102]
 			{
 				"KAbbey", -- [1]
@@ -30746,13 +30346,13 @@ VExRT = {
 				"GCajnab", -- [25]
 				"CQsilver", -- [26]
 				"KCätilinus", -- [27]
-				["eN"] = "Tichondrius",
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1490811004,
 				["eI"] = 1862,
+				["k"] = true,
+				["t"] = 1490811004,
+				["eN"] = "Tichondrius",
 				["d"] = 15,
 				["g"] = 27,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [103]
 			{
 				"LDuiveldari", -- [1]
@@ -30776,13 +30376,13 @@ VExRT = {
 				"APàts", -- [19]
 				"LBeibilisk", -- [20]
 				"ISummonium", -- [21]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 14,
-				["eI"] = 1853,
+				["eN"] = "Nythendra",
 				["t"] = 1491068326,
 				["g"] = 21,
-				["eN"] = "Nythendra",
+				["eI"] = 1853,
 			}, -- [104]
 			{
 				"KAbbey", -- [1]
@@ -30809,13 +30409,13 @@ VExRT = {
 				"EEmlinity", -- [22]
 				"CCoyotestark", -- [23]
 				"HTroopcsd", -- [24]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 15,
-				["eI"] = 1872,
+				["eN"] = "Grand Magistrix Elisande",
 				["t"] = 1491414450,
 				["g"] = 24,
-				["eN"] = "Grand Magistrix Elisande",
+				["eI"] = 1872,
 			}, -- [105]
 			{
 				"KAbbey", -- [1]
@@ -30842,13 +30442,13 @@ VExRT = {
 				"EEmlinity", -- [22]
 				"CCoyotestark", -- [23]
 				"HTroopcsd", -- [24]
-				["eI"] = 1842,
-				["k"] = true,
-				["t"] = 1491418599,
 				["eN"] = "Krosus",
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1491418599,
+				["eI"] = 1842,
 				["d"] = 15,
 				["g"] = 23,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [106]
 			{
 				"LDuiveldari", -- [1]
@@ -30871,13 +30471,13 @@ VExRT = {
 				"KKanchii", -- [18]
 				"KCilnia", -- [19]
 				"JNyna", -- [20]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 16,
-				["eI"] = 1849,
+				["eN"] = "Skorpyron",
 				["t"] = 1491500621,
 				["g"] = 20,
-				["eN"] = "Skorpyron",
+				["eI"] = 1849,
 			}, -- [107]
 			{
 				"LDuiveldari", -- [1]
@@ -30900,13 +30500,13 @@ VExRT = {
 				"KCilnia", -- [18]
 				"GCajnab", -- [19]
 				"JNyna", -- [20]
-				["eI"] = 1886,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1491506296,
 				["eN"] = "High Botanist Tel'arn",
+				["k"] = true,
+				["t"] = 1491506296,
+				["eI"] = 1886,
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [108]
 			{
 				"HTroopcsd", -- [1]
@@ -30929,13 +30529,13 @@ VExRT = {
 				"ACårolus", -- [18]
 				"BMaemi", -- [19]
 				"CQsilver", -- [20]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 14,
-				["eN"] = "Il'gynoth, The Heart of Corruption",
+				["eI"] = 1873,
 				["t"] = 1491673662,
 				["g"] = 19,
-				["eI"] = 1873,
+				["eN"] = "Il'gynoth, The Heart of Corruption",
 			}, -- [109]
 			{
 				"LDuiveldari", -- [1]
@@ -30958,13 +30558,13 @@ VExRT = {
 				"KKanchii", -- [18]
 				"KCilnia", -- [19]
 				"JNyna", -- [20]
-				["eI"] = 1872,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1491766508,
 				["eN"] = "Grand Magistrix Elisande",
+				["k"] = true,
+				["t"] = 1491766508,
+				["eI"] = 1872,
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [110]
 			{
 				"BMaemi", -- [1]
@@ -30987,13 +30587,13 @@ VExRT = {
 				"KKanchii", -- [18]
 				"KCilnia", -- [19]
 				"BArtiks", -- [20]
-				["eI"] = 1849,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1492105564,
 				["eN"] = "Skorpyron",
+				["k"] = true,
+				["t"] = 1492105564,
+				["eI"] = 1849,
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [111]
 			{
 				"BMaemi", -- [1]
@@ -31016,13 +30616,13 @@ VExRT = {
 				"KKanchii", -- [18]
 				"KCilnia", -- [19]
 				"BArtiks", -- [20]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 16,
-				["eN"] = "Trilliax",
+				["eI"] = 1867,
 				["t"] = 1492106500,
 				["g"] = 20,
-				["eI"] = 1867,
+				["eN"] = "Trilliax",
 			}, -- [112]
 			{
 				"LDuiveldari", -- [1]
@@ -31040,13 +30640,13 @@ VExRT = {
 				"HGulrot", -- [13]
 				"GCajnab", -- [14]
 				"KCilnia", -- [15]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 14,
-				["eI"] = 1853,
+				["eN"] = "Nythendra",
 				["t"] = 1492277649,
 				["g"] = 15,
-				["eN"] = "Nythendra",
+				["eI"] = 1853,
 			}, -- [113]
 			{
 				"KAbbey", -- [1]
@@ -31069,13 +30669,13 @@ VExRT = {
 				"GCajnab", -- [18]
 				"JNyna", -- [19]
 				"KCilnia", -- [20]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 16,
-				["eI"] = 1853,
+				["eN"] = "Nythendra",
 				["t"] = 1492366442,
 				["g"] = 20,
-				["eN"] = "Nythendra",
+				["eI"] = 1853,
 			}, -- [114]
 			{
 				"LDuiveldari", -- [1]
@@ -31086,22 +30686,22 @@ VExRT = {
 				"JOlivmm", -- [6]
 				"CQsilver", -- [7]
 				"KSonneillon", -- [8]
-				["k"] = true,
+				[19] = "GCajnab",
 				[13] = "ISummonium",
 				["c"] = "Qsilver-Silvermoon",
 				[14] = "EEmlinity",
 				["eN"] = "Dragons of Nightmare",
-				[15] = "IWobberc",
+				["d"] = 16,
 				["g"] = 20,
 				[16] = "KCilnia",
 				[17] = "BArtiks",
 				[18] = "JNyna",
-				[19] = "GCajnab",
+				["k"] = true,
 				["t"] = 1492451068,
 				[11] = "HTroopcsd",
 				["eI"] = 1854,
 				[12] = "HGulrot",
-				["d"] = 16,
+				[15] = "IWobberc",
 			}, -- [115]
 			{
 				"KAbbey", -- [1]
@@ -31129,13 +30729,13 @@ VExRT = {
 				"KDolirean", -- [23]
 				"ISummonium", -- [24]
 				"KKanchii", -- [25]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 15,
-				["eN"] = "Grand Magistrix Elisande",
+				["eI"] = 1872,
 				["t"] = 1492623959,
 				["g"] = 25,
-				["eI"] = 1872,
+				["eN"] = "Grand Magistrix Elisande",
 			}, -- [116]
 			{
 				"LDuiveldari", -- [1]
@@ -31158,13 +30758,13 @@ VExRT = {
 				"KCilnia", -- [18]
 				"BArtiks", -- [19]
 				"KKanchii", -- [20]
-				["eI"] = 1849,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1492710371,
 				["eN"] = "Skorpyron",
+				["k"] = true,
+				["t"] = 1492710371,
+				["eI"] = 1849,
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [117]
 			{
 				"LDuiveldari", -- [1]
@@ -31187,13 +30787,13 @@ VExRT = {
 				"KCilnia", -- [18]
 				"HGulrot", -- [19]
 				"JNyna", -- [20]
-				["eI"] = 1863,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1492719721,
 				["eN"] = "Star Augur Etraeus",
+				["k"] = true,
+				["t"] = 1492719721,
+				["eI"] = 1863,
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [118]
 			{
 				"HTroopcsd", -- [1]
@@ -31214,13 +30814,13 @@ VExRT = {
 				"KTran", -- [16]
 				"IZapphira", -- [17]
 				"KAbbey", -- [18]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 14,
-				["eN"] = "Cenarius",
+				["eI"] = 1877,
 				["t"] = 1492883893,
 				["g"] = 18,
-				["eI"] = 1877,
+				["eN"] = "Cenarius",
 			}, -- [119]
 			{
 				"JBjörnkram", -- [1]
@@ -31244,13 +30844,13 @@ VExRT = {
 				"KCilnia", -- [19]
 				"HLaark", -- [20]
 				"DSaijin", -- [21]
-				["eI"] = 1958,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1492889106,
 				["eN"] = "Odyn",
+				["k"] = true,
+				["t"] = 1492889106,
+				["eI"] = 1958,
 				["d"] = 14,
 				["g"] = 21,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [120]
 			{
 				"KAbbey", -- [1]
@@ -31273,13 +30873,13 @@ VExRT = {
 				"BArtiks", -- [18]
 				"KKanchii", -- [19]
 				"HLaark", -- [20]
-				["eI"] = 1872,
-				["k"] = true,
-				["t"] = 1493228736,
 				["eN"] = "Grand Magistrix Elisande",
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1493228736,
+				["eI"] = 1872,
 				["d"] = 15,
 				["g"] = 20,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [121]
 			{
 				"ACårolus", -- [1]
@@ -31302,13 +30902,13 @@ VExRT = {
 				"KKanchii", -- [18]
 				"KAlysrian", -- [19]
 				"EEmlinity", -- [20]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 16,
-				["eI"] = 1849,
+				["eN"] = "Skorpyron",
 				["t"] = 1493314822,
 				["g"] = 20,
-				["eN"] = "Skorpyron",
+				["eI"] = 1849,
 			}, -- [122]
 			{
 				"GChenenxi", -- [1]
@@ -31326,13 +30926,13 @@ VExRT = {
 				"JNyna", -- [13]
 				"KSonneillon", -- [14]
 				"IWobberc", -- [15]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 14,
-				["eI"] = 1853,
+				["eN"] = "Nythendra",
 				["t"] = 1493487577,
 				["g"] = 15,
-				["eN"] = "Nythendra",
+				["eI"] = 1853,
 			}, -- [123]
 			{
 				"KAbbey", -- [1]
@@ -31356,13 +30956,13 @@ VExRT = {
 				"JNyna", -- [19]
 				"EMicropriest", -- [20]
 				"HTroopcsd", -- [21]
-				["eI"] = 1872,
-				["k"] = true,
-				["t"] = 1493833723,
 				["eN"] = "Grand Magistrix Elisande",
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1493833723,
+				["eI"] = 1872,
 				["d"] = 15,
 				["g"] = 21,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [124]
 			{
 				"KAbbey", -- [1]
@@ -31385,13 +30985,13 @@ VExRT = {
 				"KKanchii", -- [18]
 				"KAlysrian", -- [19]
 				"JNyna", -- [20]
-				["eI"] = 1849,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1493919835,
 				["eN"] = "Skorpyron",
+				["k"] = true,
+				["t"] = 1493919835,
+				["eI"] = 1849,
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [125]
 			{
 				"LPowelex", -- [1]
@@ -31412,13 +31012,13 @@ VExRT = {
 				"KKanchii", -- [16]
 				"JNyna", -- [17]
 				"KAlysrian", -- [18]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 14,
-				["eI"] = 1853,
+				["eN"] = "Nythendra",
 				["t"] = 1494092373,
 				["g"] = 18,
-				["eN"] = "Nythendra",
+				["eI"] = 1853,
 			}, -- [126]
 			{
 				"LPowelex", -- [1]
@@ -31439,13 +31039,13 @@ VExRT = {
 				"KKanchii", -- [16]
 				"JNyna", -- [17]
 				"KAlysrian", -- [18]
-				["eI"] = 1842,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1494100424,
 				["eN"] = "Krosus",
+				["k"] = true,
+				["t"] = 1494100424,
+				["eI"] = 1842,
 				["d"] = 14,
 				["g"] = 18,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [127]
 			{
 				"KAbbey", -- [1]
@@ -31468,13 +31068,13 @@ VExRT = {
 				"BArtiks", -- [18]
 				"JNyna", -- [19]
 				"KAlysrian", -- [20]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 16,
-				["eN"] = "Gul'dan",
+				["eI"] = 1866,
 				["t"] = 1494182413,
 				["g"] = 20,
-				["eI"] = 1866,
+				["eN"] = "Gul'dan",
 			}, -- [128]
 			{
 				"KAbbey", -- [1]
@@ -31501,13 +31101,13 @@ VExRT = {
 				"JAugmentin", -- [22]
 				"JNyna", -- [23]
 				"KKanchii", -- [24]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 15,
-				["eN"] = "Grand Magistrix Elisande",
+				["eI"] = 1872,
 				["t"] = 1494438530,
 				["g"] = 24,
-				["eI"] = 1872,
+				["eN"] = "Grand Magistrix Elisande",
 			}, -- [129]
 			{
 				"LDuiveldari", -- [1]
@@ -31530,13 +31130,13 @@ VExRT = {
 				"KAlysrian", -- [18]
 				"BArtiks", -- [19]
 				"GMetro", -- [20]
-				["eI"] = 1872,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1494526191,
 				["eN"] = "Grand Magistrix Elisande",
+				["k"] = true,
+				["t"] = 1494526191,
+				["eI"] = 1872,
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [130]
 			{
 				"KAbbey", -- [1]
@@ -31558,13 +31158,13 @@ VExRT = {
 				"CPutrohunt", -- [17]
 				"BMiuiq", -- [18]
 				"GMetro", -- [19]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 14,
-				["eI"] = 1853,
+				["eN"] = "Nythendra",
 				["t"] = 1494783571,
 				["g"] = 19,
-				["eN"] = "Nythendra",
+				["eI"] = 1853,
 			}, -- [131]
 			{
 				"KAbbey", -- [1]
@@ -31587,13 +31187,13 @@ VExRT = {
 				"BArtiks", -- [18]
 				"KKanchii", -- [19]
 				"EEmlinity", -- [20]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 16,
-				["eI"] = 1872,
+				["eN"] = "Grand Magistrix Elisande",
 				["t"] = 1495131031,
 				["g"] = 20,
-				["eN"] = "Grand Magistrix Elisande",
+				["eI"] = 1872,
 			}, -- [132]
 			{
 				"KAbbey", -- [1]
@@ -31616,13 +31216,13 @@ VExRT = {
 				"BArtiks", -- [18]
 				"KKanchii", -- [19]
 				"EEmlinity", -- [20]
-				["eI"] = 1871,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1495138280,
 				["eN"] = "Spellblade Aluriel",
+				["k"] = true,
+				["t"] = 1495138280,
+				["eI"] = 1871,
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [133]
 			{
 				"KAbbey", -- [1]
@@ -31640,13 +31240,13 @@ VExRT = {
 				"EKaydn", -- [13]
 				"GMetro", -- [14]
 				"CThaelin-Frostmane", -- [15]
-				["eI"] = 1853,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1495388167,
 				["eN"] = "Nythendra",
+				["k"] = true,
+				["t"] = 1495388167,
+				["eI"] = 1853,
 				["d"] = 14,
 				["g"] = 15,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [134]
 			{
 				"KAbbey", -- [1]
@@ -31669,13 +31269,13 @@ VExRT = {
 				"CPutrohunt", -- [18]
 				"BArtiks", -- [19]
 				"CGrimjowmotas", -- [20]
-				["eN"] = "Grand Magistrix Elisande",
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1495648731,
 				["eI"] = 1872,
+				["k"] = true,
+				["t"] = 1495648731,
+				["eN"] = "Grand Magistrix Elisande",
 				["d"] = 15,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [135]
 			{
 				"KAbbey", -- [1]
@@ -31698,13 +31298,13 @@ VExRT = {
 				"EEmlinity", -- [18]
 				"BArtiks", -- [19]
 				"KKanchii", -- [20]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 16,
-				["eN"] = "Grand Magistrix Elisande",
+				["eI"] = 1872,
 				["t"] = 1495735142,
 				["g"] = 20,
-				["eI"] = 1872,
+				["eN"] = "Grand Magistrix Elisande",
 			}, -- [136]
 			{
 				"LIllidabbidan", -- [1]
@@ -31721,13 +31321,13 @@ VExRT = {
 				"KAlysrian", -- [12]
 				"KKanchii", -- [13]
 				"JNyna", -- [14]
-				["eN"] = "Nythendra",
-				["k"] = true,
-				["t"] = 1495993156,
 				["eI"] = 1853,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1495993156,
+				["eN"] = "Nythendra",
 				["d"] = 14,
 				["g"] = 14,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [137]
 			{
 				"KAbbey", -- [1]
@@ -31748,13 +31348,13 @@ VExRT = {
 				"LPowelex", -- [16]
 				"EKaydn", -- [17]
 				"GMetro", -- [18]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 15,
-				["eI"] = 1872,
+				["eN"] = "Grand Magistrix Elisande",
 				["t"] = 1496252631,
 				["g"] = 18,
-				["eN"] = "Grand Magistrix Elisande",
+				["eI"] = 1872,
 			}, -- [138]
 			{
 				"LDuiveldari", -- [1]
@@ -31777,13 +31377,13 @@ VExRT = {
 				"KAlysrian", -- [18]
 				"KKanchii", -- [19]
 				"GMetro", -- [20]
-				["eN"] = "Grand Magistrix Elisande",
-				["k"] = true,
-				["t"] = 1496340480,
 				["eI"] = 1872,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1496340480,
+				["eN"] = "Grand Magistrix Elisande",
 				["d"] = 16,
 				["g"] = 20,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [139]
 			{
 				"LDuiveldari", -- [1]
@@ -31806,13 +31406,13 @@ VExRT = {
 				"GMetro", -- [18]
 				"KAlysrian", -- [19]
 				"KKanchii", -- [20]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 16,
-				["eI"] = 1871,
+				["eN"] = "Spellblade Aluriel",
 				["t"] = 1496347716,
 				["g"] = 20,
-				["eN"] = "Spellblade Aluriel",
+				["eI"] = 1871,
 			}, -- [140]
 			{
 				"LPowelex", -- [1]
@@ -31835,13 +31435,13 @@ VExRT = {
 				"HTroopcsd", -- [18]
 				"GChokonyar-Ravencrest", -- [19]
 				"KAbbey", -- [20]
-				["eI"] = 1853,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1496599580,
 				["eN"] = "Nythendra",
+				["k"] = true,
+				["t"] = 1496599580,
+				["eI"] = 1853,
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [141]
 			{
 				"KAbbey", -- [1]
@@ -31864,13 +31464,13 @@ VExRT = {
 				"KKanchii", -- [18]
 				"GMetro", -- [19]
 				"JNyna", -- [20]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["t"] = 1496857727,
-				["eI"] = 1872,
+				["eN"] = "Grand Magistrix Elisande",
 				["d"] = 15,
 				["g"] = 18,
-				["eN"] = "Grand Magistrix Elisande",
+				["eI"] = 1872,
 			}, -- [142]
 			{
 				"KAbbey", -- [1]
@@ -31898,13 +31498,13 @@ VExRT = {
 				"CWendry", -- [23]
 				"HCaj", -- [24]
 				"IThealin-Frostmane", -- [25]
-				["eN"] = "Grand Magistrix Elisande",
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1497462287,
 				["eI"] = 1872,
+				["k"] = true,
+				["t"] = 1497462287,
+				["eN"] = "Grand Magistrix Elisande",
 				["d"] = 15,
 				["g"] = 25,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [143]
 			{
 				"LDuiveldari", -- [1]
@@ -31927,13 +31527,13 @@ VExRT = {
 				"GMetro", -- [18]
 				"KKanchii", -- [19]
 				"JNyna", -- [20]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 16,
-				["eN"] = "Grand Magistrix Elisande",
+				["eI"] = 1872,
 				["t"] = 1497549481,
 				["g"] = 20,
-				["eI"] = 1872,
+				["eN"] = "Grand Magistrix Elisande",
 			}, -- [144]
 			{
 				"LDuiveldari", -- [1]
@@ -31956,13 +31556,13 @@ VExRT = {
 				"GMetro", -- [18]
 				"KKanchii", -- [19]
 				"JNyna", -- [20]
-				["eN"] = "High Botanist Tel'arn",
-				["k"] = true,
-				["t"] = 1497561497,
 				["eI"] = 1886,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1497561497,
+				["eN"] = "High Botanist Tel'arn",
 				["d"] = 16,
 				["g"] = 20,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [145]
 			{
 				"KAbbey", -- [1]
@@ -31985,13 +31585,13 @@ VExRT = {
 				"KAlysrian", -- [18]
 				"KKanchii", -- [19]
 				"JNyna", -- [20]
-				["eI"] = 1866,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1497810921,
 				["eN"] = "Gul'dan",
+				["k"] = true,
+				["t"] = 1497810921,
+				["eI"] = 1866,
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [146]
 			{
 				"CPutrohunt", -- [1]
@@ -32014,13 +31614,13 @@ VExRT = {
 				"CHoohah-Azuremyst", -- [18]
 				"JNyna", -- [19]
 				"DStaticc-Bronzebeard", -- [20]
-				["eN"] = "Nythendra",
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1497814373,
 				["eI"] = 1853,
+				["k"] = true,
+				["t"] = 1497814373,
+				["eN"] = "Nythendra",
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [147]
 			{
 				"KAbbey", -- [1]
@@ -32048,13 +31648,13 @@ VExRT = {
 				"GCajnab", -- [23]
 				"KKanchii", -- [24]
 				"BArtiks", -- [25]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 14,
-				["eI"] = 2032,
+				["eN"] = "Goroth",
 				["t"] = 1498066888,
 				["g"] = 25,
-				["eN"] = "Goroth",
+				["eI"] = 2032,
 			}, -- [148]
 			{
 				"GChenenxi", -- [1]
@@ -32083,13 +31683,13 @@ VExRT = {
 				"JNyna", -- [24]
 				"GMetro", -- [25]
 				"GCajnab", -- [26]
-				["eI"] = 2032,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1498153319,
 				["eN"] = "Goroth",
+				["k"] = true,
+				["t"] = 1498153319,
+				["eI"] = 2032,
 				["d"] = 15,
 				["g"] = 26,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [149]
 			{
 				"LDuiveldari", -- [1]
@@ -32115,13 +31715,13 @@ VExRT = {
 				"BMaemi", -- [21]
 				"CCoyotestark", -- [22]
 				"KIamw", -- [23]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 15,
-				["eN"] = "Kil'jaeden",
+				["eI"] = 2051,
 				["t"] = 1498417905,
 				["g"] = 23,
-				["eI"] = 2051,
+				["eN"] = "Kil'jaeden",
 			}, -- [150]
 			{
 				"LDuiveldari", -- [1]
@@ -32144,13 +31744,13 @@ VExRT = {
 				"KKanchii", -- [18]
 				"KAlysrian", -- [19]
 				"BArtiks", -- [20]
-				["eN"] = "Gul'dan",
-				["k"] = true,
-				["t"] = 1498423483,
 				["eI"] = 1866,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1498423483,
+				["eN"] = "Gul'dan",
 				["d"] = 16,
 				["g"] = 20,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [151]
 			{
 				"KAbbey", -- [1]
@@ -32177,13 +31777,13 @@ VExRT = {
 				"KKanchii", -- [22]
 				"BArtiks", -- [23]
 				"KAlysrian", -- [24]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 15,
-				["eN"] = "Goroth",
+				["eI"] = 2032,
 				["t"] = 1498758165,
 				["g"] = 24,
-				["eI"] = 2032,
+				["eN"] = "Goroth",
 			}, -- [152]
 			{
 				"KAbbey", -- [1]
@@ -32206,13 +31806,13 @@ VExRT = {
 				"EZeál", -- [18]
 				"KKanchii", -- [19]
 				"KAlysrian", -- [20]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 16,
-				["eN"] = "Goroth",
+				["eI"] = 2032,
 				["t"] = 1499019933,
 				["g"] = 20,
-				["eI"] = 2032,
+				["eN"] = "Goroth",
 			}, -- [153]
 			{
 				"KAbbey", -- [1]
@@ -32238,13 +31838,13 @@ VExRT = {
 				"EMicropriest", -- [21]
 				"BBubbleduivel", -- [22]
 				"KAlysrian", -- [23]
-				["eN"] = "Goroth",
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1499276336,
 				["eI"] = 2032,
+				["k"] = true,
+				["t"] = 1499276336,
+				["eN"] = "Goroth",
 				["d"] = 14,
 				["g"] = 23,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [154]
 			{
 				"KAbbey", -- [1]
@@ -32271,13 +31871,13 @@ VExRT = {
 				"EMicropriest", -- [22]
 				"BBubbleduivel", -- [23]
 				"KAlysrian", -- [24]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 14,
-				["eN"] = "Fallen Avatar",
+				["eI"] = 2038,
 				["t"] = 1499280431,
 				["g"] = 23,
-				["eI"] = 2038,
+				["eN"] = "Fallen Avatar",
 			}, -- [155]
 			{
 				"KAbbey", -- [1]
@@ -32307,13 +31907,13 @@ VExRT = {
 				"JThermomemic", -- [25]
 				"KAlysrian", -- [26]
 				"KKanchii", -- [27]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 14,
-				["eI"] = 2032,
+				["eN"] = "Goroth",
 				["t"] = 1499887400,
 				["g"] = 27,
-				["eN"] = "Goroth",
+				["eI"] = 2032,
 			}, -- [156]
 			{
 				"KAbbey", -- [1]
@@ -32342,13 +31942,13 @@ VExRT = {
 				"KKanchii", -- [24]
 				"JThermomemic", -- [25]
 				"EEmlinity", -- [26]
-				["eI"] = 2032,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1499967615,
 				["eN"] = "Goroth",
+				["k"] = true,
+				["t"] = 1499967615,
+				["eI"] = 2032,
 				["d"] = 15,
 				["g"] = 26,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [157]
 			{
 				"KAbbey", -- [1]
@@ -32371,13 +31971,13 @@ VExRT = {
 				"BArtiks", -- [18]
 				"KAlysrian", -- [19]
 				"EZeál", -- [20]
-				["eI"] = 2054,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1500237834,
 				["eN"] = "The Desolate Host",
+				["k"] = true,
+				["t"] = 1500237834,
+				["eI"] = 2054,
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [158]
 			{
 				"KAbbey", -- [1]
@@ -32402,8 +32002,8 @@ VExRT = {
 				["t"] = 1500486085,
 				["g"] = 18,
 				["k"] = true,
-				[21] = "BBubbleduivel",
 				["eI"] = 2032,
+				[21] = "BBubbleduivel",
 				[22] = "KAlysrian",
 				[23] = "KAgéras",
 				["d"] = 14,
@@ -32460,13 +32060,13 @@ VExRT = {
 				"ISummonium", -- [22]
 				"KCätilinus", -- [23]
 				"KSonneillon", -- [24]
-				["eN"] = "Goroth",
-				["k"] = true,
-				["t"] = 1500572611,
 				["eI"] = 2032,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1500572611,
+				["eN"] = "Goroth",
 				["d"] = 15,
 				["g"] = 24,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [161]
 			{
 				"KAbbey", -- [1]
@@ -32499,13 +32099,13 @@ VExRT = {
 				"GNeutradol-Ravencrest", -- [28]
 				"CQsilver", -- [29]
 				"CGrimjowmotas", -- [30]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 15,
-				["eI"] = 2032,
+				["eN"] = "Goroth",
 				["t"] = 1501695845,
 				["g"] = 30,
-				["eN"] = "Goroth",
+				["eI"] = 2032,
 			}, -- [162]
 			{
 				"KAbbey", -- [1]
@@ -32528,13 +32128,13 @@ VExRT = {
 				"KKanchii", -- [18]
 				"KAlysrian", -- [19]
 				"EZeál", -- [20]
-				["eI"] = 2052,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1503255012,
 				["eN"] = "Maiden of Vigilance",
+				["k"] = true,
+				["t"] = 1503255012,
+				["eI"] = 2052,
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [163]
 			{
 				"KAbbey", -- [1]
@@ -32561,13 +32161,13 @@ VExRT = {
 				"EMicropriest", -- [22]
 				"GTjani", -- [23]
 				"JSanchi", -- [24]
-				["eN"] = "Goroth",
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1503510368,
 				["eI"] = 2032,
+				["k"] = true,
+				["t"] = 1503510368,
+				["eN"] = "Goroth",
 				["d"] = 15,
 				["g"] = 24,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [164]
 			{
 				"KAbbey", -- [1]
@@ -32595,8 +32195,8 @@ VExRT = {
 				["t"] = 1503597013,
 				["g"] = 23,
 				["k"] = true,
-				[21] = "JThermomemic",
 				["eI"] = 2051,
+				[21] = "JThermomemic",
 				[22] = "EZeál",
 				[23] = "KAlysrian",
 				["d"] = 15,
@@ -32622,13 +32222,13 @@ VExRT = {
 				"KKanchii", -- [18]
 				"JThermomemic", -- [19]
 				"EZeál", -- [20]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 16,
-				["eN"] = "Sisters of the Moon",
+				["eI"] = 2050,
 				["t"] = 1503856488,
 				["g"] = 20,
-				["eI"] = 2050,
+				["eN"] = "Sisters of the Moon",
 			}, -- [166]
 			{
 				"KAbbey", -- [1]
@@ -32651,13 +32251,13 @@ VExRT = {
 				"KKanchii", -- [18]
 				"KAlysrian", -- [19]
 				"EZeál", -- [20]
-				["eN"] = "Maiden of Vigilance",
-				["k"] = true,
-				["t"] = 1503864376,
 				["eI"] = 2052,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1503864376,
+				["eN"] = "Maiden of Vigilance",
 				["d"] = 16,
 				["g"] = 20,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [167]
 			{
 				"KAbbey", -- [1]
@@ -32681,13 +32281,13 @@ VExRT = {
 				"EMicropriest", -- [19]
 				"EOlivum", -- [20]
 				"IZapphira", -- [21]
-				["eI"] = 2032,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1504114927,
 				["eN"] = "Goroth",
+				["k"] = true,
+				["t"] = 1504114927,
+				["eI"] = 2032,
 				["d"] = 15,
 				["g"] = 21,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [168]
 			{
 				"KAbbey", -- [1]
@@ -32711,13 +32311,13 @@ VExRT = {
 				"EMicropriest", -- [19]
 				"EOlivum", -- [20]
 				"IZapphira", -- [21]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 15,
-				["eN"] = "Demonic Inquisition",
+				["eI"] = 2048,
 				["t"] = 1504115462,
 				["g"] = 21,
-				["eI"] = 2048,
+				["eN"] = "Demonic Inquisition",
 			}, -- [169]
 			{
 				"KAbbey", -- [1]
@@ -32742,13 +32342,13 @@ VExRT = {
 				"EOlivum", -- [20]
 				"JSanchi", -- [21]
 				"IZapphira", -- [22]
-				["eN"] = "Harjatan",
-				["k"] = true,
-				["t"] = 1504116108,
 				["eI"] = 2036,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1504116108,
+				["eN"] = "Harjatan",
 				["d"] = 15,
 				["g"] = 22,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [170]
 			{
 				"KAbbey", -- [1]
@@ -32773,13 +32373,13 @@ VExRT = {
 				"BEchoing-Doomhammer", -- [20]
 				"KCätilinus", -- [21]
 				"IZapphira", -- [22]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 15,
-				["eI"] = 2037,
+				["eN"] = "Mistress Sassz'ine",
 				["t"] = 1504117896,
 				["g"] = 22,
-				["eN"] = "Mistress Sassz'ine",
+				["eI"] = 2037,
 			}, -- [171]
 			{
 				"FTroopdc", -- [1]
@@ -32799,13 +32399,13 @@ VExRT = {
 				"EMicropriest", -- [15]
 				"JSanchi", -- [16]
 				"KAlysrian", -- [17]
-				["eI"] = 2038,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1504123467,
 				["eN"] = "Fallen Avatar",
+				["k"] = true,
+				["t"] = 1504123467,
+				["eI"] = 2038,
 				["d"] = 15,
 				["g"] = 17,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [172]
 			{
 				"KAbbey", -- [1]
@@ -32833,13 +32433,13 @@ VExRT = {
 				"JThermomemic", -- [23]
 				"KAlysrian", -- [24]
 				"KKanchii", -- [25]
-				["eI"] = 2051,
-				["k"] = true,
-				["t"] = 1504202502,
 				["eN"] = "Kil'jaeden",
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1504202502,
+				["eI"] = 2051,
 				["d"] = 15,
 				["g"] = 25,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [173]
 			{
 				"KAbbey", -- [1]
@@ -32862,13 +32462,13 @@ VExRT = {
 				"JThermomemic", -- [18]
 				"KAlysrian", -- [19]
 				"HGulrot", -- [20]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 16,
-				["eI"] = 2048,
+				["eN"] = "Demonic Inquisition",
 				["t"] = 1504204185,
 				["g"] = 20,
-				["eN"] = "Demonic Inquisition",
+				["eI"] = 2048,
 			}, -- [174]
 			{
 				"KAbbey", -- [1]
@@ -32891,13 +32491,13 @@ VExRT = {
 				"JThermomemic", -- [18]
 				"KKanchii", -- [19]
 				"KAlysrian", -- [20]
-				["eI"] = 2052,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1504464707,
 				["eN"] = "Maiden of Vigilance",
+				["k"] = true,
+				["t"] = 1504464707,
+				["eI"] = 2052,
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [175]
 			{
 				"KAbbey", -- [1]
@@ -32927,13 +32527,13 @@ VExRT = {
 				"KAlysrian", -- [25]
 				"KFuzzar", -- [26]
 				"CQsilver", -- [27]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 15,
-				["eN"] = "Harjatan",
+				["eI"] = 2036,
 				["t"] = 1504720994,
 				["g"] = 27,
-				["eI"] = 2036,
+				["eN"] = "Harjatan",
 			}, -- [176]
 			{
 				"LDuiveldari", -- [1]
@@ -32956,13 +32556,13 @@ VExRT = {
 				"KKanchii", -- [18]
 				"EOlivum", -- [19]
 				"BArtiks", -- [20]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 16,
-				["eN"] = "Goroth",
+				["eI"] = 2032,
 				["t"] = 1504806497,
 				["g"] = 20,
-				["eI"] = 2032,
+				["eN"] = "Goroth",
 			}, -- [177]
 			{
 				"KAbbey", -- [1]
@@ -32985,13 +32585,13 @@ VExRT = {
 				"KKanchii", -- [18]
 				"EOlivum", -- [19]
 				"JThermomemic", -- [20]
-				["eN"] = "Goroth",
-				["k"] = true,
-				["t"] = 1505411512,
 				["eI"] = 2032,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1505411512,
+				["eN"] = "Goroth",
 				["d"] = 16,
 				["g"] = 20,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [178]
 			{
 				"LDuiveldari", -- [1]
@@ -33014,13 +32614,13 @@ VExRT = {
 				"JThermomemic", -- [18]
 				"KAlysrian", -- [19]
 				"EOlivum", -- [20]
-				["eI"] = 1872,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1505760873,
 				["eN"] = "Grand Magistrix Elisande",
+				["k"] = true,
+				["t"] = 1505760873,
+				["eI"] = 1872,
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [179]
 			{
 				"LDuiveldari", -- [1]
@@ -33043,13 +32643,13 @@ VExRT = {
 				"JThermomemic", -- [18]
 				"KAlysrian", -- [19]
 				"EOlivum", -- [20]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 16,
-				["eN"] = "Skorpyron",
+				["eI"] = 1849,
 				["t"] = 1505762073,
 				["g"] = 20,
-				["eI"] = 1849,
+				["eN"] = "Skorpyron",
 			}, -- [180]
 			{
 				"LDuiveldari", -- [1]
@@ -33072,13 +32672,13 @@ VExRT = {
 				"JThermomemic", -- [18]
 				"KAlysrian", -- [19]
 				"EOlivum", -- [20]
-				["eN"] = "Tichondrius",
-				["k"] = true,
-				["t"] = 1505763410,
 				["eI"] = 1862,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1505763410,
+				["eN"] = "Tichondrius",
 				["d"] = 16,
 				["g"] = 20,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [181]
 			{
 				"KAbbey", -- [1]
@@ -33101,13 +32701,13 @@ VExRT = {
 				"KKanchii", -- [18]
 				"KAlysrian", -- [19]
 				"EOlivum", -- [20]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 16,
-				["eN"] = "Goroth",
+				["eI"] = 2032,
 				["t"] = 1506015825,
 				["g"] = 20,
-				["eI"] = 2032,
+				["eN"] = "Goroth",
 			}, -- [182]
 			{
 				"KAbbey", -- [1]
@@ -33130,13 +32730,13 @@ VExRT = {
 				"KAlysrian", -- [18]
 				"KKanchii", -- [19]
 				"JThermomemic", -- [20]
-				["eN"] = "Fallen Avatar",
-				["k"] = true,
-				["t"] = 1506277153,
 				["eI"] = 2038,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1506277153,
+				["eN"] = "Fallen Avatar",
 				["d"] = 16,
 				["g"] = 20,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [183]
 			{
 				"KAbbey", -- [1]
@@ -33159,13 +32759,13 @@ VExRT = {
 				"KAlysrian", -- [18]
 				"KKanchii", -- [19]
 				"EOlivum", -- [20]
-				["eI"] = 2032,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1506621265,
 				["eN"] = "Goroth",
+				["k"] = true,
+				["t"] = 1506621265,
+				["eI"] = 2032,
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [184]
 			{
 				"KAbbey", -- [1]
@@ -33188,13 +32788,13 @@ VExRT = {
 				"KKanchii", -- [18]
 				"KAlysrian", -- [19]
 				"EOlivum", -- [20]
-				["eN"] = "Fallen Avatar",
-				["k"] = true,
-				["t"] = 1506885893,
 				["eI"] = 2038,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1506885893,
+				["eN"] = "Fallen Avatar",
 				["d"] = 16,
 				["g"] = 20,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [185]
 			{
 				"KAbbey", -- [1]
@@ -33217,13 +32817,13 @@ VExRT = {
 				"KKanchii", -- [18]
 				"KAlysrian", -- [19]
 				"BArtiks", -- [20]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 16,
-				["eI"] = 2038,
+				["eN"] = "Fallen Avatar",
 				["t"] = 1507487795,
 				["g"] = 20,
-				["eN"] = "Fallen Avatar",
+				["eI"] = 2038,
 			}, -- [186]
 			{
 				"KAbbey", -- [1]
@@ -33246,13 +32846,13 @@ VExRT = {
 				"KKanchii", -- [18]
 				"KAlysrian", -- [19]
 				"EOlivem", -- [20]
-				["eI"] = 1872,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1507571177,
 				["eN"] = "Grand Magistrix Elisande",
+				["k"] = true,
+				["t"] = 1507571177,
+				["eI"] = 1872,
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [187]
 			{
 				"KAbbey", -- [1]
@@ -33275,13 +32875,13 @@ VExRT = {
 				"BArtiks", -- [18]
 				"GSags", -- [19]
 				"EOlivem", -- [20]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 16,
-				["eI"] = 2048,
+				["eN"] = "Demonic Inquisition",
 				["t"] = 1507830632,
 				["g"] = 20,
-				["eN"] = "Demonic Inquisition",
+				["eI"] = 2048,
 			}, -- [188]
 			{
 				"KAbbey", -- [1]
@@ -33304,13 +32904,13 @@ VExRT = {
 				"GSags", -- [18]
 				"JThermomemic", -- [19]
 				"GTjani", -- [20]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 16,
-				["eN"] = "Grand Magistrix Elisande",
+				["eI"] = 1872,
 				["t"] = 1508090005,
 				["g"] = 20,
-				["eI"] = 1872,
+				["eN"] = "Grand Magistrix Elisande",
 			}, -- [189]
 			{
 				"KIamw", -- [1]
@@ -33333,13 +32933,13 @@ VExRT = {
 				"KSagtwo", -- [18]
 				"KKanchii", -- [19]
 				"EOlivem", -- [20]
-				["eN"] = "High Botanist Tel'arn",
-				["k"] = true,
-				["t"] = 1508176039,
 				["eI"] = 1886,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1508176039,
+				["eN"] = "High Botanist Tel'arn",
 				["d"] = 16,
 				["g"] = 20,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [190]
 			{
 				"KAbbey", -- [1]
@@ -33362,13 +32962,13 @@ VExRT = {
 				"KKanchii", -- [18]
 				"KAlysrian", -- [19]
 				"ISummonium", -- [20]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 16,
-				["eI"] = 1872,
+				["eN"] = "Grand Magistrix Elisande",
 				["t"] = 1508780889,
 				["g"] = 20,
-				["eN"] = "Grand Magistrix Elisande",
+				["eI"] = 1872,
 			}, -- [191]
 			{
 				"KAbbey", -- [1]
@@ -33391,13 +32991,13 @@ VExRT = {
 				"EOlivem", -- [18]
 				"GTjani", -- [19]
 				"GSags", -- [20]
-				["eI"] = 1872,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1509302884,
 				["eN"] = "Grand Magistrix Elisande",
+				["k"] = true,
+				["t"] = 1509302884,
+				["eI"] = 1872,
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [192]
 			{
 				"KAbbey", -- [1]
@@ -33420,13 +33020,13 @@ VExRT = {
 				"KAlysrian", -- [18]
 				"EOlivem", -- [19]
 				"BArtiks", -- [20]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 16,
-				["eN"] = "Goroth",
+				["eI"] = 2032,
 				["t"] = 1510253042,
 				["g"] = 20,
-				["eI"] = 2032,
+				["eN"] = "Goroth",
 			}, -- [193]
 			{
 				"KAbbey", -- [1]
@@ -33449,13 +33049,13 @@ VExRT = {
 				"KKanchii", -- [18]
 				"EOlivem", -- [19]
 				"BArtiks", -- [20]
-				["eN"] = "Grand Magistrix Elisande",
-				["k"] = true,
-				["t"] = 1510515837,
 				["eI"] = 1872,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1510515837,
+				["eN"] = "Grand Magistrix Elisande",
 				["d"] = 16,
 				["g"] = 20,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [194]
 			{
 				"KAbbey", -- [1]
@@ -33478,13 +33078,13 @@ VExRT = {
 				"KAlysrian", -- [18]
 				"KKanchii", -- [19]
 				"EOlivem", -- [20]
-				["eI"] = 2038,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1510600798,
 				["eN"] = "Fallen Avatar",
+				["k"] = true,
+				["t"] = 1510600798,
+				["eI"] = 2038,
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [195]
 			{
 				"KAbbey", -- [1]
@@ -33497,13 +33097,13 @@ VExRT = {
 				"CQsilver", -- [8]
 				"ICarvis", -- [9]
 				"ILockied", -- [10]
-				["eN"] = "Goroth",
-				["k"] = true,
-				["t"] = 1510771514,
 				["eI"] = 2032,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1510771514,
+				["eN"] = "Goroth",
 				["d"] = 15,
 				["g"] = 10,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [196]
 			{
 				"KAbbey", -- [1]
@@ -33526,13 +33126,13 @@ VExRT = {
 				"KAlysrian", -- [18]
 				"BArtiks", -- [19]
 				"EOlivem", -- [20]
-				["eI"] = 2032,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1510858271,
 				["eN"] = "Goroth",
+				["k"] = true,
+				["t"] = 1510858271,
+				["eI"] = 2032,
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [197]
 			{
 				"KAbbey", -- [1]
@@ -33555,13 +33155,13 @@ VExRT = {
 				"KAlysrian", -- [18]
 				"BArtiks", -- [19]
 				"EOlivem", -- [20]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 16,
-				["eI"] = 2038,
+				["eN"] = "Fallen Avatar",
 				["t"] = 1510863255,
 				["g"] = 20,
-				["eN"] = "Fallen Avatar",
+				["eI"] = 2038,
 			}, -- [198]
 			{
 				"KAbbey", -- [1]
@@ -33584,13 +33184,13 @@ VExRT = {
 				"KKanchii", -- [18]
 				"KFeskmås", -- [19]
 				"GTjani", -- [20]
-				["eI"] = 2048,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1511117040,
 				["eN"] = "Demonic Inquisition",
+				["k"] = true,
+				["t"] = 1511117040,
+				["eI"] = 2048,
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [199]
 			{
 				"KAbbey", -- [1]
@@ -33613,13 +33213,13 @@ VExRT = {
 				"GTjani", -- [18]
 				"BArtiks", -- [19]
 				"EOlivem", -- [20]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 16,
-				["eI"] = 2032,
+				["eN"] = "Goroth",
 				["t"] = 1511462431,
 				["g"] = 20,
-				["eN"] = "Goroth",
+				["eI"] = 2032,
 			}, -- [200]
 			{
 				"KAbbey", -- [1]
@@ -33642,13 +33242,13 @@ VExRT = {
 				"KKanchii", -- [18]
 				"GTjani", -- [19]
 				"HGulrot", -- [20]
-				["eI"] = 2051,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1511725597,
 				["eN"] = "Kil'jaeden",
+				["k"] = true,
+				["t"] = 1511725597,
+				["eI"] = 2051,
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [201]
 			{
 				"KAbbey", -- [1]
@@ -33681,13 +33281,13 @@ VExRT = {
 				"EIsomorphism", -- [28]
 				"BBulzad", -- [29]
 				"DSaijin", -- [30]
-				["eN"] = "Garothi Worldbreaker",
-				["k"] = true,
-				["t"] = 1511981108,
 				["eI"] = 2076,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1511981108,
+				["eN"] = "Garothi Worldbreaker",
 				["d"] = 14,
 				["g"] = 30,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [202]
 			{
 				"KAbbey", -- [1]
@@ -33718,13 +33318,13 @@ VExRT = {
 				"HTroopcsd", -- [26]
 				"KIamw", -- [27]
 				"EIsomorphism", -- [28]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 15,
-				["eI"] = 2076,
+				["eN"] = "Garothi Worldbreaker",
 				["t"] = 1512067683,
 				["g"] = 28,
-				["eN"] = "Garothi Worldbreaker",
+				["eI"] = 2076,
 			}, -- [203]
 			{
 				"KAbbey", -- [1]
@@ -33754,13 +33354,13 @@ VExRT = {
 				"HLaark", -- [25]
 				"CÁcóustic", -- [26]
 				"CQsilver", -- [27]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 15,
-				["eI"] = 2063,
+				["eN"] = "Aggramar",
 				["t"] = 1512327627,
 				["g"] = 27,
-				["eN"] = "Aggramar",
+				["eI"] = 2063,
 			}, -- [204]
 			{
 				"KAbbey", -- [1]
@@ -33783,13 +33383,13 @@ VExRT = {
 				"EOlivem", -- [18]
 				"GTjani", -- [19]
 				"BArtiks", -- [20]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 16,
-				["eN"] = "Kil'jaeden",
+				["eI"] = 2051,
 				["t"] = 1512339363,
 				["g"] = 20,
-				["eI"] = 2051,
+				["eN"] = "Kil'jaeden",
 			}, -- [205]
 			{
 				"KAbbey", -- [1]
@@ -33822,13 +33422,13 @@ VExRT = {
 				"EOlivem", -- [28]
 				"JThermomemic", -- [29]
 				"GTjani", -- [30]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 14,
-				["eI"] = 2076,
+				["eN"] = "Garothi Worldbreaker",
 				["t"] = 1512585811,
 				["g"] = 30,
-				["eN"] = "Garothi Worldbreaker",
+				["eI"] = 2076,
 			}, -- [206]
 			{
 				"FTroopdc", -- [1]
@@ -33850,13 +33450,13 @@ VExRT = {
 				"KWakemend-Sylvanas", -- [17]
 				"KNelynthia", -- [18]
 				"LAtisek-ArgentDawn", -- [19]
-				["eI"] = 2076,
-				["k"] = true,
-				["t"] = 1512855596,
 				["eN"] = "Garothi Worldbreaker",
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1512855596,
+				["eI"] = 2076,
 				["d"] = 15,
 				["g"] = 19,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [207]
 			{
 				"KAbbey", -- [1]
@@ -33879,13 +33479,13 @@ VExRT = {
 				"BArtiks", -- [18]
 				"EOlivem", -- [19]
 				"GTjani", -- [20]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 16,
-				["eI"] = 2076,
+				["eN"] = "Garothi Worldbreaker",
 				["t"] = 1512931711,
 				["g"] = 20,
-				["eN"] = "Garothi Worldbreaker",
+				["eI"] = 2076,
 			}, -- [208]
 			{
 				"DAyokay", -- [1]
@@ -33942,13 +33542,13 @@ VExRT = {
 				"GTjani", -- [25]
 				"IGrorigor", -- [26]
 				"CQsilver", -- [27]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 14,
-				["eI"] = 2070,
+				["eN"] = "Antoran High Command",
 				["t"] = 1513191518,
 				["g"] = 27,
-				["eN"] = "Antoran High Command",
+				["eI"] = 2070,
 			}, -- [210]
 			{
 				"KAbbey", -- [1]
@@ -33971,13 +33571,13 @@ VExRT = {
 				"ISummonium", -- [18]
 				"CQsilver", -- [19]
 				"GTjani", -- [20]
-				["eN"] = "Portal Keeper Hasabel",
-				["k"] = true,
-				["t"] = 1513537922,
 				["eI"] = 2064,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1513537922,
+				["eN"] = "Portal Keeper Hasabel",
 				["d"] = 16,
 				["g"] = 20,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [211]
 			{
 				"KAbbey", -- [1]
@@ -34000,13 +33600,13 @@ VExRT = {
 				"KFeskmås", -- [18]
 				"JThermomemic", -- [19]
 				"GTjani", -- [20]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 16,
-				["eN"] = "Imonar the Soulhunter",
+				["eI"] = 2082,
 				["t"] = 1513625651,
 				["g"] = 20,
-				["eI"] = 2082,
+				["eN"] = "Imonar the Soulhunter",
 			}, -- [212]
 			{
 				"EPseudologoi", -- [1]
@@ -34024,13 +33624,13 @@ VExRT = {
 				"CQsilver", -- [13]
 				"JMinyay-DefiasBrotherhood", -- [14]
 				"DGingerhøst-Sylvanas", -- [15]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 15,
-				["eI"] = 2076,
+				["eN"] = "Garothi Worldbreaker",
 				["t"] = 1513671702,
 				["g"] = 15,
-				["eN"] = "Garothi Worldbreaker",
+				["eI"] = 2076,
 			}, -- [213]
 			{
 				"EDoinelocarry-Outland", -- [1]
@@ -34053,13 +33653,13 @@ VExRT = {
 				"AWhiteowlx-Ravencrest", -- [18]
 				"BИновия-Гордунни", -- [19]
 				"GMív-Outland", -- [20]
-				["eN"] = "Aggramar",
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1513697148,
 				["eI"] = 2063,
+				["k"] = true,
+				["t"] = 1513697148,
+				["eN"] = "Aggramar",
 				["d"] = 15,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [214]
 			{
 				"CRukini-TheMaelstrom", -- [1]
@@ -34082,13 +33682,13 @@ VExRT = {
 				"IAnabaciyapak-Outland", -- [18]
 				"KMontekda-Ravencrest", -- [19]
 				"CQsilver", -- [20]
-				["eN"] = "Argus the Unmaker",
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1513698878,
 				["eI"] = 2092,
+				["k"] = true,
+				["t"] = 1513698878,
+				["eN"] = "Argus the Unmaker",
 				["d"] = 15,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [215]
 			{
 				"KAbbey", -- [1]
@@ -34121,13 +33721,13 @@ VExRT = {
 				"HLaark", -- [28]
 				"HAlexutzul", -- [29]
 				"HFrostylina", -- [30]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 15,
-				["eN"] = "Garothi Worldbreaker",
+				["eI"] = 2076,
 				["t"] = 1513795249,
 				["g"] = 29,
-				["eI"] = 2076,
+				["eN"] = "Garothi Worldbreaker",
 			}, -- [216]
 			{
 				"KAbbey", -- [1]
@@ -34150,13 +33750,13 @@ VExRT = {
 				"BArtiks", -- [18]
 				"EOlivem", -- [19]
 				"KKanchii", -- [20]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 16,
-				["eN"] = "Garothi Worldbreaker",
+				["eI"] = 2076,
 				["t"] = 1513883727,
 				["g"] = 20,
-				["eI"] = 2076,
+				["eN"] = "Garothi Worldbreaker",
 			}, -- [217]
 			{
 				"LDuiveldari", -- [1]
@@ -34183,13 +33783,13 @@ VExRT = {
 				"IZapphira", -- [22]
 				"KNelynthia", -- [23]
 				"BMaemi", -- [24]
-				["eN"] = "Garothi Worldbreaker",
-				["k"] = true,
-				["t"] = 1514400012,
 				["eI"] = 2076,
+				["c"] = "Simroth-Silvermoon",
+				["t"] = 1514400012,
+				["eN"] = "Garothi Worldbreaker",
 				["d"] = 15,
 				["g"] = 24,
-				["c"] = "Simroth-Silvermoon",
+				["k"] = true,
 			}, -- [218]
 			{
 				"KAbbey", -- [1]
@@ -34216,13 +33816,13 @@ VExRT = {
 				"EMatmota", -- [22]
 				"KAlysrian", -- [23]
 				"KKanchii", -- [24]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 15,
-				["eN"] = "Argus the Unmaker",
+				["eI"] = 2092,
 				["t"] = 1514487709,
 				["g"] = 23,
-				["eI"] = 2092,
+				["eN"] = "Argus the Unmaker",
 			}, -- [219]
 			{
 				"GSharmeran-Antonidas", -- [1]
@@ -34235,13 +33835,13 @@ VExRT = {
 				"KTropcd", -- [8]
 				"CQsilver", -- [9]
 				"AEnryo-Antonidas", -- [10]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 14,
-				["eN"] = "Garothi Worldbreaker",
+				["eI"] = 2076,
 				["t"] = 1514747899,
 				["g"] = 10,
-				["eI"] = 2076,
+				["eN"] = "Garothi Worldbreaker",
 			}, -- [220]
 			{
 				"BДжирана-Разувий", -- [1]
@@ -34260,13 +33860,13 @@ VExRT = {
 				"CКвайгонша-Галакронд", -- [14]
 				"CВиртуозная-Разувий", -- [15]
 				"BКацудзо-Борейскаятундра", -- [16]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 14,
-				["eI"] = 2076,
+				["eN"] = "Garothi Worldbreaker",
 				["t"] = 1514750255,
 				["g"] = 15,
-				["eN"] = "Garothi Worldbreaker",
+				["eI"] = 2076,
 			}, -- [221]
 			{
 				"BBatanya-Hellfire", -- [1]
@@ -34325,13 +33925,13 @@ VExRT = {
 				"KAlysrian", -- [28]
 				"EMicropriest", -- [29]
 				"EIllayna-Thunderhorn", -- [30]
-				["eN"] = "Garothi Worldbreaker",
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1515005227,
 				["eI"] = 2076,
+				["k"] = true,
+				["t"] = 1515005227,
+				["eN"] = "Garothi Worldbreaker",
 				["d"] = 15,
 				["g"] = 27,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [223]
 			{
 				"KAbbey", -- [1]
@@ -34364,13 +33964,13 @@ VExRT = {
 				"CQsilver", -- [28]
 				"ISaety", -- [29]
 				"HMelfire", -- [30]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 15,
-				["eN"] = "The Coven of Shivarra",
+				["eI"] = 2073,
 				["t"] = 1515091620,
 				["g"] = 30,
-				["eI"] = 2073,
+				["eN"] = "The Coven of Shivarra",
 			}, -- [224]
 			{
 				"BFlashz-Aegwynn", -- [1]
@@ -34395,13 +33995,13 @@ VExRT = {
 				"APmurtizan-Quel'Thalas", -- [20]
 				"CQsilver", -- [21]
 				"KJóhny-Outland", -- [22]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 14,
-				["eI"] = 2075,
+				["eN"] = "Die Verteidigung von Eonar",
 				["t"] = 1515352707,
 				["g"] = 21,
-				["eN"] = "Die Verteidigung von Eonar",
+				["eI"] = 2075,
 			}, -- [225]
 			{
 				"KAbbey", -- [1]
@@ -34424,13 +34024,13 @@ VExRT = {
 				"BArtiks", -- [18]
 				"KKanchii", -- [19]
 				"GTjani", -- [20]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 16,
-				["eI"] = 2069,
+				["eN"] = "Varimathras",
 				["t"] = 1515450932,
 				["g"] = 20,
-				["eN"] = "Varimathras",
+				["eI"] = 2069,
 			}, -- [226]
 			{
 				"FDkhead", -- [1]
@@ -34456,13 +34056,13 @@ VExRT = {
 				"EMarriyah", -- [21]
 				"CQsilver", -- [22]
 				"CRukawa", -- [23]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 15,
-				["eN"] = "Argus the Unmaker",
+				["eI"] = 2092,
 				["t"] = 1515696515,
 				["g"] = 23,
-				["eI"] = 2092,
+				["eN"] = "Argus the Unmaker",
 			}, -- [227]
 			{
 				"KAbbey", -- [1]
@@ -34485,13 +34085,13 @@ VExRT = {
 				"KKanchii", -- [18]
 				"GTjani", -- [19]
 				"BArtiks", -- [20]
-				["eN"] = "Varimathras",
-				["k"] = true,
-				["t"] = 1515957390,
 				["eI"] = 2069,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1515957390,
+				["eN"] = "Varimathras",
 				["d"] = 16,
 				["g"] = 20,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [228]
 			{
 				"KAbbey", -- [1]
@@ -34514,13 +34114,13 @@ VExRT = {
 				"KKanchii", -- [18]
 				"GTjani", -- [19]
 				"EOlivem", -- [20]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 16,
-				["eI"] = 2073,
+				["eN"] = "The Coven of Shivarra",
 				["t"] = 1516047745,
 				["g"] = 20,
-				["eN"] = "The Coven of Shivarra",
+				["eI"] = 2073,
 			}, -- [229]
 			{
 				"FDkhead", -- [1]
@@ -34547,13 +34147,13 @@ VExRT = {
 				"LIeel", -- [22]
 				"LFransk", -- [23]
 				"AClarine", -- [24]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 15,
-				["eN"] = "Argus the Unmaker",
+				["eI"] = 2092,
 				["t"] = 1516301057,
 				["g"] = 24,
-				["eI"] = 2092,
+				["eN"] = "Argus the Unmaker",
 			}, -- [230]
 			{
 				"KAbbey", -- [1]
@@ -34576,13 +34176,13 @@ VExRT = {
 				"KKanchii", -- [18]
 				"EOlivem", -- [19]
 				"GTjani", -- [20]
-				["eI"] = 2070,
-				["k"] = true,
-				["t"] = 1516303795,
 				["eN"] = "Antoran High Command",
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1516303795,
+				["eI"] = 2070,
 				["d"] = 16,
 				["g"] = 20,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [231]
 			{
 				"KAbbey", -- [1]
@@ -34605,13 +34205,13 @@ VExRT = {
 				"BArtiks", -- [18]
 				"KKanchii", -- [19]
 				"EOlivem", -- [20]
-				["eI"] = 2073,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1516565342,
 				["eN"] = "The Coven of Shivarra",
+				["k"] = true,
+				["t"] = 1516565342,
+				["eI"] = 2073,
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [232]
 			{
 				"FDkhead", -- [1]
@@ -34639,13 +34239,13 @@ VExRT = {
 				"GTjani", -- [23]
 				"HTroopcsd", -- [24]
 				"KKanchii", -- [25]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 15,
-				["eI"] = 2092,
+				["eN"] = "Argus the Unmaker",
 				["t"] = 1516906100,
 				["g"] = 25,
-				["eN"] = "Argus the Unmaker",
+				["eI"] = 2092,
 			}, -- [233]
 			{
 				"KAbbey", -- [1]
@@ -34668,13 +34268,13 @@ VExRT = {
 				"BArtiks", -- [18]
 				"KKanchii", -- [19]
 				"GTjani", -- [20]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 16,
-				["eI"] = 2073,
+				["eN"] = "The Coven of Shivarra",
 				["t"] = 1517170156,
 				["g"] = 20,
-				["eN"] = "The Coven of Shivarra",
+				["eI"] = 2073,
 			}, -- [234]
 			{
 				"KAbbey", -- [1]
@@ -34697,13 +34297,13 @@ VExRT = {
 				"ISummonium", -- [18]
 				"KKanchii", -- [19]
 				"GGarynator", -- [20]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 16,
-				["eN"] = "Aggramar",
+				["eI"] = 2063,
 				["t"] = 1517264409,
 				["g"] = 20,
-				["eI"] = 2063,
+				["eN"] = "Aggramar",
 			}, -- [235]
 			{
 				"KAbbey", -- [1]
@@ -34735,13 +34335,13 @@ VExRT = {
 				"KSonneillon", -- [27]
 				"BArtiks", -- [28]
 				"KAlysrian", -- [29]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 14,
-				["eN"] = "Garothi Worldbreaker",
+				["eI"] = 2076,
 				["t"] = 1517424056,
 				["g"] = 29,
-				["eI"] = 2076,
+				["eN"] = "Garothi Worldbreaker",
 			}, -- [236]
 			{
 				"FDkhead", -- [1]
@@ -34768,13 +34368,13 @@ VExRT = {
 				"IRukilock", -- [22]
 				"ITerondashi", -- [23]
 				"EMarriyah", -- [24]
-				["eI"] = 2092,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1517510853,
 				["eN"] = "Argus the Unmaker",
+				["k"] = true,
+				["t"] = 1517510853,
+				["eI"] = 2092,
 				["d"] = 15,
 				["g"] = 24,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [237]
 			{
 				"KAbbey", -- [1]
@@ -34797,13 +34397,13 @@ VExRT = {
 				"ISummonium", -- [18]
 				"KKanchii", -- [19]
 				"GTjani", -- [20]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 16,
-				["eN"] = "Kin'garoth",
+				["eI"] = 2088,
 				["t"] = 1517521179,
 				["g"] = 20,
-				["eI"] = 2088,
+				["eN"] = "Kin'garoth",
 			}, -- [238]
 			{
 				"KSilmaril", -- [1]
@@ -34825,13 +34425,13 @@ VExRT = {
 				"BOlivum", -- [17]
 				"HAddunie-DunModr", -- [18]
 				"FAriana-Neptulon", -- [19]
-				["eI"] = 2076,
-				["k"] = true,
-				["t"] = 1517672659,
 				["eN"] = "Garothi Worldbreaker",
+				["c"] = "Lachrymas-Silvermoon",
+				["t"] = 1517672659,
+				["eI"] = 2076,
 				["d"] = 14,
 				["g"] = 19,
-				["c"] = "Lachrymas-Silvermoon",
+				["k"] = true,
 			}, -- [239]
 			{
 				"KAbbey", -- [1]
@@ -34854,24 +34454,24 @@ VExRT = {
 				"KKanchii", -- [18]
 				"EOlivem", -- [19]
 				"BArtiks", -- [20]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 16,
-				["eN"] = "The Coven of Shivarra",
+				["eI"] = 2073,
 				["t"] = 1517774942,
 				["g"] = 20,
-				["eI"] = 2073,
+				["eN"] = "The Coven of Shivarra",
 			}, -- [240]
 			{
 				"ILachrymas", -- [1]
 				"FDeathduivel-Turalyon", -- [2]
-				["eN"] = "Immerseus",
-				["k"] = true,
-				["t"] = 1518033879,
 				["eI"] = 1602,
+				["c"] = "Lachrymas-Silvermoon",
+				["t"] = 1518033879,
+				["eN"] = "Immerseus",
 				["d"] = 14,
 				["g"] = 10,
-				["c"] = "Lachrymas-Silvermoon",
+				["k"] = true,
 			}, -- [241]
 			{
 				"FDkhead", -- [1]
@@ -34900,13 +34500,13 @@ VExRT = {
 				"KKanchii", -- [24]
 				"GCajnab", -- [25]
 				"LIeel", -- [26]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 15,
-				["eI"] = 2092,
+				["eN"] = "Argus the Unmaker",
 				["t"] = 1518115426,
 				["g"] = 26,
-				["eN"] = "Argus the Unmaker",
+				["eI"] = 2092,
 			}, -- [242]
 			{
 				"LAkanil-Magtheridon", -- [1]
@@ -34935,13 +34535,13 @@ VExRT = {
 				"CFann-Saurfang", -- [24]
 				"FБеличьиушки-Гром", -- [25]
 				"CМикка-Гром", -- [26]
-				["eN"] = "The Coven of Shivarra",
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1518369127,
 				["eI"] = 2073,
+				["k"] = true,
+				["t"] = 1518369127,
+				["eN"] = "The Coven of Shivarra",
 				["d"] = 14,
 				["g"] = 24,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [243]
 			{
 				"KAbbey", -- [1]
@@ -34964,13 +34564,13 @@ VExRT = {
 				"CQsilver", -- [18]
 				"KKanchii", -- [19]
 				"GTjani", -- [20]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 16,
-				["eI"] = 2064,
+				["eN"] = "Portal Keeper Hasabel",
 				["t"] = 1518374822,
 				["g"] = 20,
-				["eN"] = "Portal Keeper Hasabel",
+				["eI"] = 2064,
 			}, -- [244]
 			{
 				"FDkhead", -- [1]
@@ -34995,13 +34595,13 @@ VExRT = {
 				"BOlivum", -- [20]
 				"ILachrymas", -- [21]
 				"IDrapsmann", -- [22]
-				["eN"] = "Garothi Worldbreaker",
-				["c"] = "Lachrymas-Silvermoon",
-				["t"] = 1518641765,
 				["eI"] = 2076,
+				["k"] = true,
+				["t"] = 1518641765,
+				["eN"] = "Garothi Worldbreaker",
 				["d"] = 15,
 				["g"] = 22,
-				["k"] = true,
+				["c"] = "Lachrymas-Silvermoon",
 			}, -- [245]
 			{
 				"FDkhead", -- [1]
@@ -35029,13 +34629,13 @@ VExRT = {
 				"JSanchi", -- [23]
 				"KAlysrian", -- [24]
 				"EOlivem", -- [25]
-				["eI"] = 2092,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1519325320,
 				["eN"] = "Argus the Unmaker",
+				["k"] = true,
+				["t"] = 1519325320,
+				["eI"] = 2092,
 				["d"] = 15,
 				["g"] = 25,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [246]
 			{
 				"FDkhead", -- [1]
@@ -35060,13 +34660,13 @@ VExRT = {
 				"AClarine", -- [20]
 				"KIamw", -- [21]
 				"EBafomdad", -- [22]
-				["eI"] = 2092,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1519929832,
 				["eN"] = "Argus the Unmaker",
+				["k"] = true,
+				["t"] = 1519929832,
+				["eI"] = 2092,
 				["d"] = 15,
 				["g"] = 22,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [247]
 			{
 				"KAbbey", -- [1]
@@ -35089,13 +34689,13 @@ VExRT = {
 				"GTjani", -- [18]
 				"EOlivem", -- [19]
 				"KKanchii", -- [20]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 16,
-				["eN"] = "Argus the Unmaker",
+				["eI"] = 2092,
 				["t"] = 1520275829,
 				["g"] = 20,
-				["eI"] = 2092,
+				["eN"] = "Argus the Unmaker",
 			}, -- [248]
 			{
 				"FDkhead", -- [1]
@@ -35124,13 +34724,13 @@ VExRT = {
 				"EZipih", -- [24]
 				"KDolirean", -- [25]
 				"KSonneillon", -- [26]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 15,
-				["eN"] = "Argus the Unmaker",
+				["eI"] = 2092,
 				["t"] = 1520535557,
 				["g"] = 26,
-				["eI"] = 2092,
+				["eN"] = "Argus the Unmaker",
 			}, -- [249]
 			{
 				"KAbbey", -- [1]
@@ -35153,13 +34753,13 @@ VExRT = {
 				"CRoselutea", -- [18]
 				"HZipi", -- [19]
 				"KFeskmås", -- [20]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 16,
-				["eN"] = "The Defense of Eonar",
+				["eI"] = 2075,
 				["t"] = 1520797538,
 				["g"] = 20,
-				["eI"] = 2075,
+				["eN"] = "The Defense of Eonar",
 			}, -- [250]
 			{
 				"GOnenote-BurningLegion", -- [1]
@@ -35183,25 +34783,25 @@ VExRT = {
 				"ADefappy-Ravencrest", -- [19]
 				"FAerelion-Blackmoore", -- [20]
 				"CQsilver", -- [21]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 15,
-				["eN"] = "Imonar the Soulhunter",
+				["eI"] = 2082,
 				["t"] = 1521048946,
 				["g"] = 21,
-				["eI"] = 2082,
+				["eN"] = "Imonar the Soulhunter",
 			}, -- [251]
 			{
 				"CQsilver", -- [1]
 				"DSapfw", -- [2]
 				"HMelfire", -- [3]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 14,
-				["eN"] = "Skorpyron",
+				["eI"] = 1849,
 				["t"] = 1521052089,
 				["g"] = 10,
-				["eI"] = 1849,
+				["eN"] = "Skorpyron",
 			}, -- [252]
 			{
 				"FDkhead", -- [1]
@@ -35225,13 +34825,13 @@ VExRT = {
 				"BArtiks", -- [19]
 				"GTjani", -- [20]
 				"ISummonium", -- [21]
-				["eN"] = "Argus the Unmaker",
-				["k"] = true,
-				["t"] = 1521139550,
 				["eI"] = 2092,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1521139550,
+				["eN"] = "Argus the Unmaker",
 				["d"] = 15,
 				["g"] = 21,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [253]
 			{
 				"KAbbey", -- [1]
@@ -35254,13 +34854,13 @@ VExRT = {
 				"KKanchii", -- [18]
 				"BArtiks", -- [19]
 				"GTjani", -- [20]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 16,
-				["eI"] = 2076,
+				["eN"] = "Garothi Worldbreaker",
 				["t"] = 1521141029,
 				["g"] = 20,
-				["eN"] = "Garothi Worldbreaker",
+				["eI"] = 2076,
 			}, -- [254]
 			{
 				"KAbbey", -- [1]
@@ -35283,13 +34883,13 @@ VExRT = {
 				"ISummonium", -- [18]
 				"KKanchii", -- [19]
 				"GTjani", -- [20]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 16,
-				["eN"] = "Aggramar",
+				["eI"] = 2063,
 				["t"] = 1521402655,
 				["g"] = 20,
-				["eI"] = 2063,
+				["eN"] = "Aggramar",
 			}, -- [255]
 			{
 				"KAbbey", -- [1]
@@ -35312,13 +34912,13 @@ VExRT = {
 				"KKanchii", -- [18]
 				"KFeskmås", -- [19]
 				"BArtiks", -- [20]
-				["eI"] = 2092,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1521491483,
 				["eN"] = "Argus the Unmaker",
+				["k"] = true,
+				["t"] = 1521491483,
+				["eI"] = 2092,
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [256]
 			{
 				"FDkhead", -- [1]
@@ -35342,13 +34942,13 @@ VExRT = {
 				"JSanchi", -- [19]
 				"KTropcd", -- [20]
 				"HGulrot", -- [21]
-				["eN"] = "Argus the Unmaker",
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1521744400,
 				["eI"] = 2092,
+				["k"] = true,
+				["t"] = 1521744400,
+				["eN"] = "Argus the Unmaker",
 				["d"] = 15,
 				["g"] = 21,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [257]
 			{
 				"FDkhead", -- [1]
@@ -35374,13 +34974,13 @@ VExRT = {
 				"HRosebleu", -- [21]
 				"CQsilver", -- [22]
 				"KSonneillon", -- [23]
-				["eN"] = "Argus the Unmaker",
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1522345679,
 				["eI"] = 2092,
+				["k"] = true,
+				["t"] = 1522345679,
+				["eN"] = "Argus the Unmaker",
 				["d"] = 15,
 				["g"] = 23,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [258]
 			{
 				"KAbbey", -- [1]
@@ -35403,13 +35003,13 @@ VExRT = {
 				"ISummonium", -- [18]
 				"KKanchii", -- [19]
 				"GTjani", -- [20]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 16,
-				["eI"] = 2063,
+				["eN"] = "Aggramar",
 				["t"] = 1522605783,
 				["g"] = 20,
-				["eN"] = "Aggramar",
+				["eI"] = 2063,
 			}, -- [259]
 			{
 				"KAbbey", -- [1]
@@ -35432,13 +35032,13 @@ VExRT = {
 				"EOlivem", -- [18]
 				"GTjani", -- [19]
 				"BArtiks", -- [20]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 16,
-				["eI"] = 2076,
+				["eN"] = "Garothi Worldbreaker",
 				["t"] = 1522950238,
 				["g"] = 20,
-				["eN"] = "Garothi Worldbreaker",
+				["eI"] = 2076,
 			}, -- [260]
 			{
 				"KAbbey", -- [1]
@@ -35461,13 +35061,13 @@ VExRT = {
 				"ISummonium", -- [18]
 				"KKanchii", -- [19]
 				"GTjani", -- [20]
-				["eN"] = "Aggramar",
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1522960246,
 				["eI"] = 2063,
+				["k"] = true,
+				["t"] = 1522960246,
+				["eN"] = "Aggramar",
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [261]
 			{
 				"KAbbey", -- [1]
@@ -35490,13 +35090,13 @@ VExRT = {
 				"KKanchii", -- [18]
 				"KFeskmås", -- [19]
 				"GTjani", -- [20]
-				["eN"] = "Garothi Worldbreaker",
-				["k"] = true,
-				["t"] = 1523555199,
 				["eI"] = 2076,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1523555199,
+				["eN"] = "Garothi Worldbreaker",
 				["d"] = 16,
 				["g"] = 20,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [262]
 			{
 				"KAbbey", -- [1]
@@ -35519,13 +35119,13 @@ VExRT = {
 				"KFeskmås", -- [18]
 				"KKanchii", -- [19]
 				"GTjani", -- [20]
-				["eN"] = "The Coven of Shivarra",
-				["k"] = true,
-				["t"] = 1523569023,
 				["eI"] = 2073,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1523569023,
+				["eN"] = "The Coven of Shivarra",
 				["d"] = 16,
 				["g"] = 20,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [263]
 			{
 				"KAbbey", -- [1]
@@ -35548,13 +35148,13 @@ VExRT = {
 				"ISummonium", -- [18]
 				"KKanchii", -- [19]
 				"GTjani", -- [20]
-				["eN"] = "Aggramar",
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1524162324,
 				["eI"] = 2063,
+				["k"] = true,
+				["t"] = 1524162324,
+				["eN"] = "Aggramar",
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [264]
 			{
 				"KAbbey", -- [1]
@@ -35577,13 +35177,13 @@ VExRT = {
 				"EOlivem", -- [18]
 				"KKanchii", -- [19]
 				"GTjani", -- [20]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 16,
-				["eI"] = 2082,
+				["eN"] = "Imonar the Soulhunter",
 				["t"] = 1524167706,
 				["g"] = 20,
-				["eN"] = "Imonar the Soulhunter",
+				["eI"] = 2082,
 			}, -- [265]
 			{
 				"BMordeya-DefiasBrotherhood", -- [1]
@@ -35606,13 +35206,13 @@ VExRT = {
 				"CSarukin-Bloodscalp", -- [18]
 				"KGaymer-Outland", -- [19]
 				"ENiyaah-Hellscream", -- [20]
-				["eN"] = "Argus the Unmaker",
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1525034928,
 				["eI"] = 2092,
+				["k"] = true,
+				["t"] = 1525034928,
+				["eN"] = "Argus the Unmaker",
 				["d"] = 15,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [266]
 			{
 				"KAbbey", -- [1]
@@ -35635,13 +35235,13 @@ VExRT = {
 				"ISummonium", -- [18]
 				"GTjani", -- [19]
 				"KKanchii", -- [20]
-				["eN"] = "Aggramar",
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1525373068,
 				["eI"] = 2063,
+				["k"] = true,
+				["t"] = 1525373068,
+				["eN"] = "Aggramar",
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [267]
 			{
 				"KAbbey", -- [1]
@@ -35664,13 +35264,13 @@ VExRT = {
 				"KKanchii", -- [18]
 				"EOlivem", -- [19]
 				"GTjani", -- [20]
-				["eN"] = "Antoran High Command",
-				["k"] = true,
-				["t"] = 1525629164,
 				["eI"] = 2070,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1525629164,
+				["eN"] = "Antoran High Command",
 				["d"] = 16,
 				["g"] = 20,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [268]
 			{
 				"KAbbey", -- [1]
@@ -35693,13 +35293,13 @@ VExRT = {
 				"CQsilver", -- [18]
 				"GTjani", -- [19]
 				"KKanchii", -- [20]
-				["eI"] = 2064,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1525978451,
 				["eN"] = "Portal Keeper Hasabel",
+				["k"] = true,
+				["t"] = 1525978451,
+				["eI"] = 2064,
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [269]
 			{
 				"KAbbey", -- [1]
@@ -35722,13 +35322,13 @@ VExRT = {
 				"GTjani", -- [18]
 				"KFeskmås", -- [19]
 				"KKanchii", -- [20]
-				["eN"] = "Garothi Worldbreaker",
-				["k"] = true,
-				["t"] = 1526579666,
 				["eI"] = 2076,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1526579666,
+				["eN"] = "Garothi Worldbreaker",
 				["d"] = 16,
 				["g"] = 20,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [270]
 			{
 				"KAbbey", -- [1]
@@ -35751,13 +35351,13 @@ VExRT = {
 				"GTjani", -- [18]
 				"KPawnhub", -- [19]
 				"KKanchii", -- [20]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 16,
-				["eI"] = 2076,
+				["eN"] = "Garothi Worldbreaker",
 				["t"] = 1527184600,
 				["g"] = 20,
-				["eN"] = "Garothi Worldbreaker",
+				["eI"] = 2076,
 			}, -- [271]
 			{
 				"KAbbey", -- [1]
@@ -35780,13 +35380,13 @@ VExRT = {
 				"EOlivem", -- [18]
 				"KFeskmås", -- [19]
 				"CQsilver", -- [20]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 16,
-				["eI"] = 2076,
+				["eN"] = "Garothi Worldbreaker",
 				["t"] = 1527788699,
 				["g"] = 20,
-				["eN"] = "Garothi Worldbreaker",
+				["eI"] = 2076,
 			}, -- [272]
 			{
 				"KAbbey", -- [1]
@@ -35809,13 +35409,13 @@ VExRT = {
 				"EOlivem", -- [18]
 				"GTjani", -- [19]
 				"KKanchii", -- [20]
-				["eI"] = 2092,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1528398187,
 				["eN"] = "Argus the Unmaker",
+				["k"] = true,
+				["t"] = 1528398187,
+				["eI"] = 2092,
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [273]
 			{
 				"KAbbey", -- [1]
@@ -35838,13 +35438,13 @@ VExRT = {
 				"EOlivem", -- [18]
 				"GTjani", -- [19]
 				"BFeskmás", -- [20]
-				["eN"] = "Garothi Worldbreaker",
-				["k"] = true,
-				["t"] = 1529257560,
 				["eI"] = 2076,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1529257560,
+				["eN"] = "Garothi Worldbreaker",
 				["d"] = 16,
 				["g"] = 20,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [274]
 			{
 				"KAbbey", -- [1]
@@ -35867,13 +35467,13 @@ VExRT = {
 				"CRoselutea", -- [18]
 				"GTjani", -- [19]
 				"KKanchii", -- [20]
-				["k"] = true,
 				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 				["d"] = 16,
-				["eN"] = "Kin'garoth",
+				["eI"] = 2088,
 				["t"] = 1529263808,
 				["g"] = 20,
-				["eI"] = 2088,
+				["eN"] = "Kin'garoth",
 			}, -- [275]
 			{
 				"KAbbey", -- [1]
@@ -35896,13 +35496,13 @@ VExRT = {
 				"BFeskmás", -- [18]
 				"KPawnhub", -- [19]
 				"KKanchii", -- [20]
-				["eI"] = 2074,
-				["c"] = "Qsilver-Silvermoon",
-				["t"] = 1529268452,
 				["eN"] = "Felhounds of Sargeras",
+				["k"] = true,
+				["t"] = 1529268452,
+				["eI"] = 2074,
 				["d"] = 16,
 				["g"] = 20,
-				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 			}, -- [276]
 			{
 				"KAbbey", -- [1]
@@ -35925,13 +35525,13 @@ VExRT = {
 				"EOlivem", -- [18]
 				"BFeskmás", -- [19]
 				"GTjani", -- [20]
-				["c"] = "Qsilver-Silvermoon",
 				["k"] = true,
+				["c"] = "Qsilver-Silvermoon",
 				["d"] = 16,
-				["eN"] = "Garothi Worldbreaker",
+				["eI"] = 2076,
 				["t"] = 1530208032,
 				["g"] = 20,
-				["eI"] = 2076,
+				["eN"] = "Garothi Worldbreaker",
 			}, -- [277]
 			{
 				"KAbbey", -- [1]
@@ -35954,13 +35554,13 @@ VExRT = {
 				"AJancarlo", -- [18]
 				"CVoldas", -- [19]
 				"KTackcalb", -- [20]
-				["eI"] = 1872,
-				["k"] = true,
-				["t"] = 1530812709,
 				["eN"] = "Grand Magistrix Elisande",
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1530812709,
+				["eI"] = 1872,
 				["d"] = 16,
 				["g"] = 20,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [278]
 			{
 				"KAbbey", -- [1]
@@ -35983,14 +35583,43 @@ VExRT = {
 				"KPawnhub", -- [18]
 				"GTjani", -- [19]
 				"JSanchi", -- [20]
-				["eN"] = "Garothi Worldbreaker",
-				["k"] = true,
-				["t"] = 1532023106,
 				["eI"] = 2076,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1532023106,
+				["eN"] = "Garothi Worldbreaker",
 				["d"] = 16,
 				["g"] = 20,
-				["c"] = "Qsilver-Silvermoon",
+				["k"] = true,
 			}, -- [279]
+			{
+				"KAbbey", -- [1]
+				"LDuiveldari", -- [2]
+				"DSaresi", -- [3]
+				"KIamw", -- [4]
+				"AFransk", -- [5]
+				"FXelenor", -- [6]
+				"GChenenxi", -- [7]
+				"HGulrot", -- [8]
+				"GGréenfinger", -- [9]
+				"IWobbers", -- [10]
+				"CRoselutea", -- [11]
+				"CRukawa", -- [12]
+				"CQsilver", -- [13]
+				"KAbbimist", -- [14]
+				"KSonneillon", -- [15]
+				"HTroopcsd", -- [16]
+				"JSanchi", -- [17]
+				"BFeskmás", -- [18]
+				"GTjani", -- [19]
+				"EOlivem", -- [20]
+				["eI"] = 2076,
+				["c"] = "Qsilver-Silvermoon",
+				["t"] = 1533231920,
+				["eN"] = "Garothi Worldbreaker",
+				["d"] = 16,
+				["g"] = 20,
+				["k"] = true,
+			}, -- [280]
 		},
 		["alts"] = {
 		},

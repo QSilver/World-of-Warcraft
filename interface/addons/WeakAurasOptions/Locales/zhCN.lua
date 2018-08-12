@@ -187,6 +187,8 @@ UNIT_POWER, UNIT_AURA PLAYER_TARGET_CHANGED]=]
 	L["Duplicate All"] = "Duplicate All"
 	L["Duration (s)"] = "持续时间"
 	L["Duration Info"] = "持续时间讯息"
+	--[[Translation missing --]]
+	L["Dynamic Duration"] = "Dynamic Duration"
 	L["Dynamic Group"] = "动态群组"
 	--[[Translation missing --]]
 	L["Dynamic Information"] = "Dynamic Information"
@@ -221,6 +223,8 @@ UNIT_POWER, UNIT_AURA PLAYER_TARGET_CHANGED]=]
 	L["Fade Out"] = "渐出"
 	--[[Translation missing --]]
 	L["False"] = "False"
+	--[[Translation missing --]]
+	L["Filter by Group Role"] = "Filter by Group Role"
 	L["Finish"] = "结束"
 	L["Fire Orb"] = "火焰宝珠"
 	L["Font"] = "字体"
@@ -234,6 +238,8 @@ UNIT_POWER, UNIT_AURA PLAYER_TARGET_CHANGED]=]
 	L["From Template"] = "从模板"
 	L["Full Scan"] = "完整扫描"
 	L["General Text Settings"] = "通用字体设置"
+	--[[Translation missing --]]
+	L["Global Conditions"] = "Global Conditions"
 	L["Glow"] = "发光"
 	L["Glow Action"] = "发光动作"
 	L["Green Rune"] = "绿色符文"
@@ -251,6 +257,8 @@ UNIT_POWER, UNIT_AURA PLAYER_TARGET_CHANGED]=]
 |cFF00CC00大于等于 0|r 总是触发.]=]
 	L["Group Member Count"] = "队伍或团队成员数"
 	--[[Translation missing --]]
+	L["Group Role"] = "Group Role"
+	--[[Translation missing --]]
 	L["Group Scale"] = "Group Scale"
 	L["Grow"] = "生长"
 	L["Hawk"] = "鹰"
@@ -266,6 +274,8 @@ UNIT_POWER, UNIT_AURA PLAYER_TARGET_CHANGED]=]
 	L["Hybrid Position"] = "混合定位"
 	L["Hybrid Sort Mode"] = "混合排序模式"
 	L["Icon"] = "图标"
+	--[[Translation missing --]]
+	L["Icon Alpha"] = "Icon Alpha"
 	L["Icon Color"] = "图标颜色"
 	L["Icon Info"] = "图标信息"
 	L["Icon Inset"] = "项目插入"
@@ -275,6 +285,8 @@ UNIT_POWER, UNIT_AURA PLAYER_TARGET_CHANGED]=]
 	L["If this option is enabled, you are no longer able to import auras."] = "If this option is enabled, you are no longer able to import auras."
 	--[[Translation missing --]]
 	L["If Trigger %s"] = "If Trigger %s"
+	--[[Translation missing --]]
+	L["Ignore self"] = "Ignore self"
 	L["Ignored"] = "被忽略"
 	L["Import"] = "导入"
 	L["Import a display from an encoded string"] = "从字串导入一个图示"
@@ -389,8 +401,6 @@ UNIT_POWER, UNIT_AURA PLAYER_TARGET_CHANGED]=]
 	L["Remaining Time Precision"] = "剩余时间精度"
 	--[[Translation missing --]]
 	L["Remove"] = "Remove"
-	--[[Translation missing --]]
-	L["Remove this condition"] = "Remove this condition"
 	--[[Translation missing --]]
 	L["Remove this display from its group"] = "Remove this display from its group"
 	--[[Translation missing --]]

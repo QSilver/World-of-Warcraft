@@ -184,6 +184,8 @@ UNIT_POWER, UNIT_AURA PLAYER_TARGET_CHANGED]=]
 	L["Duplicate All"] = "Duplicate All"
 	L["Duration (s)"] = "Dauer (s)"
 	L["Duration Info"] = "Dauerinformationen"
+	--[[Translation missing --]]
+	L["Dynamic Duration"] = "Dynamic Duration"
 	L["Dynamic Group"] = "Dynamische Gruppe"
 	L["Dynamic Information"] = "Dynamische Information"
 	L["Dynamic information from first active trigger"] = "Dynamische Information vom ersten aktiven Auslöser"
@@ -213,6 +215,8 @@ UNIT_POWER, UNIT_AURA PLAYER_TARGET_CHANGED]=]
 	L["Fade In"] = "Einblenden"
 	L["Fade Out"] = "Ausblenden"
 	L["False"] = "Falsch"
+	--[[Translation missing --]]
+	L["Filter by Group Role"] = "Filter by Group Role"
 	L["Finish"] = "Endanimation"
 	L["Fire Orb"] = "Feuerkugel"
 	L["Font"] = "Schriftart"
@@ -227,6 +231,7 @@ UNIT_POWER, UNIT_AURA PLAYER_TARGET_CHANGED]=]
 	L["Full Scan"] = "Kompletter Scan"
 	--[[Translation missing --]]
 	L["General Text Settings"] = "General Text Settings"
+	L["Global Conditions"] = "Globale Bedingungen"
 	L["Glow"] = "Leuchten"
 	L["Glow Action"] = "Leuchtaktion"
 	L["Green Rune"] = "Grüne Rune"
@@ -244,6 +249,8 @@ Falls die Zahl als Dezimalzahl (z.B. 0.5), Bruch (z.B. 1/2) oder Prozentsatz (z.
 |cFF00CC00> 1/2|r Löst aus, wenn mehr als die Hälfte der %s betroffen sind.
 |cFF00CC00>= 0|r Löst immer aus.]=]
 	L["Group Member Count"] = "Anzahl der Gruppenmitglieder"
+	--[[Translation missing --]]
+	L["Group Role"] = "Group Role"
 	--[[Translation missing --]]
 	L["Group Scale"] = "Group Scale"
 	--[[Translation missing --]]
@@ -264,12 +271,16 @@ Falls die Zahl als Dezimalzahl (z.B. 0.5), Bruch (z.B. 1/2) oder Prozentsatz (z.
 	--[[Translation missing --]]
 	L["Hybrid Sort Mode"] = "Hybrid Sort Mode"
 	L["Icon"] = "Symbol"
+	--[[Translation missing --]]
+	L["Icon Alpha"] = "Icon Alpha"
 	L["Icon Color"] = "Symbolfarbe"
 	L["Icon Info"] = "Symbolinfo"
 	L["Icon Inset"] = "Symboleinrückung"
 	L["If"] = "Falls"
 	L["If this option is enabled, you are no longer able to import auras."] = "Der Import von Auren ist gesperrt solange diese Option aktiv ist."
 	L["If Trigger %s"] = "Falls Auslöser %s"
+	--[[Translation missing --]]
+	L["Ignore self"] = "Ignore self"
 	L["Ignored"] = "Ignoriert"
 	L["Import"] = "Importieren"
 	L["Import a display from an encoded string"] = "Anzeige von Klartext importieren"
@@ -379,15 +390,12 @@ Nur ein Wert kann ausgewählt werden.]=]
 	L["Regions of type \"%s\" are not supported."] = "Regions of type \"%s\" are not supported."
 	L["Remaining Time"] = "Verbleibende Zeit"
 	L["Remaining Time Precision"] = "Genauigkeit der Restzeit"
-	--[[Translation missing --]]
-	L["Remove"] = "Remove"
-	L["Remove this condition"] = "Bedingung entfernen"
+	L["Remove"] = "Entfernen"
 	L["Remove this display from its group"] = "Diese Anzeige aus seiner Gruppe entfernen"
 	L["Remove this property"] = "Eigenschaft entfernen"
 	L["Rename"] = "Umbenennen"
 	L["Repeat After"] = "Wiederholen nach"
-	--[[Translation missing --]]
-	L["Repeat every"] = "Repeat every"
+	L["Repeat every"] = "Wiederhole alle"
 	L["Required for Activation"] = "Benötigt zur Aktivierung"
 	--[[Translation missing --]]
 	L["Right 2 HUD position"] = "Right 2 HUD position"
@@ -496,8 +504,7 @@ Nur ein Wert kann ausgewählt werden.]=]
 	L["Trigger"] = "Auslöser"
 	L["Trigger %d"] = "Auslöser %d"
 	L["Trigger:"] = "Auslöser:"
-	--[[Translation missing --]]
-	L["True"] = "True"
+	L["True"] = "Wahr"
 	L["Type"] = "Typ"
 	L["Undefined"] = "Undefiniert"
 	L["Ungroup"] = "Gruppierung aufheben"
@@ -529,8 +536,7 @@ Nur ein Wert kann ausgewählt werden.]=]
 	L["Y Scale"] = "Skalierung (Y)"
 	L["Yellow Rune"] = "Gelbe Rune"
 	L["Yes"] = "Ja"
-	--[[Translation missing --]]
-	L["You are about to delete %d aura(s). |cFFFF0000This cannot be undone!|r Would you like to continue?"] = "You are about to delete %d aura(s). |cFFFF0000This cannot be undone!|r Would you like to continue?"
+	L["You are about to delete %d aura(s). |cFFFF0000This cannot be undone!|r Would you like to continue?"] = "Du bist im Begriff %d Aura/Auren zu löschen. |cFFFF0000Das Löschen kann nicht rückgängig gemacht werden!|r Willst du fortfahren?"
 	L["Z Offset"] = "Z-Versatz"
 	L["Z Rotation"] = "Z-Rotation"
 	L["Zoom"] = "Zoom"

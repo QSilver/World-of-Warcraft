@@ -297,6 +297,8 @@ function SplitChatMessage(frame, event, ...)
       arg2 = arg2:trim()
     end
 
+    local channelLength = strlen(arg4);
+
     s.GUID = arg12
 
     --[===[@debug@
@@ -332,11 +334,6 @@ function SplitChatMessage(frame, event, ...)
     --            arg1 = newarg1 or arg1
     --        end
 
-
-    if ((type == "PARTY_LEADER") and (_G.HasLFGRestrictions())) then
-      type = "PARTY_GUIDE"
-      event = "CHAT_MSG_PARTY_GUIDE"
-    end
 
     s.CHATTYPE = type
     s.EVENT = event
@@ -398,14 +395,7 @@ function SplitChatMessage(frame, event, ...)
         chatget = chatget:gsub("|Hchannel:[^|]-|h([^|]-)|h", "%1")
       end
 
-      if select(4, _G.GetBuildInfo()) < 80000 then
-        s.TYPEPREFIX, s.TYPEPOSTFIX = string.match(_G.TEXT(chatget), "(.*)%%s(.*)")
-      else
-        local get = _G[chatget]
-        if get then
-          s.TYPEPREFIX, s.TYPEPOSTFIX = string.match(get, "(.*)%%s(.*)")
-        end
-      end
+      s.TYPEPREFIX, s.TYPEPOSTFIX = string.match(chatget, "(.*)%%s(.*)")
     end
 
     s.TYPEPOSTFIX = safestr(s.TYPEPOSTFIX)
@@ -440,18 +430,35 @@ function SplitChatMessage(frame, event, ...)
           s.sS = "-"
           s.SERVER = svr
         end
-
-
-        if (type ~= "BN_WHISPER" and type ~= "BN_WHISPER_INFORM" and type ~= "BN_CONVERSATION") or arg2 == _G.UnitName("player") --[[or presenceID]] then
-          s.PLAYERLINKDATA = ":" .. safestr(arg11) .. ":" .. chatGroup .. (chatTarget and ":" .. chatTarget or "")
-        else
-          s.lL = "|HBNplayer:"
-          s.PLAYERLINKDATA = ":" .. safestr(arg13) .. ":" .. safestr(arg11) .. ":" .. chatGroup .. (chatTarget and ":" .. chatTarget or "")
-          s.PRESENCE_ID = arg13
-        end
-
         s.Ll = "|h"
         s.Pp = "]"
+
+        local playerLinkDisplayText = s.pP .. s.PLAYER .. s.Pp
+        local isCommunityType = type == "COMMUNITIES_CHANNEL";
+        local playerName, lineID, bnetIDAccount = arg2, arg11, arg13;
+        if ( isCommunityType ) then
+--          local isBattleNetCommunity = bnetIDAccount ~= nil and bnetIDAccount ~= 0;
+--          local messageInfo, clubId, streamId, clubType = _G.C_Club.GetInfoFromLastCommunityChatLine();
+--          if (messageInfo ~= nil) then
+--            if ( isBattleNetCommunity ) then
+--              playerLink = _G.GetBNPlayerCommunityLink(playerName, playerLinkDisplayText, bnetIDAccount, clubId, streamId, messageInfo.messageId.epoch, messageInfo.messageId.position);
+--            else
+--              playerLink = _G.GetPlayerCommunityLink(playerName, playerLinkDisplayText, clubId, streamId, messageInfo.messageId.epoch, messageInfo.messageId.position);
+--            end
+--          else
+--            playerLink = playerLinkDisplayText;
+--          end
+        else
+          if (type ~= "BN_WHISPER" and type ~= "BN_WHISPER_INFORM" and type ~= "BN_CONVERSATION") or arg2 == _G.UnitName("player") --[[or presenceID]] then
+            s.PLAYERLINKDATA = ":" .. safestr(arg11) .. ":" .. chatGroup .. (chatTarget and ":" .. chatTarget or "")
+          else
+            s.lL = "|HBNplayer:"
+            s.PLAYERLINKDATA = ":" .. safestr(arg13) .. ":" .. safestr(arg11) .. ":" .. chatGroup .. (chatTarget and ":" .. chatTarget or "")
+            s.PRESENCE_ID = arg13
+          end
+        end
+
+
       end
     end
 
@@ -575,6 +582,10 @@ function SplitChatMessage(frame, event, ...)
         s.zZ = safestr(s.zZ)
         s.ZONE = safestr(s.ZONE)
         s.Zz = ""
+      elseif chatGroup == "COMMUNITIES_CHANNEL" then
+          s.cC = "["
+          s.Cc = "] "
+          s.CHANNEL = _G.ChatFrame_ResolvePrefixedChannelName(arg4):match("%d%.%s+(.+)")
       else
         if strlen(arg9) > 0 then
           s.CHANNEL = arg9

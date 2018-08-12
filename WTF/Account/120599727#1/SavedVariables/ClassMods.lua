@@ -1720,23 +1720,23 @@ CMDb = {
 					},
 					["Player Health Alert"] = {
 						["enabled"] = true,
-						["aura"] = "",
-						["enablesound"] = true,
 						["healthpercent"] = 0.3,
+						["enablesound"] = true,
+						["aura"] = "",
 						["target"] = "player",
-						["sparkles"] = true,
-						["sound"] = "Raid Warning",
 						["alerttype"] = "HEALTH",
+						["sound"] = "Raid Warning",
+						["sparkles"] = true,
 					},
 					["Pet Health Alert"] = {
 						["enabled"] = true,
-						["aura"] = "",
-						["enablesound"] = true,
 						["healthpercent"] = 0.3,
+						["enablesound"] = true,
+						["aura"] = "",
 						["target"] = "pet",
-						["sparkles"] = true,
-						["sound"] = "Raid Warning",
 						["alerttype"] = "PETHEALTH",
+						["sound"] = "Raid Warning",
+						["sparkles"] = true,
 					},
 					["Killing Machine"] = {
 						["enabled"] = true,
@@ -1834,13 +1834,13 @@ CMDb = {
 				["alerts"] = {
 					["Player Health Alert"] = {
 						["enabled"] = true,
-						["aura"] = "",
-						["enablesound"] = true,
 						["healthpercent"] = 0.3,
+						["enablesound"] = true,
+						["aura"] = "",
 						["target"] = "player",
-						["sparkles"] = true,
-						["sound"] = "Raid Warning",
 						["alerttype"] = "HEALTH",
+						["sound"] = "Raid Warning",
+						["sparkles"] = true,
 					},
 				},
 			},
@@ -2988,23 +2988,23 @@ CMDb = {
 					},
 					["Player Health Alert"] = {
 						["enabled"] = true,
-						["sparkles"] = true,
-						["enablesound"] = true,
-						["healthpercent"] = 0.3,
-						["target"] = "player",
 						["alerttype"] = "HEALTH",
-						["sound"] = "Raid Warning",
+						["enablesound"] = true,
 						["aura"] = "",
+						["target"] = "player",
+						["sparkles"] = true,
+						["sound"] = "Raid Warning",
+						["healthpercent"] = 0.3,
 					},
 					["Pet Health Alert"] = {
 						["enabled"] = true,
-						["sparkles"] = true,
-						["enablesound"] = true,
-						["healthpercent"] = 0.3,
-						["target"] = "pet",
 						["alerttype"] = "PETHEALTH",
-						["sound"] = "Raid Warning",
+						["enablesound"] = true,
 						["aura"] = "",
+						["target"] = "pet",
+						["sparkles"] = true,
+						["sound"] = "Raid Warning",
+						["healthpercent"] = 0.3,
 					},
 					["True Bearing"] = {
 						["enabled"] = true,
@@ -6270,13 +6270,13 @@ CMDb = {
 				["alerts"] = {
 					["Player Health Alert"] = {
 						["enabled"] = false,
-						["healthpercent"] = 0.3,
-						["enablesound"] = true,
 						["aura"] = "",
+						["enablesound"] = true,
+						["healthpercent"] = 0.3,
 						["target"] = "player",
-						["alerttype"] = "HEALTH",
-						["sound"] = "Raid Warning",
 						["sparkles"] = true,
+						["sound"] = "Raid Warning",
+						["alerttype"] = "HEALTH",
 					},
 					["Demonic Synergy"] = {
 						["enabled"] = false,
@@ -6298,13 +6298,13 @@ CMDb = {
 					},
 					["Pet Health Alert"] = {
 						["enabled"] = false,
-						["healthpercent"] = 0.3,
-						["enablesound"] = true,
 						["aura"] = "",
+						["enablesound"] = true,
+						["healthpercent"] = 0.3,
 						["target"] = "pet",
-						["alerttype"] = "PETHEALTH",
-						["sound"] = "Raid Warning",
 						["sparkles"] = true,
+						["sound"] = "Raid Warning",
+						["alerttype"] = "PETHEALTH",
 					},
 				},
 			},
@@ -6314,13 +6314,13 @@ CMDb = {
 				["alerts"] = {
 					["Player Health Alert"] = {
 						["enabled"] = true,
-						["alerttype"] = "HEALTH",
-						["enablesound"] = true,
-						["aura"] = "",
-						["target"] = "player",
 						["sparkles"] = true,
-						["sound"] = "Raid Warning",
+						["enablesound"] = true,
 						["healthpercent"] = 0.3,
+						["target"] = "player",
+						["alerttype"] = "HEALTH",
+						["sound"] = "Raid Warning",
+						["aura"] = "",
 					},
 					["Mangle!"] = {
 						["enabled"] = true,
@@ -8601,23 +8601,25 @@ CMDb = {
 		["Spinhoof - Ragnaros"] = {
 			["alerts"] = {
 				["alerts"] = {
-					["Moderate Stagger"] = {
+					["Player Health Alert"] = {
 						["enabled"] = true,
-						["enablesound"] = false,
-						["aura"] = 124274,
-						["target"] = "player",
-						["alerttype"] = "DEBUFF",
-						["sound"] = "",
-						["sparkles"] = false,
-					},
-					["Uplifting Trance"] = {
-						["enabled"] = true,
-						["enablesound"] = true,
-						["aura"] = 197206,
-						["target"] = "player",
-						["alerttype"] = "BUFF",
-						["sound"] = "Ding",
 						["sparkles"] = true,
+						["enablesound"] = true,
+						["healthpercent"] = 0.3,
+						["target"] = "player",
+						["alerttype"] = "HEALTH",
+						["sound"] = "Raid Warning",
+						["aura"] = "",
+					},
+					["Pet Health Alert"] = {
+						["enabled"] = true,
+						["sparkles"] = true,
+						["enablesound"] = true,
+						["healthpercent"] = 0.3,
+						["target"] = "pet",
+						["alerttype"] = "PETHEALTH",
+						["sound"] = "Raid Warning",
+						["aura"] = "",
 					},
 					["Light Stagger"] = {
 						["enabled"] = true,
@@ -8628,15 +8630,14 @@ CMDb = {
 						["sound"] = "",
 						["sparkles"] = true,
 					},
-					["Pet Health Alert"] = {
+					["Uplifting Trance"] = {
 						["enabled"] = true,
-						["alerttype"] = "PETHEALTH",
 						["enablesound"] = true,
-						["aura"] = "",
-						["target"] = "pet",
+						["aura"] = 197206,
+						["target"] = "player",
+						["alerttype"] = "BUFF",
+						["sound"] = "Ding",
 						["sparkles"] = true,
-						["sound"] = "Raid Warning",
-						["healthpercent"] = 0.3,
 					},
 					["Heavy Stagger"] = {
 						["enabled"] = true,
@@ -8647,15 +8648,14 @@ CMDb = {
 						["sound"] = "",
 						["sparkles"] = false,
 					},
-					["Player Health Alert"] = {
+					["Moderate Stagger"] = {
 						["enabled"] = true,
-						["alerttype"] = "HEALTH",
-						["enablesound"] = true,
-						["aura"] = "",
+						["enablesound"] = false,
+						["aura"] = 124274,
 						["target"] = "player",
-						["sparkles"] = true,
-						["sound"] = "Raid Warning",
-						["healthpercent"] = 0.3,
+						["alerttype"] = "DEBUFF",
+						["sound"] = "",
+						["sparkles"] = false,
 					},
 					["Hit Combo"] = {
 						["enabled"] = true,
@@ -12646,18 +12646,18 @@ CMDb = {
 					},
 					["Player Health Alert"] = {
 						["enabled"] = true,
-						["alerttype"] = "HEALTH",
-						["enablesound"] = true,
-						["aura"] = "",
-						["target"] = "player",
 						["sparkles"] = true,
-						["sound"] = "Raid Warning",
+						["enablesound"] = true,
 						["healthpercent"] = 0.3,
+						["target"] = "player",
+						["alerttype"] = "HEALTH",
+						["sound"] = "Raid Warning",
+						["aura"] = "",
 					},
-					["Elemental Focus"] = {
+					["Stormbringer"] = {
 						["enabled"] = true,
 						["enablesound"] = true,
-						["aura"] = 16164,
+						["aura"] = 201846,
 						["target"] = "player",
 						["alerttype"] = "BUFF",
 						["sound"] = "Ding",
@@ -12672,10 +12672,10 @@ CMDb = {
 						["sound"] = "Ding",
 						["sparkles"] = true,
 					},
-					["Stormbringer"] = {
+					["Elemental Focus"] = {
 						["enabled"] = true,
 						["enablesound"] = true,
-						["aura"] = 201846,
+						["aura"] = 16164,
 						["target"] = "player",
 						["alerttype"] = "BUFF",
 						["sound"] = "Ding",
@@ -14073,20 +14073,17 @@ CMDb = {
 				["height"] = 20,
 				["basicmode"] = true,
 			},
-			["targetbar"] = {
-				["enabled"] = false,
-			},
 			["alerts"] = {
 				["alerts"] = {
 					["Player Health Alert"] = {
 						["enabled"] = false,
-						["alerttype"] = "HEALTH",
-						["enablesound"] = true,
-						["aura"] = "",
-						["target"] = "player",
 						["sparkles"] = true,
-						["sound"] = "Raid Warning",
+						["enablesound"] = true,
 						["healthpercent"] = 0.3,
+						["target"] = "player",
+						["alerttype"] = "HEALTH",
+						["sound"] = "Raid Warning",
+						["aura"] = "",
 					},
 					["Demonic Synergy"] = {
 						["enabled"] = false,
@@ -14108,15 +14105,18 @@ CMDb = {
 					},
 					["Pet Health Alert"] = {
 						["enabled"] = false,
-						["alerttype"] = "PETHEALTH",
-						["enablesound"] = true,
-						["aura"] = "",
-						["target"] = "pet",
 						["sparkles"] = true,
-						["sound"] = "Raid Warning",
+						["enablesound"] = true,
 						["healthpercent"] = 0.3,
+						["target"] = "pet",
+						["alerttype"] = "PETHEALTH",
+						["sound"] = "Raid Warning",
+						["aura"] = "",
 					},
 				},
+			},
+			["targetbar"] = {
+				["enabled"] = false,
 			},
 			["dispel"] = {
 				["enabled"] = false,
@@ -14152,11 +14152,58 @@ CMDb = {
 			["targetbar"] = {
 				["enabled"] = false,
 			},
-			["cooldowns"] = {
-				["font"] = {
+			["resourcebar"] = {
+				["anchor"] = {
+					nil, -- [1]
+					nil, -- [2]
+					nil, -- [3]
+					0.0001220703125, -- [4]
+					-350.000030517578, -- [5]
+				},
+				["ticks"] = {
+					{
+						{
+							[7] = true,
+						}, -- [1]
+						{
+							[7] = true,
+						}, -- [2]
+					}, -- [1]
+					{
+						{
+							[7] = true,
+						}, -- [1]
+						{
+							[7] = true,
+						}, -- [2]
+					}, -- [2]
+				},
+				["autoattackbar"] = true,
+				["activestack"] = 1,
+				["spell1"] = 4,
+				["targethealth"] = true,
+				["height"] = 30,
+				["barcolor"] = {
+					0.749019607843137, -- [1]
+					0.372549019607843, -- [2]
+					0.0313725490196078, -- [3]
+				},
+				["spell2"] = 3,
+				["barcolorenable"] = true,
+				["updateinterval"] = 0.01,
+				["width"] = 400,
+				["resourcefont"] = {
 					nil, -- [1]
 					24, -- [2]
 				},
+				["lowwarnthreshold"] = 30,
+				["barcolorhigh"] = {
+					0.00392156862745098, -- [1]
+					0.419607843137255, -- [2]
+					1, -- [3]
+				},
+				["highwarnthreshold"] = 90,
+				["autoattacktimer"] = true,
 			},
 			["healthbar"] = {
 				["enabled"] = false,
@@ -15304,58 +15351,11 @@ CMDb = {
 					},
 				},
 			},
-			["resourcebar"] = {
-				["anchor"] = {
-					nil, -- [1]
-					nil, -- [2]
-					nil, -- [3]
-					0.0001220703125, -- [4]
-					-350.000030517578, -- [5]
-				},
-				["ticks"] = {
-					{
-						{
-							[7] = true,
-						}, -- [1]
-						{
-							[7] = true,
-						}, -- [2]
-					}, -- [1]
-					{
-						{
-							[7] = true,
-						}, -- [1]
-						{
-							[7] = true,
-						}, -- [2]
-					}, -- [2]
-				},
-				["autoattackbar"] = true,
-				["activestack"] = 1,
-				["spell1"] = 4,
-				["targethealth"] = true,
-				["height"] = 30,
-				["barcolor"] = {
-					0.749019607843137, -- [1]
-					0.372549019607843, -- [2]
-					0.0313725490196078, -- [3]
-				},
-				["spell2"] = 3,
-				["barcolorenable"] = true,
-				["updateinterval"] = 0.01,
-				["width"] = 400,
-				["resourcefont"] = {
+			["cooldowns"] = {
+				["font"] = {
 					nil, -- [1]
 					24, -- [2]
 				},
-				["lowwarnthreshold"] = 30,
-				["barcolorhigh"] = {
-					0.00392156862745098, -- [1]
-					0.419607843137255, -- [2]
-					1, -- [3]
-				},
-				["highwarnthreshold"] = 90,
-				["autoattacktimer"] = true,
 			},
 			["alerts"] = {
 				["alerts"] = {
@@ -15370,13 +15370,13 @@ CMDb = {
 					},
 					["Player Health Alert"] = {
 						["enabled"] = false,
-						["healthpercent"] = 0.3,
-						["enablesound"] = true,
 						["aura"] = "",
+						["enablesound"] = true,
+						["healthpercent"] = 0.3,
 						["target"] = "player",
-						["alerttype"] = "HEALTH",
-						["sound"] = "Raid Warning",
 						["sparkles"] = true,
+						["sound"] = "Raid Warning",
+						["alerttype"] = "HEALTH",
 					},
 					["Wild Call"] = {
 						["enabled"] = false,
@@ -15398,13 +15398,13 @@ CMDb = {
 					},
 					["Pet Health Alert"] = {
 						["enabled"] = false,
-						["healthpercent"] = 0.3,
-						["enablesound"] = true,
 						["aura"] = "",
+						["enablesound"] = true,
+						["healthpercent"] = 0.3,
 						["target"] = "pet",
-						["alerttype"] = "PETHEALTH",
-						["sound"] = "Raid Warning",
 						["sparkles"] = true,
+						["sound"] = "Raid Warning",
+						["alerttype"] = "PETHEALTH",
 					},
 				},
 				["anchor"] = {

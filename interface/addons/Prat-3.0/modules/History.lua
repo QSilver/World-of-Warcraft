@@ -285,8 +285,7 @@ Prat:AddModuleToLoad(function()
 		--[[ ["delaygmotd_desc"] = "",--]] 
 		--[[Translation missing --]]
 		--[[ ["delaygmotd_name"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["divider"] = "",--]] 
+		["divider"] = "========== Fin del Registro ==========",
 		["History"] = "Historial",
 		["Maximum number of lines of command history to save."] = "Máximo número de líneas a guardar por el comando historial.",
 		["Save Command History"] = "Comando Guardar Historial",

@@ -313,7 +313,7 @@ local function BarGroup_OnMouseDown(anchor, button)
 	local bg, bgName = nil, anchor.bgName
 	if bgName then bg = barGroups[bgName] end -- locate the bar group associated with the anchor
 	if (button == "LeftButton") and not IsModifierKeyDown() and bg and not bg.locked then
-		bg.startX = bg.frame:GetLeft(); bg.startY = bg.frame:GetTop()
+		bg.startX = PS(bg.frame:GetLeft()); bg.startY = PS(bg.frame:GetTop())
 		bg.moving = true
 		bg.frame:SetFrameStrata("HIGH")
 		bg.frame:StartMoving()
@@ -331,7 +331,9 @@ local function BarGroup_OnMouseUp(anchor, button)
 		bg.frame:SetFrameStrata(bg.strata or "MEDIUM")
 		local func = bg.callbacks.onMove
 		if func then
-			local endX = bg.frame:GetLeft(); local endY = bg.frame:GetTop()
+			local endX = PS(bg.frame:GetLeft()); local endY = PS(bg.frame:GetTop())
+			-- MOD.Debug("moved", bgName, bg.startX, endX, bg.startY, endY)
+			PCSetPoint(bg.frame, "TOPLEFT", UIParent, "BOTTOMLEFT", endX, endY)
 			if bg.startX ~= endX or bg.startY ~= endY then func(anchor, bgName) end -- only fires if actually moved
 		end
 		bg.moving = false
@@ -664,6 +666,7 @@ function MOD.Nest_CreateBar(bg, name)
 		bar.spark:SetSize(10, 10)
 		bar.spark:SetBlendMode("ADD")
 		bar.spark:SetTexCoord(0, 1, 0, 1)	
+		bar.tick = bar.container:CreateTexture(nil, "OVERLAY")
 		bar.textFrame = CreateFrame("Frame", bname .. "TextFrame", bar.container)
 		bar.labelText = bar.textFrame:CreateFontString(nil, "OVERLAY")		
 		bar.timeText = bar.textFrame:CreateFontString(nil, "OVERLAY")
@@ -757,9 +760,9 @@ function MOD.Nest_DeleteBar(bg, bar)
 	bar.iconPath = nil
 	bar.update = false
 	bar.backdrop:Hide(); bar.fgTexture:Hide(); bar.bgTexture:Hide(); bar.spark:Hide(); bar.icon:Hide(); bar.cooldown:Hide()
-	bar.iconText:Hide(); bar.labelText:Hide(); bar.timeText:Hide(); bar.iconBorder:Hide()
+	bar.iconText:Hide(); bar.labelText:Hide(); bar.timeText:Hide(); bar.iconBorder:Hide(); bar.tick:Hide()
 	bar.backdrop:ClearAllPoints(); bar.fgTexture:ClearAllPoints(); bar.bgTexture:ClearAllPoints(); bar.spark:ClearAllPoints()
-	bar.icon:ClearAllPoints(); bar.cooldown:ClearAllPoints(); bar.iconText:ClearAllPoints()
+	bar.icon:ClearAllPoints(); bar.cooldown:ClearAllPoints(); bar.iconText:ClearAllPoints(); bar.tick:ClearAllPoints()
 	bar.labelText:ClearAllPoints(); bar.timeText:ClearAllPoints(); bar.iconBorder:ClearAllPoints()
 	bar.frame:SetHitRectInsets(0, 0, 0, 0) -- used by stripe bar group
 	if callbacks.release then callbacks.release(bar) end
@@ -1047,7 +1050,7 @@ end
 -- Layout includes relative position of components plus mouse click rectangle and tooltip position
 local function Bar_UpdateLayout(bg, bar, config)
 	bar.icon:ClearAllPoints(); bar.iconTexture:ClearAllPoints(); bar.spark:ClearAllPoints(); bar.labelText:ClearAllPoints(); bar.cooldown:ClearAllPoints()
-	bar.timeText:ClearAllPoints(); bar.fgTexture:ClearAllPoints(); bar.bgTexture:ClearAllPoints(); bar.backdrop:ClearAllPoints()
+	bar.timeText:ClearAllPoints(); bar.fgTexture:ClearAllPoints(); bar.bgTexture:ClearAllPoints(); bar.backdrop:ClearAllPoints(); bar.tick:ClearAllPoints()
 	local iconWidth = (config.iconOnly and rectIcons) and bg.barWidth or bg.iconSize
 	PSetSize(bar.icon, iconWidth or bg.iconSize, bg.iconSize)
 	local w, h = bg.width, bg.height
@@ -1142,6 +1145,8 @@ local function Bar_UpdateLayout(bg, bar, config)
 		PSetPoint(bar.spark, "TOP", bar.fgTexture, "TOPLEFT", 0, 4)
 		PSetPoint(bar.spark, "BOTTOM", bar.fgTexture, "BOTTOMLEFT", 0, -4)
 	end
+	
+	bar.tick:SetSize(pixelScale, bar.fgTexture:GetHeight() - (4 * pixelScale))
 		
 	bar.tooltipAnchor = bg.attributes.anchorTips
 	bar.labelText:SetWordWrap(bg.labelWrap)
@@ -1297,7 +1302,7 @@ end
 -- Update labels and colors plus for timer bars adjust bar length and formatted time text
 local function Bar_UpdateSettings(bg, bar, config)
 	local bat, bag = bar.attributes, bg.attributes
-	local fill, sparky, offsetX, showBorder = 1, false, 0, false -- fill is fraction of the bar to display, default to full bar
+	local fill, sparky, ticky, offsetX, showBorder = 1, false, false, 0, false -- fill is fraction of the bar to display, default to full bar
 	local timeText, bt, bl, bi, bf, bb, ba, bx = "", bar.timeText, bar.labelText, bar.iconText, bar.fgTexture, bar.bgTexture, bar.icon.anim, bar.iconBorder
 	local isHeader = bat.header
 	if bar.timeLeft and bar.duration and bar.maxTime and bar.offsetTime then -- only update if key parameters are set
@@ -1358,7 +1363,7 @@ local function Bar_UpdateSettings(bg, bar, config)
 		bar.cooldown:Hide()
 	end
 	local ct, cm, expiring, ea, ec = bat.colorTime, bat.colorMinimum, false, bg.bgAlpha, nil
-	if bar.timeLeft and ct and cm and ct >= bar.timeLeft and bar.duration >= cm then
+	if bar.timeLeft and bar.duration and ct and cm and ct >= bar.timeLeft and bar.duration >= cm then
 		ec = bat.expireLabelColor; if ec and ec.a > 0 then bl:SetTextColor(ec.r, ec.g, ec.b, ec.a) end
 		ec = bat.expireTimeColor; if ec and ec.a > 0 then bt:SetTextColor(ec.r, ec.g, ec.b, ec.a) end
 		expiring = true
@@ -1369,11 +1374,31 @@ local function Bar_UpdateSettings(bg, bar, config)
 	local w, h = bg.width - offsetX, bg.height; if config.iconOnly then w = bg.barWidth; h = bg.barHeight end
 	if bg.showBar and config.bars ~= "timeline" and (w > 0) and (h > 0) and bar.includeBar then -- non-zero dimensions to fix the zombie bar bug
 		local ar, ag, ab = MOD.Nest_AdjustColor(bar.br, bar.bg, bar.bb, bg.bgSaturation or 0, bg.bgBrightness or 0)
-		if expiring and not bat.customBackground then ec = bat.expireColor; if ec and ec.a > 0 then ar = ec.r; ag = ec.g; ab = ec.b end end
+		if expiring then -- apply expiration color to bars when they are expiring
+			if not bat.customBackground then ec = bat.expireColor; if ec and ec.a > 0 then ar = ec.r; ag = ec.g; ab = ec.b end end
+		elseif ct and cm and bar.duration and bar.maxTime and bar.duration >= cm then -- show tick mark if not expiring and bar duration is greater than minimum
+			ec = bat.tickColor
+			if ec and ec.a > 0 then
+				local tickOffset = w * (ct / bar.maxTime) -- bar width times the fraction of visible bar that represents the expire time
+				if tickOffset > 1 and tickOffset < w then
+					bar.tick:SetColorTexture(ec.r, ec.g, ec.b, ec.a)
+					if config.bars == "r2l" then
+						PSetPoint(bar.tick, "TOP", bar.fgTexture, "TOPLEFT", PS(tickOffset), -PS(2))
+						PSetPoint(bar.tick, "BOTTOM", bar.fgTexture, "BOTTOMLEFT", PS(tickOffset), PS(2))
+					elseif config.bars == "l2r" then
+						PSetPoint(bar.tick, "TOP", bar.fgTexture, "TOPRIGHT", -PS(tickOffset), -PS(2))
+						PSetPoint(bar.tick, "BOTTOM", bar.fgTexture, "BOTTOMRIGHT", -PS(tickOffset), PS(2))
+					end
+					ticky = true
+				end
+			end
+		end
 		bb:SetVertexColor(ar, ag, ab, 1); bb:SetTexture(bg.bgTexture); bb:SetAlpha(bg.bgAlpha)
 		PSetWidth(bb, w); bb:SetTexCoord(0, 1, 0, 1); bb:Show()
 		local fillw = w * fill
-		if (fillw > 0) and (bg.fgNotTimer or bar.timeLeft) then
+		local showfg = bg.fgNotTimer
+		if bat.fullReverse then showfg = not showfg end
+		if (fillw > 0) and (showfg or bar.timeLeft) then
 			ar, ag, ab = MOD.Nest_AdjustColor(bar.cr, bar.cg, bar.cb, bg.fgSaturation or 0, bg.fgBrightness or 0)
 			if expiring then ec = bat.expireColor; if ec and ec.a > 0 then ar = ec.r; ag = ec.g; ab = ec.b end end
 			bf:SetVertexColor(ar, ag, ab, 1); bf:SetTexture(bg.fgTexture); bf:SetAlpha(bg.fgAlpha)
@@ -1384,6 +1409,7 @@ local function Bar_UpdateSettings(bg, bar, config)
 		else bf:Hide() end
 	else bf:Hide(); bb:Hide() end
 	if sparky then bar.spark:Show() else bar.spark:Hide() end
+	if ticky then bar.tick:Show() else bar.tick:Hide() end
 	local alpha = bar.alpha or 1 -- adjust by bar alpha
 	if bar.flash then alpha = MOD.Nest_FlashAlpha(alpha, 1) end -- adjust alpha if flashing
 	if bat.header and bag.headerGaps then alpha = 0 end
@@ -1431,15 +1457,12 @@ local function Bar_RefreshAnimations(bg, bar, config)
 			and bat.expireMSBT >= remaining and (bat.expireMSBT - remaining) < 1 then
 			local ec, crit, icon = bat.colorMSBT, bat.criticalMSBT, bar.iconTexture:GetTexture()
 			local t = string.format("%s [%s] %s", bar.label, bg.name, L["expiring"])
+			-- pass string to either MSBT or Blizzard's built-in combat text display
+			-- support for Parrot and SCT removed since these no longer work in BfA
 			if MikSBT then
 				MikSBT.DisplayMessage(t, MikSBT.DISPLAYTYPE_NOTIFICATION, crit, ec.r * 255, ec.g * 255, ec.b * 255, nil, nil, nil, icon)
-			elseif SCT then
-				local frame = SCT:Get("SHOWFADE", SCT.FRAMES_TABLE) or 1
-				if frame == SCT.MSG then SCT:DisplayMessage(t, ec) else SCT:DisplayText(t, ec, crit, "event", frame) end
-			elseif Parrot then
-				Parrot:GetModule("Display"):CombatText_AddMessage(t, nil, ec.r, ec.g, ec.b, nil, nil, nil, icon)
 			elseif _G.SHOW_COMBAT_TEXT == "1" then
-				CombatText_AddMessage(t, COMBAT_TEXT_SCROLL_FUNCTION, ec.r, ec.g, ec.b, nil, nil)
+				CombatText_AddMessage(t, COMBAT_TEXT_SCROLL_FUNCTION, ec.r, ec.g, ec.b, crit and "crit")
 			end
 			bar.warningDone = true
 		end
@@ -1451,7 +1474,9 @@ local function Bar_RefreshAnimations(bg, bar, config)
 		if ba:IsPlaying() then bar.cooldown:Hide() elseif pulseEnd and bar.timeLeft and (bar.timeLeft < 0.45) and (bar.timeLeft > 0.1) then ba:Play() end
 	end
 	if not bar.value then -- don't refresh value bars
-		if bg.showBar and config.bars ~= "timeline" and (fill > 0) and (bg.fgNotTimer or bar.timeLeft) and bar.includeBar then
+		local showfg = bg.fgNotTimer
+		if bat.fullReverse then showfg = not showfg end
+		if bg.showBar and config.bars ~= "timeline" and (fill > 0) and (showfg or bar.timeLeft) and bar.includeBar then
 			local bf, w, h = bar.fgTexture, bg.width - offsetX, bg.height; if config.iconOnly then w = bg.barWidth; h = bg.barHeight end
 			if (w > 0) and (h > 0) then
 				local fillw = w * fill

@@ -278,8 +278,26 @@ local achDraenorGarrison = {
 	IsAlliance and 9828 or 9897, -- Ten Hit Tunes
 	8933, -- Staying Regular
 	9094, -- Garrison Architect
-
 	9099, -- Time for an Upgrade
+
+	9141, -- A Rare Mission
+	9145, -- Treasure Mission Specialist
+	9150, -- Exploration Mission Specialist
+
+	-- Invasions:
+	9152, -- It's an Invasion!
+	9244, -- Invasions Are Better with Friends
+	9162, -- Bronze Defender
+	9209, -- Master Defender
+	9858, -- Master and Commander
+
+	-- Unlock decorations (banners, monuments):
+	IsAlliance and 9630 or 9248, -- Defender of Draenor
+	IsAlliance and 9631 or 9255, -- Mythic Draenor Raider
+	9264, -- Draenor Pet Brawler
+	9246, -- Master Draenor Crafter
+	9265, -- Master of Apexis
+	9388, -- Guild Draenor Dungeon Hero
 
 	-- Unlock blueprints:
 	9406, -- Working More Orders (2nd in series; 1st is 9405, "Working Some Orders")
@@ -301,7 +319,8 @@ local achDraenorGarrison = {
 	9429, -- Upgrading the Mill
 
 	-- Other building-specific:
-	9076, -- Choppin' Some Logs
+	IsAlliance and 9077	-- Choppin' Some Logs
+	  or 9080,			-- Choppin' Even More Logs  !! 9077 is both factions but next-in-series is broken Horde-side; it shows the Alliance one. Using 9080 instead is a workaround. Last checked: WoW 8.0.1, build 27178.
 	9498, -- Wingman
 	IsAlliance and 9738 or 9508, -- Warlord of Draenor
 	IsAlliance and 9539 or 9705, -- Advanced Husbandry
@@ -390,7 +409,13 @@ local ACHID_ZONE_MISC = {
 	["Zangarmarsh"] = 893,		-- "Cenarion War Hippogryph"
 -- Northrend
 	["Borean Tundra"] = 561,	-- "D.E.H.T.A's Little P.I.T.A."
-	["Dragonblight"] = { 1277, 547 },	-- "Rapid Defense", "Veteran of the Wrathgate"
+	["Dragonblight"] = {
+		1277, -- Rapid Defense
+		547, -- Veteran of the Wrathgate
+		SUBZONES = {
+			["Wyrmrest Temple"] = 11941 -- Chromie Homie (for "The Deaths of Chromie" scenario)
+		}
+	},
 	["Dalaran (Northrend)"] = { 2096, 1956, 1958, 545, 1998, IsAlliance and 1782 or 1783, 3217 }, -- RENAMED ZONE
 	["Grizzly Hills"] = { "1596:1" },	-- "Guru of Drakuru"
 	["Icecrown"] = { SUBZONES = {
@@ -633,6 +658,110 @@ local ACHID_ZONE_MISC = {
 	["The Heart of Azeroth"] = achClassHall, -- Shaman
 	["Dreadscar Rift"] = achClassHall, -- Warlock
 	["Skyhold"] = achClassHall, -- Warrior
+-- Battle for Azeroth
+	["Drustvar"] = {
+		12579, -- Tour of Duty: Drustvar
+		12941, -- Adventurer of Drustvar
+		12995, -- Treasures of Drustvar
+		13064, -- Drust the Facts, Ma'am
+		13083, -- Better, Faster, Stronger
+		13087, -- Sausage Sampler
+		13094, -- Cursed Game Hunter
+		Alliance = {
+			12497, -- Drust Do It.
+			13082, -- Everything Old Is New Again
+		},
+	},
+	["Nazmir"] = {
+		12574, -- Tour of Duty: Nazmir
+		12588, -- Eat Your Greens
+		12771, -- Treasures of Nazmir
+		12942, -- Adventurer of Nazmir
+		13023, -- It's Really Getting Out of Hand
+		13024, -- Carved in Stone, Written in Blood
+		13028, -- Hoppin' Sad
+		"13029:1", -- Eating Out of the Palm of My Tiny Hand
+		13048, -- Life Finds a Way... To Die!  --!! split it up by criteria? (some are in another zone)
+		Alliance = {
+			13026, -- 7th Legion Spycatcher
+		},
+		Horde = {
+			13021, -- A Most Efficient Apocalypse
+			13022, -- Revenge is Best Served Speedily
+			11868, -- The Dark Heart of Nazmir
+			13025, -- Zandalari Spycatcher
+		},
+	},
+	["Stormsong Valley"] = {
+		12578, -- Tour of Duty: Stormsong Valley
+		12853, -- Treasures of Stormsong Valley
+		12940, -- Adventurer of Stormsong Valley
+		13042, -- About To Break
+		13045, -- Every Day I'm Truffling
+		13046, -- These Hills Sing
+		13047, -- Clever Use of Mechanical Explosives
+		13051, -- Legends of the Tidesages
+		13054, -- Sabertron Assemble
+		Alliance = {
+			13053, -- Deadliest Cache
+			13062, -- Let's Bee Friends
+			12496, -- Stormsong and Dance
+		},
+	},
+	["Tiragarde Sound"] = {
+		12577, -- Tour of Duty: Tiragarde Sound
+		12852, -- Treasures of Tiragarde Sound
+		12939, -- Adventurer of Tiragarde Sound
+		13050, -- Bless the Rains Down in Freehold
+		13057, -- Shanty Raid
+		13058, -- Kul Tiran Up the Dance Floor
+		Alliance = {
+			12473, -- A Sound Plan
+			13059, -- Drag Race
+			13049, -- The Long Con
+			12087, -- The Reining Champion
+		},
+		Horde = {
+			12759, -- Baiting the Enemy
+		}
+	},
+	["Vol'dun"] = {
+		12576, -- Tour of Duty: Vol'dun
+		12849, -- Treasures of Vol'dun
+		12943, -- Adventurer of Vol'dun
+		13011, -- Scourge of Zem'lan
+		13016, -- Scavenger of the Sands
+		13018, -- Dune Rider
+		"13029:2", -- Eating Out of the Palm of My Tiny Hand
+		Horde = {
+			12478, -- Secrets in the Sands
+			13009, -- Adept Sandfisher
+			13017, -- Champion of the Vulpera
+			13041, -- Hungry, Hungry Ranishu
+			13014, -- Vorrik's Champion
+		},
+	},
+	["Zuldazar"] = {
+		12575, -- Tour of Duty: Zuldazar
+		12851, -- Treasures of Zuldazar
+		12944, -- Adventurer of Zuldazar
+		"13029:3", -- Eating Out of the Palm of My Tiny Hand
+		13035, -- By de Power of de Loa!
+		13048, -- Life Finds a Way... To Die!  --!! split it up by criteria? (some are in another zone)
+		--13037, -- Torcanata -- Not sure what's up with this one. Doesn't show in GUI for either faction right now (BFA pre-patch). Check it out later. !!
+		Alliance = {
+			12758, -- Baiting the Enemy
+		},
+		Horde = {
+			12480, -- A Bargain of Blood
+			13030, -- How to Ptrain Your Pterrordax
+			13039, -- Paku'ai
+			13038, -- Raptari Rider
+			12481, -- The Final Seal
+			11861, -- The Throne of Zuldazar
+		},
+	},
+-- !! TODO: add reputation-related achievements for factions tied to BFA zones
 }
 ACHID_ZONE_MISC["Thunder Totem"] = ACHID_ZONE_MISC["Highmountain"] -- Make this quasi-subzone show suggestions from the main zone
 
@@ -1001,7 +1130,7 @@ local ACHID_INSTANCES = {
 	},
 
 -- Legion Scenarios
-	["The Deaths of Chromie"] = 11941,
+	["The Deaths of Chromie"] = 11941 -- Chromie Homie
 }
 -- Aliases
 ACHID_INSTANCES["Molten Core"] = ACHID_INSTANCES["The Molten Core"]
@@ -1618,6 +1747,20 @@ local function Refresh_Add(...)
             end
           end
         end
+		if (id.Alliance) then
+		  if (IsAlliance) then
+		    Refresh_Add(unpack(id.Alliance))
+		  else
+		    id.Alliance = nil
+		  end
+		end
+		if (id.Horde) then
+		  if (not IsAlliance) then
+		    Refresh_Add(unpack(id.Horde))
+		  else
+		    id.Horde = nil
+		  end
+		end
 
       elseif (type(id) == "string") then
         local crit
@@ -1993,6 +2136,20 @@ Overachiever.SUGGESTIONS = {
 	holiday = ACHID_HOLIDAY,
 }
 
+-- Remove unneeded faction-specified suggestions:
+do
+	local function cleanup(tab)
+		for k,v in pairs(tab) do
+			if ((k == "Alliance" and not IsAlliance) or (k == "Horde" and IsAlliance)) then
+				tab[k] = nil
+			elseif (type(v) == "table") then
+				cleanup(v)
+			end
+		end
+	end
+	cleanup(Overachiever.SUGGESTIONS)
+end
+-- /dump Overachiever.SUGGESTIONS.zone["Vol'dun"]
 
 
 -- ZONE/INSTANCE OVERRIDE INPUT

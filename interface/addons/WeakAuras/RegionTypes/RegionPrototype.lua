@@ -3,6 +3,12 @@ local L = WeakAuras.L;
 
 WeakAuras.regionPrototype = {};
 
+-- Alpha
+
+function WeakAuras.regionPrototype.AddAlphaToDefault(default)
+  default.alpha = 1.0;
+end
+
 -- Adjusted Duration
 
 function WeakAuras.regionPrototype.AddAdjustedDurationToDefault(default)
@@ -67,7 +73,7 @@ end
 -- Sound / Chat Message / Custom Code
 local screenWidth, screenHeight = math.ceil(GetScreenWidth() / 20) * 20, math.ceil(GetScreenHeight() / 20) * 20;
 
-function WeakAuras.regionPrototype.AddProperties(properties)
+function WeakAuras.regionPrototype.AddProperties(properties, defaultsForRegion)
   properties["sound"] = {
     display = L["Sound"],
     action = "SoundPlay",
@@ -99,6 +105,18 @@ function WeakAuras.regionPrototype.AddProperties(properties)
     softMax = screenHeight,
     bigStep = 1
   }
+
+  if (defaultsForRegion and defaultsForRegion.alpha) then
+    properties["alpha"] = {
+      display = L["Alpha"],
+      setter = "SetRegionAlpha",
+      type = "number",
+      min = 0,
+      max = 1,
+      bigStep = 0.01,
+      isPercent = true
+    }
+  end
 end
 
 local function SoundRepeatStop(self)
@@ -239,6 +257,23 @@ local function SetOffsetAnim(self, xOffset, yOffset)
   UpdatePosition(self);
 end
 
+local function SetRegionAlpha(self, alpha)
+  if (self.alpha == alpha) then
+    return;
+  end
+
+  self.alpha = alpha;
+  self:SetAlpha(self.animAlpha or self.alpha or 1);
+end
+
+local function SetAnimAlpha(self, alpha)
+  if (self.animAlpha == alpha) then
+    return;
+  end
+  self.animAlpha = alpha;
+  self:SetAlpha(self.animAlpha or self.alpha or 1);
+end
+
 function WeakAuras.regionPrototype.create(region)
   region.SoundPlay = SoundPlay;
   region.SoundStop = SoundStop;
@@ -254,12 +289,18 @@ function WeakAuras.regionPrototype.create(region)
   region.GetXOffset = GetXOffset;
   region.GetYOffset = GetYOffset;
   region.ResetPosition = ResetPosition;
+  region.SetRegionAlpha = SetRegionAlpha;
+  region.SetAnimAlpha = SetAnimAlpha;
 end
 
 -- SetDurationInfo
 
 function WeakAuras.regionPrototype.modify(parent, region, data)
+
   local defaultsForRegion = WeakAuras.regionTypes[data.regionType] and WeakAuras.regionTypes[data.regionType].default;
+  if (defaultsForRegion and defaultsForRegion.alpha) then
+    region:SetRegionAlpha(data.alpha);
+  end
   local hasAdjustedMin = defaultsForRegion and defaultsForRegion.useAdjustededMin ~= nil and data.useAdjustededMin;
   local hasAdjustedMax = defaultsForRegion and defaultsForRegion.useAdjustededMax ~= nil and data.useAdjustededMax;
 
@@ -459,6 +500,7 @@ function WeakAuras.regionPrototype.AddExpandFunction(data, region, id, cloneId, 
 
       parent:EnsureTrays();
       region.justCreated = nil;
+      region:SetFrameLevel(WeakAuras.GetFrameLevelFor(id));
       WeakAuras.PerformActions(data, "start", region);
       if not(WeakAuras.Animate("display", data, "start", data.animation.start, region, true, startMainAnimation, nil, cloneId)) then
         startMainAnimation();
@@ -499,6 +541,7 @@ function WeakAuras.regionPrototype.AddExpandFunction(data, region, id, cloneId, 
       if(region.PreShow) then
         region:PreShow();
       end
+      region:SetFrameLevel(WeakAuras.GetFrameLevelFor(id));
       region:Show();
       WeakAuras.PerformActions(data, "start", region);
       if not(WeakAuras.Animate("display", data, "start", data.animation.start, region, true, startMainAnimation, nil, cloneId)) then

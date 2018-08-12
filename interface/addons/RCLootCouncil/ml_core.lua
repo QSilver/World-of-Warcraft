@@ -489,6 +489,7 @@ function RCLootCouncilML:BuildMLdb()
 		timeout			= db.timeout,
 		tierButtonsEnabled = db.tierButtonsEnabled or nil,
 		relicButtonsEnabled = db.relicButtonsEnabled or nil,
+		rejectTrade 	= db.rejectTrade or nil
 	}
 
 	addon:SendMessage("RCMLBuildMLdb", MLdb)
@@ -583,10 +584,22 @@ function RCLootCouncilML:OnCommReceived(prefix, serializedMsg, distri, sender)
 
 			elseif command == "tradable" then -- Raid members send the info of the tradable item he looted.
 				self:HandleReceivedTradeable(unpack(data), sender)
+
+			elseif command == "trade_complete" then
+				self:OnTradeComplete(unpack(data))
+			elseif command == "trade_WrongWinner" then
+				local link, recipient, trader, winner = unpack(data)
+				addon:Print(format(L["trade_wrongwinner_message"], addon.Ambiguate(trader), link, addon.Ambiguate(recipient), addon.Ambiguate(winner)))
 			end
 		else
 			addon:Debug("Error in deserializing ML comm: ", command)
 		end
+	end
+end
+
+function RCLootCouncilML:OnTradeComplete(link, recipient, trader)
+	if db.printCompletedTrades then
+		addon:Print(format(L["trade_complete_message"], addon.Ambiguate(trader), link, addon.Ambiguate(recipient)))
 	end
 end
 
@@ -978,7 +991,7 @@ local function registerAndAnnounceAward(session, winner, response, reason)
 	self:AnnounceAward(winner, self.lootTable[session].link,
 			reason and reason.text or response, addon:GetActiveModule("votingframe"):GetCandidateData(session, winner, "roll"), session, changeAward)
 	if self:HasAllItemsBeenAwarded() then
-		addon:Print(L["All items has been awarded and  the loot session concluded"])
+		addon:Print(L["All items have been awarded and the loot session concluded"])
 		self:ScheduleTimer("EndSession", 1)  -- Delay a bit to ensure callback is handled before session ends.
 	end
 	return true

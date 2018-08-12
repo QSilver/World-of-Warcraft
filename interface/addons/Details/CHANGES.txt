@@ -1,5 +1,29 @@
-changeset:   724:c37a7672ea3a
+changeset:   728:5c29a7092020
 tag:         tip
+user:        Tercio
+date:        Thu Aug 09 00:39:13 2018 -0300
+summary:     - Hotfix an initialization issue caused by a stealth patch in the client addon API.
+
+
+changeset:   727:3f1ec67b4eeb
+user:        Tercio
+date:        Tue Aug 07 15:55:19 2018 -0300
+summary:     - Death Knight: Epidemic, Scourge Strike and Howling Blast now has a better description on the spell name.
+
+
+changeset:   726:7ca9550a402a
+user:        Tercio
+date:        Mon Jul 30 14:02:20 2018 -0300
+summary:     - Framework update.
+
+
+changeset:   725:9c36469215a4
+user:        Tercio
+date:        Sat Jul 28 18:22:13 2018 -0300
+summary:     - Added size offset options for the chat tab embed feature.
+
+
+changeset:   724:c37a7672ea3a
 user:        Tercio
 date:        Tue Jul 24 13:56:44 2018 -0300
 summary:     - Removed bookmark tutorial popup.

@@ -1,46 +1,16 @@
-tag d3953ad5723658a9f19f7360061680eac1c5766f 8.0.1.2
+tag 98f44d9fce401e9af26e3686e7b7f211fe6132a5 8.0.1.3
 Author:	James D. Callahan III <jcallahan@curse.com>
-Date:	Wed Jul 18 22:35:55 2018 -0500
+Date:	Thu Aug 9 21:30:03 2018 -0500
 
-commit 33dffb25f9f761148197b87a414e213a9c66c59b
+commit 4c0d42f133f096a9eb03c1cb07432a1bde429689
 Author: James D. Callahan III <jcallahan@curse.com>
-Date:   Wed Jul 18 22:35:38 2018 -0500
+Date:   Sat Jul 21 03:12:06 2018 -0500
 
-    Rework PLAYER_ENTERING_WORLD handler, since that event now has a payload.
+    Disable loading of libraries during development, since these won't exist at that point and the WoW 8.x client now complains about this.
 
-commit 8bd50d0110348ef3b16f31b6475f9f41e7f90d2c
+commit f00d5c56b0ae6d347cffadb46405a1ee3f9835af
 Author: James D. Callahan III <jcallahan@curse.com>
-Date:   Wed Jul 18 19:17:06 2018 -0500
+Date:   Sat Jul 21 03:09:49 2018 -0500
 
-    Greatly simplify vignette-scanning code.
-
-commit c2e589bcde522ccabc87f270baaed5f227575a95
-Author: James D. Callahan III <jcallahan@curse.com>
-Date:   Wed Jul 18 14:10:03 2018 -0500
-
-    Give DataObject.scannerData default values.
-
-commit 16afafcb38b46308f284eea83b068fac8fbed282
-Author: James D. Callahan III <jcallahan@curse.com>
-Date:   Wed Jul 18 13:53:49 2018 -0500
-
-    Add the Tiny Shale Spider pet to Jadefang.
-
-commit 55109036a2691bb4ce9d31d7ed37680996355a0c
-Author: James D. Callahan III <jcallahan@curse.com>
-Date:   Wed Jul 18 13:53:26 2018 -0500
-
-    Use AchievementID instead of hardcoded numbers for all manually-assigned NPCs, and ensure their manual addition to the achievement's criteriaNPCs table.
-
-commit 0658f39f168c802b35f3e961bd9ee0c8f88598bf
-Author: James D. Callahan III <jcallahan@curse.com>
-Date:   Wed Jul 18 13:46:45 2018 -0500
-
-    Move the AchievementID table into Achievements.lua
-
-commit 777276d2948b414df90da2a9d09273f77f9c8467
-Author: James D. Callahan III <jcallahan@curse.com>
-Date:   Wed Jul 18 13:45:21 2018 -0500
-
-    Update the scanner list during PLAYER_ENTERING_WORLD since the WoW 8.0.1 changes to the map system made doing so during PLAYER_LOGIN useless.
+    Disable -nolib packaging.
 

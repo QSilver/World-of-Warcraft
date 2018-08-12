@@ -545,8 +545,7 @@ L["STRING_OPTIONS_CENERGY_DESC"] = [=[Включить захват:
 - |cFFFFFF00Получено: силы рун|r]=]
 L["STRING_OPTIONS_CHANGE_CLASSCOLORS"] = "Изменение цвета класса"
 L["STRING_OPTIONS_CHANGE_CLASSCOLORS_DESC"] = "Выберите новые цвета для классов."
---[[Translation missing --]]
---[[ L["STRING_OPTIONS_CHANGECOLOR"] = ""--]] 
+L["STRING_OPTIONS_CHANGECOLOR"] = "Изменить цвет"
 L["STRING_OPTIONS_CHANGELOG"] = "Заметки о версии"
 L["STRING_OPTIONS_CHART_ADD"] = "Добавить данные"
 L["STRING_OPTIONS_CHART_ADD2"] = "Добавить"
@@ -1671,20 +1670,13 @@ L["STRING_WELCOME_7"] = "используется для рейтинга, эт�
 L["STRING_WELCOME_70"] = "Настройки полос заголовка"
 L["STRING_WELCOME_71"] = "Настройки полос"
 L["STRING_WELCOME_72"] = "Настройки окнa"
---[[Translation missing --]]
---[[ L["STRING_WELCOME_73"] = ""--]] 
---[[Translation missing --]]
---[[ L["STRING_WELCOME_74"] = ""--]] 
---[[Translation missing --]]
---[[ L["STRING_WELCOME_75"] = ""--]] 
---[[Translation missing --]]
---[[ L["STRING_WELCOME_76"] = ""--]] 
---[[Translation missing --]]
---[[ L["STRING_WELCOME_77"] = ""--]] 
---[[Translation missing --]]
---[[ L["STRING_WELCOME_78"] = ""--]] 
---[[Translation missing --]]
---[[ L["STRING_WELCOME_79"] = ""--]] 
+L["STRING_WELCOME_73"] = "Выберите алфавит или регион:"
+L["STRING_WELCOME_74"] = "Латинский алфавит"
+L["STRING_WELCOME_75"] = "Кириллицы алфавит"
+L["STRING_WELCOME_76"] = "Китай"
+L["STRING_WELCOME_77"] = "Корея"
+L["STRING_WELCOME_78"] = "Тайвань"
+L["STRING_WELCOME_79"] = "Создать 2-рое окно"
 L["STRING_WINDOW_NOTFOUND"] = "Окно не найдено."
 L["STRING_WINDOW_NUMBER"] = "номер окна"
 L["STRING_WINDOW1ATACH_DESC"] = "Чтобы создать группу окон, перетащите окно #2 рядом с окном #1."

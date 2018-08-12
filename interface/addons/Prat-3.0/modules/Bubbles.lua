@@ -269,8 +269,7 @@ L=
 		--[[ ["font_name"] = "",--]] 
 		--[[Translation missing --]]
 		--[[ ["fontsize_desc"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["fontsize_name"] = "",--]] 
+		["fontsize_name"] = "Tamaño de fuente",
 		--[[Translation missing --]]
 		--[[ ["format_desc"] = "",--]] 
 		--[[Translation missing --]]

@@ -1,14 +1,15 @@
--- $Id: Handler.lua 94 2018-07-27 14:59:32Z arith $
+-- $Id: Handler.lua 96 2018-08-06 15:41:05Z arith $
 -----------------------------------------------------------------------
 -- Upvalued Lua API.
 -----------------------------------------------------------------------
 -- Functions
 local _G = getfenv(0)
 -- Libraries
-local string = _G.string;
+local string = _G.string
 local format, gsub = string.format, string.gsub
 local next, wipe, pairs, select, type = next, wipe, pairs, select, type
 local GameTooltip, WorldMapTooltip, GetSpellInfo, CreateFrame, UnitClass = _G.GameTooltip, _G.WorldMapTooltip, _G.GetSpellInfo, _G.CreateFrame, _G.UnitClass
+local UIDropDownMenu_CreateInfo, CloseDropDownMenus, UIDropDownMenu_AddButton, ToggleDropDownMenu = _G.UIDropDownMenu_CreateInfo, _G.CloseDropDownMenus, _G.UIDropDownMenu_AddButton, _G.ToggleDropDownMenu
 
 -- ----------------------------------------------------------------------------
 -- AddOn namespace.
@@ -169,13 +170,13 @@ local function hideNode(button, uMapID, coord)
 end
 
 local function closeAllDropdowns()
-	L_CloseDropDownMenus(1)
+	CloseDropDownMenus(1)
 end
 
 local function addTomTomWaypoint(button, uMapID, coord)
 	if TomTom then
 		local x, y = HandyNotes:getXY(coord)
-		TomTom:AddMFWaypoint(uMapID, x, y, {
+		TomTom:AddWaypoint(uMapID, x, y, {
 			title = get_point_info_by_coord(uMapID, coord),
 			persistent = nil,
 			minimap = true,
@@ -188,7 +189,7 @@ local function addAllTreasureToWayPoint(button, uMapID)
 	if TomTom then
 		for k, v in pairs(private.DB.treasures) do
 			local x, y = HandyNotes:getXY(k)
-			TomTom:AddMFWaypoint(uMapID, x, y, {
+			TomTom:AddWaypoint(uMapID, x, y, {
 				title = L["Veiled Wyrmtongue Chest"],
 				persistent = nil,
 				minimap = true,
@@ -203,7 +204,7 @@ local function addAllShrineToWayPoint(button, uMapID)
 		local spellName = GetSpellInfo(239933)
 		for k, v in pairs(private.DB.shrines) do
 			local x, y = HandyNotes:getXY(k)
-			TomTom:AddMFWaypoint(uMapID, x, y, {
+			TomTom:AddWaypoint(uMapID, x, y, {
 				title = spellName,
 				persistent = nil,
 				minimap = true,
@@ -217,7 +218,7 @@ local function addAllNetherPortalToWayPoint(button, uMapID)
 	if TomTom then
 		for k, v in pairs(private.DB.netherPortals) do
 			local x, y = HandyNotes:getXY(k)
-			TomTom:AddMFWaypoint(uMapID, x, y, {
+			TomTom:AddWaypoint(uMapID, x, y, {
 				title = L["Unstable Nether Portal"],
 				persistent = nil,
 				minimap = true,
@@ -234,59 +235,59 @@ do
 		if (not level) then return end
 		if (level == 1) then
 			-- Create the title of the menu
-			info = L_UIDropDownMenu_CreateInfo()
+			info = UIDropDownMenu_CreateInfo()
 			info.isTitle 		= true
 			info.text 		= "HandyNotes - " ..addon.pluginName
 			info.notCheckable 	= true
-			L_UIDropDownMenu_AddButton(info, level)
+			UIDropDownMenu_AddButton(info, level)
 
 			if TomTom then
 				-- Waypoint menu item
-				info = L_UIDropDownMenu_CreateInfo()
+				info = UIDropDownMenu_CreateInfo()
 				info.text = LH["Add this location to TomTom waypoints"]
 				info.notCheckable = true
 				info.func = addTomTomWaypoint
 				info.arg1 = currentMapID
 				info.arg2 = currentCoord
-				L_UIDropDownMenu_AddButton(info, level)
+				UIDropDownMenu_AddButton(info, level)
 
-				info = L_UIDropDownMenu_CreateInfo()
+				info = UIDropDownMenu_CreateInfo()
 				info.text = L["Add all treasure nodes to TomTom waypoints"]
 				info.notCheckable = true
 				info.func = addAllTreasureToWayPoint
 				info.arg1 = currentMapID
-				L_UIDropDownMenu_AddButton(info, level)
+				UIDropDownMenu_AddButton(info, level)
 
-				info = L_UIDropDownMenu_CreateInfo()
+				info = UIDropDownMenu_CreateInfo()
 				info.text = L["Add all Ancient Shrine nodes to TomTom waypoints"]
 				info.notCheckable = true
 				info.func = addAllShrineToWayPoint
 				info.arg1 = currentMapID
-				L_UIDropDownMenu_AddButton(info, level)
+				UIDropDownMenu_AddButton(info, level)
 
-				info = L_UIDropDownMenu_CreateInfo()
+				info = UIDropDownMenu_CreateInfo()
 				info.text = L["Add all Unstable Nether Portal nodes to TomTom waypoints"]
 				info.notCheckable = true
 				info.func = addAllNetherPortalToWayPoint
 				info.arg1 = currentMapID
-				L_UIDropDownMenu_AddButton(info, level)
+				UIDropDownMenu_AddButton(info, level)
 			end
 
 			-- Hide menu item
-			info = L_UIDropDownMenu_CreateInfo()
+			info = UIDropDownMenu_CreateInfo()
 			info.text		= HIDE 
 			info.notCheckable 	= true
 			info.func		= hideNode
 			info.arg1		= currentMapID
 			info.arg2		= currentCoord
-			L_UIDropDownMenu_AddButton(info, level)
+			UIDropDownMenu_AddButton(info, level)
 
 			-- Close menu item
-			info = L_UIDropDownMenu_CreateInfo()
+			info = UIDropDownMenu_CreateInfo()
 			info.text		= CLOSE
 			info.func		= closeAllDropdowns
 			info.notCheckable 	= true
-			L_UIDropDownMenu_AddButton(info, level)
+			UIDropDownMenu_AddButton(info, level)
 		end
 	end
 	local HL_Dropdown = CreateFrame("Frame", private.addon_name.."DropdownMenu")
@@ -297,7 +298,7 @@ do
 		if (button == "RightButton" and not down) then
 			currentMapID = uMapID
 			currentCoord = coord
-			L_ToggleDropDownMenu(1, nil, HL_Dropdown, self, 0, 0)
+			ToggleDropDownMenu(1, nil, HL_Dropdown, self, 0, 0)
 		end
 	end
 end

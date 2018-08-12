@@ -6,13 +6,11 @@ local L = WeakAuras.L
 
 -- WeakAuras
 --[[Translation missing --]]
-L[ [=[
-
-Supports multiple entries, separated by commas
-]=] ] = [=[
-
-Supports multiple entries, separated by commas
-]=]
+L["   • %d auras added"] = "   • %d auras added"
+--[[Translation missing --]]
+L["   • %d auras deleted"] = "   • %d auras deleted"
+--[[Translation missing --]]
+L["   • %d auras modified"] = "   • %d auras modified"
 L["!="] = "!="
 --[[Translation missing --]]
 L["%s - %i. Trigger"] = "%s - %i. Trigger"
@@ -94,9 +92,15 @@ L["Absorb Display"] = "Absorb Display"
 L["Absorbed"] = "Assorbito"
 L["Action Usable"] = "Azione utilizzabile"
 --[[Translation missing --]]
+L["Actions"] = "Actions"
+--[[Translation missing --]]
 L["Active"] = "Active"
 --[[Translation missing --]]
+L["Add Missing Auras"] = "Add Missing Auras"
+--[[Translation missing --]]
 L["Additional Trigger Replacements"] = "Additional Trigger Replacements"
+--[[Translation missing --]]
+L["Adjust Timer"] = "Adjust Timer"
 L["Affected"] = "Affetto"
 --[[Translation missing --]]
 L["Aggro"] = "Aggro"
@@ -108,6 +112,8 @@ L["All Triggers"] = "Tutte le attivazioni"
 L["Alliance"] = "Alliance"
 --[[Translation missing --]]
 L["Allow partial matches"] = "Allow partial matches"
+--[[Translation missing --]]
+L["Alpha"] = "Alpha"
 L["Alternate Power"] = "Alternate Power"
 --[[Translation missing --]]
 L["Always"] = "Always"
@@ -117,6 +123,8 @@ L["Ambience"] = "Ambiente"
 L["Amount"] = "Quantità"
 --[[Translation missing --]]
 L["And Talent selected"] = "And Talent selected"
+--[[Translation missing --]]
+L["Animations"] = "Animations"
 --[[Translation missing --]]
 L["Anticlockwise"] = "Anticlockwise"
 --[[Translation missing --]]
@@ -139,6 +147,8 @@ L["Aura Broken"] = "Aura finita"
 L["Aura Broken Spell"] = "Aura di magia finita"
 --[[Translation missing --]]
 L["Aura Name"] = "Aura Name"
+--[[Translation missing --]]
+L["Aura Names"] = "Aura Names"
 L["Aura Refresh"] = "Aura rinnovata"
 L["Aura Removed"] = "Aura rimossa"
 L["Aura Removed Dose"] = "Parte di aura rimossa"
@@ -156,8 +166,6 @@ L["Back and Forth"] = "Avanti e indietro"
 L["Backdrop Color"] = "Backdrop Color"
 --[[Translation missing --]]
 L["Background Color"] = "Background Color"
---[[Translation missing --]]
-L["Bar Alpha"] = "Bar Alpha"
 --[[Translation missing --]]
 L["Bar Color"] = "Bar Color"
 L["Battle.net Whisper"] = "Sussurri di Battle.net"
@@ -224,6 +232,8 @@ L["Chest"] = "Chest"
 --[[Translation missing --]]
 L["Children:"] = "Children:"
 --[[Translation missing --]]
+L["Choose a category"] = "Choose a category"
+--[[Translation missing --]]
 L["Circle"] = "Circle"
 --[[Translation missing --]]
 L["Clamp"] = "Clamp"
@@ -256,6 +266,8 @@ L["Cooldown Ready (Spell)"] = "Cooldown Ready (Spell)"
 --[[Translation missing --]]
 L["Counter Clockwise"] = "Counter Clockwise"
 L["Create"] = "Crea"
+--[[Translation missing --]]
+L["Create a Copy"] = "Create a Copy"
 L["Critical"] = "Critico"
 --[[Translation missing --]]
 L["Cross"] = "Cross"
@@ -322,6 +334,8 @@ L["Disease"] = "Disease"
 L["Dispel"] = "Dispel"
 --[[Translation missing --]]
 L["Dispel Failed"] = "Dispel Failed"
+--[[Translation missing --]]
+L["Display"] = "Display"
 --[[Translation missing --]]
 L["Distance"] = "Distance"
 --[[Translation missing --]]
@@ -458,6 +472,8 @@ L["Group"] = "Group"
 --[[Translation missing --]]
 L["Group %s"] = "Group %s"
 --[[Translation missing --]]
+L["Group Arrangement"] = "Group Arrangement"
+--[[Translation missing --]]
 L["Grow"] = "Grow"
 --[[Translation missing --]]
 L["GTFO Alert"] = "GTFO Alert"
@@ -465,6 +481,8 @@ L["GTFO Alert"] = "GTFO Alert"
 L["Guild"] = "Guild"
 --[[Translation missing --]]
 L["Hands"] = "Hands"
+--[[Translation missing --]]
+L["Has Target"] = "Has Target"
 --[[Translation missing --]]
 L["Has Vehicle UI"] = "Has Vehicle UI"
 --[[Translation missing --]]
@@ -514,7 +532,17 @@ L["Immune"] = "Immune"
 --[[Translation missing --]]
 L["Import"] = "Import"
 --[[Translation missing --]]
+L["Import as Copy"] = "Import as Copy"
+--[[Translation missing --]]
+L["Import as Update"] = "Import as Update"
+--[[Translation missing --]]
 L["Import disabled"] = "Import disabled"
+--[[Translation missing --]]
+L["Import Group"] = "Import Group"
+--[[Translation missing --]]
+L["Import in progress"] = "Import in progress"
+--[[Translation missing --]]
+L["Importing is disabled while in combat"] = "Importing is disabled while in combat"
 --[[Translation missing --]]
 L["In Combat"] = "In Combat"
 --[[Translation missing --]]
@@ -546,6 +574,8 @@ L["Instance Difficulty"] = "Instance Difficulty"
 --[[Translation missing --]]
 L["Instance Type"] = "Instance Type"
 --[[Translation missing --]]
+L["Insufficient Resources"] = "Insufficient Resources"
+--[[Translation missing --]]
 L["Interrupt"] = "Interrupt"
 --[[Translation missing --]]
 L["Interruptible"] = "Interruptible"
@@ -570,6 +600,8 @@ L["Item Count"] = "Item Count"
 --[[Translation missing --]]
 L["Item Equipped"] = "Item Equipped"
 --[[Translation missing --]]
+L["Item in Range"] = "Item in Range"
+--[[Translation missing --]]
 L["Item Set Equipped"] = "Item Set Equipped"
 --[[Translation missing --]]
 L["Item Set Id"] = "Item Set Id"
@@ -593,6 +625,8 @@ L["Legacy RGB Gradient Pulse"] = "Legacy RGB Gradient Pulse"
 L["Legs"] = "Legs"
 --[[Translation missing --]]
 L["Level"] = "Level"
+--[[Translation missing --]]
+L["Load Conditions"] = "Load Conditions"
 --[[Translation missing --]]
 L["Looking for Raid"] = "Looking for Raid"
 --[[Translation missing --]]
@@ -634,6 +668,8 @@ L["Message Type"] = "Message Type"
 --[[Translation missing --]]
 L["Message type:"] = "Message type:"
 --[[Translation missing --]]
+L["Meta Data"] = "Meta Data"
+--[[Translation missing --]]
 L["Minimum"] = "Minimum"
 --[[Translation missing --]]
 L["Minimum Estimate"] = "Minimum Estimate"
@@ -670,8 +706,6 @@ L["Mounted"] = "Mounted"
 --[[Translation missing --]]
 L["Mouse Cursor"] = "Mouse Cursor"
 --[[Translation missing --]]
-L["Multistrike"] = "Multistrike"
---[[Translation missing --]]
 L["Multi-target"] = "Multi-target"
 --[[Translation missing --]]
 L["Music"] = "Music"
@@ -690,7 +724,7 @@ L["Never"] = "Never"
 --[[Translation missing --]]
 L["Next"] = "Next"
 --[[Translation missing --]]
-L["No Children:"] = "No Children:"
+L["No Children"] = "No Children"
 --[[Translation missing --]]
 L["No Instance"] = "No Instance"
 --[[Translation missing --]]
@@ -854,7 +888,11 @@ L["Remaining Duration"] = "Remaining Duration"
 --[[Translation missing --]]
 L["Remaining Time"] = "Remaining Time"
 --[[Translation missing --]]
+L["Remove Obsolete Auras"] = "Remove Obsolete Auras"
+--[[Translation missing --]]
 L["Repeat"] = "Repeat"
+--[[Translation missing --]]
+L["Replace Aura"] = "Replace Aura"
 --[[Translation missing --]]
 L["Requested display does not exist"] = "Requested display does not exist"
 --[[Translation missing --]]
@@ -950,6 +988,8 @@ L["Show Incoming Heal"] = "Show Incoming Heal"
 --[[Translation missing --]]
 L["Shrink"] = "Shrink"
 --[[Translation missing --]]
+L["Size & Position"] = "Size & Position"
+--[[Translation missing --]]
 L["Skull"] = "Skull"
 --[[Translation missing --]]
 L["Slide from Bottom"] = "Slide from Bottom"
@@ -984,6 +1024,8 @@ L["Source Raid Mark"] = "Source Raid Mark"
 --[[Translation missing --]]
 L["Source Unit"] = "Source Unit"
 --[[Translation missing --]]
+L["Source: "] = "Source: "
+--[[Translation missing --]]
 L["Spacing"] = "Spacing"
 --[[Translation missing --]]
 L["Spark Color"] = "Spark Color"
@@ -1008,9 +1050,13 @@ L["Spell ID"] = "Spell ID"
 --[[Translation missing --]]
 L["Spell Id"] = "Spell Id"
 --[[Translation missing --]]
+L["Spell in Range"] = "Spell in Range"
+--[[Translation missing --]]
 L["Spell Known"] = "Spell Known"
 --[[Translation missing --]]
 L["Spell Name"] = "Spell Name"
+--[[Translation missing --]]
+L["Spell Usable"] = "Spell Usable"
 --[[Translation missing --]]
 L["Spell/Encounter Id"] = "Spell/Encounter Id"
 --[[Translation missing --]]
@@ -1078,6 +1124,10 @@ L["This aura contains custom Lua code."] = "This aura contains custom Lua code."
 --[[Translation missing --]]
 L["This aura was created with a newer version of WeakAuras."] = "This aura was created with a newer version of WeakAuras."
 --[[Translation missing --]]
+L["This is a modified version of your aura, |cff9900FF%s.|r"] = "This is a modified version of your aura, |cff9900FF%s.|r"
+--[[Translation missing --]]
+L["This is a modified version of your group, |cff9900FF%s.|r"] = "This is a modified version of your group, |cff9900FF%s.|r"
+--[[Translation missing --]]
 L["Threat Situation"] = "Threat Situation"
 --[[Translation missing --]]
 L["Tier "] = "Tier "
@@ -1112,6 +1162,8 @@ L["Transmission error"] = "Transmission error"
 --[[Translation missing --]]
 L["Triangle"] = "Triangle"
 --[[Translation missing --]]
+L["Trigger"] = "Trigger"
+--[[Translation missing --]]
 L["Trigger 1"] = "Trigger 1"
 --[[Translation missing --]]
 L["Trigger State Updater"] = "Trigger State Updater"
@@ -1142,6 +1194,8 @@ L["Unit is Unit"] = "Unit is Unit"
 --[[Translation missing --]]
 L["Up"] = "Up"
 --[[Translation missing --]]
+L["Update Auras"] = "Update Auras"
+--[[Translation missing --]]
 L["Values/Remaining Time above this value are displayed as full progress."] = "Values/Remaining Time above this value are displayed as full progress."
 --[[Translation missing --]]
 L["Values/Remaining Time below this value are displayed as no progress."] = "Values/Remaining Time below this value are displayed as no progress."
@@ -1150,9 +1204,13 @@ L["Version: "] = "Version: "
 --[[Translation missing --]]
 L["Waist"] = "Waist"
 --[[Translation missing --]]
+L["War Mode Active"] = "War Mode Active"
+--[[Translation missing --]]
 L["Weapon"] = "Weapon"
 --[[Translation missing --]]
 L["Weapon Enchant"] = "Weapon Enchant"
+--[[Translation missing --]]
+L["What do you want to do?"] = "What do you want to do?"
 --[[Translation missing --]]
 L["Whisper"] = "Whisper"
 --[[Translation missing --]]
@@ -1169,6 +1227,8 @@ L["X-Offset"] = "X-Offset"
 L["Yell"] = "Yell"
 --[[Translation missing --]]
 L["Y-Offset"] = "Y-Offset"
+--[[Translation missing --]]
+L["You already have this group/aura. Importing will create a duplicate."] = "You already have this group/aura. Importing will create a duplicate."
 --[[Translation missing --]]
 L["Zone Group ID(s)"] = "Zone Group ID(s)"
 --[[Translation missing --]]

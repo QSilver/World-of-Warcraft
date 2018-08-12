@@ -4,6 +4,7 @@ sm.buttons = {}
 
 local mod = sm.buttons
 local L = sm.L
+local ldbi = LibStub("LibDBIcon-1.0")
 
 local moving, ButtonFadeOut
 
@@ -24,24 +25,6 @@ local dynamicButtons = {
 	MiniMapMailFrame = L["New Mail Indicator (When Available)"],
 	QueueStatusMinimapButton = L["Queue Status (PvP/LFG) Button (When Available)"],
 	GarrisonLandingPageMinimapButton = L["Garrison Button (When Available)"],
-}
--- XXX Custom support for addons is now being phased out, this list will reduce over time.
--- XXX Eventually we want all drag-handling code to be handled by the LibDBIcon library.
--- XXX People should be free to use interesting shapes no matter what minimap addon they use.
--- XXX Being forced to use SexyMap for this is silly. If someone creates a small minimap addon
--- XXX with a cool custom shape, all buttons (created by LibDBIcon) should react accordingly! No need to replicate SexyMap code in their minimap addon!
--- XXX People who whine about this should be redirected to authors of the individual addons to use LibDBIcon instead of creating custom minimap buttons.
-local addonButtons = {
-	DBMMinimapButton = "DBM (Deadly Boss Mods)",
-	WIM3MinimapButton = "WIM (WoW Instant Messenger)",
-	Gatherer_MinimapOptionsButton = "Gatherer",
-	HealiumMiniMap = "Healium",
-	HealBot_MMButton = "HealBot",
-	OutfitterMinimapButton = "Outfitter",
-	NXMiniMapBut = "Carbonite",
-	ZygorGuidesViewerMapIcon = "Zygor",
-	ItemRackMinimapFrame = "ItemRack",
-	wlMinimapButton = "Wowhead Looter",
 }
 
 local options = {
@@ -180,7 +163,7 @@ do
 		end
 		p[name] = {
 			type = "multiselect",
-			name = L["Show %s:"]:format(blizzButtons[name] or dynamicButtons[name] or addonButtons[name] or name:gsub("LibDBIcon10_", "")),
+			name = L["Show %s:"]:format(blizzButtons[name] or dynamicButtons[name] or name:gsub("LibDBIcon10_", "")),
 			values = hideValues,
 			get = hideGet,
 			set = hideSet,
@@ -210,9 +193,6 @@ function mod:OnInitialize(profile)
 	end
 
 	self.db = profile.buttons
-	-- XXX temp [7.2.5]
-	self.db.TEMP = nil
-	self.db.TEMP2 = nil
 end
 
 function mod:OnEnable()
@@ -249,19 +229,20 @@ function mod:OnEnable()
 
 	sm.core:RegisterModuleOptions("Buttons", options, L["Buttons"])
 
-	mod:StartFrameGrab()
+	C_Timer.After(1, mod.StartFrameGrab)
 end
 
 --------------------------------------------------------------------------------
 -- Fading
 --
 
+local OnFinished, KillAnimation
 do
 	local fadeStop = false -- Use a variable to prevent fadeout/in when moving the mouse around minimap/icons
 	local restoreGarrisonButtonAnimation = false
 	local restoreLFGButtonAnimation = false
 
-	local OnFinished = function(anim)
+	OnFinished = function(anim)
 		-- Work around issues with buttons that have a pulse/fade ring animation.
 		if restoreGarrisonButtonAnimation and anim:GetParent():GetName() == "GarrisonLandingPageMinimapButton" then
 			anim:GetParent().MinimapLoopPulseAnim:Play()
@@ -273,6 +254,20 @@ do
 		end
 	end
 
+	KillAnimation = function(n, f)
+		-- Work around issues with buttons that have a pulse/fade ring animation.
+		if n == "GarrisonLandingPageMinimapButton" and (f.MinimapLoopPulseAnim:IsPlaying() or restoreGarrisonButtonAnimation) then
+			restoreGarrisonButtonAnimation = true
+			f.MinimapLoopPulseAnim:Stop()
+			return f.MinimapLoopPulseAnim
+		end
+		if n == "QueueStatusMinimapButton" and (f.EyeHighlightAnim:IsPlaying() or restoreLFGButtonAnimation) then
+			restoreLFGButtonAnimation = true
+			f.EyeHighlightAnim:Stop()
+			return f.EyeHighlightAnim
+		end
+	end
+
 	local OnEnter = function()
 		if not mod.db.controlVisibility or fadeStop or moving then return end
 
@@ -280,21 +275,14 @@ do
 			local f = animFrames[i]
 			local n = f:GetName()
 			if not mod.db.visibilitySettings[n] or mod.db.visibilitySettings[n] == "hover" then
-				f.sexyMapFadeIn:Stop()
 				f.sexyMapFadeOut:Stop()
 
-				-- Work around issues with buttons that have a pulse/fade ring animation.
-				if n == "GarrisonLandingPageMinimapButton" and f.MinimapLoopPulseAnim:IsPlaying() then
-					restoreGarrisonButtonAnimation = true
-					f.MinimapLoopPulseAnim:Stop()
-				end
-				if n == "QueueStatusMinimapButton" and f.EyeHighlightAnim:IsPlaying() then
-					restoreLFGButtonAnimation = true
-					f.EyeHighlightAnim:Stop()
-				end
-				--
+				local anim = KillAnimation(n, f)
 
-				f.sexyMapFadeIn:Play()
+				f:SetAlpha(1)
+				if anim then
+					OnFinished(anim)
+				end
 			end
 		end
 	end
@@ -311,38 +299,18 @@ do
 			local f = animFrames[i]
 			local n = f:GetName()
 			if not mod.db.visibilitySettings[n] or mod.db.visibilitySettings[n] == "hover" then
-				f.sexyMapFadeIn:Stop()
-				f.sexyMapFadeOut:Stop()
-
-				-- Work around issues with buttons that have a pulse/fade ring animation.
-				if n == "GarrisonLandingPageMinimapButton" and f.MinimapLoopPulseAnim:IsPlaying() then
-					restoreGarrisonButtonAnimation = true
-					f.MinimapLoopPulseAnim:Stop()
-				end
-				if n == "QueueStatusMinimapButton" and f.EyeHighlightAnim:IsPlaying() then
-					restoreLFGButtonAnimation = true
-					f.EyeHighlightAnim:Stop()
-				end
-				--
-
 				f.sexyMapFadeOut:Play()
+
+				KillAnimation(n, f)
 			end
 		end
 	end
 
 	function mod:NewFrame(f)
 		local n = f:GetName()
-		-- Only add Blizz buttons, addon buttons & LibDBIcon buttons
-		if blizzButtons[n] or dynamicButtons[n] or addonButtons[n] or n:find("LibDBIcon") then
-			-- Create the animations
-			f.sexyMapFadeIn = f:CreateAnimationGroup()
-			local smAlphaAnimIn = f.sexyMapFadeIn:CreateAnimation("Alpha")
-			smAlphaAnimIn:SetOrder(1)
-			smAlphaAnimIn:SetDuration(0.2)
-			smAlphaAnimIn:SetFromAlpha(0)
-			smAlphaAnimIn:SetToAlpha(1)
-			f.sexyMapFadeIn:SetToFinalAlpha(true)
-
+		-- Only add Blizz buttons & LibDBIcon buttons
+		if blizzButtons[n] or dynamicButtons[n] or n:find("LibDBIcon") then
+			-- Create the animation
 			f.sexyMapFadeOut = f:CreateAnimationGroup()
 			local smAlphaAnimOut = f.sexyMapFadeOut:CreateAnimation("Alpha")
 			smAlphaAnimOut:SetOrder(1)
@@ -354,8 +322,17 @@ do
 
 			-- Work around issues with buttons that have a pulse/fade ring animation.
 			if n == "GarrisonLandingPageMinimapButton" or n == "QueueStatusMinimapButton" then
-				f.sexyMapFadeIn:SetScript("OnFinished", OnFinished)
 				f.sexyMapFadeOut:SetScript("OnFinished", OnFinished)
+			end
+			-- These frames are parented to MinimapCluster, if the map scale is changed they won't drag properly, so we parent to Minimap
+			if n == "MiniMapInstanceDifficulty" or n == "GuildInstanceDifficulty" or n == "MiniMapChallengeMode" then
+				f:ClearAllPoints()
+				f:SetParent(Minimap)
+				f:SetPoint("CENTER", Minimap, "CENTER", -60, 55)
+			end
+			-- Parented to MinimapCluster
+			if n == "MinimapZoneTextButton" then
+				f:SetParent(Minimap)
 			end
 
 			animFrames[#animFrames+1] = f
@@ -365,31 +342,13 @@ do
 				self:ChangeFrameVisibility(f, mod.db.visibilitySettings[n] or "hover")
 			end
 
-			-- Some non-LibDBIcon addon buttons don't set the strata properly and can appear behind things
-			-- LibDBIcon sets the strata to MEDIUM and the frame level to 8, so we do the same to other buttons
-			if addonButtons[n] then
-				f:SetFrameStrata("MEDIUM")
-				f:SetFrameLevel(8)
-			end
-
 			-- Don't add config or moving capability to the Zone Text and Clock buttons, handled in their own modules
 			if n ~= "MinimapZoneTextButton" and n ~= "TimeManagerClockButton" then
 				self:AddButtonOptions(n)
 
-				-- These two frames are parented to MinimapCluster, if the map scale is changed they won't drag properly, so we parent to Minimap
-				if n == "MiniMapInstanceDifficulty" or n == "GuildInstanceDifficulty" then
-					f:ClearAllPoints()
-					f:SetParent(Minimap)
-					f:SetPoint("CENTER", Minimap, "CENTER", -60, 55)
-				end
-
 				-- Configure dragging
 				if n == "MiniMapTracking" then
 					self:MakeMovable(MiniMapTrackingButton, f)
-				elseif n == "CraftBuster_MinimapFrame" then
-					if CraftBuster_MinimapButtonButton then
-						self:MakeMovable(CraftBuster_MinimapButtonButton, f)
-					end
 				else
 					self:MakeMovable(f)
 				end
@@ -408,7 +367,13 @@ do
 				frame:SetParent(frameParents[frame])
 				frameParents[frame] = nil
 			end
-			frame:SetAlpha(1)
+			if frame.MinimapLoopPulseAnim or frame.EyeHighlightAnim then
+				KillAnimation(frame:GetName(), frame)
+				frame:SetAlpha(1)
+				OnFinished(frame.MinimapLoopPulseAnim or frame.EyeHighlightAnim)
+			else
+				frame:SetAlpha(1)
+			end
 		elseif vis == "never" then
 			if not frameParents[frame] then
 				frameParents[frame] = frame:GetParent()
@@ -419,7 +384,13 @@ do
 				frame:SetParent(frameParents[frame])
 				frameParents[frame] = nil
 			end
-			frame:SetAlpha(0)
+			if frame.MinimapLoopPulseAnim or frame.EyeHighlightAnim then
+				KillAnimation(frame:GetName(), frame)
+				frame:SetAlpha(0)
+				OnFinished(frame.MinimapLoopPulseAnim or frame.EyeHighlightAnim)
+			else
+				frame:SetAlpha(0)
+			end
 		end
 	end
 
@@ -465,11 +436,27 @@ do
 		if mod.db.lockDragging or not mod.db.allowDragging then return end
 
 		moving = frame
+		fadeStop = true
+		for i = 1, #animFrames do
+			local f = animFrames[i]
+			local n = f:GetName()
+			if not mod.db.visibilitySettings[n] or mod.db.visibilitySettings[n] == "hover" then
+				f.sexyMapFadeOut:Stop()
+
+				local anim = KillAnimation(n, f)
+
+				f:SetAlpha(1)
+				if anim then
+					OnFinished(anim)
+				end
+			end
+		end
 		dragFrame:SetScript("OnUpdate", updatePosition)
 	end
 	local OnDragStop = function()
 		dragFrame:SetScript("OnUpdate", nil)
 		moving = nil
+		fadeStop = false
 		ButtonFadeOut() -- Call the fade out function
 	end
 
@@ -521,39 +508,28 @@ end
 --
 
 do
-	local alreadyGrabbed = {}
-	local grabFrames = function(...)
-		for i=1, select("#", ...) do
-			local f = select(i, ...)
-			local n = f:GetName()
-			if n and not alreadyGrabbed[n] then
-				alreadyGrabbed[n] = true
-				mod:NewFrame(f)
-			end
-		end
-	end
+	local tbl = {
+		Minimap, MiniMapTrackingButton, MinimapZoneTextButton, MiniMapTracking, TimeManagerClockButton, GameTimeFrame,
+		MinimapZoomIn, MinimapZoomOut, MiniMapWorldMapButton, GuildInstanceDifficulty, MiniMapChallengeMode, MiniMapInstanceDifficulty,
+		MiniMapMailFrame, QueueStatusMinimapButton, GarrisonLandingPageMinimapButton
+	}
 
-	local CTimerAfter = C_Timer.After
-	local grabNewFrames = function()
-		grabFrames(Minimap:GetChildren())
+	function mod:AddButton(_, button)
+		self:NewFrame(button)
 	end
-	dragFrame:SetScript("OnEvent", function()
-		CTimerAfter(2, grabNewFrames)
-	end)
 
 	function mod:StartFrameGrab()
-		-- We'd use ADDON_LOADED directly but it's too early, some addons load a minimap icon afterwards
-		CTimerAfter(2, function()
-			grabFrames(
-				Minimap, MiniMapTrackingButton, MinimapZoneTextButton, MiniMapTracking, TimeManagerClockButton, GameTimeFrame,
-				MinimapZoomIn, MinimapZoomOut, MiniMapWorldMapButton, GuildInstanceDifficulty, MiniMapChallengeMode, MiniMapInstanceDifficulty,
-				MiniMapMailFrame, QueueStatusMinimapButton, GarrisonLandingPageMinimapButton
-			)
-			grabNewFrames()
-			dragFrame:RegisterEvent("ADDON_LOADED")
-		end)
+		for i = 1, #tbl do
+			mod:NewFrame(tbl[i])
+		end
 
-		self.StartFrameGrab = nil
+		local ldbiTbl = ldbi:GetButtonList()
+		for i = 1, #ldbiTbl do
+			mod:NewFrame(ldbi:GetMinimapButton(ldbiTbl[i]))
+		end
+		ldbi.RegisterCallback(mod, "LibDBIcon_IconCreated", "AddButton")
+
+		mod.StartFrameGrab = nil
 	end
 end
 

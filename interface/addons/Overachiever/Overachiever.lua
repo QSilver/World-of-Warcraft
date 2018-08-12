@@ -390,35 +390,50 @@ end
 
 local function BuildCriteriaLookupTab_check()
 	if (Overachiever_Settings.UI_RequiredForMetaTooltip) then
-		local status = TjAchieve.BuildCritAssetCache(TjAchieve.CRITTYPE_META)
-		if (status == "started") then
-			--if (not THROTTLE_ACHLOOKUP) then
-			if (not Overachiever_Settings.Throttle_AchLookup) then
-				TjAchieve.RushBuildCritAssetCache(TjAchieve.CRITTYPE_META)
-				if (Overachiever_Debug) then  chatprint("BuildCriteriaLookupTab_check: meta caching rushed");  end
-			elseif (Overachiever_Debug) then
-				chatprint("BuildCriteriaLookupTab_check: meta caching started")
-				TjAchieve.AddBuildCritAssetCacheListener(TjAchieve.CRITTYPE_META, function()
-					chatprint("BuildCriteriaLookupTab_check: meta caching complete")
-				end)
+		local data
+		if (Overachiever.GetCache) then  data = Overachiever.GetCache("meta");  end
+		if (data) then
+			TjAchieve.PopulateCritAssetCache(TjAchieve.CRITTYPE_META, data)
+			if (Overachiever_Debug) then  chatprint("BuildCriteriaLookupTab_check: meta cache populated from saved variables");  end
+		else
+			local status = TjAchieve.BuildCritAssetCache(TjAchieve.CRITTYPE_META)
+			if (status == "started") then
+				--if (not THROTTLE_ACHLOOKUP) then
+				if (not Overachiever_Settings.Throttle_AchLookup) then
+					TjAchieve.RushBuildCritAssetCache(TjAchieve.CRITTYPE_META)
+					if (Overachiever_Debug) then  chatprint("BuildCriteriaLookupTab_check: meta caching rushed");  end
+				elseif (Overachiever_Debug) then
+					chatprint("BuildCriteriaLookupTab_check: meta caching started")
+					TjAchieve.AddBuildCritAssetCacheListener(TjAchieve.CRITTYPE_META, function()
+						chatprint("BuildCriteriaLookupTab_check: meta caching complete")
+					end)
+				end
 			end
 		end
 	end
 	if (Overachiever_Settings.CreatureTip_killed) then
-		local status = TjAchieve.BuildCritAssetCache(TjAchieve.CRITTYPE_KILL, true)
-		if (status == "started") then
-			--if (not THROTTLE_ACHLOOKUP) then
-			if (not Overachiever_Settings.Throttle_AchLookup) then
-				TjAchieve.RushBuildCritAssetCache(TjAchieve.CRITTYPE_KILL, true)
-				if (Overachiever_Debug) then  chatprint("BuildCriteriaLookupTab_check: meta caching rushed");  end
-			elseif (Overachiever_Debug) then
-				chatprint("BuildCriteriaLookupTab_check: kill caching started")
-				TjAchieve.AddBuildCritAssetCacheListener(TjAchieve.CRITTYPE_KILL, function()
-					chatprint("BuildCriteriaLookupTab_check: kill caching complete")
-				end)
+		local data
+		if (Overachiever.GetCache) then  data = Overachiever.GetCache("kill");  end
+		if (data) then
+			TjAchieve.PopulateCritAssetCache(TjAchieve.CRITTYPE_KILL, data)
+			if (Overachiever_Debug) then  chatprint("BuildCriteriaLookupTab_check: kill cache populated from saved variables");  end
+		else
+			local status = TjAchieve.BuildCritAssetCache(TjAchieve.CRITTYPE_KILL, true)
+			if (status == "started") then
+				--if (not THROTTLE_ACHLOOKUP) then
+				if (not Overachiever_Settings.Throttle_AchLookup) then
+					TjAchieve.RushBuildCritAssetCache(TjAchieve.CRITTYPE_KILL, true)
+					if (Overachiever_Debug) then  chatprint("BuildCriteriaLookupTab_check: kill caching rushed");  end
+				elseif (Overachiever_Debug) then
+					chatprint("BuildCriteriaLookupTab_check: kill caching started")
+					TjAchieve.AddBuildCritAssetCacheListener(TjAchieve.CRITTYPE_KILL, function()
+						chatprint("BuildCriteriaLookupTab_check: kill caching complete")
+					end)
+				end
 			end
 		end
 	end
+	Overachiever.GetCache = nil
 end
 
 local AchLookup_metaach, AchLookup_kill
@@ -427,7 +442,7 @@ function Overachiever.GetMetaCriteriaLookup(doNotRush)
 	if (AchLookup_metaach) then  return AchLookup_metaach;  end
 	if (not TjAchieve.IsCritAssetCacheReady(TjAchieve.CRITTYPE_META)) then
 		if (doNotRush) then
-			return TjAchieve.ASSETS[TjAchieve.CRITTYPE_META]
+			return TjAchieve.ASSETS[TjAchieve.CRITTYPE_META], true
 		end
 		TjAchieve.RushBuildCritAssetCache(TjAchieve.CRITTYPE_META)
 	end
@@ -439,13 +454,22 @@ function Overachiever.GetKillCriteriaLookup(doNotRush)
 	if (AchLookup_kill) then  return AchLookup_kill;  end
 	if (not TjAchieve.IsCritAssetCacheReady(TjAchieve.CRITTYPE_KILL)) then
 		if (doNotRush) then
-			return TjAchieve.ASSETS[TjAchieve.CRITTYPE_KILL]
+			return TjAchieve.ASSETS[TjAchieve.CRITTYPE_KILL], true
 		end
 		TjAchieve.RushBuildCritAssetCache(TjAchieve.CRITTYPE_KILL, true)
 	end
 	AchLookup_kill = TjAchieve.ASSETS[TjAchieve.CRITTYPE_KILL]
 	if (OVERACHIEVER_MOB_CRIT) then
 		-- Add hardcoded contents to the cache:
+
+		local function containsSet(tab, val1, val2, maxIndex)
+			for i = 1, maxIndex or #tab, 2 do
+				if (tab[i] == val1 and tab[i + 1] == val2) then  return true;  end
+			end
+			return false
+		end
+
+		local numCopy = 0
 		for mobID,list in pairs(OVERACHIEVER_MOB_CRIT) do
 			if (AchLookup_kill[mobID]) then
 				local tab = AchLookup_kill[mobID]
@@ -454,15 +478,32 @@ function Overachiever.GetKillCriteriaLookup(doNotRush)
 					tab = { tab }
 				end
 				--]]
+
+				local size = #tab
+				local sizeOrig = size
+				for i = 1, #list, 2 do
+					if (not containsSet(tab, list[i], list[i + 1], sizeOrig)) then
+						tab[size + 1] = list[i]
+						tab[size + 2] = list[i + 1]
+						size = size + 2
+						numCopy = numCopy + 1
+					elseif (Overachiever_Debug) then
+						chatprint("Found duplicate data in cache while copying OVERACHIEVER_MOB_CRIT data: [" .. mobID .. "] " .. list[i] .. ", " .. list[i + 1])
+					end
+				end
+
+				--[[
 				local size = #tab
 				for i,v in ipairs(list) do
 					size = size + 1
 					tab[size] = v
 				end
+				--]]
 			else
 				AchLookup_kill[mobID] = list
 			end
 		end
+		if (Overachiever_Debug) then  chatprint('GetKillCriteriaLookup: Copied '..numCopy..' entries from OVERACHIEVER_MOB_CRIT.');  end
 		OVERACHIEVER_MOB_CRIT = nil
 	end
 	return AchLookup_kill
@@ -1382,7 +1423,7 @@ function Overachiever.OnEvent(self, event, arg1, ...)
 				if (Overachiever_Debug) then  chatprint("RushBuildIDCache");  end
 			elseif (Overachiever_Debug) then
 				chatprint("BuildIDCache")
-				TjAchieve.AddBuildCritAssetCacheListener(TjAchieve.CRITTYPE_META, function()
+				TjAchieve.AddBuildIDCacheListener(function()
 					chatprint("BuildIDCache: complete")
 				end)
 			end
@@ -1531,6 +1572,8 @@ function Overachiever.OnEvent(self, event, arg1, ...)
       Overachiever_CharVars_Default = Overachiever_CharVars_Default or {}
       Overachiever_CharVars_Default.Pos_AchievementFrame = Overachiever_CharVars.Pos_AchievementFrame
     end
+	if (Overachiever.SaveCache) then  Overachiever.SaveCache();  end
+
    --[[  No longer necessary as this is now done by WoW itself:
     -- Remember tracked achievements:
     local num = GetNumTrackedAchievements()

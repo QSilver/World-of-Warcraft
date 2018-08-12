@@ -164,6 +164,7 @@ L["EVENTNOTICE_STARTS_MINUTES"] = "Dieses Ereignis beginnt in|cff7eff00 %s |4Min
 L["EVENTNOTICE_TIP"] = "Halte |cffffffffUMSCHALT|r, um mehr zu erfahren."
 L["RELATED_BASE"] = "Basiserfolg:"
 L["RELATED_CLOSE"] = "Eng"
+L["RELATED_FILTERED_OUT"] = "%s |4Erfolg wurde:Erfolge wurden; durch den Filter ausgelassen."
 L["RELATED_HELP"] = "Dieser Tab zeigt Erfolge, die mit einem anderen verwandt sind. Ein Erfolg wurde als Basiserfolg ausgewählt. Der Rest gehört zur selben Serie wie der Basiserfolg, ist eines der Kriterien vom Basiserfolg oder vom anderen aus seiner Serie, oder hat in seinen Kriterien den Basiserfolg oder ein Erfolg in seiner Serie."
 L["RELATED_RECURSIVE"] = "Erweitert"
 L["RELATED_RECURSIVE_TIP"] = "Führe eine rekursive Suche durch, so dass alle Erfolge, die indirekt mit dem Basiserfolg verwandt sind, auch mit einbezogen werden."
@@ -180,12 +181,14 @@ L["SEARCH_NAME"] = "Name oder ID:"
 L["SEARCH_RESET"] = "Zurücksetzen"
 L["SEARCH_RESULTS"] = "%s |4Erfolg:Erfolge; gefunden."
 L["SEARCH_REWARD"] = "Belohnung:"
+L["SEARCH_SEARCHING"] = "Suche..."
 L["SEARCH_SUBMIT"] = "Suchen"
 L["SEARCH_TAB"] = "Suche"
 L["SEARCH_TYPE"] = "Typ:"
 L["SEARCH_TYPE_ALL"] = "Alle"
 L["SEARCH_TYPE_GUILD"] = "Gilde"
 L["SEARCH_TYPE_INDIV"] = "Persönlich"
+L["SEARCH_TYPE_OTHER"] = "Anderes"
 L["SUGGESTIONS_DIFFICULTY"] = "Instanzschwierigkeit:"
 L["SUGGESTIONS_DIFFICULTY_AUTO"] = "Auto-Erkennen"
 L["SUGGESTIONS_DIFFICULTY_HEROIC"] = "Heroisch"
@@ -193,6 +196,8 @@ L["SUGGESTIONS_DIFFICULTY_MYTHIC"] = "Mythisch"
 L["SUGGESTIONS_DIFFICULTY_NORMAL"] = "Normal"
 L["SUGGESTIONS_EMPTY"] = "Overachiever hat zurzeit keine Vorschläge für dich."
 L["SUGGESTIONS_EMPTY_TRADESKILL"] = "%s: Overachiever hat zur Zeit keine Vorschläge für dich."
+L["SUGGESTIONS_FILTERED_OUT_EARNED"] = "%s |4Erfolg wurde:Erfolge wurden; bereits erlangt."
+L["SUGGESTIONS_FILTERED_OUT_INCOMPLETE"] = "Zeige ABGESCHLOSSENE Erfolge. %s |4Erfolg wurde:Erfolge wurden; herausgefiltert."
 L["SUGGESTIONS_HELP"] = "Hier werden Erfolge aufgelistet, die du in deiner aktuellen Zone abschließen kannst. Außerdem werden alle Erfolge aufgelistet, an die du in den letzen 2 Minuten per Tooltip erinnert wurdest und auch jene, durch die kürzlich ein Timer gestartet wurde."
 L["SUGGESTIONS_HIDDENLOCATION"] = "versteckt "
 L["SUGGESTIONS_LOCATION"] = "Standort:"
@@ -307,6 +312,8 @@ elseif (locale == "frFR") then  -- French
 --[[Translation missing --]]
 --[[ L["RELATED_CLOSE"] = ""--]] 
 --[[Translation missing --]]
+--[[ L["RELATED_FILTERED_OUT"] = ""--]] 
+--[[Translation missing --]]
 --[[ L["RELATED_HELP"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["RELATED_RECURSIVE"] = ""--]] 
@@ -328,12 +335,16 @@ L["SEARCH_NAME"] = "Nom :"
 L["SEARCH_RESET"] = "Réinitialiser"
 L["SEARCH_RESULTS"] = "%s |4haut fait trouvé:hauts faits trouvés;."
 L["SEARCH_REWARD"] = "Récompense :"
+--[[Translation missing --]]
+--[[ L["SEARCH_SEARCHING"] = ""--]] 
 L["SEARCH_SUBMIT"] = "Chercher"
 L["SEARCH_TAB"] = "Recherches"
 L["SEARCH_TYPE"] = "Type :"
 L["SEARCH_TYPE_ALL"] = "Tout"
 L["SEARCH_TYPE_GUILD"] = "Guilde"
 L["SEARCH_TYPE_INDIV"] = "Personnel"
+--[[Translation missing --]]
+--[[ L["SEARCH_TYPE_OTHER"] = ""--]] 
 L["SUGGESTIONS_DIFFICULTY"] = "Difficulté d'instance :"
 L["SUGGESTIONS_DIFFICULTY_AUTO"] = "Auto-détection"
 L["SUGGESTIONS_DIFFICULTY_HEROIC"] = "Héroïque"
@@ -342,6 +353,10 @@ L["SUGGESTIONS_DIFFICULTY_HEROIC"] = "Héroïque"
 L["SUGGESTIONS_DIFFICULTY_NORMAL"] = "Normale"
 L["SUGGESTIONS_EMPTY"] = "Overachiever n'a aucune suggestion pour le moment"
 L["SUGGESTIONS_EMPTY_TRADESKILL"] = " %s: Overachiever n'a aucune suggestion à faire pour le moment."
+--[[Translation missing --]]
+--[[ L["SUGGESTIONS_FILTERED_OUT_EARNED"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["SUGGESTIONS_FILTERED_OUT_INCOMPLETE"] = ""--]] 
 L["SUGGESTIONS_HELP"] = "Les hauts faits suggérés sont affichés ici en fonction de votre localisation. Sont également listés tous les hauts faits qui vous ont été rappelés par une infobulle dans les 2 dernières minutes ou qui ont une alarme qui s'est déclenchée récemment."
 --[[Translation missing --]]
 --[[ L["SUGGESTIONS_HIDDENLOCATION"] = ""--]] 
@@ -469,6 +484,8 @@ elseif (locale == "zhTW") then  -- Traditional Chinese
 --[[Translation missing --]]
 --[[ L["RELATED_CLOSE"] = ""--]] 
 --[[Translation missing --]]
+--[[ L["RELATED_FILTERED_OUT"] = ""--]] 
+--[[Translation missing --]]
 --[[ L["RELATED_HELP"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["RELATED_RECURSIVE"] = ""--]] 
@@ -490,12 +507,16 @@ L["SEARCH_NAME"] = "名稱："
 L["SEARCH_RESET"] = "重置"
 L["SEARCH_RESULTS"] = "搜索到 %s 個成就。"
 L["SEARCH_REWARD"] = "獎勵："
+--[[Translation missing --]]
+--[[ L["SEARCH_SEARCHING"] = ""--]] 
 L["SEARCH_SUBMIT"] = "搜索"
 L["SEARCH_TAB"] = "搜索"
 L["SEARCH_TYPE"] = "類型:"
 L["SEARCH_TYPE_ALL"] = "全部"
 L["SEARCH_TYPE_GUILD"] = "公會"
 L["SEARCH_TYPE_INDIV"] = "個人"
+--[[Translation missing --]]
+--[[ L["SEARCH_TYPE_OTHER"] = ""--]] 
 L["SUGGESTIONS_DIFFICULTY"] = "副本難度:"
 L["SUGGESTIONS_DIFFICULTY_AUTO"] = "自動偵測"
 L["SUGGESTIONS_DIFFICULTY_HEROIC"] = "英雄"
@@ -503,6 +524,10 @@ L["SUGGESTIONS_DIFFICULTY_MYTHIC"] = "傳奇"
 L["SUGGESTIONS_DIFFICULTY_NORMAL"] = "普通"
 L["SUGGESTIONS_EMPTY"] = "Overachiever現在沒有任何建議。"
 L["SUGGESTIONS_EMPTY_TRADESKILL"] = "%s: Overachiever 此時無法提供建議."
+--[[Translation missing --]]
+--[[ L["SUGGESTIONS_FILTERED_OUT_EARNED"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["SUGGESTIONS_FILTERED_OUT_INCOMPLETE"] = ""--]] 
 L["SUGGESTIONS_HELP"] = "根據你目前的位置建議追蹤成就。"
 L["SUGGESTIONS_HIDDENLOCATION"] = "隱藏"
 L["SUGGESTIONS_LOCATION"] = "區域："
@@ -610,6 +635,8 @@ L["EVENTNOTICE_TIP"] = "按住|cffffffffShift|r显示更多细节。"
 L["RELATED_BASE"] = "成就成果:"
 L["RELATED_CLOSE"] = "关闭"
 --[[Translation missing --]]
+--[[ L["RELATED_FILTERED_OUT"] = ""--]] 
+--[[Translation missing --]]
 --[[ L["RELATED_HELP"] = ""--]] 
 L["RELATED_RECURSIVE"] = "额外"
 --[[Translation missing --]]
@@ -628,12 +655,16 @@ L["SEARCH_NAME"] = "名称或者ID："
 L["SEARCH_RESET"] = "重置"
 L["SEARCH_RESULTS"] = "找到 %s 个成就。"
 L["SEARCH_REWARD"] = "奖励："
+--[[Translation missing --]]
+--[[ L["SEARCH_SEARCHING"] = ""--]] 
 L["SEARCH_SUBMIT"] = "搜索"
 L["SEARCH_TAB"] = "搜索"
 L["SEARCH_TYPE"] = "类型："
 L["SEARCH_TYPE_ALL"] = "全部"
 L["SEARCH_TYPE_GUILD"] = "公会"
 L["SEARCH_TYPE_INDIV"] = "个人"
+--[[Translation missing --]]
+--[[ L["SEARCH_TYPE_OTHER"] = ""--]] 
 L["SUGGESTIONS_DIFFICULTY"] = "地下城难度："
 L["SUGGESTIONS_DIFFICULTY_AUTO"] = "自动检测"
 L["SUGGESTIONS_DIFFICULTY_HEROIC"] = "英雄"
@@ -641,6 +672,10 @@ L["SUGGESTIONS_DIFFICULTY_MYTHIC"] = "史诗"
 L["SUGGESTIONS_DIFFICULTY_NORMAL"] = "普通"
 L["SUGGESTIONS_EMPTY"] = "Overachiever当前没有建议。"
 L["SUGGESTIONS_EMPTY_TRADESKILL"] = "%s：Overachiever当前没有建议。"
+--[[Translation missing --]]
+--[[ L["SUGGESTIONS_FILTERED_OUT_EARNED"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["SUGGESTIONS_FILTERED_OUT_INCOMPLETE"] = ""--]] 
 L["SUGGESTIONS_HELP"] = "根据你的当前区域建议追踪成就。"
 L["SUGGESTIONS_HIDDENLOCATION"] = "隐藏"
 L["SUGGESTIONS_LOCATION"] = "区域："
@@ -741,6 +776,8 @@ L["EVENTNOTICE_STARTS_MINUTES"] = "Это событие начинается в
 L["EVENTNOTICE_TIP"] = "Удерживать |cffffffffShift|r для получения более подробной информации."
 L["RELATED_BASE"] = "Базовые достижения:"
 L["RELATED_CLOSE"] = "Закрыть"
+--[[Translation missing --]]
+--[[ L["RELATED_FILTERED_OUT"] = ""--]] 
 L["RELATED_HELP"] = "На этой вкладке показаны достижения, которые связаны друг с другом. Одно из достижения было выбрано в качестве базового. Остальные в той же серии, что и базовые, являются являются одним из серии базовых, или имеют в качестве одного из своих собственных критериев, либо достижение в своей серии."
 L["RELATED_RECURSIVE"] = "Расширенный"
 L["RELATED_RECURSIVE_TIP"] = "Сделать рекурсивный поиск, так что все достижения, которые косвенно связанны с достижением базового, также будут включены."
@@ -758,12 +795,16 @@ L["SEARCH_NAME"] = "Название или ID:"
 L["SEARCH_RESET"] = "Сбросить"
 L["SEARCH_RESULTS"] = "Найдено достижений: %s."
 L["SEARCH_REWARD"] = "Награда:"
+--[[Translation missing --]]
+--[[ L["SEARCH_SEARCHING"] = ""--]] 
 L["SEARCH_SUBMIT"] = "Поиск"
 L["SEARCH_TAB"] = "Поиск"
 L["SEARCH_TYPE"] = "Тип:"
 L["SEARCH_TYPE_ALL"] = "Все"
 L["SEARCH_TYPE_GUILD"] = "Гильдия"
 L["SEARCH_TYPE_INDIV"] = "Лично"
+--[[Translation missing --]]
+--[[ L["SEARCH_TYPE_OTHER"] = ""--]] 
 L["SUGGESTIONS_DIFFICULTY"] = "Сложность подземелья:"
 L["SUGGESTIONS_DIFFICULTY_AUTO"] = "Автоопределение"
 L["SUGGESTIONS_DIFFICULTY_HEROIC"] = "Героический"
@@ -771,6 +812,10 @@ L["SUGGESTIONS_DIFFICULTY_MYTHIC"] = "Мифический"
 L["SUGGESTIONS_DIFFICULTY_NORMAL"] = "Нормальный"
 L["SUGGESTIONS_EMPTY"] = "В данный момент подходящих достижений не обнаружено."
 L["SUGGESTIONS_EMPTY_TRADESKILL"] = "%s: Overachiever в данный момент не имеет для вас предложений."
+--[[Translation missing --]]
+--[[ L["SUGGESTIONS_FILTERED_OUT_EARNED"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["SUGGESTIONS_FILTERED_OUT_INCOMPLETE"] = ""--]] 
 L["SUGGESTIONS_HELP"] = "Предполагаемые достижения, указанные здесь, основаны на вашем текущем местоположении. Также перечислены все \"последнее напоминание\" достижений.|n|n|cffffffffShift-правый клик|r в предлагаемом достижении, чтобы скрыть его. (Это зависит по персонажу и влияет на все местоположения.)"
 L["SUGGESTIONS_HIDDENLOCATION"] = "Скрытая"
 L["SUGGESTIONS_LOCATION"] = "Локация:"
@@ -869,6 +914,8 @@ L["EVENTNOTICE_STARTS_MINUTES"] = "이벤트는 시작한지 |cff7eff00 %s |4분
 L["EVENTNOTICE_TIP"] = "|cffffffffShift|r를 누르면 상세정보를 확인할 수 있습니다."
 L["RELATED_BASE"] = "기본 업적:"
 L["RELATED_CLOSE"] = "닫기"
+--[[Translation missing --]]
+--[[ L["RELATED_FILTERED_OUT"] = ""--]] 
 L["RELATED_HELP"] = "이 탭은 하나의 업적에 연계된 업적을 표시합니다. 하나의 업적을 기본으로 선택한 후 이것을 기본으로 하여 동일한 계열, 또는 연계된 업적을 표시하게 됩니다."
 L["RELATED_RECURSIVE"] = "확장"
 L["RELATED_RECURSIVE_TIP"] = "기본 업적에 관련되어 있는 모든 업적을 연계하여 검색합니다."
@@ -886,12 +933,16 @@ L["SEARCH_NAME"] = "이름:"
 L["SEARCH_RESET"] = "초기화"
 L["SEARCH_RESULTS"] = "%s개의 업적을 찾음."
 L["SEARCH_REWARD"] = "보상:"
+--[[Translation missing --]]
+--[[ L["SEARCH_SEARCHING"] = ""--]] 
 L["SEARCH_SUBMIT"] = "검색"
 L["SEARCH_TAB"] = "검색"
 L["SEARCH_TYPE"] = "유형:"
 L["SEARCH_TYPE_ALL"] = "모두"
 L["SEARCH_TYPE_GUILD"] = "길드"
 L["SEARCH_TYPE_INDIV"] = "개인"
+--[[Translation missing --]]
+--[[ L["SEARCH_TYPE_OTHER"] = ""--]] 
 L["SUGGESTIONS_DIFFICULTY"] = "던전 난이도:"
 L["SUGGESTIONS_DIFFICULTY_AUTO"] = "자동 선택"
 L["SUGGESTIONS_DIFFICULTY_HEROIC"] = "영웅"
@@ -899,6 +950,10 @@ L["SUGGESTIONS_DIFFICULTY_MYTHIC"] = "신화"
 L["SUGGESTIONS_DIFFICULTY_NORMAL"] = "일반"
 L["SUGGESTIONS_EMPTY"] = "지금은 Overachiever가 추천하는 업적이 없습니다."
 L["SUGGESTIONS_EMPTY_TRADESKILL"] = "%s: 지금은 Overachiever가 추천하는 업적이 없습니다."
+--[[Translation missing --]]
+--[[ L["SUGGESTIONS_FILTERED_OUT_EARNED"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["SUGGESTIONS_FILTERED_OUT_INCOMPLETE"] = ""--]] 
 L["SUGGESTIONS_HELP"] = "추천된 업적은 플레이어의 현재 위치를 기준하여 표시됩니다. 또한 2분전까지 툴팁으로 알려주었던 업적도 포함됩니다."
 L["SUGGESTIONS_HIDDENLOCATION"] = "숨김"
 L["SUGGESTIONS_LOCATION"] = "위치:"
@@ -1012,6 +1067,8 @@ elseif (locale == "esES" or locale == "esMX") then  -- Spanish
 --[[Translation missing --]]
 --[[ L["RELATED_CLOSE"] = ""--]] 
 --[[Translation missing --]]
+--[[ L["RELATED_FILTERED_OUT"] = ""--]] 
+--[[Translation missing --]]
 --[[ L["RELATED_HELP"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["RELATED_RECURSIVE"] = ""--]] 
@@ -1033,12 +1090,16 @@ L["SEARCH_NAME"] = "Nombre:"
 L["SEARCH_RESET"] = "Limpiar"
 L["SEARCH_RESULTS"] = "|4Encontrado:Encontrados; %s |4logro:logros;."
 L["SEARCH_REWARD"] = "Recompensa:"
+--[[Translation missing --]]
+--[[ L["SEARCH_SEARCHING"] = ""--]] 
 L["SEARCH_SUBMIT"] = "Buscar"
 L["SEARCH_TAB"] = "Búsqueda"
 L["SEARCH_TYPE"] = "Tipo:"
 L["SEARCH_TYPE_ALL"] = "Todo"
 L["SEARCH_TYPE_GUILD"] = "Hermandad"
 L["SEARCH_TYPE_INDIV"] = "Personal"
+--[[Translation missing --]]
+--[[ L["SEARCH_TYPE_OTHER"] = ""--]] 
 L["SUGGESTIONS_DIFFICULTY"] = "Dificultad de la instancia:"
 L["SUGGESTIONS_DIFFICULTY_AUTO"] = "Autodetectar"
 L["SUGGESTIONS_DIFFICULTY_HEROIC"] = "Heroico"
@@ -1047,6 +1108,10 @@ L["SUGGESTIONS_DIFFICULTY_HEROIC"] = "Heroico"
 L["SUGGESTIONS_DIFFICULTY_NORMAL"] = "Normal"
 L["SUGGESTIONS_EMPTY"] = "Overachiever no tiene sugerencias para ti en este momento."
 L["SUGGESTIONS_EMPTY_TRADESKILL"] = "%s: Overachiever no tiene sugerencias para tí en este momento."
+--[[Translation missing --]]
+--[[ L["SUGGESTIONS_FILTERED_OUT_EARNED"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["SUGGESTIONS_FILTERED_OUT_INCOMPLETE"] = ""--]] 
 L["SUGGESTIONS_HELP"] = "Las sugerencias de logros aquí listados se basan en tu ubicación actual. También se lista cualquier logro del cual se te ha mostrado un tooltip recordatorio en los últimos dos minutos."
 --[[Translation missing --]]
 --[[ L["SUGGESTIONS_HIDDENLOCATION"] = ""--]] 
@@ -1174,6 +1239,8 @@ L["WATCH_TAB"] = "Seguimiento"
 --[[Translation missing --]]
 --[[ L["RELATED_CLOSE"] = ""--]] 
 --[[Translation missing --]]
+--[[ L["RELATED_FILTERED_OUT"] = ""--]] 
+--[[Translation missing --]]
 --[[ L["RELATED_HELP"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["RELATED_RECURSIVE"] = ""--]] 
@@ -1206,6 +1273,8 @@ L["WATCH_TAB"] = "Seguimiento"
 --[[Translation missing --]]
 --[[ L["SEARCH_REWARD"] = ""--]] 
 --[[Translation missing --]]
+--[[ L["SEARCH_SEARCHING"] = ""--]] 
+--[[Translation missing --]]
 --[[ L["SEARCH_SUBMIT"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["SEARCH_TAB"] = ""--]] 
@@ -1217,6 +1286,8 @@ L["WATCH_TAB"] = "Seguimiento"
 --[[ L["SEARCH_TYPE_GUILD"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["SEARCH_TYPE_INDIV"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["SEARCH_TYPE_OTHER"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["SUGGESTIONS_DIFFICULTY"] = ""--]] 
 --[[Translation missing --]]
@@ -1231,6 +1302,10 @@ L["WATCH_TAB"] = "Seguimiento"
 --[[ L["SUGGESTIONS_EMPTY"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["SUGGESTIONS_EMPTY_TRADESKILL"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["SUGGESTIONS_FILTERED_OUT_EARNED"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["SUGGESTIONS_FILTERED_OUT_INCOMPLETE"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["SUGGESTIONS_HELP"] = ""--]] 
 --[[Translation missing --]]
@@ -1405,6 +1480,8 @@ L["EVENTNOTICE_STARTS_MINUTES"] = "Este evento começa em|cff7eff00 %s |4minuto:
 L["EVENTNOTICE_TIP"] = "Segure |cffffffffShift|r para mais detalhes."
 L["RELATED_BASE"] = "Conquista base:"
 L["RELATED_CLOSE"] = "Fechar"
+--[[Translation missing --]]
+--[[ L["RELATED_FILTERED_OUT"] = ""--]] 
 L["RELATED_HELP"] = "Esta aba mostra conquistas que estão relacionadas entre si. Uma conquista foi escolhida como a base. O resto está na mesma série que a base, é um dos critérios da base ou de outra conquista na série, ou então tem como um se seus próprios critérios a conquista base ou uma na série da conquista base."
 L["RELATED_RECURSIVE"] = "Estendida"
 L["RELATED_RECURSIVE_TIP"] = "Faz uma busca recursiva para incluir também todas as conquistas que estão indiretamente relacionadas à conquista base."
@@ -1422,12 +1499,16 @@ L["SEARCH_NAME"] = "Nome ou ID:"
 L["SEARCH_RESET"] = "Reiniciar"
 L["SEARCH_RESULTS"] = "%s |4conquista encontrada:conquistas encontradas;."
 L["SEARCH_REWARD"] = "Recompensa:"
+--[[Translation missing --]]
+--[[ L["SEARCH_SEARCHING"] = ""--]] 
 L["SEARCH_SUBMIT"] = "Pesquisar"
 L["SEARCH_TAB"] = "Pesquisar"
 L["SEARCH_TYPE"] = "Tipo:"
 L["SEARCH_TYPE_ALL"] = "Todas"
 L["SEARCH_TYPE_GUILD"] = "De Guilda"
 L["SEARCH_TYPE_INDIV"] = "Pessoais"
+--[[Translation missing --]]
+--[[ L["SEARCH_TYPE_OTHER"] = ""--]] 
 L["SUGGESTIONS_DIFFICULTY"] = "Dificuldade da instância:"
 L["SUGGESTIONS_DIFFICULTY_AUTO"] = "Detectar autom."
 L["SUGGESTIONS_DIFFICULTY_HEROIC"] = "Heroica"
@@ -1435,6 +1516,10 @@ L["SUGGESTIONS_DIFFICULTY_MYTHIC"] = "Mítica"
 L["SUGGESTIONS_DIFFICULTY_NORMAL"] = "Normal"
 L["SUGGESTIONS_EMPTY"] = "O Overachiever não tem sugestões para você neste momento."
 L["SUGGESTIONS_EMPTY_TRADESKILL"] = "%s: O Overachiever não tem sugestões para você neste momento."
+--[[Translation missing --]]
+--[[ L["SUGGESTIONS_FILTERED_OUT_EARNED"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["SUGGESTIONS_FILTERED_OUT_INCOMPLETE"] = ""--]] 
 L["SUGGESTIONS_HELP"] = "As conquistas sugeridas listadas aqui são baseadas em seu local atual. Também estão listadas todas as conquistas \"Recentemente Lembradas\".|n|n|cffffffffShift+botão direito|r em uma conquista sugerida para ocultá-la. (Este é um atributo específico e afeta todas os locais.)."
 L["SUGGESTIONS_HIDDENLOCATION"] = "ocultas"
 L["SUGGESTIONS_LOCATION"] = "Local:"
@@ -1533,6 +1618,8 @@ L["EVENTNOTICE_STARTS_MINUTES"] = "Questo evento inizierà tra|cff7eff00 %s |4mi
 L["EVENTNOTICE_TIP"] = "Tieni premuto |cffffffffShift|r per maggiori dettagli."
 L["RELATED_BASE"] = "Impresa di Base:"
 L["RELATED_CLOSE"] = "Chiudi"
+--[[Translation missing --]]
+--[[ L["RELATED_FILTERED_OUT"] = ""--]] 
 L["RELATED_HELP"] = "Questa scheda mostra le imprese che sono correlate l'una all'altra. Si seleziona un'impresa di base. Vengono mostrate le imprese della stessa serie, quelle necessarie alla base o alle altre della serie, o che hanno tra i loro criteri l'impresa base o una della sua serie."
 L["RELATED_RECURSIVE"] = "Estesa"
 L["RELATED_RECURSIVE_TIP"] = "Esegui una ricerca ricorsiva in modo da includere tutte le imprese indirettamente correlate all'impresa di base."
@@ -1550,12 +1637,16 @@ L["SEARCH_NAME"] = "Nome o ID:"
 L["SEARCH_RESET"] = "Svuota"
 L["SEARCH_RESULTS"] = "Trovato %s |4impresa:imprese;."
 L["SEARCH_REWARD"] = "Premio"
+--[[Translation missing --]]
+--[[ L["SEARCH_SEARCHING"] = ""--]] 
 L["SEARCH_SUBMIT"] = "Cerca"
 L["SEARCH_TAB"] = "Cerca"
 L["SEARCH_TYPE"] = "Tipo:"
 L["SEARCH_TYPE_ALL"] = "Tutti"
 L["SEARCH_TYPE_GUILD"] = "Gilda"
 L["SEARCH_TYPE_INDIV"] = "Personale"
+--[[Translation missing --]]
+--[[ L["SEARCH_TYPE_OTHER"] = ""--]] 
 L["SUGGESTIONS_DIFFICULTY"] = "Difficoltà Spedizioni:"
 L["SUGGESTIONS_DIFFICULTY_AUTO"] = "Automatica"
 L["SUGGESTIONS_DIFFICULTY_HEROIC"] = "Eroica"
@@ -1563,6 +1654,10 @@ L["SUGGESTIONS_DIFFICULTY_MYTHIC"] = "Mitica"
 L["SUGGESTIONS_DIFFICULTY_NORMAL"] = "Normale"
 L["SUGGESTIONS_EMPTY"] = "Al momento Overachiever non ha suggerimenti per te."
 L["SUGGESTIONS_EMPTY_TRADESKILL"] = "%s: Overachiever non ha consigli per te al momento."
+--[[Translation missing --]]
+--[[ L["SUGGESTIONS_FILTERED_OUT_EARNED"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["SUGGESTIONS_FILTERED_OUT_INCOMPLETE"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["SUGGESTIONS_HELP"] = ""--]] 
 L["SUGGESTIONS_HIDDENLOCATION"] = "nascosto"

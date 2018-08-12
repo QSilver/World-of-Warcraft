@@ -41,7 +41,7 @@ local toggleOptions = {
 	6940, -- Blessing of Sacrifice
 	2825, -- Bloodlust
 	192077, -- Wind Rush Totem
-	97462, -- Commanding Shout
+	97462, -- Rallying Cry
 
 	--[[ Self ]]--
 	48792, -- Icebound Fortitude
@@ -49,7 +49,6 @@ local toggleOptions = {
 	204021, -- Fiery Brand
 	187827, -- Metamorphosis
 	22812, -- Barkskin
-	200851, -- Rage of the Sleeper (Artifact ability)
 	61336, -- Survival Instincts
 	122278, -- Dampen Harm
 	122783, -- Diffuse Magic
@@ -76,7 +75,7 @@ local toggleOptions = {
 	108280, -- Healing Tide Totem
 	98008, -- Spirit Link Totem
 }
-local toggleDefaults = { enabled = true }
+local toggleDefaults = { enabled = true, custom = {} }
 for _, key in next, toggleOptions do
 	toggleDefaults[key] = 0
 end
@@ -92,13 +91,8 @@ function mod:CheckOption(key, flag)
 	return self.db.profile[key] and bit_band(self.db.profile[key], C[flag]) == C[flag]
 end
 
-local options = nil
 local function GetOptions()
-	if options then
-		return options
-	end
-
-	options = {
+	local options = {
 		name = L.commonAuras,
 		type = "group",
 		childGroups = "tab",
@@ -125,9 +119,6 @@ local function GetOptions()
 
 	local function masterGet(info)
 		local key = info[#info-1]
-		if type(mod.db.profile[key]) ~= "number" then
-			mod.db.profile[key] = 0
-		end
 		return mod.db.profile[key] > 0
 	end
 	local function masterSet(info, value)
@@ -139,12 +130,12 @@ local function GetOptions()
 		end
 	end
 
-	local function get(info)
+	local function flagGet(info)
 		local key = info[#info-1]
 		local flag = C[info[#info]]
 		return bit_band(mod.db.profile[key], flag) == flag
 	end
-	local function set(info, value)
+	local function flagSet(info, value)
 		local key = info[#info-1]
 		local flag = C[info[#info]]
 		if value then
@@ -155,8 +146,7 @@ local function GetOptions()
 	end
 	local function hidden(info)
 		local key = info[#info-1]
-		local value = mod.db.profile[key] or 0
-		return value == 0
+		return mod.db.profile[key] == 0
 	end
 
 	local cModule = BigWigs:GetPlugin("Colors")
@@ -189,10 +179,10 @@ local function GetOptions()
 	}
 	local bitflags = {"MESSAGE", "BAR", "EMPHASIZE"}
 	local parentGroup
-	local isTankCD = false
+	local header
 	for index, key in ipairs(toggleOptions) do
 		if optionHeaders[key] then
-			local header = optionHeaders[key]
+			header = optionHeaders[key]
 			parentGroup = {
 				type = "group",
 				name = header,
@@ -200,15 +190,12 @@ local function GetOptions()
 				args = {},
 			}
 			options.args[header] = parentGroup
-			isTankCD = key == 48792
 		end
 
 		local isSpell = type(key) == "number"
 		local group = {
 			name = " ",
 			type = "group",
-			get = get,
-			set = set,
 			inline = true,
 			order = index,
 			args = {
@@ -287,11 +274,13 @@ local function GetOptions()
 				},
 			},
 		}
-		if isTankCD then
+		if header == L.self then
 			group.args.TANK = {
 				type = "toggle",
 				name = BigWigs:GetOptionDetails("TANK"),
 				desc = L.TANK_desc, descStyle = "inline",
+				get = flagGet,
+				set = flagSet,
 				hidden = hidden,
 				order = 10,
 				width = "full",
@@ -303,12 +292,230 @@ local function GetOptions()
 				type = "toggle",
 				name = name,
 				desc = desc,
+				get = flagGet,
+				set = flagSet,
 				hidden = hidden,
 				order = i + 10,
 			}
 		end
 
 		parentGroup.args[key] = group
+	end
+
+	options.args["Custom"] = {
+		type = "group",
+		name = L.custom,
+		order = #toggleOptions + 10,
+		args = {
+			add = {
+				type = "input",
+				name = L.addSpell,
+				desc = L.addSpellDesc,
+				get = false,
+				set = function(info, value)
+					local _, _, _, _, _, _, spellId = GetSpellInfo(value)
+					mod.db.profile.custom[spellId] = {
+						event = "SPELL_CAST_SUCCESS",
+						format = "used_cast",
+						duration = 0,
+					}
+					mod.db.profile[spellId] = 0
+				end,
+				validate = function(info, value)
+					local _, _, _, _, _, _, spellId = GetSpellInfo(value)
+					if not spellId then
+						return ("%s: %s"):format(L.commonAuras, L.customErrorInvalid)
+					elseif mod.db.profile[spellId] then
+						return ("%s: %s"):format(L.commonAuras, L.customErrorExists)
+					end
+					return true
+				end,
+				confirm = function(info, value)
+					local spell, _, texture, _, _, _, spellId = GetSpellInfo(value)
+					if not spell then return false end
+					local desc = GetSpellDescription(spellId) or ""
+					if desc ~= "" then desc = "\n" .. desc:gsub("%%", "%%%%") end
+					return ("%s\n\n|T%d:0|t|cffffd200%s|r (%d)%s"):format(L.customConfirmAdd, texture, spell, spellId, desc)
+				end,
+				order = 1,
+			},
+		},
+	}
+
+	local customOptions = {}
+	for key in next, mod.db.profile.custom do
+		if GetSpellInfo(key) then
+			customOptions[#customOptions+1] = key
+		else
+			mod.db.profile.custom[key] = nil
+		end
+	end
+	table.sort(customOptions, function(a, b)
+		return GetSpellInfo(a) < GetSpellInfo(b)
+	end)
+
+	local function customMasterSet(info, value)
+		local key = info[#info-1]
+		mod.db.profile[key] = value and C.MESSAGE or 0
+	end
+	local function customGet(info)
+		local option = info[#info]
+		local key = info[#info-1]
+		return mod.db.profile.custom[key][option]
+	end
+	local function customSet(info, value)
+		local option = info[#info]
+		local key = info[#info-1]
+		mod.db.profile.custom[key][option] = value
+	end
+
+	local eventValues = {
+		SPELL_CAST_START = "SPELL_CAST_START",
+		SPELL_CAST_SUCCESS = "SPELL_CAST_SUCCESS",
+		SPELL_SUMMON = "SPELL_SUMMON",
+	}
+	local source, target, spell = ("[%s]"):format(STATUS_TEXT_PLAYER), ("[%s]"):format(STATUS_TEXT_TARGET), ("[%s]"):format(STAT_CATEGORY_SPELL)
+	local formatValues = {
+		used_cast = L.used_cast:format(source, spell),
+		usedon_cast = L.usedon_cast:format(source, spell, target)
+	}
+
+	for index, key in ipairs(customOptions) do
+		local group = {
+			name = " ",
+			type = "group",
+			inline = true,
+			order = index + 10,
+			args = {
+				master = {
+					type = "toggle",
+					name = ("|cfffed000%s|r (%d)"):format((GetSpellInfo(key)), key),
+					desc = GetSpellDescription(key), descStyle = "inline",
+					image = GetSpellTexture(key),
+					get = masterGet,
+					set = customMasterSet,
+					order = 1,
+					width = "full",
+				},
+				event = {
+					type = "select",
+					name = L.event,
+					values = eventValues,
+					get = customGet,
+					set = customSet,
+					hidden = hidden,
+					order = 2,
+				},
+				duration = {
+					type = "range",
+					name = L.duration,
+					min = 0, max = 60, step = 1,
+					get = customGet,
+					set = customSet,
+					hidden = hidden,
+					order = 3,
+				},
+				format = {
+					type = "select",
+					name = L.textFormat,
+					values = formatValues,
+					get = customGet,
+					set = customSet,
+					hidden = hidden,
+					order = 4,
+				},
+				sep1 = {
+					type = "header",
+					name = "",
+					order = 10,
+					hidden = hidden,
+				},
+				--
+				-- bitflag options here
+				--
+				sep2 = {
+					type = "header",
+					name = PL.colors,
+					order = 20,
+					hidden = hidden,
+				},
+				messages = {
+					name = PL.messages,
+					type = "color",
+					get = messageColorGet,
+					set = messageColorSet,
+					hidden = hidden,
+					order = 21,
+				},
+				barColor = {
+					name = PL.regularBars,
+					type = "color", hasAlpha = true,
+					get = barColorGet,
+					set = barColorSet,
+					hidden = hidden,
+					order = 22,
+				},
+				barEmphasized = {
+					name = PL.emphasizedBars,
+					type = "color", hasAlpha = true,
+					get = barColorGet,
+					set = barColorSet,
+					hidden = hidden,
+					order = 23,
+				},
+				barBackground = {
+					name = L.barBackground,
+					type = "color", hasAlpha = true,
+					get = barColorGet,
+					set = barColorSet,
+					hidden = hidden,
+					order = 24,
+				},
+				barText = {
+					name = L.barText,
+					type = "color", hasAlpha = true,
+					get = barColorGet,
+					set = barColorSet,
+					hidden = hidden,
+					order = 25,
+				},
+				barTextShadow = {
+					name = L.barTextShadow,
+					type = "color", hasAlpha = true,
+					get = barColorGet,
+					set = barColorSet,
+					hidden = hidden,
+					order = 26,
+				},
+				delete = {
+					type = "execute",
+					name = L.remove,
+					arg = key,
+					func = function(info)
+						local value = tonumber(info.arg)
+						mod.db.profile.custom[value] = nil
+						mod.db.profile[value] = nil
+						GameTooltip:Hide()
+					end,
+					order = 30,
+				},
+			}
+		}
+
+		for i, flag in ipairs(bitflags) do
+			local name, desc = BigWigs:GetOptionDetails(flag)
+			group.args[flag] = {
+				type = "toggle",
+				name = name,
+				desc = desc,
+				get = flagGet,
+				set = flagSet,
+				hidden = hidden,
+				order = i + 10,
+			}
+		end
+
+		options.args["Custom"].args[key] = group
 	end
 
 	return options
@@ -350,7 +557,7 @@ function mod:OnRegister()
 		[29893] = "Soulwell", -- Create Soulwell
 		[43987] = "Refreshment", -- Conjure Refreshment Table
 		-- Group
-		[97462] = "CommandingShout",
+		[97462] = "RallyingCry",
 		[106898] = "StampedingRoar",
 		[1022] = "BlessinOfProtection",
 		[204018] ="BlessingOfSpellwarding",
@@ -363,8 +570,7 @@ function mod:OnRegister()
 		[2825] = "Bloodlust", -- Bloodlust
 		[32182] = "Bloodlust", -- Heroism
 		[80353] = "Bloodlust", -- Time Warp
-		[90355] = "Bloodlust", -- Ancient Hysteria
-		[160452] = "Bloodlust", -- Netherwinds
+		[264667] = "Bloodlust", -- Hunter pet: Primal Rage
 		[178207] = "Bloodlust", -- Leatherworking: Drums of Fury
 		[230935] = "Bloodlust", -- Leatherworking: Drums of the Mountain
 		-- Tank
@@ -378,7 +584,6 @@ function mod:OnRegister()
 		[48792] = "IceboundFortitude",
 		[55233] = "VampiricBlood",
 		[22812] = "Barkskin",
-		[200851] = "RageOfTheSleeper",
 		[61336] = "SurvivalInstincts",
 		[115203] = "FortifyingBrew",
 		[115176] = "ZenMeditation",
@@ -389,6 +594,7 @@ function mod:OnRegister()
 		-- Healer
 		[33206] = "PainSuppression",
 		[62618] = "PowerWordBarrier",
+		[271466] = "PowerWordBarrier", -- Luminous Barrier
 		[47788] = "GuardianSpirit",
 		[64843] = "DivineHymn",
 		[102342] = "Ironbark",
@@ -408,6 +614,7 @@ function mod:OnRegister()
 		[115176] = "ZenMeditationOff",
 		[116849] = "LifeCocoonOff",
 		[204150] = "AegisOfLightOff",
+		[6940] = "BlessingOfSacrificeOff",
 	}
 	combatLogMap.SPELL_CREATE = {
 		[11419] = "Portals", -- Darnassus
@@ -425,11 +632,14 @@ function mod:OnRegister()
 		[53142] = "Portals", -- Dalaran - Northrend
 		[88345] = "Portals", -- Tol Barad (Alliance)
 		[88346] = "Portals", -- Tol Barad (Horde)
+		[120146] = "Portals", -- Ancient Portal: Dalaran
 		[132620] = "Portals", -- Vale of Eternal Blossoms (Alliance)
 		[132626] = "Portals", -- Vale of Eternal Blossoms (Horde)
 		[176246] = "Portals", -- Stormshield (Alliance)
 		[176244] = "Portals", -- Warspear (Horde)
 		[224871] = "Portals", -- Dalaran - Broken Isles
+		[281400] = "Portals", -- Boralus (Alliance)
+		[281402] = "Portals", -- Dazar'alor (Horde)
 	}
 	combatLogMap.SPELL_RESURRECT = {
 		[20484] = "Rebirth", -- Rebirth
@@ -442,12 +652,14 @@ function mod:OnRegister()
 end
 
 function mod:OnPluginEnable()
-	self:RegisterMessage("BigWigs_OnBossWin")
-	self:RegisterMessage("BigWigs_OnBossWipe", "BigWigs_OnBossWin")
-	self:RegisterEvent("PLAYER_REGEN_DISABLED")
-	self:RegisterEvent("UNIT_SPELLCAST_SUCCEEDED") -- for tracking Codex casts
+	if self.db.profile.enabled then
+		self:RegisterMessage("BigWigs_OnBossWin")
+		self:RegisterMessage("BigWigs_OnBossWipe", "BigWigs_OnBossWin")
+		self:RegisterEvent("PLAYER_REGEN_DISABLED")
+		self:RegisterEvent("UNIT_SPELLCAST_SUCCEEDED") -- for tracking Codex casts
 
-	CAFrame:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
+		CAFrame:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
+	end
 end
 
 function mod:OnPluginDisable()
@@ -465,26 +677,25 @@ local nonCombat = { -- Map of spells to only show out of combat.
 }
 local firedNonCombat = {} -- Bars that we fired that should be hidden on combat.
 
-local green = "Positive"   -- utility and healing cds
-local orange = "Urgent"    -- damaging cds
-local yellow = "Attention" -- targeted cds
-local red = "Important"    -- dps cds
-local blue = "Personal"    -- everything else
-
+-- green:  utility and healing cds
+-- orange: damaging cds
+-- yellow: targeted cds
+-- red:    dps cds
+-- blue:   everything else
 colors = {
-	[102342] = yellow, -- Ironbark
-	[106898] = green, -- Stampeding Roar
-	[740] = green, -- Tranquility
-	rebirth = green,
-	[116849] = yellow, -- Life Cocoon
-	[115310] = green, -- Revival
-	[6940] = orange, -- Blessing of Sacrifice
-	[64843] = green, -- Divine Hymn
-	[47788] = yellow, -- Guardian Spirit
-	[33206] = yellow, -- Pain Suppression
-	[2825] = red, -- Bloodlust
-	[108280] = green, -- Healing Tide Totem
-	[98008] = orange, -- Spirit Link Totem
+	[102342] = "yellow", -- Ironbark
+	[106898] = "green", -- Stampeding Roar
+	[740] = "green", -- Tranquility
+	rebirth = "green",
+	[116849] = "yellow", -- Life Cocoon
+	[115310] = "green", -- Revival
+	[6940] = "orange", -- Blessing of Sacrifice
+	[64843] = "green", -- Divine Hymn
+	[47788] = "yellow", -- Guardian Spirit
+	[33206] = "yellow", -- Pain Suppression
+	[2825] = "red", -- Bloodlust
+	[108280] = "green", -- Healing Tide Totem
+	[98008] = "orange", -- Spirit Link Totem
 }
 
 local function checkFlag(key, flag, player)
@@ -496,13 +707,13 @@ end
 local icons = setmetatable({}, {__index =
 	function(self, key)
 		local icon = GetSpellTexture(key)
-		self[key] = icon
+		self[key] = icon or nil
 		return icon
 	end
 })
 local function message(key, text, player, icon)
 	if checkFlag(key, C.MESSAGE, player) then
-		mod:SendMessage("BigWigs_Message", mod, key, text, colors[key] or blue, icons[icon or key])
+		mod:SendMessage("BigWigs_Message", mod, key, text, colors[key] or "blue", icons[icon or key])
 	end
 end
 local function bar(key, length, player, text, icon)
@@ -541,16 +752,33 @@ end
 --
 
 -- Dedicated COMBAT_LOG_EVENT_UNFILTERED handler for efficiency
-CAFrame:SetScript("OnEvent", function(_, _, _, event, _, _, source, _, _, _, player, _, _, spellId, spellName)
-	local f = combatLogMap[event] and combatLogMap[event][spellId] or nil
-	if f and player then
-		mod[f](mod, player:gsub("%-.+", "*"), spellId, source:gsub("%-.+", "*"), spellName)
-	elseif f then
-		mod[f](mod, player, spellId, source:gsub("%-.+", "*"), spellName)
+CAFrame:SetScript("OnEvent", function()
+	local _, event, _, _, source, _, _, _, target, _, _, spellId, spellName = CombatLogGetCurrentEventInfo()
+	if not combatLogMap[event] then return end
+
+	local f = combatLogMap[event][spellId]
+	if f then
+		mod[f](mod, target and target:gsub("%-.+", "*"), spellId, source:gsub("%-.+", "*"), spellName)
+		return
+	end
+
+	f = mod.db.profile.custom[spellId]
+	if f and f.event == event then
+		-- we could end up with string.format errors so include fallback for player names
+		mod:Custom(f, target and target:gsub("%-.+", "*") or UNKNOWN, spellId, source and source:gsub("%-.+", "*") or UNKNOWN, spellName)
+		return
 	end
 end)
 
--- General
+
+-- Custom spells
+function mod:Custom(info, target, spellId, source, spellName)
+	message(spellId, L[info.format]:format(source, spellName, target))
+	if info.duration > 0 then
+		local player = info.format == "used_cast" and source or target
+		bar(spellId, info.duration, player, spellName)
+	end
+end
 
 -- Codex handling. There are no CLEU events for this, unfortunately
 do
@@ -564,6 +792,8 @@ do
 		end
 	end
 end
+
+-- General
 
 do
 	local feast = GetSpellInfo(66477)
@@ -661,11 +891,6 @@ function mod:Ironbark(target, spellId, nick, spellName)
 	bar(spellId, 12, target, spellName)
 end
 
-function mod:RageOfTheSleeper(_, spellId, nick, spellName)
-	message(spellId, L.used_cast:format(nick, spellName), nick)
-	bar(spellId, 10, nick, spellName)
-end
-
 function mod:StampedingRoar(_, spellId, nick, spellName)
 	message(spellId, L.used_cast:format(nick, spellName))
 	bar(spellId, 8, nick, spellName)
@@ -748,12 +973,12 @@ end
 
 function mod:ArdentDefender(_, spellId, nick, spellName)
 	message(spellId, L.used_cast:format(nick, spellName), nick)
-	bar(spellId, 10, nick, spellName)
+	bar(spellId, 8, nick, spellName)
 end
 
 function mod:AuraMastery(_, spellId, nick, spellName)
 	message(spellId, L.used_cast:format(nick, spellName))
-	bar(spellId, 6, nick, spellName)
+	bar(spellId, 8, nick, spellName)
 end
 
 function mod:DivineProtection(_, spellId, nick, spellName)
@@ -786,6 +1011,10 @@ function mod:BlessingOfSacrifice(target, spellId, nick, spellName)
 	bar(spellId, 12, target, spellName)
 end
 
+function mod:BlessingOfSacrificeOff(target, spellId, nick, spellName)
+	stopbar(spellName, target)
+end
+
 -- Priest
 
 function mod:DivineHymn(_, spellId, nick, spellName)
@@ -812,8 +1041,8 @@ function mod:PainSuppression(target, spellId, nick, spellName)
 end
 
 function mod:PowerWordBarrier(_, spellId, nick, spellName)
-	message(spellId, L.used_cast:format(nick, spellName))
-	bar(spellId, 10, nick, spellName)
+	message(62618, L.used_cast:format(nick, spellName))
+	bar(62618, 10, nick, spellName)
 end
 
 -- Shaman
@@ -842,7 +1071,7 @@ end
 
 function mod:WindRushTotem(_, spellId, nick, spellName)
 	message(spellId, L.used_cast:format(nick, spellName))
-	bar(spellId, 10, nick, spellName)
+	bar(spellId, 15, nick, spellName)
 end
 
 -- Warlock
@@ -867,7 +1096,7 @@ function mod:LastStand(_, spellId, nick, spellName)
 	bar(spellId, 15, nick, spellName)
 end
 
-function mod:CommandingShout(_, spellId, nick, spellName)
+function mod:RallyingCry(_, spellId, nick, spellName)
 	message(spellId, L.used_cast:format(nick, spellName))
 	bar(spellId, 10, nick, spellName)
 end

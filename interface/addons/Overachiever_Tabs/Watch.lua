@@ -525,7 +525,7 @@ frame:SetScript("OnEvent", function()  -- React to "PLAYER_LOGOUT" event:
 end);
 
 
---[[
+--[[  USE Overachiever.Debug_DumpTab INSTEAD.
 -- /run Overachiever.Debug_DumpWatch()
 function Overachiever.Debug_DumpWatch()
   local tab = {}

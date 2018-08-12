@@ -2321,7 +2321,7 @@ end
 
 local actor_class_color_r, actor_class_color_g, actor_class_color_b
 
--- ~atualizar ~barra
+-- ~atualizar ~barra ~update
 function atributo_damage:AtualizaBarra (instancia, barras_container, qual_barra, lugar, total, sub_atributo, forcar, keyName, combat_time, percentage_type, use_animations, bars_show_data, bars_brackets, bars_separator)
 							-- inst�ncia, container das barras, qual barra, coloca��o, total?, sub atributo, for�ar refresh, key
 	
@@ -2659,7 +2659,7 @@ local set_text_size = function (bar, instance)
 end
 
 --> this is the in bar icon (icon inside the player bar, like faction or role icon) padding, icon has the row height as is width and height - padding
-local InBarIconPadding = 0
+local InBarIconPadding = 6
 
 --[[ exported]] function _detalhes:SetBarLeftText (bar, instance, enemy, arena_enemy, arena_ally, UsingCustomLeftText)
 

@@ -31,7 +31,6 @@ local default = {
   height = 15,
   orientation = "HORIZONTAL",
   inverse = false,
-  alpha = 1.0,
   barColor = {1.0, 0.0, 0.0, 1.0},
   backgroundColor = {0.0, 0.0, 0.0, 0.5},
   spark = false,
@@ -40,7 +39,6 @@ local default = {
   sparkColor = {1.0, 1.0, 1.0, 1.0},
   sparkTexture = "Interface\\CastingBar\\UI-CastingBar-Spark",
   sparkBlendMode = "ADD",
-  sparkDesature = false,
   sparkOffsetX = 0,
   sparkOffsetY = 0,
   sparkRotationMode = "AUTO",
@@ -68,6 +66,7 @@ local default = {
 };
 
 WeakAuras.regionPrototype.AddAdjustedDurationToDefault(default);
+WeakAuras.regionPrototype.AddAlphaToDefault(default);
 
 local screenWidth, screenHeight = math.ceil(GetScreenWidth() / 20) * 20, math.ceil(GetScreenHeight() / 20) * 20;
 
@@ -91,15 +90,6 @@ local properties = {
     display = L["Background Color"],
     setter = "SetBackgroundColor",
     type = "color"
-  },
-  alpha = {
-    display = L["Bar Alpha"],
-    setter = "SetBarAlpha",
-    type = "number",
-    min = 0,
-    max = 1,
-    bigStep = 0.01,
-    isPercent = true
   },
   sparkColor = {
     display = L["Spark Color"],
@@ -200,7 +190,7 @@ local properties = {
   }
 };
 
-WeakAuras.regionPrototype.AddProperties(properties);
+WeakAuras.regionPrototype.AddProperties(properties, default);
 
 local function GetProperties(data)
   local overlayInfo = WeakAuras.GetOverlayInfo(data);
@@ -1042,9 +1032,6 @@ local function modify(parent, region, data)
     WeakAuras.DeepCopy(data.overlays, region.overlays);
   end
 
-  -- Set overall alpha
-  region:SetAlpha(data.alpha);
-
   -- Update border
   if data.border then
     -- Create border
@@ -1287,19 +1274,11 @@ local function modify(parent, region, data)
 
     -- Save custom text function
     region.UpdateCustomText = function()
-      -- Evaluate and update text
       WeakAuras.ActivateAuraEnvironment(region.id, region.cloneId, region.state);
-      local ok, custom = xpcall(customTextFunc, geterrorhandler(), region.expirationTime, region.duration,
-        values.progress, values.duration, values.name, values.icon, values.stacks);
-      if (not ok) then
-        custom = "";
-      end
+      values.custom = {select(2, xpcall(customTextFunc, geterrorhandler(), region.expirationTime, region.duration,
+        values.progress, values.duration, values.name, values.icon, values.stacks))}
       WeakAuras.ActivateAuraEnvironment(nil);
-      custom = WeakAuras.EnsureString(custom);
-      if custom ~= values.custom then
-        values.custom = custom;
-        UpdateText(region, data);
-      end
+      UpdateText(region, data);
     end
 
     -- Add/Remove custom text update
@@ -1454,10 +1433,6 @@ local function modify(parent, region, data)
 
   function region:SetBackgroundColor(r, g, b, a)
     self.bar:SetBackgroundColor(r, g, b, a);
-  end
-
-  function region:SetBarAlpha(alpha)
-    self:SetAlpha(alpha);
   end
 
   function region:SetSparkColor(r, g, b, a)

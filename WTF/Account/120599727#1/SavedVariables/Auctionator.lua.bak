@@ -11,21 +11,9 @@ AUCTIONATOR_SAVEDVARS = {
 	["LOG_DE_DATA_X"] = true,
 }
 AUCTIONATOR_PRICING_HISTORY = {
-	["Ancient Suramar Scroll"] = {
-		["is"] = "130903:0:0:0:0",
-		["4993678"] = "1265000:1",
-	},
 	["Lost Mail"] = {
 		["is"] = "135479:0:0:0:0",
 		["5042364"] = "139990000:1",
-	},
-	["Troll Tablet"] = {
-		["is"] = "63128:0:0:0:0",
-		["4995122"] = "1297500:1",
-	},
-	["Obliterum"] = {
-		["is"] = "124125:0:0:0:0",
-		["5002255"] = "4080000:1",
 	},
 }
 AUCTIONATOR_SHOPPING_LISTS = {
@@ -64,19 +52,12 @@ AUCTIONATOR_SHOPPING_LISTS_MIGRATED_V2 = true
 AUCTIONATOR_PRICE_DATABASE = {
 	["__dbversion"] = 4,
 	["Silvermoon_Alliance"] = {
-		["Enchant Neck - Mark of the Trained Soldier"] = {
-			["mr"] = 5435100,
-			["cc"] = 8,
-			["id"] = "141909:0:0:0:0",
-			["sc"] = 1,
-			["H2802"] = 5435100,
-		},
-		["Enchant Ring - Binding of Mastery"] = {
-			["mr"] = 14990254,
-			["cc"] = 8,
-			["id"] = "128543:0:0:0:0",
-			["sc"] = 10,
-			["H2638"] = 14990254,
+		["Mark of the Deceiver"] = {
+			["mr"] = 89999,
+			["cc"] = 7,
+			["id"] = "130905:0:0:0:0",
+			["H2803"] = 89999,
+			["sc"] = 11,
 		},
 		["Delicate Ornate Ruby"] = {
 			["mr"] = 46979999,
@@ -85,33 +66,12 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["H2803"] = 46979999,
 			["sc"] = 1,
 		},
-		["Troll Tablet"] = {
-			["H2632"] = 1299996,
-			["mr"] = 1299996,
-			["cc"] = 7,
-			["id"] = "63128:0:0:0:0",
-			["sc"] = 11,
-		},
-		["Mark of the Deceiver"] = {
-			["mr"] = 89999,
-			["cc"] = 7,
-			["id"] = "130905:0:0:0:0",
-			["H2803"] = 89999,
-			["sc"] = 11,
-		},
-		["Ancient Suramar Scroll"] = {
-			["mr"] = 1267500,
-			["cc"] = 7,
-			["id"] = "130903:0:0:0:0",
-			["sc"] = 11,
-			["H2631"] = 1267500,
-		},
-		["Enchant Cloak - Binding of Intellect"] = {
-			["mr"] = 25989999,
+		["Enchant Neck - Mark of the Trained Soldier"] = {
+			["mr"] = 5435100,
 			["cc"] = 8,
-			["id"] = "128550:0:0:0:0",
-			["sc"] = 3,
-			["H2638"] = 25989999,
+			["id"] = "141909:0:0:0:0",
+			["sc"] = 1,
+			["H2802"] = 5435100,
 		},
 		["Formula: Enchant Neck - Mark of the Trained Soldier"] = {
 			["mr"] = 400000,
@@ -119,21 +79,6 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "141918:0:0:0:0",
 			["sc"] = 8,
 			["H2802"] = 400000,
-		},
-		["Obliterum"] = {
-			["mr"] = 4082499,
-			["sc"] = 11,
-			["H2637"] = 4082499,
-			["id"] = "124125:0:0:0:0",
-			["cc"] = 8,
-		},
-		["Dalewind Trousers"] = {
-			["L2638"] = 145500,
-			["mr"] = 145500,
-			["sc"] = 1,
-			["H2638"] = 149500,
-			["cc"] = 4,
-			["id"] = "13008:0:0:0:4269",
 		},
 	},
 }

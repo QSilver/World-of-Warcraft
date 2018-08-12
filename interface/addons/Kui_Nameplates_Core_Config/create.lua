@@ -8,7 +8,7 @@ version:SetTextColor(.5,.5,.5)
 version:SetPoint('TOPRIGHT',-12,-10)
 version:SetText(string.format(
     L.titles.version,
-    'KuiNameplates','Kesava','2.16.2'
+    'KuiNameplates','Kesava','beta-running-boar-beaming-wolf'
 ))
 
 opt:Initialise()
@@ -435,6 +435,9 @@ function auras:Initialise()
     local auras_show_all_self = self:CreateCheckBox('auras_show_all_self')
     local auras_hide_all_other = self:CreateCheckBox('auras_hide_all_other')
     local auras_time_threshold = self:CreateSlider('auras_time_threshold',-1,180)
+    local colour_short = self:CreateColourPicker('auras_colour_short')
+    local colour_medium = self:CreateColourPicker('auras_colour_medium')
+    local colour_long = self:CreateColourPicker('auras_colour_long')
 
     auras_sort.SelectTable = {
         L.titles.dd_auras_sort_index,
@@ -465,6 +468,9 @@ function auras:Initialise()
     auras_centre:SetPoint('TOPLEFT',auras_pulsate,'BOTTOMLEFT')
     auras_sort:SetPoint('LEFT',auras_enabled,'RIGHT',184,0)
     auras_time_threshold:SetPoint('LEFT',auras_show_all_self,'RIGHT',184,5)
+    colour_short:SetPoint('TOPLEFT',auras_sort,5,-140)
+    colour_medium:SetPoint('TOPLEFT',colour_short,0,22)
+    colour_long:SetPoint('TOPLEFT',colour_medium,0,22)
     auras_kslc_hint:SetPoint('TOP',0,-190)
 
     auras_filtering_sep:SetPoint('TOP',auras_kslc_hint,'BOTTOM',0,-35)
@@ -490,19 +496,27 @@ function castbars:Initialise()
     local castbar_enemy = self:CreateCheckBox('castbar_showenemy',true)
     local castbar_height = self:CreateSlider('castbar_height',3,20)
     local name_v_offset = self:CreateSlider('castbar_name_vertical_offset',-20,20)
+    local animate = self:CreateCheckBox('castbar_animate')
+    local animate_cc = self:CreateCheckBox('castbar_animate_change_colour',true)
 
     castbar_enable:SetPoint('TOPLEFT',10,-10)
-    castbar_colour:SetPoint('LEFT',castbar_enable,220,0)
-    castbar_unin_colour:SetPoint('LEFT',castbar_personal,220,0)
-    castbar_personal:SetPoint('TOPLEFT',castbar_enable,'BOTTOMLEFT')
-    castbar_icon:SetPoint('TOPLEFT',castbar_personal,'BOTTOMLEFT')
+    castbar_icon:SetPoint('TOPLEFT',castbar_enable,'BOTTOMLEFT')
     castbar_name:SetPoint('TOPLEFT',castbar_icon,'BOTTOMLEFT')
     castbar_shield:SetPoint('TOPLEFT',castbar_name,'BOTTOMLEFT')
-    castbar_all:SetPoint('TOPLEFT',castbar_shield,'BOTTOMLEFT')
+
+    castbar_personal:SetPoint('TOPLEFT',castbar_shield,'BOTTOMLEFT',0,-10)
+    castbar_all:SetPoint('TOPLEFT',castbar_personal,'BOTTOMLEFT')
     castbar_friend:SetPoint('TOPLEFT',castbar_all,'BOTTOMLEFT',10,0)
     castbar_enemy:SetPoint('TOPLEFT',castbar_friend,'BOTTOMLEFT')
-    castbar_height:SetPoint('TOPLEFT',castbar_enemy,'BOTTOMLEFT',-10,-30)
-    name_v_offset:SetPoint('LEFT',castbar_height,'RIGHT',20,0)
+
+    animate:SetPoint('LEFT',castbar_personal,'RIGHT',190,0)
+    animate_cc:SetPoint('TOPLEFT',animate,'BOTTOMLEFT',10,0)
+
+    castbar_colour:SetPoint('LEFT',castbar_enable,220,0)
+    castbar_unin_colour:SetPoint('LEFT',castbar_icon,220,0)
+
+    castbar_height:SetPoint('TOP',0,-260)
+    name_v_offset:SetPoint('TOP',castbar_height,'BOTTOM',0,-40)
 
     castbar_colour.enabled = function(p) return p.castbar_enable end
     castbar_unin_colour.enabled = castbar_colour.enabled
@@ -515,6 +529,8 @@ function castbars:Initialise()
     castbar_friend.enabled = function(p) return p.castbar_enable and p.castbar_showall end
     castbar_enemy.enabled = castbar_friend.enabled
     name_v_offset.enabled = function(p) return p.castbar_enable and p.castbar_name end
+    animate.enabled = castbar_colour.enabled
+    animate_cc.enabled = function(p) return p.castbar_animate and p.castbar_enable end
 end
 -- threat ######################################################################
 function threat:Initialise()
@@ -654,6 +670,8 @@ function cvars:Initialise()
     local sfn = self:CreateCheckBox('cvar_show_friendly_npcs')
     -- nameplateShowOnlyNames
     local no = self:CreateCheckBox('cvar_name_only')
+    -- nameplate{Min,Max}Scale
+    local ds = self:CreateCheckBox('cvar_disable_scale')
     -- nameplatePersonalShowAlways
     local psa = self:CreateCheckBox('cvar_personal_show_always')
     -- nameplatePersonalShowInCombat
@@ -675,6 +693,7 @@ function cvars:Initialise()
 
     sfn.enabled = function(p) return p.cvar_enable end
     no.enabled  = sfn.enabled
+    ds.enabled  = sfn.enabled
     psa.enabled = sfn.enabled
     psc.enabled = sfn.enabled
     pst.enabled = sfn.enabled
@@ -687,13 +706,14 @@ function cvars:Initialise()
 
     sfn:SetPoint('TOPLEFT',enable,'BOTTOMLEFT',0,-10)
     no:SetPoint('TOPLEFT',sfn,'BOTTOMLEFT')
+    ds:SetPoint('TOPLEFT',no,'BOTTOMLEFT')
 
-    psa:SetPoint('TOPLEFT',no,'BOTTOMLEFT',0,-10)
+    psa:SetPoint('TOPLEFT',ds,'BOTTOMLEFT',0,-10)
     psc:SetPoint('TOPLEFT',psa,'BOTTOMLEFT',0,0)
     pst:SetPoint('TOPLEFT',psc,'BOTTOMLEFT',0,0)
 
-    md:SetPoint('TOPLEFT',10,-220)
+    md:SetPoint('TOPLEFT',10,-245)
     ov:SetPoint('LEFT',md,'RIGHT',20,0)
-    ct:SetPoint('TOPLEFT',10,-(220+50))
+    ct:SetPoint('TOPLEFT',10,-295)
     cb:SetPoint('LEFT',ct,'RIGHT',20,0)
 end

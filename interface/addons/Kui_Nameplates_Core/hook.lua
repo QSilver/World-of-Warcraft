@@ -27,7 +27,6 @@ if addon.draw_frames then
 end
 
 local plugin_fading
-local plugin_classpowers
 -- messages ####################################################################
 function core:Create(f)
     self:CreateBackground(f)
@@ -51,7 +50,6 @@ function core:Create(f)
 end
 function core:Show(f)
     -- state helpers
-    f.state.player = UnitIsUnit(f.unit,'player')
     f.state.friend = UnitIsFriend('player',f.unit)
     f.state.class = select(2,UnitClass(f.unit))
 
@@ -90,25 +88,20 @@ function core:Show(f)
         f:UpdateTargetArrows()
     end
 
-    if f.state.player then
+    if f.state.personal then
         anchor:SetParent(f)
         anchor:SetAllPoints(f.bg)
         anchor:Show()
-
-        if addon.ClassPowersFrame and plugin_classpowers.enabled then
-            -- force class powers position update
-            -- as our post function uses state.player
-            plugin_classpowers:TargetUpdate()
-        end
     end
 end
 function core:Hide(f)
-    if f.state.player then
+    if f.state.personal then
         anchor:ClearAllPoints()
         anchor:Hide()
     end
 
     self:NameOnlyUpdate(f,true)
+    f:HideCastBar(nil,true)
 end
 function core:HealthUpdate(f)
     f:UpdateHealthText()
@@ -132,8 +125,8 @@ end
 function core:CastBarShow(f)
     f:ShowCastBar()
 end
-function core:CastBarHide(f)
-    f:HideCastBar()
+function core:CastBarHide(f,...)
+    f:HideCastBar(...)
 end
 function core:GainedTarget(f)
     f.state.target = true
@@ -171,8 +164,7 @@ function core:ExecuteUpdate(f)
     plugin_fading:UpdateFrame(f)
 end
 -- events ######################################################################
-function core:QUESTLINE_UPDATE()
-    -- TODO this isn't really the right event, but the others fire too soon
+function core:QUEST_POI_UPDATE()
     -- update to show name of new quest NPCs
     for _,frame in addon:Frames() do
         if frame:IsShown() then
@@ -267,10 +259,6 @@ end
 function core:Initialise()
     self:InitialiseConfig()
 
-    -- we don't want the distance scaling to affect the clickbox
-    SetCVar('NameplateMinScale',1)
-    SetCVar('NameplateMaxScale',1)
-
     -- register messages
     self:RegisterMessage('Create')
     self:RegisterMessage('Show')
@@ -286,7 +274,7 @@ function core:Initialise()
     self:RegisterMessage('ClassificationChanged')
 
     -- register events
-    self:RegisterEvent('QUESTLINE_UPDATE')
+    self:RegisterEvent('QUEST_POI_UPDATE')
     self:RegisterUnitEvent('UNIT_THREAT_LIST_UPDATE')
     self:RegisterUnitEvent('UNIT_NAME_UPDATE')
 
@@ -305,5 +293,4 @@ function core:Initialise()
     CreateLODHandler()
 
     plugin_fading = addon:GetPlugin('Fading')
-    plugin_classpowers = addon:GetPlugin('ClassPowers')
 end

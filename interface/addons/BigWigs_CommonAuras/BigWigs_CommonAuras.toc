@@ -1,4 +1,4 @@
-## Interface: 70300
+## Interface: 80000
 
 ## Title: BigWigs |cffff0000+|r|cffffffffCommon Auras|r
 ## Title-deDE: BigWigs |cffff0000+|r|cffffffffHäufige Auren|r
@@ -25,7 +25,7 @@
 ## Notes-zhTW: Notifies you about common raid cooldowns.
 
 ## Author: Funkydude, Nebula169
-## Version: v7.3.2
+## Version: v8.0.0
 ## X-Category: Raid
 ## X-License: All Rights Reserved: You are free to fork and modify on GitHub, please ask us about anything else.
 ## X-Curse-Project-ID: 13530

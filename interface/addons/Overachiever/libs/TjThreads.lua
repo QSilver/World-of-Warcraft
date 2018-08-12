@@ -18,6 +18,8 @@ The library is quite simple. Future features might include things like balancing
 moment. All it does now is, every other tick, run one task (but some tasks might be more intensive than others; we don't account for that
 by running two smaller ones or any such thing).
 
+(Yes, we're technically not using threads, but the word works for our purposes.)
+
 ok = TjThreads.AddTask( func )
   Add a task to the list.
   Arguments:

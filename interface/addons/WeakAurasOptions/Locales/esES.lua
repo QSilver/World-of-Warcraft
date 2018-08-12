@@ -226,6 +226,8 @@ UNIT_POWER, UNIT_AURA PLAYER_TARGET_CHANGED
 	L["Duplicate All"] = "Duplicate All"
 	L["Duration (s)"] = "Duración (s)"
 	L["Duration Info"] = "Información de Duración"
+	--[[Translation missing --]]
+	L["Dynamic Duration"] = "Dynamic Duration"
 	L["Dynamic Group"] = "Grupo Dinámico"
 	--[[Translation missing --]]
 	L["Dynamic Information"] = "Dynamic Information"
@@ -262,6 +264,8 @@ UNIT_POWER, UNIT_AURA PLAYER_TARGET_CHANGED
 	L["Fade Out"] = "Fade Out"
 	--[[Translation missing --]]
 	L["False"] = "False"
+	--[[Translation missing --]]
+	L["Filter by Group Role"] = "Filter by Group Role"
 	L["Finish"] = "Finalizar"
 	--[[Translation missing --]]
 	L["Fire Orb"] = "Fire Orb"
@@ -279,6 +283,8 @@ UNIT_POWER, UNIT_AURA PLAYER_TARGET_CHANGED
 	L["Full Scan"] = "Full Scan"
 	--[[Translation missing --]]
 	L["General Text Settings"] = "General Text Settings"
+	--[[Translation missing --]]
+	L["Global Conditions"] = "Global Conditions"
 	--[[Translation missing --]]
 	L["Glow"] = "Glow"
 	L["Glow Action"] = "Acción de Destello"
@@ -299,6 +305,8 @@ Con |cFF00CC00<= 0.8|r se activará cuando menos del 80%% del grupo o banda est�
 Con |cFF00CC00> 1/2|r se activará cuando más de la mitad de miembros del grupo o banda estén afectados.
 Con |cFF00CC00>= 0|r se activará siempre.]=]
 	L["Group Member Count"] = "Contador del Miembro de Grupo"
+	--[[Translation missing --]]
+	L["Group Role"] = "Group Role"
 	--[[Translation missing --]]
 	L["Group Scale"] = "Group Scale"
 	--[[Translation missing --]]
@@ -327,6 +335,8 @@ Con |cFF00CC00>= 0|r se activará siempre.]=]
 	--[[Translation missing --]]
 	L["Icon"] = "Icon"
 	--[[Translation missing --]]
+	L["Icon Alpha"] = "Icon Alpha"
+	--[[Translation missing --]]
 	L["Icon Color"] = "Icon Color"
 	L["Icon Info"] = "Información del Icono"
 	L["Icon Inset"] = "Interior del Icono"
@@ -336,6 +346,8 @@ Con |cFF00CC00>= 0|r se activará siempre.]=]
 	L["If this option is enabled, you are no longer able to import auras."] = "If this option is enabled, you are no longer able to import auras."
 	--[[Translation missing --]]
 	L["If Trigger %s"] = "If Trigger %s"
+	--[[Translation missing --]]
+	L["Ignore self"] = "Ignore self"
 	L["Ignored"] = "Ignorar"
 	L["Import"] = "Importar"
 	L["Import a display from an encoded string"] = "Importar un aura desde un texto cifrado"
@@ -472,8 +484,6 @@ Sólo un valor coincidente puede ser escogido.]=]
 	L["Remaining Time Precision"] = "Precisión del Tiempo Restante"
 	--[[Translation missing --]]
 	L["Remove"] = "Remove"
-	--[[Translation missing --]]
-	L["Remove this condition"] = "Remove this condition"
 	--[[Translation missing --]]
 	L["Remove this display from its group"] = "Remove this display from its group"
 	--[[Translation missing --]]

@@ -377,8 +377,7 @@ L=
 		--[[ ["minchatheight_name"] = "",--]] 
 		--[[Translation missing --]]
 		--[[ ["minchatwidth_desc"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["minchatwidth_name"] = "",--]] 
+		["minchatwidth_name"] = "Establecer ancho mínimo",
 		--[[Translation missing --]]
 		--[[ ["rememberframepositions_desc"] = "",--]] 
 		--[[Translation missing --]]

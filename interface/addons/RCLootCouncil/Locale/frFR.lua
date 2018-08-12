@@ -38,6 +38,8 @@ Cliquez sur l'onglet 'Conseil actuel' pour afficher votre sélection.]=]
 L["All items"] = "Tous les objets"
 L["All items has been awarded and  the loot session concluded"] = "Tous les objets ont été attribués, la session de butin est terminée"
 --[[Translation missing --]]
+--[[ L["All items have been awarded and the loot session concluded"] = ""--]] 
+--[[Translation missing --]]
 --[[ L["All items usable by the candidate"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["All unawarded items"] = ""--]] 
@@ -237,6 +239,8 @@ L["Diff"] = true
 --[[ L["Discord friendly output."] = ""--]] 
 L["disenchant_desc"] = "Sélectionner cette option pour que ce motif soit choisi lorsque vous attribuez un objet par le biais du bouton 'Désenchanter'"
 --[[Translation missing --]]
+--[[ L["Do you want to keep %s for yourself?"] = ""--]] 
+--[[Translation missing --]]
 --[[ L["Done syncing"] = ""--]] 
 L["Double click to delete this entry."] = "Double cliquez pour supprimer cette occurence."
 L["Dropped by:"] = "Dépouillé sur :"
@@ -316,6 +320,8 @@ L["loot_everything_desc"] = "Active la fouille automatique des non-objets (p. ex
 L["loot_history_desc"] = [=[RCLootCouncil enregistre automatiquement les informations pertinentes durant les sessions.
 Les données brutes sont enregistrées dans le fichier ".../SavedVariables/RCLootCouncil.lua".
 Remarque : les joueurs autres que le maître du butin peuvent uniquement enregistrer les données qui leur sont envoyées par ce dernier.]=]
+--[[Translation missing --]]
+--[[ L["Looted by:"] = ""--]] 
 L["Looting options"] = "Paramètres de fouille"
 L["Lower Quality Limit"] = "Seuil inférieur de qualité"
 L["lower_quality_limit_desc"] = [=[Déterminez le seuil inférieur de qualité des objets qui seront automatiquement attribués (cette qualité est comprise).
@@ -354,6 +360,14 @@ L["No items to award later registered"] = "Aucun objet devant être attribué pl
 --[[ L["No recipients available"] = ""--]] 
 L["No session running"] = "Aucune session en cours"
 L["No winners registered"] = "Aucun vainqueur répertorié"
+--[[Translation missing --]]
+--[[ L["non_tradeable_reason_nil"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["non_tradeable_reason_not_tradeable"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["non_tradeable_reason_rejected_trade"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["Non-tradeable reason:"] = ""--]] 
 L["Not announced"] = "Non annoncé"
 L["Not cached, please reopen."] = "Pas gardé en cache, veuillez rouvrir."
 L["Not Found"] = "Introuvable"
@@ -381,6 +395,14 @@ L["Open the Loot History"] = "Ouvrir l'historique du butin"
 L["open_the_loot_history_desc"] = "Cliquer pour ouvrir l'historique du butin."
 --[[Translation missing --]]
 --[[ L["Opens the synchronizer"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_printCompletedTrade_Desc"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_printCompletedTrade_Name"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_rejectTrade_Desc"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_rejectTrade_Name"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["Other piece"] = ""--]] 
 --[[Translation missing --]]
@@ -571,6 +593,10 @@ L["Tokens received"] = "Jetons obtenus"
 --[[ L["Total awards"] = ""--]] 
 L["Total items received:"] = "Nombre total d'objets reçus :"
 L["Total items won:"] = "Nombre total d'objets remportés :"
+--[[Translation missing --]]
+--[[ L["trade_complete_message"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["trade_wrongwinner_message"] = ""--]] 
 L["tVersion_outdated_msg"] = "La dernière version de test de RCLootCouncil est : %s"
 --[[Translation missing --]]
 --[[ L["Unable to give 'item' to 'player'"] = ""--]] 

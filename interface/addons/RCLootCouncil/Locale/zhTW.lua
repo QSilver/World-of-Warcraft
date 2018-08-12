@@ -34,6 +34,8 @@ L["add_ranks_desc2"] = [=[
 L["add_rolls_desc"] = "自動給所有會話添加1-100的擲點。"
 L["All items"] = "所有物品"
 L["All items has been awarded and  the loot session concluded"] = "所有物品已經分出，分配結束"
+--[[Translation missing --]]
+--[[ L["All items have been awarded and the loot session concluded"] = ""--]] 
 L["All items usable by the candidate"] = "所有此人可用的物品"
 L["All unawarded items"] = "所有未分配物品"
 L["Alt click Looting"] = "Alt+左鍵分配"
@@ -194,6 +196,8 @@ L["Diff"] = "差異"
 --[[Translation missing --]]
 --[[ L["Discord friendly output."] = ""--]] 
 L["disenchant_desc"] = "當你經由分解按鈕贏得物品時使用這個理由"
+--[[Translation missing --]]
+--[[ L["Do you want to keep %s for yourself?"] = ""--]] 
 L["Done syncing"] = "同步結束"
 L["Double click to delete this entry."] = "點擊兩下刪除此條目"
 L["Dropped by:"] = "掉落來源:"
@@ -258,6 +262,8 @@ L["loot_history_desc"] = [=[RCLootCouncil 將自動記錄分配相關訊息
 原始數據儲存於".../SavedVariables/RCLootCouncil.lua" 
 
 注意: 非分裝者只能記錄來自分裝者發送的數據]=]
+--[[Translation missing --]]
+--[[ L["Looted by:"] = ""--]] 
 L["Looting options"] = "拾取選項"
 L["Lower Quality Limit"] = "最低品質"
 L["lower_quality_limit_desc"] = "選擇自動分配時物品的最低品質"
@@ -288,6 +294,14 @@ L["No items to award later registered"] = "沒有物品登記"
 L["No recipients available"] = "沒有可分配人選"
 L["No session running"] = "目前沒有分配進行中"
 L["No winners registered"] = "沒有贏家登記"
+--[[Translation missing --]]
+--[[ L["non_tradeable_reason_nil"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["non_tradeable_reason_not_tradeable"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["non_tradeable_reason_rejected_trade"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["Non-tradeable reason:"] = ""--]] 
 L["Not announced"] = "沒有公布"
 L["Not cached, please reopen."] = "沒有獲取，請重新打開"
 L["Not Found"] = "沒找到"
@@ -312,6 +326,14 @@ L["open"] = "開啓"
 L["Open the Loot History"] = "開啟拾取歷史"
 L["open_the_loot_history_desc"] = "打開拾取歷史"
 L["Opens the synchronizer"] = "開啟同步"
+--[[Translation missing --]]
+--[[ L["opt_printCompletedTrade_Desc"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_printCompletedTrade_Name"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_rejectTrade_Desc"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_rejectTrade_Name"] = ""--]] 
 L["Other piece"] = "其他裝備"
 --[[Translation missing --]]
 --[[ L["Out of instance"] = ""--]] 
@@ -453,6 +475,10 @@ L["Tokens received"] = "獲得代幣"
 L["Total awards"] = "總共獎勵"
 L["Total items received:"] = "總共獲得件數:"
 L["Total items won:"] = "總共贏得件數:"
+--[[Translation missing --]]
+--[[ L["trade_complete_message"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["trade_wrongwinner_message"] = ""--]] 
 L["tVersion_outdated_msg"] = "最新的RCLootCouncil版本是：%s"
 L["Unable to give 'item' to 'player'"] = "無法將 %s 分配給 %s"
 L["Unable to give 'item' to 'player' - (player offline, left group or instance?)"] = "無法將%s分配給%s"

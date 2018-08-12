@@ -1,22 +1,52 @@
-lightweight tag b6be6279a0b12e47a828a903c91817c4a25f5247 v80001-1.0.1
+lightweight tag 4972a01e803fb0c00d462bb2d318717d74932f00 v80001-1.0.2
 Author:	Ludovicus <ludovicus.maior@gmail.com>
-Date:	Thu Jul 26 18:27:03 2018 -0400
+Date:	Sun Aug 5 17:56:16 2018 -0400
 
-commit b6be6279a0b12e47a828a903c91817c4a25f5247
+commit 4972a01e803fb0c00d462bb2d318717d74932f00
 Author: Ludovicus <ludovicus.maior@gmail.com>
-Date:   Thu Jul 26 18:27:03 2018 -0400
+Date:   Sun Aug 5 17:56:16 2018 -0400
 
-    If the WorldMap is open, use the map's MapID, else guess the current players' map for a QuestPOI.
+    Add the floatOnEdge back to minimap.  Display Pins on WORLDMAP on WORLD
 
-commit 2e0152a032066f6da27b3991f3d4adc81733fb72
+commit 3a417d631d164969b9a20044a4bc72bd0a3a54a9
 Author: Ludovicus <ludovicus.maior@gmail.com>
-Date:   Thu Jul 26 17:56:37 2018 -0400
+Date:   Sat Aug 4 16:03:35 2018 -0400
 
-    Enable POI integration using QuestPOIButton_OnClick
+    If a profile.arrow.alpha < 0.1 is seen, reset to 1.0 .  No invisible arrows!
 
-commit 3baa9f67909a4edf907cd116984cc720d7d4de7c
+commit a1c72bbc294ef2c4fc40e597465d1ee09948c0b6
 Author: Ludovicus <ludovicus.maior@gmail.com>
-Date:   Thu Jul 26 17:52:00 2018 -0400
+Date:   Sat Aug 4 16:02:24 2018 -0400
 
-    Fix TomTom:AddWaypointToCurrentZone() to use AddWaypoint()
+    Do not allow the waypoint arrow alpha to go below 0.1 .
+
+commit fe7904ae63c33ca7f3b755c2d0b6eb2beb051f02
+Author: Ludovicus <ludovicus.maior@gmail.com>
+Date:   Sat Aug 4 16:01:14 2018 -0400
+
+    Correct the POI Integration to use the RIGHT button, as per the control panel.
+
+commit 7c0f8c67e2910ecca0521925b776ca7ae92952ba
+Author: Ludovicus <ludovicus.maior@gmail.com>
+Date:   Sat Aug 4 14:59:17 2018 -0400
+
+    RainbowMagicMarker Issue #381: /cway not working and very quiet.
+
+commit 237821036c50261d17f9cab77d4c03697276548a
+Author: Ludovicus <ludovicus.maior@gmail.com>
+Date:   Sat Aug 4 13:31:52 2018 -0400
+
+    sigprof issue #357: Death in the Ritual of Doom.
+
+commit 66dd5ba9998b59cb3654169b769653c8c8a92c80
+Author: Ludovicus <ludovicus.maior@gmail.com>
+Date:   Sat Aug 4 12:53:44 2018 -0400
+
+    Fix Saroana #374 issue with profile reference at load time.
+
+commit 47e845496a48d4caac232701eec7b32c20b5455f
+Author: Ludovicus <ludovicus.maior@gmail.com>
+Date:   Sat Aug 4 12:35:08 2018 -0400
+
+    Fix JonasJSK26849 #383 Issue with SendWaypoint
 

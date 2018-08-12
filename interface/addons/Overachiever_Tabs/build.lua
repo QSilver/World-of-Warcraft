@@ -517,8 +517,8 @@ local function applyAchievementFilter(list, completed, built, checkprev, critlis
 end
 
 local function updateAchievementsList(frame)
-  local StartTime
-  if (Overachiever_Debug) then  StartTime = debugprofilestop(); print("updateAchievementsList",frame:GetName());  end
+  --local StartTime
+  --if (Overachiever_Debug) then  StartTime = debugprofilestop(); print("updateAchievementsList",frame:GetName());  end
 
   local list, sorted = frame.AchList, frame.AchList_sorted
   if (ACHIEVEMENTUI_SELECTEDFILTER == AchievementFrame_GetCategoryNumAchievements_Complete) then
@@ -567,7 +567,7 @@ local function updateAchievementsList(frame)
   
   if (frame.SetNumListed) then  frame.SetNumListed(numAchievements);  end
 
-  if (Overachiever_Debug) then  print("- Took "..(debugprofilestop() - StartTime)/1000 .." seconds.");  end
+  --if (Overachiever_Debug) then  print("- Took "..(debugprofilestop() - StartTime)/1000 .." seconds.");  end
 end
 
 local function forceUpdate(frame, keepSelection, fromHook)
@@ -924,6 +924,13 @@ function Overachiever.BuildNewTab(name, text, watermark, helptip, loadFunc, filt
 	tab.loadFunc = nil
   end
 
+  function frame:GetAchList(unfiltered)
+    if (not unfiltered and FilteredList and FilteredList[self.AchList]) then
+	  return FilteredList[self.AchList]
+	end
+	return self.AchList
+  end
+
   return frame, panel
 end
 
@@ -1222,3 +1229,35 @@ end
 function Overachiever.GetSelectedTab(prev)
   if (prev) then  return prevtab;  else  return tabselected;  end
 end
+
+
+
+function Overachiever.Debug_DumpTab(unfiltered, simple)
+	if (tabselected and tabselected.GetAchList) then
+		local chatprint = Overachiever.chatprint
+		local list = tabselected:GetAchList(unfiltered)
+		local num = #list
+		chatprint("Tab contains " .. num .. " achievements.")
+		if (num > 0) then
+			local tab = {}
+			for i,id in pairs(list) do
+				tab[#tab+1] = id
+			end
+			sort(tab)
+			local s
+			if (simple) then
+				s = "{ "..strjoin(", ", unpack(tab)).." }"
+			else
+				for i,id in ipairs(tab) do
+					local _, name = GetAchievementInfo(id)
+					if (name) then  tab[i] = id .. ", -- " .. name;  end
+				end
+				s = "{\n    "..strjoin("\n    ", unpack(tab)).."\n}"
+			end
+			print(s)
+			chatprint("Outputting as error message to allow copying.")
+			error("Copy the following table:\n" .. s)
+		end
+	end
+end
+-- /run Overachiever.Debug_DumpTab(true)

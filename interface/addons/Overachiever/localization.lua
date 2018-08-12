@@ -225,7 +225,8 @@ School of %s
 
 	OPT_LABEL_MISC = "Miscellaneous";
 	OPT_THROTTLE_ACHLOOKUP = "Startup: Throttle achievement lookup";
-	OPT_THROTTLE_ACHLOOKUP_TIP = "Overachiever looks up certain data on startup. If this is unchecked, lookup happens all at once while the UI is first loading. If checked, data is gathered over time after the player enters the world.|n|nThe advantage to throttled lookup is a faster initial loading time, but, for some users and on some characters, this can temporarily impact performance.";
+	OPT_THROTTLE_ACHLOOKUP_TIP = "Overachiever looks up certain data on startup. If this is unchecked, lookup happens while the UI is first loading. If checked, data is gathered over time after the player enters the world.";
+	OPT_THROTTLE_ACHLOOKUP_TIP2 = "|nThe advantage to throttled lookup is a faster initial loading time, but, for some users and on some characters, this can noticeably impact performance for several seconds at the start of a session.|n|nIf the |cffffffffCache module|r is enabled, then throttling doesn't improve loading time as significantly unless the cache needs to be rebuilt. The cache is rebuilt after each new WoW build is released.";
 	OPT_SLASHSEARCH_TAB = "Slash commands use Search tab";
 	OPT_SLASHSEARCH_TAB_TIP = "Use the Search tab to show search results from slash commands like \"/ach food\". If this is unchecked, results are output to the chat log instead (unless a silent output command like \"/achs\" is used).";
 	OPT_SLASHSEARCH_TIP2 = "|cffffffffTabs module with Search tab is required.|r";
@@ -330,6 +331,8 @@ L["MSG_ACHNOTFOUND"] = "Erfolg nicht gefunden."
 L["MSG_CRITERIAPROGRESS"] = "|cff7eff00Erfolgsfortschritt:|r %s (%s)"
 L["MSG_INVALIDID"] = "Ungültige Eingabe: Kein Erfolg mit dieser ID."
 L["MSG_NAMENOTFOUND"] = "Es wurde kein Erfolg gefunden, dessen Name \"|cffffffff%s|r\" enthält."
+L["MSG_NOOPEN"] = "Der Erfolg konnte nicht angezeigt werden. Er ist im UI nicht sichtbar."
+L["MSG_NOOPEN_LIST"] = "%s |4Erfolg:Erfolge; gefunden:"
 L["MSG_NUMFOUNDLIST"] = "%s weitere Erfolge gefunden:"
 L["MSG_ONEFOUND"] = "1 weiterer Erfolg gefunden: "
 L["MSG_OPENINGTO"] = "Öffnen nach: "
@@ -403,6 +406,11 @@ L["OPT_SHOWPROGRESS"] = "Deinen Fortschritt hinzufügen"
 L["OPT_SHOWPROGRESS_OTHER"] = "Den Fortschritt in Links von anderen Spielern vergleichen"
 L["OPT_SHOWPROGRESS_OTHER_TIP"] = "Deinen Fortschritt hinzufügen, wenn die Erfolge von einem anderen Spieler stammen."
 L["OPT_SHOWPROGRESS_TIP"] = "Deinen Fortschritt hinzufügen, wenn ein Erfolg mengenbasierende Kriterien enthält, wie zum Beispiel \"Erhaltet 10 Reittiere.\""
+--[[Translation missing --]]
+--[[ L["OPT_SLASHSEARCH_TAB"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["OPT_SLASHSEARCH_TAB_TIP"] = ""--]] 
+L["OPT_SLASHSEARCH_TIP2"] = "|cffffffffTabs-Modul mit Such-Tab wird benötigt.|r"
 L["OPT_STARTTOAST_BONUS"] = "Zeigt die heutigen Bonus-Events"
 L["OPT_STARTTOAST_BONUS_TIP"] = "Zeigt die heutigen Bonus-Events in Toast-Benachrichtigungen beim Betreten der Spielwelt an."
 L["OPT_STARTTOAST_DUNGEON"] = "Zeigt die heutigen Dungeon-Events"
@@ -412,7 +420,7 @@ L["OPT_STARTTOAST_HOLIDAY_TIP"] = "Zeigt die heutigen Feiertage in Toast-Benachr
 L["OPT_STARTTOAST_MICROHOLIDAY"] = "Zeigt die heutigen Mini-Feiertage"
 L["OPT_STARTTOAST_MICROHOLIDAY_TIP"] = "Zeigt die heutigen Mini-Feiertage in Toast-Benachrichtigungen beim Betreten der Spielwelt an."
 L["OPT_STARTTOAST_MISC"] = "Zeigt die heutigen sonstigen Feiertage"
-L["OPT_STARTTOAST_MISC_TIP"] = "Zeigt die heutigen sonstigen \"Feiertags\"-Events in Toast-Benachrichtigungen beim Betreten der Spielwelt an."
+L["OPT_STARTTOAST_MISC_TIP"] = "Zeigt die heutigen sonstigen \"Feiertagsereignisse\" in Toast-Benachrichtigungen beim Betreten der Spielwelt an."
 L["OPT_STARTTOAST_MISC_TIP2"] = "Es sind Events die im Standardkalender als \"Feiertage\" angegeben sind, aber weder als ganze Feiertage zählen noch in eine andere Kategorie hier passen. Beispiele wären hier die WoW-Geburtstage und Schlachtzugeröffnungstage (für neue Schlachtzüge oder Schwierigkeitsgrade aber nicht die wöchentlichen Zurücksetzungen)."
 L["OPT_STARTTOAST_ONLYCLICKFADE"] = "Klick, um zu verbergen"
 L["OPT_STARTTOAST_ONLYCLICKFADE_TIP"] = "Hindert Toast-Benachrichtigungen am Verblassen, wenn diese nicht links- oder rechtsgeklickt werden. (Wenn diese Option nicht aktiviert ist, werden sie auch verblassen, wenn der Mauszeiger über sie geht und sich dann wegbewegt)."
@@ -421,7 +429,7 @@ L["OPT_STARTTOAST_PVPBRAWL_TIP"] = "Zeigt die heutigen PvP-Raufereien in Toast-B
 L["OPT_STARTTOAST_TIMEFADE"] = "Nicht automatisch verbergen"
 L["OPT_STARTTOAST_TIMEFADE_TIP"] = "Vermeidet, dass Toast-Benachrichtigungen, mit denen du nicht interagierst, nach ein paar Sekunden verblassen."
 L["OPT_THROTTLE_ACHLOOKUP"] = "Beim Start: Gebremste Durchsicht der Erfolge"
-L["OPT_THROTTLE_ACHLOOKUP_TIP"] = "Overachiever schaut beim starten nach gewissen Daten. Wenn dies nicht ausgewählt ist, findet diese Durchsicht sofort wenn das UI zum ersten Mal geladen wird, statt. Wenn dies ausgewählt ist, werden Daten nach und nach gesammelt, nachdem der Spieler die Welt betreten hat.|n|nDer Vorteil gegenüber der gebremsten Durchsicht besteht in einer schnelleren Anfangsladezeit, aber bei einigen Benutzern und einigen Charakteren kann sich das vorrübergehend auf die Leistung auswirken."
+L["OPT_THROTTLE_ACHLOOKUP_TIP"] = "Overachiever sammelt beim Starten gewisse Daten. Wenn diese Option nicht ausgewählt ist, findet diese Durchsicht sofort, wenn das UI zum ersten Mal geladen wird, statt. Wenn dies ausgewählt ist, werden Daten nach und nach gesammelt, nachdem der Spieler die Welt betreten hat.|n|nDer Vorteil gegenüber der gebremsten Durchsicht besteht in einer schnelleren Anfangsladezeit, aber bei einigen Benutzern und bei manchen Charakteren kann sich das vorübergehend auf die Leistung auswirken."
 L["OPT_TRADESKILL_SHOWCOMPLETEDACH_COOKING"] = "Noch zu kochende Rezepte kennzeichnen, um Erfolge vervollständigen zu können"
 L["OPT_TRADESKILL_SHOWCOMPLETEDACH_COOKING_TIP"] = "Wenn Overarchievers Handelsmodul aktiviert ist, erscheint ein Symbol neben den Rezepten, die noch gekocht werden müssen, um diverse Erfolge abzuschließen. Wenn die Option aktiviert ist, erscheinen diese Symbole auch dann noch neben ungekochten Rezepten, wenn der dazugehörige Erfolg schon abgeschlossen sein sollte. "
 L["OPT_TURKEYLURKEYTIPS"] = "Truthahnbüchse angewendet?"
@@ -550,6 +558,10 @@ L["MSG_ACHNOTFOUND"] = "Haut fait introuvable."
 --[[ L["MSG_CRITERIAPROGRESS"] = ""--]] 
 L["MSG_INVALIDID"] = "Entrée invalide : aucun haut fait ne correspond à cette ID."
 L["MSG_NAMENOTFOUND"] = "Aucun haut fait contenant le nom \"|cffffffff%s|r\" n'a été trouvé."
+--[[Translation missing --]]
+--[[ L["MSG_NOOPEN"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["MSG_NOOPEN_LIST"] = ""--]] 
 L["MSG_NUMFOUNDLIST"] = "%s autres haut faits trouvés :"
 L["MSG_ONEFOUND"] = "1 autre haut fait trouvé : "
 L["MSG_OPENINGTO"] = "Ouverture de : "
@@ -642,6 +654,12 @@ L["OPT_SHOWPROGRESS"] = "Ajouter votre progression"
 L["OPT_SHOWPROGRESS_OTHER"] = "Comparer la progression via les liens d'autres joueurs"
 L["OPT_SHOWPROGRESS_OTHER_TIP"] = "Ajouter votre progression quand les informations du haut fait affiché sont celles d'un autre joueur."
 L["OPT_SHOWPROGRESS_TIP"] = "Ajouter votre progression quand un haut fait est basé sur une quantité, comme \"Obtenir 10 montures\"."
+--[[Translation missing --]]
+--[[ L["OPT_SLASHSEARCH_TAB"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["OPT_SLASHSEARCH_TAB_TIP"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["OPT_SLASHSEARCH_TIP2"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["OPT_STARTTOAST_BONUS"] = ""--]] 
 --[[Translation missing --]]
@@ -832,6 +850,10 @@ L["MSG_ACHNOTFOUND"] = "找不到該成就。"
 --[[ L["MSG_CRITERIAPROGRESS"] = ""--]] 
 L["MSG_INVALIDID"] = "無效輸入：沒有成就有這編號。"
 L["MSG_NAMENOTFOUND"] = "沒有包含 \"|cffffffff%s|r\" 的成就名稱被找到。"
+--[[Translation missing --]]
+--[[ L["MSG_NOOPEN"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["MSG_NOOPEN_LIST"] = ""--]] 
 L["MSG_NUMFOUNDLIST"] = "另外找到 %s 項成就："
 L["MSG_ONEFOUND"] = "找到 1 項成就："
 L["MSG_OPENINGTO"] = "開啟："
@@ -913,6 +935,12 @@ L["OPT_SHOWPROGRESS"] = "顯示進度"
 L["OPT_SHOWPROGRESS_OTHER"] = "比較其他人的進度連結"
 L["OPT_SHOWPROGRESS_OTHER_TIP"] = "在別人的成就訊息連結說明中顯示自己的進度."
 L["OPT_SHOWPROGRESS_TIP"] = "在提示說明中顯示成就進度."
+--[[Translation missing --]]
+--[[ L["OPT_SLASHSEARCH_TAB"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["OPT_SLASHSEARCH_TAB_TIP"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["OPT_SLASHSEARCH_TIP2"] = ""--]] 
 L["OPT_STARTTOAST_BONUS"] = "顯示今天的獎勵事件"
 L["OPT_STARTTOAST_BONUS_TIP"] = "進入遊戲時顯示今天的獎勵事件彈出通知。"
 L["OPT_STARTTOAST_DUNGEON"] = "顯示今天的地城事件"
@@ -1067,6 +1095,10 @@ L["MSG_ACHNOTFOUND"] = "找不到该成就。"
 L["MSG_CRITERIAPROGRESS"] = "|cff7eff00成就进度:|r %s (%s)"
 L["MSG_INVALIDID"] = "无效输入：没有此成就ID。"
 L["MSG_NAMENOTFOUND"] = "找不到含有 \"|cffffffff%s|r\" 的成就。"
+--[[Translation missing --]]
+--[[ L["MSG_NOOPEN"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["MSG_NOOPEN_LIST"] = ""--]] 
 L["MSG_NUMFOUNDLIST"] = "另外找到%s项成就："
 L["MSG_ONEFOUND"] = "找到1项成就："
 L["MSG_OPENINGTO"] = "开启："
@@ -1143,6 +1175,12 @@ L["OPT_SHOWPROGRESS"] = "显示进度"
 L["OPT_SHOWPROGRESS_OTHER"] = "与其他人的进度链接进行比较"
 L["OPT_SHOWPROGRESS_OTHER_TIP"] = "在別人的成就链接说明中显示自己的进度。"
 L["OPT_SHOWPROGRESS_TIP"] = "在提示说明中显示成就进度。"
+--[[Translation missing --]]
+--[[ L["OPT_SLASHSEARCH_TAB"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["OPT_SLASHSEARCH_TAB_TIP"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["OPT_SLASHSEARCH_TIP2"] = ""--]] 
 L["OPT_STARTTOAST_BONUS"] = "显示今日奖励事件"
 L["OPT_STARTTOAST_BONUS_TIP"] = "在进入游戏时，会以通知形式显示今天的奖励事件。"
 L["OPT_STARTTOAST_DUNGEON"] = "显示今天的地下城事件"
@@ -1297,6 +1335,10 @@ L["MSG_ACHNOTFOUND"] = "Достижение не найдено"
 L["MSG_CRITERIAPROGRESS"] = "|cff7eff00Прогресс достижения:|r %s (%s)"
 L["MSG_INVALIDID"] = "Неверный ввод: достижения с таким ID не существует."
 L["MSG_NAMENOTFOUND"] = "Достижений с названием, содержащим \"|cffffffff%s|r\", не существует."
+--[[Translation missing --]]
+--[[ L["MSG_NOOPEN"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["MSG_NOOPEN_LIST"] = ""--]] 
 L["MSG_NUMFOUNDLIST"] = "Ещё %s других достижений найдено:"
 L["MSG_ONEFOUND"] = "Найдено ещё одно достижение: "
 L["MSG_OPENINGTO"] = "Результат поиска: "
@@ -1372,6 +1414,12 @@ L["OPT_SHOWPROGRESS"] = "Добавлять ваш прогресс"
 L["OPT_SHOWPROGRESS_OTHER"] = "Сравнивать прогресс в чужих ссылках"
 L["OPT_SHOWPROGRESS_OTHER_TIP"] = "Добавлять ваш прогресс в информацию о достижениях других игроков."
 L["OPT_SHOWPROGRESS_TIP"] = "Добавлять ваш прогресс в достижения, основанные на количественном критерии, например, \"Соберите 10 питомцев\"."
+--[[Translation missing --]]
+--[[ L["OPT_SLASHSEARCH_TAB"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["OPT_SLASHSEARCH_TAB_TIP"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["OPT_SLASHSEARCH_TIP2"] = ""--]] 
 L["OPT_STARTTOAST_BONUS"] = "Показать сегодняшние бонус событие"
 L["OPT_STARTTOAST_BONUS_TIP"] = "Показать сегодняшние бонус событие в всплывающие уведомления при входе, в игровой мир."
 L["OPT_STARTTOAST_DUNGEON"] = "Показать сегодняшние подземелье событие"
@@ -1516,9 +1564,13 @@ L["INCOMPLETE"] = "업적 진행 중"
 L["KILL_COMPLETE"] = "처치 완료"
 L["KILL_INCOMPLETE"] = "처치 필요"
 L["MSG_ACHNOTFOUND"] = "업적을 찾을 수 없습니다."
-L["MSG_CRITERIAPROGRESS"] = "cff7eff00업적 진행상황:|r %s (%s)"
+L["MSG_CRITERIAPROGRESS"] = "|cff7eff00업적 진행상황:|r %s (%s)"
 L["MSG_INVALIDID"] = "올바르지 않은 값: 해당 ID와 업적이 존재하지 않습니다."
 L["MSG_NAMENOTFOUND"] = "\"|cffffffff%s|r\"을 포함하는 업적을 찾을 수 없습니다."
+--[[Translation missing --]]
+--[[ L["MSG_NOOPEN"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["MSG_NOOPEN_LIST"] = ""--]] 
 L["MSG_NUMFOUNDLIST"] = "%s개의 다른 업적을 찾았습니다:"
 L["MSG_ONEFOUND"] = "1개의 다른 업적을 찾았습니다: "
 L["MSG_OPENINGTO"] = "열기: "
@@ -1594,6 +1646,12 @@ L["OPT_SHOWPROGRESS"] = "자신의 진행 상태 추가"
 L["OPT_SHOWPROGRESS_OTHER"] = "다른 업적 링크와 비교"
 L["OPT_SHOWPROGRESS_OTHER_TIP"] = "다른 사람의 업적 링크를 볼때 자신의 진행 상태를 추가합니다."
 L["OPT_SHOWPROGRESS_TIP"] = "\"탈 것 10개 획득\"과 같은, 업적 달성이 수량 기준일 때 자신의 진행 상태를 추가합니다."
+--[[Translation missing --]]
+--[[ L["OPT_SLASHSEARCH_TAB"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["OPT_SLASHSEARCH_TAB_TIP"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["OPT_SLASHSEARCH_TIP2"] = ""--]] 
 L["OPT_STARTTOAST_BONUS"] = "오늘의 보너스 이벤트 표시"
 L["OPT_STARTTOAST_BONUS_TIP"] = "게임에 접속할 때 오늘은 보너스 이벤트를 팝업으로 표시합니다."
 L["OPT_STARTTOAST_DUNGEON"] = "오늘의 던전 이벤트 표시"
@@ -1749,6 +1807,10 @@ L["MSG_ACHNOTFOUND"] = "Logro no encontrado."
 --[[ L["MSG_CRITERIAPROGRESS"] = ""--]] 
 L["MSG_INVALIDID"] = "Entrada errónea: No hay ningún logro con esa ID."
 L["MSG_NAMENOTFOUND"] = "No se ha encontrado ningún logro cuyo nombre contenga \"|cffffffff%s|r\"."
+--[[Translation missing --]]
+--[[ L["MSG_NOOPEN"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["MSG_NOOPEN_LIST"] = ""--]] 
 L["MSG_NUMFOUNDLIST"] = "%s logros adicionales encontrados:"
 L["MSG_ONEFOUND"] = "1 logro adicional encontrado: "
 L["MSG_OPENINGTO"] = "Abriendo a: "
@@ -1841,6 +1903,12 @@ L["OPT_SHOWPROGRESS"] = "Añadir tu progreso"
 L["OPT_SHOWPROGRESS_OTHER"] = "Comparar progreso con los logros de otros jugadores"
 L["OPT_SHOWPROGRESS_OTHER_TIP"] = "Añade tu progreso cuando se muestre la información de un logro para otro jugador."
 L["OPT_SHOWPROGRESS_TIP"] = "Añade tu progreso cuando un logro esta basado en un criterio cuantitativo, como \"Obtener 10 monturas.\""
+--[[Translation missing --]]
+--[[ L["OPT_SLASHSEARCH_TAB"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["OPT_SLASHSEARCH_TAB_TIP"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["OPT_SLASHSEARCH_TIP2"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["OPT_STARTTOAST_BONUS"] = ""--]] 
 --[[Translation missing --]]
@@ -2062,6 +2130,10 @@ L["YOURPROGRESS"] = "Tu progreso"
 --[[Translation missing --]]
 --[[ L["MSG_NAMENOTFOUND"] = ""--]] 
 --[[Translation missing --]]
+--[[ L["MSG_NOOPEN"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["MSG_NOOPEN_LIST"] = ""--]] 
+--[[Translation missing --]]
 --[[ L["MSG_NUMFOUNDLIST"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["MSG_ONEFOUND"] = ""--]] 
@@ -2207,6 +2279,12 @@ L["YOURPROGRESS"] = "Tu progreso"
 --[[ L["OPT_SHOWPROGRESS_OTHER_TIP"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["OPT_SHOWPROGRESS_TIP"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["OPT_SLASHSEARCH_TAB"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["OPT_SLASHSEARCH_TAB_TIP"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["OPT_SLASHSEARCH_TIP2"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["OPT_STARTTOAST_BONUS"] = ""--]] 
 --[[Translation missing --]]
@@ -2422,6 +2500,10 @@ L["MSG_ACHNOTFOUND"] = "Conquista não encontrada."
 L["MSG_CRITERIAPROGRESS"] = "|cff7eff00Progresso da conquista:|r %s (%s)"
 L["MSG_INVALIDID"] = "Dados inválidos: Nenhuma conquista com esse ID."
 L["MSG_NAMENOTFOUND"] = "Nenhuma conquista cujo nome contenha \"|cffffffff%s|r\" foi encontrada."
+--[[Translation missing --]]
+--[[ L["MSG_NOOPEN"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["MSG_NOOPEN_LIST"] = ""--]] 
 L["MSG_NUMFOUNDLIST"] = "%s outras conquistas encontradas:"
 L["MSG_ONEFOUND"] = "1 outra conquista encontrada:"
 L["MSG_OPENINGTO"] = "Abrindo para:"
@@ -2497,6 +2579,12 @@ L["OPT_SHOWPROGRESS"] = "Adicionar seu progresso"
 L["OPT_SHOWPROGRESS_OTHER"] = "Comparar o progresso nos vínculos de outros"
 L["OPT_SHOWPROGRESS_OTHER_TIP"] = "Adiciona seu progresso quando a informação de conquista mostrada é de um outro jogador."
 L["OPT_SHOWPROGRESS_TIP"] = "Adiciona seu progresso quando uma conquista tem critérios baseados em quantidade, como \"Obter 10 montarias\"."
+--[[Translation missing --]]
+--[[ L["OPT_SLASHSEARCH_TAB"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["OPT_SLASHSEARCH_TAB_TIP"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["OPT_SLASHSEARCH_TIP2"] = ""--]] 
 L["OPT_STARTTOAST_BONUS"] = "Mostrar eventos bônus de hoje"
 L["OPT_STARTTOAST_BONUS_TIP"] = "Mostra os eventos bônus de hoje em avisos na tela assim que entrar no jogo."
 L["OPT_STARTTOAST_DUNGEON"] = "Mostrar eventos de masmorras de hoje"
@@ -2640,6 +2728,10 @@ L["MSG_ACHNOTFOUND"] = "Impresa non trovata."
 L["MSG_CRITERIAPROGRESS"] = "|cff7eff00Progresso Impresa:|r %s (%s)"
 L["MSG_INVALIDID"] = "Input non valido: non esiste un'impresa con quell'ID."
 L["MSG_NAMENOTFOUND"] = "Nessuna impresa con nome contenente \"|cffffffff%s|r\" è stata trovata."
+--[[Translation missing --]]
+--[[ L["MSG_NOOPEN"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["MSG_NOOPEN_LIST"] = ""--]] 
 L["MSG_NUMFOUNDLIST"] = "%s altre imperse trovate:"
 L["MSG_ONEFOUND"] = "1 altra impresa trovata:"
 L["MSG_OPENINGTO"] = "Apertura in:"
@@ -2732,6 +2824,12 @@ L["OPT_SHOWPROGRESS"] = "Aggiungi il tuo progresso"
 L["OPT_SHOWPROGRESS_OTHER"] = "Confronta il tuo progresso con quello dei link degli altri"
 L["OPT_SHOWPROGRESS_OTHER_TIP"] = "Aggiungi il tuo progresso quando le informazioni di un'impresa mostrate sono quelle di un altro giocatore."
 L["OPT_SHOWPROGRESS_TIP"] = "Aggiungi il tuo progresso quando un'impresa ha dei criteri basati sulle quantità, come \"Ottieni 10 cavalcature.\""
+--[[Translation missing --]]
+--[[ L["OPT_SLASHSEARCH_TAB"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["OPT_SLASHSEARCH_TAB_TIP"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["OPT_SLASHSEARCH_TIP2"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["OPT_STARTTOAST_BONUS"] = ""--]] 
 --[[Translation missing --]]

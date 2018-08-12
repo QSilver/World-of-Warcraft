@@ -99,6 +99,8 @@ Prat3DB = {
 		},
 		["Prat_Fading"] = {
 		},
+		["Prat_UrlCopy"] = {
+		},
 		["Prat_History"] = {
 		},
 		["Prat_ChannelNames"] = {
@@ -111,17 +113,17 @@ Prat3DB = {
 		},
 		["Prat_Scroll"] = {
 		},
-		["Prat_Achievements"] = {
+		["Prat_Timestamps"] = {
 		},
 		["Prat_Paragraph"] = {
 		},
-		["Prat_Timestamps"] = {
+		["Prat_Achievements"] = {
 		},
 		["Prat_Alias"] = {
 		},
 		["Prat_OriginalButtons"] = {
 		},
-		["Prat_UrlCopy"] = {
+		["Prat_Highlight"] = {
 		},
 		["Prat_Sounds"] = {
 		},
@@ -140,11 +142,11 @@ Prat3DB = {
 		["Prat_Buttons"] = {
 			["profiles"] = {
 				["Default"] = {
-					["showButtons"] = false,
-					["showBnet"] = false,
 					["scrollReminder"] = false,
-					["showMenu"] = false,
+					["showBnet"] = false,
+					["showButtons"] = false,
 					["showminimize"] = false,
+					["showMenu"] = false,
 				},
 			},
 		},
@@ -156,17 +158,17 @@ Prat3DB = {
 	["profileKeys"] = {
 		["Linela - Silvermoon"] = "Default",
 		["Alyara - Silvermoon"] = "Default",
-		["Thagmarr - Silvermoon"] = "Default",
-		["Erdanii - Silvermoon"] = "Default",
-		["Tenderbreeze - Silvermoon"] = "Default",
-		["Stephanna - Argent Dawn"] = "Default",
 		["Siluna - Silvermoon"] = "Default",
+		["Flaville - Silvermoon"] = "Default",
+		["Myvanna - Silvermoon"] = "Default",
+		["Stephanna - Argent Dawn"] = "Default",
+		["Thagmarr - Silvermoon"] = "Default",
 		["Kjerstina - Silvermoon"] = "Default",
 		["Lachrymas - Silvermoon"] = "Default",
-		["Myvanna - Silvermoon"] = "Default",
+		["Tenderbreeze - Silvermoon"] = "Default",
 		["Spinhoof - Ragnaros"] = "Default",
 		["Simroth - Silvermoon"] = "Default",
-		["Flaville - Silvermoon"] = "Default",
+		["Erdanii - Silvermoon"] = "Default",
 		["Qsilver - Silvermoon"] = "Default",
 	},
 	["profiles"] = {

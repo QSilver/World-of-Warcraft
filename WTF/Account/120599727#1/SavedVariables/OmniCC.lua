@@ -1,6 +1,5 @@
 
 OmniCC4Config = {
-	["version"] = "8.0.0",
 	["groupSettings"] = {
 		["base"] = {
 			["enabled"] = true,
@@ -117,7 +116,7 @@ OmniCC4Config = {
 			},
 		},
 	},
-	["engine"] = "ScriptUpdater",
+	["version"] = "8.0.1",
 	["groups"] = {
 		{
 			["id"] = "Ignore",
@@ -128,4 +127,5 @@ OmniCC4Config = {
 			["enabled"] = true,
 		}, -- [1]
 	},
+	["engine"] = "ScriptUpdater",
 }

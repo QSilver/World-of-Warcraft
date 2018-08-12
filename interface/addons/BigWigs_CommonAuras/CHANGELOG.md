@@ -1,6 +1,17 @@
 # BigWigs +Common Auras
 
-## [v7.3.2](https://github.com/BigWigsMods/BigWigs_CommonAuras/tree/v7.3.2) (2017-12-15)
-[Full Changelog](https://github.com/BigWigsMods/BigWigs_CommonAuras/compare/v7.3.1...v7.3.2)
+## [v8.0.0](https://github.com/BigWigsMods/BigWigs_CommonAuras/tree/v8.0.0) (2018-07-27)
+[Full Changelog](https://github.com/BigWigsMods/BigWigs_CommonAuras/compare/v7.3.2...v8.0.0)
 
-- Update Locales.lua (#9)  
+- Allow using name for custom spells (known only)  
+- Update for 8.0  
+- Update color usage  
+- Update README.md  
+- Update zhTW (#11)  
+- Update Locales.Lua (ptBR) (#10)  
+- Only enable message by default for custom spells  
+- Actually use the enable toggle *cough*  
+- Tweaks  
+- Allow custom spells  
+- Update some locales  
+- Update .travis.yml  

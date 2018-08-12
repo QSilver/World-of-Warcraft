@@ -4,38 +4,39 @@
 local L = LibStub("AceLocale-3.0"):NewLocale("RCLootCouncil", "ptBR")
 if not L then return end
 
-L[" is not active in this raid."] = "não está ativo nesta incursão."
-L[" you are now the Master Looter and RCLootCouncil is now handling looting."] = "você é o Mestre do Saque agora e o RCLootCouncil está manuseando a distribuição."
-L["&p was awarded with &i for &r!"] = "&p recebeu a recompensa &i por &r!"
-L["2 Piece"] = "2 Peças"
-L["2nd Tier Piece"] = "2ª Peça do Tier"
-L["4 Piece"] = "4 Peças"
-L["4th Tier Piece"] = "4ª Peça do Tier"
-L["A format to copy/paste to another player."] = "Um formato para copiar e colar para outro jogador."
-L["A new session has begun, type '/rc open' to open the voting frame."] = "Uma nova sessão se iniciou, digite '/rc open' para abrir o quadro de votação."
-L["A tab delimited output for Excel. Might work with other spreadsheets."] = "Saída de abas demarcada para o Excel. Deve funcionar com outras planilhas."
+L[" is not active in this raid."] = " não está ativo nesta raide."
+L[" you are now the Master Looter and RCLootCouncil is now handling looting."] = "você é o Mestre do Saque agora e o RCLootCouncil está manipulando o saque."
+L["&p was awarded with &i for &r!"] = "&p foi recompensado com &i por &r!"
+L["2 Piece"] = "2 peças"
+L["2nd Tier Piece"] = "2ª peça do \"Tier\""
+L["4 Piece"] = "4 peças"
+L["4th Tier Piece"] = "4ª peça do \"Tier\""
+L["A format to copy/paste to another player."] = "Um formato para copiar/colar para outro jogador."
+L["A new session has begun, type '/rc open' to open the voting frame."] = "Uma nova sessão se iniciou, digite '/rc abrir' para abrir o quadro de votação."
+L["A tab delimited output for Excel. Might work with other spreadsheets."] = "Uma saída delimitada por tabulação para o Excel. Deve funcionar com outros leitores de planilhas."
 L["Abort"] = "Abortar"
 L["Accept Whispers"] = "Aceitar Sussuros"
---[[Translation missing --]]
---[[ L["accept_whispers_desc"] = ""--]] 
+L["accept_whispers_desc"] = "Permite aos jogadores sussurrar seu(s) item(ns) atual(is) para você para ser(em) adicionado(s) ao quadro de votação."
 L["Active"] = "Ativo"
---[[Translation missing --]]
---[[ L["active_desc"] = ""--]] 
+L["active_desc"] = "Desmarque para desativar o RCLootCouncil. Útil se você estiver em um grupo de raide, mas não está participando de verdade. Nota: Isso é redefinido a cada \"logout\"."
 L["Add Item"] = "Adicionar Item"
 L["Add Note"] = "Adicionar Nota"
-L["Add ranks"] = "Adicionar ranques"
---[[Translation missing --]]
---[[ L["Add rolls"] = ""--]] 
---[[Translation missing --]]
---[[ L["Add Rolls"] = ""--]] 
---[[Translation missing --]]
---[[ L["add_ranks_desc"] = ""--]] 
---[[Translation missing --]]
---[[ L["add_ranks_desc2"] = ""--]] 
---[[Translation missing --]]
---[[ L["add_rolls_desc"] = ""--]] 
+L["Add ranks"] = "Adicionar \"ranks\""
+L["Add rolls"] = "Adicionar \"rolls\""
+L["Add Rolls"] = "Adicionar \"Rolls\""
+L["add_ranks_desc"] = "Escolha um \"rank\" mínimo para participar do \"lootcouncil\":"
+L["add_ranks_desc2"] = [=[
+
+Selecione um "rank" acima para adicionar todos os membros deste "rank" e acima ao "conselho do loot".
+
+Clique nas fileiras à esquerda para adicionar individualmente jogadores ao conselho.
+
+Clique na guia "Conselho atual" para ver sua seleção.]=]
+L["add_rolls_desc"] = "Adicione aleatoriamente \"rolls\" de 1 a 100 a todas as sessões."
 L["All items"] = "Todos os itens"
 L["All items has been awarded and  the loot session concluded"] = "Todos os itens foram distribuídos e a sessão de saque concluída"
+--[[Translation missing --]]
+--[[ L["All items have been awarded and the loot session concluded"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["All items usable by the candidate"] = ""--]] 
 --[[Translation missing --]]
@@ -310,6 +311,8 @@ L["Autoloot BoE"] = "Saque automático para itens Vinculados ao Equipar"
 --[[Translation missing --]]
 --[[ L["disenchant_desc"] = ""--]] 
 --[[Translation missing --]]
+--[[ L["Do you want to keep %s for yourself?"] = ""--]] 
+--[[Translation missing --]]
 --[[ L["Done syncing"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["Double click to delete this entry."] = ""--]] 
@@ -430,6 +433,8 @@ L["Autoloot BoE"] = "Saque automático para itens Vinculados ao Equipar"
 --[[Translation missing --]]
 --[[ L["loot_history_desc"] = ""--]] 
 --[[Translation missing --]]
+--[[ L["Looted by:"] = ""--]] 
+--[[Translation missing --]]
 --[[ L["Looting options"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["Lower Quality Limit"] = ""--]] 
@@ -490,6 +495,14 @@ L["Autoloot BoE"] = "Saque automático para itens Vinculados ao Equipar"
 --[[Translation missing --]]
 --[[ L["No winners registered"] = ""--]] 
 --[[Translation missing --]]
+--[[ L["non_tradeable_reason_nil"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["non_tradeable_reason_not_tradeable"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["non_tradeable_reason_rejected_trade"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["Non-tradeable reason:"] = ""--]] 
+--[[Translation missing --]]
 --[[ L["Not announced"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["Not cached, please reopen."] = ""--]] 
@@ -529,14 +542,21 @@ L["Autoloot BoE"] = "Saque automático para itens Vinculados ao Equipar"
 --[[ L["Only use in raids"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["onlyUseInRaids_desc"] = ""--]] 
---[[Translation missing --]]
---[[ L["open"] = ""--]] 
+L["open"] = "abrir"
 --[[Translation missing --]]
 --[[ L["Open the Loot History"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["open_the_loot_history_desc"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["Opens the synchronizer"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_printCompletedTrade_Desc"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_printCompletedTrade_Name"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_rejectTrade_Desc"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_rejectTrade_Name"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["Other piece"] = ""--]] 
 --[[Translation missing --]]
@@ -794,6 +814,10 @@ L["Autoloot BoE"] = "Saque automático para itens Vinculados ao Equipar"
 --[[Translation missing --]]
 --[[ L["Total items won:"] = ""--]] 
 --[[Translation missing --]]
+--[[ L["trade_complete_message"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["trade_wrongwinner_message"] = ""--]] 
+--[[Translation missing --]]
 --[[ L["tVersion_outdated_msg"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["Unable to give 'item' to 'player'"] = ""--]] 
@@ -887,8 +911,7 @@ L["Autoloot BoE"] = "Saque automático para itens Vinculados ao Equipar"
 --[[ L["You haven't set a council! You can edit your council by typing '/rc council'"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["You must select a target"] = ""--]] 
---[[Translation missing --]]
---[[ L["Your note:"] = ""--]] 
+L["Your note:"] = "Sua nota:"
 --[[Translation missing --]]
 --[[ L["You're already running a session."] = ""--]] 
 

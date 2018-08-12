@@ -50,16 +50,6 @@ local IsSecureCmd = IsSecureCmd
 local wipe = table.wipe
 local print = print
 
--- Do something about the missing party guide chat type
-if CHAT_MSG_PARTY_GUIDE == nil and CHAT_PARTY_GUIDE_GET ~= nil and select(4, GetBuildInfo()) < 80000 then
-  tinsert(ChatTypeGroup["PARTY_LEADER"], "CHAT_MSG_PARTY_GUIDE")
-  ChatTypeInfo["PARTY_GUIDE"] = ChatTypeInfo["PARTY_LEADER"]
-
-  CHAT_MSG_PARTY_GUIDE = (CHAT_PARTY_GUIDE_GET):match("%[([^%]]*)%]")
-end
-
-
-
 -- Isolate the environment
 setfenv(1, Prat)
 
@@ -86,7 +76,7 @@ Version = "Prat |cff8080ff3.0|r (|cff8080ff" .. "DEBUG" .. "|r)"
 --@end-debug@]===]
 
 --@non-debug@
-Version = "Prat |cff8080ff3.0|r (|cff8080ff".."r1157".."|r)"
+Version = "Prat |cff8080ff3.0|r (|cff8080ff".."r1174".."|r)"
 --@end-non-debug@
 
 
