@@ -510,8 +510,10 @@ L["STRING_OPTIONS_BG_ALL_ALLY_DESC"] = [=[Aktiviert: Zeigt auch gegnerische Spie
 
 |cFFFFFF00Wichtig|r: Änderungen werden erst beim nächsten Kampf übernommen.]=]
 L["STRING_OPTIONS_BG_ANCHOR"] = "Schlachtfelder:"
-L["STRING_OPTIONS_BG_REMOTE_PARSER"] = "Punktezahl"
-L["STRING_OPTIONS_BG_REMOTE_PARSER_DESC"] = "Aktiviert: Schaden und Heilung werden mit der Punktetafel synchronisiert."
+--[[Translation missing --]]
+--[[ L["STRING_OPTIONS_BG_UNIQUE_SEGMENT"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["STRING_OPTIONS_BG_UNIQUE_SEGMENT_DESC"] = ""--]] 
 L["STRING_OPTIONS_CAURAS"] = "Auren erfassen"
 L["STRING_OPTIONS_CAURAS_DESC"] = [=[Aktiviert die Erfassung von:
 

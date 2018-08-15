@@ -81,6 +81,7 @@ BigWigs:AddColors("Mythrax the Unraveler", {
 BigWigs:AddColors("G'huun", {
 	[263235] = {"blue","red"},
 	[263307] = "orange",
+	[263321] = "blue",
 	[263482] = "green",
 	[267409] = "red",
 	[267412] = "purple",

@@ -1,11 +1,18 @@
 ------------------------------------------------------------------------
-r426 | Tomber | 2018-08-10 22:28:54 +0000 (Fri, 10 Aug 2018) | 1 line
+r428 | Tomber | 2018-08-13 15:38:08 +0000 (Mon, 13 Aug 2018) | 11 lines
 Changed paths:
-   M /trunk/Bars.lua
-   M /trunk/Localizations/enUS.lua
-   M /trunk/Profile.lua
-   M /trunk/Raven_Options/Options.lua
+   M /trunk/Nest.lua
 
 Add Time Format settings to the Defaults tab. Use Defaults and Restore Defaults options are added for Time Format on each bar group's Timer Options tab. This makes it possible to easily switch between time formats when using the same one across bar groups. Note that this will not affect existing bar groups. New bar groups, however, will be created with Use Defaults enabled for time format.
+
+Fix color initialization bug that could result in changes to bar groups which do not use font and texture defaults to affect those that do use them.
+
+Update of combat text feature: verified working with MSBT and Blizzard's built-in combat text, removed support for SCT and Parrot since these no longer work in BfA, added support for Critical setting when used with Blizzard's combat text.
+
+Add setting in Timer Options to reverse the way ready bars appear versus other unlimited duration bars (only visible for custom bar groups). Since ready bars are a special case of unlimited duration bars, it can be hard to distinguish them from others (e.g., auras that do not expire). The new setting was added next to Show As Full Bars and is called Ready Reverse. In addition, several tooltips related to ready bars were changed to, hopefully, make them a bit easier to use.
+
+On Appearance tab, a new foreground bar color option was added to enable class colors.
+
+
 ------------------------------------------------------------------------
 

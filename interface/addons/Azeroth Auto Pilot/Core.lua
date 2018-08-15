@@ -896,9 +896,7 @@ AAP_CoreEventFrame:SetScript("OnEvent", function(self, event, ...)
 			if (not AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoHandIn"]) then
 				AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoHandIn"] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoShareQ"]) then
-				AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoShareQ"] = 1
-			end
+			AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoShareQ"] = 0
 			if (not AAP1[AAP_Realm][AAP_Name]["Settings"]["ChooseQuests"]) then
 				AAP1[AAP_Realm][AAP_Name]["Settings"]["ChooseQuests"] = 0
 			end

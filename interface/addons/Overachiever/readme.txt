@@ -1,5 +1,5 @@
 
-Overachiever v1.0.2
+Overachiever v1.0.3
 ==============================
 
 Author: Tuhljin
@@ -109,6 +109,14 @@ Change log
 ==========
 
 The change log lists changes of particular note to users, not every change made.
+
+v1.0.3
+- Cache module:
+-- This module now improves the accuracy of cross-faction data. For instance, the meta-achievement "Master of Warsong Gulch" requires a different version of "Quick Cap" for each faction. Without the cache module, only the "Quick Cap" for your own faction indicates that it is required by another achievement. With Overachiever_Cache enabled, both versions now indicate this.
+-- For a complete cache, you will need to have logged into both an Alliance and a Horde character. (Most of the time, this is a non-issue. Most cached data is not faction specific. Even faction-specific achievements usually provide the same data to both factions.)
+-- The tooltip indicating an achievement is required for a meta-achievement can now display an Alliance or Horde icon to show when the cache indicates the requirement is exclusive to one faction.
+-- Fixed an issue where populating the cache while logged into a character of one faction prevented data from the other faction from being added.
+- Fixed an issue where some of the opposing faction's achievements were sometimes automatically tracked in battlegrounds.
 
 v1.0.2
 - Correct an issue that prevents the cache module from being loaded.

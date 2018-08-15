@@ -509,26 +509,16 @@ L=
 		["Sets position of chat menu and arrows for all chat windows."] = "Establece la posición del menú y de las flechas de todas las ventanas de chat.",
 		["Show Arrows"] = "Mostar Flechas",
 		["Show Chat%d Arrows"] = "Mostar Flechas del Chat %d",
-		--[[Translation missing --]]
-		--[[ ["showbnet_desc"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["showbnet_name"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["showchannel_desc"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["showchannel_name"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["showmenu_desc"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["showmenu_name"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["showminimize_desc"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["showminimize_name"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["showvoice_desc"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["showvoice_name"] = "",--]] 
+		["showbnet_desc"] = "Muestra Botón Social",
+		["showbnet_name"] = "Mostrar Botón Social",
+		["showchannel_desc"] = "Muestra el botón de canales de chat",
+		["showchannel_name"] = "Mostrar Botón de Canales",
+		["showmenu_desc"] = "Muestra el botón de menú del chat",
+		["showmenu_name"] = "Mostrar Menú",
+		["showminimize_desc"] = "Muestra el botón de minimizar",
+		["showminimize_name"] = "Mostrar botón de minimizar",
+		["showvoice_desc"] = "Muestra los botones de voz",
+		["showvoice_name"] = "Mostrar botones de voz",
 		["Toggle showing chat arrows for each chat window."] = "Alterna el mostrar las flechas para cada ventana de chat.",
 		["Toggles navigation arrows on and off."] = "Alterna la activación de las flechas de navegación.",
 	}

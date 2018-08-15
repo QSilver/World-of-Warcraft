@@ -223,9 +223,12 @@ end
 --]]
 
 
--- Battleground Timed Wins:
+-- Timed battleground achievements:
 OVERACHIEVER_BGTIMERID = {
-	-- Format: [<Achievement ID>] = <Instance Map ID>. See: http://wow.gamepedia.com/InstanceMapID#Battlegrounds
+	-- Format: [<Achievement ID>] = <Instance Map ID> or true or false. See: http://wow.gamepedia.com/InstanceMapID#Battlegrounds
+	-- If true, we aren't worried about the instance map ID. (Ideally, that would always be the case, but there is/was a bug where WoW reported a timer started
+	-- when it shouldn't be, resulting in improper auto-tracking.)
+	-- If false, we don't auto-track it despite WoW telling us the timer started.
 	[201] = 489, -- Warsong Expedience (Warsong Gulch) [working around bug]
 	[159] = 529, -- Let's Get This Done (Arathi Basin) [working around bug]
 	[214] = 566, -- Flurry (Eye of the Storm)
@@ -240,13 +243,20 @@ OVERACHIEVER_BGTIMERID = {
 	-- not instanced: [1755] = -1, -- Within Our Grasp (Wintergrasp)
 	-- none for Tol Barad
 	-- none for Ashran
+	[12404] = 1803, -- Claim Jumper (Seething Shore) -- for doing something shortly after landing, not timed from start of match
+	[12405] = 1803, -- Death From Above (Seething Shore) -- for doing something shortly after landing, not timed from start of match
+
+	-- Quick Cap (Warsong Gulch):
+	[202] = IsAlliance and 489 or false,
+	[1502] = not IsAlliance and 489 or false,
+	-- Fire, Walk With Me (Twin Peaks):
+	[5221] = IsAlliance and 726 or false,
+	[5222] = not IsAlliance and 726 or false,
 }
 OVERACHIEVER_BGTIMERID_RATED = {
+-- !! check for more rated-specific ones. last check: before Seething Shore
 	[214] = 968, -- Flurry (Eye of the Storm)
 }
-
---!! 202 1502 (horde) -- blizzard actually triggered it for BOTH factions! silly
---!! 5221 5222 fire, walk with me (both factions again)
 
 -- Look up the achievement ID of the given zone's exploration achievement, whatever the localization.
 -- Using zone names alone isn't reliable because the achievement names don't always use the zone's name as given by

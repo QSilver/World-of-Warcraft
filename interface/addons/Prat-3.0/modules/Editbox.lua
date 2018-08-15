@@ -302,10 +302,8 @@ L=
 L=
 {
 	["Editbox"] = {
-		--[[Translation missing --]]
-		--[[ ["Attach edit box to..."] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["Attach to..."] = "",--]] 
+		["Attach edit box to..."] = "Anclar la caja de edición a...",
+		["Attach to..."] = "Anclar a...",
 		["Background color"] = "Color de fondo",
 		--[[Translation missing --]]
 		--[[ ["Background Inset"] = "",--]] 
@@ -322,17 +320,12 @@ L=
 		["Font"] = "Fuente",
 		["Free-floating"] = "Flotar-libre",
 		["Free-floating, Locked"] = "Flotar-libre, Bloqueado",
-		--[[Translation missing --]]
-		--[[ ["Requires the Alt key to be held down to move the cursor in chat"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["Select the font to use for the edit box"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["Sets the frame's border color to the color of your currently active channel"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["Tile Size"] = "",--]] 
+		["Requires the Alt key to be held down to move the cursor in chat"] = "Requiere la tecla Alt presionada para mover el cursor en el chat",
+		["Select the font to use for the edit box"] = "Seleccione la fuente a usar para la caja de edición",
+		["Sets the frame's border color to the color of your currently active channel"] = "Establece el color del borde del marco con el color de su canal actualmente activo",
+		["Tile Size"] = "Tamaño de mosaico",
 		["Top"] = "Arriba",
-		--[[Translation missing --]]
-		--[[ ["Use Alt key for cursor movement"] = "",--]] 
+		["Use Alt key for cursor movement"] = "Usar la tecla Alt para el desplazamiento del cursor",
 	}
 }
 

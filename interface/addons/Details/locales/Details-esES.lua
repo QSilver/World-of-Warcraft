@@ -649,9 +649,9 @@ L["STRING_OPTIONS_BARSTART_DESC"] = "La barra comenza al borde derecho del icono
 --[[Translation missing --]]
 --[[ L["STRING_OPTIONS_BG_ANCHOR"] = ""--]] 
 --[[Translation missing --]]
---[[ L["STRING_OPTIONS_BG_REMOTE_PARSER"] = ""--]] 
+--[[ L["STRING_OPTIONS_BG_UNIQUE_SEGMENT"] = ""--]] 
 --[[Translation missing --]]
---[[ L["STRING_OPTIONS_BG_REMOTE_PARSER_DESC"] = ""--]] 
+--[[ L["STRING_OPTIONS_BG_UNIQUE_SEGMENT_DESC"] = ""--]] 
 L["STRING_OPTIONS_CAURAS"] = "Recoger auras"
 L["STRING_OPTIONS_CAURAS_DESC"] = [=[Activar la recogida de:
 

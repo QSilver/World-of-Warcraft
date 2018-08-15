@@ -207,22 +207,6 @@ function LoadOptionsFrame()
 		end
 	end)
 
-	AAP.OptionsFrame.CheckButton6 = CreateFrame("CheckButton", "CLxCheckButton6", AAP.OptionsFrame.MainFrame, "ChatConfigCheckButtonTemplate");
-	AAP.OptionsFrame.CheckButton6:SetPoint("TOPLEFT", AAP.OptionsFrame.MainFrame, "TOPLEFT", 10, -190)
-	if (AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoShareQ"] == 0) then
-		AAP.OptionsFrame.CheckButton6:SetChecked(false)
-	else
-		AAP.OptionsFrame.CheckButton6:SetChecked(true)
-	end
-	getglobal(AAP.OptionsFrame.CheckButton6:GetName() .. 'Text'):SetText(": "..AAP_Locals["AutoShareQ"])
-	getglobal(AAP.OptionsFrame.CheckButton6:GetName() .. 'Text'):SetTextColor(1, 1, 1)
-	AAP.OptionsFrame.CheckButton6:SetScript("OnClick", function()
-		if (AAP.OptionsFrame.CheckButton6:GetChecked() == true) then
-			AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoShareQ"] = 1
-		else
-			AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoShareQ"] = 0
-		end
-	end)
 	AAP.OptionsFrame.CheckButton7 = CreateFrame("CheckButton", "CLxCheckButton7", AAP.OptionsFrame.MainFrame, "ChatConfigCheckButtonTemplate");
 	AAP.OptionsFrame.CheckButton7:SetPoint("TOPLEFT", AAP.OptionsFrame.MainFrame, "TOPLEFT", 10, -210)
 	if (AAP1[AAP_Realm][AAP_Name]["Settings"]["BannerShow"] == 0) then

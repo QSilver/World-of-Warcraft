@@ -74,7 +74,7 @@ This may be useful when one thread is simply waiting on another thread to comple
 --]]
 
 
-local THIS_VERSION = "0.04"
+local THIS_VERSION = "0.05"
 
 if (TjThreads and TjThreads.Version >= THIS_VERSION) then  return;  end  -- Lua's pretty good at this. It even knows that "1.0.10" > "1.0.9". However, be aware that it thinks "1.0" < "1.0b" so putting a "b" on the end for Beta, nothing for release, doesn't work.
 
@@ -104,7 +104,7 @@ local function doTask(func)
 	local ok, ret2 = pcall(func)
 	if (ok) then  return ret2;  end
 	C_Timer.After(0, function()  -- Use a timer so as to not interrupt what we're doing.
-		error("TjThreads library encountered an error while running a task. To prevent further errors, the task was terminated. Check the task function for problems. The original error message follows:|n" .. ret2)
+		error("TjThreads library encountered an error while running a task. To prevent further errors, the task was terminated. Check the task function for problems. The original error message follows:\n" .. ret2)
 	end)
 	return true  -- End the task as if it was complete (ret2 true) so it will be removed.
 end
@@ -118,7 +118,7 @@ local function resumeThread(thread, noErrorOut)
 		lastErr = ret2
 		if (not noErrorOut) then
 			C_Timer.After(0, function()  -- Use a timer so as to not interrupt what we're doing.
-				error("TjThreads library encountered an error while running a task. To prevent further errors, the task was terminated. Check the task function for problems. The original error message follows:|n" .. ret2)
+				error("TjThreads library encountered an error while running a task. To prevent further errors, the task was terminated. Check the task function for problems. The original error message follows:\n" .. ret2)
 			end)
 		end
 		return true  -- End the task as if it was complete
@@ -209,7 +209,7 @@ function TjThreads.RushTask(func)
 	until (complete)
 	TjThreads.RemoveTask(func)
 	if (lastErr) then
-		error("TjThreads.RushTask(): Encountered an error while running a task. To prevent further errors, the task was terminated. Check the task function for problems. The original error message follows:|n" .. lastErr)
+		error("TjThreads.RushTask(): Encountered an error while running a task. To prevent further errors, the task was terminated. Check the task function for problems. The original error message follows:\n" .. lastErr)
 	end
 	return ret
 end

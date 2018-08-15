@@ -540,7 +540,7 @@ function AAP_MakeQuestList()
 	AAP.QuestList.QuestFrames = {}
 	AAP.QuestList2 = {}
 	local CLi
-	for CLi = 1, 25 do
+	for CLi = 1, 50 do
 		AAP.QuestList.QuestFrames[CLi] = CreateFrame("frame", "CLQListF"..CLi, AAP.QuestList.ListFrame)
 		AAP.QuestList.QuestFrames[CLi]:SetWidth(410)
 

@@ -1,5 +1,5 @@
 -- Nest is a graphics package that is optimized to display Raven's bar groups.
--- Bar groups share layout and appearance options (dimensions, fonts, textures, configuration, special effects).
+-- Bar groups share layout and appearance options (dimensions, fonts, textures, colors, configuration, special effects).
 -- Each bar has a fixed set of graphical components (icon, iconText, foreground bar, background bar, labelText, timeText, spark).
 
 local MOD = Raven

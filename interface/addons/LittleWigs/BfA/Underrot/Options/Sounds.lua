@@ -18,6 +18,7 @@ BigWigs:AddSounds("Sporecaller Zancha", {
 })
 
 BigWigs:AddSounds("Unbound Abomination", {
+	[269301] = {"alarm","warning"},
 	[269310] = "long",
 	[269843] = "warning",
 	["stages"] = "info",

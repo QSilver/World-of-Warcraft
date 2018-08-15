@@ -2662,9 +2662,10 @@ end
 
 function WeakAuras.PreAdd(data)
   WeakAuras.validate(data, WeakAuras.data_stub)
-  local default = data.regionType and WeakAuras.regionTypes[data.regionType].default
-  if not default then error('no default regionType') end
-  WeakAuras.validate(data, default)
+  local default = data.regionType and WeakAuras.regionTypes[data.regionType] and WeakAuras.regionTypes[data.regionType].default
+  if default then
+    WeakAuras.validate(data, default)
+  end
   WeakAuras.Modernize(data);
   removeSpellNames(data)
 end
@@ -3896,7 +3897,7 @@ function WeakAuras.ValueToPath(data, path, value)
 end
 
 function WeakAuras.FixGroupChildrenOrderForGroup(data)
-  local frameLevel = 1;
+  local frameLevel = 5;
   for i=1, #data.controlledChildren do
     WeakAuras.SetFrameLevel(data.controlledChildren[i], frameLevel);
     frameLevel = frameLevel + 4;
@@ -3920,7 +3921,7 @@ function WeakAuras.SetFrameLevel(id, frameLevel)
 end
 
 function WeakAuras.GetFrameLevelFor(id)
-  return WeakAuras.frameLevels[id] or 0;
+  return WeakAuras.frameLevels[id] or 5;
 end
 
 function WeakAuras.EnsureString(input)

@@ -1,5 +1,23 @@
-changeset:   728:5c29a7092020
+changeset:   731:dfe710f3192f
 tag:         tip
+user:        Tercio
+date:        Mon Aug 13 17:06:46 2018 -0300
+summary:     - Fixed an issue with Alliance or Horde icons showing at random in player bars.
+
+
+changeset:   730:a4e4991a7f8d
+user:        Tercio
+date:        Mon Aug 13 17:01:58 2018 -0300
+summary:     - Fixed an issue with Alliance or Horde icons showing at random in player bars.
+
+
+changeset:   729:41c0431ad5c8
+user:        Tercio
+date:        Thu Aug 09 11:55:18 2018 -0300
+summary:     - Fixed mobs showing when in Standard mode.
+
+
+changeset:   728:5c29a7092020
 user:        Tercio
 date:        Thu Aug 09 00:39:13 2018 -0300
 summary:     - Hotfix an initialization issue caused by a stealth patch in the client addon API.

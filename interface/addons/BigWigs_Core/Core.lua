@@ -377,7 +377,7 @@ do
 	-- Adding core generic toggles
 	addon:RegisterBossOption("berserk", L.berserk, L.berserk_desc, nil, 136224) -- 136224 = "Interface\\Icons\\spell_shadow_unholyfrenzy"
 	addon:RegisterBossOption("altpower", L.altpower, L.altpower_desc, nil, 429383) -- 429383 = "Interface\\Icons\\spell_arcane_invocation"
-	addon:RegisterBossOption("infobox", L.infobox, L.infobox_desc)
+	addon:RegisterBossOption("infobox", L.infobox, L.infobox_desc, nil, 443374) -- Interface\\Icons\\INV_MISC_CAT_TRINKET05
 	addon:RegisterBossOption("stages", L.stages, L.stages_desc)
 	addon:RegisterBossOption("warmup", L.warmup, L.warmup_desc)
 end
@@ -461,13 +461,12 @@ do
 		if not C then C = addon.C end
 		if not defaultToggles then
 			defaultToggles = setmetatable({
-				berserk = C.BAR + C.MESSAGE,
-				bosskill = C.MESSAGE,
+				berserk = C.BAR + C.MESSAGE + C.SOUND,
 				proximity = C.PROXIMITY,
 				altpower = C.ALTPOWER,
 				infobox = C.INFOBOX,
 			}, {__index = function()
-				return C.BAR + C.MESSAGE + C.VOICE
+				return C.BAR + C.CASTBAR + C.MESSAGE + C.ICON + C.SOUND + C.SAY + C.SAY_COUNTDOWN + C.PROXIMITY + C.FLASH + C.ALTPOWER + C.VOICE + C.INFOBOX
 			end})
 		end
 

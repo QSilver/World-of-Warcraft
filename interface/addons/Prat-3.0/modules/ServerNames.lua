@@ -186,10 +186,8 @@ Prat:AddModuleToLoad(function()
  L=
 {
 	["ServerNames"] = {
-		--[[Translation missing --]]
-		--[[ ["autoabbreviate_desc"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["autoabbreviate_name"] = "",--]] 
+		["autoabbreviate_desc"] = "Acorta el nombre del servidor a 3 letras",
+		["autoabbreviate_name"] = "Auto-abreviar",
 		["colon_desc"] = "Alterna añadir dos puntos despues del servidor reemplazado.",
 		["colon_name"] = "Mostrar dos puntos",
 		["randomclr_desc"] = "Utiliza un color aleatorio para cada servidor.",

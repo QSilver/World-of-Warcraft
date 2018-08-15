@@ -508,8 +508,10 @@ L["STRING_OPTIONS_BG_ALL_ALLY"] = "全部显示"
 --[[Translation missing --]]
 --[[ L["STRING_OPTIONS_BG_ALL_ALLY_DESC"] = ""--]] 
 L["STRING_OPTIONS_BG_ANCHOR"] = "战场："
-L["STRING_OPTIONS_BG_REMOTE_PARSER"] = "智能得分"
-L["STRING_OPTIONS_BG_REMOTE_PARSER_DESC"] = "启用后，伤害和治疗将和记分板同步。"
+--[[Translation missing --]]
+--[[ L["STRING_OPTIONS_BG_UNIQUE_SEGMENT"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["STRING_OPTIONS_BG_UNIQUE_SEGMENT_DESC"] = ""--]] 
 L["STRING_OPTIONS_CAURAS"] = "采集光环"
 L["STRING_OPTIONS_CAURAS_DESC"] = [=[启用捕获：
 

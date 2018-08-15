@@ -10,7 +10,7 @@ local ldbi = LibStub("LibDBIcon-1.0")
 -- Generate our version variables
 --
 
-local BIGWIGS_VERSION = 103
+local BIGWIGS_VERSION = 104
 local BIGWIGS_RELEASE_STRING, BIGWIGS_VERSION_STRING = "", ""
 local versionQueryString, versionResponseString = "Q^%d^%s", "V^%d^%s"
 
@@ -21,7 +21,7 @@ do
 	local RELEASE = "RELEASE"
 
 	local releaseType = RELEASE
-	local myGitHash = "a1726b8" -- The ZIP packager will replace this with the Git hash.
+	local myGitHash = "1585351" -- The ZIP packager will replace this with the Git hash.
 	local releaseString = ""
 	--[===[@alpha@
 	-- The following code will only be present in alpha ZIPs.
@@ -688,7 +688,7 @@ function mod:ADDON_LOADED(addon)
 		-- TODO: look into having a way for our boss modules not to create a table when no options are changed.
 		if BigWigs3DB.namespaces then
 			for k,v in next, BigWigs3DB.namespaces do
-				if k:find("BigWigs_Bosses_", nil, true) and not next(v) then
+				if k:find("BigWigs_Bosses_", nil, true) and (not next(v) or not BigWigs3DB.wipe80) then -- XXX temp boss DB wipe for 8.0.1
 					BigWigs3DB.namespaces[k] = nil
 				end
 				-- XXX start temp 8.0.1 color conversion
@@ -725,6 +725,7 @@ function mod:ADDON_LOADED(addon)
 				-- XXX end temp 8.0.1 color conversion
 			end
 		end
+		BigWigs3DB.wipe80 = true -- XXX temp boss DB wipe for 8.0.1
 		if not BigWigs3DB.discord or BigWigs3DB.discord < 15 then
 			BigWigs3DB.discord = (BigWigs3DB.discord or 0) + 1
 			CTimerAfter(11, function() sysprint("We are now on Discord: https://discord.gg/jGveg85") end)
@@ -832,6 +833,13 @@ do
 		BigWigs_Voice_Overwatch = "BigWigs_Countdown_Overwatch",
 		BigWigs_AutoReply = "BigWigs",
 		BigWigs_AutoReply2 = "BigWigs",
+		BigWigs_Antorus = "BigWigs_Legion",
+		BigWigs_ArgusInvasionPoints = "BigWigs_Legion",
+		BigWigs_BrokenIsles = "BigWigs_Legion",
+		BigWigs_Nighthold = "BigWigs_Legion",
+		BigWigs_Nightmare = "BigWigs_Legion",
+		BigWigs_TombOfSargeras = "BigWigs_Legion",
+		BigWigs_TrialOfValor = "BigWigs_Legion",
 	}
 	local delayedMessages = {}
 
@@ -1293,7 +1301,7 @@ do
 		-- Lacking zone modules
 		if (BigWigs and BigWigs.db.profile.showZoneMessages == false) or self.isShowingZoneMessages == false then return end
 		local zoneAddon = public.zoneTbl[id]
-		if zoneAddon and zoneAddon ~= "BigWigs_Legion" then
+		if zoneAddon and zoneAddon ~= "BigWigs_BattleForAzeroth" then
 			if zoneAddon:find("LittleWigs_", nil, true) then zoneAddon = "LittleWigs" end -- Collapse into one addon
 			if id > 0 and not fakeZones[id] and not warnedThisZone[id] and not IsAddOnEnabled(zoneAddon) then
 				warnedThisZone[id] = true

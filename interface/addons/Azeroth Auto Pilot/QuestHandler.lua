@@ -232,7 +232,7 @@ function AAP_UpdateQuestList()
 	local CLi = 0
 	AAP_BonusCrap = nil
 	AAP_BonusCrap = {}
-	for CLi = 1, 25 do
+	for CLi = 1, 50 do
 		AAP_BookedFS[CLi] = 0
 		AAP_NamedBookedFS = nil
 		AAP_NamedBookedFS = {}
@@ -1073,23 +1073,25 @@ function AAP_UpdateQuestList()
 				if (AAP_BonusObj[AAP_index] and not AAP_BonusCrap[AAP_index]) then
 					if ((not AAP1[AAP_Realm][AAP_Name]["SkippedBonusObj"][AAP_index]) and (not AAP_CompletedQs[AAP_index])) then
 						local AAP_NRFS = AAP_QH_GetFS(AAP_index .."-"..1)
-						ars = ars + 1
-						AAP.QuestList.QuestFrames[AAP_NRFS]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
-						AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText("[".. ars+1 .."] Bonus Objective NotDone")
-			local aapwidth = AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:GetStringWidth()
-			if (aapwidth and aapwidth > 400) then
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(aapwidth+10)
-			else
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(410)
-			end
-						AAP_SetButton(AAP_NRFS, ars)
-						AAP.QuestList.QuestFrames[AAP_NRFS]["BQid"] = AAP_index
-						AAP.QuestList.QuestFrames[AAP_NRFS]:SetAlpha(1)
-						AAP.QuestList.QuestFrames[AAP_NRFS]:Show()
-						if (AAP_BonusObj[AAP_index]) then
-							AAP.QuestList.QuestFrames["FS"..AAP_NRFS]["Button"]:Show()
-						else
-							AAP.QuestList.QuestFrames["FS"..AAP_NRFS]["Button"]:Hide()
+						if (AAP_NRFS) then
+							ars = ars + 1
+							AAP.QuestList.QuestFrames[AAP_NRFS]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
+							AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText("[".. ars+1 .."] Bonus Objective NotDone")
+							local aapwidth = AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:GetStringWidth()
+							if (aapwidth and aapwidth > 400) then
+								AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(aapwidth+10)
+							else
+								AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(410)
+							end
+							AAP_SetButton(AAP_NRFS, ars)
+							AAP.QuestList.QuestFrames[AAP_NRFS]["BQid"] = AAP_index
+							AAP.QuestList.QuestFrames[AAP_NRFS]:SetAlpha(1)
+							AAP.QuestList.QuestFrames[AAP_NRFS]:Show()
+							if (AAP_BonusObj[AAP_index]) then
+								AAP.QuestList.QuestFrames["FS"..AAP_NRFS]["Button"]:Show()
+							else
+								AAP.QuestList.QuestFrames["FS"..AAP_NRFS]["Button"]:Hide()
+							end
 						end
 					end
 				end
@@ -1108,9 +1110,9 @@ function AAP_UpdateQuestList()
 
 	AAP_PrintFillers(ars)
 	local CLi
-	for CLi = 1, 25 do
+	--for CLi = 1, 25 do
 	--	AAP.QuestList.QuestFrames[CLi]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,CLi * 38)
-	end
+	--end
 
 	AAP_Plus()
 end
@@ -1154,7 +1156,7 @@ AAP_QH_EventFrame:SetScript("OnEvent", function(self, event, ...)
 			return
 		end
 		local CLi
-		for CLi = 1, 25 do
+		for CLi = 1, 50 do
 			AAP_BookedFS[CLi] = 0
 		end
 		AAP_Updatedelay = AAP_QH_EventFrame:CreateAnimationGroup()

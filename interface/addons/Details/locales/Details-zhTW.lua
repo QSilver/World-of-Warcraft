@@ -506,8 +506,10 @@ L["STRING_OPTIONS_BG_ALL_ALLY"] = "顯示全部"
 L["STRING_OPTIONS_BG_ALL_ALLY_DESC"] = [=[當啟用時，敵方玩家也會顯示在隊伍模式中。
 |cFFFFFF00重要|r: 改變會在下次進入戰鬥時套用。]=]
 L["STRING_OPTIONS_BG_ANCHOR"] = "戰場:"
-L["STRING_OPTIONS_BG_REMOTE_PARSER"] = "智慧計分"
-L["STRING_OPTIONS_BG_REMOTE_PARSER_DESC"] = "當啟用時，傷害和治療會同步在計分板。"
+--[[Translation missing --]]
+--[[ L["STRING_OPTIONS_BG_UNIQUE_SEGMENT"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["STRING_OPTIONS_BG_UNIQUE_SEGMENT_DESC"] = ""--]] 
 L["STRING_OPTIONS_CAURAS"] = "獲得光環"
 L["STRING_OPTIONS_CAURAS_DESC"] = [=[啟用獲得:
 

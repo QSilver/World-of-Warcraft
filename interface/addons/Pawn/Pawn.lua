@@ -7,7 +7,7 @@
 -- Main non-UI code
 ------------------------------------------------------------
 
-PawnVersion = 2.0224
+PawnVersion = 2.0226
 
 -- Pawn requires this version of VgerCore:
 local PawnVgerCoreVersionRequired = 1.09
@@ -974,7 +974,7 @@ function PawnGetItemData(ItemLink)
 	if not Item then
 		Item = PawnGetEmptyCachedItem(ItemLink, ItemName, ItemNumLines)
 		Item.Rarity = ItemRarity
-		Item.Level = ItemLevel -- Doesn't take into effect upgrades or heirloom scaling
+		Item.Level = GetDetailedItemLevelInfo(ItemLink) or ItemLevel -- The level from GetItemInfo doesn't take into effect upgrades or heirloom scaling
 		Item.ID = ItemID
 		if InvType ~= "" then Item.InvType = InvType end
 		Item.Texture = ItemTexture
@@ -1086,7 +1086,7 @@ function PawnGetGemData(GemData)
 	local Item = PawnGetEmptyCachedItem(ItemLink, ItemName)
 	Item.ID = ItemID
 	Item.Rarity = ItemRarity
-	Item.Level = ItemLevel
+	Item.Level = GetDetailedItemLevelInfo(ItemLink) or ItemLevel
 	Item.Texture = ItemTexture
 	Item.UnenchantedStats = { }
 	if GemData[2] then
@@ -1171,7 +1171,17 @@ function PawnGetItemDataForInventorySlot(Slot, Unenchanted, UnitName)
 		local UnenchantedItem = PawnUnenchantItemLink(ItemLink)
 		if UnenchantedItem then ItemLink = UnenchantedItem end
 	end
-	return PawnGetItemData(ItemLink), true
+	local Item = PawnGetItemData(ItemLink)
+
+	-- Workaround for game bug with artifact off-hands
+	if Slot == INVSLOT_OFFHAND and Item and Item.Rarity == 6 then
+		local MainHandLink = GetInventoryItemLink("player", INVSLOT_MAINHAND)
+		if MainHandLink then 
+			Item.Level = GetDetailedItemLevelInfo(MainHandLink) or Item.Level
+		end
+	end
+
+	return Item, true
 end
 
 -- Recalculates the scale values for a cached item if necessary, and returns them.
@@ -3304,7 +3314,7 @@ function PawnFindBestItems(ScaleName, InventoryOnly)
 		local _, i
 		for _, i in pairs(C_EquipmentSet.GetEquipmentSetIDs()) do
 			local _, _, EquipmentSetID = C_EquipmentSet.GetEquipmentSetInfo(i)
-			ItemLocations = C_EquipmentSet.GetItemLocations(EquipmentSetID)
+			local ItemLocations = C_EquipmentSet.GetItemLocations(EquipmentSetID)
 			PreviousItemLink = nil
 			for Slot = 1, 17 do if Slot ~= 4 and Slot ~= 13 and Slot ~= 14 then
 				local Location = ItemLocations[Slot]
@@ -3331,11 +3341,10 @@ function PawnFindBestItems(ScaleName, InventoryOnly)
 					end
 				end
 				PreviousItemLink = ItemLink
-				wipe(ItemLocations)
 			end end
+			wipe(ItemLocations)
 		end
 	end
-	
 
 	-- Now we've scanned all of the items we're going to scan.  Next we have to assign out one-handed items to the main
 	-- hand and off-hand slots as appropriate.

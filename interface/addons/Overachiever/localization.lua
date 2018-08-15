@@ -125,9 +125,9 @@ School of %s
 
 	OPT_LABEL_TRACKING = "Achievement Tracking";
 	OPT_AUTOTRACKTIMED = "Auto-track timed achievements (non-battleground)";
-	OPT_AUTOTRACKTIMED_TIP = "Automatically track achievements with timed criteria when the timer starts. If you are already tracking the maximum number of achievements, it will attempt to take the place of an auto-tracked exploration achievement; otherwise, it won't be tracked.|n|nExcludes achievements that require a battleground win.";
+	OPT_AUTOTRACKTIMED_TIP = "Automatically track achievements with timed criteria when the timer starts. If you are already tracking the maximum number of achievements, it will attempt to take the place of an auto-tracked exploration achievement; otherwise, it won't be tracked.|n|nExcludes battleground-specific achievements.";
 	OPT_AUTOTRACKTIMED_BG = "Auto-track timed battleground achievements";
-	OPT_AUTOTRACKTIMED_TIP_BG = "When a battleground match starts, automatically track the achievement for winning it in a set amount of time (if it is incomplete).|n|nThe achievement is untracked upon leaving the battleground.";
+	OPT_AUTOTRACKTIMED_TIP_BG = "Automatically track battleground achievements with timed criteria when the timer starts. (For example, those for winning the match or capturing a flag within a set time.)|n|nThe achievement is untracked upon leaving the battleground.";
 	OPT_AUTOTRACKEXPLORE = "Auto-track exploration achievements as you travel";
 	OPT_AUTOTRACKEXPLORE_TIP = "When you enter a zone, automatically track its exploration achievement. If already tracking an exploration achievement, this will replace the previous automatically-tracked one if there is one or another exploration achievement otherwise.";
 	OPT_AUTOTRACKEXPLORE_COMPLETED = "Including completed achievements";
@@ -430,6 +430,8 @@ L["OPT_STARTTOAST_TIMEFADE"] = "Nicht automatisch verbergen"
 L["OPT_STARTTOAST_TIMEFADE_TIP"] = "Vermeidet, dass Toast-Benachrichtigungen, mit denen du nicht interagierst, nach ein paar Sekunden verblassen."
 L["OPT_THROTTLE_ACHLOOKUP"] = "Beim Start: Gebremste Durchsicht der Erfolge"
 L["OPT_THROTTLE_ACHLOOKUP_TIP"] = "Overachiever sammelt beim Starten gewisse Daten. Wenn diese Option nicht ausgewählt ist, findet diese Durchsicht sofort, wenn das UI zum ersten Mal geladen wird, statt. Wenn dies ausgewählt ist, werden Daten nach und nach gesammelt, nachdem der Spieler die Welt betreten hat.|n|nDer Vorteil gegenüber der gebremsten Durchsicht besteht in einer schnelleren Anfangsladezeit, aber bei einigen Benutzern und bei manchen Charakteren kann sich das vorübergehend auf die Leistung auswirken."
+--[[Translation missing --]]
+--[[ L["OPT_THROTTLE_ACHLOOKUP_TIP2"] = ""--]] 
 L["OPT_TRADESKILL_SHOWCOMPLETEDACH_COOKING"] = "Noch zu kochende Rezepte kennzeichnen, um Erfolge vervollständigen zu können"
 L["OPT_TRADESKILL_SHOWCOMPLETEDACH_COOKING_TIP"] = "Wenn Overarchievers Handelsmodul aktiviert ist, erscheint ein Symbol neben den Rezepten, die noch gekocht werden müssen, um diverse Erfolge abzuschließen. Wenn die Option aktiviert ist, erscheinen diese Symbole auch dann noch neben ungekochten Rezepten, wenn der dazugehörige Erfolg schon abgeschlossen sein sollte. "
 L["OPT_TURKEYLURKEYTIPS"] = "Truthahnbüchse angewendet?"
@@ -698,6 +700,8 @@ L["OPT_SHOWPROGRESS_TIP"] = "Ajouter votre progression quand un haut fait est ba
 --[[ L["OPT_THROTTLE_ACHLOOKUP"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["OPT_THROTTLE_ACHLOOKUP_TIP"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["OPT_THROTTLE_ACHLOOKUP_TIP2"] = ""--]] 
 L["OPT_TRADESKILL_SHOWCOMPLETEDACH_COOKING"] = "Indique les recettes non préparées pour compléter les haut-faits"
 L["OPT_TRADESKILL_SHOWCOMPLETEDACH_COOKING_TIP"] = "Si le module Professions de Overachiever est activé, une icône de haut-fait apparaît près des recettes que vous devez cuisiner pour obtenir certains haut-faits. Si cette option est cochée, ces icônes apparaîtront près des recettes non préparées même si le haut-fait associé est déjà complété."
 L["OPT_TURKEYLURKEYTIPS"] = "Dindoflingue utilisé ?"
@@ -967,6 +971,8 @@ L["OPT_STARTTOAST_TIMEFADE_TIP"] = "避免尚未使用滑鼠指向或點擊的�
 --[[ L["OPT_THROTTLE_ACHLOOKUP"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["OPT_THROTTLE_ACHLOOKUP_TIP"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["OPT_THROTTLE_ACHLOOKUP_TIP2"] = ""--]] 
 L["OPT_TRADESKILL_SHOWCOMPLETEDACH_COOKING"] = "標示未烹飪食譜來完成成就"
 L["OPT_TRADESKILL_SHOWCOMPLETEDACH_COOKING_TIP"] = "如果Overachiever_Trade模組啟用，那麼成就圖示顯示在你需要烹飪的食譜旁邊為了獲得一些成就。如果設定被勾選，那麼這些圖示會顯示在未被烹飪食譜旁邊即使相關成就已經完成。"
 L["OPT_TURKEYLURKEYTIPS"] = "提示是否需要使用火雞獵槍"
@@ -1213,6 +1219,8 @@ L["OPT_STARTTOAST_TIMEFADE"] = "不要自动隐藏"
 --[[ L["OPT_THROTTLE_ACHLOOKUP"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["OPT_THROTTLE_ACHLOOKUP_TIP"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["OPT_THROTTLE_ACHLOOKUP_TIP2"] = ""--]] 
 L["OPT_TRADESKILL_SHOWCOMPLETEDACH_COOKING"] = "已完成的烹饪成就仍然提示"
 L["OPT_TRADESKILL_SHOWCOMPLETEDACH_COOKING_TIP"] = "即使烹饪成就已完成，仍然在技能旁显示提示图标。"
 L["OPT_TURKEYLURKEYTIPS"] = "提示是否需要使用火鸡枪"
@@ -1446,6 +1454,8 @@ L["OPT_STARTTOAST_TIMEFADE_TIP"] = "Предотвращает всплываю�
 --[[ L["OPT_THROTTLE_ACHLOOKUP"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["OPT_THROTTLE_ACHLOOKUP_TIP"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["OPT_THROTTLE_ACHLOOKUP_TIP2"] = ""--]] 
 L["OPT_TRADESKILL_SHOWCOMPLETEDACH_COOKING"] = "Отображает не приготовленные рецепты для завершения достижений"
 L["OPT_TRADESKILL_SHOWCOMPLETEDACH_COOKING_TIP"] = "Если торговый модуль Overachiever'а включен, иконка достижения появится рядом с рецептом, который необходимо приготовить для получения соответствующего достижения. Если эта опция включена, то иконки появляться рядом с еще не приготовленными рецептами даже если эти достижения завершены."
 L["OPT_TURKEYLURKEYTIPS"] = "Добавлять строку о необходимости использовать индейкомет"
@@ -1678,6 +1688,8 @@ L["OPT_STARTTOAST_TIMEFADE_TIP"] = "이벤트 알림 팝업창을 자동으로 �
 --[[ L["OPT_THROTTLE_ACHLOOKUP"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["OPT_THROTTLE_ACHLOOKUP_TIP"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["OPT_THROTTLE_ACHLOOKUP_TIP2"] = ""--]] 
 L["OPT_TRADESKILL_SHOWCOMPLETEDACH_COOKING"] = "업적이 요구하는 요리 중에서 요리하지 않은 요리법 표시"
 L["OPT_TRADESKILL_SHOWCOMPLETEDACH_COOKING_TIP"] = "Overachiever의 거래 모듈이 활성화되어 있으면, 업적 아이콘은 업적이 요구하는 특정한 요리를 획득하기 위해 요리를 해야 하는 요리법 옆에 나타납니다. 이 옵션이 표시되어 있으면, 이 아이콘은 관련 업적이 완료된 경우에도 요리하지 않은 요리법 옆에 나타납니다."
 L["OPT_TURKEYLURKEYTIPS"] = "칠면조 사냥총 사용 표시"
@@ -1947,6 +1959,8 @@ L["OPT_SHOWPROGRESS_TIP"] = "Añade tu progreso cuando un logro esta basado en u
 --[[ L["OPT_THROTTLE_ACHLOOKUP"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["OPT_THROTTLE_ACHLOOKUP_TIP"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["OPT_THROTTLE_ACHLOOKUP_TIP2"] = ""--]] 
 L["OPT_TRADESKILL_SHOWCOMPLETEDACH_COOKING"] = "Indica las recetas sin cocinar para logros completados"
 L["OPT_TRADESKILL_SHOWCOMPLETEDACH_COOKING_TIP"] = "Si el módulo Overachiever - Trade está activado, aparecerá el icono de logro junto a las recetas que necesites cocinar para obtener ciertos logros. Si esta opción está  seleccionada, esos iconos aparecerán junto a las recetas sin cocinar incluso si el logro asociado a ellas ya ha sido completado."
 L["OPT_TURKEYLURKEYTIPS"] = "Añadir si aún necesitas usar una Pavopistola"
@@ -2324,6 +2338,8 @@ L["YOURPROGRESS"] = "Tu progreso"
 --[[Translation missing --]]
 --[[ L["OPT_THROTTLE_ACHLOOKUP_TIP"] = ""--]] 
 --[[Translation missing --]]
+--[[ L["OPT_THROTTLE_ACHLOOKUP_TIP2"] = ""--]] 
+--[[Translation missing --]]
 --[[ L["OPT_TRADESKILL_SHOWCOMPLETEDACH_COOKING"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["OPT_TRADESKILL_SHOWCOMPLETEDACH_COOKING_TIP"] = ""--]] 
@@ -2611,6 +2627,8 @@ L["OPT_STARTTOAST_TIMEFADE_TIP"] = "Impede que os avisos na tela com os quais vo
 --[[ L["OPT_THROTTLE_ACHLOOKUP"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["OPT_THROTTLE_ACHLOOKUP_TIP"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["OPT_THROTTLE_ACHLOOKUP_TIP2"] = ""--]] 
 L["OPT_TRADESKILL_SHOWCOMPLETEDACH_COOKING"] = "Indicar receitas não cozinhadas para completar conquistas"
 L["OPT_TRADESKILL_SHOWCOMPLETEDACH_COOKING_TIP"] = "Se o módulo Overachiever Trade estiver habilitado, então um ícone da conquista aparece próximo às receitas que você precisa cozinhar para ganhar certas conquistas. Se esta opção estiver marcada, então estes ícones aparecerão próximos às receitas não cozinhadas mesmo que a conquista associadas esteja completa."
 L["OPT_TURKEYLURKEYTIPS"] = "Atirador de Peru usado?"
@@ -2868,6 +2886,8 @@ L["OPT_SHOWPROGRESS_TIP"] = "Aggiungi il tuo progresso quando un'impresa ha dei 
 --[[ L["OPT_THROTTLE_ACHLOOKUP"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["OPT_THROTTLE_ACHLOOKUP_TIP"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["OPT_THROTTLE_ACHLOOKUP_TIP2"] = ""--]] 
 L["OPT_TRADESKILL_SHOWCOMPLETEDACH_COOKING"] = "Indica le ricette non cucinate per completare le imprese"
 L["OPT_TRADESKILL_SHOWCOMPLETEDACH_COOKING_TIP"] = "Se il modulo del commercio Overachiever è abilitata, l'icona appare accanto al risultato ricette che è necessario per cucinare, al fine di ottenere obiettivi determinati. Se questa opzione è selezionata, queste icone apparirà accanto alle ricette crudi, anche se il risultato associato è completa."
 L["OPT_TURKEYLURKEYTIPS"] = "Usare il fucile sul tacchino?"

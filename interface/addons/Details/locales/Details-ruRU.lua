@@ -520,8 +520,10 @@ L["STRING_OPTIONS_BG_ALL_ALLY_DESC"] = [=[Когда включено, враж�
 
 |cFFFFFF00Важно|r: изменения применяются последующего вступления в бой.]=]
 L["STRING_OPTIONS_BG_ANCHOR"] = "Поля боя:"
-L["STRING_OPTIONS_BG_REMOTE_PARSER"] = "Умный счет"
-L["STRING_OPTIONS_BG_REMOTE_PARSER_DESC"] = "Когда включено, то наносимый урон и исцеление синхронизируются с таблицей очков."
+--[[Translation missing --]]
+--[[ L["STRING_OPTIONS_BG_UNIQUE_SEGMENT"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["STRING_OPTIONS_BG_UNIQUE_SEGMENT_DESC"] = ""--]] 
 L["STRING_OPTIONS_CAURAS"] = "Собирать 'Ауры'"
 L["STRING_OPTIONS_CAURAS_DESC"] = [=[Включить захват:
 

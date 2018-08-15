@@ -648,24 +648,15 @@ Prat:AddModuleToLoad(function()
   L=
 {
 	["Achievements"] = {
-		--[[Translation missing --]]
-		--[[ ["completed"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["customGrats_defualt"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["customGrats_desc"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["customGrats_name"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["customGratsText_desc"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["customGratsText_name"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["grats_donthave_1"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["grats_donthave_10"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["grats_donthave_2"] = "",--]] 
+		["completed"] = "Completado %s",
+		["customGrats_defualt"] = "Felicidades %s",
+		["customGrats_desc"] = "Usar un mensaje de felicitación personalizado en lugar de uno aleatorio",
+		["customGrats_name"] = "Mensaje de felicitación personalizado",
+		["customGratsText_desc"] = "Mensaje de felicitación personalizado. Escriba el mensaje de felicitación que usted desee, si quiere incluir el nombre del jugador use '%s' como indicador",
+		["customGratsText_name"] = "Mensaje de felicitación",
+		["grats_donthave_1"] = "Felicidades %s",
+		["grats_donthave_10"] = "No puedo esperar a obtener ese %s",
+		["grats_donthave_2"] = "Felicidades %s, yo aún necesito ese",
 		--[[Translation missing --]]
 		--[[ ["grats_donthave_3"] = "",--]] 
 		--[[Translation missing --]]
@@ -700,19 +691,13 @@ Prat:AddModuleToLoad(function()
 		--[[ ["grats_have_8"] = "",--]] 
 		--[[Translation missing --]]
 		--[[ ["grats_have_9"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["grats_link"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["module_desc"] = "",--]] 
+		["grats_link"] = "Felicitar",
+		["module_desc"] = "Ajustes relacionados a logros",
 		["module_name"] = "Logros",
-		--[[Translation missing --]]
-		--[[ ["showCompletedDate_desc"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["showCompletedDate_name"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["showGratsLink_desc"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["showGratsLink_name"] = "",--]] 
+		["showCompletedDate_desc"] = "Muestra la fecha en la que se completo el logro luego del enlace",
+		["showCompletedDate_name"] = "Mostrar fecha de finalización",
+		["showGratsLink_desc"] = "Muestra a enlace clickable para enviar un mensaje de felicitación",
+		["showGratsLink_name"] = "Mostrar enlace de felicitación",
 	}
 }
   PL:AddLocale(PRAT_MODULE, "esES",  L)

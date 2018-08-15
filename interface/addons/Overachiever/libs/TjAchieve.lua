@@ -193,7 +193,7 @@ TjAchieve.CRITTYPE_KILL		The asset type for kill criteria.
 --]]
 
 
-local THIS_VERSION = "0.10"
+local THIS_VERSION = "0.11"
 
 if (TjAchieve and TjAchieve.Version >= THIS_VERSION) then  return;  end  -- Lua's pretty good at this. It even knows that "1.0.10" > "1.0.9". However, be aware that it thinks "1.0" < "1.0b" so putting a "b" on the end for Beta, nothing for release, doesn't work.
 
@@ -621,6 +621,24 @@ TjAchieve.Frame:SetScript("OnEvent", function(self, event, arg1)
 	ACH_standard, ACH_standard_personal, ACH_standard_guild = nil, nil, nil
 end)
 
+local function informListeners(tab, arg1)
+	C_Timer.After(0, function()  -- Use a timer to allow clean up to be completed before listeners are informed.
+		for i,func in ipairs(tab) do
+			local noerrors, ret2
+			if (arg1 == nil) then
+				noerrors, ret2 = pcall(func)
+			else
+				noerrors, ret2 = pcall(func, arg1)
+			end
+			if (not noerrors) then
+				C_Timer.After(0, function()  -- Use a timer so one listener's errors don't prevent other listeners from being called.
+					error("TjAchieve encountered an error while " .. errMsg .. ". Check the listening function for problems. The original error message follows:\n" .. ret2)
+				end)
+			end
+		end
+	end)
+end
+
 local idCacheBuildStep
 do
 	local num = 0
@@ -704,14 +722,7 @@ do
 		TjAchieve.status_ACH = true
 		if (TjAchieve.listeners_IDCache) then
 			-- Inform the listeners:
-			for i,func in ipairs(TjAchieve.listeners_IDCache) do
-				local noerrors, ret2 = pcall(func)
-				if (not noerrors) then
-					C_Timer.After(0, function()  -- Use a timer so as to not interrupt what we're doing.
-						error("TjAchieve encountered an error while calling an achievement ID cache listener. Check the listening function for problems. The original error message follows:|n" .. ret2)
-					end)
-				end
-			end
+			informListeners(TjAchieve.listeners_IDCache, "calling an achievement ID cache listener")
 			TjAchieve.listeners_IDCache = nil
 		end
 		idCacheBuildStep = nil -- Allow this do/end block to go out of scope
@@ -752,14 +763,7 @@ local function flagTaskComplete(assetType)
 	if (not TjAchieve.status_CA) then  TjAchieve.status_CA = {};  end
 	TjAchieve.status_CA[assetType] = true
 	if (TjAchieve.listeners_CACache and TjAchieve.listeners_CACache[assetType]) then
-		for i,func in ipairs(TjAchieve.listeners_CACache[assetType]) do
-			local noerrors, ret2 = pcall(func, assetType)
-			if (not noerrors) then
-				C_Timer.After(0, function()  -- Use a timer so as to not interrupt what we're doing.
-					error("TjAchieve encountered an error while updating a criteria asset cache listener. Check the listening function for problems. The original error message follows:|n" .. ret2)
-				end)
-			end
-		end
+		informListeners(TjAchieve.listeners_CACache[assetType], "updating a criteria asset cache listener")
 		TjAchieve.listeners_CACache[assetType] = nil
 		if (next(TjAchieve.listeners_CACache) == nil) then -- Is the table empty?
 			TjAchieve.listeners_CACache = nil

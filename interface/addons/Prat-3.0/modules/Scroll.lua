@@ -361,10 +361,9 @@ L=
 		["Control whether text is added to the frame at the top or the bottom."] = "Controla si el texto se añade al marco en la parte superior o inferior.",
 		["lowdown_desc"] = "Alternar saltar automáticamente a la parte inferior de cada ventana de chat.",
 		["lowdown_name"] = "Activar TheLowDown",
-		--[[Translation missing --]]
-		--[[ ["modified_speed"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["modified_speed_desc"] = "",--]] 
+		["modified_speed"] = [=[Establecer la velocidad de Shift+Rueda del Ratón
+]=],
+		["modified_speed_desc"] = "Establece el número de líneas que la rueda del ratón desplazará cuando shift está pulsado.",
 		["mousewheel_desc"] = "Alterna soporte para rueda de ratón para cada ventana de chat.",
 		["mousewheel_name"] = "Activar Rueda del Ratón",
 		["Scroll"] = "Desplazamiento",
