@@ -22,6 +22,7 @@ local defaultNotificationIcon = "Interface\\Icons\\Spell_Nature_WispSplode"
 local defaultBrokerIcon = "Interface\\Icons\\Inv_Misc_Book_03"
 local prefixRaidTargetIcon = "|TInterface\\TargetingFrame\\UI-RaidTargetingIcon_"
 local testColors = { "Blue1", "Cyan", "Green1", "Yellow1", "Orange1", "Red1", "Pink", "Purple1", "Brown1", "Gray" }
+local tabardIcon
 local units = { player = true, target = true, focus = true, pet = true, targettarget = true, focustarget = true, pettarget = true, mouseover = true }
 
 -- Saved variables don't handle being set to nil properly so need to use alternate value to indicate an option has been turned off
@@ -58,15 +59,22 @@ MOD.BarGroupTemplate = { -- default bar group settings
 	showSolo = true, showParty = true, showRaid = true, showCombat = true, showOOC = true, showStealth = true, showFocusTarget = true,
 	showInstance = true, showNotInstance = true, showArena = true, showBattleground = true, showPetBattle = false, showSpecialization = "",
 	showResting = true, showMounted = true, showVehicle = true, showFriend = true, showEnemy = true, showBlizz = true, showNotBlizz = true,
-	detectBuffs = false, detectDebuffs = false, detectAllBuffs = false, detectAllDebuffs = false, detectDispellable = false, detectInflictable = false,
-	detectNPCDebuffs = false, detectVehicleDebuffs = false, detectBoss = false, includeTotems = false,
+	detectBuffs = false, detectDebuffs = false, detectAllBuffs = false, detectAllDebuffs = false,
+	detectDispellable = false, detectInflictable = false, detectNPCDebuffs = false, detectVehicleDebuffs = false, detectBossDebuffs = false,
+	detectEffectDebuffs = false, detectPoison = false, detectCurse = false, detectMagic = false, detectDisease = false, detectOtherDebuffs = false,
+	excludeDispellable = false, excludeInflictable = false, excludeNPCDebuffs = false, excludeVehicleDebuffs = false, excludeBossDebuffs = false,
+	excludeEffectDebuffs = false, excludePoison = false, excludeCurse = false, excludeMagic = false, excludeDisease = false, excludeOtherDebuffs = false,
 	noHeaders = false, noTargets = false, noLabels = false, headerGaps = false, targetFirst = false, targetAlpha = 1, replay = false, replayTime = 5,
-	detectCastable = false, detectStealable = false, detectMagicBuffs = false, detectEffectBuffs = false, detectWeaponBuffs = false,
-	detectNPCBuffs = false, detectVehicleBuffs = false, detectOtherBuffs = false, detectBossBuffs = false, detectEnrageBuffs = false,
-	detectCooldowns = false, detectBuffsMonitor = "player", detectBuffsCastBy = "player", detectDebuffsMonitor = "player", detectTrackingBuffs = false,
-	detectDebuffsCastBy = "player", detectCooldownsBy = "player", detectTracking = false, excludeResources = false, detectResourceBuffs = false,
-	detectSpellCooldowns = true, detectTrinketCooldowns = true, detectInternalCooldowns = true, detectSpellEffectCooldowns = true,
-	detectPotionCooldowns = true, detectOtherCooldowns = true, detectRuneCooldowns = false,
+	detectBuffTypes = false, detectCastable = false, detectStealable = false, detectMagicBuffs = false, detectEffectBuffs = false,
+	detectWeaponBuffs = false, detectNPCBuffs = false, detectVehicleBuffs = false, detectBossBuffs = false, detectEnrageBuffs = false,
+	detectTracking = false, detectResources = false, detectMountBuffs = false, detectTabardBuffs = false, detectOtherBuffs = false,
+	excludeBuffTypes = true, excludeCastable = false, excludeStealable = false, excludeMagicBuffs = false, excludeEffectBuffs = false, excludeWeaponBuffs = false,
+	excludeNPCBuffs = false, excludeVehicleBuffs = false, excludeBossBuffs = false, excludeEnrageBuffs = false,
+	excludeTracking = true, excludeResources = false, excludeMountBuffs = false, excludeTabardBuffs = false, excludeOtherBuffs = false,
+	detectCooldowns = false, detectBuffsMonitor = "player", detectBuffsCastBy = "player", detectDebuffsMonitor = "player",
+	detectDebuffsCastBy = "player", detectCooldownsBy = "player",
+	detectSpellCooldowns = true, detectTrinketCooldowns = true, detectInternalCooldowns = true, includeTotems = false,
+	detectSpellEffectCooldowns = true, detectPotionCooldowns = true, detectOtherCooldowns = true, detectRuneCooldowns = false,
 	detectSharedGrimoires = true, detectSharedInfernals = true,
 	setDuration = false, setOnlyLongDuration = false, uniformDuration = 120, checkDuration = false, minimumDuration = true, filterDuration = 120,
 	checkTimeLeft = false, minimumTimeLeft = true, filterTimeLeft = 120, showNoDuration = false, showOnlyNoDuration = false,
@@ -1219,8 +1227,9 @@ local fixDups = 0
 -- Detected auras that don't match current bar group settings may need to be added later if the settings change 
 local function DetectNewBuffs(unit, n, aura, isBuff, bp, vbp, bg)
 	local listID = nil
+	local spellID = aura[14]
 	if bp.showBuff or bp.filterBuff then -- check black lists and white lists
-		local spellNum = aura[14] and ("#" .. tostring(aura[14])) -- string to look up the spell id in lists
+		local spellNum = spellID and ("#" .. tostring(spellID)) -- string to look up the spell id in lists
 		local listed = bp.filterBuffList and (bp.filterBuffList[n] or (spellNum and bp.filterBuffList[spellNum]))
 		if not listed then -- not found in the bar group's filter list, so check spell lists
 			local spellList = nil -- check the first spell list, if specified
@@ -1251,11 +1260,10 @@ local function DetectNewBuffs(unit, n, aura, isBuff, bp, vbp, bg)
 		if (bp.filterBuff and listed) or (bp.showBuff and not listed) then return end
 	end
 	if bp.filterBuffBars and CheckFilterBarGroup(bp.filterBuffBarGroup, "Buff", n, bp.detectBuffsMonitor) then return end -- check if in filter bar group
-	local label = MOD:GetLabel(n, aura[14]) -- check if there is a cached label for this action or spellid
-	local tt, ta, tc, ttype = aura[11], aura[12], aura[6], aura[4]
+	local label = MOD:GetLabel(n, spellID) -- check if there is a cached label for this action or spellid
+	local tt, ta, tc, ttype, icon = aura[11], aura[12], aura[6], aura[4], aura[8]
 	if (ttype == "Totem") and not bp.includeTotems then return end -- check if including totems
-	if (ttype == "Tracking") and not bp.detectTracking then return end -- check if including bonus tracking buffs
-	if (ttype == "Power") and bp.excludeResources then return end -- check if including bonus resource buffs
+	
 	local isStealable = ((aura[7] == 1) or (aura[7] == true))
 	local isNPC = aura[18]
 	local isVehicle = aura[19]
@@ -1266,27 +1274,35 @@ local function DetectNewBuffs(unit, n, aura, isBuff, bp, vbp, bg)
 	local isWeapon = (tt == "weapon")
 	local isTracking = (tt == "tracking")
 	local isResource = (ttype == "Power")
+	local isMount = spellID and MOD.mountSpells[spellID] -- table contains all the mounts in the journal
+	local isMine = (aura[6] == "player")
+	local isTabard = isMine and icon and (icon == tabardIcon) -- test if on player, same icon as equipped tabard, not cancellable
 	local isCastable = aura[17] and not isWeapon
 	local isOther = not isStealable and not isCastable and not isNPC and not isVehicle and not isMagic and not isEffect and
-		not isWeapon and not isBoss and not isEnrage and not isTracking and not isResource
-	local isMine = (aura[6] == "player")
+		not isWeapon and not isBoss and not isEnrage and not isTracking and not isResource and not isMount and not isTabard
 	local id, gname = aura[20], aura[21] -- these fields are only valid if unit == "all"
 	local checkAll = (unit == "all")
-	local checkTypes = not bp.filterBuffTypes or (bp.detectStealable and isStealable) or (bp.detectCastable and isCastable)
-		or (bp.detectNPCBuffs and isNPC) or (bp.detectVehicleBuffs and isVehicle) or (bp.detectBossBuffs and isBoss) or (bp.detectEnrageBuffs and isEnrage)
+	local includeTypes = not bp.detectBuffTypes or (bp.detectStealable and isStealable) or (bp.detectCastable and isCastable)
+		or (bp.detectNPCBuffs and isNPC) or (bCcuffs and isVehicle) or (bp.detectBossBuffs and isBoss) or (bp.detectEnrageBuffs and isEnrage)
 		or (bp.detectMagicBuffs and isMagic) or (bp.detectEffectBuffs and isEffect) or (bp.detectWeaponBuffs and isWeapon)
-		or (bp.detectTrackingBuffs and isTracking)or (bp.detectResourceBuffs and isResource) or (bp.detectOtherBuffs and isOther)
+		or (bp.detectTracking and isTracking) or (bp.detectResources and isResource) or (bp.detectMountBuffs and isMount)
+		or (bp.detectTabardBuffs and isTabard) or (bp.detectOtherBuffs and isOther)
+	local excludeTypes = not bp.excludeBuffTypes or not ((bp.excludeStealable and isStealable) or (bp.excludeCastable and isCastable)
+		or (bp.excludeNPCBuffs and isNPC) or (bp.excludeVehicleBuffs and isVehicle) or (bp.excludeBossBuffs and isBoss) or (bp.excludeEnrageBuffs and isEnrage)
+		or (bp.excludeMagicBuffs and isMagic) or (bp.excludeEffectBuffs and isEffect) or (bp.excludeWeaponBuffs and isWeapon)
+		or (bp.excludeTracking and isTracking) or (bp.excludeResources and isResource) or (bp.excludeMountBuffs and isMount)
+		or (bp.excludeTabardBuffs and isTabard) or (bp.excludeOtherBuffs and isOther))
 	if ((checkAll and not (bp.noPlayerBuffs and (id == UnitGUID("player"))) and not (bp.noPetBuffs and (id == UnitGUID("pet")))
 			and not (bp.noTargetBuffs and (id == UnitGUID("target"))) and not (bp.noFocusBuffs and (id == UnitGUID("focus")))) or
 			(not checkAll and not (bp.noPlayerBuffs and UnitIsUnit(unit, "player")) and not (bp.noPetBuffs and UnitIsUnit(unit, "pet"))
 			and not (bp.noTargetBuffs and UnitIsUnit(unit, "target")) and not (bp.noFocusBuffs and UnitIsUnit(unit, "focus")) and
-			MOD:CheckCastBy(aura[6], bp.detectBuffsCastBy))) and CheckTimeAndDuration(bp, aura[2], aura[5]) and checkTypes then
+			MOD:CheckCastBy(aura[6], bp.detectBuffsCastBy))) and CheckTimeAndDuration(bp, aura[2], aura[5]) and includeTypes and excludeTypes then
 		local b, tag = detectedBar, "Buff"
-		b.action = n; b.spellID = aura[14]; b.barType = "Buff"
+		b.action = n; b.spellID = spellID; b.barType = "Buff"
 		if tc then tag = tag .. tc else tc = "unknown" end -- include caster in unique tag
 		if not units[tc] and aura[10] and (aura[10] > 0) then tag = tag .. tostring(math.floor((aura[10] * 100) + 0.5)) end -- add expire time to tag
-		if aura[14] then tag = tag .. tostring(aura[14]) elseif (tt == "weapon") or (tt == "tracking") then tag = tag .. ta end
-		if tt == "buff" and aura[14] and fixEnchants[aura[14]] then tag = tag .. tostring(fixDups); fixDups = fixDups + 1 end -- allow duplicate enchants
+		if spellID then tag = tag .. tostring(spellID) elseif (tt == "weapon") or (tt == "tracking") then tag = tag .. ta end
+		if tt == "buff" and spellID and fixEnchants[spellID] then tag = tag .. tostring(fixDups); fixDups = fixDups + 1 end -- allow duplicate enchants
 		if unit == "all" then
 			tag = tag .. id
 			if vbp.noHeaders then label = (vbp.noLabels and "" or (label .. (vbp.noTargets and "" or " - "))) .. (vbp.noTargets and "" or gname) end
@@ -1298,7 +1314,7 @@ local function DetectNewBuffs(unit, n, aura, isBuff, bp, vbp, bg)
 		b.group = id -- if unit is "all" then this is GUID of unit with buff, otherwise it is nil
 		b.groupName = gname -- if unit is "all" then this is the name of the unit with buff, otherwise it is nil
 		b.uniqueID = tag; b.listID = listID; b.barLabel = label; b.isStealable = isStealable; b.isMagic = isMagic
-		UpdateBar(bp, vbp, bg, b, aura[8], aura[2], aura[5], aura[3], ttype, tt, ta, unit, aura[16], isMine)
+		UpdateBar(bp, vbp, bg, b, icon, aura[2], aura[5], aura[3], ttype, tt, ta, unit, aura[16], isMine)
 	end
 end
 
@@ -1351,16 +1367,19 @@ local function DetectNewDebuffs(unit, n, aura, isBuff, bp, vbp, bg)
 	local isMine = (aura[6] == "player")
 	local id, gname = aura[20], aura[21]
 	local checkAll = (unit == "all")
-	local checkTypes = not bp.filterDebuffTypes or (bp.detectDispellable and isDispel) or (bp.detectInflictable and isInflict) or
-		(bp.detectNPCDebuffs and isNPC) or (bp.detectVehicleDebuffs and isVehicle) or
-		(bp.detectBoss and isBoss) or (bp.detectEffectDebuffs and isEffect) or
-		(bp.detectOtherDebuffs and isOther) or (bp.detectPoison and isPoison) or (bp.detectCurse and isCurse) or
-		(bp.detectMagic and isMagic) or (bp.detectDisease and isDisease)
+	local includeTypes = not bp.filterDebuffTypes or (bp.detectDispellable and isDispel) or (bp.detectInflictable and isInflict)
+		or (bp.detectNPCDebuffs and isNPC) or (bp.detectVehicleDebuffs and isVehicle) or (bp.detectBossDebuffs and isBoss)
+		or (bp.detectPoison and isPoison) or (bp.detectCurse and isCurse) or (bp.detectMagic and isMagic) or (bp.detectDisease and isDisease)
+		or (bp.detectEffectDebuffs and isEffect) or (bp.detectOtherDebuffs and isOther)
+	local excludeTypes = not bp.excludeDebuffTypes or not ((bp.excludeDispellable and isDispel) or (bp.excludeInflictable and isInflict)
+		or (bp.excludeNPCDebuffs and isNPC) or (bp.excludeVehicleDebuffs and isVehicle) or (bp.excludeBossDebuffs and isBoss)
+		or (bp.excludePoison and isPoison) or (bp.excludeCurse and isCurse) or (bp.excludeMagic and isMagic) or (bp.excludeDisease and isDisease)
+		or (bp.excludeEffectDebuffs and isEffect) or (bp.excludeOtherDebuffs and isOther))
 	if ((checkAll and not (bp.noPlayerDebuffs and (id == UnitGUID("player"))) and not (bp.noPetDebuffs and (id == UnitGUID("pet")))
 			and not (bp.noTargetDebuffs and (id == UnitGUID("target"))) and not (bp.noFocusDebuffs and (id == UnitGUID("focus")))) or
 			(not checkAll and not (bp.noPlayerDebuffs and UnitIsUnit(unit, "player")) and not (bp.noPetDebuffs and UnitIsUnit(unit, "pet"))
 			and not (bp.noTargetDebuffs and UnitIsUnit(unit, "target")) and not (bp.noFocusDebuffs and UnitIsUnit(unit, "focus")) and
-			MOD:CheckCastBy(aura[6], bp.detectDebuffsCastBy))) and CheckTimeAndDuration(bp, aura[2], aura[5]) and checkTypes then
+			MOD:CheckCastBy(aura[6], bp.detectDebuffsCastBy))) and CheckTimeAndDuration(bp, aura[2], aura[5]) and includeTypes and excludeTypes then
 		local b, tag = detectedBar, "Debuff"
 		b.action = n; b.spellID = aura[14]; b.barType = "Debuff"
 		if tc then tag = tag .. tc else tc = "unknown" end -- include caster in unique tag
@@ -1493,10 +1512,9 @@ local function DetectNewCooldowns(n, cd, bp, vbp, bg)
 		if (bp.filterCooldown and listed) or (bp.showCooldown and not listed) then return end
 	end
 	if bp.filterCooldownBars and CheckFilterBarGroup(bp.filterCooldownBarGroup, "Cooldown", n, true) then return end -- check if in filter bar group
-	local label = MOD:GetLabel(n, cd[8]) -- check if there is a cached label for this action or spellid
 	if MOD:CheckCastBy(cd[7], bp.detectCooldownsBy) and CheckCooldownType(cd, bp) and CheckTimeAndDuration(bp, cd[1], cd[4]) then
 		local b = detectedBar
-		b.action = n; b.spellID = cd[8]; b.barType = "Cooldown"; b.barLabel = label; b.uniqueID = "Cooldown"; b.listID = listID; b.group = nil
+		b.action = n; b.spellID = cd[8]; b.barType = "Cooldown"; b.barLabel = MOD:GetLabel(n, cd[8]); b.uniqueID = "Cooldown"; b.listID = listID; b.group = nil
 		if CheckSharedCooldowns(b, bp) then
 			UpdateBar(bp, vbp, bg, b, cd[2], cd[1], cd[4], cd[9], nil, cd[5], cd[6], nil, nil, true)
 		end
@@ -1554,8 +1572,9 @@ local function UpdateBarGroupBars(bp, vbp, bg)
 		else
 			for _, bar in pairs(bp.bars) do -- iterate over each bar in the bar group
 				local classCheck = not (bar.showClasses and bar.showClasses[MOD.myClass]) -- true if class is enabled
+				local specCheck = not (bar.showSpecialization and bar.showSpecialization ~= "" and not MOD.CheckSpec(bar.showSpecialization, bar.specializationList))
 				local hideCheck = IsOff(bar.hideBar) or (bar.hideBar ~= MOD:CheckCondition(bar.hideCondition)) -- true if hide condition not met
-				if bar.enableBar and hideCheck and classCheck then
+				if bar.enableBar and hideCheck and classCheck and specCheck then
 					local t = bar.barType
 					local found = false
 					if (t == "Buff")  or (t == "Debuff") then
@@ -1713,6 +1732,11 @@ function MOD:UpdateBars()
 		hidden = false
 		MOD:UpdateAllBarGroups()
 	end
+
+	-- cache the icon for the player's tabard, if any, to support filtering tabard spells
+	local slotID = GetInventorySlotInfo("TabardSlot")
+	local itemID = GetInventoryItemID("player", slotID)
+	if itemID then tabardIcon = GetItemIcon(itemID) else tabardIcon = nil end
 
 	for _, bp in pairs(MOD.db.profile.BarGroups) do -- iterate through the all bar groups
 		if IsOn(bp) then

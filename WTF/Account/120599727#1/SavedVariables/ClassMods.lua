@@ -1685,9 +1685,9 @@ CMDb = {
 					-11.1503915786743, -- [4]
 					-398.359283447266, -- [5]
 				},
-				["basicmode"] = true,
-				["height"] = 25,
 				["width"] = 400,
+				["height"] = 25,
+				["basicmode"] = true,
 			},
 			["alerts"] = {
 				["alerts"] = {
@@ -1720,23 +1720,23 @@ CMDb = {
 					},
 					["Player Health Alert"] = {
 						["enabled"] = true,
-						["healthpercent"] = 0.3,
+						["sparkles"] = true,
 						["enablesound"] = true,
-						["aura"] = "",
+						["healthpercent"] = 0.3,
 						["target"] = "player",
 						["alerttype"] = "HEALTH",
 						["sound"] = "Raid Warning",
-						["sparkles"] = true,
+						["aura"] = "",
 					},
 					["Pet Health Alert"] = {
 						["enabled"] = true,
-						["healthpercent"] = 0.3,
+						["sparkles"] = true,
 						["enablesound"] = true,
-						["aura"] = "",
+						["healthpercent"] = 0.3,
 						["target"] = "pet",
 						["alerttype"] = "PETHEALTH",
 						["sound"] = "Raid Warning",
-						["sparkles"] = true,
+						["aura"] = "",
 					},
 					["Killing Machine"] = {
 						["enabled"] = true,
@@ -1765,8 +1765,49 @@ CMDb = {
 					280.512878417969, -- [5]
 				},
 			},
-			["targetbar"] = {
-				["enabled"] = false,
+			["announcements"] = {
+				["announcements"] = {
+					["Icebound Fortitude"] = {
+						["enabled"] = true,
+						["raidchan"] = "AUTO",
+						["announceend"] = true,
+						["arenachan"] = "AUTO",
+						["partychan"] = "AUTO",
+						["pvpchan"] = "AUTO",
+						["spellid"] = 48792,
+						["solochan"] = "AUTO",
+					},
+					["Vampiric Blood"] = {
+						["enabled"] = true,
+						["raidchan"] = "AUTO",
+						["announceend"] = true,
+						["arenachan"] = "AUTO",
+						["partychan"] = "AUTO",
+						["pvpchan"] = "AUTO",
+						["spellid"] = 55233,
+						["solochan"] = "AUTO",
+					},
+					["Remorseless Winter"] = {
+						["enabled"] = true,
+						["raidchan"] = "AUTO",
+						["announceend"] = false,
+						["arenachan"] = "AUTO",
+						["partychan"] = "AUTO",
+						["pvpchan"] = "AUTO",
+						["spellid"] = 196770,
+						["solochan"] = "AUTO",
+					},
+					["Raise Ally"] = {
+						["enabled"] = true,
+						["raidchan"] = "AUTO",
+						["announceend"] = true,
+						["arenachan"] = "AUTO",
+						["partychan"] = "AUTO",
+						["pvpchan"] = "AUTO",
+						["spellid"] = 61999,
+						["solochan"] = "AUTO",
+					},
+				},
 			},
 			["resourcebar"] = {
 				["enablestacks"] = false,
@@ -1778,55 +1819,14 @@ CMDb = {
 					-12.0341186523438, -- [4]
 					-359.000366210938, -- [5]
 				},
-				["activestack"] = 1,
 				["height"] = 40,
+				["activestack"] = 1,
 				["width"] = 400,
 			},
 			["newinstall"] = false,
 			["minimapbutton"] = false,
-			["announcements"] = {
-				["announcements"] = {
-					["Icebound Fortitude"] = {
-						["enabled"] = true,
-						["raidchan"] = "AUTO",
-						["announceend"] = true,
-						["solochan"] = "AUTO",
-						["spellid"] = 48792,
-						["pvpchan"] = "AUTO",
-						["partychan"] = "AUTO",
-						["arenachan"] = "AUTO",
-					},
-					["Vampiric Blood"] = {
-						["enabled"] = true,
-						["raidchan"] = "AUTO",
-						["announceend"] = true,
-						["solochan"] = "AUTO",
-						["spellid"] = 55233,
-						["pvpchan"] = "AUTO",
-						["partychan"] = "AUTO",
-						["arenachan"] = "AUTO",
-					},
-					["Remorseless Winter"] = {
-						["enabled"] = true,
-						["raidchan"] = "AUTO",
-						["announceend"] = false,
-						["solochan"] = "AUTO",
-						["spellid"] = 196770,
-						["pvpchan"] = "AUTO",
-						["partychan"] = "AUTO",
-						["arenachan"] = "AUTO",
-					},
-					["Raise Ally"] = {
-						["enabled"] = true,
-						["raidchan"] = "AUTO",
-						["announceend"] = true,
-						["solochan"] = "AUTO",
-						["spellid"] = 61999,
-						["pvpchan"] = "AUTO",
-						["partychan"] = "AUTO",
-						["arenachan"] = "AUTO",
-					},
-				},
+			["targetbar"] = {
+				["enabled"] = false,
 			},
 		},
 		["Flaville - Silvermoon"] = {
@@ -1834,13 +1834,13 @@ CMDb = {
 				["alerts"] = {
 					["Player Health Alert"] = {
 						["enabled"] = true,
-						["healthpercent"] = 0.3,
+						["sparkles"] = true,
 						["enablesound"] = true,
-						["aura"] = "",
+						["healthpercent"] = 0.3,
 						["target"] = "player",
 						["alerttype"] = "HEALTH",
 						["sound"] = "Raid Warning",
-						["sparkles"] = true,
+						["aura"] = "",
 					},
 				},
 			},
@@ -1851,20 +1851,6 @@ CMDb = {
 					nil, -- [2]
 					nil, -- [3]
 					-190.000015258789, -- [4]
-				},
-			},
-			["announcements"] = {
-				["announcements"] = {
-					["Darkness"] = {
-						["enabled"] = true,
-						["raidchan"] = "AUTO",
-						["announceend"] = false,
-						["solochan"] = "AUTO",
-						["spellid"] = 196718,
-						["pvpchan"] = "AUTO",
-						["partychan"] = "AUTO",
-						["arenachan"] = "AUTO",
-					},
 				},
 			},
 			["timers"] = {
@@ -2955,6 +2941,20 @@ CMDb = {
 					},
 				},
 			},
+			["announcements"] = {
+				["announcements"] = {
+					["Darkness"] = {
+						["enabled"] = true,
+						["raidchan"] = "AUTO",
+						["announceend"] = false,
+						["arenachan"] = "AUTO",
+						["partychan"] = "AUTO",
+						["pvpchan"] = "AUTO",
+						["spellid"] = 196718,
+						["solochan"] = "AUTO",
+					},
+				},
+			},
 		},
 		["Stephanna - Argent Dawn"] = {
 			["alerts"] = {
@@ -2988,23 +2988,23 @@ CMDb = {
 					},
 					["Player Health Alert"] = {
 						["enabled"] = true,
-						["alerttype"] = "HEALTH",
+						["healthpercent"] = 0.3,
 						["enablesound"] = true,
 						["aura"] = "",
 						["target"] = "player",
-						["sparkles"] = true,
+						["alerttype"] = "HEALTH",
 						["sound"] = "Raid Warning",
-						["healthpercent"] = 0.3,
+						["sparkles"] = true,
 					},
 					["Pet Health Alert"] = {
 						["enabled"] = true,
-						["alerttype"] = "PETHEALTH",
+						["healthpercent"] = 0.3,
 						["enablesound"] = true,
 						["aura"] = "",
 						["target"] = "pet",
-						["sparkles"] = true,
+						["alerttype"] = "PETHEALTH",
 						["sound"] = "Raid Warning",
-						["healthpercent"] = 0.3,
+						["sparkles"] = true,
 					},
 					["True Bearing"] = {
 						["enabled"] = true,
@@ -4798,31 +4798,31 @@ CMDb = {
 					},
 				},
 			},
+			["newinstall"] = false,
 			["announcements"] = {
 				["announcements"] = {
-					["Tricks of the Trade"] = {
-						["enabled"] = true,
-						["raidchan"] = "AUTO",
-						["announceend"] = true,
-						["arenachan"] = "AUTO",
-						["partychan"] = "AUTO",
-						["pvpchan"] = "AUTO",
-						["spellid"] = 57934,
-						["solochan"] = "AUTO",
-					},
 					["Cheating Death"] = {
 						["enabled"] = true,
 						["raidchan"] = "AUTO",
 						["announceend"] = false,
-						["arenachan"] = "AUTO",
-						["partychan"] = "AUTO",
-						["pvpchan"] = "AUTO",
-						["spellid"] = 45182,
 						["solochan"] = "AUTO",
+						["spellid"] = 45182,
+						["pvpchan"] = "AUTO",
+						["partychan"] = "AUTO",
+						["arenachan"] = "AUTO",
+					},
+					["Tricks of the Trade"] = {
+						["enabled"] = true,
+						["raidchan"] = "AUTO",
+						["announceend"] = true,
+						["solochan"] = "AUTO",
+						["spellid"] = 57934,
+						["pvpchan"] = "AUTO",
+						["partychan"] = "AUTO",
+						["arenachan"] = "AUTO",
 					},
 				},
 			},
-			["newinstall"] = false,
 		},
 		["Lachrymas - Silvermoon"] = {
 			["newinstall"] = false,
@@ -4851,32 +4851,90 @@ CMDb = {
 				["height"] = 20,
 				["basicmode"] = true,
 			},
-			["dispel"] = {
-				["enabled"] = false,
-				["anchor_removables"] = {
-					nil, -- [1]
-					nil, -- [2]
-					nil, -- [3]
-					250.000015258789, -- [4]
-					250.000015258789, -- [5]
-				},
-			},
 			["announcements"] = {
 				["announcements"] = {
 					["Soulstone"] = {
 						["enabled"] = true,
 						["raidchan"] = "AUTO",
 						["announceend"] = true,
-						["solochan"] = "AUTO",
-						["spellid"] = 20707,
-						["pvpchan"] = "AUTO",
-						["partychan"] = "AUTO",
 						["arenachan"] = "AUTO",
+						["partychan"] = "AUTO",
+						["pvpchan"] = "AUTO",
+						["spellid"] = 20707,
+						["solochan"] = "AUTO",
+					},
+				},
+			},
+			["alerts"] = {
+				["alerts"] = {
+					["Player Health Alert"] = {
+						["enabled"] = false,
+						["alerttype"] = "HEALTH",
+						["enablesound"] = true,
+						["aura"] = "",
+						["target"] = "player",
+						["sparkles"] = true,
+						["sound"] = "Raid Warning",
+						["healthpercent"] = 0.3,
+					},
+					["Demonic Synergy"] = {
+						["enabled"] = false,
+						["enablesound"] = true,
+						["aura"] = 171982,
+						["target"] = "player",
+						["alerttype"] = "BUFF",
+						["sound"] = "Ding",
+						["sparkles"] = true,
+					},
+					["Demonic Calling"] = {
+						["enabled"] = false,
+						["enablesound"] = true,
+						["aura"] = 205146,
+						["target"] = "player",
+						["alerttype"] = "BUFF",
+						["sound"] = "Ding",
+						["sparkles"] = true,
+					},
+					["Pet Health Alert"] = {
+						["enabled"] = false,
+						["alerttype"] = "PETHEALTH",
+						["enablesound"] = true,
+						["aura"] = "",
+						["target"] = "pet",
+						["sparkles"] = true,
+						["sound"] = "Raid Warning",
+						["healthpercent"] = 0.3,
 					},
 				},
 			},
 			["targetbar"] = {
 				["enabled"] = false,
+			},
+			["totemtimers"] = {
+				["anchor"] = {
+					nil, -- [1]
+					nil, -- [2]
+					nil, -- [3]
+					190.000015258789, -- [4]
+				},
+				["enabled"] = false,
+			},
+			["clicktocast"] = {
+				["enabled"] = false,
+			},
+			["resourcebar"] = {
+				["resourcefont"] = {
+					nil, -- [1]
+					24, -- [2]
+					"OUTLINE,THICKOUTLINE", -- [3]
+				},
+				["lowwarnthreshold"] = 440000,
+				["anchor"] = {
+					[5] = -290,
+				},
+				["updateinterval"] = 0.01,
+				["height"] = 30,
+				["width"] = 400,
 			},
 			["timers"] = {
 				["timerbar2"] = {
@@ -6239,73 +6297,15 @@ CMDb = {
 					},
 				},
 			},
-			["clicktocast"] = {
+			["minimapbutton"] = false,
+			["dispel"] = {
 				["enabled"] = false,
-			},
-			["resourcebar"] = {
-				["resourcefont"] = {
-					nil, -- [1]
-					24, -- [2]
-					"OUTLINE,THICKOUTLINE", -- [3]
-				},
-				["lowwarnthreshold"] = 440000,
-				["anchor"] = {
-					[5] = -290,
-				},
-				["updateinterval"] = 0.01,
-				["height"] = 30,
-				["width"] = 400,
-			},
-			["totemtimers"] = {
-				["anchor"] = {
+				["anchor_removables"] = {
 					nil, -- [1]
 					nil, -- [2]
 					nil, -- [3]
-					190.000015258789, -- [4]
-				},
-				["enabled"] = false,
-			},
-			["minimapbutton"] = false,
-			["alerts"] = {
-				["alerts"] = {
-					["Player Health Alert"] = {
-						["enabled"] = false,
-						["aura"] = "",
-						["enablesound"] = true,
-						["healthpercent"] = 0.3,
-						["target"] = "player",
-						["sparkles"] = true,
-						["sound"] = "Raid Warning",
-						["alerttype"] = "HEALTH",
-					},
-					["Demonic Synergy"] = {
-						["enabled"] = false,
-						["enablesound"] = true,
-						["aura"] = 171982,
-						["target"] = "player",
-						["alerttype"] = "BUFF",
-						["sound"] = "Ding",
-						["sparkles"] = true,
-					},
-					["Demonic Calling"] = {
-						["enabled"] = false,
-						["enablesound"] = true,
-						["aura"] = 205146,
-						["target"] = "player",
-						["alerttype"] = "BUFF",
-						["sound"] = "Ding",
-						["sparkles"] = true,
-					},
-					["Pet Health Alert"] = {
-						["enabled"] = false,
-						["aura"] = "",
-						["enablesound"] = true,
-						["healthpercent"] = 0.3,
-						["target"] = "pet",
-						["sparkles"] = true,
-						["sound"] = "Raid Warning",
-						["alerttype"] = "PETHEALTH",
-					},
+					250.000015258789, -- [4]
+					250.000015258789, -- [5]
 				},
 			},
 		},
@@ -6314,13 +6314,13 @@ CMDb = {
 				["alerts"] = {
 					["Player Health Alert"] = {
 						["enabled"] = true,
-						["sparkles"] = true,
+						["aura"] = "",
 						["enablesound"] = true,
 						["healthpercent"] = 0.3,
 						["target"] = "player",
-						["alerttype"] = "HEALTH",
+						["sparkles"] = true,
 						["sound"] = "Raid Warning",
-						["aura"] = "",
+						["alerttype"] = "HEALTH",
 					},
 					["Mangle!"] = {
 						["enabled"] = true,
@@ -8564,62 +8564,80 @@ CMDb = {
 					},
 				},
 			},
+			["newinstall"] = false,
 			["announcements"] = {
 				["announcements"] = {
 					["Innervate"] = {
 						["enabled"] = true,
 						["raidchan"] = "AUTO",
 						["announceend"] = true,
-						["arenachan"] = "AUTO",
-						["partychan"] = "AUTO",
-						["pvpchan"] = "AUTO",
-						["spellid"] = 29166,
 						["solochan"] = "AUTO",
+						["spellid"] = 29166,
+						["pvpchan"] = "AUTO",
+						["partychan"] = "AUTO",
+						["arenachan"] = "AUTO",
 					},
 					["Rebirth"] = {
 						["arenachan"] = "AUTO",
 						["raidchan"] = "AUTO",
-						["enabled"] = true,
-						["partychan"] = "AUTO",
-						["pvpchan"] = "AUTO",
-						["spellid"] = 20484,
 						["solochan"] = "AUTO",
+						["spellid"] = 20484,
+						["pvpchan"] = "AUTO",
+						["partychan"] = "AUTO",
+						["enabled"] = true,
 					},
 					["Stampeding Roar"] = {
 						["arenachan"] = "AUTO",
 						["raidchan"] = "AUTO",
-						["enabled"] = true,
-						["partychan"] = "AUTO",
-						["pvpchan"] = "AUTO",
-						["spellid"] = 77761,
 						["solochan"] = "AUTO",
+						["spellid"] = 77761,
+						["pvpchan"] = "AUTO",
+						["partychan"] = "AUTO",
+						["enabled"] = true,
 					},
 				},
 			},
-			["newinstall"] = false,
 		},
 		["Spinhoof - Ragnaros"] = {
 			["alerts"] = {
 				["alerts"] = {
-					["Player Health Alert"] = {
-						["enabled"] = true,
-						["sparkles"] = true,
-						["enablesound"] = true,
-						["healthpercent"] = 0.3,
-						["target"] = "player",
-						["alerttype"] = "HEALTH",
-						["sound"] = "Raid Warning",
-						["aura"] = "",
-					},
 					["Pet Health Alert"] = {
 						["enabled"] = true,
-						["sparkles"] = true,
+						["aura"] = "",
 						["enablesound"] = true,
 						["healthpercent"] = 0.3,
 						["target"] = "pet",
-						["alerttype"] = "PETHEALTH",
+						["sparkles"] = true,
 						["sound"] = "Raid Warning",
+						["alerttype"] = "PETHEALTH",
+					},
+					["Moderate Stagger"] = {
+						["enabled"] = true,
+						["enablesound"] = false,
+						["aura"] = 124274,
+						["target"] = "player",
+						["alerttype"] = "DEBUFF",
+						["sound"] = "",
+						["sparkles"] = false,
+					},
+					["Heavy Stagger"] = {
+						["enabled"] = true,
+						["enablesound"] = false,
+						["aura"] = 124273,
+						["target"] = "player",
+						["alerttype"] = "DEBUFF",
+						["sound"] = "",
+						["sparkles"] = false,
+					},
+					["Player Health Alert"] = {
+						["enabled"] = true,
 						["aura"] = "",
+						["enablesound"] = true,
+						["healthpercent"] = 0.3,
+						["target"] = "player",
+						["sparkles"] = true,
+						["sound"] = "Raid Warning",
+						["alerttype"] = "HEALTH",
 					},
 					["Light Stagger"] = {
 						["enabled"] = true,
@@ -8638,24 +8656,6 @@ CMDb = {
 						["alerttype"] = "BUFF",
 						["sound"] = "Ding",
 						["sparkles"] = true,
-					},
-					["Heavy Stagger"] = {
-						["enabled"] = true,
-						["enablesound"] = false,
-						["aura"] = 124273,
-						["target"] = "player",
-						["alerttype"] = "DEBUFF",
-						["sound"] = "",
-						["sparkles"] = false,
-					},
-					["Moderate Stagger"] = {
-						["enabled"] = true,
-						["enablesound"] = false,
-						["aura"] = 124274,
-						["target"] = "player",
-						["alerttype"] = "DEBUFF",
-						["sound"] = "",
-						["sparkles"] = false,
 					},
 					["Hit Combo"] = {
 						["enabled"] = true,
@@ -10533,31 +10533,31 @@ CMDb = {
 					},
 				},
 			},
+			["newinstall"] = false,
 			["announcements"] = {
 				["announcements"] = {
 					["Resuscitate"] = {
 						["enabled"] = true,
 						["raidchan"] = "AUTO",
 						["announceend"] = false,
-						["arenachan"] = "AUTO",
-						["partychan"] = "AUTO",
-						["pvpchan"] = "AUTO",
-						["spellid"] = 115178,
 						["solochan"] = "AUTO",
+						["spellid"] = 115178,
+						["pvpchan"] = "AUTO",
+						["partychan"] = "AUTO",
+						["arenachan"] = "AUTO",
 					},
 					["Reawaken"] = {
 						["enabled"] = true,
 						["raidchan"] = "AUTO",
 						["announceend"] = false,
-						["arenachan"] = "AUTO",
-						["partychan"] = "AUTO",
-						["pvpchan"] = "AUTO",
-						["spellid"] = 212051,
 						["solochan"] = "AUTO",
+						["spellid"] = 212051,
+						["pvpchan"] = "AUTO",
+						["partychan"] = "AUTO",
+						["arenachan"] = "AUTO",
 					},
 				},
 			},
-			["newinstall"] = false,
 		},
 		["Alyara - Silvermoon"] = {
 			["targetbar"] = {
@@ -12557,55 +12557,6 @@ CMDb = {
 			["healthbar"] = {
 				["enabled"] = false,
 			},
-			["announcements"] = {
-				["announcements"] = {
-					["Ancestral Spirit"] = {
-						["enabled"] = true,
-						["raidchan"] = "AUTO",
-						["announceend"] = false,
-						["arenachan"] = "AUTO",
-						["partychan"] = "AUTO",
-						["pvpchan"] = "AUTO",
-						["spellid"] = 2008,
-						["solochan"] = "AUTO",
-					},
-					["Ancestral Protection Totem"] = {
-						["enabled"] = true,
-						["raidchan"] = "AUTO",
-						["announceend"] = false,
-						["arenachan"] = "AUTO",
-						["partychan"] = "AUTO",
-						["pvpchan"] = "AUTO",
-						["spellid"] = 207399,
-						["solochan"] = "AUTO",
-					},
-					["Ancestral Vision"] = {
-						["enabled"] = true,
-						["raidchan"] = "AUTO",
-						["announceend"] = false,
-						["arenachan"] = "AUTO",
-						["partychan"] = "AUTO",
-						["pvpchan"] = "AUTO",
-						["spellid"] = 212048,
-						["solochan"] = "AUTO",
-					},
-					["Heroism"] = {
-						["enabled"] = true,
-						["raidchan"] = "AUTO",
-						["announceend"] = true,
-						["arenachan"] = "AUTO",
-						["partychan"] = "AUTO",
-						["pvpchan"] = "AUTO",
-						["spellid"] = 32182,
-						["solochan"] = "AUTO",
-					},
-				},
-			},
-			["resourcebar"] = {
-				["enabled"] = false,
-			},
-			["newinstall"] = false,
-			["minimapbutton"] = false,
 			["alerts"] = {
 				["alerts"] = {
 					["Hot Hand"] = {
@@ -12617,47 +12568,10 @@ CMDb = {
 						["sound"] = "Ding",
 						["sparkles"] = true,
 					},
-					["Lava Surge"] = {
+					["Elemental Focus"] = {
 						["enabled"] = true,
 						["enablesound"] = true,
-						["aura"] = 77762,
-						["target"] = "player",
-						["alerttype"] = "BUFF",
-						["sound"] = "Ding",
-						["sparkles"] = true,
-					},
-					["Ancestral Guidance"] = {
-						["enabled"] = true,
-						["enablesound"] = true,
-						["aura"] = 108281,
-						["target"] = "player",
-						["alerttype"] = "BUFF",
-						["sound"] = "Ding",
-						["sparkles"] = true,
-					},
-					["Undulation"] = {
-						["enabled"] = true,
-						["enablesound"] = true,
-						["aura"] = 216251,
-						["target"] = "player",
-						["alerttype"] = "BUFF",
-						["sound"] = "Ding",
-						["sparkles"] = true,
-					},
-					["Player Health Alert"] = {
-						["enabled"] = true,
-						["sparkles"] = true,
-						["enablesound"] = true,
-						["healthpercent"] = 0.3,
-						["target"] = "player",
-						["alerttype"] = "HEALTH",
-						["sound"] = "Raid Warning",
-						["aura"] = "",
-					},
-					["Stormbringer"] = {
-						["enabled"] = true,
-						["enablesound"] = true,
-						["aura"] = 201846,
+						["aura"] = 16164,
 						["target"] = "player",
 						["alerttype"] = "BUFF",
 						["sound"] = "Ding",
@@ -12672,14 +12586,100 @@ CMDb = {
 						["sound"] = "Ding",
 						["sparkles"] = true,
 					},
-					["Elemental Focus"] = {
+					["Undulation"] = {
 						["enabled"] = true,
 						["enablesound"] = true,
-						["aura"] = 16164,
+						["aura"] = 216251,
 						["target"] = "player",
 						["alerttype"] = "BUFF",
 						["sound"] = "Ding",
 						["sparkles"] = true,
+					},
+					["Player Health Alert"] = {
+						["enabled"] = true,
+						["aura"] = "",
+						["enablesound"] = true,
+						["healthpercent"] = 0.3,
+						["target"] = "player",
+						["sparkles"] = true,
+						["sound"] = "Raid Warning",
+						["alerttype"] = "HEALTH",
+					},
+					["Stormbringer"] = {
+						["enabled"] = true,
+						["enablesound"] = true,
+						["aura"] = 201846,
+						["target"] = "player",
+						["alerttype"] = "BUFF",
+						["sound"] = "Ding",
+						["sparkles"] = true,
+					},
+					["Ancestral Guidance"] = {
+						["enabled"] = true,
+						["enablesound"] = true,
+						["aura"] = 108281,
+						["target"] = "player",
+						["alerttype"] = "BUFF",
+						["sound"] = "Ding",
+						["sparkles"] = true,
+					},
+					["Lava Surge"] = {
+						["enabled"] = true,
+						["enablesound"] = true,
+						["aura"] = 77762,
+						["target"] = "player",
+						["alerttype"] = "BUFF",
+						["sound"] = "Ding",
+						["sparkles"] = true,
+					},
+				},
+			},
+			["resourcebar"] = {
+				["enabled"] = false,
+			},
+			["newinstall"] = false,
+			["minimapbutton"] = false,
+			["announcements"] = {
+				["announcements"] = {
+					["Ancestral Spirit"] = {
+						["enabled"] = true,
+						["raidchan"] = "AUTO",
+						["announceend"] = false,
+						["solochan"] = "AUTO",
+						["spellid"] = 2008,
+						["pvpchan"] = "AUTO",
+						["partychan"] = "AUTO",
+						["arenachan"] = "AUTO",
+					},
+					["Ancestral Protection Totem"] = {
+						["enabled"] = true,
+						["raidchan"] = "AUTO",
+						["announceend"] = false,
+						["solochan"] = "AUTO",
+						["spellid"] = 207399,
+						["pvpchan"] = "AUTO",
+						["partychan"] = "AUTO",
+						["arenachan"] = "AUTO",
+					},
+					["Ancestral Vision"] = {
+						["enabled"] = true,
+						["raidchan"] = "AUTO",
+						["announceend"] = false,
+						["solochan"] = "AUTO",
+						["spellid"] = 212048,
+						["pvpchan"] = "AUTO",
+						["partychan"] = "AUTO",
+						["arenachan"] = "AUTO",
+					},
+					["Heroism"] = {
+						["enabled"] = true,
+						["raidchan"] = "AUTO",
+						["announceend"] = true,
+						["solochan"] = "AUTO",
+						["spellid"] = 32182,
+						["pvpchan"] = "AUTO",
+						["partychan"] = "AUTO",
+						["arenachan"] = "AUTO",
 					},
 				},
 			},
@@ -14073,17 +14073,20 @@ CMDb = {
 				["height"] = 20,
 				["basicmode"] = true,
 			},
+			["crowdcontrol"] = {
+				["enabled"] = false,
+			},
 			["alerts"] = {
 				["alerts"] = {
 					["Player Health Alert"] = {
 						["enabled"] = false,
-						["sparkles"] = true,
+						["aura"] = "",
 						["enablesound"] = true,
 						["healthpercent"] = 0.3,
 						["target"] = "player",
-						["alerttype"] = "HEALTH",
+						["sparkles"] = true,
 						["sound"] = "Raid Warning",
-						["aura"] = "",
+						["alerttype"] = "HEALTH",
 					},
 					["Demonic Synergy"] = {
 						["enabled"] = false,
@@ -14105,20 +14108,24 @@ CMDb = {
 					},
 					["Pet Health Alert"] = {
 						["enabled"] = false,
-						["sparkles"] = true,
+						["aura"] = "",
 						["enablesound"] = true,
 						["healthpercent"] = 0.3,
 						["target"] = "pet",
-						["alerttype"] = "PETHEALTH",
+						["sparkles"] = true,
 						["sound"] = "Raid Warning",
-						["aura"] = "",
+						["alerttype"] = "PETHEALTH",
 					},
 				},
 			},
-			["targetbar"] = {
+			["dispel"] = {
 				["enabled"] = false,
 			},
-			["dispel"] = {
+			["newinstall"] = false,
+			["healthbar"] = {
+				["enabled"] = false,
+			},
+			["resourcebar"] = {
 				["enabled"] = false,
 			},
 			["announcements"] = {
@@ -14127,132 +14134,28 @@ CMDb = {
 						["enabled"] = true,
 						["raidchan"] = "AUTO",
 						["announceend"] = true,
-						["arenachan"] = "AUTO",
-						["partychan"] = "AUTO",
-						["pvpchan"] = "AUTO",
-						["spellid"] = 20707,
 						["solochan"] = "AUTO",
+						["spellid"] = 20707,
+						["pvpchan"] = "AUTO",
+						["partychan"] = "AUTO",
+						["arenachan"] = "AUTO",
 					},
 				},
 			},
-			["healthbar"] = {
-				["enabled"] = false,
-			},
-			["resourcebar"] = {
-				["enabled"] = false,
-			},
-			["newinstall"] = false,
 			["minimapbutton"] = false,
-			["crowdcontrol"] = {
+			["targetbar"] = {
 				["enabled"] = false,
 			},
 		},
 		["Qsilver - Silvermoon"] = {
-			["newinstall"] = false,
-			["targetbar"] = {
-				["enabled"] = false,
-			},
-			["resourcebar"] = {
-				["anchor"] = {
-					nil, -- [1]
-					nil, -- [2]
-					nil, -- [3]
-					0.0001220703125, -- [4]
-					-350.000030517578, -- [5]
-				},
-				["ticks"] = {
-					{
-						{
-							[7] = true,
-						}, -- [1]
-						{
-							[7] = true,
-						}, -- [2]
-					}, -- [1]
-					{
-						{
-							[7] = true,
-						}, -- [1]
-						{
-							[7] = true,
-						}, -- [2]
-					}, -- [2]
-				},
-				["autoattackbar"] = true,
-				["activestack"] = 1,
-				["spell1"] = 4,
-				["targethealth"] = true,
-				["height"] = 30,
-				["barcolor"] = {
-					0.749019607843137, -- [1]
-					0.372549019607843, -- [2]
-					0.0313725490196078, -- [3]
-				},
-				["spell2"] = 3,
-				["barcolorenable"] = true,
-				["updateinterval"] = 0.01,
-				["width"] = 400,
-				["resourcefont"] = {
-					nil, -- [1]
-					24, -- [2]
-				},
-				["lowwarnthreshold"] = 30,
-				["barcolorhigh"] = {
-					0.00392156862745098, -- [1]
-					0.419607843137255, -- [2]
-					1, -- [3]
-				},
-				["highwarnthreshold"] = 90,
-				["autoattacktimer"] = true,
-			},
-			["healthbar"] = {
-				["enabled"] = false,
-			},
-			["crowdcontrol"] = {
-				["anchor"] = {
-					nil, -- [1]
-					nil, -- [2]
-					nil, -- [3]
-					-190.000015258789, -- [4]
-				},
-			},
-			["announcements"] = {
-				["announcements"] = {
-					["Binding Shot"] = {
-						["arenachan"] = "AUTO",
-						["raidchan"] = "AUTO",
-						["solochan"] = "AUTO",
-						["spellid"] = 109248,
-						["pvpchan"] = "AUTO",
-						["partychan"] = "AUTO",
-						["enabled"] = true,
-					},
-					["Misdirection"] = {
-						["enabled"] = true,
-						["solochan"] = "AUTO",
-						["announceend"] = false,
-						["raidchan"] = "AUTO",
-						["partychan"] = "NONE",
-						["pvpchan"] = "AUTO",
-						["spellid"] = 34477,
-						["arenachan"] = "AUTO",
-					},
-				},
-				["interrupt"] = {
-					["arenachan"] = "SELFWHISPER",
-					["solochan"] = "SELFWHISPER",
-					["pvpchan"] = "SELFWHISPER",
-					["partychan"] = "SELFWHISPER",
-				},
-			},
 			["timers"] = {
 				["timerbar2"] = {
 					["anchor"] = {
 						nil, -- [1]
 						nil, -- [2]
 						nil, -- [3]
-						11.3908710479736, -- [4]
-						-393.247619628906, -- [5]
+						11.390872001648, -- [4]
+						-393.247711181641, -- [5]
 					},
 					["timers"] = {
 						{
@@ -14451,8 +14354,8 @@ CMDb = {
 						nil, -- [1]
 						nil, -- [2]
 						nil, -- [3]
-						nil, -- [4]
-						107.500137329102, -- [5]
+						312.999633789063, -- [4]
+						107.500152587891, -- [5]
 					},
 					["timers"] = {
 						{
@@ -14630,7 +14533,7 @@ CMDb = {
 						"RIGHT", -- [1]
 						nil, -- [2]
 						nil, -- [3]
-						119.831497192383, -- [4]
+						119.831512451172, -- [4]
 						-322.892547607422, -- [5]
 					},
 					["timers"] = {
@@ -15351,12 +15254,6 @@ CMDb = {
 					},
 				},
 			},
-			["cooldowns"] = {
-				["font"] = {
-					nil, -- [1]
-					24, -- [2]
-				},
-			},
 			["alerts"] = {
 				["alerts"] = {
 					["Lock and Load"] = {
@@ -15370,13 +15267,13 @@ CMDb = {
 					},
 					["Player Health Alert"] = {
 						["enabled"] = false,
-						["aura"] = "",
+						["alerttype"] = "HEALTH",
 						["enablesound"] = true,
-						["healthpercent"] = 0.3,
+						["aura"] = "",
 						["target"] = "player",
 						["sparkles"] = true,
 						["sound"] = "Raid Warning",
-						["alerttype"] = "HEALTH",
+						["healthpercent"] = 0.3,
 					},
 					["Wild Call"] = {
 						["enabled"] = false,
@@ -15387,6 +15284,16 @@ CMDb = {
 						["sound"] = "Ding",
 						["sparkles"] = true,
 					},
+					["Pet Health Alert"] = {
+						["enabled"] = false,
+						["alerttype"] = "PETHEALTH",
+						["enablesound"] = true,
+						["aura"] = "",
+						["target"] = "pet",
+						["sparkles"] = true,
+						["sound"] = "Raid Warning",
+						["healthpercent"] = 0.3,
+					},
 					["Marking Targets"] = {
 						["enabled"] = false,
 						["enablesound"] = true,
@@ -15396,19 +15303,112 @@ CMDb = {
 						["sound"] = "Ding",
 						["sparkles"] = true,
 					},
-					["Pet Health Alert"] = {
-						["enabled"] = false,
-						["aura"] = "",
-						["enablesound"] = true,
-						["healthpercent"] = 0.3,
-						["target"] = "pet",
-						["sparkles"] = true,
-						["sound"] = "Raid Warning",
-						["alerttype"] = "PETHEALTH",
-					},
 				},
 				["anchor"] = {
 					[5] = 100.000007629395,
+				},
+			},
+			["targetbar"] = {
+				["enabled"] = false,
+			},
+			["healthbar"] = {
+				["enabled"] = false,
+			},
+			["crowdcontrol"] = {
+				["anchor"] = {
+					nil, -- [1]
+					nil, -- [2]
+					nil, -- [3]
+					-190.000015258789, -- [4]
+				},
+			},
+			["announcements"] = {
+				["announcements"] = {
+					["Misdirection"] = {
+						["enabled"] = true,
+						["solochan"] = "AUTO",
+						["announceend"] = false,
+						["arenachan"] = "AUTO",
+						["spellid"] = 34477,
+						["pvpchan"] = "AUTO",
+						["partychan"] = "NONE",
+						["raidchan"] = "AUTO",
+					},
+					["Binding Shot"] = {
+						["arenachan"] = "AUTO",
+						["raidchan"] = "AUTO",
+						["enabled"] = true,
+						["partychan"] = "AUTO",
+						["pvpchan"] = "AUTO",
+						["spellid"] = 109248,
+						["solochan"] = "AUTO",
+					},
+				},
+				["interrupt"] = {
+					["arenachan"] = "SELFWHISPER",
+					["solochan"] = "SELFWHISPER",
+					["pvpchan"] = "SELFWHISPER",
+					["partychan"] = "SELFWHISPER",
+				},
+			},
+			["newinstall"] = false,
+			["resourcebar"] = {
+				["anchor"] = {
+					nil, -- [1]
+					nil, -- [2]
+					nil, -- [3]
+					0.0001220703125, -- [4]
+					-350.000091552734, -- [5]
+				},
+				["ticks"] = {
+					{
+						{
+							[7] = true,
+						}, -- [1]
+						{
+							[7] = true,
+						}, -- [2]
+					}, -- [1]
+					{
+						{
+							[7] = true,
+						}, -- [1]
+						{
+							[7] = true,
+						}, -- [2]
+					}, -- [2]
+				},
+				["autoattackbar"] = true,
+				["activestack"] = 1,
+				["spell1"] = 4,
+				["targethealth"] = true,
+				["height"] = 30,
+				["barcolor"] = {
+					0.749019607843137, -- [1]
+					0.372549019607843, -- [2]
+					0.0313725490196078, -- [3]
+				},
+				["spell2"] = 3,
+				["barcolorenable"] = true,
+				["updateinterval"] = 0.01,
+				["width"] = 400,
+				["resourcefont"] = {
+					nil, -- [1]
+					24, -- [2]
+				},
+				["lowwarnthreshold"] = 30,
+				["autoattacktimer"] = true,
+				["barcolorhigh"] = {
+					0.00392156862745098, -- [1]
+					0.419607843137255, -- [2]
+					1, -- [3]
+				},
+				["highwarnthreshold"] = 90,
+			},
+			["cooldowns"] = {
+				["font"] = {
+					nil, -- [1]
+					24, -- [2]
 				},
 			},
 			["minimapbutton"] = false,

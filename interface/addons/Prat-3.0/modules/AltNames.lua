@@ -249,54 +249,41 @@ do
 		--[[ ["%d alts found for %s: %s"] = "",--]] 
 		--[[Translation missing --]]
 		--[[ ["%s alts imported from LOKWhoIsWho"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["%s total alts linked to mains"] = "",--]] 
+		["%s total alts linked to mains"] = "%s nb total de reroll liés au personnage principal",
 		--[[Translation missing --]]
 		--[[ ["(.-)'s? [Aa]lt"] = "",--]] 
 		--[[Translation missing --]]
 		--[[ ["([^%s%p%d%c%z]+)'s alt"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ [".*[Aa]lts?$"] = "",--]] 
+		[".*[Aa]lts?$"] = ".*[Rr]erolls?$",
 		--[[Translation missing --]]
 		--[[ ["<alt name> (eg, /altnames del Personyouthoughtwassomeonesaltbutreallyisnt)"] = "",--]] 
 		--[[Translation missing --]]
 		--[[ ["<main> (eg /altnames listalts Fin)"] = "",--]] 
 		--[[Translation missing --]]
 		--[[ ["<search term> (eg, /altnames find fin)"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["Alt"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["alt"] = "",--]] 
+		["Alt"] = "Reroll",
+		["alt"] = "reroll",
 		--[[Translation missing --]]
 		--[[ ["alt name exists: %s -> %s; not overwriting as set in preferences"] = "",--]] 
 		--[[Translation missing --]]
 		--[[ ["AltNames"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["Alts:"] = "",--]] 
+		["Alts:"] = "Rerolls:",
 		--[[Translation missing --]]
 		--[[ ["autoguildalts_desc"] = "",--]] 
 		--[[Translation missing --]]
 		--[[ ["autoguildalts_name"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["Be quiet"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["character removed: %s"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["Class colour"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["Clear all"] = "",--]] 
+		["Be quiet"] = "Soit silencieux",
+		["character removed: %s"] = "Personnage supprimé : %s",
+		["Class colour"] = "Couleur de classe",
+		["Clear all"] = "Tout supprimer",
 		--[[Translation missing --]]
 		--[[ ["Clear all links between alts and main names."] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["Colour"] = "",--]] 
+		["Colour"] = "Couleur",
 		--[[Translation missing --]]
 		--[[ ["Delete a character's link to another character as their main."] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["Delete alt"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["Disabled"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["Display a player's alts in the tooltip"] = "",--]] 
+		["Delete alt"] = "Supprimer reroll",
+		["Disabled"] = "Désactiver",
+		["Display a player's alts in the tooltip"] = "Afficher les rerolls d'un joueur dans la tooltip",
 		["Display a player's main name in the tooltip"] = "Affiche le nom principale d'un joueur dans la tooltip",
 		--[[Translation missing --]]
 		--[[ ["Display main names in the same colour as that of the alt's class (taking the data from the PlayerNames module if it is enabled)"] = "",--]] 
@@ -304,8 +291,7 @@ do
 		--[[ ["Display main names in the same colour as that of the main's class (taking the data from the PlayerNames module if it is enabled)"] = "",--]] 
 		["Don't overwrite existing alt <-> main links when importing or adding new alts."] = "Ne pas écraser les liens principal <-> Alternatif lors d'un import ou d'un ajout de nouveaux personnages Alternatifs",
 		["Don't overwrite existing links"] = "Ne pas écraser les liens existant",
-		--[[Translation missing --]]
-		--[[ ["don't use"] = "",--]] 
+		["don't use"] = "Ne pas utiliser",
 		["Don't use data from the PlayerNames module at all"] = "Ne pas utiliser les donnée du module \"PlayerNames\" du tout",
 		["ERROR: some function sent a blank message!"] = "ERREUR: une fonction a envoyé un message blanc !",
 		["Find characters"] = "Trouver des personnages",

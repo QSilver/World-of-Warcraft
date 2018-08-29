@@ -17,6 +17,7 @@ do
       GourmetPandaren = true,
 	  GourmetDraenor = true,
 	  LegionMenu = true,
+	  BattleMenu = true,
     }
   }
   local id, name, _, completed

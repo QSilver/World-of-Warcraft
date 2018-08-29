@@ -26,7 +26,7 @@ Postal3DB = {
 				"Lachrymas|Silvermoon|Alliance|110|WARLOCK", -- [5]
 				"Linela|Silvermoon|Alliance|91|PRIEST", -- [6]
 				"Myvanna|Silvermoon|Alliance|102|DRUID", -- [7]
-				"Qsilver|Silvermoon|Alliance|110|HUNTER", -- [8]
+				"Qsilver|Silvermoon|Alliance|120|HUNTER", -- [8]
 				"Siluna|Silvermoon|Alliance|60|PALADIN", -- [9]
 				"Simroth|Silvermoon|Alliance|110|DEATHKNIGHT", -- [10]
 				"Spinhoof|Ragnaros|Horde|100|MONK", -- [11]
@@ -110,12 +110,12 @@ Postal3DB = {
 		["Qsilver - Silvermoon"] = {
 			["BlackBook"] = {
 				["recent"] = {
-					"Lachrymas|Silvermoon|Alliance", -- [1]
-					"Simroth|Silvermoon|Alliance", -- [2]
-					"Putrohunt|Silvermoon|Alliance", -- [3]
-					"Laark|Silvermoon|Alliance", -- [4]
-					"Abbey|Silvermoon|Alliance", -- [5]
-					"Olivmm|Silvermoon|Alliance", -- [6]
+					"Olivmm|Silvermoon|Alliance", -- [1]
+					"Lachrymas|Silvermoon|Alliance", -- [2]
+					"Simroth|Silvermoon|Alliance", -- [3]
+					"Putrohunt|Silvermoon|Alliance", -- [4]
+					"Laark|Silvermoon|Alliance", -- [5]
+					"Abbey|Silvermoon|Alliance", -- [6]
 					"Totemicblow|Silvermoon|Alliance", -- [7]
 					"Coyotestark|Silvermoon|Alliance", -- [8]
 					"Troopcsd|Silvermoon|Alliance", -- [9]
@@ -132,6 +132,8 @@ Postal3DB = {
 					"Thagmarr|Silvermoon|Alliance", -- [20]
 				},
 			},
+			["ChatOutput"] = 2,
+			["OpenSpeed"] = 0.3,
 		},
 	},
 }

@@ -1,15 +1,12 @@
-tag cc68022d6526910b2d5e48935b7403da6c75db09 1.6.1
+tag f422b3105033a58805a295599d6dda681a1861be 1.7.2
 Author:	Alar of Runetotem <alar@aspide.it>
-Date:	Sat Jul 21 20:07:10 2018 +0200
+Date:	Mon Aug 20 16:37:40 2018 +0200
 
-Fixed lua errir when opening Artifact UI
+Fix: OrderHallCommander\tutorials.lua:498: '<eof>' expected near 'end'
 
-commit 5258def170c09e3d400107c87db0cf96137790e6
+commit b8d6ab02b5eebe961a50a38d0aebcbbe786f63fd
 Author: Alar of Runetotem <alar@aspide.it>
-Date:   Sat Jul 21 20:00:47 2018 +0200
+Date:   Mon Aug 20 16:37:07 2018 +0200
 
-    Fix: removed lua error
-    
-    Message: ..\AddOns\OrderHallCommander\core.lua line 196:
-       attempt to call field 'GetArtifactKnowledgeMultiplier' (a nil value)
+    Fix: OrderHallCommander\tutorials.lua:498: '<eof>' expected near 'end'
 

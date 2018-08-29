@@ -82,9 +82,60 @@ function SlashCmdList.KUINAMEPLATESCORE(msg)
         return
     elseif msg == 'dump-config' then
         local d = kui:DebugPopup()
+        d:AddText(format('%s %d.%d %s',
+            'beta-applauding-vampire-giggling-carp',knp.MAJOR,knp.MINOR,tostring(knp.debug)))
         d:AddText(KuiNameplatesCore.config.csv)
         d:AddText(KuiNameplatesCore.config:GetActiveProfile())
         d:Show()
+        return
+    elseif strfind(msg,'^profile') then
+        local profile = strmatch(msg,'^profile (.-)%s*$')
+        if not profile then
+            knp:ui_print('Switch to named profile. Usage: /knp profile profile name')
+            return
+        end
+        if KuiNameplatesCore.config.gsv.profiles[profile] then
+            KuiNameplatesCore.config:SetProfile(profile)
+        end
+        return
+    elseif strfind(msg,'^set') then
+        local k,v = strmatch(msg,'^set (.-) (.-)%s*$')
+        if not k or not v then
+            knp:ui_print('Set config key to value. Usage: /knp set config_key value')
+            print(' Only boolean (true, false), numeric and string values can be set by this command.')
+            print(' Type nil for value to reset a key to default.')
+            return
+        end
+
+        local extant_v = KuiNameplatesCore.profile[k]
+        if type(extant_v) == 'nil' then
+            knp:ui_print(format('Invalid config key `%s`.',k))
+            return
+        end
+
+        if strlower(v) == 'true' then
+            v = true
+        elseif strlower(v) == 'false' then
+            v = false
+        else
+            v = tonumber(v) or v
+        end
+
+        if v == 'nil' then
+            -- reset the key
+            v = nil
+        elseif type(extant_v) ~= type(v) then
+            knp:ui_print(format('Invalid value for key (expected %s, got %s).',
+                type(extant_v),type(v)))
+            return
+        end
+
+        KuiNameplatesCore.config:SetKey(k,v)
+        return
+    elseif msg == 'which' then
+        local t = C_NamePlate.GetNamePlateForUnit('target')
+        if not t then return end
+        knp:ui_print(t:GetName())
         return
     elseif msg and msg ~= '' then
         -- interpret msg as config page shortcut
@@ -93,15 +144,21 @@ function SlashCmdList.KUINAMEPLATESCORE(msg)
 
         local found
         for i,f in ipairs(opt.pages) do
-            local n = strlower(L.page_names[f.name] or f.name)
-            if n == msg then
-                -- exact match
-                found = f
-                break
-            elseif not found and n:match('^'..msg) then
-                -- starts-with match
-                -- (continue searching for exact, don't look for more fuzzies)
-                found = f
+            if f.name then
+                local name = f.name
+                local locale = L.page_names[name] and
+                               strlower(L.page_names[name])
+
+                if msg == name or msg == locale then
+                    -- exact match
+                    found = f
+                    break
+                elseif not found and
+                    (name:match('^'..msg) or locale:match('^'..msg))
+                then
+                    -- starts-with match, continue searching for exact matches
+                    found = f
+                end
             end
         end
 

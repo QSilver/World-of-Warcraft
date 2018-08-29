@@ -5082,8 +5082,6 @@ ArchyDB = {
 				},
 			},
 			["general"] = {
-				["stealthMode"] = true,
-				["show"] = false,
 				["easyCast"] = true,
 				["locked"] = true,
 				["sinkOptions"] = {
@@ -5091,10 +5089,10 @@ ArchyDB = {
 					["sink20OutputSink"] = "RaidWarning",
 					["sink20ScrollArea"] = "Notification",
 				},
+				["theme"] = "Minimal",
 				["icon"] = {
 					["minimapPos"] = 225.218406502118,
 				},
-				["theme"] = "Minimal",
 			},
 			["tomtom"] = {
 				["enabled"] = false,

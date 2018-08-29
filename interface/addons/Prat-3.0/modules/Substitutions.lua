@@ -546,8 +546,7 @@ Cliquez pour coller dans le chat.]=],
 		["Delete substitution"] = "Supprimer la substitution",
 		["Deletes a user defined substitution"] = "Supprime une substitution personnalisée",
 		["Deletes all user defined substitutions"] = "Supprime toutes les substitutions personnalisées",
-		--[[Translation missing --]]
-		--[[ ["female"] = "",--]] 
+		["female"] = "femme",
 		--[[Translation missing --]]
 		--[[ ["her"] = "",--]] 
 		--[[Translation missing --]]

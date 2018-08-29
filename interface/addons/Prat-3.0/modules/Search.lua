@@ -53,8 +53,7 @@ Usage:
 		--[[ ["err_notfound"] = "",--]] 
 		--[[Translation missing --]]
 		--[[ ["err_tooshort"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["find_results"] = "",--]] 
+		["find_results"] = "Résultats trouvés :",
 		--[[Translation missing --]]
 		--[[ ["module_desc"] = "",--]] 
 		--[[Translation missing --]]

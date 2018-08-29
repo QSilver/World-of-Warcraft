@@ -227,8 +227,7 @@ L=
 		["Copy Text"] = "Copier le texte",
 		["Copy Text Format"] = "Format du texte copié",
 		["Copy text from the active chat window."] = "Copier le texte à partir de la fenêtre de discussion active.",
-		--[[Translation missing --]]
-		--[[ ["Copy To Editbox"] = "",--]] 
+		["Copy To Editbox"] = "Copier vers la fenêtre d'édition",
 		["CopyChat"] = "Copier",
 		["HTML"] = true,
 		["Message From : %s"] = "Message de : %s",

@@ -21,7 +21,7 @@ do
 	local RELEASE = "RELEASE"
 
 	local releaseType = RELEASE
-	local myGitHash = "1585351" -- The ZIP packager will replace this with the Git hash.
+	local myGitHash = "f4d1726" -- The ZIP packager will replace this with the Git hash.
 	local releaseString = ""
 	--[===[@alpha@
 	-- The following code will only be present in alpha ZIPs.
@@ -339,6 +339,11 @@ local function loadCoreAndOpenOptions()
 	if BigWigsOptions then
 		BigWigsOptions:Open()
 	end
+end
+
+local function Popup(msg)
+	BasicMessageDialog.Text:SetText(msg)
+	BasicMessageDialog:Show()
 end
 
 -----------------------------------------------------------------------
@@ -863,7 +868,7 @@ do
 
 		if old[name] then
 			delayedMessages[#delayedMessages+1] = L.removeAddon:format(name, old[name])
-			message(L.removeAddon:format(name, old[name]))
+			Popup(L.removeAddon:format(name, old[name]))
 		end
 	end
 
@@ -959,8 +964,8 @@ end
 
 do
 	-- This is a crapfest mainly because DBM's actual handling of versions is a crapfest, I'll try explain how this works...
-	local DBMdotRevision = "17635" -- The changing version of the local client, changes with every alpha revision using an SVN keyword.
-	local DBMdotDisplayVersion = "8.0.1" -- "N.N.N" for a release and "N.N.N alpha" for the alpha duration. Unless they fuck up their release and leave the alpha text in it.
+	local DBMdotRevision = "17699" -- The changing version of the local client, changes with every alpha revision using an SVN keyword.
+	local DBMdotDisplayVersion = "8.0.3" -- "N.N.N" for a release and "N.N.N alpha" for the alpha duration. Unless they fuck up their release and leave the alpha text in it.
 	local DBMdotReleaseRevision = DBMdotRevision -- This is manually changed by them every release, they use it to track the highest release version, a new DBM release is the only time it will change.
 
 	local timer, prevUpgradedUser = nil, nil
@@ -1193,7 +1198,7 @@ do
 				local diff = highestFoundVersion - BIGWIGS_VERSION
 				local msg = L.warnSeveralReleases:format(diff)
 				sysprint(msg)
-				message(msg)
+				Popup(msg)
 				RaidNotice_AddMessage(RaidWarningFrame, msg, {r=1,g=1,b=1}, 20)
 			end, 1)
 		elseif warnedReallyOutOfDate > 1 and hasWarned < 2 then
@@ -1291,7 +1296,7 @@ do
 			if disabledZones and disabledZones[id] then -- We have content for the zone but it is disabled in the addons menu
 				local msg = L.disabledAddOn:format(disabledZones[id])
 				sysprint(msg)
-				message(msg)
+				Popup(msg)
 				-- Only print once
 				warnedThisZone[id] = true
 				disabledZones[id] = nil

@@ -58,32 +58,6 @@ local function mergeCache(t1, t2)
 		end
 	end
 	return t1
-
-	--[[
-	for k,list2 in pairs(t2) do
-		local list1 = t1[k]
-		if (list1) then
-			if (type(list1) ~= "table") then  list1 = { list1 };  end
-			if (type(list2) == "table") then
-				for i,id in ipairs(list2) do
-					if (not tContains(list1, id)) then
-						tinsert(list1, id)
-					end
-				end
-			else
-				if (not tContains(list1, list2)) then
-					tinsert(list1, list2)
-				end
-			end
-			t1[k] = list1
-		elseif (type(list2) == "table") then
-			t1[k] = tCopy(list2)
-		else
-			t1[k] = list2
-		end
-	end
-	return t1
-	--]]
 end
 
 local function splitCacheList(list, compList)

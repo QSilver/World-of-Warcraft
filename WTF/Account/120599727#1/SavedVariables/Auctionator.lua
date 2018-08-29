@@ -15,25 +15,30 @@ AUCTIONATOR_PRICING_HISTORY = {
 		["is"] = "135479:0:0:0:0",
 		["5042364"] = "139990000:1",
 	},
+	["Extra-Light Light Emitting Cord"] = {
+		["is"] = "163940:0:0:0:1472",
+		["5278791"] = "8999990000:1",
+	},
 }
 AUCTIONATOR_SHOPPING_LISTS = {
 	{
 		["items"] = {
-			"seventh demon", -- [1]
-			"falling leaves", -- [2]
-			"Delicate ornate", -- [3]
-			"trained soldier", -- [4]
-			"lost mail", -- [5]
-			"lovely charm", -- [6]
-			"Dalewind", -- [7]
-			"binding of mastery", -- [8]
-			"binding of intellect", -- [9]
-			"fireweed", -- [10]
-			"nagrand arrowbloom", -- [11]
-			"frostweed", -- [12]
-			"Gorgrond flytrap", -- [13]
-			"starflower", -- [14]
-			"talador orchid", -- [15]
+			"blood-stained bone", -- [1]
+			"seventh demon", -- [2]
+			"falling leaves", -- [3]
+			"Delicate ornate", -- [4]
+			"trained soldier", -- [5]
+			"lost mail", -- [6]
+			"lovely charm", -- [7]
+			"Dalewind", -- [8]
+			"binding of mastery", -- [9]
+			"binding of intellect", -- [10]
+			"fireweed", -- [11]
+			"nagrand arrowbloom", -- [12]
+			"frostweed", -- [13]
+			"Gorgrond flytrap", -- [14]
+			"starflower", -- [15]
+			"talador orchid", -- [16]
 		},
 		["isRecents"] = 1,
 		["name"] = "Recent Searches",
@@ -60,13 +65,6 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["H2803"] = 89999,
 			["sc"] = 11,
 		},
-		["Delicate Ornate Ruby"] = {
-			["mr"] = 46979999,
-			["cc"] = 3,
-			["id"] = "28362:0:0:0:0",
-			["H2803"] = 46979999,
-			["sc"] = 1,
-		},
 		["Enchant Neck - Mark of the Trained Soldier"] = {
 			["mr"] = 5435100,
 			["cc"] = 8,
@@ -80,6 +78,20 @@ AUCTIONATOR_PRICE_DATABASE = {
 			["id"] = "141918:0:0:0:0",
 			["sc"] = 8,
 			["H2802"] = 400000,
+		},
+		["Delicate Ornate Ruby"] = {
+			["mr"] = 46979999,
+			["cc"] = 3,
+			["id"] = "28362:0:0:0:0",
+			["H2803"] = 46979999,
+			["sc"] = 1,
+		},
+		["Extra-Light Light Emitting Cord"] = {
+			["H2829"] = 15000000000,
+			["mr"] = 15000000000,
+			["sc"] = 1,
+			["id"] = "163940:0:0:0:42",
+			["cc"] = 4,
 		},
 	},
 }

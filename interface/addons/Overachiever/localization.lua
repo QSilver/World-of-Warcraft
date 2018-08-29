@@ -183,6 +183,9 @@ School of %s
 	OPT_UI_SERIESTIP_TIP = "When the cursor is over an achievement that is part of a series, display the names of others in the series and its relation to them.";
 	OPT_UI_REQUIREDFORMETATIP = "Tooltip for achievements required by others";
 	OPT_UI_REQUIREDFORMETATIP_TIP = "When the cursor is over an achievement that is required to earn another achievement, display the name of the meta-achievement.";
+	--OPT_UI_REQUIREDFORMETATIP_FACTIONICON = "Add an icon when exclusive to one faction";
+	--OPT_UI_REQUIREDFORMETATIP_FACTIONICON_TIP = "Add an Alliance or Horde icon when the requirement is exclusive to one faction."
+	--OPT_UI_REQUIREDFORMETATIP_FACTIONICON_TIP2 = "|nRequires the |cffffffffCache module|r to be enabled.";
 	OPT_UI_PROGRESSIFOTHERCOMPLETED = "Tooltip for quantity-based progress if completed by another";
 	OPT_UI_PROGRESSIFOTHERCOMPLETED_TIP = "When the cursor is over a quantity-based achievement (e.g. critera of \"Obtain 10 mounts\") that was completed but not by the current character, display the current character's progress.";
 	OPT_DRAGGABLE = "Make draggable";

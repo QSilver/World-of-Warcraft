@@ -312,22 +312,17 @@ L=
 		--[[ ["Autohide"] = "",--]] 
 		--[[Translation missing --]]
 		--[[ ["BACKGROUND"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["Bar colour"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["Border colour"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["Border width"] = "",--]] 
+		["Bar colour"] = "Couleur de la barre",
+		["Border colour"] = "Couleur de la bordure",
+		["Border width"] = "Épaisseur de la bordure",
 		--[[Translation missing --]]
 		--[[ ["Bottom"] = "",--]] 
 		--[[Translation missing --]]
 		--[[ ["Click the edit box to open it up for editing. Only available if Autohide is disabled."] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["Clickable"] = "",--]] 
+		["Clickable"] = "Clicable",
 		--[[Translation missing --]]
 		--[[ ["DIALOG"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["Editbox options."] = "",--]] 
+		["Editbox options."] = "Options de la fenêtre d'édition.",
 		--[[Translation missing --]]
 		--[[ ["Enable Arrowkeys"] = "",--]] 
 		--[[Translation missing --]]

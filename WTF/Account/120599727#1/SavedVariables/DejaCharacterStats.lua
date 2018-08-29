@@ -1911,15 +1911,15 @@ DCS_ClassSpecDB = {
 			["hidden"] = false,
 		}, -- [24]
 		{
-			["statKey"] = "HASTE",
+			["statKey"] = "CRITCHANCE",
 			["hideAt"] = 0,
 		}, -- [25]
 		{
-			["statKey"] = "CRITCHANCE",
+			["statKey"] = "MASTERY",
 			["hideAt"] = 0,
 		}, -- [26]
 		{
-			["statKey"] = "MASTERY",
+			["statKey"] = "HASTE",
 			["hideAt"] = 0,
 		}, -- [27]
 		{
@@ -1961,17 +1961,17 @@ DCS_ClassSpecDB = {
 			["hidden"] = true,
 		}, -- [35]
 		{
-			["statKey"] = "HASTE_RATING",
+			["statKey"] = "CRITCHANCE_RATING",
 			["hideAt"] = 0,
 			["hidden"] = false,
 		}, -- [36]
 		{
-			["statKey"] = "CRITCHANCE_RATING",
+			["statKey"] = "MASTERY_RATING",
 			["hideAt"] = 0,
 			["hidden"] = false,
 		}, -- [37]
 		{
-			["statKey"] = "MASTERY_RATING",
+			["statKey"] = "HASTE_RATING",
 			["hideAt"] = 0,
 			["hidden"] = false,
 		}, -- [38]
@@ -2019,10 +2019,11 @@ DCS_ClassSpecDB = {
 		}, -- [47]
 		{
 			["statKey"] = "STAGGER",
-			["hideAt"] = 0,
 			["roles"] = {
 				"TANK", -- [1]
 			},
+			["hidden"] = true,
+			["hideAt"] = 0,
 		}, -- [48]
 		{
 			["statKey"] = "SPEED_RATING",

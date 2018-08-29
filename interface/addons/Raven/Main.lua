@@ -1189,8 +1189,7 @@ local function GetPowerBuffs()
 		end
 	end
 	if power and power > 0 then
-		local name = GetSpellInfo(id)
-		local icon = GetSpellTexture(id)
+		local name, _, icon = GetSpellInfo(id)
 		if name and (name ~= "") then
 			AddAura("player", name, true, id, power, "Power", 0, "player", nil, nil, nil, icon, 0, "text", name)
 		end
@@ -1199,11 +1198,17 @@ end
 
 -- Get buffs for shaman totems if option is selected
 local function GetTotemBuffs()
-	if MOD.myClass ~= "SHAMAN" then return end
-	for i = 1, MAX_TOTEMS do
-		local haveTotem, name, startTime, duration, icon = GetTotemInfo(i)
-		if haveTotem and name and name ~= "" and now <= (startTime + duration) then -- generate buff for an active totem in the slot
-			AddAura("player", name, true, nil, 1, "Totem", duration, "player", nil, nil, nil, icon, startTime + duration, "totem", i)
+	if MOD.myClass == "PALADIN" then -- consecration totem
+		local haveTotem, name, startTime, duration, icon = GetTotemInfo(1)
+		if haveTotem and name and name ~= nil and now <= (startTime + duration) then
+			AddAura("player", name, true, nil, 1, "buff", duration, "player", nil, nil, nil, icon, startTime + duration, "totem", 1)
+		end
+	elseif MOD.myClass == "SHAMAN" then
+		for i = 1, MAX_TOTEMS do
+			local haveTotem, name, startTime, duration, icon = GetTotemInfo(i)
+			if haveTotem and name and name ~= "" and now <= (startTime + duration) then -- generate buff for an active totem in the slot
+				AddAura("player", name, true, nil, 1, "Totem", duration, "player", nil, nil, nil, icon, startTime + duration, "totem", i)
+			end
 		end
 	end
 end
@@ -1489,33 +1494,31 @@ function MOD:UpdateCooldowns()
 			for i = 1, numSpells do
 				local index = i + offset
 				local stype, id = GetSpellBookItemInfo(index, "spell")
-				if stype == "SPELL" then -- use spellbook index to check for cooldown
-					local name = GetSpellInfo(index, "spell")
-					if name and name ~= "" then
+				if stype == "SPELL" then -- in this case, id is the spell id
+					local name, _, icon = GetSpellInfo(id)
+					if name and name ~= "" and icon then
 						knownSpells[name] = id; foundSpells[name] = id -- cache of previously seen spell names (ids are not sufficient)
 						local start, duration, enable, count, charges
-						count, charges, start, duration = GetSpellCharges(index, "spell")
-						if count and charges and count < charges then enable = 1 else start, duration, enable = GetSpellCooldown(index, "spell") end
+						count, charges, start, duration = GetSpellCharges(id)
+						if count and charges and count < charges then enable = 1 else start, duration, enable = GetSpellCooldown(id) end
 						if start and (start > 0) and (enable == 1) and (duration > 1.5) then -- don't include global cooldowns
 							if (MOD.myClass ~= "DEATHKNIGHT") or CheckRuneCooldown(name, duration) then -- if death knight check rune cooldown
-								local icon = GetSpellTexture(id)
 								AddCooldown(name, id, icon, start, duration, "spell id", id, "player", count)
 							end
 						end
 					end
-				elseif stype == "FLYOUT" then -- use spell id to check for cooldown
+				elseif stype == "FLYOUT" then -- in this case, id is flyout id
 					local _, _, numSlots = GetFlyoutInfo(id)
 					for slot = 1, numSlots do
 						local spellID = GetFlyoutSlotInfo(id, slot)
 						if spellID then
 							if spellID == 982 then spellID = 136 end -- special case for Revive Pet / Mend Pet (shared spell book entry)
-							local name = GetSpellInfo(spellID)
-							if name and name ~= "" then -- make sure we have a valid spell name
+							local name, _, icon = GetSpellInfo(spellID)
+							if name and name ~= "" and icon then -- make sure we have a valid spell name
 								knownSpells[name] = spellID; foundSpells[name] = spellID -- cache of previously seen spell names
 								local start, duration, enable = GetSpellCooldown(spellID)
 								if start and (start > 0) and (enable == 1) and (duration > 1.5) then -- don't include global cooldowns
 									if (MOD.myClass ~= "DEATHKNIGHT") or CheckRuneCooldown(name, duration) then -- if death knight check rune cooldown
-										local icon = GetSpellTexture(spellID)
 										AddCooldown(name, spellID, icon, start, duration, "spell id", spellID, "player")
 									end
 								end
@@ -1528,12 +1531,11 @@ function MOD:UpdateCooldowns()
 
 		for name, spellID in pairs(knownSpells) do -- special case for spells like Stormstrike with cooldowns that may not be in spellbook
 			if not foundSpells[name] then -- found a previously known spell that is not currently in the spell book!
-				local start, duration, enable = GetSpellCooldown(name)
+				local start, duration, enable = GetSpellCooldown(spellID)
 				if start and (start > 0) and (enable == 1) and (duration > 1.5) then -- don't include global cooldowns
 					if (MOD.myClass ~= "DEATHKNIGHT") or CheckRuneCooldown(name, duration) then -- if death knight check rune cooldown
-						local n = GetSpellInfo(name)
-						if n and n ~= "" then
-							local icon = GetSpellTexture(spellID)
+						local icon = GetSpellTexture(spellID)
+						if icon then
 							AddCooldown(name, spellID, icon, start, duration, "spell id", spellID, "player")
 						end
 					end
@@ -1547,14 +1549,12 @@ function MOD:UpdateCooldowns()
 			if p[index] then
 				local prof, _, _, _, numSpells, offset = GetProfessionInfo(p[index])
 				for i = 1, numSpells do
-					local index = i + offset
-					local stype, id = GetSpellBookItemInfo(index, "spell")
-					if stype == "SPELL" then -- use spellbook index to check for cooldown
-						local start, duration, enable = GetSpellCooldown(index, "spell")
+					local stype, id = GetSpellBookItemInfo(i + offset, "spell")
+					if stype == "SPELL" then -- in this case, id is the spell id
+						local start, duration, enable = GetSpellCooldown(id)
 						if start and (start > 0) and (enable == 1) and (duration > 1.5) then -- don't include global cooldowns
-							local name = GetSpellInfo(index, "spell")
-							if name and name ~= "" then -- make sure we have a valid spell name
-								local icon = GetSpellTexture(id)
+							local name, _, icon = GetSpellInfo(id)
+							if name and name ~= "" and icon then -- make sure we have a valid spell name
 								AddCooldown(name, id, icon, start, duration, "spell id", id, "player")
 							end
 						end
@@ -1566,13 +1566,12 @@ function MOD:UpdateCooldowns()
 		local numSpells = HasPetSpells() -- returns the number of pet spells
 		if numSpells and UnitExists("pet") then
 			for i = 1, numSpells do
-				local stype = GetSpellBookItemInfo(i, "pet")
+				local stype, id = GetSpellBookItemInfo(i, "pet") -- id is the action id
 				if stype == "PETACTION" then -- use spellbook index to check for cooldown
 					local start, duration, enable = GetSpellCooldown(i, "pet")
 					if start and (start > 0) and (enable == 1) and (duration > 1.5) then -- don't include global cooldowns
-						local name, _, _, _, _, _, spellID = GetSpellInfo(i, "pet")
-						if name and name ~= "" and spellID then
-							local icon = GetSpellTexture(i, "pet")
+						local name, _, icon, _, _, _, spellID = GetSpellInfo(i, "pet")
+						if name and name ~= "" and icon and spellID then
 							AddCooldown(name, spellID, icon, start, duration, "spell id", spellID, "pet")
 						end
 					end
@@ -1588,9 +1587,8 @@ function MOD:UpdateCooldowns()
 				if actionType == "spell" then
 					local start, duration, enable = GetSpellCooldown(spellID)
 					if start and (start > 0) and (enable == 1) and (duration > 1.5) then -- don't include global cooldowns
-						local name = GetSpellInfo(spellID)
-						if name and name ~= "" then
-							local icon = GetSpellTexture(spellID)
+						local name, _, icon = GetSpellInfo(spellID)
+						if name and name ~= "" and icon then
 							AddCooldown(name, spellID, icon, start, duration, "spell id", spellID, "player")
 						end
 					end

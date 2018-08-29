@@ -1,3 +1,7 @@
+VER 3 000000000000002D "AAP_MACRO" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/click ExtraActionButton1
+END
 VER 3 000000000000002A "Barrel WQ" "1542861"
 /tar Captive
 END

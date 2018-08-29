@@ -59,8 +59,8 @@ Bagnon_Sets = {
 			},
 			["scale"] = 1,
 			["alpha"] = 1,
-			["y"] = 281.266174316406,
-			["x"] = -23.74365234375,
+			["y"] = 177.334060668945,
+			["x"] = -200.97412109375,
 			["sort"] = false,
 			["borderColor"] = {
 			},
@@ -106,7 +106,7 @@ Bagnon_Sets = {
 			},
 		},
 		["guild"] = {
-			["y"] = 406.269287109375,
+			["y"] = -406.269165039063,
 			["rules"] = {
 				"all", -- [1]
 				"all/all", -- [2]
@@ -134,12 +134,12 @@ Bagnon_Sets = {
 				"contain/all", -- [24]
 				"misc/all", -- [25]
 			},
-			["point"] = "BOTTOMLEFT",
+			["point"] = "TOPLEFT",
 			["borderColor"] = {
 			},
 			["color"] = {
 			},
-			["x"] = 770.256469726563,
+			["x"] = 770.256530761719,
 			["hiddenRules"] = {
 			},
 			["hiddenBags"] = {
@@ -169,6 +169,9 @@ Bagnon_Sets = {
 				"trade/recipe", -- [20]
 				"quest", -- [21]
 				"misc", -- [22]
+				"quest/all", -- [23]
+				"contain/all", -- [24]
+				"misc/all", -- [25]
 			},
 			["point"] = "BOTTOMLEFT",
 			["hiddenBags"] = {
@@ -176,10 +179,12 @@ Bagnon_Sets = {
 			["color"] = {
 			},
 			["alpha"] = 1,
-			["y"] = 423.499908447266,
-			["x"] = 262.384552001953,
+			["y"] = 0,
+			["x"] = 681.392761230469,
 			["borderColor"] = {
 			},
+			["columns"] = 14,
+			["itemScale"] = 1,
 			["scale"] = 1,
 			["hiddenRules"] = {
 			},

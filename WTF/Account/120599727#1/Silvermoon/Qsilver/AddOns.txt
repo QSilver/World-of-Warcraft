@@ -499,7 +499,7 @@ Details_ChartViewer: enabled
 Emoji: enabled
 Emoji_TwitchEmotes: enabled
 ExRT: enabled
-GuildNewsFilter: enabled
+GuildNewsFilter: disabled
 HandyNotes_BrokenShore: enabled
 HandyNotes_Argus: enabled
 HandyNotes_AzerothsTopTunes: enabled
@@ -531,17 +531,19 @@ ParagonReputation: enabled
 ClassMods: enabled
 Oilvl: enabled
 LibUIDropDownMenu: enabled
-Auc-Advanced: disabled
-Auc-Filter-Basic: disabled
-Auc-Stat-iLevel: disabled
-Auc-ScanData: disabled
-Auc-Stat-Histogram: disabled
-Auc-Stat-Purchased: disabled
-Auc-Stat-Simple: disabled
-Auc-Stat-StdDev: disabled
-Auc-Util-FixAH: disabled
+Auc-Advanced: enabled
+Auc-Filter-Basic: enabled
+Auc-Stat-iLevel: enabled
+Auc-ScanData: enabled
+Auc-Stat-Histogram: enabled
+Auc-Stat-Purchased: enabled
+Auc-Stat-Simple: enabled
+Auc-Stat-StdDev: enabled
+Auc-Util-FixAH: enabled
 BeanCounter: disabled
 Enchantrix: disabled
 Enchantrix-Barker: disabled
 Informant: disabled
 EnemyGrid: disabled
+Azeroth Auto Pilot: disabled
+WorldQuestParty: disabled

@@ -2,6 +2,17 @@
 Bartender4DB = {
 	["namespaces"] = {
 		["StatusTrackingBar"] = {
+			["profiles"] = {
+				["Qsilver - Silvermoon"] = {
+					["enabled"] = true,
+					["position"] = {
+						["y"] = 15,
+						["x"] = -406,
+						["point"] = "BOTTOM",
+					},
+					["version"] = 3,
+				},
+			},
 		},
 		["ActionBars"] = {
 			["profiles"] = {
@@ -878,19 +889,19 @@ Bartender4DB = {
 							["version"] = 3,
 							["position"] = {
 								["y"] = -2.99999117851257,
-								["growVertical"] = "UP",
-								["point"] = "BOTTOMLEFT",
 								["x"] = 391.414825439453,
+								["point"] = "BOTTOMLEFT",
+								["growVertical"] = "UP",
 							},
 						}, -- [1]
 						{
 							["rows"] = 2,
 							["version"] = 3,
 							["position"] = {
-								["y"] = 80.0000152587891,
+								["growHorizontal"] = "LEFT",
 								["x"] = -338.053833007813,
 								["point"] = "BOTTOMRIGHT",
-								["growHorizontal"] = "LEFT",
+								["y"] = 80.0000152587891,
 							},
 						}, -- [2]
 						{

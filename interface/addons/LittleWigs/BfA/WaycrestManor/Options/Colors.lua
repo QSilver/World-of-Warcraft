@@ -11,7 +11,7 @@ BigWigs:AddColors("Soulbound Goliath", {
 	[260508] = "yellow",
 	[260512] = {"blue","yellow"},
 	[260541] = {"blue","cyan"},
-	[260551] = "orange",
+	[260551] = {"blue","orange"},
 	[260569] = "blue",
 })
 

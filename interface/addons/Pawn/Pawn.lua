@@ -7,7 +7,7 @@
 -- Main non-UI code
 ------------------------------------------------------------
 
-PawnVersion = 2.0226
+PawnVersion = 2.0227
 
 -- Pawn requires this version of VgerCore:
 local PawnVgerCoreVersionRequired = 1.09
@@ -586,13 +586,13 @@ function PawnInitializeOptions()
 		-- The new Bag Upgrade Advisor is on by default.
 		PawnCommon.ShowBagUpgradeAdvisor = true
 	end
-	if PawnCommon.LastVersion < 2.0200 then
-		-- Relic upgrade detection is on by default starting in Pawn 2.2.
-		PawnCommon.ShowRelicUpgrades = true
-	end
 	if PawnOptions.LastVersion < 2.0219 then
 		-- The item squish happened in WoW 8.0, so relic item levels changed.
 		PawnOptions.Artifacts = nil
+	end
+	if PawnOptions.LastVersion < 2.0227 then
+		-- The relic advisor is off by default as of 2.2.27.
+		PawnCommon.ShowRelicUpgrades = false
 	end
 	if PawnCommon.LastVersion < PawnMrRobotLastUpdatedVersion then
 		-- If the Ask Mr. Robot scales have been updated since the last time they used Pawn, re-scan gear.

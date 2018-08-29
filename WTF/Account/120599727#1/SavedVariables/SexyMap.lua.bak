@@ -1582,14 +1582,16 @@ SexyMap2DB = {
 		},
 		["coordinates"] = {
 			["enabled"] = false,
+			["font"] = "Friz Quadrata TT",
 			["fontColor"] = {
 			},
 			["borderColor"] = {
 			},
-			["locked"] = false,
+			["xOffset"] = 0,
 			["backgroundColor"] = {
 			},
 			["updateRate"] = 1,
+			["yOffset"] = 10,
 		},
 		["buttons"] = {
 			["radius"] = 10,
@@ -1623,7 +1625,7 @@ SexyMap2DB = {
 				["RA_MinimapButton"] = 167.149783100227,
 				["QueueStatusMinimapButton"] = 187.06433655019,
 				["LibDBIcon10_BLTRCD"] = 259.839789854469,
-				["LibDBIcon10_Archy"] = 168.196642040327,
+				["LibDBIcon10_Archy"] = 173.782807827248,
 				["LibDBIcon10__NPCScan.Overlay"] = 243.620582602555,
 				["MiniMapInstanceDifficulty"] = -88.870241215407,
 				["MiniMapTracking"] = 227.777060197498,
@@ -1634,7 +1636,7 @@ SexyMap2DB = {
 				["LibDBIcon10_Bartender4"] = 199.812074848395,
 				["ZygorGuidesViewerMapIcon"] = 242.79252764495,
 				["GameTimeFrame"] = 151.950518428582,
-				["GarrisonLandingPageMinimapButton"] = -71.5059424766266,
+				["GarrisonLandingPageMinimapButton"] = 244.505173913955,
 				["MiniMapWorldMapButton"] = -14.2620375161331,
 				["MinimapZoomOut"] = 4.06396415460525,
 				["LibDBIcon10_BigWigs"] = -74.0083368503274,
@@ -1666,6 +1668,7 @@ SexyMap2DB = {
 				["g"] = 0,
 				["b"] = 0,
 			},
+			["font"] = "Friz Quadrata TT",
 			["fontColor"] = {
 			},
 			["borderColor"] = {
@@ -1684,6 +1687,7 @@ SexyMap2DB = {
 				["g"] = 0,
 				["b"] = 0,
 			},
+			["font"] = "Friz Quadrata TT",
 			["fontColor"] = {
 			},
 			["borderColor"] = {

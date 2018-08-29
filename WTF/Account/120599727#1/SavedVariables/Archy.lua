@@ -5082,18 +5082,16 @@ ArchyDB = {
 				},
 			},
 			["general"] = {
-				["show"] = false,
-				["stealthMode"] = true,
 				["easyCast"] = true,
 				["locked"] = true,
+				["icon"] = {
+					["minimapPos"] = 225.218406502118,
+				},
 				["theme"] = "Minimal",
 				["sinkOptions"] = {
 					["sink20ScrollArea"] = "Notification",
 					["sink20OutputSink"] = "RaidWarning",
 					["sink20Sticky"] = false,
-				},
-				["icon"] = {
-					["minimapPos"] = 225.218406502118,
 				},
 			},
 			["tomtom"] = {

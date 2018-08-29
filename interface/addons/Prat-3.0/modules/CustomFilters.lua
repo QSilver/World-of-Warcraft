@@ -161,20 +161,15 @@ L=
 		["Enabled"] = "Activé",
 		--[[Translation missing --]]
 		--[[ ["Extra data for WHISPER (target) and CHANNEL (channel name or num)"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["Filter Name"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["Forward"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["Forward the message to a chat channel."] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["Forward the message to a custom chat channel."] = "",--]] 
+		["Filter Name"] = "Nom du filtre",
+		["Forward"] = "Transférer",
+		["Forward the message to a chat channel."] = "Transférer le message sur un canal de discussion.",
+		["Forward the message to a custom chat channel."] = "Transférer vers un canal de discussion privé",
 		--[[Translation missing --]]
 		--[[ ["ForwardCustom"] = "",--]] 
 		--[[Translation missing --]]
 		--[[ ["ForwardMessage"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["ForwardMessageCustom"] = "",--]] 
+		["ForwardMessageCustom"] = "Canal privé",
 		--[[Translation missing --]]
 		--[[ ["Hilight Color"] = "",--]] 
 		--[[Translation missing --]]

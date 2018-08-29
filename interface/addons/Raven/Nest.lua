@@ -43,6 +43,8 @@ local inPetBattle = nil
 local alignLeft = {} -- table of icons to be aligned left
 local alignRight = {} -- table of icons to be aligned right
 local alignCenter = {} -- table of icons to be aligned center
+local customTimeFormatIndex = nil -- when defined, this is the index for custom time formats in the options list
+local userDefinedTimeFormatFunction = nil -- this is the user-defined function for custom time formats
 
 local MSQ = nil -- Masque support
 local MSQ_ButtonData = nil
@@ -1291,13 +1293,118 @@ function MOD.Nest_FormatTime(t, timeFormat, timeSpaces, timeCase)
 	return f
 end
 
+-- Validate a custom time format function and update sample output
+function MOD.Nest_ValidateCustomTimeFormatFunction()
+	local p = MOD.db.global
+	local s = p.customTimeFunction
+	userDefinedTimeFormatFunction = nil; p.userDefinedSample = nil; p.userDefinedMessage = L["User-defined function not valid"]
+	if p.customTimeFormat and s and s ~= "" then -- maybe have a valid user-defined function
+		local fstring = "return function(t)\n" .. s .. "\nend"
+		local func, msg = loadstring(fstring) -- this will compile fstring into a function that returns the actual conversion function
+		if not func then
+			p.userDefinedMessage = msg -- loadstring returns nil and an error message if fails to create the function
+		else
+			local success, uf = pcall(func) -- this will call the function returned by loadstring to create the actual function
+			if not success then
+				p.userDefinedMessage = msg -- pcall returns a boolean for success and an error message if false
+			elseif type(uf(1)) ~= "string" then
+				p.userDefinedMessage = L["User-defined function does not return a string"] -- error if user-defined function has wrong return value
+			else
+				p.userDefinedSample = uf(8125.8) .. ", " .. uf(343.8) .. ", " .. uf(75.3) .. ", " .. uf(42.7) .. ", " .. uf(3.6)
+				userDefinedTimeFormatFunction = uf
+				p.userDefinedMessage = L["User-defined function is valid"]
+				local index = customTimeFormatIndex
+				if not index then
+					index = #MOD.Nest_TimeFormatOptions
+					index = index + 1
+				end
+				MOD.Nest_TimeFormatOptions[index] = { custom = uf } -- add the custom time format to the table
+				customTimeFormatIndex = index
+			end
+		end
+	end
+	-- MOD.Debug(p.userDefinedMessage, p.userDefinedSample)
+	if not userDefinedTimeFormatFunction then
+		if customTimeFormatIndex then
+			table.remove(MOD.Nest_TimeFormatOptions, customTimeFormatIndex) -- remove the custom format from the table
+			customTimeFormatIndex = nil
+		end
+		return false
+	end
+	return true
+end
+
+-- Return string containing an example of a custom time format function
+function MOD.Nest_SampleCustomTimeFormatFunction()
+	return
+[[-- sample function that converts the value t in seconds to a custom formatted string and returns the string
+local h = math.floor(t / 3600) -- hours to use if also showing minutes
+local hplus = math.floor((t + 3599.99) / 3600) -- hours to use without minutes, compatible with tooltips
+local m = math.floor((t - (h * 3600)) / 60) -- minutes to use if also showing seconds
+local mplus = math.floor((t - (h * 3600) + 59.99) / 60) -- minutes to use without seconds, compatible with tooltips
+local s = math.floor(t - (h * 3600) - (m * 60)) -- seconds to use if only showing whole number of seconds
+local ts = math.floor(t * 10) / 10 -- seconds to use if including tenths
+if t >= 7200 then -- more than 2 hours
+    return string.format('%.0fh', hplus)
+elseif t >= 3600 then -- more than 1 hour
+    return string.format('%.0fh %.0fm', h, mplus)
+elseif t >= 120 then -- more than 2 minutes
+    return string.format('%.0fm', mplus)
+elseif t >= 60 then -- more than 1 minute
+    return string.format('%.0f:%02.0f', m, s)
+elseif t >= 10 then -- more than 10 seconds
+    return string.format('%.0f', s)
+end
+return string.format('%.1f', ts) -- last 10 seconds include tenths]]
+end
+
 -- Add a formatting function to the table of time format options.
+-- While it is possible to use both a registered time format function and a custom time format
+-- entered on the Defaults tab, format index gets saved as an integer and could get out of sync
+-- if one or the other is disabled.
 function MOD.Nest_RegisterTimeFormat(func)
 	local index = #MOD.Nest_TimeFormatOptions
 	index = index + 1
 	MOD.Nest_TimeFormatOptions[index] = { custom = func }
 	return index
 end
+
+--[[
+-- Example custom time formatting module for Raven.
+if not Raven then return end
+local MODULE_NAME = "Raven_Custom_Time"
+local MOD = Raven
+local module = MOD:NewModule(MODULE_NAME)
+
+local function timeFunc(t)
+	-- sample function that converts the value of t in seconds to a custom formatted string and then returns the string
+	-- the string may contain escape sequences that to color the text
+	local h = math.floor(t / 3600) -- hours to use if also showing minutes
+	local hplus = math.floor((t + 3599.99) / 3600) -- hours to use without minutes, compatible with tooltips
+	local m = math.floor((t - (h * 3600)) / 60) -- minutes to use if also showing seconds
+	local mplus = math.floor((t - (h * 3600) + 59.99) / 60) -- minutes to use without seconds, compatible with tooltips
+	local s = math.floor(t - (h * 3600) - (m * 60)) -- seconds to use if only showing whole number of seconds
+	local ts = math.floor(t * 10) / 10 -- seconds to use if including tenths
+	
+	if t >= 7200 then -- more than 2 hours
+		return string.format("%.0fh", hplus)
+	elseif t >= 3600 then -- more than 1 hour
+		return string.format("%.0fh %.0fm", h, mplus)
+	elseif t >= 120 then -- more than 2 minutes
+		return string.format("%.0fm", mplus)
+	elseif t >= 60 then -- more than 1 minute
+		return string.format("%.0f:%02.0f", m, s)
+	elseif t >= 10 then -- more than 10 seconds
+		return string.format("%.0f", s)
+	end
+	return string.format("%.1f", ts) -- last seconds show tenths
+end
+
+function module:OnInitialize()
+	local index = Raven:RegisterTimeFormat(timeFunc)
+	print("Registered custom time format with Raven, index #", index)
+end
+]]--
 
 -- Update labels and colors plus for timer bars adjust bar length and formatted time text
 local function Bar_UpdateSettings(bg, bar, config)
@@ -1882,6 +1989,7 @@ function MOD.Nest_Initialize()
 	pixelPerfect = (not Raven.db.global.TukuiSkin and Raven.db.global.PixelPerfect) or (Raven.db.global.TukuiSkin and Raven.db.global.TukuiScale)
 	rectIcons = (Raven.db.global.RectIcons == true)
 	zoomIcons = rectIcons and (Raven.db.global.ZoomIcons == true)
+	MOD.Nest_ValidateCustomTimeFormatFunction() -- this will validate a custom time format and add it to the options list
 end
 
 -- Return the pixel perfect scaling factor

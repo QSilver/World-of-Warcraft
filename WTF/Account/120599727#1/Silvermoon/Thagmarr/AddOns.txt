@@ -82,7 +82,7 @@ EnhancedMenu: enabled
 ErrorMonster: enabled
 ExRT: enabled
 GTFO: enabled
-GuildNewsFilter: enabled
+GuildNewsFilter: disabled
 HandyNotes_BrokenShore: enabled
 HandyNotes_Argus: enabled
 HandyNotes_AzerothsTopTunes: enabled
@@ -155,5 +155,16 @@ WeakAurasTemplates: enabled
 WorldQuestTracker: enabled
 ParagonReputation: enabled
 ClassMods: enabled
-EnemyGrid: enabled
+EnemyGrid: disabled
 _NPCScan.Overlay: disabled
+Azeroth Auto Pilot: disabled
+WorldQuestParty: disabled
+Auc-Advanced: enabled
+Auc-Filter-Basic: enabled
+Auc-ScanData: enabled
+Auc-Stat-Histogram: enabled
+Auc-Stat-iLevel: enabled
+Auc-Stat-Simple: enabled
+Auc-Stat-Purchased: enabled
+Auc-Stat-StdDev: enabled
+Auc-Util-FixAH: enabled

@@ -153,6 +153,13 @@ function MOD:SetSpellDefaults()
 		for k, p in pairs(MOD.runeSpells) do if p.id then local name = GetSpellInfo(p.id); if name and name ~= "" then t[name] = p end end end
 		MOD.runeSpells = t
 	end
+	
+	MOD.mountSpells = {}
+	local mountIDs = C_MountJournal.GetMountIDs()
+	for i, id in ipairs(mountIDs) do
+		local creatureName, spellID = C_MountJournal.GetMountInfoByID(id)
+		MOD.mountSpells[spellID] = true -- used to check if a buff is for a mount (this includes all mounts in journal, not the player's own mounts)
+	end
 end
 
 -- Initialize cooldown info from spellbook, should be called whenever spell book changes
@@ -191,9 +198,9 @@ end
 function MOD:SetInternalCooldownDefaults()
 	local ict = MOD.DefaultProfile.global.InternalCooldowns
 	for _, cd in pairs(MOD.internalCooldowns) do
-		local name = GetSpellInfo(cd.id)
-		if name and (name ~= "") and (not ict[name] or not cd.item or IsUsableItem(cd.item)) then 
-			local t = { id = cd.id, duration = cd.duration, icon = GetSpellTexture(cd.id), item = cd.item, class = cd.class }
+		local name, _, icon = GetSpellInfo(cd.id)
+		if name and (name ~= "") and icon and (not ict[name] or not cd.item or IsUsableItem(cd.item)) then 
+			local t = { id = cd.id, duration = cd.duration, icon = icon, item = cd.item, class = cd.class }
 			if cd.cancel then
 				t.cancel = {}
 				for k, c in pairs(cd.cancel) do local n = GetSpellInfo(c); if n and n ~= "" then t.cancel[k] = n end end
@@ -209,12 +216,12 @@ end
 function MOD:SetSpellEffectDefaults()
 	local ect = MOD.DefaultProfile.global.SpellEffects
 	for _, ec in pairs(MOD.spellEffects) do
-		local name = GetSpellInfo(ec.id)
+		local name, _, icon = GetSpellInfo(ec.id)
 		if name and name ~= "" then
 			local id, spell, talent = ec.id, nil, nil
 			if ec.spell then spell = GetSpellInfo(ec.spell); id = ec.spell end -- must be valid
 			if ec.talent then talent = GetSpellInfo(ec.talent) end -- must be valid
-			local t = { duration = ec.duration, icon = GetSpellTexture(id), spell = spell, id = id, renew = ec.renew, talent = talent, kind = ec.kind }
+			local t = { duration = ec.duration, icon = icon, spell = spell, id = id, renew = ec.renew, talent = talent, kind = ec.kind }
 			ect[name] = t
 		end
 	end
@@ -274,15 +281,15 @@ function MOD:SetIconDefaults()
 			local index = i + offset
 			local stype, id = GetSpellBookItemInfo(index, "spell")
 			if stype == "SPELL" then -- use spellbook index to check for cooldown
-				local name = GetSpellInfo(index, "spell")
-				if name and name ~= "" then iconCache[name] = GetSpellTexture(id) end
+				local name, _, icon = GetSpellInfo(index, "spell")
+				if name and name ~= "" and icon then iconCache[name] = icon end
 			elseif stype == "FLYOUT" then -- use spell id to check for cooldown
 				local _, _, numSlots = GetFlyoutInfo(id)
 				for slot = 1, numSlots do
 					local spellID = GetFlyoutSlotInfo(id, slot)
 					if spellID then
-						local name = GetSpellInfo(spellID)
-						if name and name ~= "" then iconCache[name] = GetSpellTexture(spellID) end
+						local name, _, icon = GetSpellInfo(spellID)
+						if name and name ~= "" and icon then iconCache[name] = icon end
 					end
 				end
 			end

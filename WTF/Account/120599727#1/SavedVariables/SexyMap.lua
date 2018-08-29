@@ -1733,16 +1733,16 @@ SexyMap2DB = {
 		},
 		["coordinates"] = {
 			["enabled"] = false,
+			["font"] = "Friz Quadrata TT",
 			["fontColor"] = {
+			},
+			["borderColor"] = {
 			},
 			["xOffset"] = 0,
 			["updateRate"] = 1,
-			["yOffset"] = 10,
-			["font"] = "Friz Quadrata TT",
-			["borderColor"] = {
-			},
 			["backgroundColor"] = {
 			},
+			["yOffset"] = 10,
 		},
 		["buttons"] = {
 			["radius"] = 10,
@@ -1774,7 +1774,7 @@ SexyMap2DB = {
 				["LibDBIcon10_ElkBuffBars"] = 177.26616624293,
 				["LibDBIcon10_Arh"] = 257.351904260525,
 				["RA_MinimapButton"] = 167.149783100227,
-				["LibDBIcon10_Archy"] = 168.196642040327,
+				["LibDBIcon10_Archy"] = 173.782807827248,
 				["LibDBIcon10_BLTRCD"] = 259.839789854469,
 				["QueueStatusMinimapButton"] = 187.06433655019,
 				["LibDBIcon10__NPCScan.Overlay"] = 243.620582602555,
@@ -1787,7 +1787,7 @@ SexyMap2DB = {
 				["LibDBIcon10_BigWigs"] = -74.0083368503274,
 				["MinimapZoomOut"] = 4.06396415460525,
 				["GameTimeFrame"] = 151.950518428582,
-				["GarrisonLandingPageMinimapButton"] = -71.5059424766266,
+				["GarrisonLandingPageMinimapButton"] = 244.505173913955,
 				["MiniMapWorldMapButton"] = -14.2620375161331,
 				["LibDBIcon10_Bartender4"] = 199.812074848395,
 				["ZygorGuidesViewerMapIcon"] = 242.79252764495,

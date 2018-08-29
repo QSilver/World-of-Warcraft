@@ -39,7 +39,7 @@ local function mob_name(id)
     return name_cache[id]
 end
 
-local default_texture, npc_texture, follower_texture, currency_texture
+local default_texture, npc_texture, follower_texture, currency_texture, junk_texture
 local icon_cache = {}
 local trimmed_icon = function(texture)
     if not icon_cache[texture] then
@@ -111,7 +111,7 @@ end
 local function work_out_texture(point)
     if point.atlas then
         if not icon_cache[point.atlas] then
-            icon_cache[point.atlas] = atlas_texture(point.atlas)
+            icon_cache[point.atlas] = atlas_texture(point.atlas, point.scale)
         end
         return icon_cache[point.atlas]
     end
@@ -160,6 +160,12 @@ local function work_out_texture(point)
             npc_texture = atlas_texture("DungeonSkull", 1)
         end
         return npc_texture
+    end
+    if point.junk then
+        if not junk_texture then
+            junk_texture = atlas_texture("VignetteLoot", 1.5)
+        end
+        return junk_texture
     end
     if not default_texture then
         default_texture = atlas_texture("Garr_TreasureIcon", 2.6)
@@ -280,10 +286,6 @@ local function handle_tooltip(tooltip, point)
             end
             comparison:Show()
         end
-
-        if point.npc then
-            tooltip:AddLine("|cffeda55fClick|r to search for groups")
-        end
     else
         tooltip:SetText(UNKNOWN)
     end
@@ -381,21 +383,6 @@ do
         local point = ns.points[currentZone] and ns.points[currentZone][currentCoord]
         if button == "RightButton" and not down then
             ToggleDropDownMenu(1, nil, HL_Dropdown, self, 0, 0)
-        elseif button == "LeftButton" and down and point.npc then
-            if InCombatLockdown() then
-                print("|cFF33FF99" .. myname .. "|r: Can't search in combat")
-            else
-                local name = mob_name(point.npc)
-                PVEFrame_ShowFrame("GroupFinderFrame", LFGListPVEStub)
-                local panel = LFGListFrame.CategorySelection
-                LFGListCategorySelection_SelectCategory(panel, 6, 0)
-                LFGListCategorySelection_StartFindGroup(panel, name)
-                -- LFGListEntryCreation_SetAutoCreateMode(panel:GetParent().EntryCreation, "quest", activityID, questID)
-
-                -- C_LFGList.Search(6, LFGListSearchPanel_ParseSearchTerms(npcName), 0, 4)
-                -- LFG_LIST_SEARCH_RESULTS_RECEIVED
-                -- local number, ids = C_LFGList.GetSearchResults()
-            end
         end
     end
 end
@@ -411,12 +398,12 @@ end
 
 do
     -- This is a custom iterator we use to iterate over every node in a given zone
-    local currentLevel, currentZone
+    local currentZone, isMinimap
     local function iter(t, prestate)
         if not t then return nil end
         local state, value = next(t, prestate)
         while state do -- Have we reached the end of this zone?
-            if value and ns.should_show_point(state, value, currentZone, currentLevel) then
+            if value and ns.should_show_point(state, value, currentZone, isMinimap) then
                 local label, icon, _, _, _, scale, alpha = get_point_info(value)
                 scale = (scale or 1) * (icon and icon.scale or 1) * ns.db.icon_scale
                 return state, nil, icon, scale, ns.db.icon_alpha * alpha
@@ -440,11 +427,8 @@ do
     end
     function HLHandler:GetNodes2(uiMapID, minimap)
         Debug("GetNodes2", uiMapID, minimap)
-        currentLevel = level
         currentZone = uiMapID
-        if (minimap and not ns.db.show_on_minimap) or (not minimap and not ns.db.show_on_world) then
-            return iter
-        end
+        isMinimap = minimap
         if minimap and ns.map_spellids[uiMapID] then
             if ns.map_spellids[mapFile] == true then
                 return iter

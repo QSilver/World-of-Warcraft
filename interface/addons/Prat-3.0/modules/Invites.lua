@@ -74,8 +74,7 @@ Prat:AddModuleToLoad(function()
 	["Invites"] = {
 		--[[Translation missing --]]
 		--[[ ["Enable Alt-Invite"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["Enable Invite Links"] = "",--]] 
+		["Enable Invite Links"] = "Activer les liens d'invitation",
 		--[[Translation missing --]]
 		--[[ ["module_desc"] = "",--]] 
 		--[[Translation missing --]]

@@ -1257,8 +1257,7 @@ local function AddNewInternalCooldown(name)
 	local id = tonumber(name)
 	if not id then id = MOD:GetSpellID(name) end
 	if id then
-		local n = GetSpellInfo(id) -- n must be valid
-		local icon = GetSpellTexture(id)
+		local n, _, icon = GetSpellInfo(id) -- n must be valid
 		local ict = MOD.db.global.InternalCooldowns[n]
 		if not ict then
 			ict = { duration = 0; id = id; icon = icon }
@@ -1382,8 +1381,7 @@ local function AddNewSpellEffect(name)
 	local id = tonumber(name)
 	if not id then id = MOD:GetSpellID(name) end
 	if id then
-		local n = GetSpellInfo(id) -- must be valid
-		local icon = GetSpellTexture(id)
+		local n, _, icon = GetSpellInfo(id) -- must be valid
 		local ect = MOD.db.global.SpellEffects[n]
 		if not ect then
 			ect = { duration = 0; id = id; icon = icon }
@@ -2731,10 +2729,51 @@ MOD.OptionsTable = {
 							set = function(info, value) MOD.db.global.Defaults.timeCase = value; MOD:UpdateAllBarGroups() end,
 						},
 						ResetTimeFormat = {
-							type = "execute", order = 109, name = L["Reset Time Format"],
+							type = "execute", order = 40, name = L["Reset Time Format"],
 							desc = L["Reset time format to default settings."],
 							confirm = function(info) return L["RESET TIME FORMAT\nAre you sure you want to reset the time format options?"] end,
 							func = function(info) MOD:SetTimeFormatDefaults(MOD.db.global.Defaults); MOD:UpdateAllBarGroups() end,
+						},
+						Space2 = { type = "description", name = "", order = 45 },
+						EnableCustomTimeFormat = {
+							type = "toggle", order = 50, name = L["Custom Time Format"],
+							desc = L["If checked, add a custom time format created by a user-defined function to the end of the options list."],
+							get = function(info) return MOD.db.global.customTimeFormat end,
+							set = function(info, value)
+								MOD.db.global.customTimeFormat = value
+								if value and not MOD.db.global.customTimeFunction then MOD.db.global.customTimeFunction = MOD.Nest_SampleCustomTimeFormatFunction() end
+								MOD.Nest_ValidateCustomTimeFormatFunction() -- this will update all the internal variables and the options list
+								MOD:UpdateAllBarGroups()
+							end,
+						},
+						EditTimeFormatFunction = {
+							type = "toggle", order = 55, name = L["Edit Function"],
+							desc = L["Toggle display and edit for the user-defined function."],
+							disabled = function(info) return not MOD.db.global.customTimeFormat end,
+							get = function(info) return MOD.db.global.showTimeFormat end,
+							set = function(info, value) MOD.db.global.showTimeFormat = value; MOD:UpdateAllBarGroups() end,
+						},
+						-- if one is already defined then indicate that and show a sample of what it looks like
+						-- save the code instead of the function so that saved variable is a string
+						-- move validate function to Nest so it is available for the string conversion at initialization
+						FunctionEntry = {
+							type = "input", order = 60, name = L["User-Defined Function"], width = "full", multiline = 20,
+							desc = L["Enter function that converts time in seconds to a formatted string."],
+							hidden = function(info) return not MOD.db.global.customTimeFormat or not MOD.db.global.showTimeFormat end,
+							get = function(info) return MOD.db.global.customTimeFunction or MOD.Nest_SampleCustomTimeFormatFunction() end, -- replace with real sample text
+							set = function(info, value) MOD.db.global.customTimeFunction = value; MOD.Nest_ValidateCustomTimeFormatFunction(); MOD:UpdateAllBarGroups() end,
+						},
+						TimeFunctionMessage = {
+							type = "description", order = 62,
+							hidden = function(info) return not MOD.db.global.customTimeFormat or not MOD.db.global.showTimeFormat or not MOD.db.global.userDefinedMessage end,
+							name = function(info) return MOD.db.global.userDefinedMessage end,
+						},
+						ResetTimeFormatFunction = {
+							type = "execute", order = 65, name = L["Reset Function"],
+							desc = L["Reset user-defined function to default sample code."],
+							hidden = function(info) return not MOD.db.global.customTimeFormat or not MOD.db.global.showTimeFormat end,
+							confirm = function(info) return L["RESET CUSTOM TIME FORMAT FUNCTION\nAre you sure you want to reset the custom time format function to default sample code?"] end,
+							func = function(info) MOD.db.global.customTimeFunction = MOD.Nest_SampleCustomTimeFormatFunction(); MOD.Nest_ValidateCustomTimeFormatFunction(); MOD:UpdateAllBarGroups() end,
 						},
 					},
 				},
@@ -4682,119 +4721,223 @@ MOD.OptionsTable = {
 								},
 							},
 						},
-						TrackingFilter = {
-							type = "group", order = 25, name = L["Bonus Bars"], inline = true, width = "full",
-							disabled = function(info) return not GetBarGroupField("detectBuffs") end,
-							args = {
-								Tracking = {
-									type = "toggle", order = 10, name = L["Include Tracking"],
-									disabled = function(info) return not GetBarGroupField("detectBuffs") end,
-									desc = L['Include the active tracking types as buffs.'],
-									get = function(info) return GetBarGroupField("detectTracking") end,
-									set = function(info, value) SetBarGroupField("detectTracking", value) end,
-								},
-								Resources = {
-									type = "toggle", order = 30, name = L["Include Resources"],
-									disabled = function(info) return not GetBarGroupField("detectBuffs") end,
-									desc = L['Include resources for certain classes as buffs (e.g., Soul Shards).'],
-									get = function(info) return not GetBarGroupField("excludeResources") end,
-									set = function(info, value) SetBarGroupField("excludeResources", not value) end,
-								},
-							},
-						},
-						FilterByType = {
-							type = "group", order = 30, name = L["Filter By Type"], inline = true, width = "full",
+						IncludeByType = {
+							type = "group", order = 30, name = L["Include By Type"], inline = true, width = "full",
 							disabled = function(info) return not GetBarGroupField("detectBuffs") end,
 							args = {
 								Enable = {
 									type = "toggle", order = 10, name = L["Enable"],
-									desc = L["Filter buff types string"],
-									get = function(info) return GetBarGroupField("filterBuffTypes") end,
-									set = function(info, v) SetBarGroupField("filterBuffTypes", v) end,
+									desc = L["Include buff types string"],
+									get = function(info) return GetBarGroupField("detectBuffTypes") end,
+									set = function(info, v) SetBarGroupField("detectBuffTypes", v) end,
 								},
 								Castable = {
 									type = "toggle", order = 15, name = L["Castable"],
-									disabled = function(info) return not GetBarGroupField("filterBuffTypes") or not GetBarGroupField("detectBuffs") end,
+									disabled = function(info) return not GetBarGroupField("detectBuffTypes") or not GetBarGroupField("detectBuffs") end,
 									desc = L['Include buffs that the player can cast.'],
 									get = function(info) return GetBarGroupField("detectCastable") end,
 									set = function(info, value) SetBarGroupField("detectCastable", value) end,
 								},
 								Stealable = {
 									type = "toggle", order = 20, name = L["Stealable"],
-									disabled = function(info) return not GetBarGroupField("filterBuffTypes") or not GetBarGroupField("detectBuffs") end,
-									desc = L['Include buffs that mages can spellsteal (you must include both Stealable and Magic if you want all magic buffs).'],
+									disabled = function(info) return not GetBarGroupField("detectBuffTypes") or not GetBarGroupField("detectBuffs") end,
+									desc = L['Include buffs that mages can spellsteal.'],
 									get = function(info) return GetBarGroupField("detectStealable") end,
 									set = function(info, value) SetBarGroupField("detectStealable", value) end,
 								},
 								Magic = {
 									type = "toggle", order = 30, name = L["Magic"],
-									disabled = function(info) return not GetBarGroupField("filterBuffTypes") or not GetBarGroupField("detectBuffs") end,
+									disabled = function(info) return not GetBarGroupField("detectBuffTypes") or not GetBarGroupField("detectBuffs") end,
 									desc = L['Include magic buffs but not those considered stealable (magic buffs can usually be removed with abilities like Purge).'],
 									get = function(info) return GetBarGroupField("detectMagicBuffs") end,
 									set = function(info, value) SetBarGroupField("detectMagicBuffs", value) end,
 								},
 								CastByNPC = {
 									type = "toggle", order = 35, name = L["NPC"],
-									disabled = function(info) return not GetBarGroupField("filterBuffTypes") or not GetBarGroupField("detectBuffs") end,
+									disabled = function(info) return not GetBarGroupField("detectBuffTypes") or not GetBarGroupField("detectBuffs") end,
 									desc = L['Include buffs cast by an NPC (note: only valid while caster is selected, such as when checking target of target).'],
 									get = function(info) return GetBarGroupField("detectNPCBuffs") end,
 									set = function(info, value) SetBarGroupField("detectNPCBuffs", value) end,
 								},
 								CastByVehicle = {
 									type = "toggle", order = 40, name = L["Vehicle"],
-									disabled = function(info) return not GetBarGroupField("filterBuffTypes") or not GetBarGroupField("detectBuffs") end,
+									disabled = function(info) return not GetBarGroupField("detectBuffTypes") or not GetBarGroupField("detectBuffs") end,
 									desc = L['Include buffs cast by a vehicle (note: only valid while caster is selected, such as when checking target of target).'],
 									get = function(info) return GetBarGroupField("detectVehicleBuffs") end,
 									set = function(info, value) SetBarGroupField("detectVehicleBuffs", value) end,
 								},
 								Boss = {
 									type = "toggle", order = 42, name = L["Boss"],
-									disabled = function(info) return not GetBarGroupField("filterBuffTypes") or not GetBarGroupField("detectBuffs") end,
+									disabled = function(info) return not GetBarGroupField("detectBuffTypes") or not GetBarGroupField("detectBuffs") end,
 									desc = L['Include buffs cast by boss.'],
 									get = function(info) return GetBarGroupField("detectBossBuffs") end,
 									set = function(info, value) SetBarGroupField("detectBossBuffs", value) end,
 								},
 								Enrage = {
 									type = "toggle", order = 43, name = L["Enrage"],
-									disabled = function(info) return not GetBarGroupField("filterBuffTypes") or not GetBarGroupField("detectBuffs") end,
+									disabled = function(info) return not GetBarGroupField("detectBuffTypes") or not GetBarGroupField("detectBuffs") end,
 									desc = L['Include enrage buffs.'],
 									get = function(info) return GetBarGroupField("detectEnrageBuffs") end,
 									set = function(info, value) SetBarGroupField("detectEnrageBuffs", value) end,
 								},
 								Effects = {
 									type = "toggle", order = 45, name = L["Effect Timers"],
-									disabled = function(info) return not GetBarGroupField("filterBuffTypes") or not GetBarGroupField("detectBuffs") end,
-									desc = L["If checked, include bars for effect timers triggered by a spell cast."],
+									disabled = function(info) return not GetBarGroupField("detectBuffTypes") or not GetBarGroupField("detectBuffs") end,
+									desc = L["Include buffs from effect timers triggered by a spell cast."],
 									get = function(info) return GetBarGroupField("detectEffectBuffs") end,
 									set = function(info, value) SetBarGroupField("detectEffectBuffs", value) end,
 								},
 								Weapons = {
 									type = "toggle", order = 50, name = L["Weapon Buffs"],
-									disabled = function(info) return not GetBarGroupField("filterBuffTypes") or not GetBarGroupField("detectBuffs") end,
-									desc = L["If checked, include bars for weapon buffs."],
+									disabled = function(info) return not GetBarGroupField("detectBuffTypes") or not GetBarGroupField("detectBuffs") end,
+									desc = L["Include weapon buffs."],
 									get = function(info) return GetBarGroupField("detectWeaponBuffs") end,
 									set = function(info, value) SetBarGroupField("detectWeaponBuffs", value) end,
 								},
 								Tracking = {
 									type = "toggle", order = 55, name = L["Tracking"],
-									disabled = function(info) return not GetBarGroupField("filterBuffTypes") or not GetBarGroupField("detectBuffs") end,
-									desc = L["If checked, include bars for tracking buffs."],
-									get = function(info) return GetBarGroupField("detectTrackingBuffs") end,
-									set = function(info, value) SetBarGroupField("detectTrackingBuffs", value) end,
+									disabled = function(info) return not GetBarGroupField("detectBuffTypes") or not GetBarGroupField("detectBuffs") end,
+									desc = L["Include tracking buffs."],
+									get = function(info) return GetBarGroupField("detectTracking") end,
+									set = function(info, value) SetBarGroupField("detectTracking", value) end,
 								},
 								Resources = {
 									type = "toggle", order = 56, name = L["Resources"],
-									disabled = function(info) return not GetBarGroupField("filterBuffTypes") or not GetBarGroupField("detectBuffs") end,
-									desc = L["If checked, include bars for resource buffs (e.g., monk's Chi)."],
-									get = function(info) return GetBarGroupField("detectResourceBuffs") end,
-									set = function(info, value) SetBarGroupField("detectResourceBuffs", value) end,
+									disabled = function(info) return not GetBarGroupField("detectBuffTypes") or not GetBarGroupField("detectBuffs") end,
+									desc = L["Include buffs for resources (e.g., monk's Chi)."],
+									get = function(info) return GetBarGroupField("detectResources") end,
+									set = function(info, value) SetBarGroupField("detectResources", value) end,
+								},
+								Mounts = {
+									type = "toggle", order = 57, name = L["Mounts"],
+									disabled = function(info) return not GetBarGroupField("detectBuffTypes") or not GetBarGroupField("detectBuffs") end,
+									desc = L["Include mount buffs."],
+									get = function(info) return GetBarGroupField("detectMountBuffs") end,
+									set = function(info, value) SetBarGroupField("detectMountBuffs", value) end,
+								},
+								Tabard = {
+									type = "toggle", order = 58, name = L["Tabard"],
+									disabled = function(info) return not GetBarGroupField("detectBuffTypes") or not GetBarGroupField("detectBuffs") end,
+									desc = L['Include buffs from equipped tabard (player only).'],
+									get = function(info) return GetBarGroupField("detectTabardBuffs") end,
+									set = function(info, value) SetBarGroupField("detectTabardBuffs", value) end,
 								},
 								Other = {
 									type = "toggle", order = 60, name = L["Other"],
-									disabled = function(info) return not GetBarGroupField("filterBuffTypes") or not GetBarGroupField("detectBuffs") end,
-									desc = L['Include other buffs not selected with filter types.'],
+									disabled = function(info) return not GetBarGroupField("detectBuffTypes") or not GetBarGroupField("detectBuffs") end,
+									desc = L['Include buffs not selected by other types.'],
 									get = function(info) return GetBarGroupField("detectOtherBuffs") end,
 									set = function(info, value) SetBarGroupField("detectOtherBuffs", value) end,
+								},
+							},
+						},
+						ExcludeByType = {
+							type = "group", order = 35, name = L["Exclude By Type"], inline = true, width = "full",
+							disabled = function(info) return not GetBarGroupField("detectBuffs") end,
+							args = {
+								Enable = {
+									type = "toggle", order = 10, name = L["Enable"],
+									desc = L["Exclude buff types string"],
+									get = function(info) return GetBarGroupField("excludeBuffTypes") end,
+									set = function(info, v) SetBarGroupField("excludeBuffTypes", v) end,
+								},
+								Castable = {
+									type = "toggle", order = 15, name = L["Castable"],
+									disabled = function(info) return not GetBarGroupField("excludeBuffTypes") or not GetBarGroupField("detectBuffs") end,
+									desc = L['Exclude buffs that the player can cast.'],
+									get = function(info) return GetBarGroupField("excludeCastable") end,
+									set = function(info, value) SetBarGroupField("excludeCastable", value) end,
+								},
+								Stealable = {
+									type = "toggle", order = 20, name = L["Stealable"],
+									disabled = function(info) return not GetBarGroupField("excludeBuffTypes") or not GetBarGroupField("detectBuffs") end,
+									desc = L['Exclude buffs that mages can spellsteal.'],
+									get = function(info) return GetBarGroupField("excludeStealable") end,
+									set = function(info, value) SetBarGroupField("excludeStealable", value) end,
+								},
+								Magic = {
+									type = "toggle", order = 30, name = L["Magic"],
+									disabled = function(info) return not GetBarGroupField("excludeBuffTypes") or not GetBarGroupField("detectBuffs") end,
+									desc = L['Exclude magic buffs except those considered stealable.'],
+									get = function(info) return GetBarGroupField("excludeMagicBuffs") end,
+									set = function(info, value) SetBarGroupField("excludeMagicBuffs", value) end,
+								},
+								CastByNPC = {
+									type = "toggle", order = 35, name = L["NPC"],
+									disabled = function(info) return not GetBarGroupField("excludeBuffTypes") or not GetBarGroupField("detectBuffs") end,
+									desc = L['Exclude buffs cast by an NPC (note: only valid while caster is selected, such as when checking target of target).'],
+									get = function(info) return GetBarGroupField("excludeNPCBuffs") end,
+									set = function(info, value) SetBarGroupField("excludeNPCBuffs", value) end,
+								},
+								CastByVehicle = {
+									type = "toggle", order = 40, name = L["Vehicle"],
+									disabled = function(info) return not GetBarGroupField("excludeBuffTypes") or not GetBarGroupField("detectBuffs") end,
+									desc = L['Exclude buffs cast by a vehicle (note: only valid while caster is selected, such as when checking target of target).'],
+									get = function(info) return GetBarGroupField("excludeVehicleBuffs") end,
+									set = function(info, value) SetBarGroupField("excludeVehicleBuffs", value) end,
+								},
+								Boss = {
+									type = "toggle", order = 42, name = L["Boss"],
+									disabled = function(info) return not GetBarGroupField("excludeBuffTypes") or not GetBarGroupField("detectBuffs") end,
+									desc = L['Exclude buffs cast by boss.'],
+									get = function(info) return GetBarGroupField("excludeBossBuffs") end,
+									set = function(info, value) SetBarGroupField("excludeBossBuffs", value) end,
+								},
+								Enrage = {
+									type = "toggle", order = 43, name = L["Enrage"],
+									disabled = function(info) return not GetBarGroupField("excludeBuffTypes") or not GetBarGroupField("detectBuffs") end,
+									desc = L['Exclude enrage buffs.'],
+									get = function(info) return GetBarGroupField("excludeEnrageBuffs") end,
+									set = function(info, value) SetBarGroupField("excludeEnrageBuffs", value) end,
+								},
+								Effects = {
+									type = "toggle", order = 45, name = L["Effect Timers"],
+									disabled = function(info) return not GetBarGroupField("excludeBuffTypes") or not GetBarGroupField("detectBuffs") end,
+									desc = L["Exclude buffs from effect timers triggered by a spell cast."],
+									get = function(info) return GetBarGroupField("excludeEffectBuffs") end,
+									set = function(info, value) SetBarGroupField("excludeEffectBuffs", value) end,
+								},
+								Weapons = {
+									type = "toggle", order = 50, name = L["Weapon Buffs"],
+									disabled = function(info) return not GetBarGroupField("excludeBuffTypes") or not GetBarGroupField("detectBuffs") end,
+									desc = L["Exclude weapon buffs."],
+									get = function(info) return GetBarGroupField("excludeWeaponBuffs") end,
+									set = function(info, value) SetBarGroupField("excludeWeaponBuffs", value) end,
+								},
+								Tracking = {
+									type = "toggle", order = 55, name = L["Tracking"],
+									disabled = function(info) return not GetBarGroupField("excludeBuffTypes") or not GetBarGroupField("detectBuffs") end,
+									desc = L["Exclude tracking buffs."],
+									get = function(info) return GetBarGroupField("excludeTracking") end,
+									set = function(info, value) SetBarGroupField("excludeTracking", value) end,
+								},
+								Resources = {
+									type = "toggle", order = 56, name = L["Resources"],
+									disabled = function(info) return not GetBarGroupField("excludeBuffTypes") or not GetBarGroupField("detectBuffs") end,
+									desc = L["Exclude buffs for resources (e.g., monk's Chi)."],
+									get = function(info) return GetBarGroupField("excludeResources") end,
+									set = function(info, value) SetBarGroupField("excludeResources", value) end,
+								},
+								Mounts = {
+									type = "toggle", order = 57, name = L["Mounts"],
+									disabled = function(info) return not GetBarGroupField("excludeBuffTypes") or not GetBarGroupField("detectBuffs") end,
+									desc = L["Exclude mount buffs."],
+									get = function(info) return GetBarGroupField("excludeMountBuffs") end,
+									set = function(info, value) SetBarGroupField("excludeMountBuffs", value) end,
+								},
+								Tabard = {
+									type = "toggle", order = 58, name = L["Tabard"],
+									disabled = function(info) return not GetBarGroupField("excludeBuffTypes") or not GetBarGroupField("detectBuffs") end,
+									desc = L['Exclude buffs from equipped tabard (player only).'],
+									get = function(info) return GetBarGroupField("excludeTabardBuffs") end,
+									set = function(info, value) SetBarGroupField("excludeTabardBuffs", value) end,
+								},
+								Other = {
+									type = "toggle", order = 60, name = L["Other"],
+									disabled = function(info) return not GetBarGroupField("excludeBuffTypes") or not GetBarGroupField("detectBuffs") end,
+									desc = L['Exclude buffs not selected by other types.'],
+									get = function(info) return GetBarGroupField("excludeOtherBuffs") end,
+									set = function(info, value) SetBarGroupField("excludeOtherBuffs", value) end,
 								},
 							},
 						},
@@ -5229,13 +5372,13 @@ MOD.OptionsTable = {
 								},
 							},
 						},
-						FilterByType = {
-							type = "group", order = 30, name = L["Filter By Type"], inline = true, width = "full",
+						IncludeByType = {
+							type = "group", order = 30, name = L["Include By Type"], inline = true, width = "full",
 							disabled = function(info) return not GetBarGroupField("detectDebuffs") end,
 							args = {
 								Enable = {
 									type = "toggle", order = 10, name = L["Enable"],
-									desc = L["Filter debuff types string"],
+									desc = L["Include debuff types string"],
 									get = function(info) return GetBarGroupField("filterDebuffTypes") end,
 									set = function(info, v) SetBarGroupField("filterDebuffTypes", v) end,
 								},
@@ -5256,7 +5399,7 @@ MOD.OptionsTable = {
 								Effects = {
 									type = "toggle", order = 25, name = L["Effect Timers"],
 									disabled = function(info) return not GetBarGroupField("filterDebuffTypes") end,
-									desc = L["If checked, include bars for effect timers triggered by a spell cast."],
+									desc = L["Include debuffs from effect timers triggered by a spell cast."],
 									get = function(info) return GetBarGroupField("detectEffectDebuffs") end,
 									set = function(info, value) SetBarGroupField("detectEffectDebuffs", value) end,
 								},
@@ -5308,8 +5451,8 @@ MOD.OptionsTable = {
 									type = "toggle", order = 70, name = L["Boss"],
 									disabled = function(info) return not GetBarGroupField("filterDebuffTypes") end,
 									desc = L['Include debuffs cast by boss.'],
-									get = function(info) return GetBarGroupField("detectBoss") end,
-									set = function(info, value) SetBarGroupField("detectBoss", value) end,
+									get = function(info) return GetBarGroupField("detectBossDebuffs") end,
+									set = function(info, value) SetBarGroupField("detectBossDebuffs", value) end,
 								},
 								Other = {
 									type = "toggle", order = 80, name = L["Other"], width = "half",
@@ -5317,6 +5460,97 @@ MOD.OptionsTable = {
 									desc = L['Include other debuffs not selected with filter types.'],
 									get = function(info) return GetBarGroupField("detectOtherDebuffs") end,
 									set = function(info, value) SetBarGroupField("detectOtherDebuffs", value) end,
+								},
+							},
+						},
+						ExcludeByType = {
+							type = "group", order = 35, name = L["Exclude By Type"], inline = true, width = "full",
+							disabled = function(info) return not GetBarGroupField("detectDebuffs") end,
+							args = {
+								Enable = {
+									type = "toggle", order = 10, name = L["Enable"],
+									desc = L["Exclude debuff types string"],
+									get = function(info) return GetBarGroupField("excludeDebuffTypes") end,
+									set = function(info, v) SetBarGroupField("excludeDebuffTypes", v) end,
+								},
+								Castable = {
+									type = "toggle", order = 15, name = L["Castable"],
+									disabled = function(info) return not GetBarGroupField("excludeDebuffTypes") end,
+									desc = L['Exclude debuffs that the player can cast.'],
+									get = function(info) return GetBarGroupField("excludeInflictable") end,
+									set = function(info, value) SetBarGroupField("excludeInflictable", value) end,
+								},
+								Dispellable = {
+									type = "toggle", order = 20, name = L["Dispellable"],
+									disabled = function(info) return not GetBarGroupField("excludeDebuffTypes") end,
+									desc = L['Exclude debuffs that the player can dispel.'],
+									get = function(info) return GetBarGroupField("excludeDispellable") end,
+									set = function(info, value) SetBarGroupField("excludeDispellable", value) end,
+								},
+								Effects = {
+									type = "toggle", order = 25, name = L["Effect Timers"],
+									disabled = function(info) return not GetBarGroupField("excludeDebuffTypes") end,
+									desc = L["Exclude debuffs from effect timers triggered by a spell cast."],
+									get = function(info) return GetBarGroupField("excludeEffectDebuffs") end,
+									set = function(info, value) SetBarGroupField("excludeEffectDebuffs", value) end,
+								},
+								Space1 = { type = "description", name = "", order = 30 },
+								Poison = {
+									type = "toggle", order = 35, name = L["Poison"],
+									disabled = function(info) return not GetBarGroupField("excludeDebuffTypes") end,
+									desc = L['Exclude poison debuffs.'],
+									get = function(info) return GetBarGroupField("excludePoison") end,
+									set = function(info, value) SetBarGroupField("excludePoison", value) end,
+								},
+								Curse = {
+									type = "toggle", order = 40, name = L["Curse"],
+									disabled = function(info) return not GetBarGroupField("excludeDebuffTypes") end,
+									desc = L['Exclude curse debuffs.'],
+									get = function(info) return GetBarGroupField("excludeCurse") end,
+									set = function(info, value) SetBarGroupField("excludeCurse", value) end,
+								},
+								Magic = {
+									type = "toggle", order = 45, name = L["Magic"],
+									disabled = function(info) return not GetBarGroupField("excludeDebuffTypes") end,
+									desc = L['Exclude magic debuffs.'],
+									get = function(info) return GetBarGroupField("excludeMagic") end,
+									set = function(info, value) SetBarGroupField("excludeMagic", value) end,
+								},
+								Disease = {
+									type = "toggle", order = 50, name = L["Disease"],
+									disabled = function(info) return not GetBarGroupField("excludeDebuffTypes") end,
+									desc = L['Exclude disease debuffs.'],
+									get = function(info) return GetBarGroupField("excludeDisease") end,
+									set = function(info, value) SetBarGroupField("excludeDisease", value) end,
+								},
+								Space2 = { type = "description", name = "", order = 55 },
+								CastByNPC = {
+									type = "toggle", order = 60, name = L["NPC"],
+									disabled = function(info) return not GetBarGroupField("excludeDebuffTypes") end,
+									desc = L['Exclude debuffs cast by an NPC (note: only valid while caster is selected, such as when checking target of target).'],
+									get = function(info) return GetBarGroupField("excludeNPCDebuffs") end,
+									set = function(info, value) SetBarGroupField("excludeNPCDebuffs", value) end,
+								},
+								CastByVehicle = {
+									type = "toggle", order = 65, name = L["Vehicle"],
+									disabled = function(info) return not GetBarGroupField("filterDebuffTypes") end,
+									desc = L['Exclude debuffs cast by a vehicle (note: only valid while caster is selected, such as when checking target of target).'],
+									get = function(info) return GetBarGroupField("excludeVehicleDebuffs") end,
+									set = function(info, value) SetBarGroupField("excludeVehicleDebuffs", value) end,
+								},
+								Boss = {
+									type = "toggle", order = 70, name = L["Boss"],
+									disabled = function(info) return not GetBarGroupField("filterDebuffTypes") end,
+									desc = L['Exclude debuffs cast by boss.'],
+									get = function(info) return GetBarGroupField("excludeBossDebuffs") end,
+									set = function(info, value) SetBarGroupField("excludeBossDebuffs", value) end,
+								},
+								Other = {
+									type = "toggle", order = 80, name = L["Other"], width = "half",
+									disabled = function(info) return not GetBarGroupField("filterDebuffTypes") end,
+									desc = L['Exclude other debuffs not selected with filter types.'],
+									get = function(info) return GetBarGroupField("excludeOtherDebuffs") end,
+									set = function(info, value) SetBarGroupField("excludeOtherDebuffs", value) end,
 								},
 							},
 						},
@@ -5532,50 +5766,8 @@ MOD.OptionsTable = {
 								},
 							},
 						},
-						CooldownTypeGroup = {
-							type = "group", order = 30, name = L["Include"], inline = true,
-							disabled = function(info) return not GetBarGroupField("detectCooldowns") end,
-							args = {
-								SpellCooldowns = {
-									type = "toggle", order = 10, name = L["Spells"],
-									desc = L["If checked, include bars for spell cooldowns."],
-									get = function(info) return GetBarGroupField("detectSpellCooldowns") end,
-									set = function(info, value) SetBarGroupField("detectSpellCooldowns", value) end,
-								},
-								TrinketCooldowns = {
-									type = "toggle", order = 20, name = L["Trinkets"],
-									desc = L["If checked, include bars for cooldowns on equipped trinkets."],
-									get = function(info) return GetBarGroupField("detectTrinketCooldowns") end,
-									set = function(info, value) SetBarGroupField("detectTrinketCooldowns", value) end,
-								},
-								InternalCooldowns = {
-									type = "toggle", order = 25, name = L["Internal Cooldowns"],
-									desc = L["If checked, include bars for internal cooldowns triggered by a buff or debuff."],
-									get = function(info) return GetBarGroupField("detectInternalCooldowns") end,
-									set = function(info, value) SetBarGroupField("detectInternalCooldowns", value) end,
-								},
-								SpellEffectCooldowns = {
-									type = "toggle", order = 30, name = L["Effect Timers"],
-									desc = L["If checked, include bars for effect timers triggered by a spell cast."],
-									get = function(info) return GetBarGroupField("detectSpellEffectCooldowns") end,
-									set = function(info, value) SetBarGroupField("detectSpellEffectCooldowns", value) end,
-								},
-								PotionCooldowns = {
-									type = "toggle", order = 35, name = L["Potions/Elixirs"],
-									desc = L["If checked, include bars for shared potion/elixir cooldowns (an item subject to the shared cooldown must be in your bags in order for the cooldown to be detected)."],
-									get = function(info) return GetBarGroupField("detectPotionCooldowns") end,
-									set = function(info, value) SetBarGroupField("detectPotionCooldowns", value) end,
-								},
-								OtherCooldowns = {
-									type = "toggle", order = 40, name = L["Other"],
-									desc = L["If checked, include bars for other cooldowns (for item cooldowns, an item subject to the cooldown must be in your bags in order for the cooldown to be detected)."],
-									get = function(info) return GetBarGroupField("detectOtherCooldowns") end,
-									set = function(info, value) SetBarGroupField("detectOtherCooldowns", value) end,
-								},
-							},
-						},
 						SharedCooldownGroup = {
-							type = "group", order = 30, name = L["Shared Cooldowns"], inline = true,
+							type = "group", order = 25, name = L["Shared Cooldowns"], inline = true,
 							disabled = function(info) return not GetBarGroupField("detectCooldowns") end,
 							args = {
 								GrimoireCooldowns = {
@@ -5589,6 +5781,48 @@ MOD.OptionsTable = {
 									desc = L["If checked, only show one cooldown for warlock infernal and doomguard."],
 									get = function(info) return GetBarGroupField("detectSharedInfernals") end,
 									set = function(info, value) SetBarGroupField("detectSharedInfernals", value) end,
+								},
+							},
+						},
+						CooldownTypeGroup = {
+							type = "group", order = 30, name = L["Cooldown Types"], inline = true,
+							disabled = function(info) return not GetBarGroupField("detectCooldowns") end,
+							args = {
+								SpellCooldowns = {
+									type = "toggle", order = 10, name = L["Spells"],
+									desc = L["Include spell cooldowns."],
+									get = function(info) return GetBarGroupField("detectSpellCooldowns") end,
+									set = function(info, value) SetBarGroupField("detectSpellCooldowns", value) end,
+								},
+								TrinketCooldowns = {
+									type = "toggle", order = 20, name = L["Trinkets"],
+									desc = L["Include cooldowns for equipped trinkets."],
+									get = function(info) return GetBarGroupField("detectTrinketCooldowns") end,
+									set = function(info, value) SetBarGroupField("detectTrinketCooldowns", value) end,
+								},
+								InternalCooldowns = {
+									type = "toggle", order = 25, name = L["Internal Cooldowns"],
+									desc = L["Include internal cooldowns triggered by a buff or debuff."],
+									get = function(info) return GetBarGroupField("detectInternalCooldowns") end,
+									set = function(info, value) SetBarGroupField("detectInternalCooldowns", value) end,
+								},
+								SpellEffectCooldowns = {
+									type = "toggle", order = 30, name = L["Effect Timers"],
+									desc = L["Include effect timers triggered by a spell cast."],
+									get = function(info) return GetBarGroupField("detectSpellEffectCooldowns") end,
+									set = function(info, value) SetBarGroupField("detectSpellEffectCooldowns", value) end,
+								},
+								PotionCooldowns = {
+									type = "toggle", order = 35, name = L["Potions/Elixirs"],
+									desc = L["Include shared potion/elixir cooldowns (an item subject to the shared cooldown must be in your bags in order for the cooldown to be detected)."],
+									get = function(info) return GetBarGroupField("detectPotionCooldowns") end,
+									set = function(info, value) SetBarGroupField("detectPotionCooldowns", value) end,
+								},
+								OtherCooldowns = {
+									type = "toggle", order = 40, name = L["Other"],
+									desc = L["Include cooldowns not selected by other types."],
+									get = function(info) return GetBarGroupField("detectOtherCooldowns") end,
+									set = function(info, value) SetBarGroupField("detectOtherCooldowns", value) end,
 								},
 							},
 						},
@@ -11471,7 +11705,7 @@ MOD.barOptions = {
 				set = function(info, value) SetBarField(info, "readyCharges", value); MOD:UpdateAllBarGroups() end,
 			},
 			ShowTime = {
-				type = "range", order = 75, name = L["Show Time"], min = 0, max = 60, step = 1,
+				type = "range", order = 75, name = L["Time"], min = 0, max = 60, step = 1,
 				desc = L["Set number of seconds to show the ready bar (0 for unlimited time)."],
 				hidden = function(info) local t = GetBarField(info, "barType"); return (t == "Notification") or (t == "Broker") end,
 				disabled = function(info) return not GetBarField(info, "enableReady") end,
@@ -11479,28 +11713,28 @@ MOD.barOptions = {
 				set = function(info, value) SetBarField(info, "readyTime", value) end,
 			},
 			BrokerIcon = {
-				type = "toggle", order = 80, name = L["Show Icon"], width = "half",
+				type = "toggle", order = 80, name = L["Icon"], width = "half",
 				desc = L["If checked, show the data broker's icon."],
 				hidden = function(info) return GetBarField(info, "barType") ~= "Broker" end,
 				get = function(info) return not GetBarField(info, "hideIcon") end,
 				set = function(info, value) SetBarField(info, "hideIcon", not value); MOD:UpdateAllBarGroups() end,
 			},
 			BrokerText = {
-				type = "toggle", order = 81, name = L["Show Text"], width = "half",
+				type = "toggle", order = 81, name = L["Text"], width = "half",
 				desc = L["If checked, show the data broker's text."],
 				hidden = function(info) return GetBarField(info, "barType") ~= "Broker" end,
 				get = function(info) return not GetBarField(info, "hideText") end,
 				set = function(info, value) SetBarField(info, "hideText", not value); MOD:UpdateAllBarGroups() end,
 			},
 			LabelText = {
-				type = "toggle", order = 82, name = L["Show Label"], width = "half",
+				type = "toggle", order = 82, name = L["Label"], width = "half",
 				desc = L["If checked, add data broker's label to its text or, if Icon Text is also enabled, use it as label."],
 				hidden = function(info) return GetBarField(info, "barType") ~= "Broker" end,
 				get = function(info) return GetBarField(info, "brokerLabel") end,
 				set = function(info, value) SetBarField(info, "brokerLabel", value); MOD:UpdateAllBarGroups() end,
 			},
 			ShowBar = {
-				type = "toggle", order = 83, name = L["Show Bar"], width = "half",
+				type = "toggle", order = 83, name = L["Bar"], width = "half",
 				desc = L["If checked, show a bar for the data broker."],
 				hidden = function(info) return GetBarField(info, "barType") ~= "Broker" end,
 				get = function(info) return GetBarField(info, "includeBar") end,
@@ -11704,6 +11938,19 @@ MOD.barOptions = {
 					local t = GetBarField(info, "showClasses")
 					if not t then SetBarField(info, "showClasses", { DEMONHUNTER = not value } ) else t.DEMONHUNTER = not value end
 				end
+			},
+		},
+	},
+	SelectSpecialization = {
+		type = "group", order = 16, name = L["Player Specialization"], inline = true,
+		hidden = function(info) return NoBar() end,
+		args = {
+			SpecializationCheck = {
+				type = "input", order = 10, name = L["Specialization"], width = "double",
+				desc = L["Enter comma-separated specialization names or numbers to check (leave blank to ignore specialization)."],
+				get = function(info) return GetBarField(info, "showSpecialization") end,
+				set = function(info, value) SetBarField(info, "showSpecialization", value);
+					SetBarField(info, "specializationList", ParseStringTable(value)) end,
 			},
 		},
 	},

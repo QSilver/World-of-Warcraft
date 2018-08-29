@@ -1,34 +1,12 @@
 ------------------------------------------------------------------------
-r226 | Tuhljin | 2018-08-12 13:18:28 +0000 (Sun, 12 Aug 2018) | 2 lines
-Changed paths:
-   M /trunk/Overachiever.lua
-   M /trunk/Overachiever_Cache/Cache.lua
-   M /trunk/Overachiever_Cache/Overachiever_Cache.toc
-   A /trunk/Overachiever_Cache/TjSetList.lua
-   M /trunk/readme.txt
-
-- Rewrote much of the cache module. This should fix some issues with faction-specific data and potentially problems with the cache not treating the index for kill criteria appropriately.
-- Cache module: The tooltip indicating an achievement is required for a meta-achievement can now display an Alliance or Horde icon to show when the cache indicates the requirement is exclusive to one faction.
-------------------------------------------------------------------------
-r225 | Tuhljin | 2018-08-09 00:21:35 +0000 (Thu, 09 Aug 2018) | 5 lines
+r228 | Tuhljin | 2018-08-17 04:42:13 +0000 (Fri, 17 Aug 2018) | 1 line
 Changed paths:
    M /trunk/AchieveID.lua
-   M /trunk/Overachiever.lua
-   M /trunk/Overachiever.toc
    M /trunk/Overachiever_Cache/Cache.lua
-   M /trunk/Overachiever_Cache/Overachiever_Cache.toc
-   M /trunk/Overachiever_Tabs/Overachiever_Tabs.toc
-   M /trunk/Overachiever_Tabs/Suggestions.lua
-   M /trunk/Overachiever_Trade/Overachiever_Trade.toc
-   M /trunk/libs/TjAchieve.lua
-   M /trunk/libs/TjThreads.lua
+   M /trunk/Overachiever_Trade/TradeSkills.lua
    M /trunk/localization.lua
    M /trunk/readme.txt
 
-- Cache module:
--- This module now improves the accuracy of cross-faction data. For instance, the meta-achievement "Master of Warsong Gulch" requires a different version of "Quick Cap" for each faction. Without the cache module, only the "Quick Cap" for your own faction indicates that it is required by another achievement. With Overachiever_Cache enabled, both versions now indicate this.
--- For a complete cache, you will need to have logged into both an Alliance and a Horde character. (Most of the time, this is a non-issue. Most cached data is not faction specific. Even faction-specific achievements usually provide the same data to both factions.)
--- Fixed an issue where populating the cache while logged into a character of one faction prevented data from the other faction from being added.
-- Fixed an issue where some of the opposing faction's achievements were sometimes automatically tracked in battlegrounds.
+- Trade module: "The Kul Tiran Menu" or "The Zandalari Menu" is now considered when determining if you need to cook a recipe.
 ------------------------------------------------------------------------
 

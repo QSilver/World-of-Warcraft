@@ -1,7 +1,7 @@
-changeset:   1175:7a657d85fb0a
-tag:         3.7.11
+changeset:   1177:0e0cc54c8fd8
+tag:         3.7.12
 user:        sylvanaar <sylvanaar@mindspring.com>
-date:        Tue Aug 14 09:39:07 2018 -0700
-summary:     Backed out changeset: bdb9e058b1a7
+date:        Sun Aug 19 07:59:01 2018 -0700
+summary:     Fix issue with partyguide messing up the channelnames settings
 
 

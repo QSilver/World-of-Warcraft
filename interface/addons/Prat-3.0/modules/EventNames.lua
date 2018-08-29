@@ -77,10 +77,8 @@ Prat:AddModuleToLoad(function()
  L=
 {
 	["EventNames"] = {
-		--[[Translation missing --]]
-		--[[ ["allevents_desc"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["allevents_name"] = "",--]] 
+		["allevents_desc"] = "Activer le traitement par Prat de tous les événements de discussion.",
+		["allevents_name"] = "Traiter tous les événements",
 		["Chat window event name options."] = "Options des évènements de la fenêtre de chat",
 		["EventNames"] = "Nom des évènements",
 		["Show"] = "Montrer",

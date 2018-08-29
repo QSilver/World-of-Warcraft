@@ -9,15 +9,16 @@ dbOHC = {
 		},
 	},
 	["global"] = {
-		["tutorialStep"] = 3,
-		["warn01_seen"] = 0,
-		["firstrun"] = false,
 		["news"] = {
 			[10513] = true,
 			[10514] = true,
 		},
 		["warn02_seen"] = 0,
 		["silent"] = true,
+		["warn01_seen"] = 0,
+		["firstrun"] = false,
+		["tutorialStep"] = 3,
+		["warn03_seen"] = 3,
 	},
 	["profileKeys"] = {
 		["Lachrymas - Silvermoon"] = "Default",

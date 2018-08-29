@@ -1,0 +1,18 @@
+tag 657b4c12d33ce902e9d4af86ff9486dbbb2ef927 2.19.0
+Author:	Alar of Runetotem <alar@aspide.it>
+Date:	Fri Aug 17 13:27:19 2018 +0200
+
+Removed autologout function (no longer allowed from Blizzard)
+
+commit f87acf58dc4e774da8ae1f13d8f7156eae4f664a
+Author: Alar of Runetotem <alar@aspide.it>
+Date:   Fri Aug 17 13:24:35 2018 +0200
+
+    rel notes
+
+commit 6cd27752bcf4554792b300e52b556a8b967f5324
+Author: Alar of Runetotem <alar@aspide.it>
+Date:   Fri Aug 17 13:21:27 2018 +0200
+
+    Logout can no longer be called by addons
+

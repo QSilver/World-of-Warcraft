@@ -65,14 +65,29 @@ ralllocationnames = {
 	"Scarlet Halls", -- [63]
 	"Scarlet Monastery", -- [64]
 	"Scholomance", -- [65]
-	"Stormstout Brewery", -- [66]
+	{
+		["mapType"] = 2,
+		["mapID"] = 876,
+		["name"] = "Kul Tiras",
+		["parentMapID"] = 947,
+	}, -- [66]
 	"Temple of the Jade Serpent", -- [67]
 	"Mogu'shan Palace", -- [68]
 	"Shado-Pan Monastery", -- [69]
-	"Gate of the Setting Sun", -- [70]
+	{
+		["mapType"] = 2,
+		["mapID"] = 875,
+		["name"] = "Zandalar",
+		["parentMapID"] = 947,
+	}, -- [70]
 	"Siege of Niuzao Temple", -- [71]
 	"Heart of Fear", -- [72]
-	"Mogu'shan Vaults", -- [73]
+	{
+		["mapType"] = 3,
+		["mapID"] = 896,
+		["name"] = "Drustvar",
+		["parentMapID"] = 876,
+	}, -- [73]
 	"Terrace of Endless Spring", -- [74]
 	"A Brewing Storm", -- [75]
 	"Proving Grounds", -- [76]
@@ -107,11 +122,21 @@ ralllocationnames = {
 	"Court of Stars", -- [105]
 	"Darkheart Thicket", -- [106]
 	"Eye of Azshara", -- [107]
-	"Halls of Valor", -- [108]
+	{
+		["mapType"] = 3,
+		["mapID"] = 1041,
+		["name"] = "The Underrot",
+		["parentMapID"] = 0,
+	}, -- [108]
 	"Helmouth Cliffs", -- [109]
 	"Neltharion's Lair", -- [110]
 	"The Arcway", -- [111]
-	"Vault of the Wardens", -- [112]
+	{
+		["mapType"] = 4,
+		["mapID"] = 1045,
+		["name"] = "Thros, The Blighted Lands",
+		["parentMapID"] = 896,
+	}, -- [112]
 	"Violet Hold", -- [113]
 	"The Emerald Nightmare", -- [114]
 	"The Nighthold", -- [115]

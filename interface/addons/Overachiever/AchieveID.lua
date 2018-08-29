@@ -41,6 +41,7 @@ OVERACHIEVER_ACHID = {
 	--GourmetWinter = 1688,		-- "The Winter Veil Gourmet" -- requires proper season; waiting on season detection feature?
 	GourmetDraenor = 9501,		-- "The Draenor Gourmet"
 	LegionMenu = 10762,			-- "The Legion Menu"
+	BattleMenu = IsAlliance and 12744 or 12746,		-- "The Kul Tiran Menu" / "The Zandalari Menu"
 
 	MediumRare = 1311,			-- "Medium Rare"
 	BloodyRare = 1312,			-- "Bloody Rare"

@@ -87,8 +87,7 @@ PL:AddLocale(PRAT_MODULE, "enUS",L)
 L=
 {
 	["ChannelSticky"] = {
-		--[[Translation missing --]]
-		--[[ ["Channel"] = "",--]] 
+		["Channel"] = "Canal",
 		--[[Translation missing --]]
 		--[[ ["ChannelSticky"] = "",--]] 
 		--[[Translation missing --]]

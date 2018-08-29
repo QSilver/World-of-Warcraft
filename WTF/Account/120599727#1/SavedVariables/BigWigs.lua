@@ -1,5 +1,6 @@
 
 BigWigs3DB = {
+	["discord"] = 15,
 	["global"] = {
 		["watchedMovies"] = {
 			["953:12"] = true,
@@ -47,13 +48,6 @@ BigWigs3DB = {
 				},
 			},
 		},
-		["BigWigs_Bosses_Argus the Unmaker"] = {
-			["profiles"] = {
-				["Default"] = {
-					[248165] = 98819,
-				},
-			},
-		},
 		["BigWigs_Plugins_Alt Power"] = {
 			["profiles"] = {
 				["Default"] = {
@@ -67,22 +61,7 @@ BigWigs3DB = {
 				},
 			},
 		},
-		["BigWigs_Plugins_BossBlock"] = {
-		},
-		["BigWigs_Bosses_Grand Magistrix Elisande"] = {
-			["profiles"] = {
-				["Default"] = {
-					[210022] = 98819,
-				},
-			},
-		},
-		["BigWigs_Bosses_Archimonde"] = {
-			["profiles"] = {
-				["Default"] = {
-					["markofthelegion_self"] = 0,
-					[187050] = 0,
-				},
-			},
+		["LibDualSpec-1.0"] = {
 		},
 		["BigWigs_Plugins_Sounds"] = {
 			["profiles"] = {
@@ -95,14 +74,6 @@ BigWigs3DB = {
 				},
 			},
 		},
-		["BigWigs_Bosses_Raest"] = {
-			["profiles"] = {
-				["Default"] = {
-					["rune"] = 33411,
-					["thing"] = 98819,
-				},
-			},
-		},
 		["BigWigs_Plugins_Statistics"] = {
 			["profiles"] = {
 				["Default"] = {
@@ -110,62 +81,9 @@ BigWigs3DB = {
 				},
 			},
 		},
-		["BigWigs_Bosses_Krosus"] = {
-			["profiles"] = {
-				["Default"] = {
-					[205368] = 98819,
-				},
-			},
-		},
-		["BigWigs_Bosses_The Coven of Shivarra"] = {
-			["profiles"] = {
-				["Default"] = {
-					[246329] = 33283,
-					[250648] = 98819,
-				},
-			},
-		},
-		["BigWigs_Plugins_Pull"] = {
-		},
-		["BigWigs_Plugins_Wipe"] = {
-		},
-		["BigWigs_Plugins_Messages"] = {
-			["profiles"] = {
-				["Default"] = {
-					["BWEmphasizeCountdownMessageAnchor_y"] = 583.266592375439,
-					["BWEmphasizeMessageAnchor_x"] = 623.533226030304,
-					["BWEmphasizeCountdownMessageAnchor_x"] = 679.488964334305,
-					["BWMessageAnchor_y"] = 680.933373461012,
-					["fontSize"] = 20.0000019073486,
-					["BWMessageAnchor_x"] = 621.844590838337,
-					["font"] = "Friz Quadrata TT",
-					["BWEmphasizeMessageAnchor_y"] = 480.599961009393,
-				},
-			},
-		},
-		["BigWigs_Plugins_Proximity"] = {
-			["profiles"] = {
-				["Default"] = {
-					["posx"] = 988.88887363988,
-					["fontSize"] = 20,
-					["font"] = "Friz Quadrata TT",
-					["lock"] = true,
-					["height"] = 143.000030517578,
-					["posy"] = 389.978125954476,
-					["objects"] = {
-						["title"] = false,
-						["close"] = false,
-						["ability"] = false,
-						["background"] = false,
-						["sound"] = false,
-					},
-					["width"] = 141.000122070313,
-				},
-			},
-		},
 		["BigWigs_Plugins_Colors"] = {
 		},
-		["BigWigs_Plugins_Raid Icons"] = {
+		["BigWigs_Plugins_Wipe"] = {
 		},
 		["BigWigs_Plugins_InfoBox"] = {
 			["profiles"] = {
@@ -193,23 +111,18 @@ BigWigs3DB = {
 					["BigWigsEmphasizeAnchor_x"] = 583.888861029373,
 					["BigWigsAnchor_height"] = 15.9999761581421,
 					["font"] = "Friz Quadrata TT",
-					["BigWigsEmphasizeAnchor_width"] = 301.000244140625,
-					["fontSizeEmph"] = 18,
 					["texture"] = "Blizzard Raid Bar",
+					["fontSizeEmph"] = 18,
+					["BigWigsEmphasizeAnchor_width"] = 301.000244140625,
 				},
 			},
 		},
-		["BigWigs_Bosses_Sisters of the Moon"] = {
+		["BigWigs_Plugins_Super Emphasize"] = {
 			["profiles"] = {
 				["Default"] = {
-					[236480] = 33283,
-				},
-			},
-		},
-		["BigWigs_Bosses_Gorefiend"] = {
-			["profiles"] = {
-				["Default"] = {
-					[179864] = 771,
+					["fontSize"] = 40,
+					["monochrome"] = false,
+					["font"] = "Friz Quadrata TT",
 				},
 			},
 		},
@@ -223,44 +136,52 @@ BigWigs3DB = {
 				},
 			},
 		},
-		["BigWigs_Plugins_Super Emphasize"] = {
-			["profiles"] = {
-				["Default"] = {
-					["fontSize"] = 40,
-					["font"] = "Friz Quadrata TT",
-					["monochrome"] = false,
-				},
-			},
-		},
-		["BigWigs_Bosses_Aggramar"] = {
-			["profiles"] = {
-				["Default"] = {
-					[244688] = 0,
-				},
-			},
+		["BigWigs_Plugins_Respawn"] = {
 		},
 		["BigWigs_Plugins_AutoReply"] = {
 		},
-		["BigWigs_Plugins_Respawn"] = {
+		["BigWigs_Plugins_Raid Icons"] = {
 		},
-		["LibDualSpec-1.0"] = {
-		},
-		["BigWigs_Bosses_Gul'dan"] = {
+		["BigWigs_Plugins_Messages"] = {
 			["profiles"] = {
 				["Default"] = {
-					[206515] = 98819,
+					["BWEmphasizeCountdownMessageAnchor_y"] = 583.266592375439,
+					["BWEmphasizeMessageAnchor_x"] = 623.533226030304,
+					["BWEmphasizeCountdownMessageAnchor_x"] = 679.488964334305,
+					["BWMessageAnchor_y"] = 680.933373461012,
+					["BWEmphasizeMessageAnchor_y"] = 480.599961009393,
+					["BWMessageAnchor_x"] = 621.844590838337,
+					["font"] = "Friz Quadrata TT",
+					["fontSize"] = 20.0000019073486,
 				},
 			},
 		},
-		["BigWigs_Bosses_Spine of Deathwing"] = {
+		["BigWigs_Plugins_BossBlock"] = {
+		},
+		["BigWigs_Plugins_Pull"] = {
+		},
+		["BigWigs_Plugins_Proximity"] = {
 			["profiles"] = {
 				["Default"] = {
-					["roll"] = 1,
+					["posx"] = 988.88887363988,
+					["fontSize"] = 20,
+					["font"] = "Friz Quadrata TT",
+					["lock"] = true,
+					["height"] = 143.000030517578,
+					["objects"] = {
+						["title"] = false,
+						["close"] = false,
+						["ability"] = false,
+						["background"] = false,
+						["sound"] = false,
+					},
+					["posy"] = 389.978125954476,
+					["width"] = 141.000122070313,
 				},
 			},
 		},
 	},
-	["discord"] = 15,
+	["wipe80"] = true,
 	["profileKeys"] = {
 		["Simroth - Silvermoon"] = "Default",
 		["Siluna - Silvermoon"] = "Default",

@@ -37,11 +37,15 @@ local default_config = {
     glow_as_shadow = true,
     state_icons = true,
     target_glow = true,
-    target_glow_colour = { .3, .7, 1, 1 },
+    target_glow_colour = { .3, .7, 1, .8 },
+    mouseover_glow = false,
+    mouseover_glow_colour = { .3, .7, 1, .5 },
     target_arrows = false,
     frame_glow_size = 8,
     target_arrows_size = 33,
     use_blizzard_personal = false,
+    frame_vertical_offset = 0,
+    show_arena_id = true, -- NEX
 
     clickthrough_self = false,
     clickthrough_friend = false,
@@ -93,7 +97,7 @@ local default_config = {
     name_colour_white_in_bar_mode = true,
     class_colour_friendly_names = true,
     class_colour_enemy_names = false,
-    name_colour_brighten_class = .2,
+    name_colour_brighten_class = .2, -- NEX
     name_colour_player_friendly = {.6,.7,1},
     name_colour_player_hostile  = {1,.7,.7},
     name_colour_npc_friendly = {.7,1,.7},
@@ -135,6 +139,7 @@ local default_config = {
     frame_height_personal = 13,
     castbar_height = 6,
     powerbar_height = 3,
+    global_scale = 1,
 
     auras_enabled = true,
     auras_on_personal = true,
@@ -144,14 +149,17 @@ local default_config = {
     auras_show_all_self = false,
     auras_hide_all_other = false,
     auras_time_threshold = 60,
-    auras_minimum_length = 0,
-    auras_maximum_length = -1,
     auras_icon_normal_size = 24,
     auras_icon_minus_size = 18,
     auras_icon_squareness = .7,
     auras_colour_short = {1,.3,.3},
     auras_colour_medium = {1,.8,.3},
     auras_colour_long = {1,1,1},
+    auras_show_purge = true,
+    auras_purge_size = 32,
+    auras_purge_opposite = false,
+    auras_side = 1,
+    auras_offset = 15,
 
     castbar_enable = true,
     castbar_colour = {.75,.75,.9},
@@ -271,6 +279,10 @@ end
 
 function configChanged.bar_animation()
     core:SetBarAnimation()
+end
+
+function configChanged.state_icons()
+    core:configChangedStateIcons()
 end
 
 function configChanged.fade_non_target_alpha(v)
@@ -559,8 +571,6 @@ configChanged.auras_pulsate = configChangedAuras
 configChanged.auras_centre = configChangedAuras
 configChanged.auras_sort = configChangedAuras
 configChanged.auras_time_threshold = configChangedAuras
-configChanged.auras_minimum_length = configChangedAuras
-configChanged.auras_maximum_length = configChangedAuras
 configChanged.auras_icon_normal_size = configChangedAuras
 configChanged.auras_icon_minus_size = configChangedAuras
 configChanged.auras_icon_squareness = configChangedAuras
@@ -570,6 +580,11 @@ configChanged.auras_hide_all_other = configChangedAuras
 configChanged.auras_colour_short = configChangedAuras
 configChanged.auras_colour_medium = configChangedAuras
 configChanged.auras_colour_long = configChangedAuras
+configChanged.auras_show_purge = configChangedAuras
+configChanged.auras_purge_size = configChangedAuras
+configChanged.auras_purge_opposite = configChangedAuras
+configChanged.auras_side = configChangedAuras
+configChanged.auras_offset = configChangedAuras
 
 local function configChangedCastBar()
     core:SetCastBarConfig()
@@ -656,18 +671,11 @@ function configChanged.execute_percent(v)
 end
 configChanged.execute_auto = configChanged.execute_percent
 
-function configChanged.target_arrows()
-    core:configChangedTargetArrows()
-end
-configChanged.target_glow_colour = configChanged.target_arrows
-configChanged.target_arrows_size = configChanged.target_arrows
-
 function configChanged.frame_glow_size(v)
     for k,f in addon:Frames() do
-        if f.ThreatGlow then
-            f.ThreatGlow:SetSize(v)
-        end
-        if f.UpdateNameOnlyGlowSize then
+        f:UpdateFrameGlowSize()
+
+        if type(f.UpdateNameOnlyGlowSize) == 'function' then
             f:UpdateNameOnlyGlowSize()
         end
     end
@@ -760,6 +768,17 @@ configChanged.cvar_clamp_bottom = configChangedCVar
 configChanged.cvar_overlap_v = configChangedCVar
 configChanged.cvar_disable_scale = configChangedCVar
 
+function configChanged.global_scale(v)
+    configChanged.frame_glow_size(core.profile.frame_glow_size)
+    configChanged.state_icons()
+    configChangedCastBar()
+    configChangedAuras()
+    configChangedFontOption()
+    configChangedClassPowers()
+    configChangedTextOffset()
+    configChangedFrameSize()
+end
+
 -- config loaded functions #####################################################
 local configLoaded = {}
 configLoaded.fade_non_target_alpha = configChanged.fade_non_target_alpha
@@ -787,6 +806,8 @@ configLoaded.auras_enabled = configChanged.auras_enabled
 configLoaded.clickthrough_self = QueueClickthroughUpdate
 
 configLoaded.cvar_enable = configChangedCVar
+
+configLoaded.state_icons = configChanged.state_icons
 
 function configLoaded.classpowers_enable(v)
     if v then

@@ -1,0 +1,18 @@
+tag f55c620366a42728d6d93321d13e47912a8ad892 1.0.3
+Author:	Alar of Runetotem <alar@aspide.it>
+Date:	Mon Aug 20 12:28:12 2018 +0200
+
+Fix: removed debug messages
+
+commit b9aa7a4d8b0f837b3b7c267f4d4388ea0d2294e9
+Author: Alar of Runetotem <alar@aspide.it>
+Date:   Mon Aug 20 12:27:25 2018 +0200
+
+    Fix: Removed debug messages
+
+commit cdabda54c7af436f8a777d62531fb20fdef9589f
+Author: Alar of Runetotem <alar@aspide.it>
+Date:   Mon Aug 20 12:17:57 2018 +0200
+
+    Removed debug messages
+

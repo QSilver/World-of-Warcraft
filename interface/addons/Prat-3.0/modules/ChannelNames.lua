@@ -467,7 +467,6 @@ local orderMap = {
         "yell",
         "party",
         "partyleader",
-        "partyguide",
         "guild",
         "officer",
         "raid",
@@ -540,7 +539,6 @@ Prat:SetModuleDefaults(module.name, {
         yell = true,
         party = true,
         partyleader = true,
-        partyguide = true,
         guild = true,
         officer = true,
         raid = true,
@@ -646,7 +644,6 @@ Prat:SetModuleDefaults(module.name, {
         yell = "[Y]",
         party = "[P]",
         partyleader = "[PL]",
-        partyguide = "[DG]",
         guild = "[G]",
         officer = "[O]",
         raid = "[R]",
@@ -949,7 +946,9 @@ do
 	end
 
 	local function GetChatCLR(name)
-	    local type = strsub(name, 10);
+        if name == nil then return CLR.COLOR_NONE end
+
+        local type = strsub(name, 10);
 	    local info = ChatTypeInfo[type];
 	    if not info then
 	        return CLR.COLOR_NONE

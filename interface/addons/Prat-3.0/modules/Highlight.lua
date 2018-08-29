@@ -256,58 +256,32 @@ Prat:AddModuleToLoad(function()
 	["Achievements"] = {
 		--[[Translation missing --]]
 		--[[ ["completed"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["customGrats_defualt"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["customGrats_desc"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["customGrats_name"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["customGratsText_desc"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["customGratsText_name"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["grats_donthave_1"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["grats_donthave_10"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["grats_donthave_2"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["grats_donthave_3"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["grats_donthave_4"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["grats_donthave_5"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["grats_donthave_6"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["grats_donthave_7"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["grats_donthave_8"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["grats_donthave_9"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["grats_have_1"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["grats_have_10"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["grats_have_2"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["grats_have_3"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["grats_have_4"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["grats_have_5"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["grats_have_6"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["grats_have_7"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["grats_have_8"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["grats_have_9"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["grats_link"] = "",--]] 
+		["customGrats_defualt"] = "GG %s !",
+		["customGrats_desc"] = "Utiliser un message personnalisé à la place d'un message aléatoire ",
+		["customGrats_name"] = "Utiliser un message personnalisé de félicitations",
+		["customGratsText_desc"] = "Message de félicitations personnalisé. Tapez n'importe quel texte, vous pouvez ajouter le nom du joueur avec la variable '%s'",
+		["customGratsText_name"] = "Message de gratification",
+		["grats_donthave_1"] = "Félicitations %s !",
+		["grats_donthave_10"] = "Il faut aussi que je fasse ce haut fait %s",
+		["grats_donthave_2"] = "GG %s, je ne l'ai pas encore fini celui là",
+		["grats_donthave_3"] = "Il faut aussi que je le fasse celui là %s, gg !",
+		["grats_donthave_4"] = "Bien joué %s",
+		["grats_donthave_5"] = "Je suis trop jaloux %s, gg !  :)",
+		["grats_donthave_6"] = "Ça fait un baille que je tente de l'avoir celui là %s ^^",
+		["grats_donthave_7"] = "Il me manque toujours celui là %s, gg !",
+		["grats_donthave_8"] = "Tu ne veux pas aussi me le faire %s ? xD",
+		["grats_donthave_9"] = "Vivement que je le fasse aussi %s, bien joué !",
+		["grats_have_1"] = "Félicitations %s",
+		["grats_have_10"] = "Bien joué %s, maintenant on l'a tous les deux :)",
+		["grats_have_2"] = "GG %s, je l'ai aussi validé",
+		["grats_have_3"] = "Waw %s, c'est bien joué !",
+		["grats_have_4"] = "Bienvenue au club %s",
+		["grats_have_5"] = "Je me souviens encore de la fois où j'ai réalisé ce HF %s",
+		["grats_have_6"] = "Celui là est un incontournable %s",
+		["grats_have_7"] = "Ça fait un baille que je bosse sur celui là %s, gg !",
+		["grats_have_8"] = "Je me souviens encore de la fois où je l'ai réalisé, %s, gg !",
+		["grats_have_9"] = "Bien joué %s",
+		["grats_link"] = "dire gg",
 		--[[Translation missing --]]
 		--[[ ["module_desc"] = "",--]] 
 		--[[Translation missing --]]
@@ -316,10 +290,8 @@ Prat:AddModuleToLoad(function()
 		--[[ ["showCompletedDate_desc"] = "",--]] 
 		--[[Translation missing --]]
 		--[[ ["showCompletedDate_name"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["showGratsLink_desc"] = "",--]] 
-		--[[Translation missing --]]
-		--[[ ["showGratsLink_name"] = "",--]] 
+		["showGratsLink_desc"] = "Montrer un lien clicable qui envoie des messages de félicitations",
+		["showGratsLink_name"] = "Montrer un lien de félicitations",
 	}
 }
   PL:AddLocale(PRAT_MODULE, "frFR", L)

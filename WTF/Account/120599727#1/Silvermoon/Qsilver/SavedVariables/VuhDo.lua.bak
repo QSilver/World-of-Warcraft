@@ -128,14 +128,49 @@ VUHDO_CONFIG = {
 	["BLIZZ_UI_HIDE_FOCUS"] = 2,
 	["DETECT_DEBUFFS_IGNORE_NO_HARM"] = true,
 	["DETECT_DEBUFFS_IGNORE_BY_CLASS"] = true,
-	["HIDE_EMPTY_BUTTONS"] = false,
+	["SPELL_TRACE"] = {
+		["isOthers"] = false,
+		["STORED_SETTINGS"] = {
+			["596"] = {
+				["duration"] = 2,
+				["isMine"] = true,
+				["isOthers"] = false,
+			},
+			["194509"] = {
+				["duration"] = 2,
+				["isMine"] = true,
+				["isOthers"] = false,
+			},
+			["34861"] = {
+				["duration"] = 2,
+				["isMine"] = true,
+				["isOthers"] = false,
+			},
+			["1064"] = {
+				["duration"] = 2,
+				["isMine"] = true,
+				["isOthers"] = false,
+			},
+		},
+		["version"] = 1,
+		["SELECTED"] = "",
+		["duration"] = 2,
+		["showTrailOfLight"] = false,
+		["isMine"] = true,
+		["STORED"] = {
+			"1064", -- [1]
+			"34861", -- [2]
+			"596", -- [3]
+			"194509", -- [4]
+		},
+	},
 	["OMIT_PLAYER_TARGETS"] = false,
 	["DETECT_DEBUFFS_REMOVABLE_ONLY_ICONS"] = true,
-	["IS_ALWAYS_OVERWRITE_PROFILE"] = false,
-	["SHOW_SHIELD_BAR"] = true,
-	["BLIZZ_UI_HIDE_TARGET"] = 2,
-	["SHOW_PLAYER_TAGS"] = true,
 	["BLIZZ_UI_HIDE_RAID_MGR"] = 2,
+	["SHOW_SHIELD_BAR"] = true,
+	["LOCK_CLICKS_THROUGH"] = false,
+	["SHOW_PLAYER_TAGS"] = true,
+	["MAX_EMERGENCIES"] = 5,
 	["UPDATE_HOTS_MS"] = 250,
 	["BLIZZ_UI_HIDE_PARTY"] = 2,
 	["CUSTOM_DEBUFF"] = {
@@ -4926,47 +4961,12 @@ VUHDO_CONFIG = {
 	["SHOW_INCOMING"] = true,
 	["OMIT_FOCUS"] = false,
 	["IS_SHARE"] = true,
-	["SPELL_TRACE"] = {
-		["isOthers"] = false,
-		["STORED_SETTINGS"] = {
-			["596"] = {
-				["duration"] = 2,
-				["isMine"] = true,
-				["isOthers"] = false,
-			},
-			["194509"] = {
-				["duration"] = 2,
-				["isMine"] = true,
-				["isOthers"] = false,
-			},
-			["34861"] = {
-				["duration"] = 2,
-				["isMine"] = true,
-				["isOthers"] = false,
-			},
-			["1064"] = {
-				["duration"] = 2,
-				["isMine"] = true,
-				["isOthers"] = false,
-			},
-		},
-		["version"] = 1,
-		["SELECTED"] = "",
-		["duration"] = 2,
-		["showTrailOfLight"] = false,
-		["isMine"] = true,
-		["STORED"] = {
-			"1064", -- [1]
-			"34861", -- [2]
-			"596", -- [3]
-			"194509", -- [4]
-		},
-	},
+	["HIDE_EMPTY_BUTTONS"] = false,
 	["OMIT_SELF"] = false,
 	["EMERGENCY_TRIGGER"] = 100,
+	["IS_DC_SHIELD_DISABLED"] = false,
+	["RES_IS_SHOW_TEXT"] = false,
 	["SHOW_OVERHEAL"] = true,
-	["MAX_EMERGENCIES"] = 5,
-	["LOCK_CLICKS_THROUGH"] = false,
 	["THREAT"] = {
 		["AGGRO_USE_TEXT"] = false,
 		["AGGRO_TEXT_LEFT"] = ">>",
@@ -4977,8 +4977,8 @@ VUHDO_CONFIG = {
 	["SHOW_TEXT_OVERHEAL"] = true,
 	["IS_USE_BUTTON_FACADE"] = false,
 	["SHOW_OWN_INCOMING"] = true,
-	["IS_DC_SHIELD_DISABLED"] = false,
-	["RES_IS_SHOW_TEXT"] = false,
+	["BLIZZ_UI_HIDE_TARGET"] = 2,
+	["IS_ALWAYS_OVERWRITE_PROFILE"] = false,
 }
 VUHDO_PANEL_SETUP = {
 	{
@@ -5147,7 +5147,7 @@ VUHDO_PANEL_SETUP = {
 			["showTags"] = true,
 			["position"] = "TOP+TOP",
 			["yAdjust"] = 0,
-			["_spacing"] = 25.0000438690186,
+			["_spacing"] = 25,
 			["xAdjust"] = 0,
 			["showPetOwners"] = true,
 		},
@@ -7674,7 +7674,7 @@ VUHDO_BUFF_SETTINGS = {
 			["B"] = 1,
 		},
 		["enabled"] = false,
-		["name"] = "Abbey",
+		["name"] = "Likule",
 		["filter"] = {
 			[999] = true,
 		},
@@ -8086,12 +8086,12 @@ VUHDO_SPEC_LAYOUTS = {
 VUHDO_GROUP_SIZE = 1
 VUHDO_RAID = {
 	["player"] = {
-		["zone"] = "Stormwind City",
+		["zone"] = "Boralus Harbor",
 		["baseRange"] = true,
 		["class"] = "HUNTER",
 		["role"] = 62,
-		["sortMaxHp"] = 34540,
-		["map"] = "Stormwind City",
+		["sortMaxHp"] = 112122,
+		["map"] = "Boralus",
 		["threat"] = 0,
 		["powermax"] = 120,
 		["threatPerc"] = 0,
@@ -8104,7 +8104,7 @@ VUHDO_RAID = {
 		["range"] = true,
 		["unit"] = "player",
 		["powertype"] = 2,
-		["healthmax"] = 34540,
+		["healthmax"] = 112122,
 		["dead"] = false,
 		["charmed"] = false,
 		["fullName"] = "Qsilver",
@@ -8112,12 +8112,45 @@ VUHDO_RAID = {
 		["aggro"] = false,
 		["visible"] = true,
 		["targetUnit"] = "target",
-		["health"] = 34540,
+		["health"] = 112122,
 		["className"] = "Hunter",
 		["afk"] = false,
 		["debuff"] = 0,
 		["connected"] = true,
 		["petUnit"] = "pet",
+	},
+	["pet"] = {
+		["number"] = 1,
+		["afk"] = false,
+		["visible"] = true,
+		["zone"] = "Boralus Harbor",
+		["group"] = 0,
+		["class"] = "WARRIOR",
+		["range"] = true,
+		["unit"] = "pet",
+		["targetUnit"] = "pettarget",
+		["debuff"] = 0,
+		["healthmax"] = 90699,
+		["baseRange"] = true,
+		["classId"] = 40,
+		["sortMaxHp"] = 90699,
+		["isVehicle"] = false,
+		["dead"] = false,
+		["map"] = "Boralus",
+		["threat"] = 0,
+		["fullName"] = "Gara",
+		["power"] = 120,
+		["aggro"] = false,
+		["powertype"] = 2,
+		["threatPerc"] = 0,
+		["isPet"] = true,
+		["charmed"] = false,
+		["name"] = "Gara",
+		["className"] = "Gara",
+		["powermax"] = 120,
+		["ownerUnit"] = "player",
+		["connected"] = true,
+		["health"] = 67722,
 	},
 }
 VUHDO_INDICATOR_CONFIG = {
@@ -8127,7 +8160,7 @@ VUHDO_INDICATOR_CONFIG = {
 		["AGGRO_BAR"] = "",
 		["BACKGROUND_BAR"] = "Background: Solid",
 		["INCOMING_BAR"] = "",
-		["DAMAGE_FLASH_BAR"] = "",
+		["SIDE_LEFT"] = "",
 		["HEALTH_BAR_PANEL"] = {
 			"", -- [1]
 			"", -- [2]
@@ -8140,14 +8173,14 @@ VUHDO_INDICATOR_CONFIG = {
 			"", -- [9]
 			"", -- [10]
 		},
-		["SWIFTMEND_INDICATOR"] = "Role Icon",
+		["CLUSTER_BORDER"] = "",
 		["THREAT_MARK"] = "",
 		["MANA_BAR"] = "Manabars: Mana only",
 		["BAR_BORDER"] = "Border: Multi + Aggro",
 		["SIDE_RIGHT"] = "",
 		["HEALTH_BAR"] = "Health (generic, class col)",
-		["CLUSTER_BORDER"] = "",
-		["SIDE_LEFT"] = "",
+		["SWIFTMEND_INDICATOR"] = "Role Icon",
+		["DAMAGE_FLASH_BAR"] = "",
 	},
 	["CUSTOM"] = {
 		["THREAT_BAR"] = {

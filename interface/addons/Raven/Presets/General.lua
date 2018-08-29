@@ -64,6 +64,17 @@ Raven.warlockCreatures = { -- table of spells used to summon warlock creatures a
 	[111896] = 25,       -- grimoire: succubus
 	[111895] = 25,       -- grimoire: voidwalker
 	[205178] = 600,      -- soul effigy
+	[279910] = 12,       -- Inner Demons (wild imp)
+	[267986] = 15,       -- Inner Demons (illidari satyr)
+	[267987] = 15,       -- Inner Demons (prince malchezaar)
+	[267988] = 15,       -- Inner Demons (vicious hellhound)
+	[267989] = 15,       -- Inner Demons (eyes of guldan)
+	[267991] = 15,       -- Inner Demons (void terror)
+	[267992] = 15,       -- Inner Demons (bilescourge)
+	[267994] = 15,       -- Inner Demons (shivarra)
+	[267995] = 15,       -- Inner Demons (wrathguard)
+	[267996] = 15,       -- Inner Demons (darkhound)
+	[268001] = 15,       -- Inner Demons (urzul)
 }
 
 Raven.defaultColors = { -- default spell colors extracted from original class files

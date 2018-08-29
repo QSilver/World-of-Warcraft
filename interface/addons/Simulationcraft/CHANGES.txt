@@ -1,10 +1,10 @@
-lightweight tag 5f43e0281d9f523d0ff26618007e7f00ecacd79d v1.10.4
+lightweight tag ec8e5445a8f12fece72788a0db6c4b8f57b1228e v1.10.5
 Author:	Dave Hendler <sollaires@gmail.com>
-Date:	Wed Jul 25 12:10:51 2018 -0700
+Date:	Tue Aug 21 11:18:14 2018 -0700
 
-commit 5f43e0281d9f523d0ff26618007e7f00ecacd79d
+commit ec8e5445a8f12fece72788a0db6c4b8f57b1228e
 Author: Dave Hendler <sollaires@gmail.com>
-Date:   Wed Jul 25 12:10:51 2018 -0700
+Date:   Tue Aug 21 11:18:14 2018 -0700
 
-    Release 1.10.4 with removal of artifact/crucible output
+    Release 1.10.5 - includes item context data, using reforge= as a hack for backwards compatibility during 8.0
 
