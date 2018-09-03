@@ -171,6 +171,17 @@ local function Chinchilla_SetCompatibility()
     end
 end
 
+-- Dugi Questing Essential
+local function DQE_SetCompatibility()
+    if IsAddOnLoaded("DugisGuideViewerZ") then
+        DugisGuideViewer:SetDB(false, DGV_MOVEWATCHFRAME)
+        DugisGuideViewer:SetDB(false, DGV_WATCHFRAMEBORDER)
+        function DugisGuideViewer:IncompatibleAddonLoaded()    -- R
+            return true
+        end
+    end
+end
+
 --------------
 -- External --
 --------------
@@ -191,6 +202,7 @@ function M:OnEnable()
     SpartanUI_SetSupport()
     SVUI_SetSupport()
     Chinchilla_SetCompatibility()
+    DQE_SetCompatibility()
 end
 
 -- Masque

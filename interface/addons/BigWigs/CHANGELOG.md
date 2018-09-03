@@ -1,7 +1,10 @@
 # BigWigs
 
-## [v104.2](https://github.com/BigWigsMods/BigWigs/tree/v104.2) (2018-08-16)
-[Full Changelog](https://github.com/BigWigsMods/BigWigs/compare/v104.1...v104.2)
+## [v104.3](https://github.com/BigWigsMods/BigWigs/tree/v104.3) (2018-08-26)
+[Full Changelog](https://github.com/BigWigsMods/BigWigs/compare/v104.2...v104.3)
 
-- bump version  
-- update zhCN. (#525)  
+- esES update. (#531)  
+- esES Update (#530)  
+- esES Update (#529)  
+- esES Update (#528)  
+- Update zhTW.lua (#527)  

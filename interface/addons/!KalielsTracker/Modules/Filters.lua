@@ -197,6 +197,13 @@ local function Filter_Quests(self, spec, idx)
 		end
 		MSA_CloseDropDownMenus()
 	elseif spec == "zone" then
+		local mapID = KT.GetCurrentMapAreaID()
+		if C_Map.GetMapGroupID(mapID) then
+			local mapInfo = C_Map.GetMapInfo(mapID)
+			OpenQuestLog(mapInfo.parentMapID)
+		else
+			KT.SetMapToCurrentZone()
+		end
 		for i=numEntries, 1, -1 do
 			local _, _, _, isHeader, _, _, _, questID, _, _, isOnMap, _, isTask, isBounty = GetQuestLogTitle(i)
 			if not isHeader and not isTask and not isBounty and isOnMap then
@@ -209,6 +216,7 @@ local function Filter_Quests(self, spec, idx)
 				end
 			end
 		end
+		HideUIPanel(WorldMapFrame)
 	elseif spec == "daily" then
 		for i=numEntries, 1, -1 do
 			local _, _, _, isHeader, _, _, frequency, _, _, _, _, _, isTask, isBounty = GetQuestLogTitle(i)
@@ -372,12 +380,14 @@ local function Filter_Achievements(self, spec)
 				--_DBG(category.." ... "..name, true)
 			end
 		end
-		
-		local numTracked = GetNumTrackedAchievements()
-		if numTracked == 0 then
-			KT:Pour("There is currently no World Event.", 1, 1, 0)
-		elseif numTracked > 0 then
-			KT:Pour("World Event - "..eventName, 1, 1, 0)
+
+		if db.messageAchievement then
+			local numTracked = GetNumTrackedAchievements()
+			if numTracked == 0 then
+				KT:SetMessage("There is currently no World Event.", 1, 1, 0)
+			elseif numTracked > 0 then
+				KT:SetMessage("World Event - "..eventName, 1, 1, 0)
+			end
 		end
 	end
 	KT.stopUpdate = false
@@ -452,11 +462,11 @@ function DropDown_Initialize(self, level)
 		MSA_DropDownMenu_AddButton(info)
 
 		info.isTitle = false
-		info.disabled = (db.filterAuto[1] or numQuests == 0)
+		info.disabled = (db.filterAuto[1])
 		info.func = Filter_Quests
 
 		info.text = "All  ("..numQuests..")"
-		info.hasArrow = not (db.filterAuto[1] or numQuests == 0)
+		info.hasArrow = not (db.filterAuto[1])
 		info.value = 1
 		info.arg1 = "all"
 		MSA_DropDownMenu_AddButton(info)
@@ -664,9 +674,7 @@ local function SetFrames()
 					Filter_Quests(_, "zone")
 				end
 				if db.filterAuto[2] == "zone" then
-					C_Timer.After(0.1, function()
-						Filter_Achievements(_, "zone")
-					end)
+					Filter_Achievements(_, "zone")
 				end
 			end
 		end)

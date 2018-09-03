@@ -37,7 +37,6 @@ local default = {
   user_y = 0,
   crop_x = 0.41,
   crop_y = 0.41,
-  crop = 0.41,
   rotation = 0,
   selfPoint = "CENTER",
   anchorPoint = "CENTER",
@@ -86,6 +85,7 @@ local properties = {
     min = 1,
     softMax = screenWidth,
     bigStep = 1,
+    default = 32
   },
   height = {
     display = L["Height"],
@@ -93,7 +93,8 @@ local properties = {
     type = "number",
     min = 1,
     softMax = screenHeight,
-    bigStep = 1
+    bigStep = 1,
+    default = 32
   },
   orientation = {
     display = L["Orientation"],
@@ -751,7 +752,7 @@ end
 
 local function ensureExtraTextures(region, count)
   for i = #region.extraTextures + 1, count do
-    local extraTexture = createTexture(region, "ARTWORK", i);
+    local extraTexture = createTexture(region, "ARTWORK", min(i, 7));
     extraTexture:SetTexture(region.currentTexture, region.textureWrapMode, region.textureWrapMode)
     extraTexture:SetBlendMode(region.foreground:GetBlendMode());
     extraTexture:SetOrientation(region.orientation, region.compress, region.slanted, region.slant, region.slantFirst, region.slantMode);
@@ -762,7 +763,7 @@ end
 local function ensureExtraSpinners(region, count)
   local parent = region:GetParent();
   for i = #region.extraSpinners + 1, count do
-    local extraSpinner = createSpinner(region, "OVERLAY", parent:GetFrameLevel() + 3, i);
+    local extraSpinner = createSpinner(region, "OVERLAY", parent:GetFrameLevel() + 3, min(i, 7));
     extraSpinner:SetTexture(region.currentTexture);
     extraSpinner:SetBlendMode(region.foreground:GetBlendMode());
     region.extraSpinners[i] = extraSpinner;
@@ -1040,7 +1041,6 @@ local function modify(parent, region, data)
   region.mirror_h = data.mirror;
   region.scale_x = 1 + (data.crop_x or 0.41);
   region.scale_y = 1 + (data.crop_y or 0.41);
-  region.scale = 1 + (data.crop or 0.41);
   region.rotation = data.rotation or 0;
   region.user_x = -1 * (data.user_x or 0);
   region.user_y = data.user_y or 0;

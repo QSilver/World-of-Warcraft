@@ -41,7 +41,7 @@ AAP_panel.Button1:SetScript("OnClick", function(self, arg1)
 		print("AAP: BFA not detected")
 	end
 end)
-function LoadOptionsFrame()
+function AAP.LoadOptionsFrame()
 	AAP.OptionsFrame = {}
 	AAP.OptionsFrame.MainFrame = CreateFrame("frame", "AAP_OptionsMainFrame",  UIParent)
 	AAP.OptionsFrame.MainFrame:SetWidth(450)
@@ -86,7 +86,7 @@ function LoadOptionsFrame()
 
 	AAP.OptionsFrame.CheckButton1 = CreateFrame("CheckButton", "CLxCheckButton1", AAP.OptionsFrame.MainFrame, "ChatConfigCheckButtonTemplate");
 	AAP.OptionsFrame.CheckButton1:SetPoint("TOPLEFT", AAP.OptionsFrame.MainFrame, "TOPLEFT", 10, -50)
-	if (AAP1[AAP_Realm][AAP_Name]["Settings"]["CutScene"] == 0) then
+	if (AAP1[AAP.Realm][AAP.Name]["Settings"]["CutScene"] == 0) then
 		AAP.OptionsFrame.CheckButton1:SetChecked(false)
 	else
 		AAP.OptionsFrame.CheckButton1:SetChecked(true)
@@ -95,15 +95,15 @@ function LoadOptionsFrame()
 	getglobal(AAP.OptionsFrame.CheckButton1:GetName() .. 'Text'):SetTextColor(1, 1, 1)
 	AAP.OptionsFrame.CheckButton1:SetScript("OnClick", function()
 		if (AAP.OptionsFrame.CheckButton1:GetChecked() == true) then
-			AAP1[AAP_Realm][AAP_Name]["Settings"]["CutScene"] = 1
+			AAP1[AAP.Realm][AAP.Name]["Settings"]["CutScene"] = 1
 		else
-			AAP1[AAP_Realm][AAP_Name]["Settings"]["CutScene"] = 0
+			AAP1[AAP.Realm][AAP.Name]["Settings"]["CutScene"] = 0
 		end
 	end)
 
 	AAP.OptionsFrame.CheckButton2 = CreateFrame("CheckButton", "CLxCheckButton2", AAP.OptionsFrame.MainFrame, "ChatConfigCheckButtonTemplate");
 	AAP.OptionsFrame.CheckButton2:SetPoint("TOPLEFT", AAP.OptionsFrame.MainFrame, "TOPLEFT", 10, -70)
-	if (AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoAccept"] == 0) then
+	if (AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoAccept"] == 0) then
 		AAP.OptionsFrame.CheckButton2:SetChecked(false)
 	else
 		AAP.OptionsFrame.CheckButton2:SetChecked(true)
@@ -112,15 +112,15 @@ function LoadOptionsFrame()
 	getglobal(AAP.OptionsFrame.CheckButton2:GetName() .. 'Text'):SetTextColor(1, 1, 1)
 	AAP.OptionsFrame.CheckButton2:SetScript("OnClick", function()
 		if (AAP.OptionsFrame.CheckButton2:GetChecked() == true) then
-			AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoAccept"] = 1
+			AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoAccept"] = 1
 		else
-			AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoAccept"] = 0
+			AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoAccept"] = 0
 		end
 	end)
 
 	AAP.OptionsFrame.CheckButton3 = CreateFrame("CheckButton", "CLxCheckButton3", AAP.OptionsFrame.MainFrame, "ChatConfigCheckButtonTemplate");
 	AAP.OptionsFrame.CheckButton3:SetPoint("TOPLEFT", AAP.OptionsFrame.MainFrame, "TOPLEFT", 10, -90)
-	if (AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoHandIn"] == 0) then
+	if (AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoHandIn"] == 0) then
 		AAP.OptionsFrame.CheckButton3:SetChecked(false)
 	else
 		AAP.OptionsFrame.CheckButton3:SetChecked(true)
@@ -129,9 +129,9 @@ function LoadOptionsFrame()
 	getglobal(AAP.OptionsFrame.CheckButton3:GetName() .. 'Text'):SetTextColor(1, 1, 1)
 	AAP.OptionsFrame.CheckButton3:SetScript("OnClick", function()
 		if (AAP.OptionsFrame.CheckButton3:GetChecked() == true) then
-			AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoHandIn"] = 1
+			AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoHandIn"] = 1
 		else
-			AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoHandIn"] = 0
+			AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoHandIn"] = 0
 		end
 	end)
 
@@ -140,7 +140,7 @@ function LoadOptionsFrame()
 
 	AAP.OptionsFrame.CheckButton10 = CreateFrame("CheckButton", "CLxCheckButton10", AAP.OptionsFrame.MainFrame, "ChatConfigCheckButtonTemplate");
 	AAP.OptionsFrame.CheckButton10:SetPoint("TOPLEFT", AAP.OptionsFrame.MainFrame, "TOPLEFT", 10, -110)
-	if (AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoVendor"] == 0) then
+	if (AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoVendor"] == 0) then
 		AAP.OptionsFrame.CheckButton10:SetChecked(false)
 	else
 		AAP.OptionsFrame.CheckButton10:SetChecked(true)
@@ -149,15 +149,15 @@ function LoadOptionsFrame()
 	getglobal(AAP.OptionsFrame.CheckButton10:GetName() .. 'Text'):SetTextColor(1, 1, 1)
 	AAP.OptionsFrame.CheckButton10:SetScript("OnClick", function()
 		if (AAP.OptionsFrame.CheckButton10:GetChecked() == true) then
-			AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoVendor"] = 1
+			AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoVendor"] = 1
 		else
-			AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoVendor"] = 0
+			AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoVendor"] = 0
 		end
 	end)
 
 	AAP.OptionsFrame.CheckButton11 = CreateFrame("CheckButton", "CLxCheckButton11", AAP.OptionsFrame.MainFrame, "ChatConfigCheckButtonTemplate");
 	AAP.OptionsFrame.CheckButton11:SetPoint("TOPLEFT", AAP.OptionsFrame.MainFrame, "TOPLEFT", 10, -130)
-	if (AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoRepair"] == 0) then
+	if (AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoRepair"] == 0) then
 		AAP.OptionsFrame.CheckButton11:SetChecked(false)
 	else
 		AAP.OptionsFrame.CheckButton11:SetChecked(true)
@@ -166,15 +166,15 @@ function LoadOptionsFrame()
 	getglobal(AAP.OptionsFrame.CheckButton11:GetName() .. 'Text'):SetTextColor(1, 1, 1)
 	AAP.OptionsFrame.CheckButton11:SetScript("OnClick", function()
 		if (AAP.OptionsFrame.CheckButton11:GetChecked() == true) then
-			AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoRepair"] = 1
+			AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoRepair"] = 1
 		else
-			AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoRepair"] = 0
+			AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoRepair"] = 0
 		end
 	end)
 
 	AAP.OptionsFrame.CheckButton12 = CreateFrame("CheckButton", "CLxCheckButton12", AAP.OptionsFrame.MainFrame, "ChatConfigCheckButtonTemplate");
 	AAP.OptionsFrame.CheckButton12:SetPoint("TOPLEFT", AAP.OptionsFrame.MainFrame, "TOPLEFT", 10, -150)
-	if (AAP1[AAP_Realm][AAP_Name]["Settings"]["ShowGroup"] == 0) then
+	if (AAP1[AAP.Realm][AAP.Name]["Settings"]["ShowGroup"] == 0) then
 		AAP.OptionsFrame.CheckButton12:SetChecked(false)
 	else
 		AAP.OptionsFrame.CheckButton12:SetChecked(true)
@@ -183,16 +183,16 @@ function LoadOptionsFrame()
 	getglobal(AAP.OptionsFrame.CheckButton12:GetName() .. 'Text'):SetTextColor(1, 1, 1)
 	AAP.OptionsFrame.CheckButton12:SetScript("OnClick", function()
 		if (AAP.OptionsFrame.CheckButton12:GetChecked() == true) then
-			AAP1[AAP_Realm][AAP_Name]["Settings"]["ShowGroup"] = 1
+			AAP1[AAP.Realm][AAP.Name]["Settings"]["ShowGroup"] = 1
 		else
-			AAP1[AAP_Realm][AAP_Name]["Settings"]["ShowGroup"] = 0
+			AAP1[AAP.Realm][AAP.Name]["Settings"]["ShowGroup"] = 0
 		end
 	end)
 
 
 	AAP.OptionsFrame.CheckButton5 = CreateFrame("CheckButton", "CLxCheckButton5", AAP.OptionsFrame.MainFrame, "ChatConfigCheckButtonTemplate");
 	AAP.OptionsFrame.CheckButton5:SetPoint("TOPLEFT", AAP.OptionsFrame.MainFrame, "TOPLEFT", 10, -170)
-	if (AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoHandInChoice"] == 0) then
+	if (AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoHandInChoice"] == 0) then
 		AAP.OptionsFrame.CheckButton5:SetChecked(false)
 	else
 		AAP.OptionsFrame.CheckButton5:SetChecked(true)
@@ -201,15 +201,37 @@ function LoadOptionsFrame()
 	getglobal(AAP.OptionsFrame.CheckButton5:GetName() .. 'Text'):SetTextColor(1, 1, 1)
 	AAP.OptionsFrame.CheckButton5:SetScript("OnClick", function()
 		if (AAP.OptionsFrame.CheckButton5:GetChecked() == true) then
-			AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoHandInChoice"] = 1
+			AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoHandInChoice"] = 1
 		else
-			AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoHandInChoice"] = 0
+			AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoHandInChoice"] = 0
 		end
 	end)
 
+	
+	
+	AAP.OptionsFrame.CheckButton6 = CreateFrame("CheckButton", "CLxCheckButton6", AAP.OptionsFrame.MainFrame, "ChatConfigCheckButtonTemplate");
+	AAP.OptionsFrame.CheckButton6:SetPoint("TOPLEFT", AAP.OptionsFrame.MainFrame, "TOPLEFT", 10, -190)
+	if (AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoGossip"] == 0) then
+		AAP.OptionsFrame.CheckButton6:SetChecked(false)
+	else
+		AAP.OptionsFrame.CheckButton6:SetChecked(true)
+	end
+	getglobal(AAP.OptionsFrame.CheckButton6:GetName() .. 'Text'):SetText(": "..AAP_Locals["Auto-selection of dialog"])
+	getglobal(AAP.OptionsFrame.CheckButton6:GetName() .. 'Text'):SetTextColor(1, 1, 1)
+	AAP.OptionsFrame.CheckButton6:SetScript("OnClick", function()
+		if (AAP.OptionsFrame.CheckButton5:GetChecked() == true) then
+			AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoGossip"] = 1
+		else
+			AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoGossip"] = 0
+		end
+	end)
+	
+	
+	
+	
 	AAP.OptionsFrame.CheckButton7 = CreateFrame("CheckButton", "CLxCheckButton7", AAP.OptionsFrame.MainFrame, "ChatConfigCheckButtonTemplate");
 	AAP.OptionsFrame.CheckButton7:SetPoint("TOPLEFT", AAP.OptionsFrame.MainFrame, "TOPLEFT", 10, -210)
-	if (AAP1[AAP_Realm][AAP_Name]["Settings"]["BannerShow"] == 0) then
+	if (AAP1[AAP.Realm][AAP.Name]["Settings"]["BannerShow"] == 0) then
 		AAP.OptionsFrame.CheckButton7:SetChecked(false)
 	else
 		AAP.OptionsFrame.CheckButton7:SetChecked(true)
@@ -218,17 +240,17 @@ function LoadOptionsFrame()
 	getglobal(AAP.OptionsFrame.CheckButton7:GetName() .. 'Text'):SetTextColor(1, 1, 1)
 	AAP.OptionsFrame.CheckButton7:SetScript("OnClick", function()
 		if (AAP.OptionsFrame.CheckButton7:GetChecked() == true) then
-			AAP1[AAP_Realm][AAP_Name]["Settings"]["BannerShow"] = 1
+			AAP1[AAP.Realm][AAP.Name]["Settings"]["BannerShow"] = 1
 			AAP.Banners.BannersFrame.Frame:Show()
 		else
-			AAP1[AAP_Realm][AAP_Name]["Settings"]["BannerShow"] = 0
+			AAP1[AAP.Realm][AAP.Name]["Settings"]["BannerShow"] = 0
 			AAP.Banners.BannersFrame.Frame:Hide()
 		end
 	end)
 
 	AAP.OptionsFrame.CheckButton8 = CreateFrame("CheckButton", "CLxCheckButton8", AAP.OptionsFrame.MainFrame, "ChatConfigCheckButtonTemplate");
 	AAP.OptionsFrame.CheckButton8:SetPoint("TOPLEFT", AAP.OptionsFrame.MainFrame, "TOPLEFT", 10, -230)
-	if (AAP1[AAP_Realm][AAP_Name]["Settings"]["Lock"] == 0) then
+	if (AAP1[AAP.Realm][AAP.Name]["Settings"]["Lock"] == 0) then
 		AAP.OptionsFrame.CheckButton8:SetChecked(false)
 	else
 		AAP.OptionsFrame.CheckButton8:SetChecked(true)
@@ -237,15 +259,15 @@ function LoadOptionsFrame()
 	getglobal(AAP.OptionsFrame.CheckButton8:GetName() .. 'Text'):SetTextColor(1, 1, 1)
 	AAP.OptionsFrame.CheckButton8:SetScript("OnClick", function()
 		if (AAP.OptionsFrame.CheckButton8:GetChecked() == true) then
-			AAP1[AAP_Realm][AAP_Name]["Settings"]["Lock"] = 1
+			AAP1[AAP.Realm][AAP.Name]["Settings"]["Lock"] = 1
 		else
-			AAP1[AAP_Realm][AAP_Name]["Settings"]["Lock"] = 0
+			AAP1[AAP.Realm][AAP.Name]["Settings"]["Lock"] = 0
 		end
 	end)
 
 	AAP.OptionsFrame.CheckButton9 = CreateFrame("CheckButton", "CLxCheckButton9", AAP.OptionsFrame.MainFrame, "ChatConfigCheckButtonTemplate");
 	AAP.OptionsFrame.CheckButton9:SetPoint("TOPLEFT", AAP.OptionsFrame.MainFrame, "TOPLEFT", 10, -250)
-	if (AAP1[AAP_Realm][AAP_Name]["Settings"]["LockArrow"] == 0) then
+	if (AAP1[AAP.Realm][AAP.Name]["Settings"]["LockArrow"] == 0) then
 		AAP.OptionsFrame.CheckButton9:SetChecked(false)
 	else
 		AAP.OptionsFrame.CheckButton9:SetChecked(true)
@@ -254,15 +276,15 @@ function LoadOptionsFrame()
 	getglobal(AAP.OptionsFrame.CheckButton9:GetName() .. 'Text'):SetTextColor(1, 1, 1)
 	AAP.OptionsFrame.CheckButton9:SetScript("OnClick", function()
 		if (AAP.OptionsFrame.CheckButton9:GetChecked() == true) then
-			AAP1[AAP_Realm][AAP_Name]["Settings"]["LockArrow"] = 1
+			AAP1[AAP.Realm][AAP.Name]["Settings"]["LockArrow"] = 1
 		else
-			AAP1[AAP_Realm][AAP_Name]["Settings"]["LockArrow"] = 0
+			AAP1[AAP.Realm][AAP.Name]["Settings"]["LockArrow"] = 0
 		end
 	end)
 
 	AAP.OptionsFrame.CheckButton13 = CreateFrame("CheckButton", "CLxCheckButton13", AAP.OptionsFrame.MainFrame, "ChatConfigCheckButtonTemplate");
 	AAP.OptionsFrame.CheckButton13:SetPoint("TOPLEFT", AAP.OptionsFrame.MainFrame, "TOPLEFT", 10, -275)
-	if (AAP1[AAP_Realm][AAP_Name]["Settings"]["ShowArrow"] == 0) then
+	if (AAP1[AAP.Realm][AAP.Name]["Settings"]["ShowArrow"] == 0) then
 		AAP.OptionsFrame.CheckButton13:SetChecked(false)
 	else
 		AAP.OptionsFrame.CheckButton13:SetChecked(true)
@@ -271,15 +293,15 @@ function LoadOptionsFrame()
 	getglobal(AAP.OptionsFrame.CheckButton13:GetName() .. 'Text'):SetTextColor(1, 1, 1)
 	AAP.OptionsFrame.CheckButton13:SetScript("OnClick", function()
 		if (AAP.OptionsFrame.CheckButton13:GetChecked() == true) then
-			AAP1[AAP_Realm][AAP_Name]["Settings"]["ShowArrow"] = 1
+			AAP1[AAP.Realm][AAP.Name]["Settings"]["ShowArrow"] = 1
 		else
-			AAP1[AAP_Realm][AAP_Name]["Settings"]["ShowArrow"] = 0
+			AAP1[AAP.Realm][AAP.Name]["Settings"]["ShowArrow"] = 0
 		end
 	end)
 
 	AAP.OptionsFrame.CheckButton14 = CreateFrame("CheckButton", "CLxCheckButton14", AAP.OptionsFrame.MainFrame, "ChatConfigCheckButtonTemplate");
 	AAP.OptionsFrame.CheckButton14:SetPoint("TOPLEFT", AAP.OptionsFrame.MainFrame, "TOPLEFT", 10, -295)
-	if (AAP1[AAP_Realm][AAP_Name]["Settings"]["ShowQList"] == 0) then
+	if (AAP1[AAP.Realm][AAP.Name]["Settings"]["ShowQList"] == 0) then
 		AAP.OptionsFrame.CheckButton14:SetChecked(false)
 	else
 		AAP.OptionsFrame.CheckButton14:SetChecked(true)
@@ -288,9 +310,9 @@ function LoadOptionsFrame()
 	getglobal(AAP.OptionsFrame.CheckButton14:GetName() .. 'Text'):SetTextColor(1, 1, 1)
 	AAP.OptionsFrame.CheckButton14:SetScript("OnClick", function()
 		if (AAP.OptionsFrame.CheckButton14:GetChecked() == true) then
-			AAP1[AAP_Realm][AAP_Name]["Settings"]["ShowQList"] = 1
+			AAP1[AAP.Realm][AAP.Name]["Settings"]["ShowQList"] = 1
 		else
-			AAP1[AAP_Realm][AAP_Name]["Settings"]["ShowQList"] = 0
+			AAP1[AAP.Realm][AAP.Name]["Settings"]["ShowQList"] = 0
 		end
 	end)
 
@@ -309,17 +331,17 @@ function LoadOptionsFrame()
 	AAP.OptionsFrame.Slider1:SetValue(100)
 	AAP.OptionsFrame.Slider1:SetScript("OnValueChanged", function(self,event) 
 		event = event - event%1
-		AAP1[AAP_Realm][AAP_Name]["Settings"]["Scale"] = event / 100
-		AAP.QuestList.ButtonParent:SetScale(AAP1[AAP_Realm][AAP_Name]["Settings"]["Scale"])
-		AAP.QuestList.ListFrame:SetScale(AAP1[AAP_Realm][AAP_Name]["Settings"]["Scale"])
-		AAP.QuestList21:SetScale(AAP1[AAP_Realm][AAP_Name]["Settings"]["Scale"])
+		AAP1[AAP.Realm][AAP.Name]["Settings"]["Scale"] = event / 100
+		AAP.QuestList.ButtonParent:SetScale(AAP1[AAP.Realm][AAP.Name]["Settings"]["Scale"])
+		AAP.QuestList.ListFrame:SetScale(AAP1[AAP.Realm][AAP.Name]["Settings"]["Scale"])
+		AAP.QuestList21:SetScale(AAP1[AAP.Realm][AAP.Name]["Settings"]["Scale"])
 
 	end)
 	AAP.OptionsFrame.Slider1:SetScript("OnMouseWheel", function(self,delta) 
 		if tonumber(self:GetValue()) == nil then return end
 		self:SetValue(tonumber(self:GetValue())+delta)
 	end)
-	AAP.OptionsFrame.Slider1:SetValue(AAP1[AAP_Realm][AAP_Name]["Settings"]["Scale"] * 100)
+	AAP.OptionsFrame.Slider1:SetValue(AAP1[AAP.Realm][AAP.Name]["Settings"]["Scale"] * 100)
 
 	AAP.OptionsFrame.Slider2 = CreateFrame("Slider", "AAP_SettingsSlider2",AAP.OptionsFrame.MainFrame, "OptionsSliderTemplate")
 	AAP.OptionsFrame.Slider2:SetWidth(160)
@@ -335,15 +357,15 @@ function LoadOptionsFrame()
 	AAP.OptionsFrame.Slider2:SetValue(100)
 	AAP.OptionsFrame.Slider2:SetScript("OnValueChanged", function(self,event) 
 		event = event - event%1
-		AAP1[AAP_Realm][AAP_Name]["Settings"]["ArrowScale"] = event / 100
-		AAP_ArrowFrame:SetScale(AAP1[AAP_Realm][AAP_Name]["Settings"]["ArrowScale"])
+		AAP1[AAP.Realm][AAP.Name]["Settings"]["ArrowScale"] = event / 100
+		AAP_ArrowFrame:SetScale(AAP1[AAP.Realm][AAP.Name]["Settings"]["ArrowScale"])
 
 	end)
 	AAP.OptionsFrame.Slider2:SetScript("OnMouseWheel", function(self,delta) 
 		if tonumber(self:GetValue()) == nil then return end
 		self:SetValue(tonumber(self:GetValue())+delta)
 	end)
-	AAP.OptionsFrame.Slider2:SetValue(AAP1[AAP_Realm][AAP_Name]["Settings"]["ArrowScale"] * 100)
+	AAP.OptionsFrame.Slider2:SetValue(AAP1[AAP.Realm][AAP.Name]["Settings"]["ArrowScale"] * 100)
 
 
 
@@ -362,18 +384,18 @@ function LoadOptionsFrame()
 	AAP.OptionsFrame.Slider3:SetValue(100)
 	AAP.OptionsFrame.Slider3:SetScript("OnValueChanged", function(self,event) 
 		event = event - event%1
-		AAP1[AAP_Realm][AAP_Name]["Settings"]["BannerScale"] = event / 100
-		AAP.Banners.BannersFrame.Frame:SetScale(AAP1[AAP_Realm][AAP_Name]["Settings"]["BannerScale"])
-		AAP.Banners.BannersFrame["Frame1"]:SetScale(AAP1[AAP_Realm][AAP_Name]["Settings"]["BannerScale"])
-		AAP.Banners.BannersFrame["Frame2"]:SetScale(AAP1[AAP_Realm][AAP_Name]["Settings"]["BannerScale"])
-		AAP.Banners.BannersFrame["Frame3"]:SetScale(AAP1[AAP_Realm][AAP_Name]["Settings"]["BannerScale"])
-		AAP.Banners.BannersFrame["Frame4"]:SetScale(AAP1[AAP_Realm][AAP_Name]["Settings"]["BannerScale"])
+		AAP1[AAP.Realm][AAP.Name]["Settings"]["BannerScale"] = event / 100
+		AAP.Banners.BannersFrame.Frame:SetScale(AAP1[AAP.Realm][AAP.Name]["Settings"]["BannerScale"])
+		AAP.Banners.BannersFrame["Frame1"]:SetScale(AAP1[AAP.Realm][AAP.Name]["Settings"]["BannerScale"])
+		AAP.Banners.BannersFrame["Frame2"]:SetScale(AAP1[AAP.Realm][AAP.Name]["Settings"]["BannerScale"])
+		AAP.Banners.BannersFrame["Frame3"]:SetScale(AAP1[AAP.Realm][AAP.Name]["Settings"]["BannerScale"])
+		AAP.Banners.BannersFrame["Frame4"]:SetScale(AAP1[AAP.Realm][AAP.Name]["Settings"]["BannerScale"])
 	end)
 	AAP.OptionsFrame.Slider3:SetScript("OnMouseWheel", function(self,delta) 
 		if tonumber(self:GetValue()) == nil then return end
 		self:SetValue(tonumber(self:GetValue())+delta)
 	end)
-	AAP.OptionsFrame.Slider3:SetValue(AAP1[AAP_Realm][AAP_Name]["Settings"]["BannerScale"] * 100)
+	AAP.OptionsFrame.Slider3:SetValue(AAP1[AAP.Realm][AAP.Name]["Settings"]["BannerScale"] * 100)
 
 
 
@@ -410,7 +432,10 @@ function LoadOptionsFrame()
 		AAP_ArrowActive = 0
 		AAP_ArrowActive_X = 0
 		AAP_ArrowActive_Y = 0
-		AAP_UpdateQuestList()
+		QNumberLocal = 0
+		AAP.BookingList["AAP.SetQPTT"] = 1
+		AAP.BookingList["AAP_UpdateQuestList"] = 1
+		AAP.BookingList["AAP_Plus"] = "AAP_Plus"
 	end)
 
 
@@ -465,7 +490,7 @@ function LoadOptionsFrame()
 	AAP.OptionsFrame.Button3ptex:SetAllPoints()
 	AAP.OptionsFrame.Button3:SetPushedTexture(AAP.OptionsFrame.Button3ptex)
 	AAP.OptionsFrame["Button3"]:SetScript("OnClick", function(self, arg1)
-		AAP_ResetSettings()
+		AAP.ResetSettings()
 	end)
 
 	AAP.OptionsFrame["Button4"] = CreateFrame("Button", "AAP_OptionsButtons4", AAP.OptionsFrame.MainFrame, "SecureActionButtonTemplate")
@@ -491,14 +516,14 @@ function LoadOptionsFrame()
 	AAP.OptionsFrame.Button4ptex:SetAllPoints()
 	AAP.OptionsFrame.Button4:SetPushedTexture(AAP.OptionsFrame.Button4ptex)
 	AAP.OptionsFrame["Button4"]:SetScript("OnClick", function(self, arg1)
-		aap_Importstuff()
+		AAP.Importstuff()
 		ReloadUI()
 	end)
 
 
-	aap_Importfunc()
+	AAP.Importfunc()
 end
-function aap_Importstuff()
+function AAP.Importstuff()
 	if (AAP_ImportI == 0) then
 		print("AAP: Error: Must Select a Profile")
 	else
@@ -508,8 +533,8 @@ function aap_Importstuff()
 				for AAP_indexx2,AAP_valuex2 in pairs(AAP_valuex) do
 					nanr = nanr + 1
 					if (AAP_ImportI == nanr) then
-						AAP1[AAP_Realm][AAP_Name]["Settings"] = nil
-						AAP1[AAP_Realm][AAP_Name]["Settings"] = AAP_valuex2["Settings"]
+						AAP1[AAP.Realm][AAP.Name]["Settings"] = nil
+						AAP1[AAP.Realm][AAP.Name]["Settings"] = AAP_valuex2["Settings"]
 						print("AAP: Imported: "..AAP_indexx2.."-"..AAP_indexx)
 					end
 				end
@@ -521,23 +546,23 @@ function aap_Importstuff()
 		AAP_ArrowActive_X = 0
 		AAP_ArrowActive_Y = 0
 		AAP_UpdateQuestList()
-		AAP.Banners.BannersFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT",AAP1[AAP_Realm][AAP_Name]["Settings"]["Bannersleft"],AAP1[AAP_Realm][AAP_Name]["Settings"]["Bannerstop"])
-		AAP.Banners.BannersFrame.Frame:SetScale(AAP1[AAP_Realm][AAP_Name]["Settings"]["BannerScale"])
-		AAP.Banners.BannersFrame["Frame1"]:SetScale(AAP1[AAP_Realm][AAP_Name]["Settings"]["BannerScale"])
-		AAP.Banners.BannersFrame["Frame2"]:SetScale(AAP1[AAP_Realm][AAP_Name]["Settings"]["BannerScale"])
-		AAP.Banners.BannersFrame["Frame3"]:SetScale(AAP1[AAP_Realm][AAP_Name]["Settings"]["BannerScale"])
-		AAP.Banners.BannersFrame["Frame4"]:SetScale(AAP1[AAP_Realm][AAP_Name]["Settings"]["BannerScale"])
-		AAP.QuestList.MainFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT", AAP1[AAP_Realm][AAP_Name]["Settings"]["left"], AAP1[AAP_Realm][AAP_Name]["Settings"]["top"])
-		AAP_ArrowFrame:SetScale(AAP1[AAP_Realm][AAP_Name]["Settings"]["ArrowScale"])
-		AAP_ArrowFrameM:SetPoint("TOPLEFT", UIParent, "TOPLEFT", AAP1[AAP_Realm][AAP_Name]["Settings"]["arrowleft"], AAP1[AAP_Realm][AAP_Name]["Settings"]["arrowtop"])
-		AAP.QuestList.ButtonParent:SetScale(AAP1[AAP_Realm][AAP_Name]["Settings"]["Scale"])
-		AAP.QuestList.ListFrame:SetScale(AAP1[AAP_Realm][AAP_Name]["Settings"]["Scale"])
-		AAP.QuestList21:SetScale(AAP1[AAP_Realm][AAP_Name]["Settings"]["Scale"])
-		AAP.QuestList.ListFrame:SetAlpha(AAP1[AAP_Realm][AAP_Name]["Settings"]["alpha"])
-		AAP.BrutallCC.BrutallFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT",AAP1[AAP_Realm][AAP_Name]["Settings"]["Brutallleft"],AAP1[AAP_Realm][AAP_Name]["Settings"]["Brutalltop"])
+		AAP.Banners.BannersFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT",AAP1[AAP.Realm][AAP.Name]["Settings"]["Bannersleft"],AAP1[AAP.Realm][AAP.Name]["Settings"]["Bannerstop"])
+		AAP.Banners.BannersFrame.Frame:SetScale(AAP1[AAP.Realm][AAP.Name]["Settings"]["BannerScale"])
+		AAP.Banners.BannersFrame["Frame1"]:SetScale(AAP1[AAP.Realm][AAP.Name]["Settings"]["BannerScale"])
+		AAP.Banners.BannersFrame["Frame2"]:SetScale(AAP1[AAP.Realm][AAP.Name]["Settings"]["BannerScale"])
+		AAP.Banners.BannersFrame["Frame3"]:SetScale(AAP1[AAP.Realm][AAP.Name]["Settings"]["BannerScale"])
+		AAP.Banners.BannersFrame["Frame4"]:SetScale(AAP1[AAP.Realm][AAP.Name]["Settings"]["BannerScale"])
+		AAP.QuestList.MainFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT", AAP1[AAP.Realm][AAP.Name]["Settings"]["left"], AAP1[AAP.Realm][AAP.Name]["Settings"]["top"])
+		AAP_ArrowFrame:SetScale(AAP1[AAP.Realm][AAP.Name]["Settings"]["ArrowScale"])
+		AAP_ArrowFrameM:SetPoint("TOPLEFT", UIParent, "TOPLEFT", AAP1[AAP.Realm][AAP.Name]["Settings"]["arrowleft"], AAP1[AAP.Realm][AAP.Name]["Settings"]["arrowtop"])
+		AAP.QuestList.ButtonParent:SetScale(AAP1[AAP.Realm][AAP.Name]["Settings"]["Scale"])
+		AAP.QuestList.ListFrame:SetScale(AAP1[AAP.Realm][AAP.Name]["Settings"]["Scale"])
+		AAP.QuestList21:SetScale(AAP1[AAP.Realm][AAP.Name]["Settings"]["Scale"])
+		AAP.QuestList.ListFrame:SetAlpha(AAP1[AAP.Realm][AAP.Name]["Settings"]["alpha"])
+		AAP.BrutallCC.BrutallFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT",AAP1[AAP.Realm][AAP.Name]["Settings"]["Brutallleft"],AAP1[AAP.Realm][AAP.Name]["Settings"]["Brutalltop"])
 	end
 end
-function AAP_DropDown_OnClick(self, arg1, arg2, checked)
+function AAP.DropDown_OnClick(self, arg1, arg2, checked)
 	local nanr = 0
 	for AAP_indexx,AAP_valuex in pairs(AAP1) do
 		if (AAP_indexx ~= "GliderName") then
@@ -553,9 +578,9 @@ function AAP_DropDown_OnClick(self, arg1, arg2, checked)
 end
 
 
-function AAP_DropDown_Menu(frame, level, menuList)
+function AAP.DropDown_Menu(frame, level, menuList)
 	local info = UIDropDownMenu_CreateInfo()
-	info.func = AAP_DropDown_OnClick
+	info.func = AAP.DropDown_OnClick
 	local nanr = 0
 	for AAP_indexx,AAP_valuex in pairs(AAP1) do
 		if (AAP_indexx ~= "GliderName") then
@@ -572,14 +597,14 @@ end
 
 
 
-function aap_Importfunc()
+function AAP.Importfunc()
 	AAP_dropDown = CreateFrame("Frame", "AAP_DropDownList", AAP.OptionsFrame.MainFrame, "UIDropDownMenuTemplate")
 	AAP_dropDown:SetPoint("BOTTOMRIGHT",AAP.OptionsFrame.MainFrame,"BOTTOMRIGHT",-65,50)
 	UIDropDownMenu_SetWidth(AAP_dropDown, 150)
-	UIDropDownMenu_Initialize(AAP_dropDown, AAP_DropDown_Menu)
+	UIDropDownMenu_Initialize(AAP_dropDown, AAP.DropDown_Menu)
 
 	AAP_dropDown = CreateFrame("Frame", "WPDemoContextMenu", AAP.OptionsFrame.MainFrame, "UIDropDownMenuTemplate")
-	UIDropDownMenu_Initialize(AAP_dropDown, AAP_DropDown_Menu, "MENU")
+	UIDropDownMenu_Initialize(AAP_dropDown, AAP.DropDown_Menu, "MENU")
 
 	favoriteNumber = 42
 

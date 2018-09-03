@@ -11,6 +11,9 @@ local L = LibStub("AceLocale-3.0"):GetLocale("Raven")
 local initialized = false -- set when options are first accessed
 local changedSpells = {} -- table of spells with overrides on Spells tab
 local temp = {} -- temporary table that can be reused in any function
+local defaultNotificationIcon = "Interface\\Icons\\Spell_Nature_WispSplode"
+local defaultBrokerIcon = "Interface\\Icons\\Inv_Misc_Book_03"
+local defaultValueIcon = "Interface\\Icons\\Inv_Jewelry_Ring_03"
 
 local standard = { -- standard bar groups for "getting started"
 	PlayerBuffs = false, PlayerDebuffs = false, Cooldowns = false, Target = false, Focus = false, Totems = false,
@@ -38,6 +41,10 @@ local conditions = { -- settings used to enter conditions and other list-based s
 	select = nil, enter = false, toggle = false, dependency = nil, profiles = {}, name = nil, buff = nil
 }
 
+local valuebars = { -- settings used to enter parameters for value bars
+	select = nil, values = nil, colors = nil, color = nil, spell = nil,
+}
+
 local weaponBuffs = { [L["Mainhand Weapon"]] = true, [L["Offhand Weapon"]] = true }
 
 local anchorTips = { BOTTOMLEFT = "BOTTOMLEFT", CURSOR = "CURSOR", DEFAULT = "DEFAULT", LEFT = "LEFT", RIGHT = "RIGHT",
@@ -61,11 +68,12 @@ local function InMode(t) -- return true if locked into entry mode of specified t
 end 
 
 -- Check if spell name is valid and display a warning if it is not, convert ids and spell hyperlinks, return validated spell name or nil
+-- If warnings is true then override the global spell warning setting on the Spells tab
 -- Optionally support the #12345 spell id format for spell lists
-local function ValidateSpellName(name, allowPlusIDs)
-	if not name or (name == "") or (name == 202270) or (name == "202270") then return nil end
+local function ValidateSpellName(name, allowPlusIDs, warnings)
+	if not name or (name == "") then return nil end
 	if allowPlusIDs then
-		if string.find(name, "^#%d+") then local id = tonumber(string.sub(name, 2)); if id and GetSpellInfo(id) ~= "" then return name end return nil end
+		if string.find(name, "^#%d+") then local id = tonumber(string.sub(name, 2)); if id and GetSpellTexture(id) then return name end return nil end
 	end
 	local t = tonumber(name)
 	if t then
@@ -75,9 +83,8 @@ local function ValidateSpellName(name, allowPlusIDs)
 		local found, _, idString = string.find(name, "^|c%x+|Hspell:(.+)|h%[.*%]")
 		if found then local id = tonumber(idString); if id then name = GetSpellInfo(id); if name == "" then name = nil end end end -- convert hyperlink
 	end
-	if name and not MOD:GetIcon(name) then
-		if MOD.db.profile.spellDebug then print(L["Not valid string"](name)) end
-		return nil
+	if name and not GetSpellTexture(name) then
+		if (warnings == true) or ((warnings == nil) and MOD.db.profile.spellDebug) then print(L["Not valid string"](name)); return nil end
 	end
 	return name
 end
@@ -559,48 +566,66 @@ local function EnterNewBar(state)
 		if not bars.template.monitor then bars.template.monitor = "player" else bars.template.monitor = string.lower(bars.template.monitor) end
 		if not bars.template.castBy then bars.template.castBy = "player" else bars.template.castBy = string.lower(bars.template.castBy) end
 	elseif state == "ok" then
-		bars.mode = false		
+		bars.mode = false
+		local btype = bars.template.barType
 		local sel = nil
-		if bars.template.barType == "Notification" then -- notification
+		if btype == "Notification" then -- notification
 			if bars.template.conditionList and bars.template.selectCondition then
 				for k, n in pairs(bars.template.selectCondition) do
 					if n then
 						local bname = bars.template.conditionList[k]
 						local bar = {
-							action = bname, enableBar = true, barLabel = bname, barType = bars.template.barType,
+							action = bname, enableBar = true, barLabel = bname, barType = btype,
 							monitor = nil, castBy = nil
 						}
 						if AddBarToGroup(bg, bar) then if not sel then sel = bar.barLabel end end
 					end
 				end
 			end
-		elseif bars.template.barType == "Broker" then -- data broker
+		elseif btype == "Broker" then -- data broker
 			if conditions.select then
 				local bname = MOD.brokerList[conditions.select]
 				MOD:ActivateDataBroker(bname) -- start getting updates for this broker
 				local label = MOD:GetLabel(bname)
 				local bar = {
-					action = bname, enableBar = true, barLabel = label, barType = bars.template.barType,
+					action = bname, enableBar = true, barLabel = label, barType = btype,
 				}
 				if AddBarToGroup(bg, bar) then if not sel then sel = bar.barLabel end end
 			end
-		elseif ValidateSpellName(conditions.name) then
-			local bname = conditions.name
-			local label = MOD:GetLabel(bname)
-			local bar = {
-				action = bname, enableBar = true, barLabel = label, barType = bars.template.barType,
-				monitor = bars.template.monitor, castBy = bars.template.castBy
-			}
-			if bar.barType == "Cooldown" then bar.monitor = nil; bar.castBy = nil end
-			if AddBarToGroup(bg, bar) then if not sel then sel = bar.barLabel end end
+		elseif btype == "Value" then -- create a bar that can display a changing value
+			if valuebars.select then
+				local values = valuebars.values
+				local value = values[valuebars.select]
+				local colors, color = valuebars.colors, valuebars.color
+				if colors and color then color = colors[color] else color = nil end
+				local unit = bars.template.monitor
+				local label = value
+				label = label .. ": " .. unitList[unit]
+				local bar = {
+					action = value, valueSelect = value, colorSelect = color, monitor = unit, spell = valuebars.spell,
+					enableBar = true, includeBar = true, includeOffset = 0, barLabel = label, barType = btype,
+				}
+				if AddBarToGroup(bg, bar) then if not sel then sel = bar.barLabel end end
+			end
+		else
+			if bars.template.warnings or ValidateSpellName(conditions.name, true) then
+				local bname = conditions.name
+				local label = MOD:GetLabel(bname)
+				local bar = {
+					action = bname, enableBar = true, barLabel = label, barType = btype,
+					monitor = bars.template.monitor, castBy = bars.template.castBy
+				}
+				if bar.barType == "Cooldown" then bar.monitor = nil; bar.castBy = nil end
+				if AddBarToGroup(bg, bar) then if not sel then sel = bar.barLabel end end
+			end
 		end
 		if sel then UpdateBarList(); SelectBar(sel) end
 		bars.save = bars.template
-		bars.template = nil
+		bars.template = nil; conditions.select = nil; conditions.name = nil
 	elseif state == "cancel" then
 		bars.mode = false
 		bars.save = bars.template
-		bars.template = nil
+		bars.template = nil; conditions.select = nil; conditions.name = nil
 	end
 end
 
@@ -620,6 +645,10 @@ local function GetBarDescription(info)
 				if db.type == "data source" then a = a .. L["Broker data source string"] end
 				if db.type == "launcher" then a = a .. L["Broker launcher string"] end
 			end
+		elseif n.barType == "Value" then
+			a = L["Value string"](n.barType, n.valueSelect) -- create a description for a value bar
+			if n.colorSelect then a = a .. L["Color string"] .. n.colorSelect end
+			if n.monitor and unitList[n.monitor] then a = a .. L["Unit string"] .. unitList[n.monitor] end
 		elseif n.barType == "Buff" or n.barType == "Debuff" or n.barType == "Cooldown" then
 			if n.action then
 				a = L["Type action string"](n.action, n.barType)
@@ -677,6 +706,11 @@ local function GetBarIcon(info)
 		local db = MOD.knownBrokers[b.action] -- check in the registered brokers table
 		if db and db.icon then return db.icon end
 		return defaultBrokerIcon
+	elseif b.barType == "Value" then
+		local icon = nil
+		if b.spell then icon = MOD:GetIcon(b.spell) end
+		if icon then return icon end
+		return defaultValueIcon
 	end
 	return MOD:GetIconForBar(b)
 end
@@ -2583,7 +2617,7 @@ MOD.OptionsTable = {
 					args = {
 						ColorText = { type = "description", name = L["Bar Colors:"], order = 1, width = "half" },
 						NotificationColor = {
-							type = "color", order = 10, name = L["Notify"], hasAlpha = false, width = "half",
+							type = "color", order = 13, name = L["Notify"], hasAlpha = false, width = "half",
 							get = function(info) local t = MOD.db.global.DefaultNotificationColor; return t.r, t.g, t.b, t.a end,
 							set = function(info, r, g, b, a)
 								local t = MOD.db.global.DefaultNotificationColor
@@ -2592,7 +2626,7 @@ MOD.OptionsTable = {
 							end,
 						},
 						BrokerColor = {
-							type = "color", order = 11, name = L["Broker"], hasAlpha = false, width = "half",
+							type = "color", order = 14, name = L["Broker"], hasAlpha = false, width = "half",
 							get = function(info) local t = MOD.db.global.DefaultBrokerColor; return t.r, t.g, t.b, t.a end,
 							set = function(info, r, g, b, a)
 								local t = MOD.db.global.DefaultBrokerColor
@@ -2600,8 +2634,17 @@ MOD.OptionsTable = {
 								MOD:UpdateAllBarGroups()
 							end,
 						},
+						ValueColor = {
+							type = "color", order = 15, name = L["Value"], hasAlpha = false, width = "half",
+							get = function(info) local t = MOD.db.global.DefaultValueColor; return t.r, t.g, t.b, t.a end,
+							set = function(info, r, g, b, a)
+								local t = MOD.db.global.DefaultValueColor
+								t.r = r; t.g = g; t.b = b; t.a = a
+								MOD:UpdateAllBarGroups()
+							end,
+						},
 						BuffColor = {
-							type = "color", order = 12, name = L["Buff"], hasAlpha = false, width = "half",
+							type = "color", order = 16, name = L["Buff"], hasAlpha = false, width = "half",
 							get = function(info) local t = MOD.db.global.DefaultBuffColor; return t.r, t.g, t.b, t.a end,
 							set = function(info, r, g, b, a)
 								local t = MOD.db.global.DefaultBuffColor
@@ -2610,7 +2653,7 @@ MOD.OptionsTable = {
 							end,
 						},
 						DebuffColor = {
-							type = "color", order = 13, name = L["Debuff"], hasAlpha = false, width = "half",
+							type = "color", order = 17, name = L["Debuff"], hasAlpha = false, width = "half",
 							get = function(info) local t = MOD.db.global.DefaultDebuffColor; return t.r, t.g, t.b, t.a end,
 							set = function(info, r, g, b, a)
 								local t = MOD.db.global.DefaultDebuffColor
@@ -2619,7 +2662,7 @@ MOD.OptionsTable = {
 							end,
 						},
 						CooldownColor = {
-							type = "color", order = 14, name = L["Cooldown"], hasAlpha = false,
+							type = "color", order = 18, name = L["Cooldown"], hasAlpha = false,
 							get = function(info) local t = MOD.db.global.DefaultCooldownColor; return t.r, t.g, t.b, t.a end,
 							set = function(info, r, g, b, a)
 								local t = MOD.db.global.DefaultCooldownColor
@@ -2627,10 +2670,10 @@ MOD.OptionsTable = {
 								MOD:UpdateAllBarGroups()
 							end,
 						},
-						Space0 = { type = "description", name = "", order = 15 },
-						DebuffText = { type = "description", name = L["Special Colors:"], order = 16, width = "half" },
+						Space0 = { type = "description", name = "", order = 35 },
+						DebuffText = { type = "description", name = L["Special Colors:"], order = 36, width = "half" },
 						PoisonColor = {
-							type = "color", order = 17, name = L["Poison"], hasAlpha = false, width = "half",
+							type = "color", order = 40, name = L["Poison"], hasAlpha = false, width = "half",
 							get = function(info) local t = MOD.db.global.DefaultPoisonColor; return t.r, t.g, t.b, t.a end,
 							set = function(info, r, g, b, a)
 								local t = MOD.db.global.DefaultPoisonColor
@@ -2639,7 +2682,7 @@ MOD.OptionsTable = {
 							end,
 						},
 						CurseColor = {
-							type = "color", order = 18, name = L["Curse"], hasAlpha = false, width = "half",
+							type = "color", order = 41, name = L["Curse"], hasAlpha = false, width = "half",
 							get = function(info) local t = MOD.db.global.DefaultCurseColor; return t.r, t.g, t.b, t.a end,
 							set = function(info, r, g, b, a)
 								local t = MOD.db.global.DefaultCurseColor
@@ -2648,7 +2691,7 @@ MOD.OptionsTable = {
 							end,
 						},
 						MagicColor = {
-							type = "color", order = 19, name = L["Magic"], hasAlpha = false, width = "half",
+							type = "color", order = 42, name = L["Magic"], hasAlpha = false, width = "half",
 							get = function(info) local t = MOD.db.global.DefaultMagicColor; return t.r, t.g, t.b, t.a end,
 							set = function(info, r, g, b, a)
 								local t = MOD.db.global.DefaultMagicColor
@@ -2657,7 +2700,7 @@ MOD.OptionsTable = {
 							end,
 						},
 						DiseaseColor = {
-							type = "color", order = 20, name = L["Disease"], hasAlpha = false, width = "half",
+							type = "color", order = 43, name = L["Disease"], hasAlpha = false, width = "half",
 							get = function(info) local t = MOD.db.global.DefaultDiseaseColor; return t.r, t.g, t.b, t.a end,
 							set = function(info, r, g, b, a)
 								local t = MOD.db.global.DefaultDiseaseColor
@@ -2666,7 +2709,7 @@ MOD.OptionsTable = {
 							end,
 						},
 						StealColor = {
-							type = "color", order = 21, name = L["Stealable"], hasAlpha = false, width = "half",
+							type = "color", order = 44, name = L["Stealable"], hasAlpha = false, width = "half",
 							get = function(info) local t = MOD.db.global.DefaultStealColor; return t.r, t.g, t.b, t.a end,
 							set = function(info, r, g, b, a)
 								local t = MOD.db.global.DefaultStealColor
@@ -4822,6 +4865,13 @@ MOD.OptionsTable = {
 									get = function(info) return GetBarGroupField("detectTabardBuffs") end,
 									set = function(info, value) SetBarGroupField("detectTabardBuffs", value) end,
 								},
+								Minion = {
+									type = "toggle", order = 59, name = L["Minions"],
+									disabled = function(info) return not GetBarGroupField("detectBuffTypes") or not GetBarGroupField("detectBuffs") end,
+									desc = L['Include timers for warlock minions (player only).'],
+									get = function(info) return GetBarGroupField("detectMinionBuffs") end,
+									set = function(info, value) SetBarGroupField("detectMinionBuffs", value) end,
+								},
 								Other = {
 									type = "toggle", order = 60, name = L["Other"],
 									disabled = function(info) return not GetBarGroupField("detectBuffTypes") or not GetBarGroupField("detectBuffs") end,
@@ -4931,6 +4981,13 @@ MOD.OptionsTable = {
 									desc = L['Exclude buffs from equipped tabard (player only).'],
 									get = function(info) return GetBarGroupField("excludeTabardBuffs") end,
 									set = function(info, value) SetBarGroupField("excludeTabardBuffs", value) end,
+								},
+								Minion = {
+									type = "toggle", order = 59, name = L["Minions"],
+									disabled = function(info) return not GetBarGroupField("excludeBuffTypes") or not GetBarGroupField("detectBuffs") end,
+									desc = L['Exclude timers for warlock minions (player only).'],
+									get = function(info) return GetBarGroupField("excludeMinionBuffs") end,
+									set = function(info, value) SetBarGroupField("excludeMinionBuffs", value) end,
 								},
 								Other = {
 									type = "toggle", order = 60, name = L["Other"],
@@ -7274,7 +7331,8 @@ MOD.OptionsTable = {
 									desc = L["Reset standard colors for this bar group back to the current defaults."],
 									disabled = function(info) return GetBarGroupField("useDefaultColors") end,
 									func = function(info) local bg = GetBarGroupEntry()
-										bg.buffColor = nil; bg.debuffColor = nil; bg.cooldownColor = nil; bg.notificationColor = nil; bg.brokerColor = nil
+										bg.buffColor = nil; bg.debuffColor = nil; bg.cooldownColor = nil
+										bg.notificationColor = nil; bg.brokerColor = nil; bg.valueColor = nil
 										bg.poisonColor = nil; bg.curseColor = nil; bg.magicColor = nil; bg.diseaseColor = nil; bg.stealColor = nil
 										MOD:UpdateAllBarGroups()
 									end,
@@ -7291,7 +7349,7 @@ MOD.OptionsTable = {
 								Space0 = { type = "description", name = "", order = 5 },
 								ColorText = { type = "description", name = L["Bar Colors:"], order = 7, width = "half" },
 								NotificationColor = {
-									type = "color", order = 10, name = L["Notify"], hasAlpha = false, width = "half",
+									type = "color", order = 13, name = L["Notify"], hasAlpha = false, width = "half",
 									disabled = function(info) return GetBarGroupField("useDefaultColors") end,
 									get = function(info) local t = GetBarGroupField("notificationColor") or MOD.db.global.DefaultNotificationColor
 										return t.r, t.g, t.b, t.a end,
@@ -7303,7 +7361,7 @@ MOD.OptionsTable = {
 									end,
 								},
 								BrokerColor = {
-									type = "color", order = 11, name = L["Broker"], hasAlpha = false, width = "half",
+									type = "color", order = 14, name = L["Broker"], hasAlpha = false, width = "half",
 									disabled = function(info) return GetBarGroupField("useDefaultColors") end,
 									get = function(info) local t = GetBarGroupField("brokerColor") or MOD.db.global.DefaultBrokerColor
 										return t.r, t.g, t.b, t.a end,
@@ -7314,8 +7372,20 @@ MOD.OptionsTable = {
 										MOD:UpdateAllBarGroups()
 									end,
 								},
+								ValueColor = {
+									type = "color", order = 15, name = L["Value"], hasAlpha = false, width = "half",
+									disabled = function(info) return GetBarGroupField("useDefaultColors") end,
+									get = function(info) local t = GetBarGroupField("valueColor") or MOD.db.global.DefaultValueColor
+										return t.r, t.g, t.b, t.a end,
+									set = function(info, r, g, b, a)
+										local t = GetBarGroupField("valueColor")
+										if t then t.r = r; t.g = g; t.b = b; t.a = a else
+											t = { r = r, g = g, b = b, a = a }; SetBarGroupField("valueColor", t) end
+										MOD:UpdateAllBarGroups()
+									end,
+								},
 								BuffColor = {
-									type = "color", order = 12, name = L["Buff"], hasAlpha = false, width = "half",
+									type = "color", order = 16, name = L["Buff"], hasAlpha = false, width = "half",
 									disabled = function(info) return GetBarGroupField("useDefaultColors") end,
 									get = function(info) local t = GetBarGroupField("buffColor") or MOD.db.global.DefaultBuffColor
 										return t.r, t.g, t.b, t.a end,
@@ -7327,7 +7397,7 @@ MOD.OptionsTable = {
 									end,
 								},
 								DebuffColor = {
-									type = "color", order = 13, name = L["Debuff"], hasAlpha = false, width = "half",
+									type = "color", order = 17, name = L["Debuff"], hasAlpha = false, width = "half",
 									disabled = function(info) return GetBarGroupField("useDefaultColors") end,
 									get = function(info) local t = GetBarGroupField("debuffColor") or MOD.db.global.DefaultDebuffColor
 										return t.r, t.g, t.b, t.a end,
@@ -7339,7 +7409,7 @@ MOD.OptionsTable = {
 									end,
 								},
 								CooldownColor = {
-									type = "color", order = 14, name = L["Cooldown"], hasAlpha = false,
+									type = "color", order = 18, name = L["Cooldown"], hasAlpha = false,
 									disabled = function(info) return GetBarGroupField("useDefaultColors") end,
 									get = function(info) local t = GetBarGroupField("cooldownColor") or MOD.db.global.DefaultCooldownColor
 										return t.r, t.g, t.b, t.a end,
@@ -11645,7 +11715,7 @@ MOD.barOptions = {
 			LabelLink = {
 				type = "toggle", order = 30, name = L["Link"], width = "half",
 				desc = L["If checked, label is linked to the associated spell and changing it here will change it for all bars linked to the same spell."],
-				hidden = function(info) local t = GetBarField(info, "barType"); return (t == "Notification") or (t == "Broker") end,
+				hidden = function(info) local t = GetBarField(info, "barType"); return (t == "Notification") or (t == "Broker") or (t == "Value") end,
 				get = function(info) return not GetBarField(info, "labelLink") end,
 				set = function(info, value)
 					if value then
@@ -11658,22 +11728,36 @@ MOD.barOptions = {
 				end,
 			},
 			spacer1 = { type = "description", name = "", order = 35, },
+			AssociatedSpellName = {
+				type = "input", order = 37, name = L["Associated Spell"],
+				desc = L["Enter a spell name (or numeric identifier, optionally preceded by # for a specific spell id)."],
+				hidden = function(info) local t = GetBarField(info, "barType"); return (t ~= "Value") end,
+				get = function(info) return GetBarField(info, "spell") end,
+				set = function(info, value) local value = ValidateSpellName(value, true); SetBarField(info, "spell", value) end,
+			},
 			LabelNumber = {
 				type = "toggle", order = 40, name = L["Add Tooltip Number"],
 				desc = L["If checked, a number found in the tooltip is added to the label. If label contains the string TT# then the number replaces the label."],
-				hidden = function(info) local t = GetBarField(info, "barType"); return (t == "Notification") or (t == "Broker") end,
+				hidden = function(info) local t = GetBarField(info, "barType"); return (t == "Notification") or (t == "Broker") or (t == "Value") end,
 				get = function(info) return GetBarField(info, "labelNumber") end,
 				set = function(info, value) SetBarField(info, "labelNumber", value); MOD:UpdateAllBarGroups() end,
 			},
 			LabelNumberOffset = {
 				type = "range", order = 45, name = L["Number Position"], min = 1, max = 10, step = 1,
 				desc = L["Set which number in tooltip to add to label. Supports decimals although can affect position."],
-				hidden = function(info) local t = GetBarField(info, "barType"); return (t == "Notification") or (t == "Broker") end,
+				hidden = function(info) local t = GetBarField(info, "barType"); return (t == "Notification") or (t == "Broker") or (t == "Value") end,
 				disabled = function(info) return not GetBarField(info, "labelNumber") end,
 				get = function(info) return GetBarField(info, "labelNumberOffset") or 1 end,
 				set = function(info, value) SetBarField(info, "labelNumberOffset", value) end,
 			},
 			spacer2 = { type = "description", name = "", order = 50, },
+			FrequentUpdates = {
+				type = "toggle", order = 51, name = L["Frequent Updates"],
+				desc = L["If checked, enable frequent updates to the value."],
+				hidden = function(info) local t = GetBarField(info, "barType"); return (t ~= "Value") end,
+				get = function(info) return GetBarField(info, "frequent") end,
+				set = function(info, value) SetBarField(info, "frequent", value); MOD:UpdateAllBarGroups() end,
+			},
 			EnableCooldownReadyBar = {
 				type = "toggle", order = 60, name = L["Show When Ready"],
 				desc = L["If checked, show ready bar when action is not on cooldown. Ready bars are a special kind of unlimited duration bar so make sure Timer Options are set appropriately."],
@@ -11707,7 +11791,7 @@ MOD.barOptions = {
 			ShowTime = {
 				type = "range", order = 75, name = L["Time"], min = 0, max = 60, step = 1,
 				desc = L["Set number of seconds to show the ready bar (0 for unlimited time)."],
-				hidden = function(info) local t = GetBarField(info, "barType"); return (t == "Notification") or (t == "Broker") end,
+				hidden = function(info) local t = GetBarField(info, "barType"); return (t == "Notification") or (t == "Broker") or (t == "Value") end,
 				disabled = function(info) return not GetBarField(info, "enableReady") end,
 				get = function(info) return GetBarField(info, "readyTime") or 0 end,
 				set = function(info, value) SetBarField(info, "readyTime", value) end,
@@ -12015,7 +12099,7 @@ MOD.barOptions = {
 			ColorLink = {
 				type = "toggle", order = 50, name = L["Color Link"],
 				desc = L["If checked, the color is linked to the associated spell and changing it here will change it for all bars linked to the same spell."],
-				hidden = function(info) local t = GetBarField(info, "barType"); return t == "Broker" end,
+				hidden = function(info) local t = GetBarField(info, "barType"); return (t == "Notification") or (t == "Broker") or (t == "Value") end,
 				disabled = function(info)
 					local bar = GetBarEntry(info)
 					return bar.barType == "Notification" and not MOD:GetAssociatedSpellForBar(bar)
@@ -12456,35 +12540,42 @@ MOD.barOptions = {
 			SelectBarType = {
 				type = "group", order = 1, name = L["Type"], inline = true,
 				args = {
-					BuffBar = {
-						type = "toggle", order = 10, name = L["Buff"], width = "half",
-						desc = L["If checked, this is a buff bar."],
-						get = function(info) return bars.template.barType == "Buff" end,
-						set = function(info, value) SetSelectedBarType("Buff") end,
-					},
-					DebuffBar = {
-						type = "toggle", order = 20, name = L["Debuff"], width = "half",
-						desc = L["If checked, this is a debuff bar."],
-						get = function(info) return bars.template.barType == "Debuff" end,
-						set = function(info, value) SetSelectedBarType("Debuff") end,
-					},
-					CooldownBar = {
-						type = "toggle", order = 30, name = L["Cooldown"],
-						desc = L["If checked, this is a cooldown bar."],
-						get = function(info) return bars.template.barType == "Cooldown" end,
-						set = function(info, value) SetSelectedBarType("Cooldown") end,
-					},
 					NotificationBar = {
-						type = "toggle", order = 40, name = L["Notify"], width = "half",
+						type = "toggle", order = 10, name = L["Notify"], width = "half",
 						desc = L["If checked, this is a notify bar."],
 						get = function(info) return bars.template.barType == "Notification" end,
 						set = function(info, value) SetSelectedBarType("Notification") end,
 					},
 					BrokerBar = {
-						type = "toggle", order = 50, name = L["Broker"], width = "half",
+						type = "toggle", order = 20, name = L["Broker"], width = "half",
 						desc = L["If checked, this is a data broker bar."],
 						get = function(info) return bars.template.barType == "Broker" end,
 						set = function(info, value) SetSelectedBarType("Broker") end,
+					},
+					ValueBar = {
+						type = "toggle", order = 30, name = L["Value"], width = "half",
+						disabled = function(info) return true end, -- temporarily disabled prior to release build
+						desc = L["If checked, this is a value bar."],
+						get = function(info) return bars.template.barType == "Value" end,
+						set = function(info, value) SetSelectedBarType("Value") end,
+					},
+					BuffBar = {
+						type = "toggle", order = 40, name = L["Buff"], width = "half",
+						desc = L["If checked, this is a buff bar."],
+						get = function(info) return bars.template.barType == "Buff" end,
+						set = function(info, value) SetSelectedBarType("Buff") end,
+					},
+					DebuffBar = {
+						type = "toggle", order = 50, name = L["Debuff"], width = "half",
+						desc = L["If checked, this is a debuff bar."],
+						get = function(info) return bars.template.barType == "Debuff" end,
+						set = function(info, value) SetSelectedBarType("Debuff") end,
+					},
+					CooldownBar = {
+						type = "toggle", order = 60, name = L["Cooldown"],
+						desc = L["If checked, this is a cooldown bar."],
+						get = function(info) return bars.template.barType == "Cooldown" end,
+						set = function(info, value) SetSelectedBarType("Cooldown") end,
 					},
 				},
 			},
@@ -12526,99 +12617,187 @@ MOD.barOptions = {
 			},
 			EnterSpellNameGroup = {
 				type = "group", order = 40, name = L["Action"], inline = true,
-				hidden = function(info) return bars.template.barType == "Notification" or bars.template.barType == "Broker" end,
+				hidden = function(info) return bars.template.barType == "Notification" or bars.template.barType == "Broker" or bars.template.barType == "Value" end,
 				args = {
 					SpellName = {
 						type = "input", order = 10, name = L["Enter Spell Name or Identifier"],
 						desc = L["Enter a spell name (or numeric identifier, optionally preceded by # for a specific spell id)."],
 						get = function(info) return conditions.name end,
-						set = function(info, n) n = ValidateSpellName(n, true); conditions.name = n end,
+						set = function(info, n) n = ValidateSpellName(n, true, not bars.template.warnings); conditions.name = n end,
+					},
+					ValidateSpell = {
+						type = "toggle", order = 20, name = L["Warnings"],
+						desc = L["Enable warnings about invalid spells."],
+						get = function(info) return not bars.template.warnings end,
+						set = function(info, value) bars.template.warnings = not value end,
+					},
+					SpellLabel = {
+						hidden = function(info) return not(conditions.name and string.find(conditions.name, "^#%d+")) end,
+						type = "description", order = 30, name = function(info) return MOD:GetLabel(conditions.name) end,
 					},
 				},
 			},
-		},
-	},
-	MonitorUnitGroup = {
-		type = "group", order = 50, name = L["Action On"], inline = true,
-		hidden = function(info) return not InMode("Bar") or ((bars.template.barType ~= "Buff") and (bars.template.barType ~= "Debuff")) end,
-		args = {
-			PlayerBuff = {
-				type = "toggle", order = 10, name = L["Player"],
-				desc = L["If checked, must be on the player."],
-				get = function(info) return bars.template.monitor == "player" end,
-				set = function(info, value) bars.template.monitor = "player" end,
+			MonitorUnitGroup = {
+				type = "group", order = 50, name = L["Action On"], inline = true,
+				hidden = function(info) return (bars.template.barType ~= "Buff") and (bars.template.barType ~= "Debuff") end,
+				args = {
+					PlayerBuff = {
+						type = "toggle", order = 10, name = L["Player"],
+						desc = L["If checked, must be on the player."],
+						get = function(info) return bars.template.monitor == "player" end,
+						set = function(info, value) bars.template.monitor = "player" end,
+					},
+					PetBuff = {
+						type = "toggle", order = 15, name = L["Pet"],
+						desc = L["If checked, must be on the player's pet."],
+						get = function(info) return bars.template.monitor == "pet" end,
+						set = function(info, value) bars.template.monitor = "pet" end,
+					},
+					TargetBuff = {
+						type = "toggle", order = 20, name = L["Target"],
+						desc = L["If checked, must be on the target."],
+						get = function(info) return bars.template.monitor == "target" end,
+						set = function(info, value) bars.template.monitor = "target" end,
+					},
+					FocusBuff = {
+						type = "toggle", order = 25, name = L["Focus"],
+						desc = L["If checked, must be on the focus."],
+						get = function(info) return bars.template.monitor == "focus" end,
+						set = function(info, value) bars.template.monitor = "focus" end,
+					},
+					MouseoverBuff = {
+						type = "toggle", order = 30, name = L["Mouseover"],
+						desc = L["If checked, must be on the mouseover unit."],
+						get = function(info) return bars.template.monitor == "mouseover" end,
+						set = function(info, value) bars.template.monitor = "mouseover" end,
+					},
+					PetTargetBuff = {
+						type = "toggle", order = 35, name = L["Pet's Target"],
+						desc = L["If checked, must be on the pet's target."],
+						get = function(info) return bars.template.monitor == "pettarget" end,
+						set = function(info, value) bars.template.monitor = "pettarget" end,
+					},
+					TargetTargetBuff = {
+						type = "toggle", order = 40, name = L["Target's Target"],
+						desc = L["If checked, must be on the target's target."],
+						get = function(info) return bars.template.monitor == "targettarget" end,
+						set = function(info, value) bars.template.monitor = "targettarget" end,
+					},
+					FocusTargetBuff = {
+						type = "toggle", order = 45, name = L["Focus's Target"],
+						desc = L["If checked, must be on the focus's target."],
+						get = function(info) return bars.template.monitor == "focustarget" end,
+						set = function(info, value) bars.template.monitor = "focustarget" end,
+					},
+				},
 			},
-			PetBuff = {
-				type = "toggle", order = 15, name = L["Pet"],
-				desc = L["If checked, must be on the player's pet."],
-				get = function(info) return bars.template.monitor == "pet" end,
-				set = function(info, value) bars.template.monitor = "pet" end,
+			CastUnitGroup = {
+				type = "group", order = 60, name = L["Cast By"], inline = true,
+				hidden = function(info) return (bars.template.barType ~= "Buff") and (bars.template.barType ~= "Debuff") end,
+				args = {
+					PlayerBuff = {
+						type = "toggle", order = 10, name = L["Player"], width = "half",
+						desc = L["If checked, only track if cast by the player."],
+						get = function(info) return bars.template.castBy == "player" end,
+						set = function(info, value) bars.template.castBy = "player" end,
+					},
+					PetBuff = {
+						type = "toggle", order = 20, name = L["Pet"], width = "half",
+						desc = L["If checked, only track if cast by the player's pet."],
+						get = function(info) return bars.template.castBy == "pet" end,
+						set = function(info, value) bars.template.castBy = "pet" end,
+					},
+					OtherBuff = {
+						type = "toggle", order = 30, name = L["Other"], width = "half",
+						desc = L["If checked, only track if cast by anyone other than the player."],
+						get = function(info) return bars.template.castBy == "other" end,
+						set = function(info, value) bars.template.castBy = "other" end,
+					},
+					AnyoneBuff = {
+						type = "toggle", order = 40, name = L["Anyone"], width = "half",
+						desc = L["If checked, track if cast by anyone, including player and pet."],
+						get = function(info) return bars.template.castBy == "anyone" end,
+						set = function(info, value) bars.template.castBy = "anyone" end,
+					},
+				},
 			},
-			TargetBuff = {
-				type = "toggle", order = 20, name = L["Target"],
-				desc = L["If checked, must be on the target."],
-				get = function(info) return bars.template.monitor == "target" end,
-				set = function(info, value) bars.template.monitor = "target" end,
+			SelectValueGroup = {
+				type = "group", order = 62, name = L["Source Selection"], inline = true,
+				hidden = function(info) return bars.template.barType ~= "Value" end,
+				args = {
+					SelectValue = {
+						type = "select", order = 10, name = L["Sources"],
+						desc = L["Value select string"],
+						get = function(info) return valuebars.select end,
+						set = function(info, value) valuebars.select = value end,
+						values = function(info) if not valuebars.values then valuebars.values = MOD:GetValuesList() end return valuebars.values end,
+						style = "dropdown",
+					},
+					SelectColor = {
+						type = "select", order = 20, name = L["Colors"],
+						desc = L["Value select string"],
+						disabled = function(info) return not valuebars.select end,
+						get = function(info) return valuebars.color end,
+						set = function(info, value) valuebars.color = value end,
+						values = function(info) if not valuebars.colors then valuebars.colors = MOD:GetValueColorsList() end return valuebars.colors end,
+						style = "dropdown",
+					},
+				},
 			},
-			FocusBuff = {
-				type = "toggle", order = 25, name = L["Focus"],
-				desc = L["If checked, must be on the focus."],
-				get = function(info) return bars.template.monitor == "focus" end,
-				set = function(info, value) bars.template.monitor = "focus" end,
-			},
-			MouseoverBuff = {
-				type = "toggle", order = 30, name = L["Mouseover"],
-				desc = L["If checked, must be on the mouseover unit."],
-				get = function(info) return bars.template.monitor == "mouseover" end,
-				set = function(info, value) bars.template.monitor = "mouseover" end,
-			},
-			PetTargetBuff = {
-				type = "toggle", order = 35, name = L["Pet's Target"],
-				desc = L["If checked, must be on the pet's target."],
-				get = function(info) return bars.template.monitor == "pettarget" end,
-				set = function(info, value) bars.template.monitor = "pettarget" end,
-			},
-			TargetTargetBuff = {
-				type = "toggle", order = 40, name = L["Target's Target"],
-				desc = L["If checked, must be on the target's target."],
-				get = function(info) return bars.template.monitor == "targettarget" end,
-				set = function(info, value) bars.template.monitor = "targettarget" end,
-			},
-			FocusTargetBuff = {
-				type = "toggle", order = 45, name = L["Focus's Target"],
-				desc = L["If checked, must be on the focus's target."],
-				get = function(info) return bars.template.monitor == "focustarget" end,
-				set = function(info, value) bars.template.monitor = "focustarget" end,
-			},
-		},
-	},
-	CastUnitGroup = {
-		type = "group", order = 60, name = L["Cast By"], inline = true,
-		hidden = function(info) return not InMode("Bar") or ((bars.template.barType ~= "Buff") and (bars.template.barType ~= "Debuff")) end,
-		args = {
-			PlayerBuff = {
-				type = "toggle", order = 10, name = L["Player"], width = "half",
-				desc = L["If checked, only track if cast by the player."],
-				get = function(info) return bars.template.castBy == "player" end,
-				set = function(info, value) bars.template.castBy = "player" end,
-			},
-			PetBuff = {
-				type = "toggle", order = 20, name = L["Pet"], width = "half",
-				desc = L["If checked, only track if cast by the player's pet."],
-				get = function(info) return bars.template.castBy == "pet" end,
-				set = function(info, value) bars.template.castBy = "pet" end,
-			},
-			OtherBuff = {
-				type = "toggle", order = 30, name = L["Other"], width = "half",
-				desc = L["If checked, only track if cast by anyone other than the player."],
-				get = function(info) return bars.template.castBy == "other" end,
-				set = function(info, value) bars.template.castBy = "other" end,
-			},
-			AnyoneBuff = {
-				type = "toggle", order = 40, name = L["Anyone"], width = "half",
-				desc = L["If checked, track if cast by anyone, including player and pet."],
-				get = function(info) return bars.template.castBy == "anyone" end,
-				set = function(info, value) bars.template.castBy = "anyone" end,
+			ValueUnitGroup = {
+				type = "group", order = 70, name = L["Value For"], inline = true,
+				hidden = function(info) return bars.template.barType ~= "Value" end,
+				disabled = function(info) local s, t = valuebars.select, valuebars.values; return not s or not t or not MOD:IsUnitValue(t[s]) end,
+				args = {
+					PlayerBuff = {
+						type = "toggle", order = 10, name = L["Player"],
+						desc = L["If checked, value is for player."],
+						get = function(info) return bars.template.monitor == "player" end,
+						set = function(info, value) bars.template.monitor = "player" end,
+					},
+					PetBuff = {
+						type = "toggle", order = 15, name = L["Pet"],
+						desc = L["If checked, value is for player's pet."],
+						get = function(info) return bars.template.monitor == "pet" end,
+						set = function(info, value) bars.template.monitor = "pet" end,
+					},
+					TargetBuff = {
+						type = "toggle", order = 20, name = L["Target"],
+						desc = L["If checked, value is for target."],
+						get = function(info) return bars.template.monitor == "target" end,
+						set = function(info, value) bars.template.monitor = "target" end,
+					},
+					FocusBuff = {
+						type = "toggle", order = 25, name = L["Focus"],
+						desc = L["If checked, value is for focus."],
+						get = function(info) return bars.template.monitor == "focus" end,
+						set = function(info, value) bars.template.monitor = "focus" end,
+					},
+					MouseoverBuff = {
+						type = "toggle", order = 30, name = L["Mouseover"],
+						desc = L["If checked, value is for mouseover unit."],
+						get = function(info) return bars.template.monitor == "mouseover" end,
+						set = function(info, value) bars.template.monitor = "mouseover" end,
+					},
+					PetTargetBuff = {
+						type = "toggle", order = 35, name = L["Pet's Target"],
+						desc = L["If checked, value is for pet's target."],
+						get = function(info) return bars.template.monitor == "pettarget" end,
+						set = function(info, value) bars.template.monitor = "pettarget" end,
+					},
+					TargetTargetBuff = {
+						type = "toggle", order = 40, name = L["Target's Target"],
+						desc = L["If checked, value is for target's target."],
+						get = function(info) return bars.template.monitor == "targettarget" end,
+						set = function(info, value) bars.template.monitor = "targettarget" end,
+					},
+					FocusTargetBuff = {
+						type = "toggle", order = 45, name = L["Focus's Target"],
+						desc = L["If checked, value is for focus's target."],
+						get = function(info) return bars.template.monitor == "focustarget" end,
+						set = function(info, value) bars.template.monitor = "focustarget" end,
+					},
+				},
 			},
 		},
 	},

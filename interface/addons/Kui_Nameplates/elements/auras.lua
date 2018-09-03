@@ -12,9 +12,16 @@
         colour_short = colour of short timer text (like {1,1,1})
         colour_medium = colour of medium timer text
         colour_long = colour of long timer text
+        decimal_threshold = time under which decimals will be shown
     }
         Configuration table. Can be an empty table.
         Element will not initialise if this is missing or not a table.
+
+        The element needs to be informed of changes made to this table:
+            KuiNameplates:GetPlugin('Auras'):UpdateConfig()
+
+        Font values are only used upon button creation - the layout must update
+        fonts on buttons which have already been created.
 
     Creating aura frames
     ====================
@@ -24,28 +31,47 @@
 
     frame_def is a table which may contain the following values:
     frame_def = {
-        id = key for this frame in the [nameplate].Auras.frames table
-        size = icon size
-        squareness = icon width/height ratio
+        id = key for this frame in the [nameplate].Auras.frames table,
+        size = icon size,
+        squareness = icon width/height ratio,
         point = {
             [1] = point to place first aura icon in auras frame
             [2] = point of icon to attach to previous icon in a row
             [3] = point of previous icon on to which the next will be attached
-        }
-        x_spacing = horizontal spacing between icons
-        y_spacing = vertical spacing between icons
-        max = maximum number of auras to display
-        rows = maximum number of rows
-        row_growth = direction in which rows will grow ('UP' or 'DOWN')
-        sort = aura sorting function, or index in sort_lookup
-        filter = filter used in UnitAura calls
+        },
+        x_spacing = horizontal spacing between icons,
+        y_spacing = vertical spacing between icons,
+        max = maximum number of auras to display,
+        rows = maximum number of rows,
+        row_growth = direction in which rows will grow ('UP' or 'DOWN'),
+        sort = aura sorting function, or index in sort_lookup,
+        filter = filter used in UnitAura calls;
+                 if left nil, frame will be dynamic, meaning it will look for
+                 buffs on friends and debuffs on enemies,
+        purge = ignore whitelist and only show auras which can be purged;
+                also sets filter to 'HELPFUL' if it was left nil,
         num_per_row = number of icons per row;
-                      if left nil, calculates as max / rows
-        whitelist = a table of spellids to to show in the aura frame
-        pulsate = whether or not to pulsate icons with low time remaining
-        timer_threshold = threshold below which to show timer text
-        centred = centre visible auras in the frame
+                      if left nil, calculates as max / rows,
+        whitelist = a table of spellids to to show in the aura frame,
+        pulsate = whether or not to pulsate icons with low time remaining,
+        timer_threshold = threshold below which to show timer text,
+        centred = centre visible auras in the frame,
+        external = create an external aura frame (see below),
     }
+
+    External aura frames
+    ====================
+
+    External aura frames are aura frames which are managed by external code;
+    that is to say, they do not automatically scan for auras. Icons must be
+    created and deleted on-demand.
+
+    They have the additional functions:
+        frame:UpdateVisibility
+        frame:AddAura(uid,icon,count,duration,expiration)
+        frame:RemoveAura(uid,icon)
+
+    The BossMods module makes use of external aura frames.
 
     Callbacks
     =========
@@ -89,13 +115,11 @@ local strlower,tinsert,tsort,     pairs,ipairs =
       strlower,tinsert,table.sort,pairs,ipairs
 
 local FONT,FONT_SIZE_CD,FONT_SIZE_COUNT,FONT_FLAGS,
-      COLOUR_SHORT,COLOUR_MEDIUM,COLOUR_LONG
+      COLOUR_SHORT,COLOUR_MEDIUM,COLOUR_LONG,DECIMAL_THRESHOLD
 
 -- DisplayAura callback return behaviour enums
 local CB_HIDE,CB_SHOW = 1,2
 
--- time below which to show decimal places
-local DECIMAL_THRESHOLD = 2
 -- row growth lookup table
 local row_growth_points = {
     UP = {'BOTTOM','TOP'},
@@ -315,7 +339,6 @@ local function AuraFrame_Enable(self,force_update)
     self.__DISABLED = nil
 
     if force_update or self.parent:IsShown() then
-        self:FactionUpdate()
         self:Update()
     end
 end
@@ -400,6 +423,7 @@ local function AuraFrame_GetButton(self,spellid)
 end
 local function AuraFrame_ShouldShowAura(self,spellid,name,duration,caster,can_purge,nps_own,nps_all,index)
     if not name or not spellid then return end
+    name = strlower(name)
 
     local cbr = ele:RunCallback('DisplayAura',self,name,spellid,duration,caster,index)
     if cbr then
@@ -415,7 +439,7 @@ local function AuraFrame_ShouldShowAura(self,spellid,name,duration,caster,can_pu
         return can_purge
     elseif self.whitelist then
         -- only obey whitelist
-        return self.whitelist[spellid] or self.whitelist[strlower(name)]
+        return self.whitelist[spellid] or self.whitelist[name]
     else
         -- fallback to API's nameplate filter
         return nps_all or (nps_own and
@@ -576,18 +600,16 @@ local function AuraFrame_SetIconSize(self,size)
     self.icon_height = floor(size * self.squareness)
     self.icon_ratio = (1 - (self.icon_height / size)) / 2
 
-    if type(self.buttons) == 'table' then
-        -- update existing buttons
-        for k,button in ipairs(self.buttons) do
-            button:SetWidth(size)
-            button:SetHeight(self.icon_height)
-            button.icon:SetTexCoord(.1,.9,.1+self.icon_ratio,.9-self.icon_ratio)
-        end
+    -- update existing buttons
+    for k,button in ipairs(self.buttons) do
+        button:SetWidth(size)
+        button:SetHeight(self.icon_height)
+        button.icon:SetTexCoord(.1,.9,.1+self.icon_ratio,.9-self.icon_ratio)
+    end
 
-        if self.visible and self.visible > 0 then
-            -- re-arrange visible buttons
-            self:ArrangeButtons()
-        end
+    if self.visible and self.visible > 0 then
+        -- re-arrange visible buttons
+        self:ArrangeButtons()
     end
 end
 local function AuraFrame_SetSort(self,sort_f)
@@ -651,7 +673,7 @@ end
 -- aura frame creation #########################################################
 -- aura frame metatable
 local aura_meta = {
-    squareness = .7,
+    squareness = 1,
     x_spacing  = 0,
     y_spacing  = 0,
     pulsate    = true,
@@ -778,6 +800,7 @@ function ele:UpdateConfig()
     COLOUR_SHORT = addon.layout.Auras.colour_short or {1,0,0,1}
     COLOUR_MEDIUM = addon.layout.Auras.colour_medium or {1,1,0,1}
     COLOUR_LONG = addon.layout.Auras.colour_long or {1,1,1,1}
+    DECIMAL_THRESHOLD = addon.layout.Auras.decimal_threshold or 2
 end
 -- messages ####################################################################
 function ele:Show(f)
@@ -794,7 +817,6 @@ function ele:UNIT_FACTION(event,f)
     -- update each aura frame on this nameplate
     if not f.Auras then return end
     for _,auras_frame in pairs(f.Auras.frames) do
-        auras_frame:FactionUpdate()
         auras_frame:Update()
     end
 end

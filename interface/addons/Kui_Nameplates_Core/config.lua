@@ -37,12 +37,12 @@ local default_config = {
     glow_as_shadow = true,
     state_icons = true,
     target_glow = true,
-    target_glow_colour = { .3, .7, 1, .8 },
+    target_glow_colour = { .3, .7, 1, 1 },
     mouseover_glow = false,
     mouseover_glow_colour = { .3, .7, 1, .5 },
     target_arrows = false,
     frame_glow_size = 8,
-    target_arrows_size = 33,
+    target_arrows_size = 28,
     use_blizzard_personal = false,
     frame_vertical_offset = 0,
     show_arena_id = true, -- NEX
@@ -67,7 +67,7 @@ local default_config = {
     fade_all = false,
     fade_non_target_alpha = .5,
     fade_conditional_alpha = .3,
-    fade_speed = .5,
+    fade_speed = .3,
     fade_friendly_npc = false,
     fade_neutral_enemy = false,
     fade_untracked = false,
@@ -81,6 +81,7 @@ local default_config = {
     fade_avoid_casting_hostile = false,
     fade_avoid_casting_interruptible = false,
     fade_avoid_casting_uninterruptible = true,
+    fade_avoid_mouseover = false,
 
     font_face = DEFAULT_FONT,
     font_style = 2,
@@ -160,6 +161,7 @@ local default_config = {
     auras_purge_opposite = false,
     auras_side = 1,
     auras_offset = 15,
+    auras_decimal_threshold = 2, -- NEX
 
     castbar_enable = true,
     castbar_colour = {.75,.75,.9},
@@ -179,6 +181,7 @@ local default_config = {
     tankmode_force_enable = false,
     tankmode_force_offtank = false,
     threat_brackets = false,
+    threat_brackets_size = 24,
     frame_glow_threat = true,
     tankmode_tank_colour = { 0, 1, 0 },
     tankmode_trans_colour = { 1, 1, 0 },
@@ -220,16 +223,24 @@ local default_config = {
     cvar_disable_scale = true,
 }
 -- local functions #############################################################
+local function Scale(v)
+    if not tonumber(core.profile.global_scale) or
+       core.profile.global_scale == 1
+    then
+        return v
+    else
+        return floor((v*core.profile.global_scale)+.5)
+    end
+end
 local function UpdateClickboxSize()
-    local width,height =
-        (core.profile.frame_width * addon.uiscale)+10,
-        (core.profile.frame_height * addon.uiscale)+20
+    local o_width = (Scale(core.profile.frame_width) * addon.uiscale) + 10
+    local o_height = (Scale(core.profile.frame_height) * addon.uiscale) + 20
 
     if C_NamePlate.SetNamePlateOtherSize then
-        C_NamePlate.SetNamePlateOtherSize(width,height)
+        C_NamePlate.SetNamePlateOtherSize(o_width,o_height)
     else
-        C_NamePlate.SetNamePlateFriendlySize(width,height)
-        C_NamePlate.SetNamePlateEnemySize(width,height)
+        C_NamePlate.SetNamePlateFriendlySize(o_width,o_height)
+        C_NamePlate.SetNamePlateEnemySize(o_width,o_height)
     end
 
     if addon.USE_BLIZZARD_PERSONAL then
@@ -238,10 +249,9 @@ local function UpdateClickboxSize()
             45
         )
     else
-        C_NamePlate.SetNamePlateSelfSize(
-            (core.profile.frame_width_personal * addon.uiscale) + 10,
-            (core.profile.frame_height_personal * addon.uiscale) + 20
-        )
+        local p_width = (Scale(core.profile.frame_width_personal) * addon.uiscale) + 10
+        local p_height = (Scale(core.profile.frame_height_personal) * addon.uiscale) + 20
+        C_NamePlate.SetNamePlateSelfSize(p_width,p_height)
     end
 end
 local function QueueClickboxUpdate()
@@ -249,6 +259,11 @@ local function QueueClickboxUpdate()
 end
 -- config changed functions ####################################################
 local configChanged = {}
+function configChanged.target_arrows(v)
+    if v then
+        core:configChangedTargetArrows()
+    end
+end
 function configChanged.tank_mode(v)
     if v then
         addon:GetPlugin('TankMode'):Enable()
@@ -296,7 +311,17 @@ function configChanged.fade_speed(v)
 end
 
 local function configChangedCombatAction()
-    core:configChangedCombatAction()
+    if core.profile.combat_hostile == 1 and
+       core.profile.combat_friendly == 1
+    then
+        addon:GetPlugin('CombatToggle'):Disable()
+    else
+        addon:GetPlugin('CombatToggle'):Enable()
+        core.CombatToggle = {
+            hostile = core.profile.combat_hostile,
+            friendly = core.profile.combat_friendly
+        }
+    end
 end
 configChanged.combat_hostile = configChangedCombatAction
 configChanged.combat_friendly = configChangedCombatAction
@@ -310,14 +335,13 @@ local function configChangedFadeRule(v,on_load)
     end
 
     if core.profile.fade_all then
-        -- remove target_exists rule
-        plugin:RemoveFadeRule(3)
+        plugin:RemoveFadeRule('no_target')
     end
 
-    if core.profile.fade_avoid_nameonly then
+    if core.profile.fade_avoid_mouseover then
         plugin:AddFadeRule(function(f)
-            return f.IN_NAMEONLY and 1
-        end,30)
+            return f.state.highlight and 1
+        end,1)
     end
 
     if core.profile.fade_avoid_raidicon then
@@ -417,6 +441,12 @@ local function configChangedFadeRule(v,on_load)
             return not f.state.tracked and -1
         end,25)
     end
+
+    if core.profile.fade_avoid_nameonly then
+        plugin:AddFadeRule(function(f)
+            return f.IN_NAMEONLY and 1
+        end,30)
+    end
 end
 configChanged.fade_all = configChangedFadeRule
 configChanged.fade_friendly_npc = configChangedFadeRule
@@ -432,6 +462,7 @@ configChanged.fade_avoid_casting_friendly = configChangedFadeRule
 configChanged.fade_avoid_casting_hostile = configChangedFadeRule
 configChanged.fade_avoid_casting_interruptible = configChangedFadeRule
 configChanged.fade_avoid_casting_uninterruptible = configChangedFadeRule
+configChanged.fade_avoid_mouseover = configChangedFadeRule
 
 local function configChangedTextOffset()
     core:configChangedTextOffset()
@@ -551,22 +582,9 @@ configChanged.nameonly_neutral = configChanged.nameonly
 configChanged.nameonly_in_combat = configChanged.nameonly
 
 local function configChangedAuras()
-    core.Auras.colour_short = core.profile.auras_colour_short
-    core.Auras.colour_medium = core.profile.auras_colour_medium
-    core.Auras.colour_long = core.profile.auras_colour_long
-
-    addon:GetPlugin('Auras'):UpdateConfig()
     core:SetAurasConfig()
 end
-function configChanged.auras_enabled(v)
-    if v then
-        addon:GetPlugin('Auras'):Enable()
-    else
-        addon:GetPlugin('Auras'):Disable()
-    end
-
-    core:SetAurasConfig()
-end
+configChanged.auras_enabled = configChangedAuras
 configChanged.auras_pulsate = configChangedAuras
 configChanged.auras_centre = configChangedAuras
 configChanged.auras_sort = configChangedAuras
@@ -585,6 +603,7 @@ configChanged.auras_purge_size = configChangedAuras
 configChanged.auras_purge_opposite = configChangedAuras
 configChanged.auras_side = configChangedAuras
 configChanged.auras_offset = configChangedAuras
+configChanged.auras_decimal_threshold = configChangedAuras
 
 local function configChangedCastBar()
     core:SetCastBarConfig()
@@ -595,7 +614,6 @@ function configChanged.castbar_enable(v)
     else
         addon:GetPlugin('CastBar'):Disable()
     end
-
     configChangedCastBar()
 end
 configChanged.castbar_height = configChangedCastBar
@@ -725,6 +743,7 @@ configChanged.bossmod_control_visibility = configChangedBossMod
 configChanged.bossmod_icon_size = configChangedBossMod
 configChanged.bossmod_x_offset = configChangedBossMod
 configChanged.bossmod_y_offset = configChangedBossMod
+configChanged.bossmod_clickthrough = configChangedBossMod
 
 local function UpdateCVars()
     SetCVar('nameplateShowFriendlyNPCs',core.profile.cvar_show_friendly_npcs)
@@ -798,16 +817,18 @@ configLoaded.tankmode_force_enable = configChanged.tankmode_force_enable
 configLoaded.tankmode_force_offtank = configChanged.tankmode_force_offtank
 configLoaded.tankmode_tank_colour = configChangedTankColour
 
+configLoaded.auras_enabled = configChangedAuras
+
 configLoaded.castbar_enable = configChanged.castbar_enable
 configLoaded.level_text = configChanged.level_text
-
-configLoaded.auras_enabled = configChanged.auras_enabled
 
 configLoaded.clickthrough_self = QueueClickthroughUpdate
 
 configLoaded.cvar_enable = configChangedCVar
 
 configLoaded.state_icons = configChanged.state_icons
+
+configLoaded.combat_hostile = configChangedCombatAction
 
 function configLoaded.classpowers_enable(v)
     if v then
@@ -908,6 +929,9 @@ function core:InitialiseConfig()
             end
         end
     end)
+
+    -- update config locals in create.lua
+    self:SetLocals()
 
     -- run config loaded functions
     for k,f in pairs(configLoaded) do

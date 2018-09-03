@@ -4,7 +4,7 @@
 ## Title: Azeroth Auto Pilot
 ## Notes: Leveling Addon
 ## Author: Zyrrael
-## Version: 0.156
+## Version: 0.173
 ## SavedVariables: AAP1, AAP2, AAP3, AAP_HoldZoneVar
 Localization.lua
 Bindings.xml
@@ -15,14 +15,5 @@ BrutallStatic.lua
 QuestHandler.lua
 QuestParser.lua
 zones\Horde.lua
-zones\Alliance.lua
-zones\862.lua
-zones\863.lua
-zones\864.lua
-zones\895.lua
-zones\896.lua
-zones\942.lua
-zones\895-4.lua
-zones\862-4.lua
 OptionsPanel.lua
 Scenarios.lua

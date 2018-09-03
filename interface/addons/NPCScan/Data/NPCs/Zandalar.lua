@@ -35,7 +35,7 @@ NPCs[125214] = { -- Krubbs
 
 NPCs[125232] = { -- Captain Mu'kala
 	achievementQuestID = 48057, -- Cursed Chest
-	vignetteID = 2030, -- Cursed Chest
+	vignetteID = 2029, -- The Cursed Chest
 }
 
 NPCs[125250] = { -- Ancient Jawbreaker
@@ -188,7 +188,8 @@ NPCs[124722] = { -- Commodore Calhoun
 
 NPCs[127776] = { -- Scaleclaw Broodmother
 	isTameable = true,
-	questID = 51107, -- Scaleclaw Broodmother
+	questID = 48960,
+	vignetteID = 2298,
 }
 
 NPCs[128497] = { -- Bajiani the Slick

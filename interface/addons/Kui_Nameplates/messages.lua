@@ -522,12 +522,13 @@ local function plugin_Disable(table)
     end
 end
 ------------------------------------------------------------ plugin registrar --
--- priority = Any number. Defines the load order. Default of 5.
---            Plugins with a higher priority are executed later (i.e. they
---            override the settings of any previous plugin)
--- max_minor = Maximum addon minor version this plugin supports.
---             Ignored if nil.
-function addon:NewPlugin(name,priority,max_minor)
+-- priority       = Any number. Defines the load order. Default of 5.
+--                  Plugins with a higher priority are executed later.
+-- max_minor      = Maximum addon minor version this plugin supports.
+--                  Ignored if nil.
+-- enable_on_load = Enable this plugin upon initialise.
+--                  True if nil.
+function addon:NewPlugin(name,priority,max_minor,enable_on_load)
     if not name then
         error('Plugin with no name ignored')
         return
@@ -544,10 +545,15 @@ function addon:NewPlugin(name,priority,max_minor)
         return
     end
 
+    if enable_on_load == nil then
+        enable_on_load = true
+    end
+
     local pluginTable = {
         name = name,
+        enable_on_load = enable_on_load,
         plugin = true,
-        priority = type(priority)=='number' and priority or 5
+        priority = tonumber(priority) or 5
     }
     pluginTable.Enable = plugin_Enable
     pluginTable.Disable = plugin_Disable
@@ -564,8 +570,8 @@ function addon:GetPlugin(name)
 end
 -------------------------------------------------- external element registrar --
 -- elements are just plugins with a lower default priority
-function addon:NewElement(name,priority)
-    local ele = self:NewPlugin(name,priority or 0)
+function addon:NewElement(name,priority,max_minor)
+    local ele = self:NewPlugin(name,tonumber(priority) or 0,max_minor,true)
     ele.plugin = nil
     ele.element = true
     return ele

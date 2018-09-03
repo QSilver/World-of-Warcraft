@@ -1,12 +1,24 @@
 ------------------------------------------------------------------------
-r434 | Tomber | 2018-08-20 21:05:27 +0000 (Mon, 20 Aug 2018) | 3 lines
+r446 | Tomber | 2018-08-29 19:43:24 +0000 (Wed, 29 Aug 2018) | 17 lines
 Changed paths:
-   M /trunk/Localizations/enUS.lua
-   M /trunk/Presets/General.lua
-   M /trunk/Raven_Options/Options.lua
+   M /trunk/Main.lua
 
-Clean up prior to release. One bug fix in options for entering custom bars. A number of minor tweaks to options panel to fix truncated text elements.
+Release build for r450.
 
-Addition of new spell ids for warlock minions (currently there are no minion timers but this change will support adding that feature, if there is interest, now that minions are no longer represented as totems in the default UI).
+Warlock minions support is added to auto bar groups. This version has Exclude By Type set to not include them. For testing, recommend creating a new auto bar group, enable Auto Buffs, enable Include By Type and select only Minions, disable Exclude By Type.
+
+Refinement of minion bars:
+1. Multiple instances of a given minion type (e.g., Wild Imps) show up as a single bar with a stack count and timer for the soonest to expire.
+2. Wild imps append a indicator showing the number of remaining fel firebolts (a string of fel-colored *'s).
+
+Cooldown detection has been updated. It caches more information and is considerly more efficient. It also addresses a number of edge cases that were missed in the prior versions (in particular, related to spells that change dynamically like Command Pet).
+
+Spell name validation may now be overridden by the Warnings setting on the Spells tab. Previously this setting just suppressed the warning messages in chat. There is also a separate Warnings option in the new bar settings for custom bar groups. Judicious use of these settings let you, among other things, customize icons and colors in special cases like minion bars.
+
+Fixed issue with usable spell detection code for ready bars and conditions.
+
+Another new feature on the horizon: value bars for displaying various game properties. These are disabled in preparation for release since they are not complete enough to consider alpha yet.
+
+
 ------------------------------------------------------------------------
 

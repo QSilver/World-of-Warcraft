@@ -21,7 +21,7 @@ local L = Scrap_Locals
 Tutorials.RegisterTutorials('Scrap', {
 	savedvariable = 'Scrap_Tut',
 	title = 'Scrap',
-	
+
 	{
 		text = L.Tutorial_Welcome,
 		image = 'Interface\\Addons\\Scrap\\Art\\Enabled Icon',
@@ -67,4 +67,9 @@ Tutorials.RegisterTutorials('Scrap', {
 
 function Scrap:BlastTutorials()
 	Tutorials.TriggerTutorial('Scrap', 5)
+end
+
+function Scrap:ResetTutorials()
+	Tutorials.ResetTutorials('Scrap')
+	self:BlastTutorials()
 end

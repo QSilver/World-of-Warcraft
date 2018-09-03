@@ -20,6 +20,8 @@ local settingsTemplate = {} -- settings are initialized from default bar group t
 local activeSpells = {} -- temporary table used for finding ghost bars
 local defaultNotificationIcon = "Interface\\Icons\\Spell_Nature_WispSplode"
 local defaultBrokerIcon = "Interface\\Icons\\Inv_Misc_Book_03"
+local defaultValueIcon = "Interface\\Icons\\Inv_Jewelry_Ring_03"
+local frequentBars = {} -- bars tagged for frequent updates
 local prefixRaidTargetIcon = "|TInterface\\TargetingFrame\\UI-RaidTargetingIcon_"
 local testColors = { "Blue1", "Cyan", "Green1", "Yellow1", "Orange1", "Red1", "Pink", "Purple1", "Brown1", "Gray" }
 local tabardIcon
@@ -65,12 +67,12 @@ MOD.BarGroupTemplate = { -- default bar group settings
 	excludeDispellable = false, excludeInflictable = false, excludeNPCDebuffs = false, excludeVehicleDebuffs = false, excludeBossDebuffs = false,
 	excludeEffectDebuffs = false, excludePoison = false, excludeCurse = false, excludeMagic = false, excludeDisease = false, excludeOtherDebuffs = false,
 	noHeaders = false, noTargets = false, noLabels = false, headerGaps = false, targetFirst = false, targetAlpha = 1, replay = false, replayTime = 5,
-	detectBuffTypes = false, detectCastable = false, detectStealable = false, detectMagicBuffs = false, detectEffectBuffs = false,
-	detectWeaponBuffs = false, detectNPCBuffs = false, detectVehicleBuffs = false, detectBossBuffs = false, detectEnrageBuffs = false,
-	detectTracking = false, detectResources = false, detectMountBuffs = false, detectTabardBuffs = false, detectOtherBuffs = false,
+	detectBuffTypes = false, detectCastable = false, detectStealable = false, detectMagicBuffs = false, detectEffectBuffs = false, detectWeaponBuffs = false,
+	detectNPCBuffs = false, detectVehicleBuffs = false, detectBossBuffs = false, detectEnrageBuffs = false, detectTracking = false,
+	detectResources = false, detectMountBuffs = false, detectTabardBuffs = false, detectMinionBuffs = false, detectOtherBuffs = false,
 	excludeBuffTypes = true, excludeCastable = false, excludeStealable = false, excludeMagicBuffs = false, excludeEffectBuffs = false, excludeWeaponBuffs = false,
-	excludeNPCBuffs = false, excludeVehicleBuffs = false, excludeBossBuffs = false, excludeEnrageBuffs = false,
-	excludeTracking = true, excludeResources = false, excludeMountBuffs = false, excludeTabardBuffs = false, excludeOtherBuffs = false,
+	excludeNPCBuffs = false, excludeVehicleBuffs = false, excludeBossBuffs = false, excludeEnrageBuffs = false, excludeTracking = true,
+	excludeResources = false, excludeMountBuffs = false, excludeTabardBuffs = false, excludeMinionBuffs = true, excludeOtherBuffs = false,
 	detectCooldowns = false, detectBuffsMonitor = "player", detectBuffsCastBy = "player", detectDebuffsMonitor = "player",
 	detectDebuffsCastBy = "player", detectCooldownsBy = "player",
 	detectSpellCooldowns = true, detectTrinketCooldowns = true, detectInternalCooldowns = true, includeTotems = false,
@@ -397,6 +399,8 @@ function MOD:GetAssociatedSpellForBar(bar)
 		local sp = nil
 		if bar.action then sp = MOD:GetConditionSpell(bar.action) end
 		return sp
+	elseif bar.barType == "Value" then
+		return bar.spell
 	end
 	return bar.action
 end
@@ -470,6 +474,7 @@ local function GetColorForBar(bg, bar, btype)
 		if bt == "Cooldown" then c = cc and bg.cooldownColor or MOD.db.global.DefaultCooldownColor end
 		if bt == "Notification" then c = cc and bg.notificationColor or MOD.db.global.DefaultNotificationColor end
 		if bt == "Broker" then c = cc and bg.brokerColor or MOD.db.global.DefaultBrokerColor end
+		if bt == "Value" then c = cc and bg.valueColor or MOD.db.global.DefaultValueColor end
 	end
 	c.a = 1 -- always set alpha to 1 for bar colors
 	return c
@@ -788,8 +793,7 @@ local function Bar_OnUpdate(bar)
 	if tt == "text" then
 		GameTooltip:SetText(id)
 	elseif (tt == "inventory") or (tt == "weapon") then
-		local slot = GetInventorySlotInfo(id)
-		if slot then GameTooltip:SetInventoryItem("player", slot) end
+		if id then GameTooltip:SetInventoryItem("player", id) end
 	elseif (tt == "spell id") or (tt == "internal") then
 		GameTooltip:SetSpellByID(id)
 	elseif (tt == "item id") then
@@ -811,6 +815,8 @@ local function Bar_OnUpdate(bar)
 		GameTooltip:SetText(id)
 	elseif tt == "totem" then
 		GameTooltip:SetTotem(id)
+	elseif tt == "minion" then
+		GameTooltip:SetText(bar.label)
 	elseif tt == "notification" then
 		GameTooltip:AddDoubleLine(id, "Notification")
 		local ct = MOD.db.profile.Conditions[MOD.myClass]
@@ -980,8 +986,7 @@ local function GetTooltipNumber(ttType, ttID, ttUnit, ttOffset)
 		GameTooltip:SetItemByID(ttID)
 	elseif (ttType == "inventory") or (ttType == "weapon") then
 		tt = MOD:GetBuffTooltip()
-		local slot = GetInventorySlotInfo(ttID)
-		if slot then tt:SetInventoryItem("player", slot) end
+		if ttID then tt:SetInventoryItem("player", ttID) end
 	end
 	if tt then
 		local pattern = numberPatterns[ttOffset]
@@ -1057,7 +1062,7 @@ local function UpdateBar(bp, vbp, bg, b, icon, timeLeft, duration, count, btype,
 			bar = MOD.Nest_CreateBar(bg, barname)
 			if bar then MOD.Nest_StartTimer(bar, timeLeft, duration, maxTime); if b.ghost then bar.attributes.ghostDuration = b.delayTime or 5 end end
 		end
-	elseif bp.showNoDuration or (b.barType == "Notification") or (b.barType == "Broker") or b.enableReady then -- bars without duration
+	elseif bp.showNoDuration or (b.barType == "Notification") or (b.barType == "Broker") or (b.barType == "Value") or b.enableReady then -- bars without duration
 		if bar and MOD.Nest_IsTimer(bar) then MOD.Nest_DeleteBar(bg, bar); bar = nil end
 		if not bar then
 			bar = MOD.Nest_CreateBar(bg, barname)
@@ -1066,6 +1071,7 @@ local function UpdateBar(bp, vbp, bg, b, icon, timeLeft, duration, count, btype,
 	end
 	if bar then
 		local bat = bar.attributes -- optimization to address overhead from setting a large number of bar attributes
+		if b.barType == "Value" and b.frequent then frequentBars[b] = bar end -- save in the frequent bar update table
 		bat.updated = true -- for mark/sweep bar deletion
 		bat.ghostTime = nil -- delete in case was previously a ghost bar
 		MOD.Nest_SetLabel(bar, b.barText or label)
@@ -1142,7 +1148,7 @@ local function UpdateBar(bp, vbp, bg, b, icon, timeLeft, duration, count, btype,
 			bat.replayTime = replayTime -- how often to replay start sound
 		end
 		
-		if b.barType ~= "Notification" and b.barType ~= "Broker" then
+		if b.barType ~= "Notification" and b.barType ~= "Broker" and b.barType ~= "Value" then
 			bat.saveBarGroup = vbp; bat.saveBarType = b.barType; bat.saveBarAction = b.action
 		else
 			bat.saveBarGroup = nil; bat.saveBarType = nil; bat.saveBarAction = nil
@@ -1152,7 +1158,7 @@ local function UpdateBar(bp, vbp, bg, b, icon, timeLeft, duration, count, btype,
 				bat.minimumWidth = nil; bat.maximumWidth = nil
 			end
 			bat.horizontalAlign = b.brokerAlign -- optional alignment on a horizontal bar
-			MOD.Nest_SetValue(bar, b.value, b.maxValue, b.valueText, b.includeBar, b.includeOffset) -- currently used by brokers
+			MOD.Nest_SetValue(bar, b.value, b.maxValue, b.valueText, b.includeBar, b.includeOffset) -- used by broker and value bars
 		end
 		
 		local click, onEnter, onLeave = Bar_OnClick, nil, nil
@@ -1219,6 +1225,16 @@ local function CheckFilterBarGroup(bgname, btype, action, value)
 	return false
 end
 
+-- For minion bars, generate pretty string to add energy to label for wild imps
+local function MinionEnergy(count)
+	if count == 1 then return " |cFF88c100*|r" end
+	if count == 2 then return " |cFF88c100**|r" end
+	if count == 3 then return " |cFF88c100***|r" end
+	if count == 4 then return " |cFF88c100****|r" end
+	if count == 5 then return " |cFF88c100*****|r" end
+	-- local s = "";  for i = 1, count do s = s .. "|TInterface\\Icons\\Spell_Fel_Firebolt:16|t" end; return s
+end
+
 -- This table is used to allow multiple procs to show at the same time for Jade Spirit, River's Song, and Dancing Steel
 local fixEnchants = { [104993] = true, [120032] = true, [118334] = true, [118335] = true, [116660] = true }
 local fixDups = 0
@@ -1261,10 +1277,11 @@ local function DetectNewBuffs(unit, n, aura, isBuff, bp, vbp, bg)
 	end
 	if bp.filterBuffBars and CheckFilterBarGroup(bp.filterBuffBarGroup, "Buff", n, bp.detectBuffsMonitor) then return end -- check if in filter bar group
 	local label = MOD:GetLabel(n, spellID) -- check if there is a cached label for this action or spellid
-	local tt, ta, tc, ttype, icon = aura[11], aura[12], aura[6], aura[4], aura[8]
+	local tt, ta, tc, tsteal, ttype, icon = aura[11], aura[12], aura[6], aura[7], aura[4], aura[8]
 	if (ttype == "Totem") and not bp.includeTotems then return end -- check if including totems
+	if tt == "minion" and tsteal then label = label .. MinionEnergy(tsteal); tsteal = nil end -- -- add wild imp energy
 	
-	local isStealable = ((aura[7] == 1) or (aura[7] == true))
+	local isStealable = ((tsteal == 1) or (tsteal == true))
 	local isNPC = aura[18]
 	local isVehicle = aura[19]
 	local isBoss = ((aura[15] == 1) or (aura[15] == true))
@@ -1274,6 +1291,7 @@ local function DetectNewBuffs(unit, n, aura, isBuff, bp, vbp, bg)
 	local isWeapon = (tt == "weapon")
 	local isTracking = (tt == "tracking")
 	local isResource = (ttype == "Power")
+	local isMinion = (ttype == "Minion")
 	local isMount = spellID and MOD.mountSpells[spellID] -- table contains all the mounts in the journal
 	local isMine = (aura[6] == "player")
 	local isTabard = isMine and icon and (icon == tabardIcon) -- test if on player, same icon as equipped tabard, not cancellable
@@ -1286,12 +1304,12 @@ local function DetectNewBuffs(unit, n, aura, isBuff, bp, vbp, bg)
 		or (bp.detectNPCBuffs and isNPC) or (bCcuffs and isVehicle) or (bp.detectBossBuffs and isBoss) or (bp.detectEnrageBuffs and isEnrage)
 		or (bp.detectMagicBuffs and isMagic) or (bp.detectEffectBuffs and isEffect) or (bp.detectWeaponBuffs and isWeapon)
 		or (bp.detectTracking and isTracking) or (bp.detectResources and isResource) or (bp.detectMountBuffs and isMount)
-		or (bp.detectTabardBuffs and isTabard) or (bp.detectOtherBuffs and isOther)
+		or (bp.detectTabardBuffs and isTabard) or (bp.detectMinionBuffs and isMinion) or (bp.detectOtherBuffs and isOther)
 	local excludeTypes = not bp.excludeBuffTypes or not ((bp.excludeStealable and isStealable) or (bp.excludeCastable and isCastable)
 		or (bp.excludeNPCBuffs and isNPC) or (bp.excludeVehicleBuffs and isVehicle) or (bp.excludeBossBuffs and isBoss) or (bp.excludeEnrageBuffs and isEnrage)
 		or (bp.excludeMagicBuffs and isMagic) or (bp.excludeEffectBuffs and isEffect) or (bp.excludeWeaponBuffs and isWeapon)
 		or (bp.excludeTracking and isTracking) or (bp.excludeResources and isResource) or (bp.excludeMountBuffs and isMount)
-		or (bp.excludeTabardBuffs and isTabard) or (bp.excludeOtherBuffs and isOther))
+		or (bp.excludeTabardBuffs and isTabard) or (bp.excludeMinionBuffs and isMinion) or (bp.excludeOtherBuffs and isOther))
 	if ((checkAll and not (bp.noPlayerBuffs and (id == UnitGUID("player"))) and not (bp.noPetBuffs and (id == UnitGUID("pet")))
 			and not (bp.noTargetBuffs and (id == UnitGUID("target"))) and not (bp.noFocusBuffs and (id == UnitGUID("focus")))) or
 			(not checkAll and not (bp.noPlayerBuffs and UnitIsUnit(unit, "player")) and not (bp.noPetBuffs and UnitIsUnit(unit, "pet"))
@@ -1300,6 +1318,7 @@ local function DetectNewBuffs(unit, n, aura, isBuff, bp, vbp, bg)
 		local b, tag = detectedBar, "Buff"
 		b.action = n; b.spellID = spellID; b.barType = "Buff"
 		if tc then tag = tag .. tc else tc = "unknown" end -- include caster in unique tag
+		if ttype == "Minion" then tag = tag .. ta end -- for warlock minions add guid to the unique tag
 		if not units[tc] and aura[10] and (aura[10] > 0) then tag = tag .. tostring(math.floor((aura[10] * 100) + 0.5)) end -- add expire time to tag
 		if spellID then tag = tag .. tostring(spellID) elseif (tt == "weapon") or (tt == "tracking") then tag = tag .. ta end
 		if tt == "buff" and spellID and fixEnchants[spellID] then tag = tag .. tostring(fixDups); fixDups = fixDups + 1 end -- allow duplicate enchants
@@ -1405,7 +1424,7 @@ local function CheckCooldownType(cd, bp)
 	local other, t, s = true, cd[5], cd[6]
 	if (t == "spell") or (t == "spell id") then
 		other = false; if bp.detectSpellCooldowns then return true end
-	elseif (t == "inventory") and ((s == "Trinket0Slot") or (s == "Trinket1Slot")) then
+	elseif (t == "inventory") and ((s == 13) or (s == 14)) then
 		other = false; if bp.detectTrinketCooldowns then return true end
 	elseif t == "internal" then
 		other = false; if bp.detectInternalCooldowns then return true end
@@ -1585,6 +1604,7 @@ local function UpdateBarGroupBars(bp, vbp, bg)
 								local isMine, isPet = (aura[6] == "player"), (aura[6] == "pet") -- enforce optional castBy restrictions
 								local mon = ((cb == "player") and isMine) or ((cb == "pet") and isPet) or ((cb == "other") and not isMine) or (cb == "anyone")
 								if mon and CheckTimeAndDuration(bp, aura[2], aura[5]) then
+									if aura[11] == "minion" and aura[7] then bar.barLabel = bar.barLabel .. MinionEnergy(aura[7]) end -- add wild imp energy
 									count = count + 1
 									if count > 1 then bar.barLabel = bar.barLabel .. " " end -- add space at end to make unique
 									bar.startReady = nil; bar.spellID = aura[14]
@@ -1594,12 +1614,14 @@ local function UpdateBarGroupBars(bp, vbp, bg)
 							end
 							bar.barLabel = saveLabel -- restore in case of multiple bar copies
 						end
-						if not found and bar.enableReady and (bar.readyNotUsable or IsUsableSpell(aname) or IsUsableItem(aname)) then -- see if need aura ready bar
-							if not bar.readyTime then bar.readyTime = 0 end
-							if bar.readyTime == 0 then bar.startReady = nil end
-							if not bar.startReady or ((GetTime() - bar.startReady) < bar.readyTime) then
-								if not bar.startReady then bar.startReady = GetTime() end
-								UpdateBar(bp, vbp, bg, bar, MOD:GetIcon(aname), 0, 0, nil, nil, "text", aname, nil, nil, nil)
+						if not found and bar.enableReady then -- see if need aura ready bar
+							if (bar.readyNotUsable or MOD:CheckSpellStatus(aname, true, true) or IsUsableItem(aname)) then -- check if really usable
+								if not bar.readyTime then bar.readyTime = 0 end
+								if bar.readyTime == 0 then bar.startReady = nil end
+								if not bar.startReady or ((GetTime() - bar.startReady) < bar.readyTime) then
+									if not bar.startReady then bar.startReady = GetTime() end
+									UpdateBar(bp, vbp, bg, bar, MOD:GetIcon(aname), 0, 0, nil, nil, "text", aname, nil, nil, nil)
+								end
 							end
 						end
 					elseif t == "Cooldown" then
@@ -1612,7 +1634,7 @@ local function UpdateBarGroupBars(bp, vbp, bg)
 								found = true
 							end
 						end
-						if not found and bar.enableReady and (bar.readyNotUsable or IsUsableSpell(aname) or IsUsableItem(aname)) then -- see if need cooldown ready bar
+						if not found and bar.enableReady and (bar.readyNotUsable or MOD:CheckSpellStatus(aname, true) or IsUsableItem(aname)) then -- see if need cooldown ready bar
 							if not bar.readyTime then bar.readyTime = 0 end
 							if bar.readyTime == 0 then bar.startReady = nil end
 							if not bar.startReady or ((GetTime() - bar.startReady) < bar.readyTime) then
@@ -1630,6 +1652,17 @@ local function UpdateBarGroupBars(bp, vbp, bg)
 							if not icon then icon = defaultNotificationIcon end
 							UpdateBar(bp, vbp, bg, bar, icon, 0, 0, nil, nil, "notification", bar.barLabel, bar.action, nil, true)
 						end
+					elseif t == "Value" then
+						local icon = MOD:GetIconForBar(bar)
+						if not icon then icon = defaultValueIcon end
+						bar.valueText = nil
+						local name = bar.valueSelect
+						if name then
+							local f = MOD:GetValueFunction(name)
+							local isUnit = MOD:IsUnitValue(name)
+							bar.value, bar.maxValue = f(isUnit and bar.monitor or nil)
+						end
+						UpdateBar(bp, vbp, bg, bar, icon, 0, 0, nil, nil, "value", bar.barLabel, bar.action, nil, true)
 					elseif t == "Broker" then
 						local db = MOD.knownBrokers[bar.action] -- check in the registered brokers table
 						if db then
@@ -1734,9 +1767,10 @@ function MOD:UpdateBars()
 	end
 
 	-- cache the icon for the player's tabard, if any, to support filtering tabard spells
-	local slotID = GetInventorySlotInfo("TabardSlot")
-	local itemID = GetInventoryItemID("player", slotID)
+	local itemID = GetInventoryItemID("player", INVSLOT_TABARD)
 	if itemID then tabardIcon = GetItemIcon(itemID) else tabardIcon = nil end
+	
+	table.wipe(frequentBars) -- clear the table of frequent bars, it will be rebuilt during update
 
 	for _, bp in pairs(MOD.db.profile.BarGroups) do -- iterate through the all bar groups
 		if IsOn(bp) then
@@ -1764,4 +1798,17 @@ function MOD:UpdateBars()
 		end
 	end
 	MOD:UpdatePositions()
+end
+
+-- Refresh any value bars tagged for frequent updates
+function MOD:RefreshBars()
+	for b, bar in pairs(frequentBars) do -- special table with value bars flagged in previous update
+		local name = b.valueSelect
+		if name then
+			local f = MOD:GetValueFunction(name)
+			local isUnit = MOD:IsUnitValue(name)
+			b.value, b.maxValue = f(isUnit and b.monitor or nil)
+			MOD.Nest_SetValue(bar, b.value, b.maxValue, nil, true, 0) -- used by broker and value bars
+		end
+	end
 end

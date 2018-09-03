@@ -420,18 +420,18 @@ AAP.BrutallCC.BrutallFrame.Frame:SetScript("OnMouseUp", function(self, button)
 	if button == "LeftButton" and AAP.BrutallCC.BrutallFrame.isMoving then
 		AAP.BrutallCC.BrutallFrame:StopMovingOrSizing();
 		AAP.BrutallCC.BrutallFrame.isMoving = false;
-		AAP1[AAP_Realm][AAP_Name]["Settings"]["Brutallleft"] = AAP.BrutallCC.BrutallFrame:GetLeft()
-		AAP1[AAP_Realm][AAP_Name]["Settings"]["Brutalltop"] = AAP.BrutallCC.BrutallFrame:GetTop() - GetScreenHeight()
-		AAP.BrutallCC.BrutallFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT",AAP1[AAP_Realm][AAP_Name]["Settings"]["Brutallleft"],AAP1[AAP_Realm][AAP_Name]["Settings"]["Brutalltop"])
+		AAP1[AAP.Realm][AAP.Name]["Settings"]["Brutallleft"] = AAP.BrutallCC.BrutallFrame:GetLeft()
+		AAP1[AAP.Realm][AAP.Name]["Settings"]["Brutalltop"] = AAP.BrutallCC.BrutallFrame:GetTop() - GetScreenHeight()
+		AAP.BrutallCC.BrutallFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT",AAP1[AAP.Realm][AAP.Name]["Settings"]["Brutallleft"],AAP1[AAP.Realm][AAP.Name]["Settings"]["Brutalltop"])
 	end
 end)
 AAP.BrutallCC.BrutallFrame.Frame:SetScript("OnHide", function(self)
 	if ( AAP.BrutallCC.BrutallFrame.isMoving ) then
 		AAP.BrutallCC.BrutallFrame:StopMovingOrSizing();
 		AAP.BrutallCC.BrutallFrame.isMoving = false;
-		AAP1[AAP_Realm][AAP_Name]["Settings"]["Brutallleft"] = AAP.BrutallCC.BrutallFrame:GetLeft()
-		AAP1[AAP_Realm][AAP_Name]["Settings"]["Brutalltop"] = AAP.BrutallCC.BrutallFrame:GetTop() - GetScreenHeight()
-		AAP.BrutallCC.BrutallFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT",AAP1[AAP_Realm][AAP_Name]["Settings"]["Brutallleft"],AAP1[AAP_Realm][AAP_Name]["Settings"]["Brutalltop"])
+		AAP1[AAP.Realm][AAP.Name]["Settings"]["Brutallleft"] = AAP.BrutallCC.BrutallFrame:GetLeft()
+		AAP1[AAP.Realm][AAP.Name]["Settings"]["Brutalltop"] = AAP.BrutallCC.BrutallFrame:GetTop() - GetScreenHeight()
+		AAP.BrutallCC.BrutallFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT",AAP1[AAP.Realm][AAP.Name]["Settings"]["Brutallleft"],AAP1[AAP.Realm][AAP.Name]["Settings"]["Brutalltop"])
 	end
 end)
 AAP.BrutallCC.BrutallFrame.FS1 = AAP.BrutallCC.BrutallFrame.Frame:CreateFontString("AAPBrutallsFS1","ARTWORK", "ChatFontNormal")
@@ -484,18 +484,18 @@ AAP.BrutallCC.BrutallFrame.FrameName:SetScript("OnMouseUp", function(self, butto
 	if button == "LeftButton" and AAP.BrutallCC.BrutallFrame.isMoving then
 		AAP.BrutallCC.BrutallFrame:StopMovingOrSizing();
 		AAP.BrutallCC.BrutallFrame.isMoving = false;
-		AAP1[AAP_Realm][AAP_Name]["Settings"]["Brutallleft"] = AAP.BrutallCC.BrutallFrame:GetLeft()
-		AAP1[AAP_Realm][AAP_Name]["Settings"]["Brutalltop"] = AAP.BrutallCC.BrutallFrame:GetTop() - GetScreenHeight()
-		AAP.BrutallCC.BrutallFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT",AAP1[AAP_Realm][AAP_Name]["Settings"]["Brutallleft"],AAP1[AAP_Realm][AAP_Name]["Settings"]["Brutalltop"])
+		AAP1[AAP.Realm][AAP.Name]["Settings"]["Brutallleft"] = AAP.BrutallCC.BrutallFrame:GetLeft()
+		AAP1[AAP.Realm][AAP.Name]["Settings"]["Brutalltop"] = AAP.BrutallCC.BrutallFrame:GetTop() - GetScreenHeight()
+		AAP.BrutallCC.BrutallFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT",AAP1[AAP.Realm][AAP.Name]["Settings"]["Brutallleft"],AAP1[AAP.Realm][AAP.Name]["Settings"]["Brutalltop"])
 	end
 end)
 AAP.BrutallCC.BrutallFrame.FrameName:SetScript("OnHide", function(self)
 	if ( AAP.BrutallCC.BrutallFrame.isMoving ) then
 		AAP.BrutallCC.BrutallFrame:StopMovingOrSizing();
 		AAP.BrutallCC.BrutallFrame.isMoving = false;
-		AAP1[AAP_Realm][AAP_Name]["Settings"]["Brutallleft"] = AAP.BrutallCC.BrutallFrame:GetLeft()
-		AAP1[AAP_Realm][AAP_Name]["Settings"]["Brutalltop"] = AAP.BrutallCC.BrutallFrame:GetTop() - GetScreenHeight()
-		AAP.BrutallCC.BrutallFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT",AAP1[AAP_Realm][AAP_Name]["Settings"]["Brutallleft"],AAP1[AAP_Realm][AAP_Name]["Settings"]["Brutalltop"])
+		AAP1[AAP.Realm][AAP.Name]["Settings"]["Brutallleft"] = AAP.BrutallCC.BrutallFrame:GetLeft()
+		AAP1[AAP.Realm][AAP.Name]["Settings"]["Brutalltop"] = AAP.BrutallCC.BrutallFrame:GetTop() - GetScreenHeight()
+		AAP.BrutallCC.BrutallFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT",AAP1[AAP.Realm][AAP.Name]["Settings"]["Brutallleft"],AAP1[AAP.Realm][AAP.Name]["Settings"]["Brutalltop"])
 	end
 end)
 AAP.BrutallCC.BrutallFrame.FS4 = AAP.BrutallCC.BrutallFrame.Frame:CreateFontString("AAPBrutallsFS4","ARTWORK", "ChatFontNormal")
@@ -554,13 +554,13 @@ AAP.BrutallCC.BrutallEvents:SetScript("OnEvent", function(self, event, ...)
 					end
 				end
 			end)
-	if (not AAP1[AAP_Realm][AAP_Name]["Settings"]["Brutallleft"]) then
-		AAP1[AAP_Realm][AAP_Name]["Settings"]["Brutallleft"] = GetScreenWidth() / 2.8
+	if (not AAP1[AAP.Realm][AAP.Name]["Settings"]["Brutallleft"]) then
+		AAP1[AAP.Realm][AAP.Name]["Settings"]["Brutallleft"] = GetScreenWidth() / 2.8
 	end
-	if (not AAP1[AAP_Realm][AAP_Name]["Settings"]["Brutalltop"]) then
-		AAP1[AAP_Realm][AAP_Name]["Settings"]["Brutalltop"] = -(GetScreenHeight() / 3)
+	if (not AAP1[AAP.Realm][AAP.Name]["Settings"]["Brutalltop"]) then
+		AAP1[AAP.Realm][AAP.Name]["Settings"]["Brutalltop"] = -(GetScreenHeight() / 3)
 	end
-	AAP.BrutallCC.BrutallFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT",AAP1[AAP_Realm][AAP_Name]["Settings"]["Brutallleft"],AAP1[AAP_Realm][AAP_Name]["Settings"]["Brutalltop"])
+	AAP.BrutallCC.BrutallFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT",AAP1[AAP.Realm][AAP.Name]["Settings"]["Brutallleft"],AAP1[AAP.Realm][AAP.Name]["Settings"]["Brutalltop"])
 
 			AAP_BrutallTimer1:Play()
 		end

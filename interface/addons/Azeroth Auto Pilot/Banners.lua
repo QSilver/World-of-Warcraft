@@ -53,18 +53,18 @@ function AAP_MakeBanners()
 		if button == "LeftButton" and AAP.Banners.BannersFrame.isMoving then
 			AAP.Banners.BannersFrame:StopMovingOrSizing();
 			AAP.Banners.BannersFrame.isMoving = false;
-			AAP1[AAP_Realm][AAP_Name]["Settings"]["Bannersleft"] = AAP.Banners.BannersFrame:GetLeft()
-			AAP1[AAP_Realm][AAP_Name]["Settings"]["Bannerstop"] = AAP.Banners.BannersFrame:GetTop() - GetScreenHeight()
-			AAP.Banners.BannersFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT",AAP1[AAP_Realm][AAP_Name]["Settings"]["Bannersleft"],AAP1[AAP_Realm][AAP_Name]["Settings"]["Bannerstop"])
+			AAP1[AAP.Realm][AAP.Name]["Settings"]["Bannersleft"] = AAP.Banners.BannersFrame:GetLeft()
+			AAP1[AAP.Realm][AAP.Name]["Settings"]["Bannerstop"] = AAP.Banners.BannersFrame:GetTop() - GetScreenHeight()
+			AAP.Banners.BannersFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT",AAP1[AAP.Realm][AAP.Name]["Settings"]["Bannersleft"],AAP1[AAP.Realm][AAP.Name]["Settings"]["Bannerstop"])
 		end
 	end)
 	AAP.Banners.BannersFrame.Frame:SetScript("OnHide", function(self)
 		if ( AAP.Banners.BannersFrame.isMoving ) then
 			AAP.Banners.BannersFrame:StopMovingOrSizing();
 			AAP.Banners.BannersFrame.isMoving = false;
-			AAP1[AAP_Realm][AAP_Name]["Settings"]["Bannersleft"] = AAP.Banners.BannersFrame:GetLeft()
-			AAP1[AAP_Realm][AAP_Name]["Settings"]["Bannerstop"] = AAP.Banners.BannersFrame:GetTop() - GetScreenHeight()
-			AAP.Banners.BannersFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT",AAP1[AAP_Realm][AAP_Name]["Settings"]["Bannersleft"],AAP1[AAP_Realm][AAP_Name]["Settings"]["Bannerstop"])
+			AAP1[AAP.Realm][AAP.Name]["Settings"]["Bannersleft"] = AAP.Banners.BannersFrame:GetLeft()
+			AAP1[AAP.Realm][AAP.Name]["Settings"]["Bannerstop"] = AAP.Banners.BannersFrame:GetTop() - GetScreenHeight()
+			AAP.Banners.BannersFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT",AAP1[AAP.Realm][AAP.Name]["Settings"]["Bannersleft"],AAP1[AAP.Realm][AAP.Name]["Settings"]["Bannerstop"])
 		end
 	end)
 
@@ -199,18 +199,18 @@ function AAP_MakeBanners()
 			if button == "LeftButton" and AAP.Banners.BannersFrame.isMoving then
 				AAP.Banners.BannersFrame:StopMovingOrSizing();
 				AAP.Banners.BannersFrame.isMoving = false;
-				AAP1[AAP_Realm][AAP_Name]["Settings"]["Bannersleft"] = AAP.Banners.BannersFrame:GetLeft()
-				AAP1[AAP_Realm][AAP_Name]["Settings"]["Bannerstop"] = AAP.Banners.BannersFrame:GetTop() - GetScreenHeight()
-				AAP.Banners.BannersFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT",AAP1[AAP_Realm][AAP_Name]["Settings"]["Bannersleft"],AAP1[AAP_Realm][AAP_Name]["Settings"]["Bannerstop"])
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["Bannersleft"] = AAP.Banners.BannersFrame:GetLeft()
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["Bannerstop"] = AAP.Banners.BannersFrame:GetTop() - GetScreenHeight()
+				AAP.Banners.BannersFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT",AAP1[AAP.Realm][AAP.Name]["Settings"]["Bannersleft"],AAP1[AAP.Realm][AAP.Name]["Settings"]["Bannerstop"])
 			end
 		end)
 		AAP.Banners.BannersFrame["Frame"..CLi]:SetScript("OnHide", function(self)
 			if ( AAP.Banners.BannersFrame.isMoving ) then
 				AAP.Banners.BannersFrame:StopMovingOrSizing();
 				AAP.Banners.BannersFrame.isMoving = false;
-				AAP1[AAP_Realm][AAP_Name]["Settings"]["Bannersleft"] = AAP.Banners.BannersFrame:GetLeft()
-				AAP1[AAP_Realm][AAP_Name]["Settings"]["Bannerstop"] = AAP.Banners.BannersFrame:GetTop() - GetScreenHeight()
-				AAP.Banners.BannersFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT",AAP1[AAP_Realm][AAP_Name]["Settings"]["Bannersleft"],AAP1[AAP_Realm][AAP_Name]["Settings"]["Bannerstop"])
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["Bannersleft"] = AAP.Banners.BannersFrame:GetLeft()
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["Bannerstop"] = AAP.Banners.BannersFrame:GetTop() - GetScreenHeight()
+				AAP.Banners.BannersFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT",AAP1[AAP.Realm][AAP.Name]["Settings"]["Bannersleft"],AAP1[AAP.Realm][AAP.Name]["Settings"]["Bannerstop"])
 			end
 		end)
 		AAP.Banners.BannersFrame["FrameFS1"..CLi] = AAP.Banners.BannersFrame.Frame:CreateFontString("BannerAAPFS1"..CLi,"ARTWORK", "ChatFontNormal")
@@ -588,13 +588,13 @@ AAP.Banners.BannersEvents:SetScript("OnEvent", function(self, event, ...)
 		local arg1, arg2, arg3, arg4, arg5 = ...;
 		if (arg1 == "Azeroth Auto Pilot") then
 			AAP_RegisterChatBanner = C_ChatInfo.RegisterAddonMessagePrefix("AAPChatBanner")
-			if (not AAP1[AAP_Realm][AAP_Name]["Settings"]["Bannersleft"]) then
-				AAP1[AAP_Realm][AAP_Name]["Settings"]["Bannersleft"] = GetScreenWidth() / 1.6
+			if (not AAP1[AAP.Realm][AAP.Name]["Settings"]["Bannersleft"]) then
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["Bannersleft"] = GetScreenWidth() / 1.6
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["Settings"]["Bannerstop"]) then
-				AAP1[AAP_Realm][AAP_Name]["Settings"]["Bannerstop"] = -(GetScreenHeight() / 5)
+			if (not AAP1[AAP.Realm][AAP.Name]["Settings"]["Bannerstop"]) then
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["Bannerstop"] = -(GetScreenHeight() / 5)
 			end
-			AAP.Banners.BannersFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT",AAP1[AAP_Realm][AAP_Name]["Settings"]["Bannersleft"],AAP1[AAP_Realm][AAP_Name]["Settings"]["Bannerstop"])
+			AAP.Banners.BannersFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT",AAP1[AAP.Realm][AAP.Name]["Settings"]["Bannersleft"],AAP1[AAP.Realm][AAP.Name]["Settings"]["Bannerstop"])
 			AAP_BannerSetCD()
 			AAP_BannerCountDTimer = AAP.Banners.BannersEvents:CreateAnimationGroup()
 			AAP_BannerCountDTimer.anim = AAP_BannerCountDTimer:CreateAnimation()
@@ -612,7 +612,7 @@ AAP.Banners.BannersEvents:SetScript("OnEvent", function(self, event, ...)
 				AAP_BannerRange()
 			end)
 			AAP_BannerUpdRangeTimer:Play()
-			if (AAP1[AAP_Realm][AAP_Name]["Settings"]["BannerShow"] == 1) then
+			if (AAP1[AAP.Realm][AAP.Name]["Settings"]["BannerShow"] == 1) then
 				if (not InCombatLockdown()) then
 					AAP.Banners.BannersFrame.Frame:Show()
 				end
@@ -623,9 +623,9 @@ AAP.Banners.BannersEvents:SetScript("OnEvent", function(self, event, ...)
 			end
 		end
 	end
-	if (event=="CHAT_MSG_ADDON" and AAP_DisableAddon == 0 and AAP1[AAP_Realm][AAP_Name]["Settings"]["BannerShow"] == 1 and IsInInstance() == false) then
+	if (event=="CHAT_MSG_ADDON" and AAP_DisableAddon == 0 and AAP1[AAP.Realm][AAP.Name]["Settings"]["BannerShow"] == 1 and IsInInstance() == false) then
 		local arg1, arg2, arg3, arg4 = ...;
-		if (arg1 == "AAPChatBanner" and AAP_TrimPlayerServer(arg4) ~= AAP_Name) then
+		if (arg1 == "AAPChatBanner" and AAP.TrimPlayerServer(arg4) ~= AAP.Name) then
 			local _, _, DCL_First, DCL_X, DCL_Y = string.find(arg2, "(.*)Z(.*)Z(.*)")
 			arg2 = tonumber(DCL_First)
 			if (AAP.Banners.Group[arg4]) then

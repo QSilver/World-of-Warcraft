@@ -1,16 +1,20 @@
-# [2.7.2](https://github.com/WeakAuras/WeakAuras2/tree/2.7.2) (2018-08-13)
+# [2.7.5](https://github.com/WeakAuras/WeakAuras2/tree/2.7.5) (2018-08-29)
 
-[Full Changelog](https://github.com/WeakAuras/WeakAuras2/compare/2.7.1...2.7.2)
+[Full Changelog](https://github.com/WeakAuras/WeakAuras2/compare/2.7.4...2.7.5)
+
+Allen Faure (1):
+
+- block xpcall as well as pcall
+
+Causese (1):
+
+- adds worlddrop trinkets to templates
 
 Infus (5):
 
-- Don't run the tsu trigger function to decide CanHaveTooltip
-- Fix fallback code for disabled region plugins
-- Fix Conditions being unable to set width/height
-- Fix for masque skinning of buttons not in a group
-- Fix framelevel of first aura in a group
-
-Zinoh (1):
-
-- Let Masque Skin the Glow (#645)
+- Add default values to Condition properties and fix a few nil errors
+- Overlays: Only use up to 7 drawlayers for overlays
+- Fix Cooldown Ready trigger
+- Unit Characteristics: Fix UnitIsUnit condition
+- Tweak Spell widget a bit more
 

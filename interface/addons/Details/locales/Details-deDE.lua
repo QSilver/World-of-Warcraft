@@ -510,10 +510,8 @@ L["STRING_OPTIONS_BG_ALL_ALLY_DESC"] = [=[Aktiviert: Zeigt auch gegnerische Spie
 
 |cFFFFFF00Wichtig|r: Änderungen werden erst beim nächsten Kampf übernommen.]=]
 L["STRING_OPTIONS_BG_ANCHOR"] = "Schlachtfelder:"
---[[Translation missing --]]
---[[ L["STRING_OPTIONS_BG_UNIQUE_SEGMENT"] = ""--]] 
---[[Translation missing --]]
---[[ L["STRING_OPTIONS_BG_UNIQUE_SEGMENT_DESC"] = ""--]] 
+L["STRING_OPTIONS_BG_UNIQUE_SEGMENT"] = "Einzigartiges Segment"
+L["STRING_OPTIONS_BG_UNIQUE_SEGMENT_DESC"] = "Ein Segment wird beim Start eines Schlachtfeldes erstellt und besteht bis das Schlachtfeld endet."
 L["STRING_OPTIONS_CAURAS"] = "Auren erfassen"
 L["STRING_OPTIONS_CAURAS_DESC"] = [=[Aktiviert die Erfassung von:
 
@@ -655,7 +653,7 @@ L["STRING_OPTIONS_DEATHLIMIT_DESC"] = [=[Stelle die Anzahl an Ereignissen für d
 
 |cFFFFFF00Wichtig|r: Wird nach der Änderung nur auf neue Tode angewendet.]=]
 L["STRING_OPTIONS_DEATHLOG_MINHEALING"] = "Mindestheilung für Todesprotokoll"
-L["STRING_OPTIONS_DEATHLOG_MINHEALING_DESC"] = "|cFFFFFF00Tip|r: Rechtsklicken um einen manuellen Wert einzugeben."
+L["STRING_OPTIONS_DEATHLOG_MINHEALING_DESC"] = "|cFFFFFF00Tip|r: Rechtsklicken, um einen manuellen Wert einzugeben."
 L["STRING_OPTIONS_DESATURATE_MENU"] = "Entfärbt"
 L["STRING_OPTIONS_DESATURATE_MENU_DESC"] = "Aktiviert: Alle Symbole der Werkzeugleiste werden schwarz-weiß."
 L["STRING_OPTIONS_DISABLE_ALLDISPLAYSWINDOW"] = "Das Menü 'Alle Anzeigen' deaktivieren"

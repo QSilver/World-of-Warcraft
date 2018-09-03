@@ -178,7 +178,9 @@ function NPCScan:OnEnable()
 			end
 
 			if npc.vignetteID then
-				VignetteIDToNPCMapping[npc.vignetteID] = npc
+				VignetteIDToNPCMapping[npc.vignetteID] = VignetteIDToNPCMapping[npc.vignetteID] or {}
+
+				table.insert(VignetteIDToNPCMapping[npc.vignetteID], npc)
 			end
 		end
 	end
@@ -196,7 +198,7 @@ function NPCScan:OnEnable()
 					if not mapHeaderPrinted then
 						mapHeaderPrinted = true
 						private.Debug("-- ----------------------------------------------------------------------------")
-						private.Debug("-- %s (%d)", HereBeDragons:GetLocalizedMap(mapID), mapID)
+						private.Debug("-- %s (%d)", HereBeDragons:GetLocalizedMap(mapID) or _G.UNKNOWN, mapID)
 						private.Debug("-- ----------------------------------------------------------------------------")
 					end
 

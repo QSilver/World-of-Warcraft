@@ -2009,25 +2009,32 @@ end
 function DF:ShowPromptPanel (message, func_true, func_false)
 	
 	if (not DF.prompt_panel) then
-		local f = CreateFrame ("frame", "DetailsFrameworkPrompt", UIParent) 
-		f:SetSize (400, 65)
+		local f = CreateFrame ("frame", "DetailsFrameworkPromptSimple", UIParent) 
+		f:SetSize (400, 80)
 		f:SetFrameStrata ("DIALOG")
 		f:SetPoint ("center", UIParent, "center", 0, 300)
 		f:SetBackdrop ({edgeFile = [[Interface\Buttons\WHITE8X8]], edgeSize = 1, bgFile = [[Interface\Tooltips\UI-Tooltip-Background]], tileSize = 64, tile = true})
 		f:SetBackdropColor (0, 0, 0, 0.8)
 		f:SetBackdropBorderColor (0, 0, 0, 1)
+		tinsert (UISpecialFrames, "DetailsFrameworkPromptSimple")
+		
+		DF:CreateTitleBar (f, "Prompt!")
+		DF:ApplyStandardBackdrop (f)
 		
 		local prompt = f:CreateFontString (nil, "overlay", "GameFontNormal")
-		prompt:SetPoint ("top", f, "top", 0, -15)
+		prompt:SetPoint ("top", f, "top", 0, -28)
 		prompt:SetJustifyH ("center")
 		f.prompt = prompt
 		
-		local button_true = DF:CreateButton (f, nil, 60, 20, "Yes")
-		button_true:SetPoint ("bottomleft", f, "bottomleft", 5, 5)
+		local button_text_template = DF:GetTemplate ("font", "OPTIONS_FONT_TEMPLATE")
+		local options_dropdown_template = DF:GetTemplate ("dropdown", "OPTIONS_DROPDOWN_TEMPLATE")
+		
+		local button_true = DF:CreateButton (f, nil, 60, 20, "Yes", nil, nil, nil, nil, nil, nil, options_dropdown_template)
+		button_true:SetPoint ("bottomright", f, "bottomright", -5, 5)
 		f.button_true = button_true
-
-		local button_false = DF:CreateButton (f, nil, 60, 20, "No")
-		button_false:SetPoint ("bottomright", f, "bottomright", -5, 5)
+		
+		local button_false = DF:CreateButton (f, nil, 60, 20, "No", nil, nil, nil, nil, nil, nil, options_dropdown_template)
+		button_false:SetPoint ("bottomleft", f, "bottomleft", 5, 5)
 		f.button_false = button_false
 		
 		button_true:SetClickFunction (function()
@@ -4798,19 +4805,25 @@ DF.IconRowFunctions = {
 		local iconFrame = self.IconPool [self.NextIcon]
 		
 		if (not iconFrame) then
-			local newIconFrame = CreateFrame ("cooldown", "$parentIconCooldown" .. self.NextIcon, self, "CooldownFrameTemplate")
+			local newIconFrame = CreateFrame ("frame", "$parentIcon" .. self.NextIcon, self)
 			newIconFrame:SetSize (self.options.icon_width, self.options.icon_height)
 			
 			newIconFrame.Texture = newIconFrame:CreateTexture (nil, "background")
 			newIconFrame.Texture:SetAllPoints()
 			
-			newIconFrame.Text = newIconFrame:CreateFontString (nil, "overlay", "GameFontNormal")
-			newIconFrame.Text:SetPoint ("center")
-			newIconFrame.Text:Hide()
-			
 			newIconFrame:SetBackdrop ({edgeFile = [[Interface\Buttons\WHITE8X8]], edgeSize = 1})
 			newIconFrame:SetBackdropBorderColor (0, 0, 0, 0)
 			newIconFrame:EnableMouse (false)
+			
+			local cooldownFrame = CreateFrame ("cooldown", "$parentIconCooldown" .. self.NextIcon, self, "CooldownFrameTemplate")
+			cooldownFrame:SetAllPoints()
+			cooldownFrame:EnableMouse (false)
+			
+			newIconFrame.Text = cooldownFrame:CreateFontString (nil, "overlay", "GameFontNormal")
+			newIconFrame.Text:SetPoint ("center")
+			newIconFrame.Text:Hide()
+			
+			newIconFrame.Cooldown = cooldownFrame
 			
 			self.IconPool [self.NextIcon] = newIconFrame
 			iconFrame = newIconFrame
@@ -4845,8 +4858,15 @@ DF.IconRowFunctions = {
 		return iconFrame
 	end,
 	
-	SetIcon = function (self, spellId, borderColor, startTime, duration)
-		local spellName, _, spellIcon = GetSpellInfo (spellId)
+	SetIcon = function (self, spellId, borderColor, startTime, duration, forceTexture)
+	
+		local spellName, _, spellIcon
+	
+		if (not forceTexture) then
+			spellName, _, spellIcon = GetSpellInfo (spellId)
+		else
+			spellIcon = forceTexture
+		end
 		
 		if (spellIcon) then
 			local iconFrame = self:GetIcon()
@@ -4857,10 +4877,10 @@ DF.IconRowFunctions = {
 				iconFrame:SetBackdropBorderColor (Plater:ParseColors (borderColor))
 			else
 				iconFrame:SetBackdropBorderColor (0, 0, 0 ,0)
-			end			
+			end	
 
 			if (startTime) then
-				CooldownFrame_Set (iconFrame, startTime, duration, true, true)
+				CooldownFrame_Set (iconFrame.Cooldown, startTime, duration, true, true)
 				
 				if (self.options.show_text) then
 					iconFrame.Text:Show()

@@ -7,7 +7,7 @@
 --------------------------------------------------------------------------------
 KuiNameplates = CreateFrame('Frame')
 local addon = KuiNameplates
-addon.MAJOR,addon.MINOR = 2,2
+addon.MAJOR,addon.MINOR = 2,3
 
 --[===[@debug@
 addon.debug = true
@@ -51,7 +51,7 @@ function addon:print(...)
     print('KNP2','|cff666666'..GetTime()..'|r',...)
 end
 function addon:ui_print(...)
-    print('|cff9966ffKui Nameplates|r',...)
+    print('|cffbb99ffKui Nameplates|r',...)
 end
 function addon:Frames()
     return ipairs(framelist)
@@ -123,10 +123,6 @@ local function OnEvent(self,event,...)
         return
     end
 
-    --[===[@alpha@
-    self:ui_print('You are using an alpha release and may see debug messages in chat.')
-    --@end-alpha@]===]
-
     if not self.layout then
         -- throw missing layout
         self:ui_print('A compatible layout was not loaded.')
@@ -144,7 +140,10 @@ local function OnEvent(self,event,...)
                 plugin:Initialise()
             end
 
-            plugin:Enable()
+            if plugin.enable_on_load then
+                -- enable on load if requested
+                plugin:Enable()
+            end
         end
     end
 

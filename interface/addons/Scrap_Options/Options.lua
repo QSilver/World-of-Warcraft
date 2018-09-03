@@ -17,10 +17,12 @@ This file is part of Scrap.
 
 local NoVisuals = not Scrap.HasSpotlight
 local HasPawn = IsAddOnLoaded('Pawn_Scrap')
-local Options = SushiMagicGroup(ScrapOptions)
+local Patrons = {{title='Jenkins', people={'Robert Schultz'}},{},{title='Ambassador', people={'Fernando Bandeira','Gnare','Julia Frizzell','Michael Irving','Peter Palma'}}} -- generated patron list
 
+local Options = SushiMagicGroup(ScrapOptions)
 Options:SetAddon('Scrap')
 Options:SetFooter('Copyright 2008-2018 João Cardoso')
+Options:SetTitle(ScrapOptions.name)
 Options:SetChildren(function(self)
 	self:CreateHeader('Behaviour', 'GameFontHighlight', true)
 	self:Create('CheckButton', 'AutoSell')
@@ -28,16 +30,16 @@ Options:SetChildren(function(self)
 	self:Create('CheckButton', 'GuildRepair', nil, not Scrap_AutoRepair, true)
 	self:Create('CheckButton', 'SafeMode', 'Safe')
 	self:Create('CheckButton', 'Learn')
-	
+
 	self:CreateHeader('Filters', 'GameFontHighlight', true)
 	self:Create('CheckButton', 'Unusable')
 	self:Create('CheckButton', 'LowEquip', nil, HasPawn)
 	self:Create('CheckButton', 'LowConsume')
-	
+
 	self:CreateHeader('Visuals', NoVisuals and 'GameFontNormalLeftGrey' or 'GameFontHighlight', true)
 	self:Create('CheckButton', 'Glow', nil, NoVisuals)
 	self:Create('CheckButton', 'Icons', nil, NoVisuals)
-	
+
 	Scrap:SettingsUpdated()
 end)
 
@@ -50,3 +52,18 @@ Share:SetCall('OnInput', function(self, v)
 	Scrap_ShareList = not v
 	Scrap:SettingsUpdated()
 end)
+
+local Credits = SushiCreditsGroup:CreateOptionsCategory(Options:GetTitle())
+Credits:SetFooter('Copyright 2008-2018 João Cardoso')
+Credits:SetWebsite('http://www.patreon.com/jaliborc')
+Credits:SetPeople(Patrons)
+Credits:SetAddon('Scrap')
+
+function ScrapOptions.default()
+	Scrap_AutoSell, Scrap_AutoRepair, Scrap_GuildRepair, Scrap_Safe, Scrap_Learn, Scrap_Glow, Scrap_Icons = nil
+	Scrap_LowEquip, Scrap_LowConsume, Scrap_Unusable, Scrap_ShareList = nil
+
+	Scrap:ResetTutorials()
+	Share:SetChecked(true)
+	Options:Update()
+end

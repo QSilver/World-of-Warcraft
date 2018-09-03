@@ -17,8 +17,6 @@
 -- Raven:UnitHasBuff(unit, type) returns true and table with detailed info if unit has an active buff of the specified type (e.g., "Mainhand")
 -- Raven:UnitHasDebuff(unit, type) returns true and table with detailed info if unit has an active debuff of the specified type (e.g., "Poison")
 
--- Changes for "Battle for Azertoth" are flagged with xxBfAxx except for the numerous changes related to UnitAura
-
 Raven = LibStub("AceAddon-3.0"):NewAddon("Raven", "AceConsole-3.0", "AceEvent-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("Raven")
 local media = LibStub("LibSharedMedia-3.0")
@@ -49,6 +47,11 @@ MOD.updateActions = true -- action bar changed
 MOD.updateDispels = true -- need to update dispel types
 MOD.knownBrokers = {} -- table of registered data brokers
 MOD.brokerList = {} -- table of brokers suitable for a selection list
+MOD.cooldownSpells = {} -- table of spell ids that have a cooldown to track, updated when spellbook changes
+MOD.chargeSpells = {} -- table of spell ids with max charges
+MOD.petSpells = {} -- table of pet spell ids with a cooldown to track
+MOD.professionSpells = {} -- table of profession spell ids with a cooldown to track
+MOD.bookSpells = {} -- table of spells currently available in the spell book
 
 local doUpdate = true -- set by any event that can change bars (used to throttle major updates)
 local forceUpdate = false -- set to cause immediate update (reserved for critical changes like to player's target or focus)
@@ -102,13 +105,13 @@ local petGUID = nil -- cache pet GUID so can properly remove trackers for them w
 local enteredWorld = nil -- set by PLAYER_ENTERING_WORLD event
 local trackerTag = 0 -- used for mark/sweep in AddTrackers
 local professions = {} -- temporary table for profession indices
-local knownSpells = {} -- table used to detect spells that are temporarily not in spellbook (e.g., Stormstrike during Ascendance)
-local foundSpells = {} -- temporary table for checking known spells
 local summonedCreatures = {} -- table of guids to expire time pairs used for tracking warlock creatures so they despawn properly
-local soulEffigy = nil -- set to guid of warlock's soul effigy to handle special case when it despawns early
-local ignoreGUID = nil -- set when need to start ignoring trackers from a unit that we know is no longer valid (e.g., soul effigy)
+local minionTypes = {} -- temporary table for sorting minions by type
+local minionCounts = {} -- temporary table for counting minions by type
 local activeBrokers = {} -- table of brokers that trigger update events
 local hidingRunes = false -- used to prevent trying to show runes if didn't hide them
+local bagCooldowns = {} -- table containing all the bag items with cooldowns
+local inventoryCooldowns = {} -- table containing all the inventory items with cooldowns
 
 -- UnitAura no longer works with spell names in xxBfAxx so this function searches for them by scanning
 -- While not the most efficient way to do this, it is generally used with a filter that should limit the depth of the search
@@ -162,7 +165,7 @@ local function TriggerActionsUpdate() MOD.updateActions = true; doUpdate = true 
 function MOD:ForceUpdate() doUpdate = true; forceUpdate = true end
 
 -- Event called when the player changes talents or specialization
-local function CheckTalentSpecialization() talentsInitialized = false; unitUpdate.player = true; table.wipe(knownSpells); doUpdate = true end
+local function CheckTalentSpecialization() talentsInitialized = false; unitUpdate.player = true; doUpdate = true end
 
 -- Function called to detect global cooldowns
 local function CheckGCD(event, unit, spell)
@@ -258,7 +261,7 @@ end
 -- Add trackers for a unit
 function MOD:AddTrackers(unit)
 	local dstGUID, dstName = UnitGUID(unit), UnitName(unit)
-	if dstGUID and dstName and not refreshUnits[dstGUID] and (dstGUID ~= ignoreGUID) then
+	if dstGUID and dstName and not refreshUnits[dstGUID] then
 		refreshUnits[dstGUID] = true
 		local name, icon, count, btype, duration, expire, caster, isStealable, _, spellID, boss, apply
 		trackerTag = trackerTag + 1 -- unique tag for this pass
@@ -328,25 +331,68 @@ local function GetUnitIDFromGUID(guid)
 	return uid
 end
 
+-- Parse a guid into fields and return them in a table
+local parseTable = {}
+local function ParseGUID(guid)
+	table.wipe(parseTable) --  reused this since never nest calls to the function
+	local start = 1
+	local s = guid .. "-"
+	local length = string.len(s)
+	repeat
+		local nextdash = string.find(s, "-", start)
+		table.insert(parseTable, string.sub(s, start, nextdash - 1))
+		start = nextdash + 1
+	until start > length
+	return parseTable
+end
+
 -- Function called for combat log events to track hots and dots
+local eventKill = { UNIT_DIED = true, UNIT_DESTROYED = true, UNIT_DISSIPATES = true, PARTY_KILL = true, SPELL_INSTAKILL = true, }
+local eventAura = { SPELL_AURA_APPLIED = true, SPELL_AURA_APPLIED_DOSE = true, SPELL_AURA_REMOVED_DOSE = true, SPELL_AURA_REFRESH = true, }
+local eventInternal = { SPELL_AURA_APPLIED = true, SPELL_AURA_APPLIED_DOSE = true, SPELL_AURA_REFRESH = true, SPELL_ENERGIZE = true, SPELL_HEAL = true, }
 local function CombatLogTracker() -- xxBFAxx no longer passes in arguments with the event
 	timeStamp, e, hc, srcGUID, srcName, sf1, sf2, dstGUID, dstName, df1, df2, spellID, spellName, spellSchool, auraType, amount = CombatLogGetCurrentEventInfo()
+
 	if bit.band(sf1, COMBATLOG_OBJECT_AFFILIATION_MASK) == COMBATLOG_OBJECT_AFFILIATION_MINE then -- make sure event controlled by the player
 		-- MOD.Debug(e, srcGUID, srcName, sf1, sf2, dstGUID, dstName, df1, df2, spellID, spellName, spellSchool, auraType, tostring(amount)) -- display all events
 		doUpdate = true
 		now = GetTime()
-		if e == "SPELL_CAST_SUCCESS" then -- check for special cases
-			if spellID == 33763 then e = "SPELL_AURA_APPLIED"; auraType = "BUFF" end -- Lifebloom refreshes don't always generate aura applied events
-			if spellID == 980 then -- Agony refresh does not always generate aura refresh event, even if debuff just expired
-				local t = CheckTrackers(false, dstGUID, spellName, spellID)
-				if t then
-					t[10] = now + t[5] -- extend the time on current tracker (preserves the dose amount)
-				else
-					e = "SPELL_AURA_REFRESH" -- event not generated automatically by Agony
+		if e == "SPELL_CAST_SUCCESS" or e == "SPELL_CAST_FAILURE" then -- check for special cases involving spell casts
+			if spellID == 104318 then
+				local tyrant = false
+				for guid, gt in pairs(summonedCreatures) do if gt.spell == 265187 then tyrant = true end end
+				if not tyrant then -- if tyrant is not active then all imps reduce their energy by 1, if they reach 0 then remove them
+					local gt = summonedCreatures[srcGUID]
+					if gt and gt.energy then -- only imps have energy limit field defined
+						gt.energy = gt.energy - 1
+						if gt.energy <= 0 then summonedCreatures[srcGUID] = ReleaseTable(gt) end -- delete entry for this imp
+					end
 				end
 			end
-		end
-		if e == "SPELL_AURA_APPLIED" or e == "SPELL_AURA_APPLIED_DOSE" or e == "SPELL_AURA_REMOVED_DOSE" or e == "SPELL_AURA_REFRESH" then
+			if e == "SPELL_CAST_SUCCESS" then			
+				if spellID == 33763 then
+					e = "SPELL_AURA_APPLIED"; auraType = "BUFF" -- Lifebloom refreshes don't always generate aura applied events
+				elseif spellID == 265187 then -- summon demonic tyrant extends duration of all warlock minions
+					for guid, gt in pairs(summonedCreatures) do
+						gt.expire = gt.expire + 15; gt.duration = gt.duration + 15
+					end
+				elseif spellID == 196277 then -- implosion destroys all current warlock wild imps
+					for guid, gt in pairs(summonedCreatures) do
+						local pt = ParseGUID(guid)
+						if pt[1] == "Creature" and ((pt[6] == "55659") or (pt[6] == "143622")) then -- found a wild imp!
+							summonedCreatures[guid] = ReleaseTable(gt)
+						end
+					end
+				elseif spellID == 980 then -- Agony refresh does not always generate aura refresh event, even if debuff just expired
+					local t = CheckTrackers(false, dstGUID, spellName, spellID)
+					if t then
+						t[10] = now + t[5] -- extend the time on current tracker (preserves the dose amount)
+					else
+						e = "SPELL_AURA_REFRESH" -- event not generated automatically by Agony
+					end
+				end
+			end
+		elseif eventAura[e] then
 			local name, icon, count, btype, duration, expire, caster, isStealable, boss, sid, apply, _
 			local isBuff, dst = true, GetUnitIDFromGUID(dstGUID)
 			if dst and UnitExists(dst) then
@@ -402,24 +448,28 @@ local function CombatLogTracker() -- xxBFAxx no longer passes in arguments with 
 			elseif MOD.myClass == "WARLOCK" and dstGUID and spellID then
 				local duration = MOD.warlockCreatures[spellID]
 				if duration then
-					summonedCreatures[dstGUID] = duration + now -- summoned creature table contains expire time
-					if spellID == 205178 then -- special case for soul effigy
-						if soulEffigy then MOD:RemoveTrackers(soulEffigy) end -- already one up so must remove trackers for it, if any
-						soulEffigy = dstGUID -- save guid so can remove it later despite missing event
-					end
+					local gt = AllocateTable() -- use table pool for minion tracking
+					gt.expire = duration + now; gt.duration = duration; gt.name = dstName; gt.icon = GetSpellTexture(spellID); gt.spell = spellID
+					if duration == 22 then gt.energy = 5 end -- imps have 22 second duration and also are subject to energy limit for 5 casts
+					summonedCreatures[dstGUID] = gt -- summoned creature table contains expire time, duration, name and icon		
 				end
 			end
 		end
 	elseif dstGUID == UnitGUID("player") then
-		if e == "SPELL_AURA_APPLIED" or e == "SPELL_AURA_APPLIED_DOSE" or e == "SPELL_AURA_REFRESH" or e == "SPELL_ENERGIZE" or e == "SPELL_HEAL" then
+		if eventInternal[e] then
 			if MOD.db.global.DetectInternalCooldowns then MOD:DetectInternalCooldown(spellName, true) end -- check aura triggers or cancels an internal cooldown
 		end
 	end
-	if e == "UNIT_DIED" or e == "UNIT_DESTROYED" or e == "UNIT_DISSIPATES" or e == "PARTY_KILL" then
+	if eventKill[e] then
 		MOD:RemoveTrackers(dstGUID) -- remove the trackers currently associated with this GUID
-		cacheUnits[dstGUID] = nil -- release the unit cache entry for this GUID too
+		cacheUnits[dstGUID] = nil -- release the unit cache entry for this GUID
+		local gt = summonedCreatures[dstGUID] -- remove GUID if on minion list for warlocks (probably only fires if someone kills a minion)
+		if gt then summonedCreatures[dstGUID] = ReleaseTable(gt) end -- only release table when entry found
 	end
 end
+
+-- show only one aura per type of demon with stack count and time to next despawn? (this should be an option)
+-- count number of fel firebolts cast by each wild imp, when reach 5 should despawn
 
 -- Check if there is a raid target on a unit
 local function CheckRaidTarget(unit)
@@ -458,6 +508,9 @@ function MOD:OnEnable()
 	MOD:RegisterChatCommand("raven", function() MOD:OptionsPanel() end)
 	MOD.Nest_Initialize() -- initialize the graphics module
 	MOD:InitializeConditions() -- initialize condition evaluation module
+	MOD:InitializeValues() -- initialize functions used for value bars
+	MOD:BAG_UPDATE("OnEnable") -- initialize bag cooldowns
+	MOD:UNIT_INVENTORY_CHANGED("OnEnable", "player") -- initialize inventory cooldowns
 
 	-- Create a frame so that updates can be registered
 	MOD.frame = CreateFrame('Frame')
@@ -474,13 +527,14 @@ function MOD:OnEnable()
 	self:RegisterEvent("PLAYER_TALENT_UPDATE", CheckTalentSpecialization)
 	self:RegisterEvent("PLAYER_SPECIALIZATION_CHANGED", CheckTalentSpecialization)
 	self:RegisterEvent("SPELLS_CHANGED")
+	self:RegisterEvent("BAG_UPDATE")
+	self:RegisterEvent("UNIT_INVENTORY_CHANGED")
 	self:RegisterEvent("VEHICLE_UPDATE")
 	self:RegisterEvent("RAID_TARGET_UPDATE", CheckRaidTargets)
 	self:RegisterEvent("UPDATE_MOUSEOVER_UNIT", CheckMouseoverRaidTarget)
 	self:RegisterEvent("UPDATE_SHAPESHIFT_FORM", TriggerPlayerUpdate)
 	self:RegisterEvent("MINIMAP_UPDATE_TRACKING", TriggerPlayerUpdate)	
 	self:RegisterEvent("SPELL_UPDATE_COOLDOWN", TriggerCooldownUpdate)
-	self:RegisterEvent("UNIT_INVENTORY_CHANGED", TriggerCooldownUpdate)
 	self:RegisterEvent("ACTIONBAR_UPDATE_COOLDOWN", TriggerCooldownUpdate)
 	self:RegisterEvent("BAG_UPDATE_COOLDOWN", TriggerCooldownUpdate)
 	self:RegisterEvent("PET_BAR_UPDATE_COOLDOWN", TriggerCooldownUpdate)
@@ -584,7 +638,41 @@ function MOD:PLAYER_FOCUS_CHANGED() unitUpdate.focus = true; unitUpdate.focustar
 function MOD:PLAYER_TARGET_CHANGED() unitUpdate.target = true; unitUpdate.targettarget = true; doUpdate = true; forceUpdate = true end
 
 -- Event called when spells in spell book change
-function MOD:SPELLS_CHANGED() MOD:SetIconDefaults(); MOD:SetCooldownDefaults(); updateCooldowns = true; doUpdate = true end
+function MOD:SPELLS_CHANGED() MOD:SetCooldownDefaults(); updateCooldowns = true; doUpdate = true end
+
+-- Event called when equipment in a unit's inventory changes
+function MOD:UNIT_INVENTORY_CHANGED(e, unit)
+	TriggerCooldownUpdate()
+	if unit == "player" then
+		-- update inventory cooldown table
+		table.wipe(inventoryCooldowns) -- update inventory item cooldown table
+		for slot = 0, 19 do -- check each inventory slot for usable items
+			local itemID = GetInventoryItemID("player", slot)
+			if itemID then
+				local _, spellID = GetItemSpell(itemID)
+				if spellID then inventoryCooldowns[itemID] = slot end
+			end
+		end
+	end
+	-- for k, v in pairs(inventoryCooldowns) do local name = GetItemInfo(k); MOD.Debug("slot", name, v) end
+end
+
+-- Event called when content of the player's bags changes
+function MOD:BAG_UPDATE(e)	
+	TriggerCooldownUpdate()
+	table.wipe(bagCooldowns) -- update bag item cooldown table
+	for bag = 0, NUM_BAG_SLOTS do
+		local numSlots = GetContainerNumSlots(bag)
+		for slot = 1, numSlots do
+			local itemID = GetContainerItemID(bag, slot)
+			if itemID then
+				local _, spellID = GetItemSpell(itemID)
+				if spellID then bagCooldowns[itemID] = spellID end
+			end
+		end
+	end	
+	-- for k, v in pairs(bagCooldowns) do local name = GetItemInfo(k); MOD.Debug("bag", name, v) end
+end
 
 -- Create cache of talent info
 local function InitializeTalents()	
@@ -775,6 +863,7 @@ function MOD:Update(elapsed)
 				MOD:UpdateInCombatBar() -- update the in-combat bar if necessary
 				MOD.Nest_Update() -- update the display using the Nest graphics package
 			else
+				MOD:RefreshBars() -- update any value bars requiring frequent updates
 				MOD:RefreshInCombatBar() -- update in-combat bar animations only
 				MOD.Nest_Refresh() -- refresh bars in the Nest graphics package (helps smooth animations)
 			end
@@ -1002,7 +1091,7 @@ local function GetWeaponBuffs()
 	-- first check if there are weapon auras then, only if necessary, use tooltip to scan for the buff names
 	local mh, mhms, mhc, mx, oh, ohms, ohc, ox = GetWeaponEnchantInfo()
 	if mh then -- add the mainhand buff, if any, to the table
-		local islot = GetInventorySlotInfo("MainHandSlot")
+		local islot = INVSLOT_MAINHAND
 		local mhbuff = GetWeaponBuffName(islot)
 		if not mhbuff then -- if tooltip scan fails then use fallback of weapon name or slot name
 			local weaponLink = GetInventoryItemLink("player", islot)
@@ -1018,7 +1107,7 @@ local function GetWeaponBuffs()
 	elseif mhLastBuff then ResetWeaponBuffDuration(mhLastBuff); mhLastBuff = nil end
 	
 	if oh then -- add the offhand buff, if any, to the table
-		local islot = GetInventorySlotInfo("SecondaryHandSlot")
+		local islot = INVSLOT_OFFHAND
 		local ohbuff = GetWeaponBuffName(islot)
 		if not ohbuff then -- if tooltip scan fails then use fallback of weapon name or slot name
 			local weaponLink = GetInventoryItemLink("player", islot)
@@ -1213,6 +1302,30 @@ local function GetTotemBuffs()
 	end
 end
 
+-- Get buffs for warlock minions, verifying not already expired and sorted so only one per type of minion
+local function GetMinionBuffs()
+	if MOD.myClass == "WARLOCK" then -- minions are tracked in the summonedCreatures table by combat log events
+		local mh = minionTypes -- temporary table for sorting minions by type
+		local mc = minionCounts -- temporary table for counting minions by type
+		table.wipe(mh) -- table entries are type->guid
+		table.wipe(mc) -- table entries are type->count
+		for guid, gt in pairs(summonedCreatures) do -- find soonest to expire for each type of minion
+			if gt.expire and (now < gt.expire) then -- make sure has not expired already
+				local mtype = gt.name -- name of creature is type
+				mc[mtype] = (mc[mtype] or 0) + 1 -- increment count of this minion type
+				local m = mh[mtype] -- get guid of currently soonest to expire of this minion type
+				if not m or (gt.expire < summonedCreatures[m].expire) then mh[mtype] = guid end
+			end
+		end
+		for name, guid in pairs(mh) do -- add a cooldown for each type of minion
+			local gt = summonedCreatures[guid]
+			if gt then
+				AddAura("player", name, true, nil, mc[name], "Minion", gt.duration, "player", gt.energy, nil, nil, gt.icon, gt.expire, "minion", guid)
+			end
+		end
+	end
+end
+
 -- Update unit auras if necessary (deferred until requested)
 function MOD:UnitStatusUpdate(unit)
 	local status = unitStatus[unit]
@@ -1220,7 +1333,7 @@ function MOD:UnitStatusUpdate(unit)
 		if status ~= 1 then unit = status end
 		if unitUpdate[unit] then -- need to do an update for this unit
 			ReleaseAuras(unit); GetBuffs(unit); GetDebuffs(unit)
-			if unit == "player" then GetTracking(); GetSpellEffectAuras(); GetPowerBuffs(); GetTotemBuffs() end
+			if unit == "player" then GetTracking(); GetSpellEffectAuras(); GetPowerBuffs(); GetTotemBuffs(); GetMinionBuffs() end
 			unitUpdate[unit] = false
 		end
 		return unit
@@ -1249,15 +1362,11 @@ function MOD:UpdateTrackers()
 	end
 
 	if MOD.myClass == "WARLOCK" then -- check if warlock's summoned creatures have expired
-		if soulEffigy then -- special case for soul effigy creature which is treated as totem 4
-			local haveTotem = GetTotemInfo(4)
-			if not haveTotem then summonedCreatures[soulEffigy] = now; ignoreGUID = soulEffigy; soulEffigy = nil end
-		end
-		for guid, expire in pairs(summonedCreatures) do
-			if expire <= now then
-				MOD:RemoveTrackers(guid) -- remove the trackers currently associated with this GUID
+		for guid, gt in pairs(summonedCreatures) do
+			if gt.expire and gt.expire <= now then
+				MOD:RemoveTrackers(guid) -- remove the trackers currently associated with this GUID, if any
 				cacheUnits[guid] = nil -- release the unit cache entry for this GUID too
-				summonedCreatures[guid] = nil
+				summonedCreatures[guid] = ReleaseTable(gt) -- release table back to pool
 			end
 		end
 		if not InCombatLockdown() then -- if out of combat then release unlimited duration trackers for Corruption (needed for Absolute Corruption talent)
@@ -1311,11 +1420,11 @@ end
 
 -- Check if valid cooldown table, if so then calculate time left from start time and duration and invalidate if cooldown has expired
 -- Returns either the updated cooldown table or nil if not valid
-local function ValidateCooldown(b) 
-	if b[1] ~= nil then
+local function ValidateCooldown(b)
+	if b and b[1] ~= nil then
 		b[1] = b[3] + b[4] - now -- calculate timeLeft from start time and duration
 		if b[1] > 0 then return b end -- check if the cooldown has expired 
-		b[1] = nil -- this cooldown is no longer valid
+		b[1] = nil -- this cooldown is no longer valid (what about if this cooldown has charges?)
 		updateCooldowns = true; doUpdate = true
 	end
 	return nil
@@ -1338,9 +1447,40 @@ end
 
 -- Check if the named spell or item is on cooldown, return a cooldown table
 function MOD:CheckCooldown(name)
-	local b = activeCooldowns[name]
-	if b then return ValidateCooldown(b) end
+	if name and name ~= "" then -- make sure valid name provided, could be spell name, number, or #number
+		local id = nil
+		if string.find(name, "^#%d+") then id = tonumber(string.sub(name, 2)) else id = tonumber(name) end
+		if id then name = GetSpellInfo(id) end -- may need to convert from spell id to name
+		if name and name ~= "" then return ValidateCooldown(activeCooldowns[name]) end -- make sure cooldown is still valid
+	end
 	return nil
+end
+
+-- Check if name is a spell in the spell book and, therefore, known to the player
+-- If usable is true then verify it is not passive and has sufficient resources (e.g., mana, insanity, soul shards)
+-- If ready is true then make sure it is not on cooldown or out of charges
+function MOD:CheckSpellStatus(name, usable, ready)
+	local result = false
+	if name and name ~= "" then -- make sure valid name provided, could be spell name, number, or #number
+		local id = nil
+		if string.find(name, "^#%d+") then id = tonumber(string.sub(name, 2)) else id = tonumber(name) end
+		if id then name = GetSpellInfo(id) end -- may need to convert from spell id to name
+		if name and name ~= "" then
+			local spellID = MOD.bookSpells[name]
+			if spellID then -- spell is known by the player
+				if usable then
+					result = not IsPassiveSpell(spellID) and IsUsableSpell(name) -- check non-passive and has resources
+				else
+					result = true
+				end
+			end
+		end
+	end
+	if result and ready then
+		local cd = ValidateCooldown(activeCooldowns[name]) -- look up in the active cooldowns table
+		result = not cd or (cd[1] == nil) or (cd[4] == nil) or (cd[9] and cd[9] > 0) -- check if ready
+	end
+	return result
 end
 
 -- Iterate over current cooldowns, calling the function with cooldown name, cooldown table, and optional parameters
@@ -1355,19 +1495,13 @@ local function ReleaseCooldowns() for _, cd in pairs(activeCooldowns) do cd[1] =
 function MOD:UpdateCooldownTimes() for _, b in pairs(activeCooldowns) do ValidateCooldown(b) end end
 
 -- Get cooldown info for an inventory slot
-local function CheckInventoryCooldown(slot)
-	local id = GetInventorySlotInfo(slot)
-	if id then
-		local start, duration, enable = GetInventoryItemCooldown("player", id)
-		if start and (start > 0) and (enable == 1) and (duration > 1.5) then
-			local link = GetInventoryItemLink("player", id)
-			if link then
-				local spell = GetItemSpell(link)
-				local name, _, _, _, _, _, _, _, equipSlot, icon = GetItemInfo(link)
-				if spell and equipSlot ~= "INVTYPE_TRINKET" then name = spell end
-				if name and icon then AddCooldown(name, id, icon, start, duration, "inventory", slot, "player") end
-			end
-		end
+local function CheckInventoryCooldown(itemID, slot)
+	local start, duration, enable = GetInventoryItemCooldown("player", slot)
+	if start and (start > 0) and (enable == 1) and (duration > 1.5) then
+		local spell = GetItemSpell(itemID)
+		local name, _, _, _, _, _, _, _, equipSlot, icon = GetItemInfo(itemID)
+		if spell and equipSlot ~= "INVTYPE_TRINKET" then name = spell end
+		if name and icon then AddCooldown(name, slot, icon, start, duration, "inventory", slot, "player") end
 	end
 end
 
@@ -1408,12 +1542,12 @@ local function CheckItemCooldown(itemID)
 			if itemType == "Consumable" and (itemID ~= 86569) then -- check for shared cooldowns for potions/elixirs/flasks (special case Crystal of Insanity)
 				if itemSubType == "Potion" then
 					found = true
-					if not MOD:CheckCooldown(L["Potions"]) then
+					if not ValidateCooldown(L["Potions"]) then
 						AddCooldown(L["Potions"], nil, iconPotion, start, duration, "text", L["Shared Potion Cooldown"], "player")
 					end
 				elseif (itemSubType == "Elixir") or (itemSubType == "Flask") then
 					found = true
-					if not MOD:CheckCooldown(L["Elixirs"]) then
+					if not ValidateCooldown(L["Elixirs"]) then
 						AddCooldown(L["Elixirs"], nil, iconElixir, start, duration, "text", L["Shared Elixir Cooldown"], "player")
 					end
 				end
@@ -1472,6 +1606,7 @@ end
 function MOD:UpdateCooldowns()
 	if updateCooldowns then
 		ReleaseCooldowns() -- mark all cooldowns as not active
+		
 		if MOD.myClass == "DEATHKNIGHT" then CheckRunes() end
 		lockedOut = false -- flag set if any lockout spells are found
 		for school in pairs(lockouts) do lockouts[school] = 0 end -- clear any previous settings in lockout table
@@ -1488,92 +1623,39 @@ function MOD:UpdateCooldowns()
 			end
 		end
 
-		table.wipe(foundSpells)
-		for tab = 1, 2 do -- scan first two tabs of player spell book (general and current spec) for player spells on cooldown
-			local _, _, offset, numSpells = GetSpellTabInfo(tab)
-			for i = 1, numSpells do
-				local index = i + offset
-				local stype, id = GetSpellBookItemInfo(index, "spell")
-				if stype == "SPELL" then -- in this case, id is the spell id
-					local name, _, icon = GetSpellInfo(id)
-					if name and name ~= "" and icon then
-						knownSpells[name] = id; foundSpells[name] = id -- cache of previously seen spell names (ids are not sufficient)
-						local start, duration, enable, count, charges
-						count, charges, start, duration = GetSpellCharges(id)
-						if count and charges and count < charges then enable = 1 else start, duration, enable = GetSpellCooldown(id) end
-						if start and (start > 0) and (enable == 1) and (duration > 1.5) then -- don't include global cooldowns
-							if (MOD.myClass ~= "DEATHKNIGHT") or CheckRuneCooldown(name, duration) then -- if death knight check rune cooldown
-								AddCooldown(name, id, icon, start, duration, "spell id", id, "player", count)
-							end
-						end
-					end
-				elseif stype == "FLYOUT" then -- in this case, id is flyout id
-					local _, _, numSlots = GetFlyoutInfo(id)
-					for slot = 1, numSlots do
-						local spellID = GetFlyoutSlotInfo(id, slot)
-						if spellID then
-							if spellID == 982 then spellID = 136 end -- special case for Revive Pet / Mend Pet (shared spell book entry)
-							local name, _, icon = GetSpellInfo(spellID)
-							if name and name ~= "" and icon then -- make sure we have a valid spell name
-								knownSpells[name] = spellID; foundSpells[name] = spellID -- cache of previously seen spell names
-								local start, duration, enable = GetSpellCooldown(spellID)
-								if start and (start > 0) and (enable == 1) and (duration > 1.5) then -- don't include global cooldowns
-									if (MOD.myClass ~= "DEATHKNIGHT") or CheckRuneCooldown(name, duration) then -- if death knight check rune cooldown
-										AddCooldown(name, spellID, icon, start, duration, "spell id", spellID, "player")
-									end
-								end
-							end
-						end
-					end
-				end
-			end
-		end
-
-		for name, spellID in pairs(knownSpells) do -- special case for spells like Stormstrike with cooldowns that may not be in spellbook
-			if not foundSpells[name] then -- found a previously known spell that is not currently in the spell book!
+		for spellID in pairs(MOD.cooldownSpells) do -- check all player spells with cooldowns (includes professions)
+			local name, _, icon = GetSpellInfo(spellID)
+			if name and name ~= "" and icon then -- make sure we have a valid spell name
 				local start, duration, enable = GetSpellCooldown(spellID)
 				if start and (start > 0) and (enable == 1) and (duration > 1.5) then -- don't include global cooldowns
 					if (MOD.myClass ~= "DEATHKNIGHT") or CheckRuneCooldown(name, duration) then -- if death knight check rune cooldown
-						local icon = GetSpellTexture(spellID)
-						if icon then
-							AddCooldown(name, spellID, icon, start, duration, "spell id", spellID, "player")
-						end
+						AddCooldown(name, spellID, icon, start, duration, "spell id", spellID, "player")
 					end
-				end				
+				end
 			end
 		end
 		
-		local p = professions -- scan professions for spells on cooldown
-		p[1], p[2], p[3], p[4], p[5], p[6] = GetProfessions()
-		for index = 1, 6 do
-			if p[index] then
-				local prof, _, _, _, numSpells, offset = GetProfessionInfo(p[index])
-				for i = 1, numSpells do
-					local stype, id = GetSpellBookItemInfo(i + offset, "spell")
-					if stype == "SPELL" then -- in this case, id is the spell id
-						local start, duration, enable = GetSpellCooldown(id)
-						if start and (start > 0) and (enable == 1) and (duration > 1.5) then -- don't include global cooldowns
-							local name, _, icon = GetSpellInfo(id)
-							if name and name ~= "" and icon then -- make sure we have a valid spell name
-								AddCooldown(name, id, icon, start, duration, "spell id", id, "player")
-							end
+		for spellID in pairs(MOD.chargeSpells) do -- check all player spells with charges
+			local name, _, icon = GetSpellInfo(spellID)
+			if name and name ~= "" and icon then -- make sure we have a valid spell name
+				local count, charges, start, duration = GetSpellCharges(spellID)
+				if count and charges and count < charges then
+					if start and (start > 0) and (duration > 1.5) then -- don't include global cooldowns
+						if (MOD.myClass ~= "DEATHKNIGHT") or CheckRuneCooldown(name, duration) then -- if death knight check rune cooldown
+							AddCooldown(name, spellID, icon, start, duration, "spell id", spellID, "player", count)
 						end
 					end
 				end
 			end
 		end
 
-		local numSpells = HasPetSpells() -- returns the number of pet spells
-		if numSpells and UnitExists("pet") then
-			for i = 1, numSpells do
-				local stype, id = GetSpellBookItemInfo(i, "pet") -- id is the action id
-				if stype == "PETACTION" then -- use spellbook index to check for cooldown
-					local start, duration, enable = GetSpellCooldown(i, "pet")
+		if UnitExists("pet") then -- make sure you have a pet before check all pet spells with cooldowns
+			for spellID in pairs(MOD.petSpells) do
+				local name, _, icon = GetSpellInfo(spellID)
+				if name and name ~= "" and icon then -- make sure we have a valid spell name
+					local start, duration, enable = GetSpellCooldown(spellID)
 					if start and (start > 0) and (enable == 1) and (duration > 1.5) then -- don't include global cooldowns
-						local name, _, icon, _, _, _, spellID = GetSpellInfo(i, "pet")
-						if name and name ~= "" and icon and spellID then
-							AddCooldown(name, spellID, icon, start, duration, "spell id", spellID, "pet")
-						end
+						AddCooldown(name, spellID, icon, start, duration, "spell id", spellID, "pet")
 					end
 				end
 			end
@@ -1596,32 +1678,8 @@ function MOD:UpdateCooldowns()
 			end
 		end
 
-		for bag = 0, NUM_BAG_SLOTS do
-			local numSlots = GetContainerNumSlots(bag)
-			for i = 1, numSlots do
-				local itemID = GetContainerItemID(bag, i)
-				if itemID then CheckItemCooldown(itemID) end
-			end
-		end
-		
-		CheckInventoryCooldown("HeadSlot")
-		CheckInventoryCooldown("NeckSlot")
-		CheckInventoryCooldown("BackSlot")
-		CheckInventoryCooldown("ShoulderSlot")
-		CheckInventoryCooldown("ChestSlot")
-		CheckInventoryCooldown("ShirtSlot")
-		CheckInventoryCooldown("TabardSlot")
-		CheckInventoryCooldown("WristSlot")
-		CheckInventoryCooldown("HandsSlot")
-		CheckInventoryCooldown("WaistSlot")
-		CheckInventoryCooldown("LegsSlot")
-		CheckInventoryCooldown("FeetSlot")
-		CheckInventoryCooldown("Finger0Slot")
-		CheckInventoryCooldown("Finger1Slot")
-		CheckInventoryCooldown("Trinket0Slot")
-		CheckInventoryCooldown("Trinket1Slot")
-		CheckInventoryCooldown("MainHandSlot")
-		CheckInventoryCooldown("SecondaryHandSlot")
+		for itemID in pairs(bagCooldowns) do CheckItemCooldown(itemID) end
+		for itemID, slot in pairs(inventoryCooldowns) do CheckInventoryCooldown(itemID, slot) end
 
 		if startGCD and durationGCD then -- detect global cooldowns
 			local timeLeft = startGCD + durationGCD - now -- calculate timeLeft from start and duration

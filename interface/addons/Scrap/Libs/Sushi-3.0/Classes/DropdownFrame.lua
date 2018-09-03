@@ -1,4 +1,23 @@
-local Drop, Version = MakeSushi(9, 'Frame', 'DropdownFrame', nil, nil, SushiGroup)
+--[[
+Copyright 2008-2018 João Cardoso
+Sushi is distributed under the terms of the GNU General Public License (or the Lesser GPL).
+This file is part of Sushi.
+
+Sushi is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Sushi is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Sushi. If not, see <http://www.gnu.org/licenses/>.
+--]]
+
+local Drop, Version = MakeSushi(11, 'Frame', 'DropdownFrame', nil, nil, SushiGroup)
 if not Drop then
 	return
 elseif not Version then
@@ -24,6 +43,7 @@ function Drop:OnCreate()
 	SushiGroup.OnCreate(self)
 	self:SetOrientation('HORIZONTAL')
 	self:SetResizing('VERTICAL')
+	self:EnableMouse(true)
 
 	self.bg = CreateFrame('Frame', nil, self)
 	self.bg:SetFrameLevel(self:GetFrameLevel())
@@ -118,7 +138,7 @@ function Drop:Toggle(...)
 	if anchor ~= self.target then
 		self:Display(...)
 	else
-		CloseDropDownMenus()
+		self:CloseAll()
 	end
 
 	PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON)

@@ -1,9 +1,9 @@
-function AAP_MakeGroupList()
-	if (not AAP1[AAP_Realm][AAP_Name]["Settings"]["Partyleft"]) then
-		AAP1[AAP_Realm][AAP_Name]["Settings"]["Partyleft"] = GetScreenWidth() / 2.5
+function AAP.MakeGroupList()
+	if (not AAP1[AAP.Realm][AAP.Name]["Settings"]["Partyleft"]) then
+		AAP1[AAP.Realm][AAP.Name]["Settings"]["Partyleft"] = GetScreenWidth() / 2.5
 	end
-	if (not AAP1[AAP_Realm][AAP_Name]["Settings"]["Partytop"]) then
-		AAP1[AAP_Realm][AAP_Name]["Settings"]["Partytop"] = -(GetScreenHeight() / 4)
+	if (not AAP1[AAP.Realm][AAP.Name]["Settings"]["Partytop"]) then
+		AAP1[AAP.Realm][AAP.Name]["Settings"]["Partytop"] = -(GetScreenHeight() / 4)
 	end
 	if (not AAP.PartyList) then
 		AAP.PartyList = {}
@@ -15,7 +15,7 @@ function AAP_MakeGroupList()
 	AAP.PartyList.PartyFrame:SetMovable(true)
 	AAP.PartyList.PartyFrame:EnableMouse(true)
 	AAP.PartyList.PartyFrame:SetFrameStrata("LOW")
-	AAP.PartyList.PartyFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT", AAP1[AAP_Realm][AAP_Name]["Settings"]["Partyleft"], AAP1[AAP_Realm][AAP_Name]["Settings"]["Partytop"])
+	AAP.PartyList.PartyFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT", AAP1[AAP.Realm][AAP.Name]["Settings"]["Partyleft"], AAP1[AAP.Realm][AAP.Name]["Settings"]["Partytop"])
 
 
 	AAP.PartyList.PartyFrames = {}
@@ -36,7 +36,7 @@ function AAP_MakeGroupList()
 			tile = true, tileSize = 10, edgeSize = 10, insets = { left = 2, right = 2, top = 2, bottom = 2 }
 		});
 		AAP.PartyList.PartyFrames[CLi]:SetScript("OnMouseDown", function(self, button)
-			if button == "LeftButton" and AAP1[AAP_Realm][AAP_Name]["Settings"]["Lock"] == 0 then
+			if button == "LeftButton" and AAP1[AAP.Realm][AAP.Name]["Settings"]["Lock"] == 0 then
 				AAP.PartyList.PartyFrame:StartMoving();
 				AAP.PartyList.PartyFrame.isMoving = true;
 			end
@@ -45,18 +45,18 @@ function AAP_MakeGroupList()
 			if button == "LeftButton" and AAP.PartyList.PartyFrame.isMoving then
 				AAP.PartyList.PartyFrame:StopMovingOrSizing();
 				AAP.PartyList.PartyFrame.isMoving = false;
-				AAP1[AAP_Realm][AAP_Name]["Settings"]["Partyleft"] = AAP.PartyList.PartyFrame:GetLeft()
-				AAP1[AAP_Realm][AAP_Name]["Settings"]["Partytop"] = AAP.PartyList.PartyFrame:GetTop() - GetScreenHeight()
-				AAP.PartyList.PartyFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT", AAP1[AAP_Realm][AAP_Name]["Settings"]["Partyleft"], AAP1[AAP_Realm][AAP_Name]["Settings"]["Partytop"])
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["Partyleft"] = AAP.PartyList.PartyFrame:GetLeft()
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["Partytop"] = AAP.PartyList.PartyFrame:GetTop() - GetScreenHeight()
+				AAP.PartyList.PartyFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT", AAP1[AAP.Realm][AAP.Name]["Settings"]["Partyleft"], AAP1[AAP.Realm][AAP.Name]["Settings"]["Partytop"])
 			end
 		end)
 		AAP.PartyList.PartyFrames[CLi]:SetScript("OnHide", function(self)
 			if ( AAP.PartyList.PartyFrame.isMoving ) then
 				AAP.PartyList.PartyFrame:StopMovingOrSizing();
 				AAP.PartyList.PartyFrame.isMoving = false;
-				AAP1[AAP_Realm][AAP_Name]["Settings"]["Partyleft"] = AAP.PartyList.PartyFrame:GetLeft()
-				AAP1[AAP_Realm][AAP_Name]["Settings"]["Partytop"] = AAP.PartyList.PartyFrame:GetTop() - GetScreenHeight()
-				AAP.PartyList.PartyFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT", AAP1[AAP_Realm][AAP_Name]["Settings"]["Partyleft"], AAP1[AAP_Realm][AAP_Name]["Settings"]["Partytop"])
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["Partyleft"] = AAP.PartyList.PartyFrame:GetLeft()
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["Partytop"] = AAP.PartyList.PartyFrame:GetTop() - GetScreenHeight()
+				AAP.PartyList.PartyFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT", AAP1[AAP.Realm][AAP.Name]["Settings"]["Partyleft"], AAP1[AAP.Realm][AAP.Name]["Settings"]["Partytop"])
 			end
 		end)
 		
@@ -83,7 +83,7 @@ function AAP_MakeGroupList()
 			tile = true, tileSize = 10, edgeSize = 10, insets = { left = 2, right = 2, top = 2, bottom = 2 }
 		});
 		AAP.PartyList.PartyFrames2[CLi]:SetScript("OnMouseDown", function(self, button)
-			if button == "LeftButton" and AAP1[AAP_Realm][AAP_Name]["Settings"]["Lock"] == 0 then
+			if button == "LeftButton" and AAP1[AAP.Realm][AAP.Name]["Settings"]["Lock"] == 0 then
 				AAP.PartyList.PartyFrame:StartMoving();
 				AAP.PartyList.PartyFrame.isMoving = true;
 			end
@@ -92,18 +92,18 @@ function AAP_MakeGroupList()
 			if button == "LeftButton" and AAP.PartyList.PartyFrame.isMoving then
 				AAP.PartyList.PartyFrame:StopMovingOrSizing();
 				AAP.PartyList.PartyFrame.isMoving = false;
-				AAP1[AAP_Realm][AAP_Name]["Settings"]["Partyleft"] = AAP.PartyList.PartyFrame:GetLeft()
-				AAP1[AAP_Realm][AAP_Name]["Settings"]["Partytop"] = AAP.PartyList.PartyFrame:GetTop() - GetScreenHeight()
-				AAP.PartyList.PartyFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT", AAP1[AAP_Realm][AAP_Name]["Settings"]["Partyleft"], AAP1[AAP_Realm][AAP_Name]["Settings"]["Partytop"])
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["Partyleft"] = AAP.PartyList.PartyFrame:GetLeft()
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["Partytop"] = AAP.PartyList.PartyFrame:GetTop() - GetScreenHeight()
+				AAP.PartyList.PartyFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT", AAP1[AAP.Realm][AAP.Name]["Settings"]["Partyleft"], AAP1[AAP.Realm][AAP.Name]["Settings"]["Partytop"])
 			end
 		end)
 		AAP.PartyList.PartyFrames2[CLi]:SetScript("OnHide", function(self)
 			if ( AAP.PartyList.PartyFrame.isMoving ) then
 				AAP.PartyList.PartyFrame:StopMovingOrSizing();
 				AAP.PartyList.PartyFrame.isMoving = false;
-				AAP1[AAP_Realm][AAP_Name]["Settings"]["Partyleft"] = AAP.PartyList.PartyFrame:GetLeft()
-				AAP1[AAP_Realm][AAP_Name]["Settings"]["Partytop"] = AAP.PartyList.PartyFrame:GetTop() - GetScreenHeight()
-				AAP.PartyList.PartyFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT", AAP1[AAP_Realm][AAP_Name]["Settings"]["Partyleft"], AAP1[AAP_Realm][AAP_Name]["Settings"]["Partytop"])
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["Partyleft"] = AAP.PartyList.PartyFrame:GetLeft()
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["Partytop"] = AAP.PartyList.PartyFrame:GetTop() - GetScreenHeight()
+				AAP.PartyList.PartyFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT", AAP1[AAP.Realm][AAP.Name]["Settings"]["Partyleft"], AAP1[AAP.Realm][AAP.Name]["Settings"]["Partytop"])
 			end
 		end)
 
@@ -123,32 +123,32 @@ function AAP_MakeGroupList()
 
 
 end
-function AAP_MakeQuestList()
+function AAP.MakeQuestList()
 	if (not AAP.QuestList) then
 		AAP.QuestList = {}
 	end
-	if (not AAP1[AAP_Realm][AAP_Name]["Settings"]) then
-		AAP1[AAP_Realm][AAP_Name]["Settings"] = {}
-		AAP1[AAP_Realm][AAP_Name]["Settings"]["left"] = GetScreenWidth() / 1.6
-		AAP1[AAP_Realm][AAP_Name]["Settings"]["top"] = -(GetScreenHeight() / 5)
-		AAP1[AAP_Realm][AAP_Name]["Settings"]["Scale"] = UIParent:GetScale()
-		AAP1[AAP_Realm][AAP_Name]["Settings"]["Lock"] = 0
-		AAP1[AAP_Realm][AAP_Name]["Settings"]["Hide"] = 0
-		AAP1[AAP_Realm][AAP_Name]["Settings"]["alpha"] = 1
-		AAP1[AAP_Realm][AAP_Name]["Settings"]["Sugleft"] = GetScreenWidth() / 1.6
-		AAP1[AAP_Realm][AAP_Name]["Settings"]["Sugtop"] = -(GetScreenHeight() / 5)
+	if (not AAP1[AAP.Realm][AAP.Name]["Settings"]) then
+		AAP1[AAP.Realm][AAP.Name]["Settings"] = {}
+		AAP1[AAP.Realm][AAP.Name]["Settings"]["left"] = GetScreenWidth() / 1.6
+		AAP1[AAP.Realm][AAP.Name]["Settings"]["top"] = -(GetScreenHeight() / 5)
+		AAP1[AAP.Realm][AAP.Name]["Settings"]["Scale"] = UIParent:GetScale()
+		AAP1[AAP.Realm][AAP.Name]["Settings"]["Lock"] = 0
+		AAP1[AAP.Realm][AAP.Name]["Settings"]["Hide"] = 0
+		AAP1[AAP.Realm][AAP.Name]["Settings"]["alpha"] = 1
+		AAP1[AAP.Realm][AAP.Name]["Settings"]["Sugleft"] = GetScreenWidth() / 1.6
+		AAP1[AAP.Realm][AAP.Name]["Settings"]["Sugtop"] = -(GetScreenHeight() / 5)
 	end
-	if (not AAP1[AAP_Realm][AAP_Name]["Settings"]["Hcampleft"]) then
-		AAP1[AAP_Realm][AAP_Name]["Settings"]["Hcampleft"] = GetScreenWidth() / 1.6
+	if (not AAP1[AAP.Realm][AAP.Name]["Settings"]["Hcampleft"]) then
+		AAP1[AAP.Realm][AAP.Name]["Settings"]["Hcampleft"] = GetScreenWidth() / 1.6
 	end
-	if (not AAP1[AAP_Realm][AAP_Name]["Settings"]["Hcamptop"]) then
-		AAP1[AAP_Realm][AAP_Name]["Settings"]["Hcamptop"] = -(GetScreenHeight() / 5)
+	if (not AAP1[AAP.Realm][AAP.Name]["Settings"]["Hcamptop"]) then
+		AAP1[AAP.Realm][AAP.Name]["Settings"]["Hcamptop"] = -(GetScreenHeight() / 5)
 	end
-	if (not AAP1[AAP_Realm][AAP_Name]["Settings"]["Sugleft"]) then
-		AAP1[AAP_Realm][AAP_Name]["Settings"]["Sugleft"] = GetScreenWidth() / 2.5
+	if (not AAP1[AAP.Realm][AAP.Name]["Settings"]["Sugleft"]) then
+		AAP1[AAP.Realm][AAP.Name]["Settings"]["Sugleft"] = GetScreenWidth() / 2.5
 	end
-	if (not AAP1[AAP_Realm][AAP_Name]["Settings"]["Sugtop"]) then
-		AAP1[AAP_Realm][AAP_Name]["Settings"]["Sugtop"] = -(GetScreenHeight() / 4)
+	if (not AAP1[AAP.Realm][AAP.Name]["Settings"]["Sugtop"]) then
+		AAP1[AAP.Realm][AAP.Name]["Settings"]["Sugtop"] = -(GetScreenHeight() / 4)
 	end
 	AAP.QuestList.SugQuestFrame = {}
 	AAP.QuestList.SugQuestFrame = CreateFrame("frame", "AAP_SugQuestFrameFrame", UIParent)
@@ -157,7 +157,7 @@ function AAP_MakeQuestList()
 	AAP.QuestList.SugQuestFrame:SetMovable(true)
 	AAP.QuestList.SugQuestFrame:EnableMouse(true)
 	AAP.QuestList.SugQuestFrame:SetFrameStrata("LOW")
-	AAP.QuestList.SugQuestFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT", AAP1[AAP_Realm][AAP_Name]["Settings"]["Sugleft"], AAP1[AAP_Realm][AAP_Name]["Settings"]["Sugtop"])
+	AAP.QuestList.SugQuestFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT", AAP1[AAP.Realm][AAP.Name]["Settings"]["Sugleft"], AAP1[AAP.Realm][AAP.Name]["Settings"]["Sugtop"])
 	AAP.QuestList.SugQuestFrame:SetBackdrop( { 
 			bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background", 
 			edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
@@ -173,9 +173,9 @@ function AAP_MakeQuestList()
 		if button == "LeftButton" and AAP.QuestList.SugQuestFrame.isMoving then
 			AAP.QuestList.SugQuestFrame:StopMovingOrSizing();
 			AAP.QuestList.SugQuestFrame.isMoving = false;
-			AAP1[AAP_Realm][AAP_Name]["Settings"]["Sugleft"] = AAP.QuestList.SugQuestFrame:GetLeft()
-			AAP1[AAP_Realm][AAP_Name]["Settings"]["Sugtop"] = AAP.QuestList.SugQuestFrame:GetTop() - GetScreenHeight()
-			AAP.QuestList.SugQuestFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT", AAP1[AAP_Realm][AAP_Name]["Settings"]["Sugleft"], AAP1[AAP_Realm][AAP_Name]["Settings"]["Sugtop"])
+			AAP1[AAP.Realm][AAP.Name]["Settings"]["Sugleft"] = AAP.QuestList.SugQuestFrame:GetLeft()
+			AAP1[AAP.Realm][AAP.Name]["Settings"]["Sugtop"] = AAP.QuestList.SugQuestFrame:GetTop() - GetScreenHeight()
+			AAP.QuestList.SugQuestFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT", AAP1[AAP.Realm][AAP.Name]["Settings"]["Sugleft"], AAP1[AAP.Realm][AAP.Name]["Settings"]["Sugtop"])
 		end
 	end)
 	AAP.QuestList.SugQuestFrame:SetScript("OnHide", function(self)
@@ -229,7 +229,7 @@ function AAP_MakeQuestList()
 	AAP.QuestList.SugQuestFrame.Button1ptex:SetAllPoints()
 	AAP.QuestList.SugQuestFrame.Button1:SetPushedTexture(AAP.QuestList.SugQuestFrame.Button1ptex)
 	AAP.QuestList.SugQuestFrame["Button1"]:SetScript("OnClick", function(self, arg1)
-		AAP_QAskPopWantedAsk("yes")
+		AAP.QAskPopWantedAsk("yes")
 	end)
 	AAP.QuestList.SugQuestFrame["Button2"] = CreateFrame("Button", "AAP_SBX2", UIParent, "SecureActionButtonTemplate")
 	AAP.QuestList.SugQuestFrame["Button2"]:SetPoint("BOTTOMRIGHT",AAP.QuestList.SugQuestFrame,"BOTTOMRIGHT",-15,5)
@@ -254,7 +254,7 @@ function AAP_MakeQuestList()
 	AAP.QuestList.SugQuestFrame.Button2ptex:SetAllPoints()
 	AAP.QuestList.SugQuestFrame.Button2:SetPushedTexture(AAP.QuestList.SugQuestFrame.Button2ptex)
 	AAP.QuestList.SugQuestFrame["Button2"]:SetScript("OnClick", function(self, arg1)
-		AAP_QAskPopWantedAsk("no")
+		AAP.QAskPopWantedAsk("no")
 	end)
 
 
@@ -354,7 +354,7 @@ function AAP_MakeQuestList()
 	AAP.QuestList.SugQuestFrame2.Button1ptex:SetAllPoints()
 	AAP.QuestList.SugQuestFrame2.Button1:SetPushedTexture(AAP.QuestList.SugQuestFrame2.Button1ptex)
 	AAP.QuestList.SugQuestFrame2["Button1"]:SetScript("OnClick", function(self, arg1)
-		AAP_QAskPopQline("yes")
+		AAP.QAskPopQline("yes")
 	end)
 	AAP.QuestList.SugQuestFrame2["Button2"] = CreateFrame("Button", "AAP_SBX2", UIParent, "SecureActionButtonTemplate")
 	AAP.QuestList.SugQuestFrame2["Button2"]:SetPoint("BOTTOMRIGHT",AAP.QuestList.SugQuestFrame2,"BOTTOMRIGHT",-15,5)
@@ -379,7 +379,7 @@ function AAP_MakeQuestList()
 	AAP.QuestList.SugQuestFrame2.Button2ptex:SetAllPoints()
 	AAP.QuestList.SugQuestFrame2.Button2:SetPushedTexture(AAP.QuestList.SugQuestFrame2.Button2ptex)
 	AAP.QuestList.SugQuestFrame2["Button2"]:SetScript("OnClick", function(self, arg1)
-		AAP_QAskPopQline("no")
+		AAP.QAskPopQline("no")
 	end)
 
 
@@ -421,7 +421,7 @@ function AAP_MakeQuestList()
 	AAP.QuestList.Greetings2FS1:SetWidth(300)
 	AAP.QuestList.Greetings2FS1:SetHeight(38)
 	AAP.QuestList.Greetings2FS1:SetJustifyH("CENTER")
-	AAP.QuestList.Greetings2FS1:SetFontObject("GameFontNormalLarge")
+	AAP.QuestList.Greetings2FS1:SetFontObject("GameFontNormal")
 	AAP.QuestList.Greetings2FS1:SetText("Welcome to Azeroth Auto Pilot")
 	AAP.QuestList.Greetings2FS1:SetTextColor(1, 1, 0)
 
@@ -431,7 +431,7 @@ function AAP_MakeQuestList()
 	AAP.QuestList.Greetings2FS221:SetWidth(290)
 	AAP.QuestList.Greetings2FS221:SetHeight(72)
 	AAP.QuestList.Greetings2FS221:SetJustifyH("LEFT")
-	AAP.QuestList.Greetings2FS221:SetFontObject("GameFontNormalLarge")
+	AAP.QuestList.Greetings2FS221:SetFontObject("GameFontNormal")
 	AAP.QuestList.Greetings2FS221:SetText("Horde require 40+ Goblin Glider kits.")
 	AAP.QuestList.Greetings2FS221:SetTextColor(1, 1, 0)
 
@@ -441,7 +441,7 @@ function AAP_MakeQuestList()
 	AAP.QuestList.Greetings2FS2:SetWidth(290)
 	AAP.QuestList.Greetings2FS2:SetHeight(72)
 	AAP.QuestList.Greetings2FS2:SetJustifyH("LEFT")
-	AAP.QuestList.Greetings2FS2:SetFontObject("GameFontNormalLarge")
+	AAP.QuestList.Greetings2FS2:SetFontObject("GameFontNormal")
 	AAP.QuestList.Greetings2FS2:SetText("Special thanks to BrutallStatic for helping with the addon, catch him at:")
 	AAP.QuestList.Greetings2FS2:SetTextColor(1, 1, 0)
 
@@ -475,10 +475,10 @@ function AAP_MakeQuestList()
 	AAP.QuestList.GreetingsHideBptex:SetAllPoints()
 	AAP.QuestList.GreetingsHideB:SetPushedTexture(AAP.QuestList.GreetingsHideBptex)
 	AAP.QuestList.GreetingsHideB:SetScript("OnClick", function(self, arg1)
-		AAP1[AAP_Realm][AAP_Name]["Settings"]["Greetings2"] = 1
+		AAP1[AAP.Realm][AAP.Name]["Settings"]["Greetings3"] = AAP.Version
 		AAP.QuestList.Greetings:Hide()
 	end)
-	if (AAP1[AAP_Realm][AAP_Name]["Settings"]["Greetings2"] == 1) then
+	if (AAP1[AAP.Realm][AAP.Name]["Settings"]["Greetings3"] == AAP.Version) then
 		AAP.QuestList.Greetings:Hide()
 	end
 
@@ -491,7 +491,7 @@ function AAP_MakeQuestList()
 	AAP.QuestList.MainFrame:SetMovable(true)
 	AAP.QuestList.MainFrame:EnableMouse(true)
 	AAP.QuestList.MainFrame:SetFrameStrata("MEDIUM")
-	AAP.QuestList.MainFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT", AAP1[AAP_Realm][AAP_Name]["Settings"]["left"], AAP1[AAP_Realm][AAP_Name]["Settings"]["top"])
+	AAP.QuestList.MainFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT", AAP1[AAP.Realm][AAP.Name]["Settings"]["left"], AAP1[AAP.Realm][AAP.Name]["Settings"]["top"])
 	AAP.QuestList.ListFrame = CreateFrame("frame", "AAP_QuestFrameList", UIParent)
 	AAP.QuestList.ListFrame:SetWidth(1)
 	AAP.QuestList.ListFrame:SetHeight(300)
@@ -500,7 +500,7 @@ function AAP_MakeQuestList()
 	AAP.QuestList.ListFrame:SetMovable(true)
 	AAP.QuestList.ListFrame:EnableMouse(true)
 	AAP.QuestList.ListFrame:SetScript("OnMouseDown", function(self, button)
-		if button == "LeftButton" and not AAP.QuestList.MainFrame.isMoving and AAP1[AAP_Realm][AAP_Name]["Settings"]["Lock"] == 0 then
+		if button == "LeftButton" and not AAP.QuestList.MainFrame.isMoving and AAP1[AAP.Realm][AAP.Name]["Settings"]["Lock"] == 0 then
 			AAP.QuestList.MainFrame:StartMoving();
 			AAP.QuestList.MainFrame.isMoving = true;
 		end
@@ -509,9 +509,9 @@ function AAP_MakeQuestList()
 		if button == "LeftButton" and AAP.QuestList.MainFrame.isMoving then
 			AAP.QuestList.MainFrame:StopMovingOrSizing();
 			AAP.QuestList.MainFrame.isMoving = false;
-			AAP1[AAP_Realm][AAP_Name]["Settings"]["left"] = AAP.QuestList.MainFrame:GetLeft()
-			AAP1[AAP_Realm][AAP_Name]["Settings"]["top"] = AAP.QuestList.MainFrame:GetTop() - GetScreenHeight()
-			AAP.QuestList.MainFrame:SetPoint("TOPLEFT", AAP1[AAP_Realm][AAP_Name]["Settings"]["left"], AAP1[AAP_Realm][AAP_Name]["Settings"]["top"])
+			AAP1[AAP.Realm][AAP.Name]["Settings"]["left"] = AAP.QuestList.MainFrame:GetLeft()
+			AAP1[AAP.Realm][AAP.Name]["Settings"]["top"] = AAP.QuestList.MainFrame:GetTop() - GetScreenHeight()
+			AAP.QuestList.MainFrame:SetPoint("TOPLEFT", AAP1[AAP.Realm][AAP.Name]["Settings"]["left"], AAP1[AAP.Realm][AAP.Name]["Settings"]["top"])
 			AAP_CombatTestVar = 1
 		end
 	end)
@@ -527,7 +527,7 @@ function AAP_MakeQuestList()
 	AAP.QuestList20:SetWidth(1)
 	AAP.QuestList20:SetHeight(1)
 	AAP.QuestList20:SetFrameStrata("MEDIUM")
-	AAP.QuestList20:SetPoint("TOPLEFT", UIParent, "TOPLEFT", AAP1[AAP_Realm][AAP_Name]["Settings"]["left"], AAP1[AAP_Realm][AAP_Name]["Settings"]["top"])
+	AAP.QuestList20:SetPoint("TOPLEFT", UIParent, "TOPLEFT", AAP1[AAP.Realm][AAP.Name]["Settings"]["left"], AAP1[AAP.Realm][AAP.Name]["Settings"]["top"])
 
 	AAP.QuestList21 = CreateFrame("frame", "AAP_QuestFrame21", UIParent)
 	AAP.QuestList21:SetWidth(1)
@@ -536,23 +536,23 @@ function AAP_MakeQuestList()
 	AAP.QuestList21:SetPoint("TOPLEFT", AAP.QuestList20, "TOPLEFT",0,0)
 
 	AAP.QuestList.ButtonParent = CreateFrame("frame", "CLQListFddd", UIParent)
-	AAP.QuestList.ButtonParent:SetScale(AAP1[AAP_Realm][AAP_Name]["Settings"]["Scale"])
+	AAP.QuestList.ButtonParent:SetScale(AAP1[AAP.Realm][AAP.Name]["Settings"]["Scale"])
 	AAP.QuestList.QuestFrames = {}
 	AAP.QuestList2 = {}
 	local CLi
-	for CLi = 1, 50 do
+	for CLi = 1, 10 do
 		AAP.QuestList.QuestFrames[CLi] = CreateFrame("frame", "CLQListF"..CLi, AAP.QuestList.ListFrame)
 		AAP.QuestList.QuestFrames[CLi]:SetWidth(410)
 
 		AAP.QuestList.QuestFrames[CLi]:SetHeight(38)
-		AAP.QuestList.QuestFrames[CLi]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,0)
+		AAP.QuestList.QuestFrames[CLi]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((CLi * 38)+CLi))
 		AAP.QuestList.QuestFrames[CLi]:SetBackdrop( { 
 			bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background", 
 			edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
 			tile = true, tileSize = 10, edgeSize = 10, insets = { left = 2, right = 2, top = 2, bottom = 2 }
 		});
 		AAP.QuestList.QuestFrames[CLi]:SetScript("OnMouseDown", function(self, button)
-			if button == "LeftButton" and not AAP.QuestList.MainFrame.isMoving and AAP1[AAP_Realm][AAP_Name]["Settings"]["Lock"] == 0 then
+			if button == "LeftButton" and not AAP.QuestList.MainFrame.isMoving and AAP1[AAP.Realm][AAP.Name]["Settings"]["Lock"] == 0 then
 				AAP.QuestList.MainFrame:StartMoving();
 				AAP.QuestList.MainFrame.isMoving = true;
 			end
@@ -561,9 +561,9 @@ function AAP_MakeQuestList()
 			if button == "LeftButton" and AAP.QuestList.MainFrame.isMoving then
 				AAP.QuestList.MainFrame:StopMovingOrSizing();
 				AAP.QuestList.MainFrame.isMoving = false;
-				AAP1[AAP_Realm][AAP_Name]["Settings"]["left"] = AAP.QuestList.MainFrame:GetLeft()
-				AAP1[AAP_Realm][AAP_Name]["Settings"]["top"] = AAP.QuestList.MainFrame:GetTop() - GetScreenHeight()
-				AAP.QuestList.MainFrame:SetPoint("TOPLEFT", AAP1[AAP_Realm][AAP_Name]["Settings"]["left"], AAP1[AAP_Realm][AAP_Name]["Settings"]["top"])
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["left"] = AAP.QuestList.MainFrame:GetLeft()
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["top"] = AAP.QuestList.MainFrame:GetTop() - GetScreenHeight()
+				AAP.QuestList.MainFrame:SetPoint("TOPLEFT", AAP1[AAP.Realm][AAP.Name]["Settings"]["left"], AAP1[AAP.Realm][AAP.Name]["Settings"]["top"])
 				AAP_CombatTestVar = 1
 			end
 		end)
@@ -574,7 +574,7 @@ function AAP_MakeQuestList()
 			end
 		end)
 		AAP.QuestList.QuestFrames[CLi]:SetAlpha(0)
---		AAP.QuestList.QuestFrames[CLi]:SetScale(AAP1[AAP_Realm][AAP_Name]["Settings"]["Scale"])
+--		AAP.QuestList.QuestFrames[CLi]:SetScale(AAP1[AAP.Realm][AAP.Name]["Settings"]["Scale"])
 		AAP.QuestList.QuestFrames["FS"..CLi] = AAP.QuestList.ListFrame:CreateFontString("CLQFS"..CLi,"ARTWORK", "ChatFontNormal")
 		AAP.QuestList.QuestFrames["FS"..CLi]:SetParent(AAP.QuestList.QuestFrames[CLi])
 		AAP.QuestList.QuestFrames["FS"..CLi]:SetPoint("TOPLEFT",AAP.QuestList.QuestFrames[CLi],"TOPLEFT",5,0)
@@ -586,12 +586,12 @@ function AAP_MakeQuestList()
 		AAP.QuestList.QuestFrames["FS"..CLi]:SetTextColor(1, 1, 0)
 
 		AAP.QuestList.QuestFrames["FS"..CLi]["BQid"] = 0
-		AAP.QuestList.QuestFrames["FS"..CLi]["Button"] = CreateFrame("Button", "AAP_SkipActiveButton"..CLi, AAP.QuestList.QuestFrames[CLi])
+		AAP.QuestList.QuestFrames["FS"..CLi]["Button"] = CreateFrame("Button", "AAP.SkipActiveButton"..CLi, AAP.QuestList.QuestFrames[CLi])
 		AAP.QuestList.QuestFrames["FS"..CLi]["Button"]:SetWidth(43)
 		AAP.QuestList.QuestFrames["FS"..CLi]["Button"]:SetHeight(17)
 		AAP.QuestList.QuestFrames["FS"..CLi]["Button"]:SetPoint("RIGHT", AAP.QuestList.QuestFrames[CLi], "RIGHT", -4, 0)
 		AAP.QuestList.QuestFrames["FS"..CLi]["Button"]:SetScript("OnMouseDown", function(self, button)
-			AAP_SkipBonusObjective(AAP.QuestList.QuestFrames[CLi]["BQid"])
+			AAP.SkipBonusObjective(AAP.QuestList.QuestFrames[CLi]["BQid"])
 		end)
 		AAP.QuestList.QuestFrames["FS"..CLi]["Button"]:SetBackdrop( { 
 			bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background", 
@@ -640,20 +640,20 @@ function AAP_MakeQuestList()
 		AAP.QuestList2["BF"..CLi]["AAP_ButtonCD"] = CreateFrame("Cooldown", "AAP_Cooldown"..CLi, AAP.QuestList2["BF"..CLi]["AAP_Button"], "CooldownFrameTemplate")
 		AAP.QuestList2["BF"..CLi]["AAP_ButtonCD"]:SetAllPoints()
 
---		AAP.QuestList2["BF"..CLi]:SetScale(AAP1[AAP_Realm][AAP_Name]["Settings"]["Scale"])
-		AAP.QuestList2["BF"..CLi]:SetAlpha(AAP1[AAP_Realm][AAP_Name]["Settings"]["alpha"])
+--		AAP.QuestList2["BF"..CLi]:SetScale(AAP1[AAP.Realm][AAP.Name]["Settings"]["Scale"])
+		AAP.QuestList2["BF"..CLi]:SetAlpha(AAP1[AAP.Realm][AAP.Name]["Settings"]["alpha"])
 
 
 	end
 
 
 
---	AAP.QuestList21:SetScale(AAP1[AAP_Realm][AAP_Name]["Settings"]["Scale"])
+--	AAP.QuestList21:SetScale(AAP1[AAP.Realm][AAP.Name]["Settings"]["Scale"])
 
-	AAP.QuestList.ListFrame:SetScale(AAP1[AAP_Realm][AAP_Name]["Settings"]["Scale"])
-	AAP.QuestList21:SetScale(AAP1[AAP_Realm][AAP_Name]["Settings"]["Scale"])
-	AAP.QuestList.ListFrame:SetAlpha(AAP1[AAP_Realm][AAP_Name]["Settings"]["alpha"])
-	if (AAP1[AAP_Realm][AAP_Name]["Settings"]["Hide"] == 1) then
+	AAP.QuestList.ListFrame:SetScale(AAP1[AAP.Realm][AAP.Name]["Settings"]["Scale"])
+	AAP.QuestList21:SetScale(AAP1[AAP.Realm][AAP.Name]["Settings"]["Scale"])
+	AAP.QuestList.ListFrame:SetAlpha(AAP1[AAP.Realm][AAP.Name]["Settings"]["alpha"])
+	if (AAP1[AAP.Realm][AAP.Name]["Settings"]["Hide"] == 1) then
 		AAP.QuestList.ListFrame:Hide()
 	end
 	AAP.QuestList.Warcamp2 = CreateFrame("frame", "AAP_Warcamp2", UIParent)
@@ -719,10 +719,10 @@ function AAP_MakeQuestList()
 	AAP.QuestList.WarcampB1ptex:SetAllPoints()
 	AAP.QuestList.WarcampB1:SetPushedTexture(AAP.QuestList.WarcampB1ptex)
 	AAP.QuestList.WarcampB1:SetScript("OnClick", function(self, arg1)
-		AAP1[AAP_Realm][AAP_Name]["AAP_DoWarCampaign"] = 1
-		AAP_ZoneChangeTest()
-		AAP_Plus()
-		AAP_UpdateQuestList()
+		AAP1[AAP.Realm][AAP.Name]["AAP_DoWarCampaign"] = 1
+		AAP.BookingList["AAP_ChangeZone"] = "AAP_ChangeZone"
+		AAP.BookingList["AAP_Plus"] = "AAP_Plus"
+		AAP.BookingList["AAP_UpdateQuestList"] = "AAP_UpdateQuestList"
 		AAP.QuestList.Warcamp2:Hide()
 	end)
 	AAP.QuestList.WarcampB2 = CreateFrame("Button", "AAP_WarCampB2", UIParent, "SecureActionButtonTemplate")
@@ -748,10 +748,10 @@ function AAP_MakeQuestList()
 	AAP.QuestList.WarcampB2ptex:SetAllPoints()
 	AAP.QuestList.WarcampB2:SetPushedTexture(AAP.QuestList.WarcampB2ptex)
 	AAP.QuestList.WarcampB2:SetScript("OnClick", function(self, arg1)
-		AAP1[AAP_Realm][AAP_Name]["AAP_DoWarCampaign"] = 0
-		AAP_ChangeZone()
-		AAP_Plus()
-		AAP_UpdateQuestList()
+		AAP1[AAP.Realm][AAP.Name]["AAP_DoWarCampaign"] = 0
+		AAP.BookingList["AAP_ChangeZone"] = "AAP_ChangeZone"
+		AAP.BookingList["AAP_Plus"] = "AAP_Plus"
+		AAP.BookingList["AAP_UpdateQuestList"] = "AAP_UpdateQuestList"
 		AAP.QuestList.Warcamp2:Hide()
 	end)
 

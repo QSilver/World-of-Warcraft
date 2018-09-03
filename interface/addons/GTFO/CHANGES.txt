@@ -1,12 +1,15 @@
 ------------------------------------------------------------------------
-r407 | Zensunim | 2018-08-05 04:44:48 +0000 (Sun, 05 Aug 2018) | 2 lines
+r417 | Zensunim | 2018-08-26 18:37:40 +0000 (Sun, 26 Aug 2018) | 3 lines
 Changed paths:
    M /trunk/GTFO.lua
    M /trunk/GTFO.toc
-   M /trunk/GTFO_Spells_Special.lua
+   M /trunk/GTFO_FF_BFA.lua
+   M /trunk/GTFO_Fail_BFA.lua
+   M /trunk/GTFO_Spells_BFA.lua
    M /trunk/ReadMe.txt
 
-4.46.2
-* Added Battle for Azeroth launch event spells (special)
+4.46.4
+* Fixed BFA spells for Siege of Boralus
+* Added BFA spells for Siege of Boralus
 ------------------------------------------------------------------------
 

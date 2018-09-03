@@ -17,15 +17,6 @@ if not core then
     return
 end
 
--- positioned and "shown" on the player's frame when/if it is shown
-local anchor = CreateFrame('Frame','KuiNameplatesPlayerAnchor')
-anchor:Hide()
-
-if addon.draw_frames then
-    anchor:SetBackdrop({ edgeFile = kui.m.t.solid, edgeSize = 1 })
-    anchor:SetBackdropBorderColor(0,0,1)
-end
-
 local plugin_fading
 -- messages ####################################################################
 function core:Create(f)
@@ -84,19 +75,8 @@ function core:Show(f)
         -- show/hide target arrows
         f:UpdateTargetArrows()
     end
-
-    if f.state.personal then
-        anchor:SetParent(f)
-        anchor:SetAllPoints(f.bg)
-        anchor:Show()
-    end
 end
 function core:Hide(f)
-    if f.state.personal then
-        anchor:ClearAllPoints()
-        anchor:Hide()
-    end
-
     self:NameOnlyUpdate(f,true)
     f:HideCastBar(nil,true)
 end
@@ -161,10 +141,10 @@ function core:ExecuteUpdate(f)
     plugin_fading:UpdateFrame(f)
 end
 function core:OnEnter(f)
-    f:UpdateFrameGlow()
+    f:UpdateHighlight()
 end
 function core:OnLeave(f)
-    f:UpdateFrameGlow()
+    f:UpdateHighlight()
 end
 -- events ######################################################################
 function core:QUEST_POI_UPDATE()
@@ -291,13 +271,17 @@ function core:Initialise()
     self:AddCallback('ClassPowers','PostPositionFrame',self.ClassPowers_PostPositionFrame)
     self:AddCallback('ClassPowers','CreateBar',self.ClassPowers_CreateBar)
 
-    -- update layout's locals with configuration
-    self:SetLocals()
-
     -- set element configuration tables
     self:InitialiseElements()
 
     CreateLODHandler()
 
     plugin_fading = addon:GetPlugin('Fading')
+
+    --[===[@alpha@
+    addon:ui_print('You are using an alpha release;')
+    print('    Please report issues to www.github.com/kesava-wow/kuinameplates2')
+    print('    And include the output of: /knp dump')
+    print('    Thanks!')
+    --@end-alpha@]===]
 end

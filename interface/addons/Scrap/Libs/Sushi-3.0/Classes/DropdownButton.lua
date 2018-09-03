@@ -1,4 +1,23 @@
-local DropButton = MakeSushi(3, 'CheckButton', 'DropdownButton', nil, 'UIDropDownMenuButtonTemplate', SushiButtonBase)
+--[[
+Copyright 2008-2018 João Cardoso
+Sushi is distributed under the terms of the GNU General Public License (or the Lesser GPL).
+This file is part of Sushi.
+
+Sushi is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Sushi is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Sushi. If not, see <http://www.gnu.org/licenses/>.
+--]]
+
+local DropButton = MakeSushi(4, 'CheckButton', 'DropdownButton', nil, 'UIDropDownMenuButtonTemplate', SushiButtonBase)
 if DropButton then
 	DropButton.left = 16
 	DropButton.top = 1
@@ -26,6 +45,7 @@ function DropButton:SetTitle(isTitle)
 	local font = isTitle and GameFontNormalSmall or GameFontHighlightSmall
 	self:SetNormalFontObject(font)
 	self:SetHighlightFontObject(font)
+	self:EnableMouse(not isTitle)
 end
 
 

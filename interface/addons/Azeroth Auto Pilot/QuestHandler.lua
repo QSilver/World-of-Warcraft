@@ -1,10 +1,8 @@
-AAP_BookedFS = {}
-AAP_NamedBookedFS = {}
 AAP_BonusCrap = {}
-function AAP_GliderCountFunc()
+function AAP.GliderCountFunc()
 	return GetItemCount(109076)
 end
-function AAP_GliderFunc()
+function AAP.GliderFunc()
 	if (AAP1["GliderName"]) then
 		return AAP1["GliderName"]
 	else
@@ -29,12 +27,12 @@ function AAP_GliderFunc()
 		end
 	end
 end
-function AAP_CheckQPFiller(AAP_T_questID, AAP_T_Step)
-	if (AAP1 and AAP1[AAP_Realm] and AAP1[AAP_Realm][AAP_Name] and AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]) then
-		if (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["Fillers"]) then
-			for AAP_index,AAP_value in pairs(AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["Fillers"]) do
+function AAP.CheckQPFiller(AAP_T_questID, AAP_T_Step)
+	if (AAP1 and AAP1[AAP.Realm] and AAP1[AAP.Realm][AAP.Name] and AAP1[AAP.Realm][AAP.Name][AAP.ActiveZone]) then
+		if (AAP.ActiveStuff and AAP.ActiveStuff["Fillers"]) then
+			for AAP_index,AAP_value in pairs(AAP.ActiveStuff["Fillers"]) do
 				if (tonumber(AAP_T_questID) == tonumber(AAP_index)) then
-					for AAP_index2,AAP_value2 in pairs(AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["Fillers"][AAP_index]) do
+					for AAP_index2,AAP_value2 in pairs(AAP.ActiveStuff["Fillers"][AAP_index]) do
 						if (tonumber(AAP_T_Step) == tonumber(AAP_value2)) then
 							return 1
 						end
@@ -45,7 +43,7 @@ function AAP_CheckQPFiller(AAP_T_questID, AAP_T_Step)
 	end
 	return 0
 end
-function AAP_AddToQWatch(AAP_Watchers)
+function AAP.AddToQWatch(AAP_Watchers)
 	local i = 1
 	while GetQuestLogTitle(i) do
 		local questTitle, level, suggestedGroup, isHeader, isCollapsed, isComplete, frequency, questID = GetQuestLogTitle(i)
@@ -59,7 +57,7 @@ function AAP_AddToQWatch(AAP_Watchers)
 		i = i + 1
 	end
 end
-function AAP_RemoveQWatch(AAP_Watchers)
+function AAP.RemoveQWatch(AAP_Watchers)
 	local i = 1
 	while GetQuestLogTitle(i) do
 		local questTitle, level, suggestedGroup, isHeader, isCollapsed, isComplete, frequency, questID = GetQuestLogTitle(i)
@@ -73,47 +71,47 @@ function AAP_RemoveQWatch(AAP_Watchers)
 		i = i + 1
 	end
 end
-function AAP_ReturnDoneNr(AAP_t_dnr)
+function AAP.ReturnDoneNr(AAP_t_dnr)
 	local aap_t1 = 0
 	local aap_t2 = 0
-	for AAP_index,AAP_value in pairs(AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["Done"]) do
+	for AAP_index,AAP_value in pairs(AAP.ActiveStuff["Done"]) do
 		aap_t1 = aap_t1 + 1
-		if (AAP_CompletedQs[AAP_value] == true) then
+		if (AAP.CompletedQs[AAP_value] == true) then
 			aap_t2 = aap_t2 + 1
 		end
 	end
 	aap_t2 = AAP_t_dnr - aap_t2
 	return aap_t2
 end
-function AAP_CheckCRangeText()
-	local derp = AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]
+function AAP.CheckCRangeText()
+	local derp = AAP1[AAP.Realm][AAP.Name][AAP.ActiveZone]
 	local i = 1
 	while i  <= 15 do
 		derp = derp + 1
-		if (AAP_Quests[derp] and AAP_Quests[derp]["FlightPath"]) then
+		if (AAP.QuestList[AAP.ActiveZone][derp] and AAP.QuestList[AAP.ActiveZone][derp]["FlightPath"]) then
 			local Derp2 = AAP_Locals["Get Flight Point"]
 			return Derp2
-		elseif (AAP_Quests[derp] and AAP_Quests[derp]["UseFlightPath"]) then
-			if (AAP_Quests[derp] and AAP_Quests[derp]["Boat"]) then
+		elseif (AAP.QuestList[AAP.ActiveZone][derp] and AAP.QuestList[AAP.ActiveZone][derp]["UseFlightPath"]) then
+			if (AAP.QuestList[AAP.ActiveZone][derp] and AAP.QuestList[AAP.ActiveZone][derp]["Boat"]) then
 				local Derp2 = AAP_Locals["Boat to"]
 				return Derp2
 			else
 				local Derp2 = AAP_Locals["Fly to"]
 				return Derp2
 			end
-		elseif (AAP_Quests[derp] and AAP_Quests[derp]["PickUp"]) then
+		elseif (AAP.QuestList[AAP.ActiveZone][derp] and AAP.QuestList[AAP.ActiveZone][derp]["PickUp"]) then
 			local Derp2 = AAP_Locals["Accept Quest"]
 			return Derp2
-		elseif (AAP_Quests[derp] and AAP_Quests[derp]["Done"]) then
+		elseif (AAP.QuestList[AAP.ActiveZone][derp] and AAP.QuestList[AAP.ActiveZone][derp]["Done"]) then
 			local Derp2 = AAP_Locals["Turn in Quest"]
 			return Derp2
-		elseif (AAP_Quests[derp] and AAP_Quests[derp]["Qpart"]) then
+		elseif (AAP.QuestList[AAP.ActiveZone][derp] and AAP.QuestList[AAP.ActiveZone][derp]["Qpart"]) then
 			local Derp2 = AAP_Locals["Complete Quest"]
 			return Derp2
-		elseif (AAP_Quests[derp] and AAP_Quests[derp]["SetHS"]) then
+		elseif (AAP.QuestList[AAP.ActiveZone][derp] and AAP.QuestList[AAP.ActiveZone][derp]["SetHS"]) then
 			local Derp2 = AAP_Locals["Set Hearthstone"]
 			return Derp2
-		elseif (AAP_Quests[derp] and AAP_Quests[derp]["QpartPart"]) then
+		elseif (AAP.QuestList[AAP.ActiveZone][derp] and AAP.QuestList[AAP.ActiveZone][derp]["QpartPart"]) then
 			local Derp2 = AAP_Locals["Complete Quest"]
 			return Derp2
 		end
@@ -123,12 +121,12 @@ function AAP_CheckCRangeText()
 	local Derp2 = AAP_Locals["Travel to"]
 	return Derp2
 end
-function AAP_CheckQP(AAP_T_questID, AAP_T_Step)
-	if (AAP1 and AAP1[AAP_Realm] and AAP1[AAP_Realm][AAP_Name] and AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]) then
-		if (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["Qpart"]) then
-			for AAP_index,AAP_value in pairs(AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["Qpart"]) do
+function AAP.CheckQP(AAP_T_questID, AAP_T_Step)
+	if (AAP1 and AAP1[AAP.Realm] and AAP1[AAP.Realm][AAP.Name] and AAP1[AAP.Realm][AAP.Name][AAP.ActiveZone]) then
+		if (AAP.ActiveStuff and AAP.ActiveStuff["Qpart"]) then
+			for AAP_index,AAP_value in pairs(AAP.ActiveStuff["Qpart"]) do
 				if (tonumber(AAP_T_questID) == tonumber(AAP_index)) then
-					for AAP_index2,AAP_value2 in pairs(AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["Qpart"][AAP_index]) do
+					for AAP_index2,AAP_value2 in pairs(AAP.ActiveStuff["Qpart"][AAP_index]) do
 						if (tonumber(AAP_T_Step) == tonumber(AAP_index2)) then
 							return 1
 						end
@@ -136,10 +134,10 @@ function AAP_CheckQP(AAP_T_questID, AAP_T_Step)
 				end
 			end
 		end
-		if (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["QpartPart"]) then
-			for AAP_index,AAP_value in pairs(AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["QpartPart"]) do
+		if (AAP.ActiveStuff and AAP.ActiveStuff["QpartPart"]) then
+			for AAP_index,AAP_value in pairs(AAP.ActiveStuff["QpartPart"]) do
 				if (tonumber(AAP_T_questID) == tonumber(AAP_index)) then
-					for AAP_index2,AAP_value2 in pairs(AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["QpartPart"][AAP_index]) do
+					for AAP_index2,AAP_value2 in pairs(AAP.ActiveStuff["QpartPart"][AAP_index]) do
 						if (tonumber(AAP_T_Step) == tonumber(AAP_index2)) then
 							return 1
 						end
@@ -150,7 +148,7 @@ function AAP_CheckQP(AAP_T_questID, AAP_T_Step)
 	end
 	return 0
 end
-function AAP_PrintFillers(AAP_T_ars)
+function AAP.PrintFillers(AAP_T_ars)
 	local i = 1
 	local ars = AAP_T_ars
 	while GetQuestLogTitle(i) do
@@ -162,7 +160,7 @@ function AAP_PrintFillers(AAP_T_ars)
 
 
 		local numObjectives = GetNumQuestLeaderBoards(SelectQuestLogEntry(i))
-		if (questID > 0 and AAP_InstanceTest() == 0 and AAP_SettingsOpen == 0) then
+		if (questID > 0 and AAP.InstanceTest() == 0 and AAP_SettingsOpen == 0) then
 			if ( not isHeader) then
 				for h=1, numObjectives do
 					local text = 0
@@ -172,8 +170,7 @@ function AAP_PrintFillers(AAP_T_ars)
 					else
 						finished = 0
 					end
-					local AAP_NRFS = AAP_QH_GetFS(questID .."-"..h)
-					if (AAP_NRFS and finished ~= 1 and AAP_CheckQPFiller(questID, h) == 1) then
+					if (finished ~= 1 and AAP.CheckQPFiller(questID, h) == 1) then
 						if (select(2,GetQuestObjectiveInfo(questID, 1, false)) == "progressbar") then
 							local AAP_Mathstuff = tonumber(GetQuestProgressBarPercent(questID))
 							AAP_Mathstuff = floor((AAP_Mathstuff + 0.5))
@@ -181,26 +178,26 @@ function AAP_PrintFillers(AAP_T_ars)
 --print("Bonus Objective?! Qid:"..questID)
 						end
 						AAP_BonusCrap[questID] = 1
-						if (not AAP1[AAP_Realm][AAP_Name]["SkippedBonusObj"][questID]) then
+						if (not AAP1[AAP.Realm][AAP.Name]["SkippedBonusObj"][questID]) then
 							ars = ars + 1
-							AAP.QuestList.QuestFrames[AAP_NRFS]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
-							AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText("[".. ars+1 .."] "..text)
+							--AAP.QuestList.QuestFrames[ars]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
+							AAP.QuestList.QuestFrames["FS"..ars]:SetText("[".. ars .."] "..text)
 
-							local aapwidth = AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:GetStringWidth()
+							local aapwidth = AAP.QuestList.QuestFrames["FS"..ars]:GetStringWidth()
 							if (aapwidth and aapwidth > 400) then
-								AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(aapwidth+10)
+								AAP.QuestList.QuestFrames[ars]:SetWidth(aapwidth+10)
 							else
-								AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(410)
+								AAP.QuestList.QuestFrames[ars]:SetWidth(410)
 							end
-
-							AAP_SetButton(AAP_NRFS, ars)
-							AAP.QuestList.QuestFrames[AAP_NRFS]["BQid"] = questID
-							AAP.QuestList.QuestFrames[AAP_NRFS]:SetAlpha(1)
-							AAP.QuestList.QuestFrames[AAP_NRFS]:Show()
+							AAP.NamedBookedFS[questID.."-"..h] = ars
+							AAP.SetButton(ars, ars)
+							AAP.QuestList.QuestFrames[ars]["BQid"] = questID
+							AAP.QuestList.QuestFrames[ars]:SetAlpha(1)
+							AAP.QuestList.QuestFrames[ars]:Show()
 							if (AAP_BonusObj[questID]) then
-								AAP.QuestList.QuestFrames["FS"..AAP_NRFS]["Button"]:Show()
+								AAP.QuestList.QuestFrames["FS"..ars]["Button"]:Show()
 							else
-								AAP.QuestList.QuestFrames["FS"..AAP_NRFS]["Button"]:Hide()
+								AAP.QuestList.QuestFrames["FS"..ars]["Button"]:Hide()
 							end
 						end
 					end
@@ -210,597 +207,569 @@ function AAP_PrintFillers(AAP_T_ars)
 		i = i + 1
 	end
 end
-function AAP_Check_Droppable()
-	local QidZ = AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["DroppableQuest"]["Qid"]
-	if (AAP_CompletedQs[QidZ] or AAP_ActiveQuests[QidZ]) then
+function AAP.Check_Droppable()
+	local QidZ = AAP.ActiveStuff["DroppableQuest"]["Qid"]
+	if (AAP.CompletedQs[QidZ] or AAP_ActiveQuests[QidZ]) then
 		return 0
 	end
 	return 1
 end
-function AAP_CheckMobid(AAP_t_MobID)
+function AAP.CheckMobid(AAP_t_MobID)
 	if (AAP_NPCList and AAP_NPCList[AAP_t_MobID]) then
 		return AAP_NPCList[AAP_t_MobID]
 	else
-		return AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["DroppableQuest"]["Text"]
+		return AAP.ActiveStuff["DroppableQuest"]["Text"]
 	end
 end
 
-function AAP_UpdateQuestList()
+function AAP.UpdateQuestList()
 --	if (WorldMapFrame:IsVisible()) then
 --		return
 --	end
 	local CLi = 0
 	AAP_BonusCrap = nil
 	AAP_BonusCrap = {}
-	for CLi = 1, 50 do
-		AAP_BookedFS[CLi] = 0
-		AAP_NamedBookedFS = nil
-		AAP_NamedBookedFS = {}
-		AAP.QuestList.QuestFrames["FS"..CLi]:SetText("")
+	AAP.NamedBookedFS = nil
+	AAP.NamedBookedFS = {}
+	for CLi = 1, 10 do
 		AAP.QuestList.QuestFrames[CLi]:Hide()
 		if (not InCombatLockdown()) then
 			AAP.QuestList2["BF"..CLi]:Hide()
 		end
 		AAP.QuestList.QuestFrames["FS"..CLi]["Button"]:Hide()
 	end
-	if (AAP1[AAP_Realm][AAP_Name]["Settings"]["ShowQList"] == 0) then
+	if (AAP1[AAP.Realm][AAP.Name]["Settings"]["ShowQList"] == 0) then
 		return
 	end
 	local i = 1
-	local ars = -1
+	local ars = 0
 	if (AAP_SettingsOpen == 1) then
-		local AAP_NRFS = AAP_QH_GetFS("1234112341-1")
 		ars = ars + 1
-		AAP.QuestList.QuestFrames[AAP_NRFS]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
+		--AAP.QuestList.QuestFrames[ars]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
 
-		AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText("Test 1")
-							local aapwidth = AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:GetStringWidth()
+		AAP.QuestList.QuestFrames["FS"..ars]:SetText("Test 1")
+							local aapwidth = AAP.QuestList.QuestFrames["FS"..ars]:GetStringWidth()
 							if (aapwidth and aapwidth > 400) then
-								AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(aapwidth+10)
+								AAP.QuestList.QuestFrames[ars]:SetWidth(aapwidth+10)
 							else
-								AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(410)
+								AAP.QuestList.QuestFrames[ars]:SetWidth(410)
 							end
-		AAP.QuestList.QuestFrames[AAP_NRFS]:SetAlpha(1)
-		AAP.QuestList.QuestFrames[AAP_NRFS]:Show()
-		local AAP_NRFS = AAP_QH_GetFS("1234123141-1")
+		AAP.QuestList.QuestFrames[ars]:SetAlpha(1)
+		AAP.QuestList.QuestFrames[ars]:Show()
 		ars = ars + 1
-		AAP.QuestList.QuestFrames[AAP_NRFS]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
-		AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText("Test 2")
-							local aapwidth = AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:GetStringWidth()
+		--AAP.QuestList.QuestFrames[ars]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
+		AAP.QuestList.QuestFrames["FS"..ars]:SetText("Test 2")
+							local aapwidth = AAP.QuestList.QuestFrames["FS"..ars]:GetStringWidth()
 							if (aapwidth and aapwidth > 400) then
-								AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(aapwidth+10)
+								AAP.QuestList.QuestFrames[ars]:SetWidth(aapwidth+10)
 							else
-								AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(410)
+								AAP.QuestList.QuestFrames[ars]:SetWidth(410)
 							end
-		AAP.QuestList.QuestFrames[AAP_NRFS]:SetAlpha(1)
-		AAP.QuestList.QuestFrames[AAP_NRFS]:Show()
-		local AAP_NRFS = AAP_QH_GetFS("1231412341-1")
+		AAP.QuestList.QuestFrames[ars]:SetAlpha(1)
+		AAP.QuestList.QuestFrames[ars]:Show()
 		ars = ars + 1
-		AAP.QuestList.QuestFrames[AAP_NRFS]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
-		AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText("Test 3")
-							local aapwidth = AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:GetStringWidth()
+		--AAP.QuestList.QuestFrames[ars]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
+		AAP.QuestList.QuestFrames["FS"..ars]:SetText("Test 3")
+							local aapwidth = AAP.QuestList.QuestFrames["FS"..ars]:GetStringWidth()
 							if (aapwidth and aapwidth > 400) then
-								AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(aapwidth+10)
+								AAP.QuestList.QuestFrames[ars]:SetWidth(aapwidth+10)
 							else
-								AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(410)
+								AAP.QuestList.QuestFrames[ars]:SetWidth(410)
 							end
-		AAP.QuestList.QuestFrames[AAP_NRFS]:SetAlpha(1)
-		AAP.QuestList.QuestFrames[AAP_NRFS]:Show()
+		AAP.QuestList.QuestFrames[ars]:SetAlpha(1)
+		AAP.QuestList.QuestFrames[ars]:Show()
 	end
-	if (AAP1 and AAP1[AAP_Realm] and AAP1[AAP_Realm][AAP_Name] and AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone] and AAP_InstanceTest() == 0 and AAP_SettingsOpen == 0) then
+	if (AAP1 and AAP1[AAP.Realm] and AAP1[AAP.Realm][AAP.Name] and AAP1[AAP.Realm][AAP.Name][AAP.ActiveZone] and AAP.InstanceTest() == 0 and AAP_SettingsOpen == 0) then
 		local factionz = UnitFactionGroup("player")
-		if ((UnitLevel("player") > 117) and (not AAP_CompletedQs[51770]) and (factionz ~= "Alliance")) then
+		if ((UnitLevel("player") > 117) and (not IsQuestFlaggedCompleted(51770)) and (factionz ~= "Alliance")) then
 			AAP.QuestList.Warcamp:Show()
 		else
 			AAP.QuestList.Warcamp:Hide()
 		end
 
-		if (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["SearchBags"]) then
+		if (AAP.ActiveStuff and AAP.ActiveStuff["SearchBags"]) then
 
 		end
-		if (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["ClearZP"]) then
-			AAP_ActiveZonePick = 0
+		if (AAP.ActiveStuff and AAP.ActiveStuff["ClearZP"]) then
+			AAP.ActiveZonePick = 0
 		end
-		if (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["ExtraLine"]) then
-			local AAPExtralk = AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["ExtraLine"]
-			local AAP_NRFS = AAP_QH_GetFS(AAPExtralk.."1220841-1")
+		if (AAP.ActiveStuff and AAP.ActiveStuff["ExtraLine"]) then
+			local AAPExtralk = AAP.ActiveStuff["ExtraLine"]
 			ars = ars + 1
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
+			--AAP.QuestList.QuestFrames[ars]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
 			if (AAPExtralk == 1) then
-				AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText("** "..AAP_Locals["HeFlying"].." **")
+				AAP.QuestList.QuestFrames["FS"..ars]:SetText("** "..AAP_Locals["HeFlying"].." **")
 			end
 			if (AAPExtralk == 2) then
-				AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Locals["ClickShrine"])
+				AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Locals["ClickShrine"])
 			end
 			if (AAPExtralk == 3) then
-				AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Locals["Talk to NPC to ride boat"])
+				AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Locals["Talk to NPC to ride boat"])
 			end
 			if (AAPExtralk == 4) then
-				AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Locals["Takes little dmg at start1"])
+				AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Locals["Takes little dmg at start1"])
 			end
 			if (AAPExtralk == 5) then
-				AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Locals["Click 1 Dirt Pile"])
+				AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Locals["Click 1 Dirt Pile"])
 			end
 			if (AAPExtralk == 6) then
-				AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Locals["Go Up Elevator"])
+				AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Locals["Go Up Elevator"])
 			end
 			if (AAPExtralk == 7) then
-				AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Locals["Jump off Bridge"])
+				AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Locals["Jump off Bridge"])
 			end
 			if (AAPExtralk == 8) then
-				AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Locals["Jump off"])
+				AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Locals["Jump off"])
 			end
 			if (AAPExtralk == 9) then
-				AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Locals["ClickAltar"])
+				AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Locals["ClickAltar"])
 			end
 			if (AAPExtralk == 10) then
-				AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Locals["ClickTotem"])
+				AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Locals["ClickTotem"])
 			end
 			if (AAPExtralk == 11) then
-				AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Locals["Kajamite"])
+				AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Locals["Kajamite"])
 			end
 			if (AAPExtralk == 12) then
-				AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Locals["Spices"])
+				AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Locals["Spices"])
 			end
 			if (AAPExtralk == 13) then
-				AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Locals["SeaUrchineBrine"])
+				AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Locals["SeaUrchineBrine"])
 			end
 			if (AAPExtralk == 14) then
-				AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Locals["JolPoweder"])
+				AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Locals["JolPoweder"])
 			end
 			if (AAPExtralk == 15) then
-				AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Locals["JolStir"])
+				AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Locals["JolStir"])
 			end
 			if (AAPExtralk == 16) then
-				AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Locals["JolNotes"])
+				AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Locals["JolNotes"])
 			end
 			if (AAPExtralk == 17) then
-				AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Locals["JolHandin"])
+				AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Locals["JolHandin"])
 			end
 			if (AAPExtralk == 18) then
-				AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Locals["TopOfBoat"])
+				AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Locals["TopOfBoat"])
 			end
 			if (AAPExtralk == 19) then
-				AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Locals["Dontwaitrun"])
+				AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Locals["Dontwaitrun"])
 			end
 			if (AAPExtralk == 20) then
-				AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Locals["Doesntmatterwep"])
+				AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Locals["Doesntmatterwep"])
 			end
 			if (AAPExtralk == 21) then
-				AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Locals["Extracaravans"])
+				AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Locals["Extracaravans"])
 			end
 			if (AAPExtralk == 22) then
-				AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Locals["dotsexpire"])
+				AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Locals["dotsexpire"])
 			end
 			if (AAPExtralk == 23) then
-				AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Locals["Banneronstuff"])
+				AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Locals["Banneronstuff"])
 			end
 			if (AAPExtralk == 24) then
-				AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Locals["GetSaurolistBuff"])
+				AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Locals["GetSaurolistBuff"])
 			end
 			if (AAPExtralk == 25) then
-				AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Locals["Get Flight Point"])
+				AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Locals["Get Flight Point"])
 			end
 			if (AAPExtralk == 26) then
-				AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Locals["Fixed Quest"])
+				AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Locals["Fixed Quest"])
 			end
 			if (AAPExtralk == 27) then
-				AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Locals["Talk to Princess Talanji"])
+				AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Locals["Talk to Princess Talanji"])
 			end
 			if (AAPExtralk == 28) then
-				AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Locals["Zone Complete"])
+				AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Locals["Zone Complete"])
 			end
 			if (AAPExtralk == 29) then
-				AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Locals["Missing quest"])
+				AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Locals["Missing quest"])
 			end
-			local aapwidth = AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:GetStringWidth()
+			local aapwidth = AAP.QuestList.QuestFrames["FS"..ars]:GetStringWidth()
 			if (aapwidth and aapwidth > 400) then
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(aapwidth+10)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(aapwidth+10)
 			else
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(410)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(410)
 			end
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetAlpha(1)
-			AAP.QuestList.QuestFrames[AAP_NRFS]:Show()
-			AAP_SetQPTT()
+			AAP.QuestList.QuestFrames[ars]:SetAlpha(1)
+			AAP.QuestList.QuestFrames[ars]:Show()
+			AAP.BookingList["AAP.SetQPTT"] = 1
 		end
-		if (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["ExtraLine"] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["ExtraLine"] == 4) then
-			local AAPExtralk = AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["ExtraLine"]
-			local AAP_NRFS = AAP_QH_GetFS(AAPExtralk.."12220841-1")
+		if (AAP.ActiveStuff and AAP.ActiveStuff["ExtraLine"] and AAP.ActiveStuff["ExtraLine"] == 4) then
+			local AAPExtralk = AAP.ActiveStuff["ExtraLine"]
 			ars = ars + 1
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
-			AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Locals["Takes little dmg at start2"])
-			local aapwidth = AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:GetStringWidth()
+			--AAP.QuestList.QuestFrames[ars]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
+			AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Locals["Takes little dmg at start2"])
+			local aapwidth = AAP.QuestList.QuestFrames["FS"..ars]:GetStringWidth()
 			if (aapwidth and aapwidth > 400) then
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(aapwidth+10)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(aapwidth+10)
 			else
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(410)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(410)
 			end
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetAlpha(1)
-			AAP.QuestList.QuestFrames[AAP_NRFS]:Show()
-			AAP_SetQPTT()
+			AAP.QuestList.QuestFrames[ars]:SetAlpha(1)
+			AAP.QuestList.QuestFrames[ars]:Show()
+			AAP.BookingList["AAP.SetQPTT"] = 1
 		end
-		if (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["Bloodlust"]) then
-			if (AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["Immuneatstart"]) then
-				local AAP_NRFS = AAP_QH_GetFS("123230841-1")
+		if (AAP.ActiveStuff and AAP.ActiveStuff["Bloodlust"]) then
+			if (AAP.ActiveStuff["Immuneatstart"]) then
 				ars = ars + 1
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
-				AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText("** "..AAP_Locals["Immuneatstart"].." **")
-			local aapwidth = AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:GetStringWidth()
+				--AAP.QuestList.QuestFrames[ars]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
+				AAP.QuestList.QuestFrames["FS"..ars]:SetText("** "..AAP_Locals["Immuneatstart"].." **")
+			local aapwidth = AAP.QuestList.QuestFrames["FS"..ars]:GetStringWidth()
 			if (aapwidth and aapwidth > 400) then
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(aapwidth+10)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(aapwidth+10)
 			else
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(410)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(410)
 			end
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetAlpha(1)
-				AAP.QuestList.QuestFrames[AAP_NRFS]:Show()
+				AAP.QuestList.QuestFrames[ars]:SetAlpha(1)
+				AAP.QuestList.QuestFrames[ars]:Show()
 			end
-			local AAP_NRFS = AAP_QH_GetFS("1230841-1")
 			ars = ars + 1
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
-			AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText("** "..AAP_Locals["Bloodlust"].." **")
-			local aapwidth = AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:GetStringWidth()
+			--AAP.QuestList.QuestFrames[ars]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
+			AAP.QuestList.QuestFrames["FS"..ars]:SetText("** "..AAP_Locals["Bloodlust"].." **")
+			local aapwidth = AAP.QuestList.QuestFrames["FS"..ars]:GetStringWidth()
 			if (aapwidth and aapwidth > 400) then
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(aapwidth+10)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(aapwidth+10)
 			else
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(410)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(410)
 			end
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetAlpha(1)
-			AAP.QuestList.QuestFrames[AAP_NRFS]:Show()
-			AAP_SetQPTT()
+			AAP.QuestList.QuestFrames[ars]:SetAlpha(1)
+			AAP.QuestList.QuestFrames[ars]:Show()
+			AAP.BookingList["AAP.SetQPTT"] = 1
 		end
-		if (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["Waitforportal"]) then
-			local AAP_NRFS = AAP_QH_GetFS("1232841-1")
+		if (AAP.ActiveStuff and AAP.ActiveStuff["Waitforportal"]) then
 			ars = ars + 1
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
-			AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText("** "..AAP_Locals["waitforportal"].." **")
-			local aapwidth = AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:GetStringWidth()
+			--AAP.QuestList.QuestFrames[ars]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
+			AAP.QuestList.QuestFrames["FS"..ars]:SetText("** "..AAP_Locals["waitforportal"].." **")
+			local aapwidth = AAP.QuestList.QuestFrames["FS"..ars]:GetStringWidth()
 			if (aapwidth and aapwidth > 400) then
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(aapwidth+10)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(aapwidth+10)
 			else
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(410)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(410)
 			end
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetAlpha(1)
-			AAP.QuestList.QuestFrames[AAP_NRFS]:Show()
-			AAP_SetQPTT()
+			AAP.QuestList.QuestFrames[ars]:SetAlpha(1)
+			AAP.QuestList.QuestFrames[ars]:Show()
+			AAP.BookingList["AAP.SetQPTT"] = 1
 		end
-		if (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["WaitforsetHS"]) then
-			local AAP_NRFS = AAP_QH_GetFS("1234841-1")
+		if (AAP.ActiveStuff and AAP.ActiveStuff["WaitforsetHS"]) then
 			ars = ars + 1
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
-			AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText("** "..AAP_Locals["WaitforsetHS"].." **")
-			local aapwidth = AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:GetStringWidth()
+			--AAP.QuestList.QuestFrames[ars]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
+			AAP.QuestList.QuestFrames["FS"..ars]:SetText("** "..AAP_Locals["WaitforsetHS"].." **")
+			local aapwidth = AAP.QuestList.QuestFrames["FS"..ars]:GetStringWidth()
 			if (aapwidth and aapwidth > 400) then
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(aapwidth+10)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(aapwidth+10)
 			else
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(410)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(410)
 			end
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetAlpha(1)
-			AAP.QuestList.QuestFrames[AAP_NRFS]:Show()
-			AAP_SetQPTT()
+			AAP.QuestList.QuestFrames[ars]:SetAlpha(1)
+			AAP.QuestList.QuestFrames[ars]:Show()
+			AAP.BookingList["AAP.SetQPTT"] = 1
 		end
-		if (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["BeneathHandin"]) then
-			local AAP_NRFS = AAP_QH_GetFS("1232541-1")
+		if (AAP.ActiveStuff and AAP.ActiveStuff["BeneathHandin"]) then
 			ars = ars + 1
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
-			AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Locals["BeneathHandin"])
-			local aapwidth = AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:GetStringWidth()
+			--AAP.QuestList.QuestFrames[ars]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
+			AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Locals["BeneathHandin"])
+			local aapwidth = AAP.QuestList.QuestFrames["FS"..ars]:GetStringWidth()
 			if (aapwidth and aapwidth > 400) then
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(aapwidth+10)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(aapwidth+10)
 			else
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(410)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(410)
 			end
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetAlpha(1)
-			AAP.QuestList.QuestFrames[AAP_NRFS]:Show()
-			AAP_SetQPTT()
+			AAP.QuestList.QuestFrames[ars]:SetAlpha(1)
+			AAP.QuestList.QuestFrames[ars]:Show()
+
+			AAP.BookingList["AAP.SetQPTT"] = 1
 		end
-		if (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["Totemdmg"]) then
-			local AAP_NRFS = AAP_QH_GetFS("1232242-1")
+		if (AAP.ActiveStuff and AAP.ActiveStuff["Totemdmg"]) then
 			ars = ars + 1
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
-			AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText("** "..AAP_Locals["Totemdmg"].." **")
-			local aapwidth = AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:GetStringWidth()
+			--AAP.QuestList.QuestFrames[ars]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
+			AAP.QuestList.QuestFrames["FS"..ars]:SetText("** "..AAP_Locals["Totemdmg"].." **")
+			local aapwidth = AAP.QuestList.QuestFrames["FS"..ars]:GetStringWidth()
 			if (aapwidth and aapwidth > 400) then
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(aapwidth+10)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(aapwidth+10)
 			else
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(410)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(410)
 			end
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetAlpha(1)
-			AAP.QuestList.QuestFrames[AAP_NRFS]:Show()
-			AAP_SetQPTT()
+			AAP.QuestList.QuestFrames[ars]:SetAlpha(1)
+			AAP.QuestList.QuestFrames[ars]:Show()
+			AAP.BookingList["AAP.SetQPTT"] = 1
 		end
-		if (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["WarModeChk"]) then
-			local AAP_NRFS = AAP_QH_GetFS("12932242-1")
+		if (AAP.ActiveStuff and AAP.ActiveStuff["WarModeChk"]) then
 			ars = ars + 1
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
-			AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText("** "..AAP_Locals["WarModeOff"].." **")
-			local aapwidth = AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:GetStringWidth()
+			--AAP.QuestList.QuestFrames[ars]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
+			AAP.QuestList.QuestFrames["FS"..ars]:SetText("** "..AAP_Locals["WarModeOff"].." **")
+			local aapwidth = AAP.QuestList.QuestFrames["FS"..ars]:GetStringWidth()
 			if (aapwidth and aapwidth > 400) then
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(aapwidth+10)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(aapwidth+10)
 			else
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(410)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(410)
 			end
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetAlpha(1)
-			AAP.QuestList.QuestFrames[AAP_NRFS]:Show()
-			AAP_SetQPTT()
+			AAP.QuestList.QuestFrames[ars]:SetAlpha(1)
+			AAP.QuestList.QuestFrames[ars]:Show()
+			AAP.BookingList["AAP.SetQPTT"] = 1
 		end
-		if (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["LoaInfo"]) then
-			local AAP_NRFS = AAP_QH_GetFS("1312242-1")
+		if (AAP.ActiveStuff and AAP.ActiveStuff["LoaInfo"]) then
 			ars = ars + 1
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
-			AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText("** "..AAP_Locals["LoaInfo1"])
-			local aapwidth = AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:GetStringWidth()
+			--AAP.QuestList.QuestFrames[ars]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
+			AAP.QuestList.QuestFrames["FS"..ars]:SetText("** "..AAP_Locals["LoaInfo1"])
+			local aapwidth = AAP.QuestList.QuestFrames["FS"..ars]:GetStringWidth()
 			if (aapwidth and aapwidth > 400) then
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(aapwidth+10)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(aapwidth+10)
 			else
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(410)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(410)
 			end
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetAlpha(1)
-			AAP.QuestList.QuestFrames[AAP_NRFS]:Show()
-			AAP_SetQPTT()
+			AAP.QuestList.QuestFrames[ars]:SetAlpha(1)
+			AAP.QuestList.QuestFrames[ars]:Show()
+			AAP.BookingList["AAP.SetQPTT"] = 1
 		end
-		if (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["LoaInfo"]) then
-			local AAP_NRFS = AAP_QH_GetFS("1312552-1")
+		if (AAP.ActiveStuff and AAP.ActiveStuff["LoaInfo"]) then
 			ars = ars + 1
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
-			AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText("** "..AAP_Locals["LoaInfo2"])
-			local aapwidth = AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:GetStringWidth()
+			--AAP.QuestList.QuestFrames[ars]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
+			AAP.QuestList.QuestFrames["FS"..ars]:SetText("** "..AAP_Locals["LoaInfo2"])
+			local aapwidth = AAP.QuestList.QuestFrames["FS"..ars]:GetStringWidth()
 			if (aapwidth and aapwidth > 400) then
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(aapwidth+10)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(aapwidth+10)
 			else
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(410)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(410)
 			end
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetAlpha(1)
-			AAP.QuestList.QuestFrames[AAP_NRFS]:Show()
-			AAP_SetQPTT()
+			AAP.QuestList.QuestFrames[ars]:SetAlpha(1)
+			AAP.QuestList.QuestFrames[ars]:Show()
+			AAP.BookingList["AAP.SetQPTT"] = 1
 		end
-		if (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["UseDalaHS"]) then
-			local AAP_NRFS = AAP_QH_GetFS("12112552-1")
+		if (AAP.ActiveStuff and AAP.ActiveStuff["UseDalaHS"]) then
 			ars = ars + 1
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
-			local bag, slot = AAP_FindQitemFunc(65274)
+			--AAP.QuestList.QuestFrames[ars]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
+			local bag, slot = AAP.FindQitemFunc(65274)
 			local sta11, sta12 = GetItemCooldown(65274)
 			if (sta11 and sta11 > 0) then
 				bag = "nope"
 			end
 			if (bag == "nope") then
-				AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Locals["UseDalaHS"])
+				AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Locals["UseDalaHS"])
 			else
 				local name = GetItemInfo(65274)
-				AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText("Use: "..name)
+				AAP.QuestList.QuestFrames["FS"..ars]:SetText("Use: "..name)
 			end
-			local aapwidth = AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:GetStringWidth()
+			local aapwidth = AAP.QuestList.QuestFrames["FS"..ars]:GetStringWidth()
 			if (aapwidth and aapwidth > 400) then
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(aapwidth+10)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(aapwidth+10)
 			else
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(410)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(410)
 			end
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetAlpha(1)
-			AAP.QuestList.QuestFrames[AAP_NRFS]:Show()
-			AAP_SetQPTT()
+			AAP.QuestList.QuestFrames[ars]:SetAlpha(1)
+			AAP.QuestList.QuestFrames[ars]:Show()
+			AAP.BookingList["AAP.SetQPTT"] = 1
 		end
-		if (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["DalaranToOgri"]) then
-			local AAP_NRFS = AAP_QH_GetFS("15112512-1")
+		if (AAP.ActiveStuff and AAP.ActiveStuff["DalaranToOgri"]) then
 			ars = ars + 1
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
-			AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Locals["DalaranToOgri"])
-			local aapwidth = AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:GetStringWidth()
+			--AAP.QuestList.QuestFrames[ars]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
+			AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Locals["DalaranToOgri"])
+			local aapwidth = AAP.QuestList.QuestFrames["FS"..ars]:GetStringWidth()
 			if (aapwidth and aapwidth > 400) then
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(aapwidth+10)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(aapwidth+10)
 			else
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(410)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(410)
 			end
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetAlpha(1)
-			AAP.QuestList.QuestFrames[AAP_NRFS]:Show()
-			AAP_SetQPTT()
+			AAP.QuestList.QuestFrames[ars]:SetAlpha(1)
+			AAP.QuestList.QuestFrames[ars]:Show()
+			AAP.BookingList["AAP.SetQPTT"] = 1
 		end
-		if (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["PortZuldazar"]) then
-			local AAP_NRFS = AAP_QH_GetFS("1522512-1")
+		if (AAP.ActiveStuff and AAP.ActiveStuff["PortZuldazar"]) then
 			ars = ars + 1
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
-			AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Locals["PortZuldazar"])
-			local aapwidth = AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:GetStringWidth()
+			--AAP.QuestList.QuestFrames[ars]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
+			AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Locals["PortZuldazar"])
+			local aapwidth = AAP.QuestList.QuestFrames["FS"..ars]:GetStringWidth()
 			if (aapwidth and aapwidth > 400) then
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(aapwidth+10)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(aapwidth+10)
 			else
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(410)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(410)
 			end
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetAlpha(1)
-			AAP.QuestList.QuestFrames[AAP_NRFS]:Show()
-			AAP_SetQPTT()
+			AAP.QuestList.QuestFrames[ars]:SetAlpha(1)
+			AAP.QuestList.QuestFrames[ars]:Show()
+			AAP.BookingList["AAP.SetQPTT"] = 1
 		end
-		if (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["Scenario1"]) then
-			local AAP_NRFS = AAP_QH_GetFS("1267141-1")
+		if (AAP.ActiveStuff and AAP.ActiveStuff["Scenario1"]) then
 			ars = ars + 1
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
-			AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Scenarios())
-			local aapwidth = AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:GetStringWidth()
+			--AAP.QuestList.QuestFrames[ars]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
+			AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Scenarios())
+			local aapwidth = AAP.QuestList.QuestFrames["FS"..ars]:GetStringWidth()
 			if (aapwidth and aapwidth > 400) then
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(aapwidth+10)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(aapwidth+10)
 			else
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(410)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(410)
 			end
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetAlpha(1)
-			AAP.QuestList.QuestFrames[AAP_NRFS]:Show()
-			AAP_SetQPTT()
+			AAP.QuestList.QuestFrames[ars]:SetAlpha(1)
+			AAP.QuestList.QuestFrames[ars]:Show()
+			AAP.BookingList["AAP.SetQPTT"] = 1
 		end
-		if (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["Scenario2"]) then
-			local AAP_NRFS = AAP_QH_GetFS("1267141-1")
+		if (AAP.ActiveStuff and AAP.ActiveStuff["Scenario2"]) then
 			ars = ars + 1
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
-			AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Scenarios())
-			local aapwidth = AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:GetStringWidth()
+			--AAP.QuestList.QuestFrames[ars]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
+			AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Scenarios())
+			local aapwidth = AAP.QuestList.QuestFrames["FS"..ars]:GetStringWidth()
 			if (aapwidth and aapwidth > 400) then
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(aapwidth+10)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(aapwidth+10)
 			else
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(410)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(410)
 			end
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetAlpha(1)
-			AAP.QuestList.QuestFrames[AAP_NRFS]:Show()
-			AAP_SetQPTT()
+			AAP.QuestList.QuestFrames[ars]:SetAlpha(1)
+			AAP.QuestList.QuestFrames[ars]:Show()
+			AAP.BookingList["AAP.SetQPTT"] = 1
 		end
-		if (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["Scenario3"]) then
-			local AAP_NRFS = AAP_QH_GetFS("1267141-1")
+		if (AAP.ActiveStuff and AAP.ActiveStuff["Scenario3"]) then
 			ars = ars + 1
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
-			AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Scenarios())
-			local aapwidth = AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:GetStringWidth()
+			--AAP.QuestList.QuestFrames[ars]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
+			AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Scenarios())
+			local aapwidth = AAP.QuestList.QuestFrames["FS"..ars]:GetStringWidth()
 			if (aapwidth and aapwidth > 400) then
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(aapwidth+10)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(aapwidth+10)
 			else
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(410)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(410)
 			end
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetAlpha(1)
-			AAP.QuestList.QuestFrames[AAP_NRFS]:Show()
-			AAP_SetQPTT()
+			AAP.QuestList.QuestFrames[ars]:SetAlpha(1)
+			AAP.QuestList.QuestFrames[ars]:Show()
+			AAP.BookingList["AAP.SetQPTT"] = 1
 		end
-		if (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["Scenario4"]) then
-			local AAP_NRFS = AAP_QH_GetFS("1267141-1")
+		if (AAP.ActiveStuff and AAP.ActiveStuff["Scenario4"]) then
 			ars = ars + 1
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
-			AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Scenarios())
-			local aapwidth = AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:GetStringWidth()
+			--AAP.QuestList.QuestFrames[ars]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
+			AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Scenarios())
+			local aapwidth = AAP.QuestList.QuestFrames["FS"..ars]:GetStringWidth()
 			if (aapwidth and aapwidth > 400) then
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(aapwidth+10)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(aapwidth+10)
 			else
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(410)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(410)
 			end
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetAlpha(1)
-			AAP.QuestList.QuestFrames[AAP_NRFS]:Show()
-			AAP_SetQPTT()
+			AAP.QuestList.QuestFrames[ars]:SetAlpha(1)
+			AAP.QuestList.QuestFrames[ars]:Show()
+			AAP.BookingList["AAP.SetQPTT"] = 1
 		end
-		if (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["Scenario5"]) then
-			local AAP_NRFS = AAP_QH_GetFS("1267141-1")
+		if (AAP.ActiveStuff and AAP.ActiveStuff["Scenario5"]) then
 			ars = ars + 1
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
-			AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Scenarios())
-			local aapwidth = AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:GetStringWidth()
+			--AAP.QuestList.QuestFrames[ars]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
+			AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Scenarios())
+			local aapwidth = AAP.QuestList.QuestFrames["FS"..ars]:GetStringWidth()
 			if (aapwidth and aapwidth > 400) then
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(aapwidth+10)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(aapwidth+10)
 			else
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(410)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(410)
 			end
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetAlpha(1)
-			AAP.QuestList.QuestFrames[AAP_NRFS]:Show()
-			AAP_SetQPTT()
+			AAP.QuestList.QuestFrames[ars]:SetAlpha(1)
+			AAP.QuestList.QuestFrames[ars]:Show()
+			AAP.BookingList["AAP.SetQPTT"] = 1
 		end
-		if (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["DontGlider"]) then
-			local AAP_NRFS = AAP_QH_GetFS("123452341-1")
+		if (AAP.ActiveStuff and AAP.ActiveStuff["DontGlider"]) then
 			ars = ars + 1
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
-			AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Locals["Dontglide"])
-			local aapwidth = AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:GetStringWidth()
+			--AAP.QuestList.QuestFrames[ars]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
+			AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Locals["Dontglide"])
+			local aapwidth = AAP.QuestList.QuestFrames["FS"..ars]:GetStringWidth()
 			if (aapwidth and aapwidth > 400) then
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(aapwidth+10)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(aapwidth+10)
 			else
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(410)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(410)
 			end
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetAlpha(1)
-			AAP.QuestList.QuestFrames[AAP_NRFS]:Show()
-			AAP_SetQPTT()
+			AAP.QuestList.QuestFrames[ars]:SetAlpha(1)
+			AAP.QuestList.QuestFrames[ars]:Show()
+			AAP.BookingList["AAP.SetQPTT"] = 1
 		end
-		if (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["UseGlider"]) then
-			local AAP_NRFS = AAP_QH_GetFS("123412341-1")
+		if (AAP.ActiveStuff and AAP.ActiveStuff["UseGlider"]) then
 			ars = ars + 1
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
-			AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Locals["Use Item"]..": "..AAP_GliderFunc())
-			local aapwidth = AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:GetStringWidth()
+			--AAP.QuestList.QuestFrames[ars]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
+			AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Locals["Use Item"]..": "..AAP.GliderFunc())
+			local aapwidth = AAP.QuestList.QuestFrames["FS"..ars]:GetStringWidth()
 			if (aapwidth and aapwidth > 400) then
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(aapwidth+10)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(aapwidth+10)
 			else
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(410)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(410)
 			end
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetAlpha(1)
-			AAP.QuestList.QuestFrames[AAP_NRFS]:Show()
-			AAP_SetQPTT()
+			AAP.QuestList.QuestFrames[ars]:SetAlpha(1)
+			AAP.QuestList.QuestFrames[ars]:Show()
+			AAP.BookingList["AAP.SetQPTT"] = 1
 		end
-		if (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["PickUp"]) then
-			local AAP_NRFS = AAP_QH_GetFS(AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["PickUp"][1] .."-1")
+		if (AAP.ActiveStuff and AAP.ActiveStuff["PickUp"]) then
 			ars = ars + 1
 			local aap_t1 = 0
 			local aap_t2 = 0
-			for AAP_index,AAP_value in pairs(AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["PickUp"]) do
+			for AAP_index,AAP_value in pairs(AAP.ActiveStuff["PickUp"]) do
 				aap_t1 = aap_t1 + 1
+				if (IsQuestFlaggedCompleted(AAP_value) == true) then
+					AAP.CompletedQs[AAP_value] = true
+				end
 				if (AAP_ActiveQuests[AAP_value]) then
 					aap_t2 = aap_t2 + 1
-				elseif (AAP_CompletedQs[AAP_value] == true) then
+				elseif (AAP.CompletedQs[AAP_value] == true) then
 					aap_t2 = aap_t2 + 1
 				end
 			end
 
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
-			AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Locals["Accept Quest"] ..": " .. aap_t1 - aap_t2)
-			local aapwidth = AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:GetStringWidth()
+			--AAP.QuestList.QuestFrames[ars]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
+			AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Locals["Accept Quest"] ..": " .. aap_t1 - aap_t2)
+			local aapwidth = AAP.QuestList.QuestFrames["FS"..ars]:GetStringWidth()
 			if (aapwidth and aapwidth > 400) then
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(aapwidth+10)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(aapwidth+10)
 			else
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(410)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(410)
 			end
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetAlpha(1)
-			AAP.QuestList.QuestFrames[AAP_NRFS]:Show()
-			AAP_SetQPTT()
-		elseif (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["Done"]) then
-			if (AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["Special"]) then
+			AAP.QuestList.QuestFrames[ars]:SetAlpha(1)
+			AAP.QuestList.QuestFrames[ars]:Show()
+			AAP.BookingList["AAP.SetQPTT"] = 1
+		elseif (AAP.ActiveStuff and AAP.ActiveStuff["Done"]) then
+			if (AAP.ActiveStuff["Special"]) then
 			else
-				local AAP_NRFS = AAP_QH_GetFS(AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["Done"][1] .."-1")
 				ars = ars + 1
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
-				AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Locals["Turn in Quest"] ..": " .. AAP_ReturnDoneNr(getn(AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["Done"])))
-			local aapwidth = AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:GetStringWidth()
+				--AAP.QuestList.QuestFrames[ars]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
+				AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Locals["Turn in Quest"] ..": " .. AAP.ReturnDoneNr(getn(AAP.ActiveStuff["Done"])))
+			local aapwidth = AAP.QuestList.QuestFrames["FS"..ars]:GetStringWidth()
 			if (aapwidth and aapwidth > 400) then
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(aapwidth+10)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(aapwidth+10)
 			else
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(410)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(410)
 			end
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetAlpha(1)
-				AAP.QuestList.QuestFrames[AAP_NRFS]:Show()
+				AAP.QuestList.QuestFrames[ars]:SetAlpha(1)
+				AAP.QuestList.QuestFrames[ars]:Show()
 			end
-			AAP_SetQPTT()
-		elseif (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["CRange"]) then
-			local AAP_NRFS = AAP_QH_GetFS(AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["CRange"] .."-21")
+			AAP.BookingList["AAP.SetQPTT"] = 1
+		elseif (AAP.ActiveStuff and AAP.ActiveStuff["CRange"]) then
 			ars = ars + 1
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
-			AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_CheckCRangeText())
-			local aapwidth = AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:GetStringWidth()
+			--AAP.QuestList.QuestFrames[ars]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
+			AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP.CheckCRangeText())
+			local aapwidth = AAP.QuestList.QuestFrames["FS"..ars]:GetStringWidth()
 			if (aapwidth and aapwidth > 400) then
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(aapwidth+10)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(aapwidth+10)
 			else
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(410)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(410)
 			end
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetAlpha(1)
-			AAP.QuestList.QuestFrames[AAP_NRFS]:Show()
-			AAP_SetQPTT()
-		elseif (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["ZonePick"]) then
-			local AAP_NRFS = AAP_QH_GetFS("1234567-1")
+			AAP.QuestList.QuestFrames[ars]:SetAlpha(1)
+			AAP.QuestList.QuestFrames[ars]:Show()
+			AAP.BookingList["AAP.SetQPTT"] = 1
+		elseif (AAP.ActiveStuff and AAP.ActiveStuff["ZonePick"]) then
 			ars = ars + 1
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
-			AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Locals["Pick Zone"])
-			local aapwidth = AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:GetStringWidth()
+			--AAP.QuestList.QuestFrames[ars]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
+			AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Locals["Pick Zone"])
+			local aapwidth = AAP.QuestList.QuestFrames["FS"..ars]:GetStringWidth()
 			if (aapwidth and aapwidth > 400) then
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(aapwidth+10)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(aapwidth+10)
 			else
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(410)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(410)
 			end
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetAlpha(1)
-			AAP.QuestList.QuestFrames[AAP_NRFS]:Show()
-			AAP_SetQPTT()
-		elseif (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["SetHS"]) then
-			local AAP_NRFS = AAP_QH_GetFS("12345678-1")
+			AAP.QuestList.QuestFrames[ars]:SetAlpha(1)
+			AAP.QuestList.QuestFrames[ars]:Show()
+			AAP.BookingList["AAP.SetQPTT"] = 1
+		elseif (AAP.ActiveStuff and AAP.ActiveStuff["SetHS"]) then
 			ars = ars + 1
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
-			AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Locals["Set Hearthstone"])
-			local aapwidth = AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:GetStringWidth()
+			--AAP.QuestList.QuestFrames[ars]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
+			AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Locals["Set Hearthstone"])
+			local aapwidth = AAP.QuestList.QuestFrames["FS"..ars]:GetStringWidth()
 			if (aapwidth and aapwidth > 400) then
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(aapwidth+10)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(aapwidth+10)
 			else
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(410)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(410)
 			end
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetAlpha(1)
-			AAP.QuestList.QuestFrames[AAP_NRFS]:Show()
-			AAP_SetQPTT()
-		elseif (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["UseFlightPath"]) then
-			local AAP_NRFS = AAP_QH_GetFS(AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["UseFlightPath"].."-1")
+			AAP.QuestList.QuestFrames[ars]:SetAlpha(1)
+			AAP.QuestList.QuestFrames[ars]:Show()
+			AAP.BookingList["AAP.SetQPTT"] = 1
+		elseif (AAP.ActiveStuff and AAP.ActiveStuff["UseFlightPath"]) then
 			ars = ars + 1
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
+			--AAP.QuestList.QuestFrames[ars]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
 			local factionz = UnitFactionGroup("player")
 			local Zzone = C_Map.GetBestMapForUnit("player")
 			local AAP_Cont = "X1"
@@ -811,63 +780,60 @@ function AAP_UpdateQuestList()
 				AAP_Cont = "X2"
 			end
 			local Flytoez = ""
-			if (AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["Boat"]) then
+			if (AAP.ActiveStuff["Boat"]) then
 				Flytoez = AAP_Locals["Boat to"]
 			else
 				Flytoez = AAP_Locals["Fly to"]
 			end
-			AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(Flytoez)
-			local aapwidth = AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:GetStringWidth()
+			AAP.QuestList.QuestFrames["FS"..ars]:SetText(Flytoez)
+			local aapwidth = AAP.QuestList.QuestFrames["FS"..ars]:GetStringWidth()
 			if (aapwidth and aapwidth > 400) then
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(aapwidth+10)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(aapwidth+10)
 			else
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(410)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(410)
 			end
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetAlpha(1)
-			AAP.QuestList.QuestFrames[AAP_NRFS]:Show()
-			AAP_SetQPTT()
-		elseif (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["UseHS"]) then
-			local AAP_NRFS = AAP_QH_GetFS("22345678-1")
+			AAP.QuestList.QuestFrames[ars]:SetAlpha(1)
+			AAP.QuestList.QuestFrames[ars]:Show()
+			AAP.BookingList["AAP.SetQPTT"] = 1
+		elseif (AAP.ActiveStuff and AAP.ActiveStuff["UseHS"]) then
 			ars = ars + 1
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
-			AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Locals["Use Hearthstone"])
-			local aapwidth = AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:GetStringWidth()
+			--AAP.QuestList.QuestFrames[ars]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
+			AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Locals["Use Hearthstone"])
+			local aapwidth = AAP.QuestList.QuestFrames["FS"..ars]:GetStringWidth()
 			if (aapwidth and aapwidth > 400) then
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(aapwidth+10)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(aapwidth+10)
 			else
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(410)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(410)
 			end
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetAlpha(1)
-			AAP.QuestList.QuestFrames[AAP_NRFS]:Show()
-			AAP_SetQPTT()
-		elseif (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["ZoneDone"]) then
-			local AAP_NRFS = AAP_QH_GetFS("222345678-1")
+			AAP.QuestList.QuestFrames[ars]:SetAlpha(1)
+			AAP.QuestList.QuestFrames[ars]:Show()
+			AAP.BookingList["AAP.SetQPTT"] = 1
+		elseif (AAP.ActiveStuff and AAP.ActiveStuff["ZoneDone"]) then
 			ars = ars + 1
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
-			AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText("Zone Complete")
-			local aapwidth = AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:GetStringWidth()
+			--AAP.QuestList.QuestFrames[ars]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
+			AAP.QuestList.QuestFrames["FS"..ars]:SetText("Zone Complete")
+			local aapwidth = AAP.QuestList.QuestFrames["FS"..ars]:GetStringWidth()
 			if (aapwidth and aapwidth > 400) then
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(aapwidth+10)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(aapwidth+10)
 			else
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(410)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(410)
 			end
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetAlpha(1)
-			AAP.QuestList.QuestFrames[AAP_NRFS]:Show()
+			AAP.QuestList.QuestFrames[ars]:SetAlpha(1)
+			AAP.QuestList.QuestFrames[ars]:Show()
 			AAP_ArrowActive = 0
-		elseif (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["FlightPath"]) then
-			local AAP_NRFS = AAP_QH_GetFS(AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["FlightPath"] .."-1")
+		elseif (AAP.ActiveStuff and AAP.ActiveStuff["FlightPath"]) then
 			ars = ars + 1
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
-			AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(AAP_Locals["Get Flight Point"])
-			local aapwidth = AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:GetStringWidth()
+			--AAP.QuestList.QuestFrames[ars]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
+			AAP.QuestList.QuestFrames["FS"..ars]:SetText(AAP_Locals["Get Flight Point"])
+			local aapwidth = AAP.QuestList.QuestFrames["FS"..ars]:GetStringWidth()
 			if (aapwidth and aapwidth > 400) then
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(aapwidth+10)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(aapwidth+10)
 			else
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(410)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(410)
 			end
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetAlpha(1)
-			AAP.QuestList.QuestFrames[AAP_NRFS]:Show()
-			AAP_SetQPTT()
+			AAP.QuestList.QuestFrames[ars]:SetAlpha(1)
+			AAP.QuestList.QuestFrames[ars]:Show()
+			AAP.BookingList["AAP.SetQPTT"] = 1
 		end
 
 	end
@@ -879,22 +845,20 @@ function AAP_UpdateQuestList()
 		else
 			isComplete = 1
 		end
-		if (questID > 0 and AAP_InstanceTest() == 0 and AAP_SettingsOpen == 0) then
+		if (questID > 0 and AAP.InstanceTest() == 0 and AAP_SettingsOpen == 0) then
 			AAP_BonusCrap[questID] = 1
-			if (AAP1 and AAP1[AAP_Realm] and AAP1[AAP_Realm][AAP_Name] and AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]) then
-				if (not isHeader and AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["Special"] and questID == AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["Done"][1]) then
-					local AAP_NRFS = AAP_QH_GetFS(questID .."-1")
-					ars = ars + 1
-					AAP.QuestList.QuestFrames[AAP_NRFS]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
-						AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(questTitle)
-			local aapwidth = AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:GetStringWidth()
+			if (AAP1 and AAP1[AAP.Realm] and AAP1[AAP.Realm][AAP.Name] and AAP1[AAP.Realm][AAP.Name][AAP.ActiveZone]) then
+				if (not isHeader and AAP.ActiveStuff and AAP.ActiveStuff["Special"] and questID == AAP.ActiveStuff["Done"][1]) then
+					--AAP.QuestList.QuestFrames[ars]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
+					AAP.QuestList.QuestFrames["FS"..ars]:SetText(questTitle)
+			local aapwidth = AAP.QuestList.QuestFrames["FS"..ars]:GetStringWidth()
 			if (aapwidth and aapwidth > 400) then
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(aapwidth+10)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(aapwidth+10)
 			else
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(410)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(410)
 			end
-					AAP.QuestList.QuestFrames[AAP_NRFS]:SetAlpha(1)
-					AAP.QuestList.QuestFrames[AAP_NRFS]:Show()
+					AAP.QuestList.QuestFrames[ars]:SetAlpha(1)
+					AAP.QuestList.QuestFrames[ars]:Show()
 				end
 			end
 			if (not AAP_ActiveQuests[questID]) then
@@ -932,11 +896,11 @@ function AAP_UpdateQuestList()
 						AAP_Mathstuff = floor((AAP_Mathstuff + 0.5))
 						text = "["..AAP_Mathstuff.."%] " .. text
 						if (AAP_Mathstuff > 58 and AAP_Mathstuff < 75) then
-							if (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["ExtraLine"]) then
-								if (AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["ExtraLine"] == 15) then
-									AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone] = AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone] + 1
+							if (AAP.ActiveStuff and AAP.ActiveStuff["ExtraLine"]) then
+								if (AAP.ActiveStuff["ExtraLine"] == 15) then
+									AAP1[AAP.Realm][AAP.Name][AAP.ActiveZone] = AAP1[AAP.Realm][AAP.Name][AAP.ActiveZone] + 1
 									AAP_Reset = 0
-									AAP_Plus()
+									AAP.BookingList["AAP_Plus"] = "AAP_Plus"
 								end
 							end
 						end
@@ -949,33 +913,33 @@ function AAP_UpdateQuestList()
 					else
 						AAP_ActiveQuests[questID]["Obj"][h]["text"] = text
 					end
-					local AAP_NRFS = AAP_QH_GetFS(questID .."-"..h)
-					if (AAP_NRFS and finished ~= 1 and AAP_CheckQP(questID, h) == 1 and questID ~= 46930) then
-						if (not AAP1[AAP_Realm][AAP_Name]["SkippedBonusObj"][questID]) then
+					if (ars and finished ~= 1 and AAP.CheckQP(questID, h) == 1 and questID ~= 46930) then
+						if (not AAP1[AAP.Realm][AAP.Name]["SkippedBonusObj"][questID]) then
 							ars = ars + 1
-							AAP.QuestList.QuestFrames[AAP_NRFS]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
-							AAP_SetButton(AAP_NRFS, ars)
+							--AAP.QuestList.QuestFrames[ars]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
 							if (not text) then
 								text = "Error: Missing text"
 								if (questID == 50331) then
 									text = AAP_Locals["Boat to"]
 								end
 							end
-							local aaptstext = "[".. ars+1 .."] "..text
-							AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText(aaptstext)
-							local aapwidth = AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:GetStringWidth()
+							local aaptstext = "[".. ars .."] "..text
+							AAP.NamedBookedFS[questID.."-"..h] = ars
+							AAP.SetButton(ars, ars)
+							AAP.QuestList.QuestFrames["FS"..ars]:SetText(aaptstext)
+							local aapwidth = AAP.QuestList.QuestFrames["FS"..ars]:GetStringWidth()
 							if (aapwidth and aapwidth > 400) then
-								AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(aapwidth+10)
+								AAP.QuestList.QuestFrames[ars]:SetWidth(aapwidth+10)
 							else
-								AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(410)
+								AAP.QuestList.QuestFrames[ars]:SetWidth(410)
 							end
-							AAP.QuestList.QuestFrames[AAP_NRFS]:SetAlpha(1)
-							AAP.QuestList.QuestFrames[AAP_NRFS]:Show()
-							AAP.QuestList.QuestFrames[AAP_NRFS]["BQid"] = questID
+							AAP.QuestList.QuestFrames[ars]:SetAlpha(1)
+							AAP.QuestList.QuestFrames[ars]:Show()
+							AAP.QuestList.QuestFrames[ars]["BQid"] = questID
 							if (AAP_BonusObj[questID]) then
-								AAP.QuestList.QuestFrames["FS"..AAP_NRFS]["Button"]:Show()
+								AAP.QuestList.QuestFrames["FS"..ars]["Button"]:Show()
 							else
-								AAP.QuestList.QuestFrames["FS"..AAP_NRFS]["Button"]:Hide()
+								AAP.QuestList.QuestFrames["FS"..ars]["Button"]:Hide()
 							end
 						end
 					end
@@ -985,112 +949,114 @@ function AAP_UpdateQuestList()
 		end
 		i = i + 1
 	end
-	if (AAP1 and AAP1[AAP_Realm] and AAP1[AAP_Realm][AAP_Name] and AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]) then
-		if (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["UseHS"]) then
-			for AAP_index,AAP_value in pairs(AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["Button"]) do
-				AAP_SetButton(AAP_index, ars)
+	if (AAP1 and AAP1[AAP.Realm] and AAP1[AAP.Realm][AAP.Name] and AAP1[AAP.Realm][AAP.Name][AAP.ActiveZone]) then
+		if (AAP.ActiveStuff and AAP.ActiveStuff["UseHS"]) then
+			for AAP_index,AAP_value in pairs(AAP.ActiveStuff["Button"]) do
+				AAP.SetButton(AAP_index, ars)
 			end
 		end
 	end
-	if (AAP1 and AAP1[AAP_Realm] and AAP1[AAP_Realm][AAP_Name] and AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]) then
-		if (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["UseDalaHS"]) then
-			for AAP_index,AAP_value in pairs(AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["Button"]) do
-				AAP_SetButton(AAP_index, ars)
+	if (AAP1 and AAP1[AAP.Realm] and AAP1[AAP.Realm][AAP.Name] and AAP1[AAP.Realm][AAP.Name][AAP.ActiveZone]) then
+		if (AAP.ActiveStuff and AAP.ActiveStuff["UseDalaHS"]) then
+			for AAP_index,AAP_value in pairs(AAP.ActiveStuff["Button"]) do
+				AAP.SetButton(AAP_index, ars)
 			end
 		end
 	end
-	if (AAP1 and AAP1[AAP_Realm] and AAP1[AAP_Realm][AAP_Name] and AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]) then
-		if (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["DroppableQuest"] and AAP_Check_Droppable() == 1) then
-			local AAP_NRFS = AAP_QH_GetFS(AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["DroppableQuest"]["Qid"] .."-11")
+	if (AAP1 and AAP1[AAP.Realm] and AAP1[AAP.Realm][AAP.Name] and AAP1[AAP.Realm][AAP.Name][AAP.ActiveZone]) then
+		if (AAP.ActiveStuff and AAP.ActiveStuff["DroppableQuest"] and AAP.Check_Droppable() == 1) then
 			ars = ars + 1
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
-			AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText("[".. ars+1 .."] "..AAP_CheckMobid(AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["DroppableQuest"]["MobId"]).."s drops quest")
-			local aapwidth = AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:GetStringWidth()
+			--AAP.QuestList.QuestFrames[ars]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
+			AAP.QuestList.QuestFrames["FS"..ars]:SetText("[".. ars+1 .."] "..AAP.CheckMobid(AAP.ActiveStuff["DroppableQuest"]["MobId"]).."s drops quest")
+			local aapwidth = AAP.QuestList.QuestFrames["FS"..ars]:GetStringWidth()
 			if (aapwidth and aapwidth > 400) then
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(aapwidth+10)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(aapwidth+10)
 			else
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(410)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(410)
 			end
-			AAP.QuestList.QuestFrames[AAP_NRFS]:SetAlpha(1)
-			AAP.QuestList.QuestFrames[AAP_NRFS]:Show()
+			AAP.QuestList.QuestFrames[ars]:SetAlpha(1)
+			AAP.QuestList.QuestFrames[ars]:Show()
 		end
 	end
 
 
 
 
-	if (AAP1 and AAP1[AAP_Realm] and AAP1[AAP_Realm][AAP_Name] and AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]) then
-		if (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["Qpart"]) then
-			for AAP_index,AAP_value in pairs(AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["Qpart"]) do
+	if (AAP1 and AAP1[AAP.Realm] and AAP1[AAP.Realm][AAP.Name] and AAP1[AAP.Realm][AAP.Name][AAP.ActiveZone]) then
+		if (AAP.ActiveStuff and AAP.ActiveStuff["Qpart"]) then
+			for AAP_index,AAP_value in pairs(AAP.ActiveStuff["Qpart"]) do
+				if (IsQuestFlaggedCompleted(AAP_index) == true) then
+					AAP.CompletedQs[AAP_index] = true
+				end
 				if (AAP_BonusObj[AAP_index] and not AAP_BonusCrap[AAP_index]) then
-					if ((not AAP1[AAP_Realm][AAP_Name]["SkippedBonusObj"][AAP_index]) and (not AAP_CompletedQs[AAP_index])) then
-						local AAP_NRFS = AAP_QH_GetFS(AAP_index .."-"..1)
+					if ((not AAP1[AAP.Realm][AAP.Name]["SkippedBonusObj"][AAP_index]) and (not AAP.CompletedQs[AAP_index])) then
 						ars = ars + 1
-						AAP.QuestList.QuestFrames[AAP_NRFS]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
-						AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText("[".. ars+1 .."] Bonus Objective NotDone")
-			local aapwidth = AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:GetStringWidth()
-			if (aapwidth and aapwidth > 400) then
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(aapwidth+10)
-			else
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(410)
-			end
-						AAP_SetButton(AAP_NRFS, ars)
-						AAP.QuestList.QuestFrames[AAP_NRFS]["BQid"] = AAP_index
-						AAP.QuestList.QuestFrames[AAP_NRFS]:SetAlpha(1)
-						AAP.QuestList.QuestFrames[AAP_NRFS]:Show()
-						if (AAP_BonusObj[AAP_index]) then
-							AAP.QuestList.QuestFrames["FS"..AAP_NRFS]["Button"]:Show()
+						--AAP.QuestList.QuestFrames[ars]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
+						AAP.QuestList.QuestFrames["FS"..ars]:SetText("[".. ars+1 .."] Bonus Objective NotDone")
+						local aapwidth = AAP.QuestList.QuestFrames["FS"..ars]:GetStringWidth()
+						if (aapwidth and aapwidth > 400) then
+							AAP.QuestList.QuestFrames[ars]:SetWidth(aapwidth+10)
 						else
-							AAP.QuestList.QuestFrames["FS"..AAP_NRFS]["Button"]:Hide()
+							AAP.QuestList.QuestFrames[ars]:SetWidth(410)
+						end
+						AAP.SetButton(ars, ars)
+						AAP.QuestList.QuestFrames[ars]["BQid"] = AAP_index
+						AAP.QuestList.QuestFrames[ars]:SetAlpha(1)
+						AAP.QuestList.QuestFrames[ars]:Show()
+						if (AAP_BonusObj[AAP_index]) then
+							AAP.QuestList.QuestFrames["FS"..ars]["Button"]:Show()
+						else
+							AAP.QuestList.QuestFrames["FS"..ars]["Button"]:Hide()
 						end
 					end
-				elseif (not AAP_BonusCrap[AAP_index] and (AAP_index < 100000) and (not AAP_CompletedQs[AAP_index]) and (not AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["DroppableQuest"])) then
-						local AAP_NRFS = AAP_QH_GetFS(AAP_index .."-"..1)
+				elseif (not AAP_BonusCrap[AAP_index] and (AAP_index < 100000) and (not AAP.CompletedQs[AAP_index]) and (not AAP.ActiveStuff["DroppableQuest"])) then
 						ars = ars + 1
-						AAP.QuestList.QuestFrames[AAP_NRFS]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
-						AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText("[".. ars+1 .."] Error: Missing Quest: "..AAP_index)
-			local aapwidth = AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:GetStringWidth()
+						--AAP.QuestList.QuestFrames[ars]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
+						AAP.QuestList.QuestFrames["FS"..ars]:SetText("[".. ars+1 .."] Error: Missing Quest: "..AAP_index)
+			local aapwidth = AAP.QuestList.QuestFrames["FS"..ars]:GetStringWidth()
 			if (aapwidth and aapwidth > 400) then
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(aapwidth+10)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(aapwidth+10)
 			else
-				AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(410)
+				AAP.QuestList.QuestFrames[ars]:SetWidth(410)
 			end
-						AAP_SetButton(AAP_NRFS, ars)
-						AAP.QuestList.QuestFrames[AAP_NRFS]["BQid"] = AAP_index
-						AAP.QuestList.QuestFrames[AAP_NRFS]:SetAlpha(1)
-						AAP.QuestList.QuestFrames[AAP_NRFS]:Show()
+						AAP.SetButton(ars, ars)
+						AAP.QuestList.QuestFrames[ars]["BQid"] = AAP_index
+						AAP.QuestList.QuestFrames[ars]:SetAlpha(1)
+						AAP.QuestList.QuestFrames[ars]:Show()
 						if (AAP_index == 50331) then
-							AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone] = AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone] + 2
+							AAP1[AAP.Realm][AAP.Name][AAP.ActiveZone] = AAP1[AAP.Realm][AAP.Name][AAP.ActiveZone] + 2
 							AAP_Reset = 0
-							AAP_Plus()
+							AAP.BookingList["AAP_Plus"] = "AAP_Plus"
 							AAP_UPDQListV = AAP_UPDQListV2
 						end
 				end
 			end
 		end
-		if (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["Fillers"]) then
-			for AAP_index,AAP_value in pairs(AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["Fillers"]) do
+		if (AAP.ActiveStuff and AAP.ActiveStuff["Fillers"]) then
+			for AAP_index,AAP_value in pairs(AAP.ActiveStuff["Fillers"]) do
+				if (IsQuestFlaggedCompleted(AAP_index) == true) then
+					AAP.CompletedQs[AAP_index] = true
+				end
 				if (AAP_BonusObj[AAP_index] and not AAP_BonusCrap[AAP_index]) then
-					if ((not AAP1[AAP_Realm][AAP_Name]["SkippedBonusObj"][AAP_index]) and (not AAP_CompletedQs[AAP_index])) then
-						local AAP_NRFS = AAP_QH_GetFS(AAP_index .."-"..1)
-						if (AAP_NRFS) then
+					if ((not AAP1[AAP.Realm][AAP.Name]["SkippedBonusObj"][AAP_index]) and (not AAP.CompletedQs[AAP_index])) then
+						if (ars) then
 							ars = ars + 1
-							AAP.QuestList.QuestFrames[AAP_NRFS]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
-							AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:SetText("[".. ars+1 .."] Bonus Objective NotDone")
-							local aapwidth = AAP.QuestList.QuestFrames["FS"..AAP_NRFS]:GetStringWidth()
+							--AAP.QuestList.QuestFrames[ars]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,-((ars * 38)+ars))
+							AAP.QuestList.QuestFrames["FS"..ars]:SetText("[".. ars+1 .."] Bonus Objective NotDone")
+							local aapwidth = AAP.QuestList.QuestFrames["FS"..ars]:GetStringWidth()
 							if (aapwidth and aapwidth > 400) then
-								AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(aapwidth+10)
+								AAP.QuestList.QuestFrames[ars]:SetWidth(aapwidth+10)
 							else
-								AAP.QuestList.QuestFrames[AAP_NRFS]:SetWidth(410)
+								AAP.QuestList.QuestFrames[ars]:SetWidth(410)
 							end
-							AAP_SetButton(AAP_NRFS, ars)
-							AAP.QuestList.QuestFrames[AAP_NRFS]["BQid"] = AAP_index
-							AAP.QuestList.QuestFrames[AAP_NRFS]:SetAlpha(1)
-							AAP.QuestList.QuestFrames[AAP_NRFS]:Show()
+							AAP.SetButton(ars, ars)
+							AAP.QuestList.QuestFrames[ars]["BQid"] = AAP_index
+							AAP.QuestList.QuestFrames[ars]:SetAlpha(1)
+							AAP.QuestList.QuestFrames[ars]:Show()
 							if (AAP_BonusObj[AAP_index]) then
-								AAP.QuestList.QuestFrames["FS"..AAP_NRFS]["Button"]:Show()
+								AAP.QuestList.QuestFrames["FS"..ars]["Button"]:Show()
 							else
-								AAP.QuestList.QuestFrames["FS"..AAP_NRFS]["Button"]:Hide()
+								AAP.QuestList.QuestFrames["FS"..ars]["Button"]:Hide()
 							end
 						end
 					end
@@ -1108,72 +1074,44 @@ function AAP_UpdateQuestList()
 
 
 
-	AAP_PrintFillers(ars)
+	AAP.PrintFillers(ars)
 	local CLi
 	--for CLi = 1, 25 do
 	--	AAP.QuestList.QuestFrames[CLi]:SetPoint("BOTTOMLEFT", AAP.QuestList.ListFrame, "BOTTOMLEFT",0,CLi * 38)
 	--end
 
-	AAP_Plus()
-end
-function AAP_QH_GetFS(AAP_qnumbr)
-	if (AAP_NamedBookedFS[AAP_qnumbr]) then
-		return AAP_NamedBookedFS[AAP_qnumbr]
-	else
-		for AAP_i,AAP_v in pairs(AAP_BookedFS) do
-			if (AAP_v == 0) then
-				AAP_BookedFS[AAP_i] = AAP_qnumbr
-				AAP_NamedBookedFS[AAP_qnumbr] = AAP_i
-				return AAP_i
-			end
-		end
-	end
+	AAP.BookingList["AAP_Plus"] = "AAP_Plus"
 end
 
-function AAP_RemoveFS(AAPRnr)
-	for AAP_i,AAP_v in pairs(AAP_BookedFS) do
-		if (AAPRnr == AAP_v) then
-			AAP_BookedFS[AAP_i] = 0
-			AAP_NamedBookedFS[AAP_v] = nil
-			AAP.QuestList.QuestFrames["FS"..AAP_i]:SetText("")
-			AAP.QuestList.QuestFrames[AAP_i]:SetAlpha(0)
-			AAP.QuestList.QuestFrames[AAP_i]:Hide()
-		end
-	end
-end
 
-AAP_QH_EventFrame = CreateFrame("Frame")
-AAP_QH_EventFrame:RegisterEvent ("ADDON_LOADED")
-AAP_QH_EventFrame:RegisterEvent ("QUEST_REMOVED")
-AAP_QH_EventFrame:RegisterEvent ("QUEST_ACCEPTED")
-AAP_QH_EventFrame:RegisterEvent ("UNIT_QUEST_LOG_CHANGED")
-AAP_QH_EventFrame:RegisterEvent ("PLAYER_ENTERING_WORLD")
-AAP_QH_EventFrame:RegisterEvent ("UPDATE_MOUSEOVER_UNIT")
-AAP_QH_EventFrame:SetScript("OnEvent", function(self, event, ...)
+AAP.QH_EventFrame = CreateFrame("Frame")
+AAP.QH_EventFrame:RegisterEvent ("ADDON_LOADED")
+AAP.QH_EventFrame:RegisterEvent ("QUEST_REMOVED")
+AAP.QH_EventFrame:RegisterEvent ("QUEST_ACCEPTED")
+AAP.QH_EventFrame:RegisterEvent ("UNIT_QUEST_LOG_CHANGED")
+AAP.QH_EventFrame:RegisterEvent ("PLAYER_ENTERING_WORLD")
+AAP.QH_EventFrame:RegisterEvent ("UPDATE_MOUSEOVER_UNIT")
+AAP.QH_EventFrame:SetScript("OnEvent", function(self, event, ...)
 	if (event=="ADDON_LOADED" and AAP_DisableAddon == 0) then
 		local arg1, arg2, arg3, arg4, arg5 = ...;
 		if (arg1 ~= "Azeroth Auto Pilot") then
 			return
 		end
-		local CLi
-		for CLi = 1, 50 do
-			AAP_BookedFS[CLi] = 0
-		end
-		AAP_Updatedelay = AAP_QH_EventFrame:CreateAnimationGroup()
-		AAP_Updatedelay.anim = AAP_Updatedelay:CreateAnimation()
-		AAP_Updatedelay.anim:SetDuration(0.5)
-		AAP_Updatedelay:SetLooping("REPEAT")
-		AAP_Updatedelay:SetScript("OnLoop", function(self, event, ...)
+		AAP.Updatedelay = AAP.QH_EventFrame:CreateAnimationGroup()
+		AAP.Updatedelay.anim = AAP.Updatedelay:CreateAnimation()
+		AAP.Updatedelay.anim:SetDuration(0.5)
+		AAP.Updatedelay:SetLooping("REPEAT")
+		AAP.Updatedelay:SetScript("OnLoop", function(self, event, ...)
 			AAP_UPDQListV = AAP_UPDQListV2
-			AAP_Updatedelay:Stop()
+			AAP.Updatedelay:Stop()
 		end)
-		AAP_Updatedelay2 = AAP_QH_EventFrame:CreateAnimationGroup()
-		AAP_Updatedelay2.anim = AAP_Updatedelay2:CreateAnimation()
-		AAP_Updatedelay2.anim:SetDuration(3)
-		AAP_Updatedelay2:SetLooping("REPEAT")
-		AAP_Updatedelay2:SetScript("OnLoop", function(self, event, ...)
+		AAP.Updatedelay2 = AAP.QH_EventFrame:CreateAnimationGroup()
+		AAP.Updatedelay2.anim = AAP.Updatedelay2:CreateAnimation()
+		AAP.Updatedelay2.anim:SetDuration(3)
+		AAP.Updatedelay2:SetLooping("REPEAT")
+		AAP.Updatedelay2:SetScript("OnLoop", function(self, event, ...)
 			AAP_UPDQListV = AAP_UPDQListV2
-			AAP_Updatedelay2:Stop()
+			AAP.Updatedelay2:Stop()
 		end)
 		AAP_UPDQListV = AAP_UPDQListV2
 	end
@@ -1181,12 +1119,12 @@ AAP_QH_EventFrame:SetScript("OnEvent", function(self, event, ...)
 		AAP_UPDQListV = AAP_UPDQListV2
 	end
 	if (event=="UPDATE_MOUSEOVER_UNIT" and AAP_DisableAddon == 0) then
-		if (AAP1 and AAP1[AAP_Realm] and AAP1[AAP_Realm][AAP_Name] and AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]) then
-			if (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["RaidIcon"]) then
+		if (AAP1 and AAP1[AAP.Realm] and AAP1[AAP.Realm][AAP.Name] and AAP1[AAP.Realm][AAP.Name][AAP.ActiveZone]) then
+			if (AAP.ActiveStuff and AAP.ActiveStuff["RaidIcon"]) then
 				local guid = UnitGUID("mouseover")
 				if (guid) then
 					local type, zero, server_id, instance_id, zone_uid, npc_id, spawn_uid = strsplit("-",guid)
-					if (npc_id and tonumber(AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["RaidIcon"]) == tonumber(npc_id)) then
+					if (npc_id and tonumber(AAP.ActiveStuff["RaidIcon"]) == tonumber(npc_id)) then
 						if (not GetRaidTargetIndex("mouseover")) then
 							SetRaidTarget("mouseover",8)
 						end
@@ -1202,17 +1140,17 @@ AAP_QH_EventFrame:SetScript("OnEvent", function(self, event, ...)
 	if (event=="QUEST_ACCEPTED" and AAP_DisableAddon == 0) then
 		local arg1, arg2, arg3, arg4, arg5 = ...;
 		AAP_UPDQListV = AAP_UPDQListV2
-		AAP_Updatedelay:Play()
-		AAP_Updatedelay2:Play()
+		AAP.Updatedelay:Play()
+		AAP.Updatedelay2:Play()
 		if (arg2 and AAP_ActiveQuests and AAP_ActiveQuests[arg2]) then
-			AAP_AddToQWatch(arg2)
+			AAP.AddToQWatch(arg2)
 		end
 	end
 	if (event=="QUEST_REMOVED" and AAP_DisableAddon == 0) then
 		local arg1, arg2, arg3, arg4, arg5 = ...;
 		if (arg1) then
 			AAP_ActiveQuests[arg1] = nil
-			AAP_CompletedQs[arg1] = true
+			AAP.CompletedQs[arg1] = true
 			AAP_UPDQListV = AAP_UPDQListV2
 		end
 	end

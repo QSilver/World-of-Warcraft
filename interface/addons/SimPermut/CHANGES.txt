@@ -1,26 +1,114 @@
-lightweight tag ce6d2b2688c2bece0518472b597a01d88bf4f567 1.15.0
-Author:	Julien Rechaussat <Kutikuti@users.noreply.github.com>
-Date:	Thu Jul 19 15:39:47 2018 +0200
+lightweight tag be9fcbc41126a177b562b220968e3e09ad0f6b7d 1.15.1-release
+Author:	GitHub <noreply@github.com>
+Date:	Mon Aug 20 12:44:33 2018 +0200
 
-commit ce6d2b2688c2bece0518472b597a01d88bf4f567
+commit f5cd625ca9b8f35a3b309ab6161d9c146bd1076c
 Author: Julien Rechaussat <Kutikuti@users.noreply.github.com>
-Date:   Thu Jul 19 15:39:47 2018 +0200
+Date:   Mon Aug 20 12:39:37 2018 +0200
 
-    BFA Release
+    Update Ace3 lib
 
-commit 40f608a1c9cba14317bb5cb2a7bac3db079d50f6
+commit f5cd625ca9b8f35a3b309ab6161d9c146bd1076c
+Author: Julien Rechaussat <Kutikuti@users.noreply.github.com>
+Date:   Mon Aug 20 12:39:37 2018 +0200
+
+    Update Ace3 lib
+
+commit f5cd625ca9b8f35a3b309ab6161d9c146bd1076c
+Author: Julien Rechaussat <Kutikuti@users.noreply.github.com>
+Date:   Mon Aug 20 12:39:37 2018 +0200
+
+    Update Ace3 lib
+
+commit a473f30f38b353110f48ac61f3b0ae40a65deaca
+Author: vdain <bradley.euell@gmail.com>
+Date:   Mon Jul 23 17:54:11 2018 -0500
+
+    Fixed multi gem slash
+
+commit be2bfaa98ab13b35595369e86d4e6638dec1214f
 Author: Watcheur <moriceau.mathieu@gmail.com>
-Date:   Wed Jul 18 21:30:40 2018 +0200
+Date:   Thu Aug 16 23:07:47 2018 +0200
 
-    BFA Update
-    
-    Remove artifact & relics info, remove Lib ArtifactData library
+    Fix slotID for main hand & off hand
 
-commit 40f608a1c9cba14317bb5cb2a7bac3db079d50f6
+commit be2bfaa98ab13b35595369e86d4e6638dec1214f
 Author: Watcheur <moriceau.mathieu@gmail.com>
-Date:   Wed Jul 18 21:30:40 2018 +0200
+Date:   Thu Aug 16 23:07:47 2018 +0200
 
-    BFA Update
+    Fix slotID for main hand & off hand
+
+commit be2bfaa98ab13b35595369e86d4e6638dec1214f
+Author: Watcheur <moriceau.mathieu@gmail.com>
+Date:   Thu Aug 16 23:07:47 2018 +0200
+
+    Fix slotID for main hand & off hand
+
+commit 25cd31c5ed00db3d561f9673d582bdbd35c07d5c
+Author: Watcheur <moriceau.mathieu@gmail.com>
+Date:   Thu Aug 16 20:50:06 2018 +0200
+
+    Add weapon enchant dropdown
+
+commit 3a12ee9614f28f70dc740b8d9144129bcceaf61b
+Author: watcheur <moriceau.mathieu@gmail.com>
+Date:   Thu Aug 16 11:13:22 2018 +0200
+
+    Update changelog for gems & enchants
+
+commit 9ca3bf70f097b6f390b1d54fa457fb9712e60243
+Author: watcheur <moriceau.mathieu@gmail.com>
+Date:   Thu Aug 16 11:12:58 2018 +0200
+
+    Changelog update with BFA's feature
+
+commit 5291e7117082e384519b8deedd04f44ae6023f8c
+Author: watcheur <moriceau.mathieu@gmail.com>
+Date:   Thu Aug 16 11:12:23 2018 +0200
+
+    Update changelog.txt
+
+commit e3b07f5721e8b479bf63366572bce2fed0460df3
+Author: watcheur <moriceau.mathieu@gmail.com>
+Date:   Thu Aug 16 11:09:26 2018 +0200
+
+    Update version
+
+commit 9a870b28b62e87431fef7bd8e9d1943ca87cfacd
+Author: watcheur <moriceau.mathieu@gmail.com>
+Date:   Thu Aug 16 11:06:03 2018 +0200
+
+    Update GetListItem : add main hand & slot hand
+
+commit a40ffb6e491fba4ba35fb66538d1e7e1e01ad5db
+Author: watcheur <moriceau.mathieu@gmail.com>
+Date:   Thu Aug 16 11:02:41 2018 +0200
+
+    update minimum & maximum ilvl
+
+commit caad7c1daf3f51435f02f4c8babab18731ea4a71
+Author: watcheur <moriceau.mathieu@gmail.com>
+Date:   Thu Aug 16 11:01:27 2018 +0200
+
+    BFA Features
     
-    Remove artifact & relics info, remove Lib ArtifactData library
+    - Remove legendaries
+    - Remove tier list
+
+commit c6920714977e52b6109186b2322fe4711abd2d81
+Author: watcheur <moriceau.mathieu@gmail.com>
+Date:   Thu Aug 16 10:54:45 2018 +0200
+
+    Update extras.lua to include Bfa's feature
+    
+    - Remove tiers list
+    - Update gems list
+    - Update enchants list
+    - Add weapon slot
+
+commit a473f30f38b353110f48ac61f3b0ae40a65deaca
+Author: vdain <bradley.euell@gmail.com>
+Date:   Mon Jul 23 17:54:11 2018 -0500
+
+    Fixed multi gem slash
 

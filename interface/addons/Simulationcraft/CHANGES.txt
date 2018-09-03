@@ -1,10 +1,10 @@
-lightweight tag ec8e5445a8f12fece72788a0db6c4b8f57b1228e v1.10.5
+lightweight tag 6733347fec1c4bb65eb2e3720cb82c715eda992f v1.10.6
 Author:	Dave Hendler <sollaires@gmail.com>
-Date:	Tue Aug 21 11:18:14 2018 -0700
+Date:	Sun Aug 26 17:47:31 2018 -0700
 
-commit ec8e5445a8f12fece72788a0db6c4b8f57b1228e
+commit 6733347fec1c4bb65eb2e3720cb82c715eda992f
 Author: Dave Hendler <sollaires@gmail.com>
-Date:   Tue Aug 21 11:18:14 2018 -0700
+Date:   Sun Aug 26 17:47:31 2018 -0700
 
-    Release 1.10.5 - includes item context data, using reforge= as a hack for backwards compatibility during 8.0
+    1.10.6 - Support for Maghar Orcs and Dark Iron Dwarves
 

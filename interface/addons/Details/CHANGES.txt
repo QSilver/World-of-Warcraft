@@ -1,5 +1,53 @@
-changeset:   731:dfe710f3192f
+changeset:   739:6af1603684c5
 tag:         tip
+user:        Tercio
+date:        Tue Aug 28 13:03:08 2018 -0300
+summary:     - Fixed custom display 'Dynamic Overall Data'.
+
+
+changeset:   738:253e14dca82e
+user:        Tercio
+date:        Sat Aug 25 20:15:31 2018 -0300
+summary:     - Fixed spell container :ListActors() API.
+
+
+changeset:   737:84218026dc7b
+user:        Tercio
+date:        Fri Aug 24 22:41:35 2018 -0300
+summary:     - Cleanup on the item level tracker.
+
+
+changeset:   736:1fdf66defdcb
+user:        Tercio
+date:        Wed Aug 22 12:22:19 2018 -0300
+summary:     - Workaround for Hunter's Incendiary Ammunition bug.
+
+
+changeset:   735:4fcaff920195
+user:        Tercio
+date:        Tue Aug 21 18:14:42 2018 -0300
+summary:     - Parser cleanup.
+
+
+changeset:   734:28929636d0cd
+user:        Tercio
+date:        Mon Aug 20 21:29:47 2018 -0300
+summary:     - Fixed the latest raid check update.
+
+
+changeset:   733:0c3d5411181c
+user:        Tercio
+date:        Sun Aug 19 15:27:19 2018 -0300
+summary:     - Updated flask and food list to BFA.
+
+
+changeset:   732:0fe5b00bc175
+user:        Tercio
+date:        Thu Aug 16 22:05:10 2018 -0300
+summary:     - bug fixes.
+
+
+changeset:   731:dfe710f3192f
 user:        Tercio
 date:        Mon Aug 13 17:06:46 2018 -0300
 summary:     - Fixed an issue with Alliance or Horde icons showing at random in player bars.

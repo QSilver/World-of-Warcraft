@@ -28,6 +28,8 @@ local LSPELL = MOD.LocalSpellNames
 local dispelTypes = {} -- table of debuff types that the character can dispel
 local spellColors = {} -- table of default spell colors
 local maxSpellID = 300000 -- set to maximum actual spell id during initialization
+local iconCache = {} -- table of icons intialized from spell table, with entries added when icon cache is accessed
+local professions = {} -- temporary table for profession indices
 
 -- Saved variables don't handle being set to nil properly so need to use alternate value to indicate an option has been turned off
 local Off = 0 -- value used to designate an option is turned off
@@ -106,7 +108,6 @@ function MOD:InitializeProfile()
 	MOD:SetInternalCooldownDefaults()
 	MOD:SetSpellEffectDefaults()
 	MOD:SetConditionDefaults()
-	MOD:SetIconDefaults()
 	MOD:SetSpellNameDefaults()
 	MOD:SetDimensionDefaults(MOD.DefaultProfile.global.Defaults)
 	MOD:SetFontTextureDefaults(MOD.DefaultProfile.global.Defaults)
@@ -163,34 +164,174 @@ function MOD:SetSpellDefaults()
 end
 
 -- Initialize cooldown info from spellbook, should be called whenever spell book changes
--- This is currently only used to initialize some info related to spell school lockouts
+-- This builds a cache of spells with cooldowns and initializes info related to spell school lockouts
 function MOD:SetCooldownDefaults()
-	table.wipe(MOD.lockoutSpells) -- erase any previous entries in the spell lockout table
-	for _, p in pairs(MOD.lockSpells) do -- then add in all known spells from the table of spells used to test for lockouts
+	local cds = MOD.cooldownSpells -- table of spells to be checked for cooldowns, entries are spellID->baseCooldown
+	local chs = MOD.chargeSpells -- table of spells with charges, entries are spellID->maxCharges
+	local cpet = MOD.petSpells -- table of pets spells to be checked for cooldowns, entries are spellID->baseCooldown
+	local book = "spell" -- scanning player's spell book
+	local cls = MOD.lockoutSpells -- table of spells used to detect spell school lockouts
+	local bst = MOD.bookSpells -- table of spells in spell book (player and profession), entries are name->spellID
+	
+	table.wipe(cpet) -- pet cooldown spells should be reset each time the tables are rebuilt
+	table.wipe(cls) -- lockout spells should be completely reset each time the tables are rebuilt
+	table.wipe(bst) -- table of all spell names and ids in spell book (player and profession only)
+	
+	-- Only remove special spells which show up dynamically in player's cooldown spells
+	if MOD.myClass == "HUNTER" then
+		cds[272678] = nil; cds[272679] = nil; cds[272682] = nil -- Command Pet spells
+	elseif MOD.myClass == "WARLOCK" then
+		cds[119914] = nil; cds[119909] = nil; cds[119910] = nil; cds[119907] = nil; cds[119905] = nil -- Command Demon spells
+	end
+
+	for _, p in pairs(MOD.lockSpells) do -- add in all known spells from the table of spells used to test for lockouts
 		local name = GetSpellInfo(p.id)
-		if name and name ~= "" then MOD.lockoutSpells[name] = { school = p.school, id = p.id } end
+		if name and name ~= "" then cls[name] = { school = p.school, id = p.id } end
 	end
 	
-	local numSpells = 0
-	for i = 1, 2 do local _, _, _, n = GetSpellTabInfo(i); numSpells = numSpells + n end
-	
-	for i = 1, numSpells do
-		local name = GetSpellInfo(i, "spell") -- doesn't account for "FLYOUT" spellbook entries, but not an issue currently
-		if name and name ~= "" then
-			local ls = MOD.lockoutSpells[name]
-			if ls then
-				ls.index = i -- add fields for the spell book index plus localized text
-				if ls.school == "Frost" then ls.label = L["Frost School"]; ls.text = L["Locked out of Frost school of magic."]
-				elseif ls.school == "Fire" then ls.label = L["Fire School"]; ls.text = L["Locked out of Fire school of magic."]
-				elseif ls.school == "Nature" then ls.label = L["Nature School"]; ls.text = L["Locked out of Nature school of magic."]
-				elseif ls.school == "Shadow" then ls.label = L["Shadow School"]; ls.text = L["Locked out of Shadow school of magic."]
-				elseif ls.school == "Arcane" then ls.label = L["Arcane School"]; ls.text = L["Locked out of Arcane school of magic."]
-				elseif ls.school == "Holy" then ls.label = L["Holy School"]; ls.text = L["Locked out of Holy school of magic."]
-				elseif ls.school == "Physical" then ls.label = L["Physical School"]; ls.text = L["Locked out of Physical school of magic."]
+	for tab = 1, 2 do -- scan first two tabs of player spell book (general and current spec) for player spells on cooldown
+		local spellLine, spellIcon, offset, numSpells = GetSpellTabInfo(tab)
+		for i = 1, numSpells do
+			local index = i + offset
+			local spellName = GetSpellBookItemName(index, book)
+			if not spellName then break end
+			local stype, id = GetSpellBookItemInfo(index, book)
+			if id then -- make sure valid spell book item
+				if stype == "SPELL" then -- in this case, id is not the spell id despite what online docs say
+					local name, _, icon, _, _, _, spellID = GetSpellInfo(index, book)
+					if name and name ~= "" and icon and spellID then
+						bst[name] = spellID
+						iconCache[name] = icon
+						local _, charges = GetSpellCharges(index, book)
+						if charges and charges > 0 then
+							chs[spellID] = charges
+						else 
+							local duration = GetSpellBaseCooldown(spellID) -- duration is in milliseconds
+							if duration and duration > 1500 then cds[spellID] = duration / 1000 end -- don't include spells with global cooldowns
+						end
+						local ls = cls[name] -- doesn't account for "FLYOUT" spellbook entries, but not an issue currently
+						if ls then -- found a lockout spell so add fields for the spell book index plus localized text
+							ls.index = index
+							if ls.school == "Frost" then ls.label = L["Frost School"]; ls.text = L["Locked out of Frost school of magic."]
+							elseif ls.school == "Fire" then ls.label = L["Fire School"]; ls.text = L["Locked out of Fire school of magic."]
+							elseif ls.school == "Nature" then ls.label = L["Nature School"]; ls.text = L["Locked out of Nature school of magic."]
+							elseif ls.school == "Shadow" then ls.label = L["Shadow School"]; ls.text = L["Locked out of Shadow school of magic."]
+							elseif ls.school == "Arcane" then ls.label = L["Arcane School"]; ls.text = L["Locked out of Arcane school of magic."]
+							elseif ls.school == "Holy" then ls.label = L["Holy School"]; ls.text = L["Locked out of Holy school of magic."]
+							elseif ls.school == "Physical" then ls.label = L["Physical School"]; ls.text = L["Locked out of Physical school of magic."]
+							end
+						end
+					end
+				elseif stype == "FLYOUT" then -- in this case, id is flyout id
+					local _, _, numSlots, known = GetFlyoutInfo(id)
+					if known then
+						for slot = 1, numSlots do
+							local spellID, _, _, name = GetFlyoutSlotInfo(id, slot)
+							if spellID then
+								local name, _, icon = GetSpellInfo(spellID)
+								if name and name ~= "" and icon then -- make sure we have a valid spell
+									bst[name] = spellID
+									iconCache[name] = icon
+									local duration = GetSpellBaseCooldown(spellID) -- duration is in milliseconds
+									if duration and duration > 1500 then -- don't include spells with global cooldowns
+										cds[spellID] = duration / 1000
+									end
+								end
+							end
+						end
+					end
 				end
 			end
 		end
 	end
+
+	local tabs = GetNumSpellTabs()
+	if tabs and tabs > 2 then
+		for tab = 3, tabs do -- scan inactive tabs of player spell book for icons
+			local spellLine, spellIcon, offset, numSpells = GetSpellTabInfo(tab)
+			for i = 1, numSpells do
+				local index = i + offset
+				local spellName = GetSpellBookItemName(index, book)
+				if not spellName then break end
+				local stype, id = GetSpellBookItemInfo(index, book)
+				if id then -- make sure valid spell book item
+					if stype == "SPELL" then -- in this case, id is not the spell id despite what online docs say
+						local name, _, icon = GetSpellInfo(index, book)
+						if name and name ~= "" and icon then iconCache[name] = icon end
+					elseif stype == "FLYOUT" then -- in this case, id is flyout id
+						local _, _, numSlots, known = GetFlyoutInfo(id)
+						if known then
+							for slot = 1, numSlots do
+								local spellID, _, _, name = GetFlyoutSlotInfo(id, slot)
+								if spellID then
+									local name, _, icon = GetSpellInfo(spellID)
+									if name and name ~= "" and icon then iconCache[name] = icon end
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+	end
+	
+	local p = professions -- scan professions for spells on cooldown
+	p[1], p[2], p[3], p[4], p[5], p[6] = GetProfessions()
+	for index = 1, 6 do
+		if p[index] then
+			local prof, _, _, _, numSpells, offset = GetProfessionInfo(p[index])
+			for i = 1, numSpells do
+				local stype = GetSpellBookItemInfo(i + offset, book)
+				if stype == "SPELL" then
+					local name, _, icon, _, _, _, spellID = GetSpellInfo(i + offset, book)
+					if name and name ~= "" and icon and spellID then -- make sure valid spell
+						bst[name] = spellID
+						iconCache[name] = icon
+						local duration = GetSpellBaseCooldown(spellID) -- duration is in milliseconds
+						if duration and duration > 1500 then cds[spellID] = duration / 1000 end -- don't include spells with global cooldowns
+					end
+				end
+			end
+		end
+	end
+
+	local numSpells, token = HasPetSpells() -- get number of pet spells
+	
+	if numSpells and UnitExists("pet") then -- this works because SPELLS_CHANGED fires when pets are called and dismissed
+		book = "pet" -- switch to scanning the spellbook for pet spells with cooldowns, no need to look for charges
+		for i = 1, numSpells do
+			local stype, id = GetSpellBookItemInfo(i, book) -- verify this is a pet action
+			if stype == "PETACTION" then
+				local name, _, icon, _, _, _, spellID = GetSpellInfo(i, book)
+				if name and name ~= "" and icon and spellID then
+					iconCache[name] = icon
+					local duration = GetSpellBaseCooldown(spellID) -- duration is in milliseconds
+					if duration and duration > 1500 then cpet[spellID] = duration / 1000 end -- don't include spells with global cooldowns
+				end
+			end
+		end
+	end
+
+	-- Add special spells which either share spellbook entries or show up dynamically
+	if MOD.myClass == "HUNTER" then
+		local name = GetSpellInfo(136) -- get localized name for mend pet
+		cds[136] = 10; bst[name] = 136 -- shares spellbook entry with Revive Pet		
+	end
+	if MOD.myClass == "PRIEST" then
+		local name = GetSpellInfo(17) -- get localized name for power word: shield
+		cds[17] = 10; bst[name] = 17 -- has a cooldown in shadow spec		
+	end
+	
+	iconCache[L["GCD"]] = GetSpellTexture(61304) -- cache special spell with GCD cooldown, must be valid
+
+	-- local function getn(t) local count = 0; if t then for _ in pairs(t) do count = count + 1 end end return count end
+	-- local function getl(t) local count = 0; if t then for k, v in pairs(t) do if v.index then count = count + 1 end end end return count end
+	-- MOD.Debug("spell and icon caches, cooldowns: ", getn(cds), " charges: ", getn(chs), " pet: ", getn(cpet), " locks: ", getl(cls), " icons: ", getn(iconCache))
+	-- for k, v in pairs(cds) do local name = GetSpellInfo(k); MOD.Debug("cooldown", name, k, v) end
+	-- for k, v in pairs(chs) do local name = GetSpellInfo(k); MOD.Debug("charge", name, k, v) end
+	-- for k, v in pairs(cpet) do local name = GetSpellInfo(k); MOD.Debug("pet", name, k, v) end
+	-- for k, v in pairs(cls) do if v.index then MOD.Debug("lock", k, v.index, v.label) end end
+	-- for k, v in pairs(iconCache) do MOD.Debug("icons", k, v) end
 end
 
 -- Initialize internal cooldown info from presets, table fields include id, duration, cancel, item
@@ -272,33 +413,6 @@ function MOD:ResetColorDefaults()
 	for n in pairs(sct) do if not dct[n] then sct[n] = nil end end -- remove any extras
 end
 
--- Initialize cache of icons
-local iconCache = {}
-function MOD:SetIconDefaults()
-	for tab = 1, 2 do -- scan first two tabs of player spell book and create caches of known spells and icons
-		local _, _, offset, numSpells = GetSpellTabInfo(tab)
-		for i = 1, numSpells do
-			local index = i + offset
-			local stype, id = GetSpellBookItemInfo(index, "spell")
-			if stype == "SPELL" then -- use spellbook index to check for cooldown
-				local name, _, icon = GetSpellInfo(index, "spell")
-				if name and name ~= "" and icon then iconCache[name] = icon end
-			elseif stype == "FLYOUT" then -- use spell id to check for cooldown
-				local _, _, numSlots = GetFlyoutInfo(id)
-				for slot = 1, numSlots do
-					local spellID = GetFlyoutSlotInfo(id, slot)
-					if spellID then
-						local name, _, icon = GetSpellInfo(spellID)
-						if name and name ~= "" and icon then iconCache[name] = icon end
-					end
-				end
-			end
-		end
-	end
-
-	iconCache[L["GCD"]] = GetSpellTexture(28730) -- cached for global cooldown (using same icon as Arcane Torrent, must be valid)
-end
-
 -- Initialize dimension defaults
 function MOD:SetDimensionDefaults(p)
 	p.barWidth = 150; p.barHeight = 15; p.iconSize = 15; p.scale = 1; p.spacingX = 0; p.spacingY = 0; p.iconOffsetX = 0; p.iconOffsetY = 0
@@ -374,7 +488,7 @@ function MOD:CopyStandardColors(s, d)
 		d.cooldownColor = MOD.CopyColor(s.cooldownColor); d.notificationColor = MOD.CopyColor(s.notificationColor)
 		d.poisonColor = MOD.CopyColor(s.poisonColor); d.curseColor = MOD.CopyColor(s.curseColor)
 		d.magicColor = MOD.CopyColor(s.magicColor); d.diseaseColor = MOD.CopyColor(s.diseaseColor)
-		d.stealColor = MOD.CopyColor(s.stealColor); d.brokerColor = MOD.CopyColor(s.brokerColor)
+		d.stealColor = MOD.CopyColor(s.stealColor); d.brokerColor = MOD.CopyColor(s.brokerColor); d.valueColor = MOD.CopyColor(s.valueColor)
 	end
 end
 
@@ -434,7 +548,10 @@ function MOD:GetIcon(name, spellID)
 			iconCache[name] = tex -- only cache textures found by looking up the name
 		else
 			id = spellID or MOD:GetSpellID(name)
-			if id then tex = GetSpellTexture(id); if tex == "" then tex = nil end end -- then try based on id
+			if id then
+				tex = GetSpellTexture(id) -- then try based on id
+				if tex == "" then tex = nil end
+			end
 		end
 	end
 	return tex
@@ -574,11 +691,11 @@ function MOD:SetSpellNameDefaults()
 	LSPELL["Ignite"] = GetSpellInfo(12654)
 end
 
--- Check if a spell id is known and usable by the player
+-- Check if a spell id is available to the player (i.e., in the active spell book)
 local function RavenCheckSpellKnown(spellID)
 	local name = GetSpellInfo(spellID)
 	if not name or name == "" then return false end
-	return IsUsableSpell(name)
+	return MOD.bookSpells[name]
 end
 
 -- Initialize the dispel table which lists what types of debuffs the player can dispel
@@ -789,6 +906,7 @@ MOD.DefaultProfile = {
 		DefaultCooldownColor = MOD.HexColor("fce94f"), -- Yellow1
 		DefaultNotificationColor = MOD.HexColor("729fcf"), -- Blue1
 		DefaultBrokerColor = MOD.HexColor("888a85"), -- Gray
+		DefaultValueColor = MOD.HexColor("d0756c"), -- Pink-ish
 		DefaultPoisonColor = MOD.CopyColor(DebuffTypeColor["Poison"]),
 		DefaultCurseColor = MOD.CopyColor(DebuffTypeColor["Curse"]),
 		DefaultMagicColor = MOD.CopyColor(DebuffTypeColor["Magic"]),

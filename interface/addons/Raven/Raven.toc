@@ -15,6 +15,7 @@ Localizations\enUS.lua
 Main.lua
 Profile.lua
 Conditions.lua
+Values.lua
 Bars.lua
 Cancel.lua
 Nest.lua

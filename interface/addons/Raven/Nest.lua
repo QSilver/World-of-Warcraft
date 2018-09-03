@@ -1573,6 +1573,11 @@ local function Bar_RefreshAnimations(bg, bar, config)
 			end
 			bar.warningDone = true
 		end
+	elseif bar.value and bar.maxValue then
+		if bar.value < 0 then bar.value = 0 end -- no negative values
+		if bar.value < bar.maxValue then fill = bar.value / bar.maxValue end -- adjust foreground bar width based on values
+		if bg.fillBars then fill = 1 - fill end -- optionally fill instead of empty bars
+		if bar.valueText then timeText = bar.valueText end -- set time text if a value text is provided
 	end
 	if bg.showIcon and not bat.header then
 		offsetX = bg.iconSize
@@ -1580,21 +1585,19 @@ local function Bar_RefreshAnimations(bg, bar, config)
 		local ba = bar.icon.anim
 		if ba:IsPlaying() then bar.cooldown:Hide() elseif pulseEnd and bar.timeLeft and (bar.timeLeft < 0.45) and (bar.timeLeft > 0.1) then ba:Play() end
 	end
-	if not bar.value then -- don't refresh value bars
-		local showfg = bg.fgNotTimer
-		if bat.fullReverse then showfg = not showfg end
-		if bg.showBar and config.bars ~= "timeline" and (fill > 0) and (showfg or bar.timeLeft) and bar.includeBar then
-			local bf, w, h = bar.fgTexture, bg.width - offsetX, bg.height; if config.iconOnly then w = bg.barWidth; h = bg.barHeight end
-			if (w > 0) and (h > 0) then
-				local fillw = w * fill
-				if fillw > 0 then bf:SetWidth(fillw) end -- doesn't get pixel perfect treatment
-				if bg.showSpark and fill < 1 and fillw > 1 then sparky = true end
-				if config.bars == "r2l" or config.bars == "stripe" then bf:SetTexCoord(0, 0, 0, 1, fill, 0, fill, 1) else bf:SetTexCoord(fill, 0, fill, 1, 0, 0, 0, 1) end
-				bf:Show()
-			else bf:Hide() end
-		end
-		if sparky then bar.spark:Show() else bar.spark:Hide() end
+	local showfg = bg.fgNotTimer
+	if bat.fullReverse then showfg = not showfg end
+	if bg.showBar and config.bars ~= "timeline" and (fill > 0) and (showfg or bar.timeLeft) and bar.includeBar then
+		local bf, w, h = bar.fgTexture, bg.width - offsetX, bg.height; if config.iconOnly then w = bg.barWidth; h = bg.barHeight end
+		if (w > 0) and (h > 0) then
+			local fillw = w * fill
+			if fillw > 0 then bf:SetWidth(fillw) end -- doesn't get pixel perfect treatment
+			if bg.showSpark and fill < 1 and fillw > 1 then sparky = true end
+			if config.bars == "r2l" or config.bars == "stripe" then bf:SetTexCoord(0, 0, 0, 1, fill, 0, fill, 1) else bf:SetTexCoord(fill, 0, fill, 1, 0, 0, 0, 1) end
+			bf:Show()
+		else bf:Hide() end
 	end
+	if sparky then bar.spark:Show() else bar.spark:Hide() end
 	local alpha = bar.alpha or 1 -- adjust by bar alpha
 	if bar.flash then alpha = MOD.Nest_FlashAlpha(alpha, 1) end -- adjust alpha if flashing
 	if bat.header and bag.headerGaps then alpha = 0 end

@@ -205,14 +205,6 @@ end
 -- Check if a classification list contains a classification, return true if it does
 local function CheckClassification(v, cl) if v == "rareelite" then v = "rlite" end; return string.find(cl or "", v) ~= nil end
 
--- Check if a spell is known in the spellbook
-local function CheckSpellKnown(spell)
-	local id = tonumber(spell)
-	if not id then id = MOD:GetSpellID(spell) end
-	if not id or not IsSpellKnown(id) then return false end
-	return true
-end
-
 -- Check if a spell is ready to be cast by the player, if rangeCheck then make sure in range of unit too
 local function CheckSpellReady(spell, unit, rangeCheck, usable, checkCharges, charges)
 	if not spell or (spell == "") then return true end
@@ -221,7 +213,7 @@ local function CheckSpellReady(spell, unit, rangeCheck, usable, checkCharges, ch
 		spell = GetSpellInfo(id)
 		if not spell or (spell == "") then return false end
 	end
-	if usable and not IsUsableSpell(spell) then return false end -- checks player has learned the spell, has mana and/or reagents, and reactive conditions are met
+	if usable and not MOD:CheckSpellStatus(spell, true) then return false end -- checks player has learned the spell, has mana and/or reagents, and reactive conditions are met
 	if IsOn(checkCharges) then -- optionally check for remaining spell charges (can't count on the value of cd if not on cooldown)
 		local n = GetSpellCharges(spell) -- this has to be done separate from cooldown check in order to correctly handle the check for "less than"
 		if not n then n = 0 end
@@ -324,7 +316,7 @@ local function CheckAllCooldowns(spells, ready, timeLeft, toggle)
 	if not timeLeft then timeLeft = 10 end
 	for _, spell in pairs(spells) do -- look for each spell and check if on cooldown
 		local cdt = 0
-		if ready and not IsUsableSpell(spell) then if not CheckSpellKnown(spell) then return false end cdt = 3600 end
+		if ready and not MOD:CheckSpellStatus(spell, true, true) then if not MOD:CheckSpellStatus(spell) then return false end cdt = 3600 end
 		local cd = MOD:CheckCooldown(spell) -- look up in the active cooldowns table
 		if cd and (cd[1] ~= nil) and ((cd[4] ~= nil) and (not cd[9] or cd[9] == 0)) then cdt = cd[1]; if timeLeft < cdt then AddTimeEvent(spell, cdt - timeLeft) end end
 		if toggle == true then
@@ -404,8 +396,7 @@ local function CheckTarget(targetType, unit)
 end
 
 -- Check if weapon equipped with at least the minimum specified item level
-local function CheckWeapon(slot, level)
-	local islot = GetInventorySlotInfo(slot)
+local function CheckWeapon(islot, level)
 	local id = GetInventoryItemLink("player", islot)
 	if id and level then
 		local iname, _, _, ilevel = GetItemInfo(id)
@@ -492,9 +483,9 @@ local function CheckTestAND(ttype, t)
 		if IsOn(t.checkTotems) and IsOn(t.totem) and not CheckTotem(t.totem) then return false end
 		if IsOn(t.checkTalent) and IsOn(t.talent) and not MOD.CheckTalent(t.talent) then return false end
 		if IsOn(t.checkSpec) and IsOn(t.spec) and not MOD.CheckSpec(t.spec, t.specList) then return false end
-		if IsOn(t.checkSpell) and IsOn(t.spell) and not CheckSpellKnown(t.spell) then return false end
-		if IsOn(t.hasMainHand) and not CheckWeapon("MainHandSlot", t.levelMainHand) then return false end
-		if IsOn(t.hasOffHand) and not CheckWeapon("SecondaryHandSlot", t.levelOffHand) then return false end
+		if IsOn(t.checkSpell) and IsOn(t.spell) and not MOD:CheckSpellStatus(t.spell) then return false end
+		if IsOn(t.hasMainHand) and not CheckWeapon(INVSLOT_MAINHAND, t.levelMainHand) then return false end
+		if IsOn(t.hasOffHand) and not CheckWeapon(INVSLOT_OFFHAND, t.levelOffHand) then return false end
 	elseif ttype == "Pet Status" then -- pet must exist for these tests to be true
 		if IsOn(t.exists) and (t.exists == stat.noPet) then return false end
 		if IsOn(t.inCombat) and (t.inCombat ~= stat.petCombat) then return false end
@@ -620,9 +611,9 @@ local function CheckTestOR(ttype, t)
 		if IsOn(t.checkTotems) and IsOn(t.totem) and CheckTotem(t.totem) then return true end
 		if IsOn(t.checkTalent) and IsOn(t.talent) and MOD.CheckTalent(t.talent) then return true end
 		if IsOn(t.checkSpec) and IsOn(t.spec) and MOD.CheckSpec(t.spec, t.specList) then return true end
-		if IsOn(t.checkSpell) and IsOn(t.spell) and CheckSpellKnown(t.spell) then return true end
-		if IsOn(t.hasMainHand) and CheckWeapon("MainHandSlot", t.levelMainHand) then return true end
-		if IsOn(t.hasOffHand) and CheckWeapon("SecondaryHandSlot", t.levelOffHand) then return true end
+		if IsOn(t.checkSpell) and IsOn(t.spell) and MOD:CheckSpellStatus(t.spell) then return true end
+		if IsOn(t.hasMainHand) and CheckWeapon(INVSLOT_MAINHAND, t.levelMainHand) then return true end
+		if IsOn(t.hasOffHand) and CheckWeapon(INVSLOT_OFFHAND, t.levelOffHand) then return true end
 	elseif ttype == "Pet Status" then -- pet must exist for these tests to be true
 		if IsOn(t.exists) and (t.exists ~= stat.noPet) then return true end
 		if IsOn(t.inCombat) and (t.inCombat == stat.petCombat) then return true end

@@ -19,8 +19,10 @@ end
 AAP_SettingsOpen = 0
 AAP_CombatTestVar = 0
 AAP = {}
+AAP.Version = tonumber(GetAddOnMetadata("Azeroth Auto Pilot", "Version"))
 AAP_BlockShared = {}
 AAP_GossipOpen = 0
+QNumberLocal = 0
 AAP_NPCList = {}
 AAP_UPDQListV = -1
 AAP_UPDQListV2 = 5
@@ -36,7 +38,7 @@ AAP_ArrowActive_Distance = 0
 AAP_ArrowActive_TrigDistance = 0
 AAP_ArrowActive_Trigger_X = 0
 AAP_ArrowActive_Trigger_Y = 0
-AAP_ActiveZonePick = 0
+AAP.ActiveZonePick = 0
 AAP_TaxiVar = 0
 AAP_TestSkipVar1 = 0
 AAP_TestSkipVar2 = 0
@@ -47,14 +49,16 @@ AAP_AfkTimerVar2 = 0
 AAP_GearIlvlList = {}
 AAP_ButtonCDCounter = {}
 AAP_AfkTable = {}
-AAP_CompletedQs = GetQuestsCompleted()
+AAP.CompletedQs = {}
 AAP_img = "Interface\\AddOns\\Azeroth Auto Pilot\\img\\"
 AAP_zones = "Interface\\AddOns\\Azeroth Auto Pilot\\Zones\\"
+AAP.ActiveStuff = {}
+AAP.BookingList = {}
 
 BINDING_HEADER_AzerothAutoPilot = "Azeroth Auto Pilot"
 BINDING_NAME_AAP_MACRO = "Quest Item 1"
 
-function AAP_UpdateILVLGear()
+function AAP.UpdateILVLGear()
 	AAP_GearIlvlList = nil
 	AAP_GearIlvlList = {}
 	for slots2 = 0,18 do
@@ -80,57 +84,57 @@ function AAP_UpdateILVLGear()
 		end
 	end
 end
-function AAP_ResetSettings()
-	AAP1[AAP_Realm][AAP_Name]["Settings"] = {}
-	AAP1[AAP_Realm][AAP_Name]["Settings"]["left"] = GetScreenWidth() / 1.6
-	AAP1[AAP_Realm][AAP_Name]["Settings"]["top"] = -(GetScreenHeight() / 5)
-	AAP1[AAP_Realm][AAP_Name]["Settings"]["Scale"] = UIParent:GetScale()
-	AAP1[AAP_Realm][AAP_Name]["Settings"]["Lock"] = 0
-	AAP1[AAP_Realm][AAP_Name]["Settings"]["Hide"] = 0
-	AAP1[AAP_Realm][AAP_Name]["Settings"]["alpha"] = 1
-	AAP1[AAP_Realm][AAP_Name]["Settings"]["arrowleft"] = GetScreenWidth() / 2.05
-	AAP1[AAP_Realm][AAP_Name]["Settings"]["arrowtop"] = -(GetScreenHeight() / 1.5)
-	AAP1[AAP_Realm][AAP_Name]["Settings"]["Hcampleft"] = GetScreenWidth() / 1.6
-	AAP1[AAP_Realm][AAP_Name]["Settings"]["Hcamptop"] = -(GetScreenHeight() / 5)
-	AAP1[AAP_Realm][AAP_Name]["Settings"]["CutScene"] = 1
-	AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoAccept"] = 1
-	AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoHandIn"] = 1
-	AAP1[AAP_Realm][AAP_Name]["Settings"]["ChooseQuests"] = 0
-	AAP1[AAP_Realm][AAP_Name]["Settings"]["ArrowScale"] = UIParent:GetScale()
-	AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoHandInChoice"] = 0
+function AAP.ResetSettings()
+	AAP1[AAP.Realm][AAP.Name]["Settings"] = {}
+	AAP1[AAP.Realm][AAP.Name]["Settings"]["left"] = GetScreenWidth() / 1.6
+	AAP1[AAP.Realm][AAP.Name]["Settings"]["top"] = -(GetScreenHeight() / 5)
+	AAP1[AAP.Realm][AAP.Name]["Settings"]["Scale"] = UIParent:GetScale()
+	AAP1[AAP.Realm][AAP.Name]["Settings"]["Lock"] = 0
+	AAP1[AAP.Realm][AAP.Name]["Settings"]["Hide"] = 0
+	AAP1[AAP.Realm][AAP.Name]["Settings"]["alpha"] = 1
+	AAP1[AAP.Realm][AAP.Name]["Settings"]["arrowleft"] = GetScreenWidth() / 2.05
+	AAP1[AAP.Realm][AAP.Name]["Settings"]["arrowtop"] = -(GetScreenHeight() / 1.5)
+	AAP1[AAP.Realm][AAP.Name]["Settings"]["Hcampleft"] = GetScreenWidth() / 1.6
+	AAP1[AAP.Realm][AAP.Name]["Settings"]["Hcamptop"] = -(GetScreenHeight() / 5)
+	AAP1[AAP.Realm][AAP.Name]["Settings"]["CutScene"] = 1
+	AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoAccept"] = 1
+	AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoHandIn"] = 1
+	AAP1[AAP.Realm][AAP.Name]["Settings"]["ChooseQuests"] = 0
+	AAP1[AAP.Realm][AAP.Name]["Settings"]["ArrowScale"] = UIParent:GetScale()
+	AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoHandInChoice"] = 0
 
-	if (AAP1[AAP_Realm][AAP_Name]["Settings"]["CutScene"] == 0) then
+	if (AAP1[AAP.Realm][AAP.Name]["Settings"]["CutScene"] == 0) then
 		AAP.OptionsFrame.CheckButton1:SetChecked(false)
 	else
 		AAP.OptionsFrame.CheckButton1:SetChecked(true)
 	end
-	if (AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoAccept"] == 0) then
+	if (AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoAccept"] == 0) then
 		AAP.OptionsFrame.CheckButton2:SetChecked(false)
 	else
 		AAP.OptionsFrame.CheckButton2:SetChecked(true)
 	end
-	if (AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoHandIn"] == 0) then
+	if (AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoHandIn"] == 0) then
 		AAP.OptionsFrame.CheckButton3:SetChecked(false)
 	else
 		AAP.OptionsFrame.CheckButton3:SetChecked(true)
 	end
-	if (AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoHandInChoice"] == 0) then
+	if (AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoHandInChoice"] == 0) then
 		AAP.OptionsFrame.CheckButton5:SetChecked(false)
 	else
 		AAP.OptionsFrame.CheckButton5:SetChecked(true)
 	end
-	AAP.QuestList.ButtonParent:SetScale(AAP1[AAP_Realm][AAP_Name]["Settings"]["Scale"])
-	AAP.QuestList.ListFrame:SetScale(AAP1[AAP_Realm][AAP_Name]["Settings"]["Scale"])
-	AAP.QuestList21:SetScale(AAP1[AAP_Realm][AAP_Name]["Settings"]["Scale"])
-	AAP.OptionsFrame.Slider1:SetValue(AAP1[AAP_Realm][AAP_Name]["Settings"]["Scale"] * 100)
-	AAP.OptionsFrame.Slider2:SetValue(AAP1[AAP_Realm][AAP_Name]["Settings"]["ArrowScale"] * 100)
+	AAP.QuestList.ButtonParent:SetScale(AAP1[AAP.Realm][AAP.Name]["Settings"]["Scale"])
+	AAP.QuestList.ListFrame:SetScale(AAP1[AAP.Realm][AAP.Name]["Settings"]["Scale"])
+	AAP.QuestList21:SetScale(AAP1[AAP.Realm][AAP.Name]["Settings"]["Scale"])
+	AAP.OptionsFrame.Slider1:SetValue(AAP1[AAP.Realm][AAP.Name]["Settings"]["Scale"] * 100)
+	AAP.OptionsFrame.Slider2:SetValue(AAP1[AAP.Realm][AAP.Name]["Settings"]["ArrowScale"] * 100)
 
 
-	AAP.QuestList.MainFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT", AAP1[AAP_Realm][AAP_Name]["Settings"]["left"], AAP1[AAP_Realm][AAP_Name]["Settings"]["top"])
-	AAP_ArrowFrame:SetScale(AAP1[AAP_Realm][AAP_Name]["Settings"]["ArrowScale"])
-	AAP_ArrowFrameM:SetPoint("TOPLEFT", UIParent, "TOPLEFT", AAP1[AAP_Realm][AAP_Name]["Settings"]["arrowleft"], AAP1[AAP_Realm][AAP_Name]["Settings"]["arrowtop"])
+	AAP.QuestList.MainFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT", AAP1[AAP.Realm][AAP.Name]["Settings"]["left"], AAP1[AAP.Realm][AAP.Name]["Settings"]["top"])
+	AAP_ArrowFrame:SetScale(AAP1[AAP.Realm][AAP.Name]["Settings"]["ArrowScale"])
+	AAP_ArrowFrameM:SetPoint("TOPLEFT", UIParent, "TOPLEFT", AAP1[AAP.Realm][AAP.Name]["Settings"]["arrowleft"], AAP1[AAP.Realm][AAP.Name]["Settings"]["arrowtop"])
 end
-function AAP_MacroFinder()
+function AAP.MacroFinder()
 	local found = false
 	local global, character = GetNumMacros()
 	for i=1, global do
@@ -144,12 +148,12 @@ function AAP_MacroFinder()
 		return false, nil
 	end
 end
-function AAP_CreateMacro()
+function AAP.CreateMacro()
 	if InCombatLockdown() then
 		return
 	end
 	local global, character = GetNumMacros()
-	local isFound, macroSlot = AAP_MacroFinder()
+	local isFound, macroSlot = AAP.MacroFinder()
 	local aap_hasSpace = global < MAX_ACCOUNT_MACROS
 	if aap_hasSpace then 
 		if not isFound and not InCombatLockdown() then
@@ -159,14 +163,14 @@ function AAP_CreateMacro()
 		print("No global macro space. Please delete a macro to create space.")
 	end
 end
-function AAP_SaveOldSlot()
+function AAP.SaveOldSlot()
 	local itemName, itemLink, itemRarity, itemLevel, itemMinLevel, itemType, itemSubType, itemStackCount, itemEquipLoc, itemTexture, itemSellPrice = GetItemInfo(GetInventoryItemLink("player", 15))
 	if (not AAP_OldSLot) then
 		AAP_OldSLot = itemLink
 	end
 	EquipItemByName(65274)
 end
-function AAP_CheckSaveOldSlot()
+function AAP.CheckSaveOldSlot()
 	if (AAP_OldSLot) then
 		local itemLink = GetInventoryItemLink("player", 15)
 		if (AAP_OldSLot == itemLink) then
@@ -191,18 +195,18 @@ function AAP_CheckSaveOldSlot()
 		AAP_EquipGearTimer:Stop()
 	end
 end
-function AAP_MacroUpdater(macroSlot,itemName,aapextra)
+function AAP.MacroUpdater(macroSlot,itemName,aapextra)
 	if (itemName) then
 		if (itemName == 123123123) then
 			EditMacro(macroSlot, "AAP_MACRO","INV_MISC_QUESTIONMARK","#showtooltip\n/click ExtraActionButton1",nil,nil)
 		elseif (aapextra == 65274) then
-			EditMacro(macroSlot, "AAP_MACRO","INV_MISC_QUESTIONMARK","#showtooltip\n/script AAP_SaveOldSlot()\n/use "..itemName,nil,nil)
+			EditMacro(macroSlot, "AAP_MACRO","INV_MISC_QUESTIONMARK","#showtooltip\n/script AAP.SaveOldSlot()\n/use "..itemName,nil,nil)
 		else
-			if (AAP_DubbleMacro and AAP_DubbleMacro[1] and AAP_DubbleMacro[2] and AAP_ActiveZone and AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["SpecialDubbleMacro"]) then
+			if (AAP_DubbleMacro and AAP_DubbleMacro[1] and AAP_DubbleMacro[2] and AAP.ActiveZone and AAP.ActiveStuff and AAP.ActiveStuff["SpecialDubbleMacro"]) then
 				EditMacro(macroSlot, "AAP_MACRO","INV_MISC_QUESTIONMARK","#showtooltip\n/use "..AAP_DubbleMacro[1].."\n/use "..AAP_DubbleMacro[2],nil,nil)
-			elseif (AAP_ActiveZone and AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["SpecialMacro"]) then
+			elseif (AAP.ActiveZone and AAP.ActiveStuff and AAP.ActiveStuff["SpecialMacro"]) then
 				EditMacro(macroSlot, "AAP_MACRO","INV_MISC_QUESTIONMARK","#showtooltip\n/target Serrik\n/use "..itemName,nil,nil)
-			elseif (AAP_ActiveZone and AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["SpecialMacro2"]) then
+			elseif (AAP.ActiveZone and AAP.ActiveStuff and AAP.ActiveStuff["SpecialMacro2"]) then
 				EditMacro(macroSlot, "AAP_MACRO","INV_MISC_QUESTIONMARK","#showtooltip\n/target Hrillik's\n/use "..itemName,nil,nil)
 			else
 				EditMacro(macroSlot, "AAP_MACRO","INV_MISC_QUESTIONMARK","#showtooltip\n/use "..itemName,nil,nil)
@@ -212,10 +216,10 @@ function AAP_MacroUpdater(macroSlot,itemName,aapextra)
 		EditMacro(macroSlot, "AAP_MACRO","INV_MISC_QUESTIONMARK","/script print('no button yet')",nil,nil)
 	end
 end
-function AAP_Button1Func()
+function AAP.Button1Func()
 
 end
-function AAP_FindQitemFunc(AAP_T_Qitemnr)
+function AAP.FindQitemFunc(AAP_T_Qitemnr)
 	if (not AAP_T_Qitemnr) then
 		return "nope"
 	else
@@ -239,7 +243,7 @@ function AAP_FindQitemFunc(AAP_T_Qitemnr)
 		end
 	end
 end
-AAP_Skip = {
+AAP.Skip = {
 	["Nazmir1"] = AAP_img.."Nazmir1.tga",
 	["Nazmir2"] = AAP_img.."Nazmir2.tga",
 	["Nazmir3"] = AAP_img.."Nazmir3.tga",
@@ -282,11 +286,10 @@ AAP_Skip = {
 
 }
 AAP_Bar = AAP_img.."bar"
-AAP_Name = UnitName("player")
-AAP_Realm = string.gsub(GetRealmName(), " ", "")
+AAP.Name = UnitName("player")
+AAP.Realm = string.gsub(GetRealmName(), " ", "")
 AAP_ActiveQuests = {}
-AAP_ActiveZone = 0
-AAP_Quests = {}
+AAP.ActiveZone = 0
 AAP_EventLoop = {}
 AAP_BonusObj = {
 	[50009] = 1,
@@ -334,7 +337,7 @@ local PlayMovie_hook = MovieFrame_PlayMovie
 
 MovieFrame_PlayMovie = function(...)
 
-	if (IsControlKeyDown() or (AAP1[AAP_Realm][AAP_Name]["Settings"]["CutScene"] == 0)) then
+	if (IsControlKeyDown() or (AAP1[AAP.Realm][AAP.Name]["Settings"]["CutScene"] == 0)) then
 
 		PlayMovie_hook(...)
 
@@ -350,17 +353,17 @@ end
 if (not AAP1) then
 	AAP1 = {}
 end
-if (not AAP1[AAP_Realm]) then
-	AAP1[AAP_Realm] = {}
+if (not AAP1[AAP.Realm]) then
+	AAP1[AAP.Realm] = {}
 end
-if (not AAP1[AAP_Realm][AAP_Name]) then
-	AAP1[AAP_Realm][AAP_Name] = {}
+if (not AAP1[AAP.Realm][AAP.Name]) then
+	AAP1[AAP.Realm][AAP.Name] = {}
 end
-if (not AAP1[AAP_Realm][AAP_Name]["LoaPick"]) then
-	AAP1[AAP_Realm][AAP_Name]["LoaPick"] = 0
+if (not AAP1[AAP.Realm][AAP.Name]["LoaPick"]) then
+	AAP1[AAP.Realm][AAP.Name]["LoaPick"] = 0
 end
-if (not AAP1[AAP_Realm][AAP_Name]["Zone862D"]) then
-	AAP1[AAP_Realm][AAP_Name]["Zone862D"] = 0
+if (not AAP1[AAP.Realm][AAP.Name]["Zone862D"]) then
+	AAP1[AAP.Realm][AAP.Name]["Zone862D"] = 0
 end
 
 AAP_ArrowFrameM = CreateFrame("Button", "AAP_Arrow", UIParent)
@@ -384,7 +387,7 @@ AAP_ArrowFrame.distance:SetFontObject("GameFontNormalSmall")
 AAP_ArrowFrame.distance:SetPoint("TOP", AAP_ArrowFrame, "BOTTOM", 0, 0)
 AAP_ArrowFrame:Hide()
 AAP_ArrowFrame:SetScript("OnMouseDown", function(self, button)
-	if button == "LeftButton" and not AAP_ArrowFrameM.isMoving and AAP1[AAP_Realm][AAP_Name]["Settings"]["LockArrow"] == 0 then
+	if button == "LeftButton" and not AAP_ArrowFrameM.isMoving and AAP1[AAP.Realm][AAP.Name]["Settings"]["LockArrow"] == 0 then
 		AAP_ArrowFrameM:StartMoving();
 		AAP_ArrowFrameM.isMoving = true;
 	end
@@ -393,18 +396,18 @@ AAP_ArrowFrame:SetScript("OnMouseUp", function(self, button)
 	if button == "LeftButton" and AAP_ArrowFrameM.isMoving then
 		AAP_ArrowFrameM:StopMovingOrSizing();
 		AAP_ArrowFrameM.isMoving = false;
-		AAP1[AAP_Realm][AAP_Name]["Settings"]["arrowleft"] = AAP_ArrowFrameM:GetLeft()
-		AAP1[AAP_Realm][AAP_Name]["Settings"]["arrowtop"] = AAP_ArrowFrameM:GetTop() - GetScreenHeight()
-		AAP_ArrowFrameM:SetPoint("TOPLEFT", UIParent, "TOPLEFT", AAP1[AAP_Realm][AAP_Name]["Settings"]["arrowleft"], AAP1[AAP_Realm][AAP_Name]["Settings"]["arrowtop"])
+		AAP1[AAP.Realm][AAP.Name]["Settings"]["arrowleft"] = AAP_ArrowFrameM:GetLeft()
+		AAP1[AAP.Realm][AAP.Name]["Settings"]["arrowtop"] = AAP_ArrowFrameM:GetTop() - GetScreenHeight()
+		AAP_ArrowFrameM:SetPoint("TOPLEFT", UIParent, "TOPLEFT", AAP1[AAP.Realm][AAP.Name]["Settings"]["arrowleft"], AAP1[AAP.Realm][AAP.Name]["Settings"]["arrowtop"])
 	end
 end)
 AAP_ArrowFrame:SetScript("OnHide", function(self)
 	if ( AAP_ArrowFrameM.isMoving ) then
 		AAP_ArrowFrameM:StopMovingOrSizing();
 		AAP_ArrowFrameM.isMoving = false;
-		AAP1[AAP_Realm][AAP_Name]["Settings"]["arrowleft"] = AAP_ArrowFrameM:GetLeft()
-		AAP1[AAP_Realm][AAP_Name]["Settings"]["arrowtop"] = AAP_ArrowFrameM:GetTop() - GetScreenHeight()
-		AAP_ArrowFrameM:SetPoint("TOPLEFT", UIParent, "TOPLEFT", AAP1[AAP_Realm][AAP_Name]["Settings"]["arrowleft"], AAP1[AAP_Realm][AAP_Name]["Settings"]["arrowtop"])
+		AAP1[AAP.Realm][AAP.Name]["Settings"]["arrowleft"] = AAP_ArrowFrameM:GetLeft()
+		AAP1[AAP.Realm][AAP.Name]["Settings"]["arrowtop"] = AAP_ArrowFrameM:GetTop() - GetScreenHeight()
+		AAP_ArrowFrameM:SetPoint("TOPLEFT", UIParent, "TOPLEFT", AAP1[AAP.Realm][AAP.Name]["Settings"]["arrowleft"], AAP1[AAP.Realm][AAP.Name]["Settings"]["arrowtop"])
 	end
 end)
 
@@ -502,7 +505,7 @@ AAP_ArrowFrame.Button:SetPoint("BOTTOM", AAP_ArrowFrame, "BOTTOM", 0, -30)
 AAP_ArrowFrame.Button:SetScript("OnMouseDown", function(self, button)
 	AAP_ArrowFrame.Button:Hide()
 	print("AAP: Skipping Waypoint")
-	AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone] = AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone] + 1
+	AAP1[AAP.Realm][AAP.Name][AAP.ActiveZone] = AAP1[AAP.Realm][AAP.Name][AAP.ActiveZone] + 1
 	AAP_Reset = 0
 	AAP_ArrowActive_X = 0
 	AAP_ArrowActive_Y = 0
@@ -523,18 +526,18 @@ AAP_ArrowFrame.Fontstring:SetText("Skip waypoint")
 AAP_ArrowFrame.Fontstring:SetTextColor(1, 1, 0)
 AAP_ArrowFrame.Button:Hide()
 
-function AAP_SlashCmd(AAP_index)
+function AAP.SlashCmd(AAP_index)
 	if (AAP_index == "reset") then
 		print("AAP: Resetting Zone.")
-		AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone] = 1
+		AAP1[AAP.Realm][AAP.Name][AAP.ActiveZone] = 1
 		local ResetAz = true
 		local ResetAz2 = 0
 		local ResetAz3 = 0
 		while ResetAz do
 			ResetAz3 = ResetAz3 + 1
-			if (ResetAz2 ~= AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]) then
-				ResetAz2 = AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]
-				AAP_Plus()
+			if (ResetAz2 ~= AAP1[AAP.Realm][AAP.Name][AAP.ActiveZone]) then
+				ResetAz2 = AAP1[AAP.Realm][AAP.Name][AAP.ActiveZone]
+				AAP.BookingList["AAP_Plus"] = "AAP_Plus"
 			else
 				ResetAz = nil
 			end
@@ -542,19 +545,19 @@ function AAP_SlashCmd(AAP_index)
 				ResetAz = nil
 			end
 		end
-		AAP_UpdateQuestList()
-		AAP_ChangeZone()
-		AAP_UpdateQuestList()
+		AAP.BookingList["AAP_UpdateQuestList"] = "AAP_UpdateQuestList"
+		AAP.BookingList["AAP_ChangeZone"] = "AAP_ChangeZone"
+		AAP.BookingList["AAP_UpdateQuestList"] = "AAP_UpdateQuestList"
 	elseif (AAP_index == "skip") then
 		print("AAP: Skipping QuestStep.")
-		AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone] = AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone] + 1
-		AAP_ChangeZone()
-		AAP_UpdateQuestList()
+		AAP1[AAP.Realm][AAP.Name][AAP.ActiveZone] = AAP1[AAP.Realm][AAP.Name][AAP.ActiveZone] + 1
+		AAP.BookingList["AAP_ChangeZone"] = "AAP_ChangeZone"
+		AAP.BookingList["AAP_UpdateQuestList"] = "AAP_UpdateQuestList"
 	elseif (AAP_index == "skipcamp") then
 		print("AAP: Skipping CampStep.")
-		AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone] = AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone] + 14
-		AAP_ChangeZone()
-		AAP_UpdateQuestList()
+		AAP1[AAP.Realm][AAP.Name][AAP.ActiveZone] = AAP1[AAP.Realm][AAP.Name][AAP.ActiveZone] + 14
+		AAP.BookingList["AAP_ChangeZone"] = "AAP_ChangeZone"
+		AAP.BookingList["AAP_UpdateQuestList"] = "AAP_UpdateQuestList"
 	else
 		AAP_SettingsOpen = 1
 		AAP.OptionsFrame.MainFrame:Show()
@@ -562,12 +565,12 @@ function AAP_SlashCmd(AAP_index)
 		AAP_ArrowActive_X = 1234
 		AAP_ArrowActive_Y = 1234
 		QNumberLocal = 99992
-		AAP_UpdateQuestList()
+		AAP.BookingList["AAP_UpdateQuestList"] = "AAP_UpdateQuestList"
 	end
 end
 
-function AAP_ShowRideBuff()
---	if (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["RideBuff"]) then
+function AAP.ShowRideBuff()
+--	if (AAP_Quests and AAP.ActiveStuff and AAP.ActiveStuff["RideBuff"]) then
 		local i = 1
 		local buff = UnitBuff("vehicle", i);
 		while buff do
@@ -582,7 +585,7 @@ function AAP_ShowRideBuff()
 		AAP_HorseBuffTimer:Play()
 --	end
 end
-function AAP_HorseBuffTimerFunc()
+function AAP.HorseBuffTimerFunc()
 	if (AAP_HorseBuffDur > 0) then
 		AAP_HorseBuffDur = floor((AAP_HorseBuffDur - 0.1)*10)/10
 		AAP_RideFrame:Show()
@@ -606,10 +609,10 @@ function AAP_HorseBuffTimerFunc()
 		AAP_RideFrame:Hide()
 	end
 end
-function AAP_TestQListSkip()
+function AAP.TestQListSkip()
 	if (AAP_TestSkipVar1 == 0) then
-		if (AAP1 and AAP1[AAP_Realm] and AAP1[AAP_Realm][AAP_Name] and AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]) then
-			local zenumbers = AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]
+		if (AAP1 and AAP1[AAP.Realm] and AAP1[AAP.Realm][AAP.Name] and AAP1[AAP.Realm][AAP.Name][AAP.ActiveZone]) then
+			local zenumbers = AAP1[AAP.Realm][AAP.Name][AAP.ActiveZone]
 			if (zenumbers ~= AAP_TestSkipVar2) then
 				AAP_TestSkipVar2 = zenumbers
 				AAP_TestSkipVar3 = 0
@@ -621,42 +624,42 @@ function AAP_TestQListSkip()
 			else
 				AAP_TestSkipVar1 = 1
 			end
-			AAP_Plus()
+			AAP.BookingList["AAP_Plus"] = "AAP_Plus"
 		end
 	end
 end
-function AAP_AFK_Timer(AAP_AFkTimeh)
+function AAP.AFK_Timer(AAP_AFkTimeh)
 	AAP_AfkTimerVar = AAP_AFkTimeh
 	AAP_ArrowEventAFkTimer:Play()
 end
-function AAP_AFK_Timer2(AAP_AFkTimeh)
+function AAP.AFK_Timer2(AAP_AFkTimeh)
 	AAP_AfkTimerVar2 = AAP_AFkTimeh
 	AAP_ArrowEventAFkTimer2:Play()
 end
-function AAP_CheckDistance()
-	if (AAP1 and AAP1[AAP_Realm] and AAP1[AAP_Realm][AAP_Name] and AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]) then
-		if (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["CRange"]) then
+function AAP.CheckDistance()
+	if (AAP.QuestList and AAP.QuestList[AAP.ActiveZone] and AAP1 and AAP1[AAP.Realm] and AAP1[AAP.Realm][AAP.Name] and AAP1[AAP.Realm][AAP.Name][AAP.ActiveZone]) then
+		if (AAP.ActiveStuff and AAP.ActiveStuff["CRange"]) then
 			AAP_ArrowFrame.Button:Show()
-			local plusnr = AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]
+			local plusnr = AAP1[AAP.Realm][AAP.Name][AAP.ActiveZone]
 			local Distancenr = 0
 			local testad = true
-			if (AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["NoExtraRange"]) then
+			if (AAP.ActiveStuff["NoExtraRange"]) then
 				testad = false
 			end
 			while testad do
-				local oldx = AAP_Quests[plusnr]["TT"]["x"]
-				local oldy = AAP_Quests[plusnr]["TT"]["y"]
+				local oldx = AAP.QuestList[AAP.ActiveZone][plusnr]["TT"]["x"]
+				local oldy = AAP.QuestList[AAP.ActiveZone][plusnr]["TT"]["y"]
 				plusnr = plusnr + 1
-				if (AAP_Quests[plusnr] and AAP_Quests[plusnr]["CRange"]) then
-					local newx = AAP_Quests[plusnr]["TT"]["x"]
-					local newy = AAP_Quests[plusnr]["TT"]["y"]
+				if (AAP.QuestList[AAP.ActiveZone][plusnr] and AAP.QuestList[AAP.ActiveZone][plusnr]["CRange"]) then
+					local newx = AAP.QuestList[AAP.ActiveZone][plusnr]["TT"]["x"]
+					local newy = AAP.QuestList[AAP.ActiveZone][plusnr]["TT"]["y"]
 					local deltaX, deltaY = oldx - newx, newy - oldy
 					local distance = (deltaX * deltaX + deltaY * deltaY)^0.5
 					Distancenr = Distancenr + distance
 				else
-					if (AAP_Quests[plusnr] and AAP_Quests[plusnr]["TT"]) then
-						local newx = AAP_Quests[plusnr]["TT"]["x"]
-						local newy = AAP_Quests[plusnr]["TT"]["y"]
+					if (AAP.QuestList[AAP.ActiveZone][plusnr] and AAP.QuestList[AAP.ActiveZone][plusnr]["TT"]) then
+						local newx = AAP.QuestList[AAP.ActiveZone][plusnr]["TT"]["x"]
+						local newy = AAP.QuestList[AAP.ActiveZone][plusnr]["TT"]["y"]
 						local deltaX, deltaY = oldx - newx, newy - oldy
 						local distance = (deltaX * deltaX + deltaY * deltaY)^0.5
 						Distancenr = Distancenr + distance
@@ -668,13 +671,13 @@ function AAP_CheckDistance()
 	end
 	return 0
 end
-function AAP_CombatTest()
+function AAP.CombatTest()
 	if (AAP_CombatTestVar == 1) then
 		AAP_CombatTestVar = 0
 		AAP_UPDQListV = AAP_UPDQListV2
 	end
 end
-function AAP_InstanceTest()
+function AAP.InstanceTest()
 	local inInstance, instanceType = IsInInstance()
 	if (inInstance) then
 		local name, type, difficultyIndex, difficultyName, maxPlayers, dynamicDifficulty, isDynamic, instanceMapId, lfgID = GetInstanceInfo()
@@ -689,25 +692,25 @@ function AAP_InstanceTest()
 		return 0
 	end
 end
-function AAP_PosTest()
-	if (AAP1[AAP_Realm][AAP_Name]["Settings"]["ShowArrow"] == 0) then
+function AAP.PosTest()
+	if (AAP1 and AAP1[AAP.Realm][AAP.Name] and AAP1[AAP.Realm][AAP.Name]["Settings"] and AAP1[AAP.Realm][AAP.Name]["Settings"]["ShowArrow"] == 0) then
 		AAP_ArrowActive = 0
 		AAP_ArrowFrame:Hide()
 	else
-	if (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["AreaTriggerZ"]) then
+	if (AAP.ActiveStuff and AAP.ActiveStuff["AreaTriggerZ"]) then
 		local d_y, d_x = UnitPosition("player")
-		x = AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["AreaTriggerZ"]["x"]
-		y = AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["AreaTriggerZ"]["y"]
+		x = AAP.ActiveStuff["AreaTriggerZ"]["x"]
+		y = AAP.ActiveStuff["AreaTriggerZ"]["y"]
 		local deltaX, deltaY = d_x - x, y - d_y
 		local distance = (deltaX * deltaX + deltaY * deltaY)^0.5
-		if (AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["AreaTriggerZ"]["R"] > distance) then
-			AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone] = AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone] + 1
+		if (AAP.ActiveStuff["AreaTriggerZ"]["R"] > distance) then
+			AAP1[AAP.Realm][AAP.Name][AAP.ActiveZone] = AAP1[AAP.Realm][AAP.Name][AAP.ActiveZone] + 1
 			QNumberLocal = 0
 			AAP_Reset = 0
-			AAP_Plus()
+			AAP.BookingList["AAP_Plus"] = "AAP_Plus"
 		end
 	end
-	if ((AAP_ArrowActive == 0) or (AAP_ArrowActive_X == 0) or (AAP_InstanceTest() == 1)) then
+	if ((AAP_ArrowActive == 0) or (AAP_ArrowActive_X == 0) or (AAP.InstanceTest() == 1)) then
 		AAP_ArrowActive = 0
 		AAP_ArrowFrame:Hide()
 	else
@@ -738,17 +741,17 @@ function AAP_PosTest()
 			local col = cell % 9
 			local row = floor(cell / 9)
 			AAP_ArrowFrame.arrow:SetTexCoord((col * 56) / 512,((col + 1) * 56) / 512,(row * 42) / 512,((row + 1) * 42) / 512)
-			AAP_ArrowFrame.distance:SetText(floor(distance + AAP_CheckDistance()) .. " "..AAP_Locals["Yards"])
+			AAP_ArrowFrame.distance:SetText(floor(distance + AAP.CheckDistance()) .. " "..AAP_Locals["Yards"])
 			AAP_ArrowActive_Distance = 0
-			if (AAP1 and AAP1[AAP_Realm] and AAP1[AAP_Realm][AAP_Name] and AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]) then
-				if (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["Trigger"]) then
+			if (AAP1 and AAP1[AAP.Realm] and AAP1[AAP.Realm][AAP.Name] and AAP1[AAP.Realm][AAP.Name][AAP.ActiveZone]) then
+				if (AAP.ActiveStuff and AAP.ActiveStuff["Trigger"]) then
 					local d_y, d_x = UnitPosition("player")
-					AAP_ArrowActive_Trigger_X = AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["Trigger"]["x"]
-					AAP_ArrowActive_Trigger_Y = AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["Trigger"]["y"]
+					AAP_ArrowActive_Trigger_X = AAP.ActiveStuff["Trigger"]["x"]
+					AAP_ArrowActive_Trigger_Y = AAP.ActiveStuff["Trigger"]["y"]
 					local deltaX, deltaY = d_x - AAP_ArrowActive_Trigger_X, AAP_ArrowActive_Trigger_Y - d_y
 					AAP_ArrowActive_Distance = (deltaX * deltaX + deltaY * deltaY)^0.5
-					AAP_ArrowActive_TrigDistance = AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["Range"]
-					if (AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["HIDEME"]) then
+					AAP_ArrowActive_TrigDistance = AAP.ActiveStuff["Range"]
+					if (AAP.ActiveStuff["HIDEME"]) then
 						AAP_ArrowActive = 0
 					end
 				end
@@ -757,10 +760,10 @@ function AAP_PosTest()
 				AAP_ArrowActive_X = 0
 			elseif (AAP_ArrowActive_Distance and AAP_ArrowActive_TrigDistance and AAP_ArrowActive_Distance < AAP_ArrowActive_TrigDistance) then
 				AAP_ArrowActive_X = 0
-				if (AAP1 and AAP1[AAP_Realm] and AAP1[AAP_Realm][AAP_Name] and AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]) then
-					if (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["CRange"]) then
+				if (AAP1 and AAP1[AAP.Realm] and AAP1[AAP.Realm][AAP.Name] and AAP1[AAP.Realm][AAP.Name][AAP.ActiveZone]) then
+					if (AAP.ActiveStuff and AAP.ActiveStuff["CRange"]) then
 						AAP_ArrowActive_TrigDistance = 0
-						AAP_CRange("Trigged")
+						AAP.CRange("Trigged")
 					end
 				end
 			end
@@ -769,22 +772,94 @@ function AAP_PosTest()
 	end
 end
 
-function AAP_AnimeUpdater()
+function AAP.AnimeUpdater()
 	if (AAP_UPDQListV > 0) then
 		AAP_5sec_thingy = 10
 		AAP_UPDQListV = AAP_UPDQListV - 1
 	end
 	if (AAP_UPDQListV == 0) then
 		AAP_5sec_thingy = 10
-		AAP_Plus()
-		AAP_UpdateQuestList()
+		AAP.BookingList["AAP_Plus"] = "AAP_Plus"
+		AAP.BookingList["AAP_UpdateQuestList"] = "AAP_UpdateQuestList"
 		AAP_extraTimer:Play()
 		AAP_UPDQListV = -1
 	end
+	if (AAP.BookingList["AAP_ChangeZone"]) then
+		AAP.BookingList["AAP_ChangeZone"] = nil
+		AAP.ChangeZone()
+	elseif (AAP.BookingList["AAP_UpdateQuestList"]) then
+		AAP.BookingList["AAP_UpdateQuestList"] = nil
+		AAP.UpdateQuestList()
+	elseif (AAP.BookingList["AAP.Pickup"]) then
+		AAP.BookingList["AAP.Pickup"] = nil
+		AAP.Pickup()
+	elseif (AAP.BookingList["AAP.Pickup2"]) then
+		AAP.BookingList["AAP.Pickup2"] = nil
+		AAP.Pickup2()
+	elseif (AAP.BookingList["AAP.QAskPopWanted"]) then
+		AAP.BookingList["AAP.QAskPopWanted"] = nil
+		AAP.QAskPopWanted()
+	elseif (AAP.BookingList["AAP.QuestPartStep"]) then
+		AAP.BookingList["AAP.QuestPartStep"] = nil
+		AAP.QuestPartStep()
+	elseif (AAP.BookingList["AAP.QuestPartStep2"]) then
+		AAP.BookingList["AAP.QuestPartStep2"] = nil
+		AAP.QuestPartStep2()
+	elseif (AAP.BookingList["AAP.QuestPartPartStep"]) then
+		AAP.BookingList["AAP.QuestPartPartStep"] = nil
+		AAP.QuestPartPartStep()
+	elseif (AAP.BookingList["AAP.Done"]) then
+		AAP.BookingList["AAP.Done"] = nil
+		AAP.Done()
+	elseif (AAP.BookingList["AAP.Done2"]) then
+		AAP.BookingList["AAP.Done2"] = nil
+		AAP.Done2()
+	elseif (AAP.BookingList["AAP.DropQuest"]) then
+		AAP.BookingList["AAP.DropQuest"] = nil
+		AAP.DropQuest()
+	elseif (AAP.BookingList["AAP.CRange"]) then
+		AAP.BookingList["AAP.CRange"] = nil
+		AAP.CRange()
+	elseif (AAP.BookingList["AAP.AskQline"]) then
+		AAP.BookingList["AAP.AskQline"] = nil
+		AAP.AskQline()
+	elseif (AAP.BookingList["AAP.GetFP"]) then
+		AAP.BookingList["AAP.GetFP"] = nil
+		AAP.GetFP()
+	elseif (AAP.BookingList["AAP.UseFP"]) then
+		AAP.BookingList["AAP.UseFP"] = nil
+		AAP.UseFP()
+	elseif (AAP.BookingList["AAP.ZonePick"]) then
+		AAP.BookingList["AAP.ZonePick"] = nil
+		AAP.ZonePick()
+	elseif (AAP.BookingList["AAP.SetHS"]) then
+		AAP.BookingList["AAP.SetHS"] = nil
+		AAP.SetHS()
+	elseif (AAP.BookingList["AAP.UseDalaHS"]) then
+		AAP.BookingList["AAP.UseDalaHS"] = nil
+		AAP.UseDalaHS()
+	elseif (AAP.BookingList["AAP.UseHS"]) then
+		AAP.BookingList["AAP.UseHS"] = nil
+		AAP.UseHS()
+	elseif (AAP.BookingList["AAP.IsInGroup"]) then
+		AAP.BookingList["AAP.IsInGroup"] = nil
+		AAP.IsInGroup()
+	elseif (AAP.BookingList["AAP_Plus"]) then
+		AAP.BookingList["AAP_Plus"] = nil
+		AAP.Plus()
+	elseif (AAP.BookingList["AAP.SetQPTT"]) then
+		AAP.BookingList["AAP.SetQPTT"] = nil
+		AAP.SetQPTT()
+	elseif (AAP.BookingList["AAP_CheckSaveOldSlot"]) then
+
+		AAP.BookingList["AAP_CheckSaveOldSlot"] = nil
+		AAP.CheckSaveOldSlot()
+	end
 end
 
-AAP_AnimeUpdaters = CreateFrame("frame")
-AAP_AnimeUpdaters:SetScript("OnUpdate", AAP_AnimeUpdater)
+AAP.AnimeUpdaters = CreateFrame("frame")
+AAP.AnimeUpdaters:SetScript("OnUpdate", AAP.AnimeUpdater)
+
 
 AAP_CoreEventFrame = CreateFrame("Frame")
 AAP_CoreEventFrame:RegisterEvent ("ADDON_LOADED")
@@ -803,10 +878,10 @@ AAP_CoreEventFrame:RegisterEvent ("CINEMATIC_START")
 AAP_CoreEventFrame:SetScript("OnEvent", function(self, event, ...)
 
 	if (event=="PLAYER_EQUIPMENT_CHANGED" and AAP_DisableAddon == 0) then
-		AAP_UpdateILVLGear()
+		AAP.UpdateILVLGear()
 	elseif (event=="UPDATE_MOUSEOVER_UNIT" and AAP_DisableAddon == 0) then
-		if (AAP1 and AAP1[AAP_Realm] and AAP1[AAP_Realm][AAP_Name] and AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]) then
-			if (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["DroppableQuest"]) then
+		if (AAP1 and AAP1[AAP.Realm] and AAP1[AAP.Realm][AAP.Name] and AAP1[AAP.Realm][AAP.Name][AAP.ActiveZone]) then
+			if (AAP.ActiveStuff and AAP.ActiveStuff["DroppableQuest"]) then
 				if (UnitGUID("mouseover") and UnitName("mouseover")) then
 					local guid, name = UnitGUID("mouseover"), UnitName("mouseover")
 					local type, zero, server_id, instance_id, zone_uid, npc_id, spawn_uid = strsplit("-",guid);
@@ -822,7 +897,7 @@ AAP_CoreEventFrame:SetScript("OnEvent", function(self, event, ...)
 	elseif (event=="CINEMATIC_START" and AAP_DisableAddon == 0) then
 		if (not IsControlKeyDown()) then
 
-			if (AAP1[AAP_Realm][AAP_Name]["Settings"]["CutScene"] == 1) then
+			if (AAP1[AAP.Realm][AAP.Name]["Settings"]["CutScene"] == 1) then
 				AAP_QuestAcceptTimerMovie:Play()
 			end
 		end
@@ -830,288 +905,295 @@ AAP_CoreEventFrame:SetScript("OnEvent", function(self, event, ...)
 	elseif (event=="UNIT_AURA" and AAP_DisableAddon == 0) then
 		local arg1, arg2, arg3, arg4, arg5 = ...;
 		if (arg1 == "vehicle") then
-			AAP_ShowRideBuff()
+			AAP.ShowRideBuff()
 		end
 	elseif (event=="ADDON_LOADED" and AAP_DisableAddon == 0) then
 		local arg1, arg2, arg3, arg4, arg5 = ...;
 		if (arg1 == "Azeroth Auto Pilot") then
-			AAP_CompletedQs = GetQuestsCompleted()
+			AAP.CompletedQs = {}
 			AAP_RegisterChat = C_ChatInfo.RegisterAddonMessagePrefix("AAPChat")
 			if (not AAP1) then
 				AAP1 = {}
 			end
-			if (not AAP1[AAP_Realm]) then
-				AAP1[AAP_Realm] = {}
+			if (not AAP1[AAP.Realm]) then
+				AAP1[AAP.Realm] = {}
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]) then
-				AAP1[AAP_Realm][AAP_Name] = {}
+			if (not AAP1[AAP.Realm][AAP.Name]) then
+				AAP1[AAP.Realm][AAP.Name] = {}
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["QlineSkip"]) then
-				AAP1[AAP_Realm][AAP_Name]["QlineSkip"] = {}
+			if (not AAP1[AAP.Realm][AAP.Name]["QlineSkip"]) then
+				AAP1[AAP.Realm][AAP.Name]["QlineSkip"] = {}
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["SkippedBonusObj"]) then
-				AAP1[AAP_Realm][AAP_Name]["SkippedBonusObj"] = {}
+			if (not AAP1[AAP.Realm][AAP.Name]["SkippedBonusObj"]) then
+				AAP1[AAP.Realm][AAP.Name]["SkippedBonusObj"] = {}
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["LoaPick"]) then
-				AAP1[AAP_Realm][AAP_Name]["LoaPick"] = 0
+			if (not AAP1[AAP.Realm][AAP.Name]["LoaPick"]) then
+				AAP1[AAP.Realm][AAP.Name]["LoaPick"] = 0
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["Zone862D"]) then
-				AAP1[AAP_Realm][AAP_Name]["Zone862D"] = 0
+			if (not AAP1[AAP.Realm][AAP.Name]["Zone862D"]) then
+				AAP1[AAP.Realm][AAP.Name]["Zone862D"] = 0
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["Zone895D"]) then
-				AAP1[AAP_Realm][AAP_Name]["Zone895D"] = 0
+			if (not AAP1[AAP.Realm][AAP.Name]["Zone895D"]) then
+				AAP1[AAP.Realm][AAP.Name]["Zone895D"] = 0
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["Settings"]) then
-				AAP1[AAP_Realm][AAP_Name]["Settings"] = {}
-				AAP1[AAP_Realm][AAP_Name]["Settings"]["left"] = GetScreenWidth() / 1.6
-				AAP1[AAP_Realm][AAP_Name]["Settings"]["top"] = -(GetScreenHeight() / 5)
-				AAP1[AAP_Realm][AAP_Name]["Settings"]["Scale"] = UIParent:GetScale()
-				AAP1[AAP_Realm][AAP_Name]["Settings"]["Lock"] = 0
-				AAP1[AAP_Realm][AAP_Name]["Settings"]["Hide"] = 0
-				AAP1[AAP_Realm][AAP_Name]["Settings"]["alpha"] = 1
-				AAP1[AAP_Realm][AAP_Name]["Settings"]["arrowleft"] = GetScreenWidth() / 2.05
-				AAP1[AAP_Realm][AAP_Name]["Settings"]["arrowtop"] = -(GetScreenHeight() / 1.5)
+			if (not AAP1[AAP.Realm][AAP.Name]["Settings"]) then
+				AAP1[AAP.Realm][AAP.Name]["Settings"] = {}
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["left"] = GetScreenWidth() / 1.6
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["top"] = -(GetScreenHeight() / 5)
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["Scale"] = UIParent:GetScale()
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["Lock"] = 0
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["Hide"] = 0
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["alpha"] = 1
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["arrowleft"] = GetScreenWidth() / 2.05
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["arrowtop"] = -(GetScreenHeight() / 1.5)
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["Settings"]["LockArrow"]) then
-				AAP1[AAP_Realm][AAP_Name]["Settings"]["LockArrow"] = 0
+			if (not AAP1[AAP.Realm][AAP.Name]["Settings"]["LockArrow"]) then
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["LockArrow"] = 0
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["Settings"]["BannerScale"]) then
-				AAP1[AAP_Realm][AAP_Name]["Settings"]["BannerScale"] = UIParent:GetScale()
+			if (not AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoGossip"]) then
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoGossip"] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["Settings"]["BannerShow"]) then
-				AAP1[AAP_Realm][AAP_Name]["Settings"]["BannerShow"] = 0
+			if (not AAP1[AAP.Realm][AAP.Name]["Settings"]["BannerScale"]) then
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["BannerScale"] = UIParent:GetScale()
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["Settings"]["Hcampleft"]) then
-				AAP1[AAP_Realm][AAP_Name]["Settings"]["Hcampleft"] = GetScreenWidth() / 1.6
+			if (not AAP1[AAP.Realm][AAP.Name]["Settings"]["BannerShow"]) then
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["BannerShow"] = 0
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["Settings"]["Hcamptop"]) then
-				AAP1[AAP_Realm][AAP_Name]["Settings"]["Hcamptop"] = -(GetScreenHeight() / 5)
+			if (not AAP1[AAP.Realm][AAP.Name]["Settings"]["Hcampleft"]) then
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["Hcampleft"] = GetScreenWidth() / 1.6
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["Settings"]["CutScene"]) then
-				AAP1[AAP_Realm][AAP_Name]["Settings"]["CutScene"] = 1
+			if (not AAP1[AAP.Realm][AAP.Name]["Settings"]["Hcamptop"]) then
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["Hcamptop"] = -(GetScreenHeight() / 5)
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoAccept"]) then
-				AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoAccept"] = 1
+			if (not AAP1[AAP.Realm][AAP.Name]["Settings"]["CutScene"]) then
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["CutScene"] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoHandIn"]) then
-				AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoHandIn"] = 1
+			if (not AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoAccept"]) then
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoAccept"] = 1
 			end
-			AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoShareQ"] = 0
-			if (not AAP1[AAP_Realm][AAP_Name]["Settings"]["ChooseQuests"]) then
-				AAP1[AAP_Realm][AAP_Name]["Settings"]["ChooseQuests"] = 0
+			if (not AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoHandIn"]) then
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoHandIn"] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["Settings"]["ArrowScale"]) then
-				AAP1[AAP_Realm][AAP_Name]["Settings"]["ArrowScale"] = UIParent:GetScale()
+			AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoShareQ"] = 0
+			if (not AAP1[AAP.Realm][AAP.Name]["Settings"]["ChooseQuests"]) then
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["ChooseQuests"] = 0
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoHandInChoice"]) then
-				AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoHandInChoice"] = 0
+			if (not AAP1[AAP.Realm][AAP.Name]["Settings"]["ArrowScale"]) then
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["ArrowScale"] = UIParent:GetScale()
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["Settings"]["Greetings"]) then
-				AAP1[AAP_Realm][AAP_Name]["Settings"]["Greetings"] = 0
+			if (not AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoHandInChoice"]) then
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoHandInChoice"] = 0
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoVendor"]) then
-				AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoVendor"] = 0
+			if (not AAP1[AAP.Realm][AAP.Name]["Settings"]["Greetings"]) then
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["Greetings"] = 0
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoRepair"]) then
-				AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoRepair"] = 0
+			if (not AAP1[AAP.Realm][AAP.Name]["Settings"]["Greetings3"]) then
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["Greetings3"] = 0
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["Settings"]["ShowGroup"]) then
-				AAP1[AAP_Realm][AAP_Name]["Settings"]["ShowGroup"] = 1
+			if (not AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoVendor"]) then
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoVendor"] = 0
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["Settings"]["ShowArrow"]) then
-				AAP1[AAP_Realm][AAP_Name]["Settings"]["ShowArrow"] = 1
+			if (not AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoRepair"]) then
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoRepair"] = 0
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["Settings"]["ShowQList"]) then
-				AAP1[AAP_Realm][AAP_Name]["Settings"]["ShowQList"] = 1
+			if (not AAP1[AAP.Realm][AAP.Name]["Settings"]["ShowGroup"]) then
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["ShowGroup"] = 1
+			end
+			if (not AAP1[AAP.Realm][AAP.Name]["Settings"]["ShowArrow"]) then
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["ShowArrow"] = 1
+			end
+			if (not AAP1[AAP.Realm][AAP.Name]["Settings"]["ShowQList"]) then
+				AAP1[AAP.Realm][AAP.Name]["Settings"]["ShowQList"] = 1
 			end
 
-			if (not AAP1[AAP_Realm][AAP_Name][86]) then
-				AAP1[AAP_Realm][AAP_Name][86] = 1
+			if (not AAP1[AAP.Realm][AAP.Name][86]) then
+				AAP1[AAP.Realm][AAP.Name][86] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name][81]) then
-				AAP1[AAP_Realm][AAP_Name][81] = 1
+			if (not AAP1[AAP.Realm][AAP.Name][81]) then
+				AAP1[AAP.Realm][AAP.Name][81] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name][249]) then
-				AAP1[AAP_Realm][AAP_Name][249] = 1
+			if (not AAP1[AAP.Realm][AAP.Name][249]) then
+				AAP1[AAP.Realm][AAP.Name][249] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["86-1"]) then
-				AAP1[AAP_Realm][AAP_Name]["86-1"] = 1
+			if (not AAP1[AAP.Realm][AAP.Name]["86-1"]) then
+				AAP1[AAP.Realm][AAP.Name]["86-1"] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["86-2"]) then
-				AAP1[AAP_Realm][AAP_Name]["86-2"] = 1
+			if (not AAP1[AAP.Realm][AAP.Name]["86-2"]) then
+				AAP1[AAP.Realm][AAP.Name]["86-2"] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["627-1"]) then
-				AAP1[AAP_Realm][AAP_Name]["627-1"] = 1
+			if (not AAP1[AAP.Realm][AAP.Name]["627-1"]) then
+				AAP1[AAP.Realm][AAP.Name]["627-1"] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name][627]) then
-				AAP1[AAP_Realm][AAP_Name][627] = 1
+			if (not AAP1[AAP.Realm][AAP.Name][627]) then
+				AAP1[AAP.Realm][AAP.Name][627] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name][908]) then
-				AAP1[AAP_Realm][AAP_Name][908] = 1
+			if (not AAP1[AAP.Realm][AAP.Name][908]) then
+				AAP1[AAP.Realm][AAP.Name][908] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name][862]) then
-				AAP1[AAP_Realm][AAP_Name][862] = 1
+			if (not AAP1[AAP.Realm][AAP.Name][862]) then
+				AAP1[AAP.Realm][AAP.Name][862] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name][11337]) then
-				AAP1[AAP_Realm][AAP_Name][11337] = 1
+			if (not AAP1[AAP.Realm][AAP.Name][11337]) then
+				AAP1[AAP.Realm][AAP.Name][11337] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name][942]) then
-				AAP1[AAP_Realm][AAP_Name][942] = 1
+			if (not AAP1[AAP.Realm][AAP.Name][942]) then
+				AAP1[AAP.Realm][AAP.Name][942] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["862-1"]) then
-				AAP1[AAP_Realm][AAP_Name]["862-1"] = 1
+			if (not AAP1[AAP.Realm][AAP.Name]["862-1"]) then
+				AAP1[AAP.Realm][AAP.Name]["862-1"] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["862-2"]) then
-				AAP1[AAP_Realm][AAP_Name]["862-2"] = 1
+			if (not AAP1[AAP.Realm][AAP.Name]["862-2"]) then
+				AAP1[AAP.Realm][AAP.Name]["862-2"] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["862-3"]) then
-				AAP1[AAP_Realm][AAP_Name]["862-3"] = 1
+			if (not AAP1[AAP.Realm][AAP.Name]["862-3"]) then
+				AAP1[AAP.Realm][AAP.Name]["862-3"] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["862-3-1"]) then
-				AAP1[AAP_Realm][AAP_Name]["862-3-1"] = 1
+			if (not AAP1[AAP.Realm][AAP.Name]["862-3-1"]) then
+				AAP1[AAP.Realm][AAP.Name]["862-3-1"] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["862-3-2"]) then
-				AAP1[AAP_Realm][AAP_Name]["862-3-2"] = 1
+			if (not AAP1[AAP.Realm][AAP.Name]["862-3-2"]) then
+				AAP1[AAP.Realm][AAP.Name]["862-3-2"] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["862-4"]) then
-				AAP1[AAP_Realm][AAP_Name]["862-4"] = 1
+			if (not AAP1[AAP.Realm][AAP.Name]["862-4"]) then
+				AAP1[AAP.Realm][AAP.Name]["862-4"] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["862-4-1"]) then
-				AAP1[AAP_Realm][AAP_Name]["862-4-1"] = 1
+			if (not AAP1[AAP.Realm][AAP.Name]["862-4-1"]) then
+				AAP1[AAP.Realm][AAP.Name]["862-4-1"] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["862-4-2"]) then
-				AAP1[AAP_Realm][AAP_Name]["862-4-2"] = 1
+			if (not AAP1[AAP.Realm][AAP.Name]["862-4-2"]) then
+				AAP1[AAP.Realm][AAP.Name]["862-4-2"] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["862-4-3"]) then
-				AAP1[AAP_Realm][AAP_Name]["862-4-3"] = 1
+			if (not AAP1[AAP.Realm][AAP.Name]["862-4-3"]) then
+				AAP1[AAP.Realm][AAP.Name]["862-4-3"] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["862-4-10"]) then
-				AAP1[AAP_Realm][AAP_Name]["862-4-10"] = 1
+			if (not AAP1[AAP.Realm][AAP.Name]["862-4-10"]) then
+				AAP1[AAP.Realm][AAP.Name]["862-4-10"] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name][863]) then
-				AAP1[AAP_Realm][AAP_Name][863] = 1
+			if (not AAP1[AAP.Realm][AAP.Name][863]) then
+				AAP1[AAP.Realm][AAP.Name][863] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name][864]) then
-				AAP1[AAP_Realm][AAP_Name][864] = 1
+			if (not AAP1[AAP.Realm][AAP.Name][864]) then
+				AAP1[AAP.Realm][AAP.Name][864] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name][895]) then
-				AAP1[AAP_Realm][AAP_Name][895] = 1
+			if (not AAP1[AAP.Realm][AAP.Name][895]) then
+				AAP1[AAP.Realm][AAP.Name][895] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name][896]) then
-				AAP1[AAP_Realm][AAP_Name][896] = 1
+			if (not AAP1[AAP.Realm][AAP.Name][896]) then
+				AAP1[AAP.Realm][AAP.Name][896] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name][998]) then
-				AAP1[AAP_Realm][AAP_Name][998] = 1
+			if (not AAP1[AAP.Realm][AAP.Name][998]) then
+				AAP1[AAP.Realm][AAP.Name][998] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name][1012]) then
-				AAP1[AAP_Realm][AAP_Name][1012] = 1
+			if (not AAP1[AAP.Realm][AAP.Name][1012]) then
+				AAP1[AAP.Realm][AAP.Name][1012] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name][1013]) then
-				AAP1[AAP_Realm][AAP_Name][1013] = 1
+			if (not AAP1[AAP.Realm][AAP.Name][1013]) then
+				AAP1[AAP.Realm][AAP.Name][1013] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name][1021]) then
-				AAP1[AAP_Realm][AAP_Name][1021] = 1
+			if (not AAP1[AAP.Realm][AAP.Name][1021]) then
+				AAP1[AAP.Realm][AAP.Name][1021] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name][1022]) then
-				AAP1[AAP_Realm][AAP_Name][1022] = 1
+			if (not AAP1[AAP.Realm][AAP.Name][1022]) then
+				AAP1[AAP.Realm][AAP.Name][1022] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name][1009]) then
-				AAP1[AAP_Realm][AAP_Name][1009] = 1
+			if (not AAP1[AAP.Realm][AAP.Name][1009]) then
+				AAP1[AAP.Realm][AAP.Name][1009] = 1
 			end
 ----------------- Alliance ---------------------------------
-			if (not AAP1[AAP_Realm][AAP_Name]["A84"]) then
-				AAP1[AAP_Realm][AAP_Name]["A84"] = 1
+			if (not AAP1[AAP.Realm][AAP.Name]["A84"]) then
+				AAP1[AAP.Realm][AAP.Name]["A84"] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["A862"]) then
-				AAP1[AAP_Realm][AAP_Name]["A862"] = 1
+			if (not AAP1[AAP.Realm][AAP.Name]["A862"]) then
+				AAP1[AAP.Realm][AAP.Name]["A862"] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["A863"]) then
-				AAP1[AAP_Realm][AAP_Name]["A863"] = 1
+			if (not AAP1[AAP.Realm][AAP.Name]["A863"]) then
+				AAP1[AAP.Realm][AAP.Name]["A863"] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["A864"]) then
-				AAP1[AAP_Realm][AAP_Name]["A864"] = 1
+			if (not AAP1[AAP.Realm][AAP.Name]["A864"]) then
+				AAP1[AAP.Realm][AAP.Name]["A864"] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["A876"]) then
-				AAP1[AAP_Realm][AAP_Name]["A876"] = 1
+			if (not AAP1[AAP.Realm][AAP.Name]["A876"]) then
+				AAP1[AAP.Realm][AAP.Name]["A876"] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["A895"]) then
-				AAP1[AAP_Realm][AAP_Name]["A895"] = 1
+			if (not AAP1[AAP.Realm][AAP.Name]["A895"]) then
+				AAP1[AAP.Realm][AAP.Name]["A895"] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["A895-1"]) then
-				AAP1[AAP_Realm][AAP_Name]["A895-1"] = 1
+			if (not AAP1[AAP.Realm][AAP.Name]["A895-1"]) then
+				AAP1[AAP.Realm][AAP.Name]["A895-1"] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["A895-2"]) then
-				AAP1[AAP_Realm][AAP_Name]["A895-2"] = 1
+			if (not AAP1[AAP.Realm][AAP.Name]["A895-2"]) then
+				AAP1[AAP.Realm][AAP.Name]["A895-2"] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["A895-3"]) then
-				AAP1[AAP_Realm][AAP_Name]["A895-3"] = 1
+			if (not AAP1[AAP.Realm][AAP.Name]["A895-3"]) then
+				AAP1[AAP.Realm][AAP.Name]["A895-3"] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["A895-4"]) then
-				AAP1[AAP_Realm][AAP_Name]["A895-4"] = 1
+			if (not AAP1[AAP.Realm][AAP.Name]["A895-4"]) then
+				AAP1[AAP.Realm][AAP.Name]["A895-4"] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["A895-4-1"]) then
-				AAP1[AAP_Realm][AAP_Name]["A895-4-1"] = 1
+			if (not AAP1[AAP.Realm][AAP.Name]["A895-4-1"]) then
+				AAP1[AAP.Realm][AAP.Name]["A895-4-1"] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["A895-4-2"]) then
-				AAP1[AAP_Realm][AAP_Name]["A895-4-2"] = 1
+			if (not AAP1[AAP.Realm][AAP.Name]["A895-4-2"]) then
+				AAP1[AAP.Realm][AAP.Name]["A895-4-2"] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["A895-4-3"]) then
-				AAP1[AAP_Realm][AAP_Name]["A895-4-3"] = 1
+			if (not AAP1[AAP.Realm][AAP.Name]["A895-4-3"]) then
+				AAP1[AAP.Realm][AAP.Name]["A895-4-3"] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["A895-4-4"]) then
-				AAP1[AAP_Realm][AAP_Name]["A895-4-4"] = 1
+			if (not AAP1[AAP.Realm][AAP.Name]["A895-4-4"]) then
+				AAP1[AAP.Realm][AAP.Name]["A895-4-4"] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["A895-4-5"]) then
-				AAP1[AAP_Realm][AAP_Name]["A895-4-5"] = 1
+			if (not AAP1[AAP.Realm][AAP.Name]["A895-4-5"]) then
+				AAP1[AAP.Realm][AAP.Name]["A895-4-5"] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["A895-4-10"]) then
-				AAP1[AAP_Realm][AAP_Name]["A895-4-10"] = 1
+			if (not AAP1[AAP.Realm][AAP.Name]["A895-4-10"]) then
+				AAP1[AAP.Realm][AAP.Name]["A895-4-10"] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["A896"]) then
-				AAP1[AAP_Realm][AAP_Name]["A896"] = 1
+			if (not AAP1[AAP.Realm][AAP.Name]["A896"]) then
+				AAP1[AAP.Realm][AAP.Name]["A896"] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["A908"]) then
-				AAP1[AAP_Realm][AAP_Name]["A908"] = 1
+			if (not AAP1[AAP.Realm][AAP.Name]["A908"]) then
+				AAP1[AAP.Realm][AAP.Name]["A908"] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["A942"]) then
-				AAP1[AAP_Realm][AAP_Name]["A942"] = 1
+			if (not AAP1[AAP.Realm][AAP.Name]["A942"]) then
+				AAP1[AAP.Realm][AAP.Name]["A942"] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["A1021"]) then
-				AAP1[AAP_Realm][AAP_Name]["A1021"] = 1
+			if (not AAP1[AAP.Realm][AAP.Name]["A1021"]) then
+				AAP1[AAP.Realm][AAP.Name]["A1021"] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name][1233123991]) then
-				AAP1[AAP_Realm][AAP_Name][1233123991] = 1
+			if (not AAP1[AAP.Realm][AAP.Name][1233123991]) then
+				AAP1[AAP.Realm][AAP.Name][1233123991] = 1
 			end
-			if (not AAP1[AAP_Realm][AAP_Name]["AAP_DoWarCampaign"]) then
-				AAP1[AAP_Realm][AAP_Name]["AAP_DoWarCampaign"] = 0
+			if (not AAP1[AAP.Realm][AAP.Name]["AAP_DoWarCampaign"]) then
+				AAP1[AAP.Realm][AAP.Name]["AAP_DoWarCampaign"] = 0
 			end
 
-			if (not AAP1[AAP_Realm][AAP_Name]["WantedQuestList"]) then
-				AAP1[AAP_Realm][AAP_Name]["WantedQuestList"] = {}
+			if (not AAP1[AAP.Realm][AAP.Name]["WantedQuestList"]) then
+				AAP1[AAP.Realm][AAP.Name]["WantedQuestList"] = {}
 			end
 			AAP_MakeBanners()
-			AAP.Banners.BannersFrame.Frame:SetScale(AAP1[AAP_Realm][AAP_Name]["Settings"]["BannerScale"])
-			AAP.Banners.BannersFrame["Frame1"]:SetScale(AAP1[AAP_Realm][AAP_Name]["Settings"]["BannerScale"])
-			AAP.Banners.BannersFrame["Frame2"]:SetScale(AAP1[AAP_Realm][AAP_Name]["Settings"]["BannerScale"])
-			AAP.Banners.BannersFrame["Frame3"]:SetScale(AAP1[AAP_Realm][AAP_Name]["Settings"]["BannerScale"])
-			AAP.Banners.BannersFrame["Frame4"]:SetScale(AAP1[AAP_Realm][AAP_Name]["Settings"]["BannerScale"])
-			SlashCmdList["AAP_Cmd"] = AAP_SlashCmd
+			AAP.Banners.BannersFrame.Frame:SetScale(AAP1[AAP.Realm][AAP.Name]["Settings"]["BannerScale"])
+			AAP.Banners.BannersFrame["Frame1"]:SetScale(AAP1[AAP.Realm][AAP.Name]["Settings"]["BannerScale"])
+			AAP.Banners.BannersFrame["Frame2"]:SetScale(AAP1[AAP.Realm][AAP.Name]["Settings"]["BannerScale"])
+			AAP.Banners.BannersFrame["Frame3"]:SetScale(AAP1[AAP.Realm][AAP.Name]["Settings"]["BannerScale"])
+			AAP.Banners.BannersFrame["Frame4"]:SetScale(AAP1[AAP.Realm][AAP.Name]["Settings"]["BannerScale"])
+			SlashCmdList["AAP_Cmd"] = AAP.SlashCmd
 			SLASH_AAP_Cmd1 = "/aap"
 
-			AAP_ArrowFrame:SetScale(AAP1[AAP_Realm][AAP_Name]["Settings"]["ArrowScale"])
-
-			AAP_ArrowFrameM:SetPoint("TOPLEFT", UIParent, "TOPLEFT", AAP1[AAP_Realm][AAP_Name]["Settings"]["arrowleft"], AAP1[AAP_Realm][AAP_Name]["Settings"]["arrowtop"])
-			AAP_MakeQuestList()
+			AAP_ArrowFrame:SetScale(AAP1[AAP.Realm][AAP.Name]["Settings"]["ArrowScale"])
+			local aapawidth = AAP1[AAP.Realm][AAP.Name]["Settings"]["arrowleft"]
+			local aapatop = AAP1[AAP.Realm][AAP.Name]["Settings"]["arrowtop"]
+			AAP_ArrowFrameM:SetPoint("TOPLEFT", UIParent, "TOPLEFT", AAP1[AAP.Realm][AAP.Name]["Settings"]["arrowleft"], AAP1[AAP.Realm][AAP.Name]["Settings"]["arrowtop"])
+			AAP.MakeQuestList()
 	
 			AAP_ArrowEventloop = AAP_CoreEventFrame:CreateAnimationGroup()
 			AAP_ArrowEventloop.anim = AAP_ArrowEventloop:CreateAnimation()
-			AAP_ArrowEventloop.anim:SetDuration(0.03)
+			AAP_ArrowEventloop.anim:SetDuration(0.02)
 			AAP_ArrowEventloop:SetLooping("REPEAT")
 			AAP_ArrowEventloop:SetScript("OnLoop", function(self, event, ...)
 				if (AAP_SendDelay > 0) then
 					AAP_SendDelay = AAP_SendDelay + 1
 					if (AAP_SendDelay > 30) then
-						AAP_SendGroup()
+						AAP.SendGroup()
 						AAP_SendDelay = 0
 					end
 				end
@@ -1132,9 +1214,9 @@ AAP_CoreEventFrame:SetScript("OnEvent", function(self, event, ...)
 						AAP_ButtonCDCounter = {}
 					end
 				end
-				AAP_PosTest()
-				AAP_CombatTest()
-				AAP_TestQListSkip()
+				AAP.PosTest()
+				AAP.CombatTest()
+				AAP.TestQListSkip()
 			end)
 			AAP_ArrowEventloop:Play()
 
@@ -1143,7 +1225,7 @@ AAP_CoreEventFrame:SetScript("OnEvent", function(self, event, ...)
 			AAP_QuestDelayUpdTimer.anim:SetDuration(6)
 			AAP_QuestDelayUpdTimer:SetLooping("REPEAT")
 			AAP_QuestDelayUpdTimer:SetScript("OnLoop", function(self, event, ...)
-				AAP_ZoneChangeTest()
+				AAP.BookingList["AAP_ChangeZone"] = "AAP_ChangeZone"
 				AAP_UPDQListV = AAP_UPDQListV2
 				AAP_QuestDelayUpdTimer:Stop()
 			end)
@@ -1166,7 +1248,7 @@ AAP_CoreEventFrame:SetScript("OnEvent", function(self, event, ...)
 						end
 					end
 				end
-				if (not AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["BuyMerchant"]) then
+				if (not AAP.ActiveStuff["BuyMerchant"]) then
 					AAP_QuestBuyUpdTimer:Stop()
 				end
 			end)
@@ -1175,7 +1257,7 @@ AAP_CoreEventFrame:SetScript("OnEvent", function(self, event, ...)
 			AAP_HorseBuffTimer.anim:SetDuration(0.1)
 			AAP_HorseBuffTimer:SetLooping("REPEAT")
 			AAP_HorseBuffTimer:SetScript("OnLoop", function(self, event, ...)
-				AAP_HorseBuffTimerFunc()
+				AAP.HorseBuffTimerFunc()
 			end)
 
 			AAP_Horse5sTimer = AAP_CoreEventFrame:CreateAnimationGroup()
@@ -1184,19 +1266,19 @@ AAP_CoreEventFrame:SetScript("OnEvent", function(self, event, ...)
 			AAP_Horse5sTimer:SetLooping("REPEAT")
 			AAP_Horse5sTimer:SetScript("OnLoop", function(self, event, ...)
 				if (AAP_5sec_thingy == 0) then
-					AAP_UpdateQuestList()
+					AAP.BookingList["AAP_UpdateQuestList"] = "AAP_UpdateQuestList"
 					AAP_5sec_thingy = 10
 				else
 					AAP_5sec_thingy = AAP_5sec_thingy - 1
 				end
 			end)
-			AAP_Horse5sTimer:Play()
+			--AAP_Horse5sTimer:Play()
 			AAP_extraTimer = AAP_CoreEventFrame:CreateAnimationGroup()
 			AAP_extraTimer.anim = AAP_extraTimer:CreateAnimation()
 			AAP_extraTimer.anim:SetDuration(0.1)
 			AAP_extraTimer:SetLooping("REPEAT")
 			AAP_extraTimer:SetScript("OnLoop", function(self, event, ...)
-				AAP_UpdateQuestList()
+				AAP.BookingList["AAP_UpdateQuestList"] = "AAP_UpdateQuestList"
 				AAP_extraTimer:Stop()
 			end)
 
@@ -1206,7 +1288,7 @@ AAP_CoreEventFrame:SetScript("OnEvent", function(self, event, ...)
 			AAP_EquipGearTimer.anim:SetDuration(2)
 			AAP_EquipGearTimer:SetLooping("REPEAT")
 			AAP_EquipGearTimer:SetScript("OnLoop", function(self, event, ...)
-				AAP_CheckSaveOldSlot()
+				AAP.BookingList["AAP_CheckSaveOldSlot"] = "AAP_CheckSaveOldSlot"
 			end)
 
 			AAP_TaxiTimer = AAP_CoreEventFrame:CreateAnimationGroup()
@@ -1216,10 +1298,10 @@ AAP_CoreEventFrame:SetScript("OnEvent", function(self, event, ...)
 			AAP_TaxiTimer:SetScript("OnLoop", function(self, event, ...)
 				AAP_TaxiVar = AAP_TaxiVar + 1
 				if (UnitOnTaxi("player")) then
-					AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone] = AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone] + 1
+					AAP1[AAP.Realm][AAP.Name][AAP.ActiveZone] = AAP1[AAP.Realm][AAP.Name][AAP.ActiveZone] + 1
 					QNumberLocal = 0
 					AAP_Reset = 0
-					AAP_Plus()
+					AAP.BookingList["AAP_Plus"] = "AAP_Plus"
 					AAP_TaxiTimer:Stop()
 				elseif (AAP_TaxiVar > 10) then
 					AAP_TaxiTimer:Stop()
@@ -1231,7 +1313,11 @@ AAP_CoreEventFrame:SetScript("OnEvent", function(self, event, ...)
 			AAP_QuestAcceptTimer.anim:SetDuration(0.01)
 			AAP_QuestAcceptTimer:SetLooping("REPEAT")
 			AAP_QuestAcceptTimer:SetScript("OnLoop", function(self, event, ...)
-				AcceptQuest()
+				if (QuestFrameAcceptButton and QuestFrameAcceptButton:IsShown()) then
+					QuestFrameAcceptButton:Click()
+				else
+					AcceptQuest()
+				end
 				AAP_QuestAcceptTimer:Stop()
 			end)
 			AAP_QuestAcceptTimer2 = AAP_CoreEventFrame:CreateAnimationGroup()
@@ -1314,8 +1400,8 @@ AAP_CoreEventFrame:SetScript("OnEvent", function(self, event, ...)
 						end
 					end
 					AAP_AfkFrame.Fontstring:SetText("AFK: " .. aap_printtext)
-					if (AAP1 and AAP1[AAP_Realm] and AAP1[AAP_Realm][AAP_Name] and AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]) then
-						if (AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["SpecialETAHide"]) then
+					if (AAP1 and AAP1[AAP.Realm] and AAP1[AAP.Realm][AAP.Name] and AAP1[AAP.Realm][AAP.Name][AAP.ActiveZone]) then
+						if (AAP.ActiveStuff and AAP.ActiveStuff["SpecialETAHide"]) then
 							AAP_AfkFrame:Hide()
 						else
 							AAP_AfkFrame:Show()
@@ -1337,9 +1423,9 @@ AAP_CoreEventFrame:SetScript("OnEvent", function(self, event, ...)
 					AAP_AfkTimerVar2 = AAP_AfkTimerVar2 - 0.1
 				else
 					AAP_ArrowEventAFkTimer2:Stop()
-					AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone] = AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone] + 1
+					AAP1[AAP.Realm][AAP.Name][AAP.ActiveZone] = AAP1[AAP.Realm][AAP.Name][AAP.ActiveZone] + 1
 					AAP_Reset = 0
-					AAP_Plus()
+					AAP.BookingList["AAP_Plus"] = "AAP_Plus"
 				end
 			end)
 			AAP_ArrowEventAFkTimer2412 = AAP_CoreEventFrame:CreateAnimationGroup()
@@ -1368,20 +1454,26 @@ AAP_CoreEventFrame:SetScript("OnEvent", function(self, event, ...)
 			AAP_ArrowEventLoadinT.anim:SetDuration(3)
 			AAP_ArrowEventLoadinT:SetLooping("REPEAT")
 			AAP_ArrowEventLoadinT:SetScript("OnLoop", function(self, event, ...)
-				AAP_CreateMacro()
-				AAP_UpdateILVLGear()
+				if ((aapawidth > GetScreenWidth()) or (aapawidth < 0) or (aapatop > 0) or (aapatop < -GetScreenHeight())) then
+					print("AAP - Error: Arrow Out of Screen. Moving it")
+					AAP1[AAP.Realm][AAP.Name]["Settings"]["arrowleft"] = 150
+					AAP1[AAP.Realm][AAP.Name]["Settings"]["arrowtop"] = -150
+					AAP_ArrowFrameM:SetPoint("TOPLEFT", UIParent, "TOPLEFT", AAP1[AAP.Realm][AAP.Name]["Settings"]["arrowleft"], AAP1[AAP.Realm][AAP.Name]["Settings"]["arrowtop"])
+				end
+				AAP.CreateMacro()
+				AAP.UpdateILVLGear()
 				AAP_ArrowEventLoadinT:Stop()
-				AAP_ZoneChangeTest()
+				AAP.BookingList["AAP_ChangeZone"] = "AAP_ChangeZone"
 			end)
 			AAP_ArrowEventLoadinT:Play()
 
-			AAP_UpdateILVLGear()
-			AAP_MakeGroupList()
+			AAP.UpdateILVLGear()
+			AAP.MakeGroupList()
 			AAP_UPDQListV = AAP_UPDQListV2
-			AAP_ZoneChangeTest()
+			AAP.BookingList["AAP_ChangeZone"] = "AAP_ChangeZone"
 			AAP_Reset = 0
 			AAP_QuestDelayUpdTimer:Play()
-			LoadOptionsFrame()
+			AAP.LoadOptionsFrame()
 		end
 	elseif (event=="QUEST_GREETING" and AAP_DisableAddon == 0) then
 		local numAvailableQuests = 0;
@@ -1402,7 +1494,7 @@ AAP_CoreEventFrame:SetScript("OnEvent", function(self, event, ...)
 			end    
 			for i = lastAvailableQuest, numAvailableQuests do
 				lastAvailableQuest = i;
-				if (AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoAccept"] == 1 and not IsControlKeyDown()) then
+				if (AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoAccept"] == 1 and not IsControlKeyDown()) then
 					SelectAvailableQuest(i);
 				end
 			end
@@ -1410,8 +1502,7 @@ AAP_CoreEventFrame:SetScript("OnEvent", function(self, event, ...)
 		if lastActiveQuest > numActiveQuests then
 			lastActiveQuest = 1;
 		end
-if (AAP_Test_Var ~= 1) then
-		if (AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoHandIn"] == 1 and not IsControlKeyDown()) then
+		if (AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoHandIn"] == 1 and not IsControlKeyDown()) then
 			local CLi
 			for CLi = 1, numActiveQuests do
 				for CL_index,CL_value in pairs(AAP_ActiveQuests) do
@@ -1421,7 +1512,6 @@ if (AAP_Test_Var ~= 1) then
 				end
 			end
 		end
-end
 	elseif (event=="GOSSIP_SHOW" and AAP_DisableAddon == 0) then
 		local arg1, arg2, arg3, arg4 = ...;
 		local ActiveQuests = {GetGossipActiveQuests()}
@@ -1429,17 +1519,15 @@ end
 		local CLi
 		local NumAvailableQuests = GetNumGossipAvailableQuests()
 		local AvailableQuests = {GetGossipAvailableQuests()}
-if (AAP_Test_Var ~= 1) then
-		if (ActiveQuests and AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoHandIn"] == 1 and not IsControlKeyDown()) then
+		if (ActiveQuests and AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoHandIn"] == 1 and not IsControlKeyDown()) then
 			for CLi = 1, ActiveQNr do
 				if (ActiveQuests[(((CLi-1) * 6)+4)] == true) then
 					SelectGossipActiveQuest(CLi)
 				end
 			end
 		end
-end
-		if (NumAvailableQuests > 0 and AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoAccept"] == 1 and not IsControlKeyDown()) then
-			if (AAP1 and AAP1[AAP_Realm] and AAP1[AAP_Realm][AAP_Name] and AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone] and AAP_Quests and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]] and AAP_Quests[AAP1[AAP_Realm][AAP_Name][AAP_ActiveZone]]["SpecialPickupOrder"]) then
+		if (NumAvailableQuests > 0 and AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoAccept"] == 1 and not IsControlKeyDown()) then
+			if (AAP1 and AAP1[AAP.Realm] and AAP1[AAP.Realm][AAP.Name] and AAP1[AAP.Realm][AAP.Name][AAP.ActiveZone] and AAP.ActiveStuff and AAP.ActiveStuff["SpecialPickupOrder"]) then
 				SelectGossipAvailableQuest(2)
 			else
 				SelectGossipAvailableQuest(1)
@@ -1447,19 +1535,17 @@ end
 			end
 		end
 	elseif (event=="QUEST_DETAIL" and AAP_DisableAddon == 0) then
-		if (GetQuestID() and (AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoAccept"] == 1) and (not IsControlKeyDown()) and (GetQuestID() ~= 50476) and (GetQuestID() ~= 52058) and (53372 ~= GetQuestID()) and (52946 ~= GetQuestID())) then
+		if (GetQuestID() and (AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoAccept"] == 1) and (not IsControlKeyDown()) and (GetQuestID() ~= 50476) and (GetQuestID() ~= 52058) and (53372 ~= GetQuestID()) and (52946 ~= GetQuestID())) then
 			AAP_QuestAcceptTimer:Play()
 		end
 	end
 	if (event=="QUEST_PROGRESS" and AAP_DisableAddon == 0) then
-		if (AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoHandIn"] == 1 and not IsControlKeyDown()) then
-if (AAP_Test_Var ~= 1) then
+		if (AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoHandIn"] == 1 and not IsControlKeyDown()) then
 			AAP_QuestAcceptTimer4:Play()
-end
 		end
 	end
 	if (event=="MERCHANT_SHOW" and AAP_DisableAddon == 0) then
-		if (AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoVendor"] == 1) then
+		if (AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoVendor"] == 1) then
 			local AAPtotal = 0
 			for myBags = 0,4 do
 				for bagSlots = 1, GetContainerNumSlots(myBags) do
@@ -1480,7 +1566,7 @@ end
 		end
 
 
-		if (AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoRepair"] == 1) then
+		if (AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoRepair"] == 1) then
 			if (CanMerchantRepair()) then	
 				repairAllCost, canRepair = GetRepairAllCost();
 				if (canRepair and repairAllCost > 0) then
@@ -1505,7 +1591,7 @@ end
 	end
 	if (event=="QUEST_COMPLETE") then
 		if (GetNumQuestChoices() > 1 and AAP_DisableAddon == 0) then
-			if (AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoHandInChoice"] == 1) then
+			if (AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoHandInChoice"] == 1) then
 				local AAPTempGearList = {}
 				local isweaponz = 0
 				local AAPColorof = 0
@@ -1544,7 +1630,7 @@ end
 			if (GetXPExhaustion() == false and ((GetQuestID() == 51796) or (GetQuestID() == 51795))) then
 				print("AAP: Save Quest for Release!")
 				CloseQuest()
-			elseif (AAP1[AAP_Realm][AAP_Name]["Settings"]["AutoHandIn"] == 1 and not IsControlKeyDown() and AAP_DisableAddon == 0) then
+			elseif (AAP1[AAP.Realm][AAP.Name]["Settings"]["AutoHandIn"] == 1 and not IsControlKeyDown() and AAP_DisableAddon == 0) then
 				AAP_QuestAcceptTimer3:Play()
 			end
 		end

@@ -1011,6 +1011,9 @@ local default_profile = {
 			["aura"] = true,
 			["spellcast"] = true,
 		},
+		
+	--> bookmark
+		bookmark_text_size = 11,
 	
 	--> cloud capture
 		cloud_capture = true,
@@ -1312,6 +1315,7 @@ local default_global_data = {
 		},
 		spell_pool = {},
 		encounter_spell_pool = {},
+		npcid_pool = {},
 		
 	--> aura creation frame libwindow
 		createauraframe = {},

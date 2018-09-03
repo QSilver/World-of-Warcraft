@@ -1,7 +1,6 @@
 # LittleWigs
 
-## [v8.0.12](https://github.com/BigWigsMods/LittleWigs/tree/v8.0.12) (2018-08-21)
-[Full Changelog](https://github.com/BigWigsMods/LittleWigs/compare/v8.0.11...v8.0.12)
+## [v8.0.16](https://github.com/BigWigsMods/LittleWigs/tree/v8.0.16) (2018-09-02)
+[Full Changelog](https://github.com/BigWigsMods/LittleWigs/compare/v8.0.15...v8.0.16)
 
-- SiegeOfBoralus/Brainbridge: Fix adds warning spam.  
-- KingsRest/Dazar: fixed a Lua error  
+- SiegeOfBoralus/Viqgoth: Fix a regression caused by 834ee94  

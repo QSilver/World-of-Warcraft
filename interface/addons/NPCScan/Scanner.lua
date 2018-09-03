@@ -49,7 +49,7 @@ do
 		NPCScan:DispatchSensoryCues()
 		NPCScan:SendMessage(EventMessage.DetectedNPC, detectionData)
 
-		-- TODO: Make the Overlays object listen for the NPCScan_DetectedNPC message and run its own methods
+		-- TODO: Make the Overlays object listen for the DetectedNPC message and run its own methods
 		private.Overlays.Found(npcID)
 		private.Overlays.Remove(npcID)
 	end
@@ -305,7 +305,7 @@ do
 
 		local vignetteInfo = _G.C_VignetteInfo.GetVignetteInfo(vignetteGUID);
 
-		if not vignetteInfo then
+		if not vignetteInfo or vignetteInfo.atlasName == "VignetteLoot" then
 			return
 		end
 
@@ -315,39 +315,48 @@ do
 			return
 		end
 
+		local vignetteName = vignetteInfo.name
+		local vignetteNPCs = private.VignetteIDToNPCMapping[vignetteInfo.vignetteID]
+
+		if vignetteNPCs then
+			for index = 1, #vignetteNPCs do
+				local vignetteNPC = vignetteNPCs[index]
+
+				if Data.Scanner.NPCs[vignetteNPC.npcID] then
+					ProcessDetection({
+						npcID = vignetteNPC.npcID,
+						sourceText = sourceText,
+						vignetteName = vignetteName,
+					})
+				end
+			end
+
+			return
+		else
+			private.Debug("Unknown vignette: %s - vignetteID %d (NPC ID %d) in mapID %d", vignetteInfo.name, vignetteInfo.vignetteID, npcID or -1, _G.C_Map.GetBestMapForUnit("player"))
+		end
+
 		local npcID = private.GUIDToCreatureID(vignetteInfo.objectGUID)
 
 		-- The objectGUID can be but isn't always an NPC ID, since some NPCs must be summoned from the vignette object.
 		if npcID and Data.Scanner.NPCs[npcID] then
 			ProcessDetection({
 				npcID = npcID,
-				sourceText = sourceText
+				sourceText = sourceText,
+				vignetteName = vignetteName,
 			})
 
 			return
 		end
 
-		local vignetteNPC = private.VignetteIDToNPCMapping[vignetteInfo.vignetteID]
-
-		if vignetteNPC then
-			if Data.Scanner.NPCs[vignetteNPC.npcID] then
-				ProcessDetection({
-					npcID = vignetteNPC.npcID,
-					sourceText = sourceText
-				})
-			end
-		else
-			private.Debug("Unknown vignette: %s - vignetteID %d (NPC ID %d) in mapID %d", vignetteInfo.name, vignetteInfo.vignetteID, npcID or -1, _G.C_Map.GetBestMapForUnit("player"))
-		end
-
-		local vignetteName = vignetteInfo.name
 		local questID = private.QuestIDFromName[vignetteName]
 
 		if questID then
-			for ID in pairs(private.QuestNPCs[questID]) do
+			for questNPCID in pairs(private.QuestNPCs[questID]) do
 				ProcessDetection({
-					npcID = ID,
-					sourceText = sourceText
+					npcID = questNPCID,
+					sourceText = sourceText,
+					vignetteName = vignetteName,
 				})
 			end
 
@@ -361,7 +370,8 @@ do
 		if npcID then
 			ProcessDetection({
 				npcID = npcID,
-				sourceText = sourceText
+				sourceText = sourceText,
+				vignetteName = vignetteName,
 			})
 
 			return

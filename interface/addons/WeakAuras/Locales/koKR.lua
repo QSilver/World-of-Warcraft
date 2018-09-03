@@ -74,16 +74,14 @@ L["Alive"] = "생존"
 L["All Triggers"] = "모든 활성 조건 만족"
 L["Alliance"] = "얼라이언스"
 L["Allow partial matches"] = "부분 일치 허용"
---[[Translation missing --]]
-L["Alpha"] = "Alpha"
+L["Alpha"] = "투명도"
 L["Alternate Power"] = "보조 마력"
 L["Always"] = "항상"
 L["Always active trigger"] = "항상 활성 조건 활성화"
 L["Ambience"] = "환경 소리"
 L["Amount"] = "수량"
 L["And Talent selected"] = "같이 선택된 특성"
---[[Translation missing --]]
-L["Animations"] = "Animations"
+L["Animations"] = "애니메이션"
 L["Anticlockwise"] = "반시계 방향"
 L["Any"] = "아무거나"
 L["Any Triggers"] = "아무 활성 조건 만족"
@@ -195,8 +193,7 @@ L["Crowd Controlled"] = "군중 제어됨"
 L["Crushing"] = "강타"
 --[[Translation missing --]]
 L["Cunning"] = "Cunning"
---[[Translation missing --]]
-L["Current Zone Group ID: "] = "Current Zone Group ID: "
+L["Current Zone Group ID: "] = "현재 지역 그룹 ID:"
 L["Current Zone ID: "] = "현재 지역 ID:"
 L["Curse"] = "저주"
 L["Custom"] = "사용자 설정"
@@ -331,8 +328,7 @@ L["Humanoid"] = "인간형"
 L["Hybrid"] = "복합"
 L["Icon"] = "아이콘"
 L["Icon Color"] = "아이콘 색상"
---[[Translation missing --]]
-L["Icon Desaturate"] = "Icon Desaturate"
+L["Icon Desaturate"] = "아이콘 채도감소(흑백)"
 L["Id"] = "Id"
 L["Ignore Rune CD"] = "룬 재사용 대기시간 무시"
 L["Immune"] = "면역"
@@ -463,8 +459,7 @@ L["No Children"] = "No Children"
 L["No Instance"] = "인스턴스가 아닐 때"
 --[[Translation missing --]]
 L["No Profiling information saved."] = "No Profiling information saved."
---[[Translation missing --]]
-L["none"] = "none"
+L["none"] = "없음"
 L["None"] = "없음"
 L["Non-player Character"] = "NPC"
 L["Normal"] = "일반"
@@ -681,10 +676,8 @@ L["Spiral"] = "소용돌이"
 L["Spiral In And Out"] = "회전 소용돌이"
 L["Square"] = "네모"
 L["Stacks"] = "중첩"
---[[Translation missing --]]
-L["Stacks Text Color"] = "Stacks Text Color"
---[[Translation missing --]]
-L["Stacks Text Size"] = "Stacks Text Size"
+L["Stacks Text Color"] = "중첩 문자 색상"
+L["Stacks Text Size"] = "중첩 문자 크기"
 L["Stance/Form/Aura"] = "태세/형상/효과"
 L["Star"] = "별"
 --[[Translation missing --]]
@@ -695,10 +688,8 @@ L["Stop"] = "중지"
 --[[Translation missing --]]
 L["Stop Profiling"] = "Stop Profiling"
 L["Summon"] = "소환"
---[[Translation missing --]]
 L[ [=[Supports multiple entries, separated by commas
-]=] ] = [=[Supports multiple entries, separated by commas
-]=]
+]=] ] = "여러 항목을 쉼표로 구분하여 지원합니다."
 L["Swing"] = "자동 공격"
 L["Swing Timer"] = "자동 공격 타이머"
 L["System"] = "시스템"
@@ -763,8 +754,7 @@ L["Values/Remaining Time below this value are displayed as no progress."] = "이
 --[[Translation missing --]]
 L["Version: "] = "Version: "
 L["Waist"] = "허리"
---[[Translation missing --]]
-L["War Mode Active"] = "War Mode Active"
+L["War Mode Active"] = "전쟁 모드 활성화"
 L["Weapon"] = "무기"
 L["Weapon Enchant"] = "무기 마법부여"
 --[[Translation missing --]]

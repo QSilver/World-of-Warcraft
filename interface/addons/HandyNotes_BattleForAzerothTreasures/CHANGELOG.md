@@ -1,5 +1,13 @@
 # Changelog
 
+## Changed in v5
+
+* Include location for These Hills Sing
+* Include locations for Scavenger of the Sands (NLZ)
+* Include rares for Mushroom Harvest (NLZ)
+* Include rares for Life Finds a Way... To Die! (NLZ)
+* More questids and fixes for Vol'dun (NLZ)
+
 ## Changed in v4
 
 * More questids for Tiragarde (done!) and Vol'dun

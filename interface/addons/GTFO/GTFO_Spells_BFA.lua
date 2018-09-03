@@ -79,6 +79,30 @@ GTFO.SpellID["271715"] = {
   sound = 1;
 };
 
+GTFO.SpellID["261477"] = {
+  --desc = "Dervish (Faithless Watcher)";
+  sound = 1;
+};
+
+GTFO.SpellID["260378"] = {
+  --desc = "Nullifying Singularity";
+  sound = 1;
+};
+
+GTFO.SpellID["280446"] = {
+  --desc = "Bane of the Drust King (Gorak Tul)";
+  sound = 1;
+};
+
+GTFO.SpellID["277972"] = {
+  --desc = "Firestorm (Adhara White)";
+  sound = 1;
+};
+
+GTFO.SpellID["257065"] = {
+  --desc = "Decaying Ground (Matron Morana)";
+  sound = 1;
+};
 
 -- ***********************
 -- * Shrine of the Storm *
@@ -141,7 +165,6 @@ GTFO.SpellID["268308"] = {
 GTFO.SpellID["257274"] = {
   --desc = "Vile Coating";
   sound = 1;
-  test = true;
 };
 
 GTFO.SpellID["256016"] = {
@@ -173,6 +196,17 @@ GTFO.SpellID["257871"] = {
 
 GTFO.SpellID["257460"] = {
   --desc = "Flaming Shrapnel (Harlan Sweete)";
+  sound = 1;
+};
+
+GTFO.SpellID["268287"] = {
+  --desc = "Rotten Food (Booty Fanatic)";
+  sound = 1;
+};
+
+GTFO.SpellID["268283"] = {
+  --desc = "Obscured Vision (Booty Fanatic)";
+  applicationOnly = true;
   sound = 1;
 };
 
@@ -211,6 +245,11 @@ GTFO.SpellID["265687"] = {
 
 GTFO.SpellID["269838"] = {
   --desc = "Vile Expulsion (Unbound Abomination)";
+  sound = 1;
+};
+
+GTFO.SpellID["278789"] = {
+  --desc = "Wave of Decay";
   sound = 1;
 };
 
@@ -294,5 +333,95 @@ GTFO.SpellID["265625"] = {
   sound = 4;
   negatingDebuffSpellID = 265568;  -- Befouled Spirit
   negatingIgnoreTime = 1;
+  test = true;
+};
+
+-- ***************
+-- * King's Rest *
+-- ***************
+
+GTFO.SpellID["265914"] = {
+  --desc = "Molten Gold (The Golden Serpent)";
+  sound = 1;
+};
+
+GTFO.SpellID["267874"] = {
+  --desc = "Burning Ground (Mchimba the Embalmer)";
+  sound = 1;
+};
+
+-- TODO: Hunting Leap (Reban) - Is this escapable?  Only alert the current target or can current target run away?
+
+
+-- ********************
+-- * Siege of Boralus *
+-- ********************
+
+GTFO.SpellID["256663"] = {
+  --desc = "Burning Tar";
+  sound = 1;
+};
+
+GTFO.SpellID["272140"] = {
+  --desc = "Iron Volley";
+  sound = 1;
+};
+
+GTFO.SpellID["257886"] = {
+  --desc = "Brine Pools (Hadal Darkfathom)";
+  sound = 1;
+};
+
+-- *********
+-- * Uldir *
+-- *********
+
+GTFO.SpellID["270290"] = {
+  --desc = "Blood Storm (Taloc)";
+  sound = 1;
+  test = true;
+};
+
+-- TODO: Plasma Discharge (Taloc) -- Alert when standing next to someone that has it
+-- TODO: Ruptured Blood (Zul) -- Supposed to avoid this?
+
+GTFO.SpellID["274113"] = {
+  --desc = "Obliteration Beam (Mythrax the Unraveler)";
+  sound = 1;
+  test = true;
+};
+
+GTFO.SpellID["270287"] = {
+  --desc = "Blighted Ground (G'huun)";
+  sound = 1;
+  test = true;
+};
+
+GTFO.SpellID["263326"] = {
+  --desc = "Undulating Mass (G'huun)";
+  sound = 1;
+  test = true;
+};
+
+-- TODO: Matrix Surge (G'huun)
+-- TODO: Unclean Contagion (G'huun)
+-- TODO: Putrid Blood (G'huun)
+-- TODO: Malignant Growth (G'huun)
+
+GTFO.SpellID["275432"] = {
+  --desc = "Uldir Defensive Beam";
+  sound = 1;
+  test = true;
+};
+
+GTFO.SpellID["275445"] = {
+  --desc = "Uldir Defensive Beam";
+  sound = 1;
+  test = true;
+};
+
+GTFO.SpellID["268253"] = {
+  --desc = "Uldir Defensive Beam";
+  sound = 1;
   test = true;
 };

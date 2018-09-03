@@ -154,6 +154,55 @@ GTFO.SpellID["275823"] = {
   sound = 3;
 };
 
+GTFO.SpellID["273909"] = {
+  --desc = "Steelclaw Trap";
+  applicationOnly = true;
+  sound = 3;
+};
+
+GTFO.SpellID["250509"] = {
+  --desc = "Shadow Bomb (Icetusk Prophet)";
+  sound = 3;
+};
+
+GTFO.SpellID["263940"] = {
+  --desc = "Trample (Gahz'ralka)";
+  sound = 3;
+};
+
+GTFO.SpellID["260273"] = {
+  --desc = "Void Swipe (Overseer Bates)";
+  sound = 3;
+};
+
+GTFO.SpellID["280422"] = {
+  --desc = "Crushing Dread (Gorak Tul)";
+  sound = 3;
+  applicationOnly = true;
+};
+
+GTFO.SpellID["257336"] = {
+  --desc = "Mighty Slam (Lumbergrasp Sentinel)";
+  sound = 3;
+};
+
+GTFO.SpellID["265720"] = {
+  --desc = "Poison Spray (Thu'zun the Vile)";
+  sound = 1;
+  applicationOnly = true;
+};
+
+GTFO.SpellID["266144"] = {
+  --desc = "Poison Bomb (Thu'zun the Vile)";
+  sound = 1;
+  applicationOnly = true;
+};
+
+GTFO.SpellID["275243"] = {
+  --desc = "Soulburst (Erupting Servant)";
+  sound = 3;
+};
+
 
 -- ***********************
 -- * Shrine of the Storm *
@@ -302,7 +351,6 @@ GTFO.SpellID["267523"] = {
 GTFO.SpellID["256594"] = {
   --desc = "Barrel Smash (Captain Raoul)";
   sound = 3;
-  test = true;
 };
 
 GTFO.SpellID["257310"] = {
@@ -315,6 +363,27 @@ GTFO.SpellID["257315"] = {
   --desc = "Black Powder Bomb (Harlan Sweete)";
   sound = 3;
   test = true;
+};
+
+GTFO.SpellID["272397"] = {
+  --desc = "Whirlpool of Blades";
+  sound = 3;
+};
+
+GTFO.SpellID["276061"] = {
+  --desc = "Boulder Throw (Irontide Crusher)";
+  applicationOnly = true;
+  sound = 3;
+};
+
+GTFO.SpellID["258199"] = {
+  --desc = "Ground Shatter (Irontide Crusher)";
+  sound = 3;
+};
+
+GTFO.SpellID["257902"] = {
+  --desc = "Shell Bounce (Ludwig Von Tortollan)";
+  sound = 3;
 };
 
 -- *************
@@ -333,7 +402,7 @@ GTFO.SpellID["257785"] = {
 };
 
 GTFO.SpellID["256710"] = {
-  --desc = "Burning Arsenal (nil)";
+  --desc = "Burning Arsenal";
   sound = 3;
 };
 
@@ -401,6 +470,12 @@ GTFO.SpellID["265511"] = {
 
 GTFO.SpellID["272609"] = {
   --desc = "Maddening Gaze (Faceless Corruptor)";
+  sound = 3;
+  applicationOnly = true;
+};
+
+GTFO.SpellID["273475"] = {
+  --desc = "Rotten Breath (Rotmaw)";
   sound = 3;
   applicationOnly = true;
 };
@@ -512,4 +587,104 @@ GTFO.SpellID["255371"] = {
   sound = 3;
   test = true; -- Bugged?
 };
+
+-- ***************
+-- * King's Rest *
+-- ***************
+
+-- TODO: Serpentine Gust (The Golden Serpent) -- Is this avoidable?
+-- TODO: Whirling Axes (Kula the Butcher) -- Is this avoidable?
+-- TODO: Torrent Totem (Zanazal the Wise) -- Is this avoidable?
+-- TODO: Gale Slash (Dazar, The First King) -- Is this avoidable?
+-- TODO: Impaling Spear (Dazar, The First King) -- Is this avoidable?
+
+-- ********************
+-- * Siege of Boralus *
+-- ********************
+
+GTFO.SpellID["256866"] = {
+  --desc = "Iron Ambush (Riptide Shredder)";
+  sound = 3;
+  applicationOnly = true;
+};
+
+GTFO.SpellID["272426"] = {
+  --desc = "Sighted Artillery";
+  sound = 3;
+};
+
+GTFO.SpellID["274942"] = {
+  --desc = "Banana Rampage";
+  applicationOnly = true;
+  sound = 3;
+};
+
+GTFO.SpellID["272713"] = {
+  --desc = "Crushing Slam (Bilge Rat Demolisher)";
+  sound = 3;
+};
+
+GTFO.SpellID["277535"] = {
+  --desc = "Viq'Goth's Wrath (Viq'Goth)";
+  sound = 3;
+};
+
+-- TODO: Cannon Barrage (Chopper Redhook) -- Avoidable?
+-- TODO: Heavy Slash (Irontide Cleaver) -- Non-Tank only? Avoidable?
+-- TODO: Clear the Deck (Dread Captain Lockwood) -- Non-Tank only? Avoidable?
+-- TODO: Crimson Swipe (Ashvane Deckhand) -- Non-Tank only? Avoidable?
+-- TODO: Broadside (Ashvane Cannoneer) -- Avoidable?
+
+GTFO.SpellID["261565"] = {
+  --desc = "Crashing Tide (Hadal Darkfathom)";
+  sound = 3;
+  tankSound = 0;
+};
+
+GTFO.SpellID["257883"] = {
+  --desc = "Break Water (Hadal Darkfathom)";
+  sound = 3;
+  test = true;
+};
+
+GTFO.SpellID["276042"] = {
+  --desc = "Tidal Surge";
+  sound = 3;
+};
+
+-- TODO: Eradication (Viq'Goth) -- Avoidable?
+
+GTFO.SpellID["269266"] = {
+  --desc = "Slam (Demolishing Terror)";
+  sound = 3;
+};
+
+-- *********
+-- * Uldir *
+-- *********
+
+-- TODO: Retrieve Cudgel (Taloc) -- Charge attack, avoidable?
+-- TODO: Sanguine Static (Taloc) -- Line attack, avoidable?
+-- TODO: Hardened Arteries (Taloc) -- Explosion, avoidable?
+-- TODO: Purifying Flame (MOTHER)
+-- TODO: Spreading Epidemic (MOTHER) -- What does this do?
+-- TODO: Sanitizing Strike (MOTHER) -- For tanks only, stack tracking
+-- TODO: Rotting Regurgitation (Fetid Devourer) -- Avoidable?
+-- TODO: Surging Darkness (Zek'voz) -- Avoidable for big pools? Different spell IDs for pool damage vs. incidental
+-- TODO: Void Lash (Zek'voz) -- For tanks only, stack tracking, fail at 100% reduction
+-- TODO: Ominous Cloud (Zek'voz) -- Touching the cloud failure
+-- TODO: Void Wall (Zek'voz) -- Mythic only - Avoidable?
+-- TODO: Blood Geyser (Vectis) -- What is this?
+-- TODO: Pit of Despair (Zul) -- Avoidable? 
+-- TODO: Bloody Cleave (Nazmani Crusher) -- For tanks only, cleave
+-- TODO: Essence Shear (Mythrax the Unraveler) -- For tanks only?
+-- TODO: Obliteration Blast (Mythrax the Unraveler) 
+-- TODO: Virulent Corruption (G'huun)
+-- TODO: Dark Bargain (G'huun)
+-- TODO: Tendrils of Corruption (G'huun) -- Mythic only
+-- TODO: Wave of Corruption (G'huun)
+-- TODO: Gaze of G'huun (G'huun)
+-- TODO: Explosive Corruption (G'huun) -- If standing too close to a player that's infected, not for the infected
+
+
 

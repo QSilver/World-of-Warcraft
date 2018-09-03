@@ -74,6 +74,7 @@ AAP_Locals = {
 	["Show Arrow"] = "Show Arrow",
 	["Show QuestList"] = "Show QuestList",
 	["Missing quest"] = "If you get stuck with 1 quest to pick up, do: /aap skipcamp",
+	["Auto-selection of dialog"] = "Auto-selection of dialog",
 }
 AAP_Locals["zhTW"] = {
 	["Accept Quest"] = "接受任務",
@@ -147,6 +148,9 @@ AAP_Locals["zhTW"] = {
 	["Talk to Princess Talanji"] = "與Talanji公主對話",
 	["War Campaign"] = "War Campaign",
 	["Zone Complete"] = "地圖完成",
+	["Show Arrow"] = "顯示箭頭",
+	["Show QuestList"] = "顯示任務列表",
+	["Missing quest"] = "如果插件卡在「接任務:1」這個狀態，輸入/aap skipcamp",
 }
 AAP_Locals["deDE"] = {
 	["Accept Quest"] = "Quest annehmen",

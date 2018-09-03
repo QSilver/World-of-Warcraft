@@ -8,7 +8,7 @@ version:SetTextColor(.5,.5,.5)
 version:SetPoint('TOPRIGHT',-12,-10)
 version:SetText(string.format(
     L.titles.version,
-    'KuiNameplates','Kesava','beta-applauding-vampire-giggling-carp'
+    'KuiNameplates','Kesava','2.17.1'
 ))
 
 opt:Initialise()
@@ -45,7 +45,7 @@ function general:Initialise()
     local target_arrows = self:CreateCheckBox('target_arrows')
     local target_arrows_size = self:CreateSlider('target_arrows_size',20,60)
 
-    target_glow_colour.enabled = function(p) return p.target_glow end
+    target_glow_colour.enabled = function(p) return p.target_glow or p.target_arrows end
     mouseover_glow_colour.enabled = function(p) return p.mouseover_glow end
     target_arrows_size.enabled = function(p) return p.target_arrows end
 
@@ -90,8 +90,10 @@ function fade_rules:Initialise()
     local fade_fnpc = self:CreateCheckBox('fade_friendly_npc')
     local fade_ne = self:CreateCheckBox('fade_neutral_enemy')
     local fade_ut = self:CreateCheckBox('fade_untracked')
+    local avoid_sep = self:CreateSeparator('fade_avoid_sep')
     local avoid_no = self:CreateCheckBox('fade_avoid_nameonly')
     local avoid_ri = self:CreateCheckBox('fade_avoid_raidicon')
+    local avoid_mo = self:CreateCheckBox('fade_avoid_mouseover')
     local avoid_xf = self:CreateCheckBox('fade_avoid_execute_friend')
     local avoid_xh = self:CreateCheckBox('fade_avoid_execute_hostile')
     local avoid_t = self:CreateCheckBox('fade_avoid_tracked')
@@ -121,7 +123,10 @@ function fade_rules:Initialise()
     fade_ne:SetPoint('TOPLEFT',fade_all,'BOTTOMLEFT')
     fade_ut:SetPoint('LEFT',fade_ne,'RIGHT',190,0)
 
-    avoid_no:SetPoint('TOPLEFT',fade_ne,'BOTTOMLEFT',0,-10)
+    avoid_sep:SetPoint('TOP',0,-150)
+
+    avoid_mo:SetPoint('TOPLEFT',fade_ne,'BOTTOMLEFT',0,-50)
+    avoid_no:SetPoint('TOPLEFT',avoid_mo,'BOTTOMLEFT',0,-10)
     avoid_ri:SetPoint('LEFT',avoid_no,'RIGHT',190,0)
     avoid_xf:SetPoint('TOPLEFT',avoid_no,'BOTTOMLEFT')
     avoid_xh:SetPoint('LEFT',avoid_xf,'RIGHT',190,0)
@@ -476,7 +481,7 @@ function auras:Initialise()
     local purge_size = self:CreateSlider('auras_purge_size',10,50)
     local side = self:CreateDropDown('auras_side')
     local purge_opposite = self:CreateCheckBox('auras_purge_opposite',true)
-    local offset = self:CreateSlider('auras_offset')
+    local offset = self:CreateSlider('auras_offset',-1,30)
     side.SelectTable = {'Top','Bottom'} -- TODO l11n
 
     purge_size.enabled = function(p) return p.auras_show_purge end
@@ -487,26 +492,25 @@ function auras:Initialise()
     auras_enabled:SetPoint('TOPLEFT',10,-17)
     show_purge:SetPoint('TOPLEFT',auras_enabled,'BOTTOMLEFT')
     auras_on_personal:SetPoint('TOPLEFT',show_purge,'BOTTOMLEFT')
-    auras_pulsate:SetPoint('TOPLEFT',auras_on_personal,'BOTTOMLEFT',0,-20)
-    auras_centre:SetPoint('TOPLEFT',auras_pulsate,'BOTTOMLEFT')
     auras_sort:SetPoint('LEFT',auras_enabled,'RIGHT',184,0)
     auras_time_threshold:SetPoint('LEFT',auras_on_personal,'RIGHT',184,5)
-    auras_show_all_self:SetPoint('LEFT',auras_pulsate,'RIGHT',190,0)
-    auras_hide_all_other:SetPoint('LEFT',auras_centre,'RIGHT',190,0)
-    auras_kslc_hint:SetPoint('TOP',0,-190)
+    auras_show_all_self:SetPoint('TOPLEFT',auras_on_personal,'BOTTOMLEFT')
+    auras_hide_all_other:SetPoint('TOPLEFT',auras_show_all_self,'BOTTOMLEFT')
+    auras_kslc_hint:SetPoint('TOP',0,-160)
 
     auras_icons_sep:SetPoint('TOP',auras_kslc_hint,'BOTTOM',0,-35)
-    auras_icon_normal_size:SetPoint('TOPLEFT',auras_icons_sep,0,-140)
+    auras_pulsate:SetPoint('TOPLEFT',auras_icons_sep,'BOTTOMLEFT',0,-10)
+    auras_centre:SetPoint('LEFT',auras_pulsate,'RIGHT',190,0)
+    colour_short:SetPoint('TOPLEFT',auras_pulsate,'BOTTOMLEFT',4,0)
+    colour_medium:SetPoint('LEFT',colour_short,'RIGHT')
+    colour_long:SetPoint('LEFT',colour_medium,'RIGHT')
+    side:SetPoint('TOPLEFT',colour_short,'BOTTOMLEFT',-4,-10)
+    purge_opposite:SetPoint('TOPLEFT',side,'BOTTOMLEFT',10,0)
+    offset:SetPoint('LEFT',side,'RIGHT',10,0)
+    auras_icon_normal_size:SetPoint('TOPLEFT',auras_icons_sep,0,-170)
     auras_icon_minus_size:SetPoint('LEFT',auras_icon_normal_size,'RIGHT',20,0)
     auras_icon_squareness:SetPoint('TOPLEFT',auras_icon_normal_size,'BOTTOMLEFT',0,-30)
     purge_size:SetPoint('LEFT',auras_icon_squareness,'RIGHT',20,0)
-
-    colour_short:SetPoint('TOPLEFT',auras_icons_sep,'BOTTOMLEFT',5,-10)
-    colour_medium:SetPoint('LEFT',colour_short,'RIGHT')
-    colour_long:SetPoint('LEFT',colour_medium,'RIGHT')
-    side:SetPoint('TOPLEFT',colour_short,'BOTTOMLEFT',-10,-5)
-    purge_opposite:SetPoint('TOPLEFT',side,'BOTTOMLEFT',10,0)
-    offset:SetPoint('LEFT',side,'RIGHT',10,0)
 end
 -- cast bars ###################################################################
 function castbars:Initialise()

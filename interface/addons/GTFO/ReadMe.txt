@@ -1334,3 +1334,15 @@ Change Log:
 
 4.46.2
 * Added Battle for Azeroth launch event spells (special)
+
+4.46.3
+* Added Battle for Azeroth spells (world)
+* Added BFA spells for Uldir
+* Added BFA spells for King's Rest
+* Added BFA spells for Siege of Boralus
+* Added BFA spells for Freehold
+* Added BFA spells for The Underrot
+
+4.46.4
+* Fixed BFA spells for Siege of Boralus
+* Added BFA spells for Siege of Boralus
