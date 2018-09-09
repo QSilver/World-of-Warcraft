@@ -2,7 +2,7 @@
 KalielsTrackerDB = {
 	["global"] = {
 		["helpTutorial"] = 11,
-		["version"] = "3.0.4",
+		["version"] = "3.1.1",
 	},
 	["profileKeys"] = {
 		["Qsilver - Silvermoon"] = "Default",
@@ -16,7 +16,7 @@ KalielsTrackerDB = {
 	["profiles"] = {
 		["Default"] = {
 			["xOffset"] = 0,
-			["yOffset"] = -180,
+			["yOffset"] = -190,
 			["bgrColor"] = {
 				["a"] = 0.600000023841858,
 			},

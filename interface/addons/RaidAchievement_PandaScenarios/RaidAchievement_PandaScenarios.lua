@@ -211,7 +211,7 @@ end
 
 --achieves tracker:
 --A Brewing Storm
-if C_Map.GetBestMapForUnit("player")==878 then
+--if C_Map.GetBestMapForUnit("player")==878 then
 if arg2=="SPELL_DAMAGE" and arg10==111544 then
   if pzraspisokon[1]==1 and pszraonetimeonlylight==nil then
     raunitisplayer(arg7,arg8)
@@ -243,14 +243,14 @@ if (arg2=="SPELL_DAMAGE" or arg2=="SPELL_MISSED") and arg10==115013 and arg7==Un
 end
 
 
-end
+--end
 --
 
 
 
 
 --Unga Ingoo
-if C_Map.GetBestMapForUnit("player")==882 then
+--if C_Map.GetBestMapForUnit("player")==882 then
 
 if arg2=="SPELL_AURA_APPLIED" and arg10==123137 and rabrewstillonetime==nil then
   if pzraspisokon[4]==1 then
@@ -260,13 +260,13 @@ if arg2=="SPELL_AURA_APPLIED" and arg10==123137 and rabrewstillonetime==nil then
 end
 
 
-end
+--end
 --
 
 
 
 --гробницы забытых королей
-if C_Map.GetBestMapForUnit("player")==900 then
+--if C_Map.GetBestMapForUnit("player")==900 then
 
 if (arg2=="SPELL_DAMAGE" or arg2=="SPELL_MISSED") and arg10==120742 then
   if pzraspisokon[5]==1 and pzraachdone1 then
@@ -278,12 +278,12 @@ if (arg2=="SPELL_DAMAGE" or arg2=="SPELL_MISSED") and arg10==120742 then
 end
 
 
-end
+--end
 --
 
 
 --деревня зеленой скалы
-if C_Map.GetBestMapForUnit("player")==880 then
+--if C_Map.GetBestMapForUnit("player")==880 then
 
 if arg2=="UNIT_DIED" and rascbochka==nil then
   if pzraspisokon[6]==1 then
@@ -302,11 +302,11 @@ if arg2=="SPELL_CAST_SUCCESS" and arg10==119090 and rascbochka2==nil then
   end
 end
 
-end
+--end
 --
 
 --арена
-if C_Map.GetBestMapForUnit("player")==899 then
+--if C_Map.GetBestMapForUnit("player")==899 then
 
 if (arg2=="SPELL_DAMAGE" or arg2=="SPELL_MISSED") and arg10==123965 then
   if pzraspisokon[8]==1 and pzraachdone1 then
@@ -318,12 +318,12 @@ if (arg2=="SPELL_DAMAGE" or arg2=="SPELL_MISSED") and arg10==123965 then
 end
 
 
-end
+--end
 --
 
 
 --терамор
-if C_Map.GetBestMapForUnit("player")==906 then
+--if C_Map.GetBestMapForUnit("player")==906 then
 
 if arg2=="UNIT_DIED" then
   local id=raGetUnitID(arg7)
@@ -355,12 +355,12 @@ if arg2=="SWING_DAMAGE" then
 end
 
 
-end
+--end
 --
 
 
 --Zan'vess
-if C_Map.GetBestMapForUnit("player")==883 then
+--if C_Map.GetBestMapForUnit("player")==883 then
 
 if arg2=="UNIT_DIED" then
   local id=raGetUnitID(arg7)
@@ -371,11 +371,11 @@ if arg2=="UNIT_DIED" then
   end
 end
 
-end
+--end
 --
 
 --knife
-if C_Map.GetBestMapForUnit("player")==914 then
+--if C_Map.GetBestMapForUnit("player")==914 then
 
 --1 ачивка зоны
 if arg2=="SPELL_DAMAGE" and arg10==133121 then
@@ -406,7 +406,7 @@ end
 
 
 
-end
+--end
 --
 
 
@@ -434,7 +434,7 @@ end
 
 
 --секреты огненной пропасти
-if C_Map.GetBestMapForUnit("player")==938 then
+--if C_Map.GetBestMapForUnit("player")==938 then
 
 if (arg2=="SPELL_DAMAGE" or arg2=="SWING_DAMAGE") and rascbochka2==nil then
   --получение ид
@@ -447,7 +447,7 @@ if (arg2=="SPELL_DAMAGE" or arg2=="SWING_DAMAGE") and rascbochka2==nil then
   end
 end
 
-end
+--end
 --
 
 

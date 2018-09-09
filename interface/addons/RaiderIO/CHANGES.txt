@@ -1,0 +1,16 @@
+lightweight tag 10a9445d01abb780401ae6d57c0c4e201e8d9db8 v201809070600
+Author:	Jah Raphael <jahraphael@yahoo.com>
+Date:	Fri Sep 7 10:03:38 2018 +0000
+
+commit 10a9445d01abb780401ae6d57c0c4e201e8d9db8
+Author: Jah Raphael <jahraphael@yahoo.com>
+Date:   Fri Sep 7 10:03:38 2018 +0000
+
+    [Raider.IO] Database Refresh
+
+commit 36eb2402843b10954d17b6abf76c4e9ea983fcd9
+Author: Vlad <vladix@gmail.com>
+Date:   Thu Sep 6 23:26:49 2018 +0200
+
+    - Improve the deprecated message to emphasise on the addon we suspect causes the error, not so much on the API itself, as it can seem misleading when the RaiderIO is outlined in bold letters. I just hope other authors don't hate us if we accidentally blame their addon, like WeakAura might missfire if custom coded plugins started to call and get blamed on the main addon. Sorry!
+

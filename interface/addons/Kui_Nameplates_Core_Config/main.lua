@@ -20,6 +20,12 @@ SLASH_KUINAMEPLATESCORE1 = '/knp'
 SLASH_KUINAMEPLATESCORE2 = '/kuinameplates'
 
 function SlashCmdList.KUINAMEPLATESCORE(msg)
+    if strfind(msg,'&&') then
+        -- extract rightmost command, recurse remaining left
+        local left,right = strmatch(msg,'^%s*(.+)%s*&&%s*(.-)%s*$')
+        SlashCmdList.KUINAMEPLATESCORE(left)
+        msg = right
+    end
     if msg == 'debug' then
         knp.debug = true
         knp.debug_messages = not knp.debug_messages
@@ -101,7 +107,7 @@ function SlashCmdList.KUINAMEPLATESCORE(msg)
         end
 
         d:AddText(format('%s %d.%d%s%s%s%s',
-            '2.17.1',knp.MAJOR,knp.MINOR,
+            '2.17.4',knp.MAJOR,knp.MINOR,
             debug,custom,barauras,extras))
 
         d:AddText(KuiNameplatesCore.config.csv)
@@ -111,15 +117,18 @@ function SlashCmdList.KUINAMEPLATESCORE(msg)
         d:Show()
         return
     elseif strfind(msg,'^profile') then
-        local profile = strmatch(msg,'^profile (.-)%s*$')
-        if not profile then
-            knp:ui_print('Switch to named profile. Usage: /knp profile profile name')
+        local create,name = strmatch(msg,'^profile(!?)%s+(.-)%s*$')
+        create = create and create == '!'
+        if not name then
+            knp:ui_print('Switch to named profile. Usage: /knp profile[!] profile name')
+            print('    Affix command with `!` to allow creation of a new profile.')
             return
         end
-        if KuiNameplatesCore.config.gsv.profiles[profile] then
-            KuiNameplatesCore.config:SetProfile(profile)
+        if create or KuiNameplatesCore.config.gsv.profiles[name] then
+            KuiNameplatesCore.config:SetProfile(name)
+            knp:ui_print(format('Switched to profile `%s`.',name))
         else
-            knp:ui_print(format('No profile with name `%s`.',profile))
+            knp:ui_print(format('No profile with name `%s`.',name))
         end
         return
     elseif strfind(msg,'^set') then

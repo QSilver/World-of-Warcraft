@@ -2,7 +2,8 @@
 function crraonload()
 
 --SetMapToCurrentZone()
-if C_Map.GetBestMapForUnit("player")==754 or C_Map.GetBestMapForUnit("player")==758 or C_Map.GetBestMapForUnit("player")==800 or C_Map.GetBestMapForUnit("player")==824 then
+--if racheckzoneId({285,286},C_Map.GetBestMapForUnit("player")) or C_Map.GetBestMapForUnit("player")==758 or racheckzoneId({367,368,369},C_Map.GetBestMapForUnit("player")) or racheckzoneId({409,410,411,412,413,414,415},C_Map.GetBestMapForUnit("player")) then
+if racheckzoneId({285,286,294,295,296,367,368,369,409,410,411,412,413,414,415},C_Map.GetBestMapForUnit("player")) then
 	RaidAchievement_crra:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
 	RaidAchievement_crra:RegisterEvent("UNIT_POWER_UPDATE")
 	RaidAchievement_crra:RegisterEvent("CHAT_MSG_RAID_BOSS_EMOTE")
@@ -66,7 +67,7 @@ if ratrackdistmor and crracurtime<ratrackdistmor then
 		--тут весь трекер ачивки для сложностей и вывод инфо если мы в бою с боссом
 		if morch25 then
 			--25ка
-			if UnitName("boss1") and C_Map.GetBestMapForUnit("player")==824 then
+			if UnitName("boss1") and racheckzoneId({409,410,411,412,413,414,415},C_Map.GetBestMapForUnit("player")) then
 				local i=1
 				local tab1={} --имена
 				local tab2={} --со сколькими рядом был
@@ -139,14 +140,14 @@ if ratrackdistmor and crracurtime<ratrackdistmor then
 							end
 						end
 					end
-					if crraspisokon[11]==1 and raachdone1 and C_Map.GetBestMapForUnit("player")==824 then
+					if crraspisokon[11]==1 and raachdone1 and racheckzoneId({409,410,411,412,413,414,415},C_Map.GetBestMapForUnit("player")) then
 						crrafailnoreason(11,failn.." - "..ranotsure)
 						ratrackdistmor=nil
 					end
 				end
 			end
 		else
-			if UnitName("boss1") and C_Map.GetBestMapForUnit("player")==824 then
+			if UnitName("boss1") and racheckzoneId({409,410,411,412,413,414,415},C_Map.GetBestMapForUnit("player")) then
 				local i=1
 				local minr=6
 				local failn=""
@@ -178,7 +179,7 @@ if ratrackdistmor and crracurtime<ratrackdistmor then
 				end
 				if minr<=5 then
 					minr=math.ceil(minr*10)/10
-					if crraspisokon[11]==1 and raachdone1 and C_Map.GetBestMapForUnit("player")==824 then
+					if crraspisokon[11]==1 and raachdone1 and racheckzoneId({409,410,411,412,413,414,415},C_Map.GetBestMapForUnit("player")) then
 						crrafailnoreason(11,failn..", "..minr.." "..rayard..", "..ranotsure)
 						ratrackdistmor=nil
 					end
@@ -276,7 +277,7 @@ end
 if rcradelayzonech and crracurtime>rcradelayzonech then
 rcradelayzonech=nil
 --SetMapToCurrentZone()
-if C_Map.GetBestMapForUnit("player")==754 or C_Map.GetBestMapForUnit("player")==758 or C_Map.GetBestMapForUnit("player")==800 or C_Map.GetBestMapForUnit("player")==824 then
+if racheckzoneId({285,286,294,295,296,367,368,369,409,410,411,412,413,414,415},C_Map.GetBestMapForUnit("player")) then
 RaidAchievement_crra:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
 RaidAchievement_crra:RegisterEvent("UNIT_POWER_UPDATE")
 RaidAchievement_crra:RegisterEvent("CHAT_MSG_RAID_BOSS_EMOTE")
@@ -313,7 +314,7 @@ racrzvukcheck2=nil
 rabaleroc1=nil
 rabaleroc2=nil
 
-if C_Map.GetBestMapForUnit("player")==800 and rarhydied==nil then
+if racheckzoneId({367,368,369},C_Map.GetBestMapForUnit("player")) and rarhydied==nil then
 	raambitun=1
 else
 	raambitun=nil
@@ -346,7 +347,7 @@ end
 if event == "CHAT_MSG_RAID_BOSS_EMOTE" then
 
 
-if string.find(arg1, radeathwingemote1) and lfrenable==nil and C_Map.GetBestMapForUnit("player")==824 then
+if string.find(arg1, radeathwingemote1) and lfrenable==nil and racheckzoneId({409,410,411,412,413,414,415},C_Map.GetBestMapForUnit("player")) then
 --raspinetab={1,2,1,2}
 	if crraspisokon[15]==1 and raachdone1 then
 		if raspinetab and raspinetab[1] then
@@ -362,7 +363,7 @@ if string.find(arg1, radeathwingemote1) and lfrenable==nil and C_Map.GetBestMapF
 	end
 end
 
-if string.find(arg1, radeathwingemote2) and lfrenable==nil and C_Map.GetBestMapForUnit("player")==824 then
+if string.find(arg1, radeathwingemote2) and lfrenable==nil and racheckzoneId({409,410,411,412,413,414,415},C_Map.GetBestMapForUnit("player")) then
 	if crraspisokon[15]==1 and raachdone1 then
 		if raspinetab and raspinetab[1] then
 			if raspinetab[1]~=2 then
@@ -410,7 +411,7 @@ if UnitName("boss1") and UnitName("boss1")~="" then
 
 if racrzvukcheck then
 ----SetMapToCurrentZone()
---if C_Map.GetBestMapForUnit("player")==754 then
+--if racheckzoneId({285,286},C_Map.GetBestMapForUnit("player")) then
 if arg2=="ALTERNATE" and arg1 then
 	local power = UnitPower(arg1, 10)
 	if power>50 then
@@ -483,7 +484,7 @@ local arg1, arg2, arg3,arg4,arg5,arg6,argNEW1,arg7,arg8,arg9,argNEW2,arg10,arg11
 
 
 --Blackwing Descent
-if C_Map.GetBestMapForUnit("player")==754 then
+if racheckzoneId({285,286},C_Map.GetBestMapForUnit("player")) then
 
 if arg2=="SPELL_AURA_APPLIED" and (arg10==78941 or arg10==91913 or arg10==94678 or arg10==94679) then
 	if crraspisokon[1]==1 and raachdone1 then
@@ -543,7 +544,7 @@ end
 
 
 --Firelands
-if C_Map.GetBestMapForUnit("player")==800 then
+if racheckzoneId({367,368,369},C_Map.GetBestMapForUnit("player")) then
 
 --rhyolit die
 if arg2=="UNIT_DIED" and arg7 then
@@ -701,7 +702,7 @@ end
 
 
 --Dragon Soul
-if C_Map.GetBestMapForUnit("player")==824 and lfrenable==nil then --проверка что не ЛФР
+if racheckzoneId({409,410,411,412,413,414,415},C_Map.GetBestMapForUnit("player")) and lfrenable==nil then --проверка что не ЛФР
 
 --активация чека дистанции
 if arg2=="SPELL_AURA_APPLIED" and arg10==103851 then

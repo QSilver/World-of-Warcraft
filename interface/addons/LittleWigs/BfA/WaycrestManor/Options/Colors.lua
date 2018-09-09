@@ -4,15 +4,15 @@ BigWigs:AddColors("Heartsbane Triad", {
 	[260741] = "orange",
 	[260773] = "red",
 	[260805] = {"blue","cyan"},
-	[260907] = {"blue","orange"},
+	[260926] = {"blue","orange"},
 })
 
 BigWigs:AddColors("Soulbound Goliath", {
 	[260508] = "yellow",
 	[260512] = {"blue","yellow"},
 	[260541] = {"blue","cyan"},
-	[260551] = {"blue","orange"},
 	[260569] = "blue",
+	[267907] = {"blue","orange"},
 })
 
 BigWigs:AddColors("Raal the Gluttonous", {

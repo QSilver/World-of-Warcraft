@@ -1,0 +1,10 @@
+lightweight tag 9692743afd4d46cbc8812c0a324aa9e93146fa65 8.0.12
+Author:	Unknown <40722602+ahakola@users.noreply.github.com>
+Date:	Sun Sep 9 00:58:23 2018 +0300
+
+commit 9692743afd4d46cbc8812c0a324aa9e93146fa65
+Author: Unknown <40722602+ahakola@users.noreply.github.com>
+Date:   Sun Sep 9 00:58:23 2018 +0300
+
+    Add scores to comparison tooltips and vendor tooltips
+

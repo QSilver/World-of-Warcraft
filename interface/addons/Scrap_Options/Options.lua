@@ -40,7 +40,7 @@ Options:SetChildren(function(self)
 	self:Create('CheckButton', 'Glow', nil, NoVisuals)
 	self:Create('CheckButton', 'Icons', nil, NoVisuals)
 
-	Scrap:SettingsUpdated()
+	Scrap:VARIABLES_LOADED()
 end)
 
 local Share = SushiCheckButton(Options)
@@ -50,7 +50,7 @@ Share:SetChecked(not Scrap_ShareList)
 Share:SetScale(.9)
 Share:SetCall('OnInput', function(self, v)
 	Scrap_ShareList = not v
-	Scrap:SettingsUpdated()
+	Scrap:VARIABLES_LOADED()
 end)
 
 local Credits = SushiCreditsGroup:CreateOptionsCategory(Options:GetTitle())
@@ -60,10 +60,10 @@ Credits:SetPeople(Patrons)
 Credits:SetAddon('Scrap')
 
 function ScrapOptions.default()
-	Scrap_AutoSell, Scrap_AutoRepair, Scrap_GuildRepair, Scrap_Safe, Scrap_Learn, Scrap_Glow, Scrap_Icons = nil
-	Scrap_LowEquip, Scrap_LowConsume, Scrap_Unusable, Scrap_ShareList = nil
-
+	Scrap_Version = nil
 	Scrap:ResetTutorials()
+	Scrap:VARIABLES_LOADED()
+
 	Share:SetChecked(true)
 	Options:Update()
 end

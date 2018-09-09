@@ -10,15 +10,16 @@ MSBTProfiles_SavedVars = {
 				["disabled"] = false,
 			},
 			["critFontSize"] = 19,
+			["hideFullOverheals"] = true,
 			["groupNumbers"] = true,
-			["soundsDisabled"] = true,
 			["scrollAreas"] = {
+				["Static"] = {
+					["offsetY"] = 213,
+					["offsetX"] = -21,
+					["disabled"] = true,
+				},
 				["Incoming"] = {
 					["offsetX"] = -600,
-					["offsetY"] = -75,
-				},
-				["Outgoing"] = {
-					["offsetX"] = 600,
 					["offsetY"] = -75,
 				},
 				["Notification"] = {
@@ -26,15 +27,14 @@ MSBTProfiles_SavedVars = {
 					["offsetX"] = -182,
 					["disabled"] = true,
 				},
-				["Static"] = {
-					["offsetY"] = 213,
-					["offsetX"] = -21,
-					["disabled"] = true,
+				["Outgoing"] = {
+					["offsetX"] = 600,
+					["offsetY"] = -75,
 				},
 			},
 			["enableBlizzardHealing"] = false,
 			["normalFontName"] = "Arial Narrow",
-			["hideFullOverheals"] = true,
+			["soundsDisabled"] = true,
 			["normalFontSize"] = 13,
 		},
 	},

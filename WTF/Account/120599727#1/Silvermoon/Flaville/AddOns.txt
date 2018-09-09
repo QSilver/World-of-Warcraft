@@ -36,7 +36,7 @@ CrucibleWeight: enabled
 DejaCharacterStats: enabled
 Details: enabled
 Details_DmgRank: enabled
-Details_DeathGraphs: disabled
+Details_DeathGraphs: enabled
 Details_DpsTuning: enabled
 Details_EncounterDetails: enabled
 Details_RaidCheck: enabled
@@ -64,7 +64,7 @@ EnhancedMenu: enabled
 ErrorMonster: enabled
 ExRT: enabled
 GTFO: enabled
-GuildNewsFilter: disabled
+GuildNewsFilter: enabled
 HandyNotes: enabled
 HandyNotes_BrokenShore: enabled
 HandyNotes_Argus: enabled
@@ -154,3 +154,5 @@ Auc-Stat-Simple: enabled
 Auc-Stat-Purchased: enabled
 Auc-Stat-StdDev: enabled
 Auc-Util-FixAH: enabled
+AzeriteTooltip: enabled
+AzeriteForge: disabled

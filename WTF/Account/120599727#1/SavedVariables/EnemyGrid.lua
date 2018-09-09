@@ -1,22 +1,18 @@
 
 EnemyGridDB = {
 	["profileKeys"] = {
-		["Simroth - Silvermoon"] = "Default",
-		["Lachrymas - Silvermoon"] = "Default",
 		["Qsilver - Silvermoon"] = "Default",
+		["Lachrymas - Silvermoon"] = "Default",
+		["Simroth - Silvermoon"] = "Default",
 	},
 	["profiles"] = {
 		["Default"] = {
 			["aura_always_show_debuffs"] = true,
-			["bar_color"] = {
-				0.980392156862745, -- [1]
-				0, -- [2]
-				1, -- [3]
-			},
+			["show_tab"] = false,
 			["vertical_rows"] = 16,
 			["cast_statusbar_height"] = 20,
 			["cast_statusbar_width"] = 50,
-			["path_7_11_warning"] = true,
+			["frame_locked"] = true,
 			["npc_friendly_color"] = {
 				0.4, -- [1]
 				nil, -- [2]
@@ -24,13 +20,14 @@ EnemyGridDB = {
 				1, -- [4]
 			},
 			["horizontal_gap_size"] = 0,
+			["y"] = 273.299224853516,
 			["x"] = 355.99951171875,
 			["aura_timer"] = false,
 			["percent_text_color"] = {
 				0.972549019607843, -- [1]
 				[3] = 0.972549019607843,
 			},
-			["only_incombat"] = true,
+			["frame_range_alpha"] = 0.33,
 			["tank"] = {
 				["colors"] = {
 					["nocombat"] = {
@@ -45,11 +42,9 @@ EnemyGridDB = {
 				["x"] = 0,
 			},
 			["scale"] = 1,
-			["cast_statusbar_bgcolor"] = {
+			["cast_statusbar_color"] = {
 				nil, -- [1]
-				nil, -- [2]
-				nil, -- [3]
-				0.724460273981094, -- [4]
+				0.701960784313726, -- [2]
 			},
 			["npc_neutral_color"] = {
 				nil, -- [1]
@@ -98,10 +93,6 @@ EnemyGridDB = {
 				nil, -- [3]
 				0.310000002384186, -- [4]
 			},
-			["cast_statusbar_color"] = {
-				nil, -- [1]
-				0.701960784313726, -- [2]
-			},
 			["percent_text_size"] = 11,
 			["name_text_stringsize"] = 200,
 			["dps"] = {
@@ -115,12 +106,21 @@ EnemyGridDB = {
 				},
 			},
 			["aura_height"] = 30,
-			["show_tab"] = false,
-			["frame_locked"] = true,
+			["bar_color"] = {
+				0.980392156862745, -- [1]
+				0, -- [2]
+				1, -- [3]
+			},
+			["path_7_11_warning"] = true,
 			["cast_statusbar_texture"] = "PlaterTexture",
 			["vertical_gap_size"] = 0,
-			["y"] = 273.299224853516,
-			["frame_range_alpha"] = 0.33,
+			["only_incombat"] = true,
+			["cast_statusbar_bgcolor"] = {
+				nil, -- [1]
+				nil, -- [2]
+				nil, -- [3]
+				0.724460273981094, -- [4]
+			},
 		},
 	},
 }

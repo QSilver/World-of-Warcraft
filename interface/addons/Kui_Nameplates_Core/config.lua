@@ -12,7 +12,6 @@ local core = KuiNameplatesCore
 -- local event frame
 local cc = CreateFrame('Frame')
 -- add media to LSM ############################################################
-LSM:Register(LSM.MediaType.FONT,'Yanone Kaffesatz Bold',kui.m.f.yanone)
 LSM:Register(LSM.MediaType.FONT,'FrancoisOne',kui.m.f.francois)
 LSM:Register(LSM.MediaType.FONT,'Roboto Condensed Bold',kui.m.f.roboto,
     LSM.LOCALE_BIT_western + LSM.LOCALE_BIT_ruRU)
@@ -40,9 +39,10 @@ local default_config = {
     target_glow_colour = { .3, .7, 1, 1 },
     mouseover_glow = false,
     mouseover_glow_colour = { .3, .7, 1, .5 },
-    target_arrows = false,
     frame_glow_size = 8,
+    target_arrows = false,
     target_arrows_size = 28,
+    target_arrows_inset = 5, -- NEX
     use_blizzard_personal = false,
     frame_vertical_offset = 0,
     show_arena_id = true, -- NEX
@@ -162,6 +162,7 @@ local default_config = {
     auras_side = 1,
     auras_offset = 15,
     auras_decimal_threshold = 2, -- NEX
+    auras_highlight_other = true, -- NEX
 
     castbar_enable = true,
     castbar_colour = {.75,.75,.9},

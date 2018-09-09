@@ -77,22 +77,19 @@ function Scrap:Startup()
 	self:SetScript('OnEvent', function(self, event) self[event](self) end)
 	self:RegisterEvent('VARIABLES_LOADED')
 	self:RegisterEvent('MERCHANT_SHOW')
-end
-
-function Scrap:SettingsUpdated()
-	self.Junk = setmetatable(Scrap_ShareList and Scrap_SharedJunk or Scrap_Junk, Scrap_BaseList)
+	self.Startup = nil
 end
 
 function Scrap:VARIABLES_LOADED()
-	self.Startup, self.VARIABLES_LOADED = nil
-	self:SettingsUpdated()
-
-	if not Scrap_Tut then
-		Scrap_AutoSell, Scrap_Safe = true, true
-	end
+	self.Junk = setmetatable(Scrap_ShareList and Scrap_SharedJunk or Scrap_Junk, Scrap_BaseList)
 
 	if not Scrap_Version then
-		Scrap_Icons = true
+		Scrap_ShareList = nil
+		Scrap_AutoRepair, Scrap_GuildRepair, Scrap_Learn = nil
+		Scrap_Unusable, Scrap_LowEquip, Scrap_LowConsume = nil
+
+		Scrap_AutoSell, Scrap_Safe = true, true
+		Scrap_Icons, Scrap_Glow = true, true
 	end
 
 	Scrap_Version = 11

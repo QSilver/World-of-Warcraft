@@ -1,7 +1,7 @@
 ﻿function prraonload()
 
 --SetMapToCurrentZone()
-if C_Map.GetBestMapForUnit("player")==897 or C_Map.GetBestMapForUnit("player")==896 or C_Map.GetBestMapForUnit("player")==886 or C_Map.GetBestMapForUnit("player")==930 or C_Map.GetBestMapForUnit("player")==953 then
+if racheckzoneId({474,475},C_Map.GetBestMapForUnit("player")) or racheckzoneId({471,472,473},C_Map.GetBestMapForUnit("player")) or racheckzoneId({728,456},C_Map.GetBestMapForUnit("player")) or racheckzoneId({508,509,510,511,512,513,514,515},C_Map.GetBestMapForUnit("player")) or racheckzoneId({556,557,558,559,560,561,562,563,564,565,566,567,568,569,570},C_Map.GetBestMapForUnit("player")) then
 	RaidAchievement_prra:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
 	RaidAchievement_prra:RegisterEvent("UNIT_POWER_UPDATE")
 	RaidAchievement_prra:RegisterEvent("CHAT_MSG_RAID_BOSS_EMOTE")
@@ -95,7 +95,7 @@ end
 if rpradelayzonech and curtime>rpradelayzonech then
 rpradelayzonech=nil
 --SetMapToCurrentZone()
-if C_Map.GetBestMapForUnit("player")==897 or C_Map.GetBestMapForUnit("player")==896 or C_Map.GetBestMapForUnit("player")==886 or C_Map.GetBestMapForUnit("player")==930 or C_Map.GetBestMapForUnit("player")==953 then
+if racheckzoneId({474,475},C_Map.GetBestMapForUnit("player")) or racheckzoneId({471,472,473},C_Map.GetBestMapForUnit("player")) or racheckzoneId({728,456},C_Map.GetBestMapForUnit("player")) or racheckzoneId({508,509,510,511,512,513,514,515},C_Map.GetBestMapForUnit("player")) or racheckzoneId({556,557,558,559,560,561,562,563,564,565,566,567,568,569,570},C_Map.GetBestMapForUnit("player")) then
 RaidAchievement_prra:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
 RaidAchievement_prra:RegisterEvent("UNIT_POWER_UPDATE")
 RaidAchievement_prra:RegisterEvent("CHAT_MSG_RAID_BOSS_EMOTE")
@@ -262,7 +262,7 @@ local arg1, arg2, arg3,arg4,arg5,arg6,argNEW1,arg7,arg8,arg9,argNEW2,arg10,arg11
 
 
 --Heart of Fear
-if C_Map.GetBestMapForUnit("player")==897 then
+if racheckzoneId({474,475},C_Map.GetBestMapForUnit("player")) then
 
 if arg2=="SPELL_CAST_SUCCESS" and arg10==122786 then
 	if prraspisokon[1]==1 and raachdone1 then
@@ -274,7 +274,7 @@ end
 --
 
 --Mogushan
-if C_Map.GetBestMapForUnit("player")==896 then
+if racheckzoneId({471,472,473},C_Map.GetBestMapForUnit("player")) then
 
 if arg2=="SPELL_DAMAGE" and arg10==116809 then
   if (ratrackgoodattack2==nil or (ratrackgoodattack2 and ratrackgoodattack2>GetTime()+10)) then
@@ -326,7 +326,7 @@ end
 
 
 --ToES
-if C_Map.GetBestMapForUnit("player")==886 then
+if racheckzoneId({728,456},C_Map.GetBestMapForUnit("player")) then
 
 
 if arg2=="SPELL_DAMAGE" and arg14 and arg14>0 then
@@ -361,7 +361,7 @@ end
 
 
 --Thunder Throne
-if C_Map.GetBestMapForUnit("player")==930 then
+if racheckzoneId({508,509,510,511,512,513,514,515},C_Map.GetBestMapForUnit("player")) then
 
 --5
 if (arg2=="SPELL_DAMAGE" or arg2=="SPELL_AURA_APPLIED") and arg10==137507 then
@@ -409,7 +409,7 @@ end
 
 
 --Orgrimmar
-if C_Map.GetBestMapForUnit("player")==953 then
+if racheckzoneId({556,557,558,559,560,561,562,563,564,565,566,567,568,569,570},C_Map.GetBestMapForUnit("player")) then
 
 
 if arg2=="SPELL_CAST_SUCCESS" and arg10==143812 then

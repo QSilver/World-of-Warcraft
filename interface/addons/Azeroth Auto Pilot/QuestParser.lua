@@ -1584,7 +1584,7 @@ function AAP.TestAllyCampaign()
 	end
 end
 function AAP.SetQPTT()
-	if (QNumberLocal ~= AAP1[AAP.Realm][AAP.Name][AAP.ActiveZone]) then
+	if (QNumberLocal ~= AAP1[AAP.Realm][AAP.Name][AAP.ActiveZone] and AAP.ActiveStuff and AAP.ActiveStuff["TT"] and AAP.ActiveStuff["TT"]["x"]) then
 		AAP_ArrowActive = 1
 		AAP_ArrowActive_X = AAP.ActiveStuff["TT"]["x"]
 		AAP_ArrowActive_Y = AAP.ActiveStuff["TT"]["y"]

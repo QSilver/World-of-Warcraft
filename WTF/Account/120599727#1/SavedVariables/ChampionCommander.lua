@@ -5,15 +5,15 @@ dbBFA = {
 			["firstun"] = false,
 		},
 	},
-	["profileKeys"] = {
-		["Qsilver - Silvermoon"] = "Default",
-	},
 	["global"] = {
 		["warn01_seen"] = 0,
 		["firstrun"] = false,
 		["news"] = {
 		},
 		["warn02_seen"] = 0,
+	},
+	["profileKeys"] = {
+		["Qsilver - Silvermoon"] = "Default",
 	},
 	["profiles"] = {
 		["Default"] = {
@@ -37,12 +37,15 @@ dbBFA = {
 				["PREFERHIGH"] = false,
 				["NOTROOPS"] = false,
 				["MAKEITQUICK"] = true,
-				["TROOPALERT"] = true,
 				["MAXCHAMP"] = 3,
+				["TROOPALERT"] = true,
 				["IGNOREBUSY"] = true,
 				["BASECHANCE"] = 0,
 			},
 			["showmenu"] = false,
+			["blacklist"] = {
+				[1896] = false,
+			},
 		},
 	},
 }

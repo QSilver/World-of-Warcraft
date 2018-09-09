@@ -475,7 +475,7 @@ CrucibleWeight: enabled
 DejaCharacterStats: enabled
 Details: enabled
 Details_DmgRank: enabled
-Details_DeathGraphs: disabled
+Details_DeathGraphs: enabled
 Details_DpsTuning: enabled
 Details_EncounterDetails: enabled
 Details_RaidCheck: enabled
@@ -499,7 +499,7 @@ Details_ChartViewer: enabled
 Emoji: enabled
 Emoji_TwitchEmotes: enabled
 ExRT: enabled
-GuildNewsFilter: disabled
+GuildNewsFilter: enabled
 HandyNotes_BrokenShore: enabled
 HandyNotes_Argus: enabled
 HandyNotes_AzerothsTopTunes: enabled
@@ -547,3 +547,12 @@ Informant: disabled
 EnemyGrid: disabled
 Azeroth Auto Pilot: disabled
 WorldQuestParty: disabled
+BigWigs_Uldir: enabled
+AzeriteTooltip: enabled
+AzeriteForge: disabled
+RaiderIO_DB_US_H: disabled
+RaiderIO_DB_US_A: disabled
+RaiderIO_DB_TW_H: disabled
+RaiderIO_DB_TW_A: disabled
+RaiderIO_DB_KR_H: disabled
+RaiderIO_DB_KR_A: disabled

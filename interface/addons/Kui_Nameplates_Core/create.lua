@@ -216,7 +216,7 @@ do
 
         TARGET_ARROWS = self.profile.target_arrows
         TARGET_ARROWS_SIZE = Scale(self.profile.target_arrows_size)
-        TARGET_ARROWS_INSET = floor(TARGET_ARROWS_SIZE*.2)
+        TARGET_ARROWS_INSET = Scale(self.profile.target_arrows_inset)
         TARGET_GLOW = self.profile.target_glow
         TARGET_GLOW_COLOUR = self.profile.target_glow_colour
         MOUSEOVER_GLOW = self.profile.mouseover_glow
@@ -644,26 +644,14 @@ do
                f.state.reaction >= 4
             then
                 -- friendly
-                if NAME_COLOUR_NPCS_INHERIT_REACTION then
-                    f.NameText:SetTextColor(.7,1,.7)
-                else
-                    f.NameText:SetTextColor(unpack(NAME_COLOUR_NPC_FRIENDLY))
-                end
+                f.NameText:SetTextColor(unpack(NAME_COLOUR_NPC_FRIENDLY))
             else
                 if f.state.reaction == 4 then
                     -- neutral, attackable
-                    if NAME_COLOUR_NPCS_INHERIT_REACTION then
-                        f.NameText:SetTextColor(1,.97,.7)
-                    else
-                        f.NameText:SetTextColor(unpack(NAME_COLOUR_NPC_NEUTRAL))
-                    end
+                    f.NameText:SetTextColor(unpack(NAME_COLOUR_NPC_NEUTRAL))
                 else
                     -- hostile
-                    if NAME_COLOUR_NPCS_INHERIT_REACTION then
-                        f.NameText:SetTextColor(1,.7,.7)
-                    else
-                        f.NameText:SetTextColor(unpack(NAME_COLOUR_NPC_HOSTILE))
-                    end
+                    f.NameText:SetTextColor(unpack(NAME_COLOUR_NPC_HOSTILE))
                 end
             end
         end
@@ -1454,12 +1442,12 @@ do
 end
 -- auras #######################################################################
 do
-    local AURAS_NORMAL_SIZE,AURAS_MINUS_SIZE,
+    local AURAS_NORMAL_SIZE,AURAS_MINUS_SIZE,AURAS_CENTRE,
           AURAS_ON_PERSONAL,AURAS_ENABLED,AURAS_SHOW_ALL_SELF,
           AURAS_HIDE_ALL_OTHER,AURAS_PURGE_SIZE,AURAS_SHOW_PURGE,AURAS_SIDE,
           AURAS_OFFSET,AURAS_POINT_S,AURAS_POINT_R,PURGE_POINT_S,PURGE_POINT_R,
           PURGE_OFFSET,AURAS_Y_SPACING,AURAS_TIMER_THRESHOLD,
-          AURAS_PURGE_OPPOSITE
+          AURAS_PURGE_OPPOSITE,AURAS_HIGHLIGHT_OTHER
 
     local function AuraFrame_UpdateFrameSize(self,to_size)
         -- frame width changes depending on icon size, needs to be correct if
@@ -1479,7 +1467,7 @@ do
             -- update frame height
             core.Auras_PostUpdateAuraFrame(self)
 
-            self.__h_offset = AURAS_CENTRE and 
+            self.__h_offset = AURAS_CENTRE and
                 floor((self.parent.bg:GetWidth() - self.__width) / 2) or
                 0
         end
@@ -1625,7 +1613,7 @@ do
         if frame.purge or button.can_purge then
             button.hl:SetVertexColor(1,.2,.2,.8)
             button.hl:Show()
-        elseif not button.own then
+        elseif AURAS_HIGHLIGHT_OTHER and not button.own then
             button.hl:SetVertexColor(.4,1,.2,.8)
             button.hl:Show()
         else
@@ -1642,33 +1630,44 @@ do
             )
         end
     end
-    function core.Auras_DisplayAura(frame,name,spellid,duration,caster)
+    function core.Auras_DisplayAura(frame,spellid,name,duration,caster,own,can_purge,nps_own,nps_all)
         if not frame.__core then return end
-        if frame.id ~= 'core_dynamic' then return end
+        if frame.purge then
+            -- force hide if excluded by spell list
+            if KSL:SpellExcluded(spellid) or KSL:SpellExcluded(name) then
+                return 1
+            end
+        else
+            -- force show if included by spell list
+            if  (KSL:SpellIncludedAll(spellid) or
+                 KSL:SpellIncludedAll(name)) or
+                (own and (KSL:SpellIncludedOwn(spellid) or
+                 KSL:SpellIncludedOwn(name)))
+            then
+                return 2
+            end
 
-        -- force show if included by spell list (all casters or self)
-        if  (KSL:SpellIncludedAll(spellid) or KSL:SpellIncludedAll(name)) or
-            ((caster == 'player' or caster == 'pet' or caster == 'vehcile') and
-            (KSL:SpellIncludedOwn(spellid) or KSL:SpellIncludedOwn(name)))
-        then
-            return 2
-        end
+            -- force hide infinite duration unless whitelisted
+            if duration == 0 and not nps_all and not nps_own then
+                return 1
+            end
 
-        -- force hide if excluded by spell list
-        if KSL:SpellExcluded(spellid) or KSL:SpellExcluded(name) then
-            return 1
-        end
+            -- force hide if excluded by spell list, as above
+            if KSL:SpellExcluded(spellid) or KSL:SpellExcluded(name) then
+                return 1
+            end
 
-        if AURAS_SHOW_ALL_SELF or AURAS_HIDE_ALL_OTHER then
-            if caster == 'player' or caster == 'pet' or caster == 'vehicle' then
-                if AURAS_SHOW_ALL_SELF then
-                    -- show all casts from the player
-                    return 2
-                end
-            else
-                if AURAS_HIDE_ALL_OTHER then
-                    -- hide all other players' casts (CC, etc.)
-                    return 1
+            if AURAS_SHOW_ALL_SELF or AURAS_HIDE_ALL_OTHER then
+                if own then
+                    if AURAS_SHOW_ALL_SELF then
+                        -- show all casts from the player
+                        return 2
+                    end
+                else
+                    if AURAS_HIDE_ALL_OTHER then
+                        -- hide all other players' casts (CC, etc.)
+                        return 1
+                    end
                 end
             end
         end
@@ -1693,6 +1692,7 @@ do
         AURAS_TIMER_THRESHOLD = self.profile.auras_time_threshold
         AURAS_PURGE_OPPOSITE = self.profile.auras_purge_opposite
         AURAS_CENTRE = self.profile.auras_centre
+        AURAS_HIGHLIGHT_OTHER = self.profile.auras_highlight_other
 
         if AURAS_TIMER_THRESHOLD < 0 then
             AURAS_TIMER_THRESHOLD = nil

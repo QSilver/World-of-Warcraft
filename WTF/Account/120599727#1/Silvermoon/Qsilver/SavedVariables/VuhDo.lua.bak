@@ -166,11 +166,11 @@ VUHDO_CONFIG = {
 	},
 	["OMIT_PLAYER_TARGETS"] = false,
 	["DETECT_DEBUFFS_REMOVABLE_ONLY_ICONS"] = true,
-	["BLIZZ_UI_HIDE_RAID_MGR"] = 2,
+	["RES_IS_SHOW_TEXT"] = false,
 	["SHOW_SHIELD_BAR"] = true,
-	["LOCK_CLICKS_THROUGH"] = false,
+	["IS_DC_SHIELD_DISABLED"] = false,
 	["SHOW_PLAYER_TAGS"] = true,
-	["MAX_EMERGENCIES"] = 5,
+	["IS_ALWAYS_OVERWRITE_PROFILE"] = false,
 	["UPDATE_HOTS_MS"] = 250,
 	["BLIZZ_UI_HIDE_PARTY"] = 2,
 	["CUSTOM_DEBUFF"] = {
@@ -4107,7 +4107,7 @@ VUHDO_CONFIG = {
 				["isColor"] = false,
 				["timer"] = true,
 			},
-			["Parasitic Growth"] = {
+			["Locked On"] = {
 				["isStacks"] = false,
 				["animate"] = true,
 				["timer"] = true,
@@ -4121,12 +4121,12 @@ VUHDO_CONFIG = {
 				["isColor"] = false,
 				["timer"] = true,
 			},
-			["219049"] = {
+			["Parasitic Growth"] = {
 				["isStacks"] = false,
 				["animate"] = true,
-				["isIcon"] = true,
-				["isColor"] = false,
 				["timer"] = true,
+				["isColor"] = false,
+				["isIcon"] = true,
 			},
 			["Poison Bomb"] = {
 				["isStacks"] = false,
@@ -4373,12 +4373,12 @@ VUHDO_CONFIG = {
 				["isColor"] = false,
 				["timer"] = true,
 			},
-			["Locked On"] = {
+			["219049"] = {
 				["isStacks"] = false,
 				["animate"] = true,
-				["timer"] = true,
-				["isColor"] = false,
 				["isIcon"] = true,
+				["isColor"] = false,
+				["timer"] = true,
 			},
 			["Sand Trap"] = {
 				["isStacks"] = false,
@@ -4964,9 +4964,9 @@ VUHDO_CONFIG = {
 	["HIDE_EMPTY_BUTTONS"] = false,
 	["OMIT_SELF"] = false,
 	["EMERGENCY_TRIGGER"] = 100,
-	["IS_DC_SHIELD_DISABLED"] = false,
-	["RES_IS_SHOW_TEXT"] = false,
-	["SHOW_OVERHEAL"] = true,
+	["LOCK_CLICKS_THROUGH"] = false,
+	["BLIZZ_UI_HIDE_RAID_MGR"] = 2,
+	["BLIZZ_UI_HIDE_TARGET"] = 2,
 	["THREAT"] = {
 		["AGGRO_USE_TEXT"] = false,
 		["AGGRO_TEXT_LEFT"] = ">>",
@@ -4977,8 +4977,8 @@ VUHDO_CONFIG = {
 	["SHOW_TEXT_OVERHEAL"] = true,
 	["IS_USE_BUTTON_FACADE"] = false,
 	["SHOW_OWN_INCOMING"] = true,
-	["BLIZZ_UI_HIDE_TARGET"] = 2,
-	["IS_ALWAYS_OVERWRITE_PROFILE"] = false,
+	["SHOW_OVERHEAL"] = true,
+	["MAX_EMERGENCIES"] = 5,
 }
 VUHDO_PANEL_SETUP = {
 	{
@@ -5008,7 +5008,6 @@ VUHDO_PANEL_SETUP = {
 		},
 		["frameStrata"] = "MEDIUM",
 		["MODEL"] = {
-			["sort"] = 0,
 			["ordering"] = 0,
 			["groups"] = {
 				1, -- [1]
@@ -5020,6 +5019,7 @@ VUHDO_PANEL_SETUP = {
 				7, -- [7]
 				8, -- [8]
 			},
+			["sort"] = 0,
 			["isReverse"] = false,
 		},
 		["TOOLTIP"] = {
@@ -7674,7 +7674,7 @@ VUHDO_BUFF_SETTINGS = {
 			["B"] = 1,
 		},
 		["enabled"] = false,
-		["name"] = "Likule",
+		["name"] = "Cajdruid",
 		["filter"] = {
 			[999] = true,
 		},
@@ -7883,9 +7883,9 @@ VUHDO_SPELLS_KEYBOARD = {
 			"-w10", -- [2]
 			"", -- [3]
 		},
-		["shift1"] = {
-			"SHIFT-", -- [1]
-			"-w7", -- [2]
+		["ctrlshift2"] = {
+			"CTRL-SHIFT-", -- [1]
+			"-w14", -- [2]
 			"", -- [3]
 		},
 		["2"] = {
@@ -7893,9 +7893,9 @@ VUHDO_SPELLS_KEYBOARD = {
 			"-w2", -- [2]
 			"", -- [3]
 		},
-		["ctrl2"] = {
-			"CTRL-", -- [1]
-			"-w6", -- [2]
+		["shift1"] = {
+			"SHIFT-", -- [1]
+			"-w7", -- [2]
 			"", -- [3]
 		},
 		["shift2"] = {
@@ -7948,9 +7948,9 @@ VUHDO_SPELLS_KEYBOARD = {
 			"-w3", -- [2]
 			"", -- [3]
 		},
-		["ctrlshift2"] = {
-			"CTRL-SHIFT-", -- [1]
-			"-w14", -- [2]
+		["ctrl2"] = {
+			"CTRL-", -- [1]
+			"-w6", -- [2]
 			"", -- [3]
 		},
 	},
@@ -7980,9 +7980,9 @@ VUHDO_SPELLS_KEYBOARD = {
 			"-w10", -- [2]
 			"", -- [3]
 		},
-		["shift1"] = {
-			"SHIFT-", -- [1]
-			"-w7", -- [2]
+		["ctrlshift2"] = {
+			"CTRL-SHIFT-", -- [1]
+			"-w14", -- [2]
 			"", -- [3]
 		},
 		["2"] = {
@@ -7990,9 +7990,9 @@ VUHDO_SPELLS_KEYBOARD = {
 			"-w2", -- [2]
 			"", -- [3]
 		},
-		["ctrl2"] = {
-			"CTRL-", -- [1]
-			"-w6", -- [2]
+		["shift1"] = {
+			"SHIFT-", -- [1]
+			"-w7", -- [2]
 			"", -- [3]
 		},
 		["shift2"] = {
@@ -8045,9 +8045,9 @@ VUHDO_SPELLS_KEYBOARD = {
 			"-w3", -- [2]
 			"", -- [3]
 		},
-		["ctrlshift2"] = {
-			"CTRL-SHIFT-", -- [1]
-			"-w14", -- [2]
+		["ctrl2"] = {
+			"CTRL-", -- [1]
+			"-w6", -- [2]
 			"", -- [3]
 		},
 	},
@@ -8083,15 +8083,82 @@ VUHDO_SPEC_LAYOUTS = {
 	["selected"] = "",
 	["2"] = "",
 }
-VUHDO_GROUP_SIZE = 1
+VUHDO_GROUP_SIZE = 5
 VUHDO_RAID = {
+	["party3"] = {
+		["zone"] = "Temple of Sethraliss",
+		["baseRange"] = true,
+		["class"] = "WARLOCK",
+		["role"] = 62,
+		["sortMaxHp"] = 117240,
+		["map"] = "Temple of Sethraliss",
+		["threat"] = 0,
+		["powermax"] = 100000,
+		["threatPerc"] = 0,
+		["isPet"] = false,
+		["name"] = "Wobbers",
+		["number"] = 3,
+		["isVehicle"] = false,
+		["group"] = 1,
+		["classId"] = 25,
+		["range"] = true,
+		["unit"] = "party3",
+		["powertype"] = 0,
+		["healthmax"] = 117240,
+		["dead"] = false,
+		["charmed"] = false,
+		["fullName"] = "Wobbers",
+		["power"] = 100000,
+		["aggro"] = false,
+		["visible"] = true,
+		["targetUnit"] = "party3target",
+		["health"] = 117240,
+		["className"] = "Warlock",
+		["afk"] = false,
+		["debuff"] = 0,
+		["connected"] = true,
+		["petUnit"] = "partypet3",
+	},
+	["pet"] = {
+		["visible"] = true,
+		["number"] = 1,
+		["targetUnit"] = "pettarget",
+		["baseRange"] = true,
+		["classId"] = 40,
+		["range"] = true,
+		["unit"] = "pet",
+		["isVehicle"] = false,
+		["powertype"] = 2,
+		["healthmax"] = 95422,
+		["zone"] = "Temple of Sethraliss",
+		["group"] = 0,
+		["sortMaxHp"] = 95422,
+		["afk"] = false,
+		["dead"] = false,
+		["map"] = "Temple of Sethraliss",
+		["charmed"] = false,
+		["powermax"] = 120,
+		["power"] = 96,
+		["aggro"] = false,
+		["debuff"] = 0,
+		["threatPerc"] = 0,
+		["class"] = "WARRIOR",
+		["isPet"] = true,
+		["connected"] = true,
+		["health"] = 85141,
+		["className"] = "Gara",
+		["fullName"] = "Gara",
+		["ownerUnit"] = "player",
+		["threat"] = 0,
+		["name"] = "Gara",
+	},
 	["player"] = {
-		["zone"] = "Boralus Harbor",
+		["zone"] = "Temple of Sethraliss",
 		["baseRange"] = true,
 		["class"] = "HUNTER",
 		["role"] = 62,
-		["sortMaxHp"] = 112122,
-		["map"] = "Boralus",
+		["sortMaxHp"] = 126807,
+		["map"] = "Temple of Sethraliss",
 		["threat"] = 0,
 		["powermax"] = 120,
 		["threatPerc"] = 0,
@@ -8104,53 +8171,155 @@ VUHDO_RAID = {
 		["range"] = true,
 		["unit"] = "player",
 		["powertype"] = 2,
-		["healthmax"] = 112122,
+		["healthmax"] = 126807,
 		["dead"] = false,
 		["charmed"] = false,
 		["fullName"] = "Qsilver",
-		["power"] = 120,
+		["power"] = 84,
 		["aggro"] = false,
 		["visible"] = true,
 		["targetUnit"] = "target",
-		["health"] = 112122,
+		["health"] = 126807,
 		["className"] = "Hunter",
 		["afk"] = false,
 		["debuff"] = 0,
 		["connected"] = true,
 		["petUnit"] = "pet",
 	},
-	["pet"] = {
-		["number"] = 1,
-		["afk"] = false,
-		["visible"] = true,
-		["zone"] = "Boralus Harbor",
-		["group"] = 0,
-		["class"] = "WARRIOR",
-		["range"] = true,
-		["unit"] = "pet",
-		["targetUnit"] = "pettarget",
-		["debuff"] = 0,
-		["healthmax"] = 90699,
+	["party1"] = {
+		["zone"] = "Temple of Sethraliss",
 		["baseRange"] = true,
-		["classId"] = 40,
-		["sortMaxHp"] = 90699,
-		["isVehicle"] = false,
-		["dead"] = false,
-		["map"] = "Boralus",
+		["class"] = "MONK",
+		["role"] = 63,
+		["sortMaxHp"] = 113340,
+		["map"] = "Temple of Sethraliss",
 		["threat"] = 0,
-		["fullName"] = "Gara",
-		["power"] = 120,
-		["aggro"] = false,
-		["powertype"] = 2,
+		["powermax"] = 105000,
 		["threatPerc"] = 0,
-		["isPet"] = true,
+		["isPet"] = false,
+		["name"] = "Sanchi",
+		["number"] = 1,
+		["isVehicle"] = false,
+		["group"] = 1,
+		["classId"] = 30,
+		["range"] = true,
+		["unit"] = "party1",
+		["powertype"] = 0,
+		["healthmax"] = 113340,
+		["dead"] = false,
 		["charmed"] = false,
-		["name"] = "Gara",
-		["className"] = "Gara",
-		["powermax"] = 120,
-		["ownerUnit"] = "player",
+		["fullName"] = "Sanchi",
+		["power"] = 71421,
+		["aggro"] = false,
+		["visible"] = true,
+		["targetUnit"] = "party1target",
+		["health"] = 96610,
+		["className"] = "Monk",
+		["afk"] = false,
+		["debuff"] = 0,
 		["connected"] = true,
-		["health"] = 67722,
+		["petUnit"] = "partypet1",
+	},
+	["partypet3"] = {
+		["number"] = 3,
+		["visible"] = true,
+		["isVehicle"] = false,
+		["group"] = 0,
+		["classId"] = 40,
+		["range"] = true,
+		["unit"] = "partypet3",
+		["afk"] = false,
+		["debuff"] = 0,
+		["healthmax"] = 58620,
+		["zone"] = "Temple of Sethraliss",
+		["baseRange"] = true,
+		["sortMaxHp"] = 58620,
+		["class"] = "WARLOCK",
+		["dead"] = false,
+		["map"] = "Temple of Sethraliss",
+		["charmed"] = false,
+		["fullName"] = "Luudhon",
+		["power"] = 122,
+		["aggro"] = false,
+		["targetUnit"] = "partypet3target",
+		["threatPerc"] = 0,
+		["powertype"] = 3,
+		["isPet"] = true,
+		["connected"] = true,
+		["name"] = "Luudhon",
+		["className"] = "Luudhon",
+		["powermax"] = 200,
+		["ownerUnit"] = "party3",
+		["threat"] = 0,
+		["health"] = 58620,
+	},
+	["party2"] = {
+		["zone"] = "Temple of Sethraliss",
+		["baseRange"] = true,
+		["class"] = "MONK",
+		["role"] = 61,
+		["sortMaxHp"] = 113640,
+		["map"] = "Temple of Sethraliss",
+		["threat"] = 0,
+		["powermax"] = 100,
+		["threatPerc"] = 0,
+		["isPet"] = false,
+		["name"] = "Olivmm",
+		["number"] = 2,
+		["isVehicle"] = false,
+		["group"] = 1,
+		["classId"] = 30,
+		["range"] = true,
+		["unit"] = "party2",
+		["powertype"] = 3,
+		["healthmax"] = 113640,
+		["dead"] = false,
+		["charmed"] = false,
+		["fullName"] = "Olivmm",
+		["power"] = 48,
+		["aggro"] = false,
+		["visible"] = true,
+		["targetUnit"] = "party2target",
+		["health"] = 104648,
+		["className"] = "Monk",
+		["afk"] = false,
+		["debuff"] = 0,
+		["connected"] = true,
+		["petUnit"] = "partypet2",
+	},
+	["party4"] = {
+		["zone"] = "Temple of Sethraliss",
+		["baseRange"] = true,
+		["class"] = "DRUID",
+		["role"] = 60,
+		["sortMaxHp"] = 185595,
+		["map"] = "Temple of Sethraliss",
+		["threat"] = 0,
+		["powermax"] = 100,
+		["threatPerc"] = 0,
+		["isPet"] = false,
+		["name"] = "Cajdruid",
+		["number"] = 4,
+		["isVehicle"] = false,
+		["group"] = 1,
+		["classId"] = 27,
+		["range"] = true,
+		["unit"] = "party4",
+		["powertype"] = 1,
+		["healthmax"] = 185595,
+		["dead"] = false,
+		["charmed"] = false,
+		["fullName"] = "Cajdruid",
+		["power"] = 61,
+		["aggro"] = false,
+		["visible"] = true,
+		["targetUnit"] = "party4target",
+		["health"] = 139887,
+		["className"] = "Druid",
+		["afk"] = false,
+		["debuff"] = 0,
+		["connected"] = true,
+		["petUnit"] = "partypet4",
 	},
 }
 VUHDO_INDICATOR_CONFIG = {
@@ -8175,9 +8344,9 @@ VUHDO_INDICATOR_CONFIG = {
 		},
 		["CLUSTER_BORDER"] = "",
 		["THREAT_MARK"] = "",
-		["MANA_BAR"] = "Manabars: Mana only",
 		["BAR_BORDER"] = "Border: Multi + Aggro",
 		["SIDE_RIGHT"] = "",
+		["MANA_BAR"] = "Manabars: Mana only",
 		["HEALTH_BAR"] = "Health (generic, class col)",
 		["SWIFTMEND_INDICATOR"] = "Role Icon",
 		["DAMAGE_FLASH_BAR"] = "",

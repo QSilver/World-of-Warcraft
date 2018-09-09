@@ -71,5 +71,5 @@ end
 
 function Scrap:ResetTutorials()
 	Tutorials.ResetTutorials('Scrap')
-	self:BlastTutorials()
+	Tutorials.TriggerTutorial('Scrap', 5)
 end

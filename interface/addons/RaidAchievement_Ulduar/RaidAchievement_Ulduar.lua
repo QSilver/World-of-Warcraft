@@ -3,7 +3,7 @@ function psfeaUlduar()
 
 	pseahodirlook=false
 --SetMapToCurrentZone()
-if C_Map.GetBestMapForUnit("player")==529 then
+if racheckzoneId({147,148,149,150,151,152,147,148,149,150,151,152},C_Map.GetBestMapForUnit("player")) then
 	RaidAchievement_Ulduar:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
 end
 	RaidAchievement_Ulduar:RegisterEvent("PLAYER_REGEN_DISABLED")
@@ -136,7 +136,7 @@ if event == "ZONE_CHANGED_NEW_AREA" then
 
 pseahodirlook=false
 --SetMapToCurrentZone()
-if C_Map.GetBestMapForUnit("player")==529 then
+if racheckzoneId({147,148,149,150,151,152,147,148,149,150,151,152},C_Map.GetBestMapForUnit("player")) then
 RaidAchievement_Ulduar:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
 else
 RaidAchievement_Ulduar:UnregisterEvent("COMBAT_LOG_EVENT_UNFILTERED")

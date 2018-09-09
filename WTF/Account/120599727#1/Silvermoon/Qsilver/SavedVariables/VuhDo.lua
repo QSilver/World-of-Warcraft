@@ -129,22 +129,22 @@ VUHDO_CONFIG = {
 	["DETECT_DEBUFFS_IGNORE_NO_HARM"] = true,
 	["DETECT_DEBUFFS_IGNORE_BY_CLASS"] = true,
 	["EMERGENCY_TRIGGER"] = 100,
-	["IS_ALWAYS_OVERWRITE_PROFILE"] = false,
-	["BLIZZ_UI_HIDE_TARGET"] = 2,
-	["BLIZZ_UI_HIDE_RAID_MGR"] = 2,
-	["IS_USE_BUTTON_FACADE"] = false,
-	["LOCK_CLICKS_THROUGH"] = false,
-	["SHOW_PLAYER_TAGS"] = true,
 	["MAX_EMERGENCIES"] = 5,
-	["UPDATE_HOTS_MS"] = 250,
 	["SHOW_OVERHEAL"] = true,
 	["RES_IS_SHOW_TEXT"] = false,
+	["IS_USE_BUTTON_FACADE"] = false,
+	["IS_DC_SHIELD_DISABLED"] = false,
+	["SHOW_PLAYER_TAGS"] = true,
+	["IS_ALWAYS_OVERWRITE_PROFILE"] = false,
+	["UPDATE_HOTS_MS"] = 250,
+	["BLIZZ_UI_HIDE_TARGET"] = 2,
+	["BLIZZ_UI_HIDE_RAID_MGR"] = 2,
 	["HIDE_PANELS_SOLO"] = false,
 	["CURRENT_PROFILE"] = "Q",
 	["AUTO_PROFILES"] = {
 	},
 	["SHOW_INCOMING"] = true,
-	["IS_DC_SHIELD_DISABLED"] = false,
+	["LOCK_CLICKS_THROUGH"] = false,
 	["OMIT_FOCUS"] = false,
 	["SPELL_TRACE"] = {
 		["isOthers"] = false,
@@ -4146,12 +4146,12 @@ VUHDO_CONFIG = {
 				["isColor"] = false,
 				["timer"] = true,
 			},
-			["Locked On"] = {
+			["219049"] = {
 				["isStacks"] = false,
 				["animate"] = true,
-				["timer"] = true,
-				["isColor"] = false,
 				["isIcon"] = true,
+				["isColor"] = false,
+				["timer"] = true,
 			},
 			["264219"] = {
 				["isStacks"] = false,
@@ -4160,7 +4160,7 @@ VUHDO_CONFIG = {
 				["isColor"] = false,
 				["timer"] = true,
 			},
-			["Parasitic Growth"] = {
+			["Locked On"] = {
 				["isStacks"] = false,
 				["animate"] = true,
 				["timer"] = true,
@@ -4412,12 +4412,12 @@ VUHDO_CONFIG = {
 				["isColor"] = false,
 				["timer"] = true,
 			},
-			["219049"] = {
+			["Parasitic Growth"] = {
 				["isStacks"] = false,
 				["animate"] = true,
-				["isIcon"] = true,
-				["isColor"] = false,
 				["timer"] = true,
+				["isColor"] = false,
+				["isIcon"] = true,
 			},
 			["189030"] = {
 				["isStacks"] = false,
@@ -4997,7 +4997,7 @@ VUHDO_PANEL_SETUP = {
 			["scale"] = 1,
 			["height"] = 34.9999771118164,
 			["growth"] = "TOPLEFT",
-			["width"] = 90.0000076293945,
+			["width"] = 422.000030517578,
 		},
 		["RAID_ICON"] = {
 			["show"] = true,
@@ -5008,7 +5008,6 @@ VUHDO_PANEL_SETUP = {
 		},
 		["frameStrata"] = "MEDIUM",
 		["MODEL"] = {
-			["ordering"] = 0,
 			["groups"] = {
 				1, -- [1]
 				2, -- [2]
@@ -5020,6 +5019,7 @@ VUHDO_PANEL_SETUP = {
 				8, -- [8]
 			},
 			["sort"] = 0,
+			["ordering"] = 0,
 			["isReverse"] = false,
 		},
 		["TOOLTIP"] = {
@@ -5140,7 +5140,7 @@ VUHDO_PANEL_SETUP = {
 			["position"] = "TOP+TOP",
 			["yAdjust"] = 0,
 			["xAdjust"] = 0,
-			["_spacing"] = 25,
+			["_spacing"] = 25.0000438690186,
 			["showPetOwners"] = true,
 		},
 		["LIFE_TEXT"] = {
@@ -7675,7 +7675,7 @@ VUHDO_BUFF_SETTINGS = {
 			["useOpacity"] = true,
 		},
 		["enabled"] = false,
-		["name"] = "Likule",
+		["name"] = "Cajdruid",
 		["filter"] = {
 			[999] = true,
 		},
@@ -7883,9 +7883,9 @@ VUHDO_SPELLS_KEYBOARD = {
 			"-w10", -- [2]
 			"", -- [3]
 		},
-		["ctrlshift2"] = {
-			"CTRL-SHIFT-", -- [1]
-			"-w14", -- [2]
+		["ctrl2"] = {
+			"CTRL-", -- [1]
+			"-w6", -- [2]
 			"", -- [3]
 		},
 		["2"] = {
@@ -7893,9 +7893,9 @@ VUHDO_SPELLS_KEYBOARD = {
 			"-w2", -- [2]
 			"", -- [3]
 		},
-		["shift1"] = {
-			"SHIFT-", -- [1]
-			"-w7", -- [2]
+		["ctrlshift2"] = {
+			"CTRL-SHIFT-", -- [1]
+			"-w14", -- [2]
 			"", -- [3]
 		},
 		["shift2"] = {
@@ -7948,9 +7948,9 @@ VUHDO_SPELLS_KEYBOARD = {
 			"-w9", -- [2]
 			"", -- [3]
 		},
-		["ctrl2"] = {
-			"CTRL-", -- [1]
-			"-w6", -- [2]
+		["shift1"] = {
+			"SHIFT-", -- [1]
+			"-w7", -- [2]
 			"", -- [3]
 		},
 	},
@@ -7977,9 +7977,9 @@ VUHDO_SPELLS_KEYBOARD = {
 			"-w10", -- [2]
 			"", -- [3]
 		},
-		["ctrlshift2"] = {
-			"CTRL-SHIFT-", -- [1]
-			"-w14", -- [2]
+		["ctrl2"] = {
+			"CTRL-", -- [1]
+			"-w6", -- [2]
 			"", -- [3]
 		},
 		["2"] = {
@@ -7987,9 +7987,9 @@ VUHDO_SPELLS_KEYBOARD = {
 			"-w2", -- [2]
 			"", -- [3]
 		},
-		["shift1"] = {
-			"SHIFT-", -- [1]
-			"-w7", -- [2]
+		["ctrlshift2"] = {
+			"CTRL-SHIFT-", -- [1]
+			"-w14", -- [2]
 			"", -- [3]
 		},
 		["shift2"] = {
@@ -8042,9 +8042,9 @@ VUHDO_SPELLS_KEYBOARD = {
 			"-w9", -- [2]
 			"", -- [3]
 		},
-		["ctrl2"] = {
-			"CTRL-", -- [1]
-			"-w6", -- [2]
+		["shift1"] = {
+			"SHIFT-", -- [1]
+			"-w7", -- [2]
 			"", -- [3]
 		},
 	},
@@ -8085,40 +8085,6 @@ VUHDO_SPEC_LAYOUTS = {
 }
 VUHDO_GROUP_SIZE = 1
 VUHDO_RAID = {
-	["player"] = {
-		["zone"] = "Boralus Harbor",
-		["baseRange"] = true,
-		["class"] = "HUNTER",
-		["role"] = 62,
-		["sortMaxHp"] = 112122,
-		["map"] = "Boralus",
-		["threat"] = 0,
-		["powermax"] = 120,
-		["threatPerc"] = 0,
-		["isPet"] = false,
-		["name"] = "Qsilver",
-		["number"] = 1,
-		["isVehicle"] = false,
-		["group"] = 1,
-		["classId"] = 22,
-		["range"] = true,
-		["unit"] = "player",
-		["powertype"] = 2,
-		["healthmax"] = 112122,
-		["dead"] = false,
-		["charmed"] = false,
-		["fullName"] = "Qsilver",
-		["power"] = 120,
-		["aggro"] = false,
-		["visible"] = true,
-		["targetUnit"] = "target",
-		["health"] = 112122,
-		["className"] = "Hunter",
-		["afk"] = false,
-		["debuff"] = 0,
-		["connected"] = true,
-		["petUnit"] = "pet",
-	},
 	["pet"] = {
 		["number"] = 1,
 		["targetUnit"] = "pettarget",
@@ -8130,10 +8096,10 @@ VUHDO_RAID = {
 		["unit"] = "pet",
 		["zone"] = "Boralus Harbor",
 		["debuff"] = 0,
-		["healthmax"] = 84372,
+		["healthmax"] = 95422,
 		["baseRange"] = true,
 		["afk"] = false,
-		["sortMaxHp"] = 84372,
+		["sortMaxHp"] = 95422,
 		["class"] = "WARRIOR",
 		["dead"] = false,
 		["map"] = "Boralus",
@@ -8150,7 +8116,41 @@ VUHDO_RAID = {
 		["powermax"] = 120,
 		["ownerUnit"] = "player",
 		["connected"] = true,
-		["health"] = 84372,
+		["health"] = 95422,
+	},
+	["player"] = {
+		["zone"] = "Boralus Harbor",
+		["baseRange"] = true,
+		["class"] = "HUNTER",
+		["role"] = 62,
+		["sortMaxHp"] = 126807,
+		["map"] = "Boralus",
+		["threat"] = 0,
+		["powermax"] = 120,
+		["threatPerc"] = 0,
+		["isPet"] = false,
+		["name"] = "Qsilver",
+		["number"] = 1,
+		["isVehicle"] = false,
+		["group"] = 1,
+		["classId"] = 22,
+		["range"] = true,
+		["unit"] = "player",
+		["powertype"] = 2,
+		["healthmax"] = 126807,
+		["dead"] = false,
+		["charmed"] = false,
+		["fullName"] = "Qsilver",
+		["power"] = 120,
+		["aggro"] = false,
+		["visible"] = true,
+		["targetUnit"] = "target",
+		["health"] = 126807,
+		["className"] = "Hunter",
+		["afk"] = false,
+		["debuff"] = 0,
+		["connected"] = true,
+		["petUnit"] = "pet",
 	},
 }
 VUHDO_INDICATOR_CONFIG = {
@@ -8164,9 +8164,9 @@ VUHDO_INDICATOR_CONFIG = {
 		["INCOMING_BAR"] = "",
 		["SIDE_LEFT"] = "",
 		["THREAT_MARK"] = "",
-		["BAR_BORDER"] = "Border: Multi + Aggro",
 		["SIDE_RIGHT"] = "",
 		["MANA_BAR"] = "Manabars: Mana only",
+		["BAR_BORDER"] = "Border: Multi + Aggro",
 		["HEALTH_BAR"] = "Health (generic, class col)",
 		["CLUSTER_BORDER"] = "",
 		["HEALTH_BAR_PANEL"] = {

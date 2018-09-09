@@ -1081,6 +1081,7 @@ function AAP.UpdateQuestList()
 	--end
 
 	AAP.BookingList["AAP_Plus"] = "AAP_Plus"
+	AAP.BookingList["AAP.SetQPTT"] = 1
 end
 
 

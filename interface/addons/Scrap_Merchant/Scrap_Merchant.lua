@@ -29,7 +29,7 @@ function Scrap:StartupMerchant()
 	Background = self:CreateTexture(nil, 'BORDER')
 	Background:SetHeight(27) Background:SetWidth(27)
 	Background:SetPoint('CENTER', -0.5, -1.2)
-	Background:SetTexture(0, 0, 0)
+	Background:SetColorTexture(0, 0, 0)
 
 	Icon = self:CreateTexture(self:GetName()..'Icon')
 	Icon:SetTexture('Interface\\Addons\\Scrap\\Art\\Enabled Box')

@@ -463,7 +463,7 @@ CrucibleWeight: enabled
 DejaCharacterStats: enabled
 Details: enabled
 Details_DmgRank: enabled
-Details_DeathGraphs: disabled
+Details_DeathGraphs: enabled
 Details_DpsTuning: enabled
 Details_EncounterDetails: enabled
 Details_RaidCheck: enabled
@@ -488,7 +488,7 @@ Emoji: enabled
 Emoji_TwitchEmotes: enabled
 EnhancedMenu: enabled
 ExRT: enabled
-GuildNewsFilter: disabled
+GuildNewsFilter: enabled
 HandyNotes_BrokenShore: enabled
 HandyNotes_Argus: enabled
 HandyNotes_AzerothsTopTunes: enabled
@@ -530,3 +530,5 @@ Auc-Stat-Simple: enabled
 Auc-Stat-Purchased: enabled
 Auc-Stat-StdDev: enabled
 Auc-Util-FixAH: enabled
+AzeriteTooltip: enabled
+AzeriteForge: disabled

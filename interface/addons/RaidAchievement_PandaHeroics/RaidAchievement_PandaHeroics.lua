@@ -5,7 +5,7 @@ function phraonload()
 	_, phraenglishclass = UnitClass("player")
 	phrahuntertime=0
 	
-	raPandaModVers=8.000
+	raPandaModVers=8.001
 
 local _, a2 = GetInstanceInfo()
 if select(3,GetInstanceInfo())==2 and a2=="party" then
@@ -231,7 +231,7 @@ end
 
 --achieves tracker:
 --Scarlet Halls
-if C_Map.GetBestMapForUnit("player")==871 then
+--if C_Map.GetBestMapForUnit("player")==871 then
 if arg2=="UNIT_DIED" and phbosskilled==nil and rablockuntilreset==nil then
   if phraspisokon[1]==1 and phraachdone1 then
   local id=raGetUnitID(arg7)
@@ -240,7 +240,7 @@ if arg2=="UNIT_DIED" and phbosskilled==nil and rablockuntilreset==nil then
     rablockuntilreset=1
   end
   end
-end
+--end
 
 
 if arg2=="UNIT_DIED" then
@@ -288,7 +288,7 @@ end
 
 
 --Scarlet Monastery
-if C_Map.GetBestMapForUnit("player")==874 then
+--if C_Map.GetBestMapForUnit("player")==874 then
 if arg2=="SPELL_SUMMON" and arg10==115250 then
 if razombiidtable==nil then
   razombiidtable={}
@@ -364,12 +364,12 @@ if arg2=="UNIT_DIED" and rarezurecttable then
 end
 
 
-end
+--end
 --
 
 
 --Scholomance
-if C_Map.GetBestMapForUnit("player")==898 then
+--if C_Map.GetBestMapForUnit("player")==898 then
 
 
 
@@ -385,12 +385,12 @@ if arg2=="SPELL_AURA_APPLIED_DOSE" and arg10==114141 and arg14>98 then
   end
 end
 
-end
+--end
 --
 
 
 --Siege of Niuzao Temple
-if C_Map.GetBestMapForUnit("player")==887 then
+--if C_Map.GetBestMapForUnit("player")==887 then
 if arg2=="UNIT_DIED" then
   if phraspisokon[7]==1 and phraachdone1 then
   local id=raGetUnitID(arg7)
@@ -409,12 +409,12 @@ end
 
 
 
-end
+--end
 --
 
 
 --Stormstout Brewery
-if C_Map.GetBestMapForUnit("player")==876 then
+--if C_Map.GetBestMapForUnit("player")==876 then
 
 if arg2=="SPELL_DAMAGE" and arg10==106784 and UnitGUID("boss1") and arg7==UnitGUID("boss1") then
   phracounter1=phracounter1+1
@@ -427,13 +427,13 @@ end
 
 
 
-end
+--end
 --
 
 
 
 --Temple of the Jade Serpent
-if C_Map.GetBestMapForUnit("player")==867 then
+--if C_Map.GetBestMapForUnit("player")==867 then
 
 if (arg2=="SPELL_DAMAGE" or arg2=="SPELL_MISSED") and (arg10==115167 or arg10==106105 or arg10==106334) and UnitName("player")==arg8 then
   if phraspisokon[10]==1 and phraachdone1 then
@@ -442,14 +442,14 @@ if (arg2=="SPELL_DAMAGE" or arg2=="SPELL_MISSED") and (arg10==115167 or arg10==1
 end
 
 
-end
+--end
 --
 
 
 
 
 --Shado-Pan Monastery
-if C_Map.GetBestMapForUnit("player")==877 then
+--if C_Map.GetBestMapForUnit("player")==877 then
 
 --12
 --ыытест ИЗМЕНЯЯ ЦИФРУ, ИЗМЕНЯТЬ ТАК ЖЕ И В ОНАПДЕЙТ ФУНКЦИИ\
@@ -482,12 +482,12 @@ if arg2=="SPELL_AURA_REMOVED" and arg10==107087 and radebufcrazy then
   end
 end
 
-end
+--end
 --
 
 
 --Gate of the Setting Sun
-if C_Map.GetBestMapForUnit("player")==875 then
+--if C_Map.GetBestMapForUnit("player")==875 then
 
 if arg2=="UNIT_DIED" and UnitName("boss1") then
   if phraspisokon[12]==1 and phraachdone1 then
@@ -499,7 +499,7 @@ if arg2=="UNIT_DIED" and UnitName("boss1") then
 end
 
 
-end
+--end
 --
 
 
