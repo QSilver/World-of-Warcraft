@@ -1,6 +1,6 @@
 
 PawnOptions = {
-	["LastVersion"] = 2.0227,
+	["LastVersion"] = 2.0228,
 	["LastPlayerFullName"] = "Qsilver-Silvermoon",
 	["AutoSelectScales"] = false,
 	["UpgradeTracking"] = false,

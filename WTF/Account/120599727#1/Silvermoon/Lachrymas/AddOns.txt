@@ -1,6 +1,6 @@
 AdvancedInterfaceOptions: enabled
 EnemyGrid: disabled
-Details_DeathGraphs: enabled
+Details_DeathGraphs: disabled
 _NPCScan.Overlay: disabled
 I_Hear_You_All: enabled
 Azeroth Auto Pilot: disabled
@@ -18,3 +18,5 @@ Auc-Util-FixAH: enabled
 GuildNewsFilter: enabled
 AzeriteTooltip: enabled
 AzeriteForge: disabled
+AllTheThings: disabled
+RaiderIO: disabled

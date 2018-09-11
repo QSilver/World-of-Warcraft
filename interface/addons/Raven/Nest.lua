@@ -30,8 +30,10 @@ local usedBars = {} -- cache of recycled bars
 local update = false -- set whenever a global change has occured
 local buttonName = 0 -- incremented for each button created
 local callbacks = {} -- registered callback functions
-local animationPool = {} -- pool of available animations
-local animations = {} -- active animations
+local barAnimationPool = {} -- pool of available bar animations
+local barAnimations = {} -- active bar animations
+local shineEffectPool = {} -- pool of available shine animations
+local glowEffectPool = {} -- pool of available glow animations
 local displayWidth, displayHeight = UIParent:GetWidth(), UIParent:GetHeight()
 local defaultBackdropColor = { r = 1, g = 1, b = 1, a = 1 }
 local pixelScale = 1 -- adjusted by screen resolution and uiScale
@@ -139,15 +141,14 @@ end
 -- Validate that have a valid font reference
 local function ValidFont(name)
 	local result = (name and (type(name) == "string") and (name ~= ""))
-	-- MOD.Debug("ValidFont", name, result)
 	return result
 end
 
--- Initialize and return a splash animation based on a bar's icon image
+-- Initialize and return a bar splash-style animation based on a bar's icon image
 local function BarAnimation(bar, anchor1, frame, anchor2, xoffset, yoffset)
 	local tex = bar.iconTexture:GetTexture(); if not tex then return end
-	local b = next(animationPool)
-	if b then animationPool[b] = nil else
+	local b = next(barAnimationPool)
+	if b then barAnimationPool[b] = nil else
 		b = {} -- initialize a new animation
 		b.frame = CreateFrame("Frame", nil, UIParent)
 		b.frame:SetFrameLevel(bar.frame:GetFrameLevel() + 10)
@@ -159,7 +160,6 @@ local function BarAnimation(bar, anchor1, frame, anchor2, xoffset, yoffset)
 		local alpha = b.anim:CreateAnimation("Alpha")
 		alpha:SetFromAlpha(1); alpha:SetToAlpha(0) -- LEGION change
 		alpha:SetDuration(0.65); alpha:SetSmoothing("IN"); alpha:SetEndDelay(5); alpha:SetOrder(1)
-		b.scale = scale; b.alpha = alpha
 	end
 	local w, h = bar.icon:GetSize()
 	PSetSize(b.frame, w, h)
@@ -168,17 +168,108 @@ local function BarAnimation(bar, anchor1, frame, anchor2, xoffset, yoffset)
 	b.texture:SetTexture(tex); b.texture:ClearAllPoints(); b.texture:SetAllPoints(b.frame); b.texture:Show()
 	b.anim:Stop(); b.anim:Play()
 	b.endTime = GetTime() + 1 -- stop after one second
-	table.insert(animations, b)
+	table.insert(barAnimations, b)
 end
 
--- Update active animations, recycling when they are complete
-local function UpdateAnimations()
+-- Update active bar animations, recycling when they are complete
+local function UpdateBarAnimations()
 	local now = GetTime()
-	for k, b in pairs(animations) do
+	for k, b in pairs(barAnimations) do
 		if now > b.endTime then
-			b.anim:Pause(); animations[k] = nil; animationPool[b] = true
+			b.anim:Pause(); barAnimations[k] = nil; barAnimationPool[b] = true
 			b.frame:ClearAllPoints(); b.texture:ClearAllPoints(); b.frame:Hide(); b.texture:Hide()
 		end
+	end
+end
+
+-- Initialize and return a shine effect over a bar's icon
+-- If r, g and b are set then apply color to the animation
+local function ShineEffect(bar, r, g, b)
+	local a = bar.shineEffect -- get an animation if one has already been allocated for this bar
+	if not a then -- allocate an animation if necessary
+		a = next(shineEffectPool) -- get one from the recycling pool if available
+		if a then shineEffectPool[a] = nil else
+			a = {} -- initialize a new animation for this shine effect
+			a.frame = CreateFrame("Frame", nil, UIParent)
+			a.frame:SetFrameStrata("HIGH")
+			a.texture = a.frame:CreateTexture(nil, "ARTWORK") -- texture to be animated	
+			a.texture:SetTexture("Interface\\Cooldown\\star4")
+			a.texture:SetBlendMode("ADD")
+			a.anim = a.frame:CreateAnimationGroup()
+			a.anim:SetLooping("NONE")
+			local alpha1 = a.anim:CreateAnimation("Alpha")
+			alpha1:SetFromAlpha(0); alpha1:SetToAlpha(1); alpha1:SetDuration(0.125); alpha1:SetOrder(1)
+			local scale1 = a.anim:CreateAnimation("Scale")
+			scale1:SetScale(2, 2); scale1:SetDuration(0.125); scale1:SetOrder(1)
+			local scale2 = a.anim:CreateAnimation("Scale")
+			scale2:SetScale(0.1, 0.1); scale2:SetDuration(0.875); scale2:SetOrder(2)
+			local rotation = a.anim:CreateAnimation("Rotation")
+			rotation:SetDegrees(135); rotation:SetDuration(0.875); rotation:SetOrder(2)
+			local alpha2 = a.anim:CreateAnimation("Alpha")
+			alpha2:SetFromAlpha(1); alpha2:SetToAlpha(0); alpha2:SetDuration(0.125); alpha2:SetOrder(3)
+		end
+		a.frame:ClearAllPoints()
+		a.frame:SetFrameLevel(bar.frame:GetFrameLevel() + 10)
+		local w, h = bar.icon:GetSize()
+		PSetSize(a.frame, w, h)
+		PCSetPoint(a.frame, "CENTER", bar.icon, "CENTER", 0, 0)
+		a.texture:SetAllPoints(a.frame)
+		a.frame:SetAlpha(0)
+		a.frame:Show(); a.texture:Show()
+		bar.shineEffect = a
+	end
+	if not a.anim:IsPlaying() then
+		a.texture:SetVertexColor(r or 1, g or 1, b or 1) -- add color to the texture
+		a.anim:Stop(); a.anim:Play()
+	end
+end
+
+-- When a bar is deleted then release allocated shine animation, if any
+local function ReleaseShineEffect(bar)
+	local a = bar.shineEffect -- get the shine animation, if any, that is allocated for this bar
+	if a then
+		a.anim:Stop(); a.frame:ClearAllPoints(); a.texture:Hide(); a.frame:Hide()
+		shineEffectPool[a] = true
+		bar.shineEffect = nil
+	end
+end
+
+-- Initialize and return a glow effect behind a bar's icon
+-- If r, g and b are set then apply color to the animation
+local function GlowEffect(bar, r, g, b)
+	local a = bar.glowEffect -- get a glow effect if one has already been allocated for this bar
+	if not a then -- allocate an animation if necessary
+		a = next(glowEffectPool) -- get one from the recycling pool if available
+		if a then glowEffectPool[a] = nil else
+			a = {} -- initialize a new table for this glow effect
+			a.frame = CreateFrame("Frame", nil, UIParent)
+			a.texture = a.frame:CreateTexture(nil, "BACKGROUND") -- texture to be animated	
+			a.texture:SetTexture("Interface\\SpellActivationOverlay\\IconAlert")
+			a.texture:SetTexCoord(0.00781250, 0.50781250, 0.53515625, 0.78515625)
+			a.texture:SetBlendMode("ADD")
+		end
+		a.frame:ClearAllPoints()
+		a.frame:SetFrameStrata(bar.frame:GetFrameStrata())
+		a.frame:SetFrameLevel(bar.frame:GetFrameLevel())
+		local w, h = bar.icon:GetSize()
+		PSetSize(a.frame, w, h)
+		PCSetPoint(a.frame, "CENTER", bar.icon, "CENTER", 0, 0)
+		PSetSize(a.texture, (w - 2) * 2, (h - 2) * 2)
+		PCSetPoint(a.texture, "CENTER", a.frame, "CENTER", -1, 0)
+		a.texture:SetVertexColor(r or 1, g or 1, b or 1) -- add color to the texture
+		a.frame:SetAlpha(0.35)
+		a.frame:Show(); a.texture:Show()
+		bar.glowEffect = a
+	end
+end
+
+-- When a bar is deleted then release allocated glow animation, if any
+local function ReleaseGlowEffect(bar)
+	local a = bar.glowEffect -- get the glow animation, if any, that is allocated for this bar
+	if a then
+		a.frame:ClearAllPoints(); a.texture:Hide(); a.frame:Hide()
+		glowEffectPool[a] = true
+		bar.glowEffect = nil
 	end
 end
 
@@ -682,11 +773,16 @@ function MOD.Nest_CreateBar(bg, name)
 		bar.iconText = bar.iconTextFrame:CreateFontString(nil, "OVERLAY", nil, 4)
 		bar.iconBorder = bar.iconTextFrame:CreateTexture(nil, "BACKGROUND", nil, 3)		
 		if UseTukui() then
-			bar.frame:CreateBackdrop("Transparent")
-			local bdrop = bar.frame.backdrop or bar.frame.Backdrop
+			bar.tukbar = CreateFrame("Frame", bname .. "Tukbar", bar.container)
+			bar.tukbar:CreateBackdrop("Transparent")
+			local bdrop = bar.tukbar.backdrop or bar.tukbar.Backdrop
+			if bdrop then bdrop:SetOutside(bar.tukbar) end
+			bar.icon:CreateBackdrop("Transparent")
+			bdrop = bar.icon.backdrop or bar.icon.Backdrop
 			if bdrop then
-				bdrop:SetOutside(bar.frame)
-				bar.tukcolor_r, bar.tukcolor_g, bar.tukcolor_b, bar.tukcolor_a = bdrop:GetBackdropBorderColor() -- save default border color
+				bdrop:SetFrameLevel(bar.icon:GetFrameLevel() - 2) -- drop backdrop frame level by one due to "hazy overlay" interaction with Masque
+				bdrop:SetOutside(bar.icon)
+				bar.tukcolor_r, bar.tukcolor_g, bar.tukcolor_b, bar.tukcolor_a = bdrop:GetBackdropBorderColor() -- save default icon border color
 			end
 		end
 		
@@ -719,7 +815,6 @@ function MOD.Nest_CreateBar(bg, name)
 	bar.icon:SetScript("OnEnter", Bar_OnEnter)
 	bar.icon:SetScript("OnLeave", Bar_OnLeave)
 	bar.icon:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-	if UseTukui() then bar.frame:Show(); bar.container:Show() end
 	bar.startTime = GetTime()
 	bar.name = name
 	bar.update = true
@@ -743,6 +838,8 @@ function MOD.Nest_DeleteBar(bg, bar)
 	local config = MOD.Nest_SupportedConfigurations[bg.configuration]
 	if config.bars == "timeline" and bg.tlSplash then BarGroup_TimelineAnimation(bg, bar, config) end
 	if bar.attributes.soundEnd then PlaySoundFile(bar.attributes.soundEnd, Raven.db.global.SoundChannel) end
+	ReleaseShineEffect(bar) -- release shine effect, if one has been allocated for this bar
+	ReleaseGlowEffect(bar) -- release glow effect, if one has been allocated for this bar
 	for n in pairs(bar.attributes) do bar.attributes[n] = nil end
 	for n in pairs(bar.callbacks) do bar.callbacks[n] = nil end
 	for n in pairs(barTemplate) do bar[n] = nil end -- reset current bar settings
@@ -763,13 +860,12 @@ function MOD.Nest_DeleteBar(bg, bar)
 	bar.update = false
 	bar.backdrop:Hide(); bar.fgTexture:Hide(); bar.bgTexture:Hide(); bar.spark:Hide(); bar.icon:Hide(); bar.cooldown:Hide()
 	bar.iconText:Hide(); bar.labelText:Hide(); bar.timeText:Hide(); bar.iconBorder:Hide(); bar.tick:Hide()
+	if bar.tukbar then bar.tukbar:Hide() end -- if skinning for elvui then hide this frame too
 	bar.backdrop:ClearAllPoints(); bar.fgTexture:ClearAllPoints(); bar.bgTexture:ClearAllPoints(); bar.spark:ClearAllPoints()
 	bar.icon:ClearAllPoints(); bar.cooldown:ClearAllPoints(); bar.iconText:ClearAllPoints(); bar.tick:ClearAllPoints()
 	bar.labelText:ClearAllPoints(); bar.timeText:ClearAllPoints(); bar.iconBorder:ClearAllPoints()
 	bar.frame:SetHitRectInsets(0, 0, 0, 0) -- used by stripe bar group
 	if callbacks.release then callbacks.release(bar) end
-	
-	if UseTukui() then bar.frame:Hide(); bar.container:Hide() end -- no need to reset default border colors since won't change once set
 	
 	local i = 1
 	while i <= bg.count do -- find and remove the corresponding entry in the sorting table
@@ -1261,31 +1357,36 @@ function MOD.Nest_FormatTime(t, timeFormat, timeSpaces, timeCase)
 	if timeFormat < 1 then timeFormat = 1 end
 	local opt = MOD.Nest_TimeFormatOptions[timeFormat]
 	local func = opt.custom
-	local h, m, hplus, mplus, s, ts, f
+	local d, h, m, hplus, mplus, s, ts, f
 	if func then -- check for custom time formatting options
 		f = func(t)
 	else
 		local o1, o2, o3, o4, o5 = opt[1], opt[2], opt[3], opt[4], opt[5]
-		h = math.floor(t / 3600); m = math.floor((t - (h * 3600)) / 60); s = math.floor(t - (h * 3600) - (m * 60))
-		hplus = math.floor((t + 3599.99) / 3600); mplus = math.floor((t - (h * 3600) + 59.99) / 60) -- provides compatibility with tooltips
-		ts = math.floor(t * 10) / 10 -- truncated to a tenth second
-		if t >= 3600 then
-			if o1 == 1 then f = string.format("%.0f:%02.0f:%02.0f", h, m, s) elseif o1 == 2 then f = string.format("%.0fh %.0fm", h, m)
-				elseif o1 == 3 then f = string.format("%.0fh", hplus) elseif o1 == 4 then f = string.format("%.0fh %.0f", h, m)
-				else f = string.format("%.0f:%02.0f", h, m) end
-		elseif t >= 120 then
-			if o2 == 1 then f = string.format("%.0f:%02.0f", m, s) elseif o2 == 2 then f = string.format("%.0fm %.0fs", m, s)
-				else f = string.format("%.0fm", mplus) end
-		elseif t >= 60 then
-			if o3 == 1 then f = string.format("%.0f:%02.0f", m, s) elseif o3 == 2 then f = string.format("%.0fm %.0fs", m, s)
-				else f = string.format("%.0fm", mplus) end
-		elseif t >= 10 then
-			if o4 == 1 then f = string.format(":%02.0f", s) elseif o4 == 2 then f = string.format("%.0fs", s)
-				else f = string.format("%.0f", s) end
+		if t >= 86400 then -- special case for more than one day which applies regardless of selected format
+			d = math.floor(t / 86400); h = math.floor((t - (d * 86400)) / 3600)
+			if (d >= 2) then f = string.format("%.0fd", d) else f = string.format("%.0fd %.0fh", d, h) end
 		else
-			if o5 == 1 then f = string.format(":%02.0f", s) elseif o5 == 2 then f = string.format("%.1fs", ts)
-				elseif o5 == 3 then f = string.format("%.0fs", s) elseif o5 == 4 then f = string.format("%.1f", ts)
-				else f = string.format("%.0f", s) end
+			h = math.floor(t / 3600); m = math.floor((t - (h * 3600)) / 60); s = math.floor(t - (h * 3600) - (m * 60))
+			hplus = math.floor((t + 3599.99) / 3600); mplus = math.floor((t - (h * 3600) + 59.99) / 60) -- provides compatibility with tooltips
+			ts = math.floor(t * 10) / 10 -- truncated to a tenth second
+			if t >= 3600 then
+				if o1 == 1 then f = string.format("%.0f:%02.0f:%02.0f", h, m, s) elseif o1 == 2 then f = string.format("%.0fh %.0fm", h, m)
+					elseif o1 == 3 then f = string.format("%.0fh", hplus) elseif o1 == 4 then f = string.format("%.0fh %.0f", h, m)
+					else f = string.format("%.0f:%02.0f", h, m) end
+			elseif t >= 120 then
+				if o2 == 1 then f = string.format("%.0f:%02.0f", m, s) elseif o2 == 2 then f = string.format("%.0fm %.0fs", m, s)
+					else f = string.format("%.0fm", mplus) end
+			elseif t >= 60 then
+				if o3 == 1 then f = string.format("%.0f:%02.0f", m, s) elseif o3 == 2 then f = string.format("%.0fm %.0fs", m, s)
+					else f = string.format("%.0fm", mplus) end
+			elseif t >= 10 then
+				if o4 == 1 then f = string.format(":%02.0f", s) elseif o4 == 2 then f = string.format("%.0fs", s)
+					else f = string.format("%.0f", s) end
+			else
+				if o5 == 1 then f = string.format(":%02.0f", s) elseif o5 == 2 then f = string.format("%.1fs", ts)
+					elseif o5 == 3 then f = string.format("%.0fs", s) elseif o5 == 4 then f = string.format("%.1f", ts)
+					else f = string.format("%.0f", s) end
+			end
 		end
 	end
 	if not timeSpaces then f = string.gsub(f, " ", "") end
@@ -1424,15 +1525,17 @@ local function Bar_UpdateSettings(bg, bar, config)
 		if bar.value < 0 then bar.value = 0 end -- no negative values
 		if bar.value < bar.maxValue then fill = bar.value / bar.maxValue end -- adjust foreground bar width based on values
 		if bg.fillBars then fill = 1 - fill end -- optionally fill instead of empty bars
-		if bar.valueText then timeText = bar.valueText end -- set time text if a value text is provided
+		if bar.valueText then timeText = bar.valueText else timeText = tostring(bar.value) end -- set time text to value or override with value text
 	end
 	if bg.showIcon and not isHeader then
 		offsetX = bg.iconSize
 		if bar.iconPath then bar.icon:Show(); bar.iconTexture:SetTexture(bar.iconPath) else bar.icon:Hide() end
 		bar.iconTexture:SetDesaturated(bat.desaturate) -- optionally desaturate the bar's icon
-		local pulseStart, pulseEnd = (bag.pulseStart or bat.pulseStart), (bag.pulseEnd or bat.pulseEnd)
-		if pulseStart and bar.timeLeft and ((bar.duration - bar.timeLeft) < 0.25) and not ba:IsPlaying() then ba:Play() end
-		if pulseEnd and bar.timeLeft and (bar.timeLeft < 0.45) and (bar.timeLeft > 0.1) and not ba:IsPlaying() then ba:Play() end
+		if bar.timeLeft and ((bar.duration - bar.timeLeft) <= 0.25) then
+			if (bag.shineStart or bat.shineStart) then ShineEffect(bar) end -- shine animation at start
+			if (bag.pulseStart or bat.pulseStart) and not ba:IsPlaying() then ba:Play() end -- pulse at start
+		end
+		if (bag.pulseEnd or bat.pulseEnd) and bar.timeLeft and (bar.timeLeft < 0.45) and (bar.timeLeft > 0.1) and not ba:IsPlaying() then ba:Play() end
 		if MSQ and Raven.db.global.ButtonFacadeIcons then -- icon border coloring
 			if Raven.db.global.ButtonFacadeIcons and Raven.db.global.ButtonFacadeBorder and bx and bx.SetVertexColor then
 				bx:SetVertexColor(bar.ibr, bar.ibg, bar.ibb, bar.iba); showBorder = true
@@ -1441,7 +1544,7 @@ local function Bar_UpdateSettings(bg, bar, config)
 			if Raven.db.global.ButtonFacadeNormal and nx and nx.SetVertexColor then nx:SetVertexColor(bar.ibr, bar.ibg, bar.ibb, bar.iba) end
 		else
 			if UseTukui() then
-				local bdrop = bar.frame.backdrop or bar.frame.Backdrop
+				local bdrop = bar.icon.backdrop or bar.icon.Backdrop
 				if bdrop then
 					if bat.iconColors == "None" then
 						bdrop:SetBackdropBorderColor(bar.tukcolor_r, bar.tukcolor_g, bar.tukcolor_b, bar.tukcolor_a)
@@ -1471,9 +1574,13 @@ local function Bar_UpdateSettings(bg, bar, config)
 	end
 	local ct, cm, expiring, ea, ec = bat.colorTime, bat.colorMinimum, false, bg.bgAlpha, nil
 	if bar.timeLeft and bar.duration and ct and cm and ct >= bar.timeLeft and bar.duration >= cm then
+		expiring = true
 		ec = bat.expireLabelColor; if ec and ec.a > 0 then bl:SetTextColor(ec.r, ec.g, ec.b, ec.a) end
 		ec = bat.expireTimeColor; if ec and ec.a > 0 then bt:SetTextColor(ec.r, ec.g, ec.b, ec.a) end
-		expiring = true
+		local c = bat.shineColor or bag.shineColor -- prefer bar assigned shine color
+		if c and ((ct - bar.timeLeft) <= 0.25) then
+			if (c.a > 0) then ShineEffect(bar, c.r, c.g, c.b) end -- shine animation at expire time
+		end
 	end
 	if expiring and config.iconOnly and ea == 0 then ea = 1 end -- make icon-only bar visible as expire reminder
 	if bg.showTimeText then bt:SetText(timeText); bt:Show() else bt:Hide() end
@@ -1502,6 +1609,7 @@ local function Bar_UpdateSettings(bg, bar, config)
 		end
 		bb:SetVertexColor(ar, ag, ab, 1); bb:SetTexture(bg.bgTexture); bb:SetAlpha(bg.bgAlpha)
 		PSetWidth(bb, w); bb:SetTexCoord(0, 1, 0, 1); bb:Show()
+		if bar.tukbar then bar.tukbar:SetAllPoints(bb); bar.tukbar:Show() end -- elvui backdrop is under the background texture
 		local fillw = w * fill
 		local showfg = bg.fgNotTimer
 		if bat.fullReverse then showfg = not showfg end
@@ -1514,7 +1622,7 @@ local function Bar_UpdateSettings(bg, bar, config)
 			if config.bars == "r2l" or config.bars == "stripe" then bf:SetTexCoord(0, 0, 0, 1, fill, 0, fill, 1) else bf:SetTexCoord(fill, 0, fill, 1, 0, 0, 0, 1) end
 			bf:Show()
 		else bf:Hide() end
-	else bf:Hide(); bb:Hide() end
+	else bf:Hide(); bb:Hide(); if bar.tukbar then bar.tukbar:Hide() end end
 	if sparky then bar.spark:Show() else bar.spark:Hide() end
 	if ticky then bar.tick:Show() else bar.tick:Hide() end
 	local alpha = bar.alpha or 1 -- adjust by bar alpha
@@ -1559,7 +1667,11 @@ local function Bar_RefreshAnimations(bg, bar, config)
 			end
 		end
 		local colorTime = bat.colorTime -- if need to change color then force update to re-color the bar
-		if colorTime and colorTime >= remaining and (colorTime - remaining) < 0.25 then Raven:ForceUpdate() end
+		if colorTime and colorTime >= remaining and (colorTime - remaining) < 0.25 then
+			if not bar.colorDone then Raven:ForceUpdate(); bar.colorDone = true end
+		else
+			bar.colorDone = false
+		end
 		if bat.expireMSBT and bat.minimumMSBT and not bar.warningDone and bar.duration >= bat.minimumMSBT
 			and bat.expireMSBT >= remaining and (bat.expireMSBT - remaining) < 1 then
 			local ec, crit, icon = bat.colorMSBT, bat.criticalMSBT, bar.iconTexture:GetTexture()
@@ -2037,7 +2149,7 @@ function MOD.Nest_Update()
 		end
 	end
 	UpdateRelativePositions() -- has to be done every time to support relative positioning to last bar
-	UpdateAnimations() -- check for completed animations
+	UpdateBarAnimations() -- check for completed bar animations
 	update = false
 end
 
@@ -2052,5 +2164,5 @@ function MOD.Nest_Refresh()
 			if not bg.disableAlpha then BarGroup_Alpha(bg) end
 		end
 	end
-	UpdateAnimations() -- check for completed animations
+	UpdateBarAnimations() -- check for completed bar animations
 end

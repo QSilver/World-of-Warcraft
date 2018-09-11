@@ -1,24 +1,8 @@
 ------------------------------------------------------------------------
-r446 | Tomber | 2018-08-29 19:43:24 +0000 (Wed, 29 Aug 2018) | 17 lines
+r456 | Tomber | 2018-09-11 02:00:26 +0000 (Tue, 11 Sep 2018) | 1 line
 Changed paths:
-   M /trunk/Main.lua
+   M /trunk/Nest.lua
 
-Release build for r450.
-
-Warlock minions support is added to auto bar groups. This version has Exclude By Type set to not include them. For testing, recommend creating a new auto bar group, enable Auto Buffs, enable Include By Type and select only Minions, disable Exclude By Type.
-
-Refinement of minion bars:
-1. Multiple instances of a given minion type (e.g., Wild Imps) show up as a single bar with a stack count and timer for the soonest to expire.
-2. Wild imps append a indicator showing the number of remaining fel firebolts (a string of fel-colored *'s).
-
-Cooldown detection has been updated. It caches more information and is considerly more efficient. It also addresses a number of edge cases that were missed in the prior versions (in particular, related to spells that change dynamically like Command Pet).
-
-Spell name validation may now be overridden by the Warnings setting on the Spells tab. Previously this setting just suppressed the warning messages in chat. There is also a separate Warnings option in the new bar settings for custom bar groups. Judicious use of these settings let you, among other things, customize icons and colors in special cases like minion bars.
-
-Fixed issue with usable spell detection code for ready bars and conditions.
-
-Another new feature on the horizon: value bars for displaying various game properties. These are disabled in preparation for release since they are not complete enough to consider alpha yet.
-
-
+Fixes for two issues with the ElvUI support in r460. The first fix addresses the mysterious black bar that showed up even in icon-only configurations. The second fix addresses the hazy dark overlay on icons when using Masque, ElvUI and Raven together.
 ------------------------------------------------------------------------
 

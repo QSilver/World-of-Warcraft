@@ -157,24 +157,24 @@ WeakAurasSaved = {
 		["Light Infusion"] = {
 			[235213] = 461859,
 		},
+		["Blood Feast"] = {
+			[263235] = 132278,
+		},
 		["Flame Lick"] = {
 			[228228] = "INTERFACE\\ICONS\\spell_shaman_improvedfirenova",
+		},
+		["Empowered Shadowforce"] = {
+			[182088] = "Interface\\Icons\\ability_ironmaidens_convulsiveshadows",
 		},
 		["Befouled"] = {
 			[189030] = "Interface\\Icons\\ability_malkorok_blightofyshaarj_red",
 			[189031] = "Interface\\Icons\\ability_malkorok_blightofyshaarj_yellow",
 		},
-		["Blood Feast"] = {
-			[263235] = 132278,
+		["Critical Mass"] = {
+			[276900] = 236295,
 		},
 		["Empowered Mannoroth's Gaze"] = {
 			[182006] = "Interface\\Icons\\ability_bossmannoroth_empoweredmannorothsgaze",
-		},
-		["Empowered Shadowforce"] = {
-			[182088] = "Interface\\Icons\\ability_ironmaidens_convulsiveshadows",
-		},
-		["Critical Mass"] = {
-			[276900] = 236295,
 		},
 		["Heart Attack"] = {
 			[268007] = 1120423,
@@ -186,6 +186,12 @@ WeakAurasSaved = {
 		},
 		["Malodorous Miasma"] = {
 			[262313] = 538518,
+		},
+		["Blowback"] = {
+			[248812] = 236256,
+		},
+		["Depleted Energy"] = {
+			[274205] = 133018,
 		},
 		["Titanic Bulwark"] = {
 			[235028] = 135874,
@@ -199,8 +205,8 @@ WeakAurasSaved = {
 		["Pool of Souls"] = {
 			[186770] = "Interface\\Icons\\Ability_Warlock_ImprovedSoulLeech",
 		},
-		["Blowback"] = {
-			[248812] = 236256,
+		["Death Bolt"] = {
+			[272180] = 458727,
 		},
 		["Lacerate"] = {
 			[185855] = "Interface\\Icons\\ability_hunter_laceration",
@@ -212,38 +218,38 @@ WeakAurasSaved = {
 		["Taint of the Sea"] = {
 			[228054] = "Interface\\Icons\\Spell_Nature_ElementalShields",
 		},
-		["Depleted Energy"] = {
-			[274205] = 133018,
+		["Pain"] = {
+			[249194] = 136207,
 		},
 		["Icy Ejection"] = {
 			[206936] = 612394,
 		},
-		["Death Bolt"] = {
-			[272180] = 458727,
+		["Echoing Anguish"] = {
+			[233983] = 136181,
 		},
 		["Stuffed"] = {
 			[214573] = 1241154,
 		},
-		["Pain"] = {
-			[249194] = 136207,
-		},
-		["Soul Corruption"] = {
-			[248713] = 136212,
-		},
-		["Echoing Anguish"] = {
-			[233983] = 136181,
-		},
 		["Corrupted Blood"] = {
 			[274195] = 1129419,
 		},
-		["Defiled Vines"] = {
-			[203770] = "Interface\\Icons\\Spell_Nature_StrangleVines",
+		["Soul Corruption"] = {
+			[248713] = 136212,
 		},
 		["Wither"] = {
 			[236131] = 136135,
 		},
 		["Sephuz's Secret"] = {
 			[208052] = 645145,
+		},
+		["Defiled Vines"] = {
+			[203770] = "Interface\\Icons\\Spell_Nature_StrangleVines",
+		},
+		["Incendiary Rounds"] = {
+			[256201] = 252172,
+		},
+		["Thirst For Blood"] = {
+			[266107] = 841383,
 		},
 		["Blackening Soul"] = {
 			[209158] = "Interface\\Icons\\ability_xavius_blackeningsoul",
@@ -255,15 +261,15 @@ WeakAurasSaved = {
 		["Calcified Quills"] = {
 			[233431] = 1029749,
 		},
-		["Incendiary Rounds"] = {
-			[256201] = 252172,
-		},
-		["Thirst For Blood"] = {
-			[266107] = 841383,
-		},
 		["Twisting Shadows"] = {
 			[210850] = "Interface\\Icons\\ability_priest_voidentropy",
 			[210863] = "Interface\\Icons\\ability_priest_voidentropy",
+		},
+		["Essence Shear"] = {
+			[274693] = 1354410,
+		},
+		["Roiling Deceit"] = {
+			[265360] = 538560,
 		},
 		["Annihilation"] = {
 			[272146] = 1386548,
@@ -272,17 +278,17 @@ WeakAurasSaved = {
 			[278888] = 1029738,
 			[278889] = 1029738,
 		},
-		["Essence Shear"] = {
-			[274693] = 1354410,
+		["Quake"] = {
+			[240447] = 136025,
 		},
 		["Steady Focus"] = {
 			[193534] = "Interface\\Icons\\Ability_Hunter_ImprovedSteadyShot",
 		},
-		["Roiling Deceit"] = {
-			[265360] = 538560,
+		["Shadow Vulnerability"] = {
+			[255430] = 136137,
 		},
-		["Quake"] = {
-			[240447] = 136025,
+		["Collapsing Fissure"] = {
+			[235907] = 136160,
 		},
 		["Inevitability"] = {
 			[253021] = 254087,
@@ -294,24 +300,18 @@ WeakAurasSaved = {
 			[262515] = 249174,
 			[262513] = 249174,
 		},
-		["Runic Mark"] = {
-			[264105] = 252272,
+		["Minor Swiftness Ward"] = {
+			[268183] = 965900,
 		},
 		["Lunar Suffusion"] = {
 			[234995] = 1041231,
 		},
-		["Minor Swiftness Ward"] = {
-			[268183] = 965900,
-		},
-		["Belac's Prisoner"] = {
-			[236283] = 132598,
-		},
-		["Collapsing Fissure"] = {
-			[235907] = 136160,
-		},
 		["Fel Infusion"] = {
 			[235240] = 135795,
 			[240219] = 135795,
+		},
+		["Belac's Prisoner"] = {
+			[236283] = 132598,
 		},
 		["Death Lens"] = {
 			[268202] = 136202,
@@ -319,12 +319,18 @@ WeakAurasSaved = {
 		["Torment of Shadows"] = {
 			[243973] = 237567,
 		},
-		["Everburning Flames"] = {
-			[244613] = 135819,
-		},
 		["Shrapnel Blast"] = {
 			[247949] = 575536,
 			[247932] = 133710,
+		},
+		["Slumber Gas"] = {
+			[247565] = 135798,
+		},
+		["Everburning Flames"] = {
+			[244613] = 135819,
+		},
+		["Slicing Hurricane"] = {
+			[276286] = 236170,
 		},
 		["Lunar Beacon"] = {
 			[236712] = 429383,
@@ -344,8 +350,9 @@ WeakAurasSaved = {
 		["Swiftness Ward"] = {
 			[267888] = 965900,
 		},
-		["Slumber Gas"] = {
-			[247565] = 135798,
+		["Molten Touch"] = {
+			[244072] = 135807,
+			[244086] = 135807,
 		},
 		["Marked Prey"] = {
 			[244042] = 458727,
@@ -375,18 +382,17 @@ WeakAurasSaved = {
 		["Spew Corruption"] = {
 			[208929] = "Interface\\Icons\\Spell_Shadow_SoulLeech",
 		},
-		["Slicing Hurricane"] = {
-			[276286] = 236170,
+		["Nature Vulnerability"] = {
+			[255422] = 136030,
 		},
-		["Molten Touch"] = {
-			[244072] = 135807,
-			[244086] = 135807,
+		["Ravenous Blaze"] = {
+			[254452] = 525024,
 		},
 		["Shattering Scream"] = {
 			[236515] = 1391780,
 		},
-		["Nature Vulnerability"] = {
-			[255422] = 136030,
+		["Bestial Wrath"] = {
+			[19574] = 132127,
 		},
 		["Soul Armor"] = {
 			[261264] = 633004,
@@ -397,20 +403,22 @@ WeakAurasSaved = {
 		["Unleashed Rage"] = {
 			[257911] = 1320372,
 		},
-		["Bestial Wrath"] = {
-			[19574] = 132127,
+		["Exploit Weakness"] = {
+			[244892] = 1396978,
 		},
-		["Ravenous Blaze"] = {
-			[254452] = 525024,
+		["Consumed"] = {
+			[245024] = 633004,
 		},
 		["Stormforged Spear"] = {
 			[228918] = "Interface\\ICONS\\INV_Polearm_2H_OdynSpear_D_01",
 		},
-		["Star Sign: Crab"] = {
-			[205429] = 1391538,
+		["Time Release"] = {
+			[219964] = "INTERFACE\\ICONS\\priest_icon_chakra_green",
+			[219966] = "INTERFACE\\ICONS\\priest_icon_chakra_red",
+			[219965] = "INTERFACE\\ICONS\\priest_icon_chakra",
 		},
-		["Consumed"] = {
-			[245024] = 633004,
+		["Empowered Eye of Gul'dan"] = {
+			[221728] = 971290,
 		},
 		["Rapid Shot"] = {
 			[236596] = 1035040,
@@ -418,8 +426,8 @@ WeakAurasSaved = {
 		["Drain"] = {
 			[212568] = 615099,
 		},
-		["Empowered Eye of Gul'dan"] = {
-			[221728] = 971290,
+		["Slicing Blast"] = {
+			[267818] = 1029585,
 		},
 		["Oblivion Sphere"] = {
 			[272407] = 458969,
@@ -430,46 +438,45 @@ WeakAurasSaved = {
 		["Lingering Dread"] = {
 			[265882] = 633004,
 		},
-		["Time Release"] = {
-			[219964] = "INTERFACE\\ICONS\\priest_icon_chakra_green",
-			[219966] = "INTERFACE\\ICONS\\priest_icon_chakra_red",
-			[219965] = "INTERFACE\\ICONS\\priest_icon_chakra",
+		["Sanitizing Strike"] = {
+			[267787] = 132363,
 		},
 		["Explosive Corruption"] = {
 			[274262] = 136145,
+			[272506] = 136145,
 		},
 		["Dark Omen"] = {
 			[265568] = 1726347,
 		},
-		["Sanitizing Strike"] = {
-			[267787] = 132363,
-		},
-		["Slicing Blast"] = {
-			[267818] = 1029585,
-		},
 		["Feedback - Targeted"] = {
 			[249016] = 463281,
-		},
-		["Beast Cleave"] = {
-			[118455] = 461121,
 		},
 		["Fire Vulnerability"] = {
 			[255429] = 429590,
 		},
-		["Charged Blasts"] = {
-			[247716] = 236216,
+		["Bellowing Roar"] = {
+			[204078] = "Interface\\Icons\\Spell_Shadow_Charm",
+		},
+		["Beast Cleave"] = {
+			[118455] = 461121,
 		},
 		["Strength of the Sea"] = {
 			[253901] = 132852,
 		},
-		["Aspect of the Eagle"] = {
-			[186289] = 612363,
-		},
-		["Bellowing Roar"] = {
-			[204078] = "Interface\\Icons\\Spell_Shadow_Charm",
+		["Charged Blasts"] = {
+			[247716] = 236216,
 		},
 		["Violent Winds"] = {
 			[218144] = "Interface\\Icons\\ability_skyreach_wind",
+		},
+		["Aspect of the Eagle"] = {
+			[186289] = 612363,
+		},
+		["Empowered Pulse Grenade"] = {
+			[250006] = 1117883,
+		},
+		["Rot"] = {
+			[203096] = "Interface\\Icons\\Spell_Shadow_CreepingPlague",
 		},
 		["Arcane Enchant"] = {
 			[225730] = 135952,
@@ -483,71 +490,59 @@ WeakAurasSaved = {
 		["Seared Skin"] = {
 			[254183] = 135818,
 		},
-		["Torment of Flames"] = {
-			[243968] = 236220,
-		},
-		["Consuming Hunger"] = {
-			[230920] = 237395,
-		},
 		["Storm of Justice"] = {
 			[227807] = "Interface\\Icons\\ability_thunderking_thunderstruck",
+		},
+		["Sighted Artillery"] = {
+			[272421] = 132212,
+		},
+		["Astral Vulnerability"] = {
+			[236330] = 135864,
 		},
 		["Scattering Field"] = {
 			[206985] = 607850,
 		},
 		["Absorbed in Darkness"] = {
 			[274387] = 1386548,
-		},
-		["Sighted Artillery"] = {
-			[272421] = 132212,
-		},
-		["Font of Corruption"] = {
-			[180526] = "Interface\\Icons\\Spell_Shadow_TwistedFaith",
-		},
-		["Parasitic Fixate"] = {
-			[218342] = 841383,
+			[272018] = 1386548,
 		},
 		["Decaying Spores"] = {
 			[273226] = 132099,
 		},
-		["Psychic Assault"] = {
-			[244172] = 135740,
-		},
 		["Sense of Dread"] = {
 			[253753] = 1120185,
 		},
-		["Upheaval"] = {
-			[259718] = 236188,
-		},
-		["Reinforcing Ward"] = {
-			[267904] = 1589501,
-		},
-		["Homing Missile"] = {
-			[260829] = 369278,
-			[260838] = 369278,
+		["Parasitic Fixate"] = {
+			[218342] = 841383,
 		},
 		["Weight of Darkness"] = {
 			[244071] = 136184,
 			[244679] = 237566,
 			[254429] = 136194,
 		},
-		["Fel Chakram"] = {
-			[182178] = "Interface\\Icons\\ability_arakkoa_spinning_blade",
+		["Psychic Assault"] = {
+			[244172] = 135740,
+		},
+		["Nightmare Javelin"] = {
+			[211507] = "Interface\\Icons\\inv_polearm_2h_pvpdraenors2_d_01",
+		},
+		["Gravity Squeeze"] = {
+			[239155] = 1394890,
+		},
+		["Reinforcing Ward"] = {
+			[267904] = 1589501,
+		},
+		["Torment of Flames"] = {
+			[243968] = 236220,
 		},
 		["Foul Steps"] = {
 			[250140] = 460954,
 		},
-		["Torn Soul"] = {
-			[206896] = 607512,
+		["Feltouched"] = {
+			[186134] = "Interface\\Icons\\spell_fel_elementaldevastation",
 		},
-		["Holy Vulnerability"] = {
-			[255419] = 1022948,
-		},
-		["Light Remanence"] = {
-			[238028] = 135887,
-		},
-		["Gift of the Sea"] = {
-			[258647] = 132852,
+		["Etch"] = {
+			[263943] = 136202,
 		},
 		["Wrought Chaos"] = {
 			[186123] = "Interface\\Icons\\spell_misc_zandalari_council_soulswap",
@@ -555,21 +550,33 @@ WeakAurasSaved = {
 		["Exoskeletal Vulnerability"] = {
 			[204459] = 132358,
 		},
-		["Shadowforce"] = {
-			[181841] = "Interface\\Icons\\ability_ironmaidens_convulsiveshadows",
+		["Light Remanence"] = {
+			[238028] = 135887,
 		},
-		["Physical Vulnerability"] = {
-			[255418] = 132363,
+		["Gift of the Sea"] = {
+			[258647] = 132852,
+		},
+		["Holy Vulnerability"] = {
+			[255419] = 1022948,
 		},
 		["Dust Cloud"] = {
 			[260792] = 463521,
 			[256333] = 463521,
 		},
+		["Shadowforce"] = {
+			[181841] = "Interface\\Icons\\ability_ironmaidens_convulsiveshadows",
+		},
+		["Sargeras' Rage"] = {
+			[257869] = 237553,
+		},
+		["Gale Slash"] = {
+			[268419] = 1029585,
+		},
 		["Lock and Load"] = {
 			[194594] = "Interface\\Icons\\Ability_Hunter_LockAndLoad",
 		},
-		["Doom Well"] = {
-			[179995] = "INTERFACE\\ICONS\\ability_warlock_soulsiphon",
+		["Consuming Hunger"] = {
+			[230920] = 237395,
 		},
 		["Spit Gold"] = {
 			[265773] = 646669,
@@ -577,8 +584,8 @@ WeakAurasSaved = {
 		["Toxic Slice"] = {
 			[206798] = 1353663,
 		},
-		["Astral Vulnerability"] = {
-			[236330] = 135864,
+		["Upheaval"] = {
+			[259718] = 236188,
 		},
 		["Apocalypse Protocol"] = {
 			[246516] = 135796,
@@ -590,29 +597,29 @@ WeakAurasSaved = {
 			[250757] = 135798,
 			[250755] = 135798,
 		},
-		["Etch"] = {
-			[263943] = 136202,
+		["Fel Chakram"] = {
+			[182178] = "Interface\\Icons\\ability_arakkoa_spinning_blade",
 		},
-		["Empowerment"] = {
-			[269670] = 136079,
+		["Torn Soul"] = {
+			[206896] = 607512,
 		},
-		["Feltouched"] = {
-			[186134] = "Interface\\Icons\\spell_fel_elementaldevastation",
+		["Mark of Emeriss"] = {
+			[203125] = "Interface\\Icons\\inv_misc_head_dragon_blue_nightmare",
 		},
 		["Parsel's Tongue"] = {
 			[248085] = 461114,
 		},
-		["Volatile Wound"] = {
-			[216024] = 135734,
+		["Physical Vulnerability"] = {
+			[255418] = 132363,
 		},
 		["Iced Spritzer"] = {
 			[280604] = 1698701,
 		},
-		["Sargeras' Rage"] = {
-			[257869] = 237553,
+		["Fel Ejection"] = {
+			[205649] = 841218,
 		},
-		["Shackled Torment"] = {
-			[184964] = "Interface\\Icons\\ability_warlock_soullink",
+		["Voidburst"] = {
+			[206965] = 132886,
 		},
 		["Acidic Fragments"] = {
 			[214718] = 1379196,
@@ -633,11 +640,11 @@ WeakAurasSaved = {
 			[228018] = "Interface\\Icons\\Spell_Nature_LightningShield",
 			[229529] = "Interface\\Icons\\Spell_Nature_LightningShield",
 		},
-		["Mark of Emeriss"] = {
-			[203125] = "Interface\\Icons\\inv_misc_head_dragon_blue_nightmare",
+		["Bombardment"] = {
+			[82921] = 461846,
 		},
-		["Trueshot"] = {
-			[193526] = "Interface\\Icons\\Ability_TrueShot",
+		["Shackled Torment"] = {
+			[184964] = "Interface\\Icons\\ability_warlock_soullink",
 		},
 		["Soul Rot"] = {
 			[236241] = 237567,
@@ -645,23 +652,23 @@ WeakAurasSaved = {
 		["Hungering Gloom"] = {
 			[245075] = 631503,
 		},
-		["Voidburst"] = {
-			[206965] = 132886,
-		},
-		["Empowered Pulse Grenade"] = {
-			[250006] = 1117883,
-		},
-		["Fiery Detonation"] = {
-			[244709] = 135818,
+		["Trueshot"] = {
+			[193526] = "Interface\\Icons\\Ability_TrueShot",
 		},
 		["Poison Essence"] = {
 			[246316] = 538440,
 		},
-		["Demolished"] = {
-			[249535] = 136201,
+		["Fiery Detonation"] = {
+			[244709] = 135818,
 		},
 		["Torment of Fel"] = {
 			[243980] = 841221,
+		},
+		["Voidtouched"] = {
+			[186135] = "Interface\\Icons\\Spell_Shadow_AntiShadow",
+		},
+		["Mind Fog"] = {
+			[245099] = 878214,
 		},
 		["Slow Time"] = {
 			[209165] = 653221,
@@ -669,8 +676,8 @@ WeakAurasSaved = {
 		["Black Hole"] = {
 			[186547] = "Interface\\Icons\\INV_Enchant_VoidSphere",
 		},
-		["Mind Fog"] = {
-			[245099] = 878214,
+		["Soul Leech"] = {
+			[108366] = 571320,
 		},
 		["Dripping Fangs"] = {
 			[210228] = "Interface\\Icons\\INV_Misc_MonsterSpiderCarapace_01",
@@ -685,14 +692,14 @@ WeakAurasSaved = {
 		["Slicing Tornado"] = {
 			[232732] = 999952,
 		},
-		["Imperfect Physiology"] = {
-			[263436] = 237587,
+		["Seed of Destruction"] = {
+			[181515] = "Interface\\Icons\\Spell_Shadow_SeedOfDestruction",
 		},
 		["Mark of Taerar"] = {
 			[203121] = "Interface\\Icons\\inv_misc_head_dragon_black_nightmare",
 		},
-		["Soul Leech"] = {
-			[108366] = 571320,
+		["Putrid Blood"] = {
+			[263227] = 1035037,
 		},
 		["Enflamed"] = {
 			[248815] = 429590,
@@ -700,23 +707,23 @@ WeakAurasSaved = {
 		["Cosmic Smash"] = {
 			[252634] = 895887,
 		},
-		["Putrid Blood"] = {
-			[263227] = 1035037,
+		["Sargeras' Fear"] = {
+			[257931] = 237555,
 		},
 		["Mend Pet"] = {
 			[136] = 132179,
 		},
-		["Nightmare Blades"] = {
-			[211802] = "Interface\\Icons\\ability_xavius_nightmareblades",
-		},
 		["Oblivion Veil"] = {
 			[274230] = 1097742,
+		},
+		["Whirling Saber"] = {
+			[245634] = 999952,
 		},
 		["Touch of Corruption"] = {
 			[209469] = "Interface\\Icons\\Spell_DeathKnight_BloodPlague",
 		},
-		["Whirling Saber"] = {
-			[245634] = 999952,
+		["Phantasmal Cremation"] = {
+			[187344] = "Interface\\Icons\\spell_fel_elementaldevastation",
 		},
 		["Dark Mark"] = {
 			[239739] = 633004,
@@ -730,16 +737,14 @@ WeakAurasSaved = {
 		["Reap"] = {
 			[184652] = "Interface\\Icons\\Ability_Rogue_EnvelopingShadows",
 		},
-		["Shadowy Volatile Foam"] = {
-			[228818] = "Interface\\Icons\\Spell_Shadow_ShadowBolt",
-			[228819] = "Interface\\Icons\\Spell_Shadow_ShadowBolt",
+		["Burning Brush"] = {
+			[260541] = 429590,
 		},
 		["Dire Beast"] = {
 			[120694] = 236186,
 		},
-		["Chitinous Exoskeleton"] = {
-			[206947] = 134970,
-			[204448] = 134970,
+		["Imperfect Physiology"] = {
+			[263436] = 237587,
 		},
 		["Xavaric's Magnum Opus"] = {
 			[207472] = 252184,
@@ -748,8 +753,8 @@ WeakAurasSaved = {
 		["Choking Brine"] = {
 			[264560] = 893779,
 		},
-		["Conflexive Burst"] = {
-			[209598] = 1044088,
+		["Nightmare Blades"] = {
+			[211802] = "Interface\\Icons\\ability_xavius_nightmareblades",
 		},
 		["Coronal Ejection"] = {
 			[206464] = 1029591,
@@ -760,11 +765,12 @@ WeakAurasSaved = {
 		["Shadow Reflection: Hopeless"] = {
 			[237590] = 1391776,
 		},
-		["Phantasmal Cremation"] = {
-			[187344] = "Interface\\Icons\\spell_fel_elementaldevastation",
+		["Shadowy Volatile Foam"] = {
+			[228818] = "Interface\\Icons\\Spell_Shadow_ShadowBolt",
+			[228819] = "Interface\\Icons\\Spell_Shadow_ShadowBolt",
 		},
-		["Corrupt Aegis"] = {
-			[244894] = 132360,
+		["Hooked Snare"] = {
+			[265377] = 134325,
 		},
 		["Well Fed"] = {
 			[225604] = 136000,
@@ -772,22 +778,23 @@ WeakAurasSaved = {
 		},
 		["Dark Revelation"] = {
 			[271640] = 1022945,
+			[273365] = 1022945,
 		},
 		["Minor Reinforcing Ward"] = {
 			[268212] = 1589501,
 		},
-		["Itchy Bite"] = {
-			[260016] = 538518,
-			[258075] = 538518,
+		["Corrupt Aegis"] = {
+			[244894] = 132360,
 		},
-		["Seed of Destruction"] = {
-			[181515] = "Interface\\Icons\\Spell_Shadow_SeedOfDestruction",
+		["Momentum"] = {
+			[198108] = "Interface\\Icons\\Ability_Creature_Cursed_04",
+		},
+		["Misdirection"] = {
+			[35079] = 132180,
+			[34477] = 132180,
 		},
 		["Unstable Runic Mark"] = {
 			[260703] = 633004,
-		},
-		["Frost Vulnerability"] = {
-			[255425] = 135784,
 		},
 		["Dire Frenzy"] = {
 			[217200] = 132133,
@@ -795,15 +802,14 @@ WeakAurasSaved = {
 		["Protected"] = {
 			[229584] = "Interface\\Icons\\Spell_Holy_BlessingOfProtection",
 		},
-		["Hooked Snare"] = {
-			[265377] = 134325,
+		["Frost Vulnerability"] = {
+			[255425] = 135784,
 		},
 		["Lingering Eruption"] = {
 			[243536] = 252997,
 		},
-		["Heart Seeker"] = {
-			[188929] = "Interface\\Icons\\Ability_Hunter_MarkedForDeath",
-			[180389] = "Interface\\Icons\\inv_ragnaros_heart",
+		["Withering Curse"] = {
+			[265468] = 132095,
 		},
 		["Fast Time"] = {
 			[209166] = 648208,
@@ -811,8 +817,9 @@ WeakAurasSaved = {
 		["Everburning Light"] = {
 			[245157] = 132847,
 		},
-		["Momentum"] = {
-			[198108] = "Interface\\Icons\\Ability_Creature_Cursed_04",
+		["Psychic Scarring"] = {
+			[244388] = 136175,
+			[253306] = 136175,
 		},
 		["Runic Shield"] = {
 			[227594] = "Interface\\Icons\\boss_odunrunes_green",
@@ -821,9 +828,8 @@ WeakAurasSaved = {
 			[227597] = "Interface\\Icons\\boss_odunrunes_orange",
 			[227598] = "Interface\\Icons\\boss_odunrunes_purple",
 		},
-		["Psychic Scarring"] = {
-			[244388] = 136175,
-			[253306] = 136175,
+		["Dispersed Spores"] = {
+			[215845] = "Interface\\Icons\\sha_ability_rogue_sturdyrecuperate_nightmare",
 		},
 		["Shared Fate"] = {
 			[179908] = "Interface\\Icons\\ability_warlock_soullink",
@@ -840,14 +846,14 @@ WeakAurasSaved = {
 			[246698] = 136201,
 			[258070] = 136194,
 		},
-		["Dispersed Spores"] = {
-			[215845] = "Interface\\Icons\\sha_ability_rogue_sturdyrecuperate_nightmare",
+		["Soulblight"] = {
+			[248396] = 1778231,
 		},
 		["Death Fog"] = {
 			[248167] = 538559,
 		},
-		["Corpulent Mass"] = {
-			[275129] = 2032223,
+		["Lightning Shield"] = {
+			[263246] = 136051,
 		},
 		["Galvanize"] = {
 			[266923] = 237587,
@@ -859,17 +865,17 @@ WeakAurasSaved = {
 		["Singed"] = {
 			[244091] = 135818,
 		},
-		["Soulblight"] = {
-			[248396] = 1778231,
+		["Soulbind"] = {
+			[236459] = 607854,
 		},
-		["Bonecage Armor"] = {
-			[236513] = 458717,
+		["Cosmic Ray"] = {
+			[252729] = 429383,
 		},
-		["Salty Spittle"] = {
-			[228768] = "Interface\\Icons\\ability_shawaterelemental_split",
+		["Broken Shard"] = {
+			[204284] = 1045852,
 		},
-		["A Murder of Crows"] = {
-			[131894] = 645217,
+		["Twilight Glaive"] = {
+			[237561] = 648707,
 		},
 		["Chilled"] = {
 			[206589] = 236208,
@@ -886,11 +892,11 @@ WeakAurasSaved = {
 		["Melted Armor"] = {
 			[234264] = 135796,
 		},
-		["Broken Shard"] = {
-			[204284] = 1045852,
+		["Serrated Fangs"] = {
+			[260455] = 237395,
 		},
-		["Cosmic Ray"] = {
-			[252729] = 429383,
+		["Tainted Essence"] = {
+			[240728] = 136121,
 		},
 		["Ghastly Fixation"] = {
 			[182769] = "Interface\\Icons\\ability_fixated_state_purple",
@@ -898,14 +904,14 @@ WeakAurasSaved = {
 		["Cover"] = {
 			[272144] = 132361,
 		},
-		["Twilight Glaive"] = {
-			[237561] = 648707,
+		["Bonecage Armor"] = {
+			[236513] = 458717,
 		},
 		["Illusionary Night"] = {
 			[206311] = 607852,
 		},
-		["Serrated Fangs"] = {
-			[260455] = 237395,
+		["A Murder of Crows"] = {
+			[131894] = 645217,
 		},
 		["Sterilize"] = {
 			[211615] = 237587,
@@ -942,26 +948,26 @@ WeakAurasSaved = {
 		["Black Arrow"] = {
 			[194599] = "Interface\\Icons\\Spell_Shadow_PainSpike",
 		},
-		["Lightning Shield"] = {
-			[263246] = 136051,
+		["Sentinel's Sight"] = {
+			[208913] = "Interface\\Icons\\inv_belt_66green",
 		},
 		["Corrupted Axion"] = {
 			[232450] = "Interface\\Icons\\Spell_Holy_PrayerofShadowProtection",
 		},
-		["Sentinel's Sight"] = {
-			[208913] = "Interface\\Icons\\inv_belt_66green",
-		},
 		["Orb of Frost"] = {
 			[253697] = 629077,
+		},
+		["Aspect of the Turtle"] = {
+			[186265] = 132199,
+		},
+		["Fiery Enchant"] = {
+			[225726] = 135811,
 		},
 		["Doomfire"] = {
 			[183586] = "Interface\\Icons\\Spell_Fire_FelFlameRing",
 		},
-		["Ironbark Shield"] = {
-			[261265] = 572025,
-		},
-		["Aspect of the Turtle"] = {
-			[186265] = 132199,
+		["Focused Chaos"] = {
+			[185014] = "Interface\\Icons\\Spell_Shadow_SoulLeech_1",
 		},
 		["Wake of Flame"] = {
 			[244736] = 524795,
@@ -972,11 +978,11 @@ WeakAurasSaved = {
 		["Felshield"] = {
 			[244910] = 135796,
 		},
-		["Focused Chaos"] = {
-			[185014] = "Interface\\Icons\\Spell_Shadow_SoulLeech_1",
+		["Mark of Lethon"] = {
+			[203124] = "Interface\\Icons\\inv_misc_head_dragon_bronze_nightmare",
 		},
-		["Fiery Enchant"] = {
-			[225726] = 135811,
+		["Desolate Gaze"] = {
+			[244768] = 236301,
 		},
 		["Orb of Corruption"] = {
 			[229119] = "Interface\\Icons\\inv_icon_shadowcouncilorb_purple",
@@ -984,8 +990,8 @@ WeakAurasSaved = {
 		["Haywire Decimation"] = {
 			[246920] = 236216,
 		},
-		["Essence of Night"] = {
-			[206466] = 607513,
+		["Bilewater Redox"] = {
+			[227982] = "INTERFACE\\ICONS\\ability_rogue_venomouswounds",
 		},
 		["Torment of Frost"] = {
 			[243977] = 236209,
@@ -996,29 +1002,30 @@ WeakAurasSaved = {
 		["Felclaws"] = {
 			[245509] = 135802,
 		},
-		["Bilewater Redox"] = {
-			[227982] = "INTERFACE\\ICONS\\ability_rogue_venomouswounds",
-		},
 		["Fel Barrier"] = {
 			[184053] = "Interface\\Icons\\Spell_Fire_FelFireward",
+		},
+		["Necrotic Venom"] = {
+			[215449] = "Interface\\Icons\\Ability_Creature_Poison_05",
+			[215460] = "Interface\\Icons\\Ability_Creature_Poison_05",
 		},
 		["Carve Flesh"] = {
 			[268214] = 1392953,
 		},
-		["Purging Protocol"] = {
-			[258021] = 135817,
+		["Nightmare Brambles"] = {
+			[210315] = "Interface\\Icons\\spell_druid_massentanglement_nightmare",
 		},
 		["Soul Corrosion"] = {
 			[208802] = 236300,
 		},
-		["Nightmare Brambles"] = {
-			[210315] = "Interface\\Icons\\spell_druid_massentanglement_nightmare",
+		["Shimmering Feather"] = {
+			[212993] = "Interface\\Icons\\INV_Feather_05",
 		},
-		["Choking Shadow"] = {
-			[241822] = 462324,
+		["Purging Protocol"] = {
+			[258021] = 135817,
 		},
-		["Gift of the Man'ari"] = {
-			[184124] = "Interface\\Icons\\Spell_Shadow_AntiMagicShell",
+		["Edge of Obliteration"] = {
+			[251815] = 1778227,
 		},
 		["Siphoned"] = {
 			[248819] = 615100,
@@ -1026,17 +1033,17 @@ WeakAurasSaved = {
 		["Reality Tear"] = {
 			[244016] = 1394890,
 		},
-		["Smouldering"] = {
-			[251445] = 135813,
+		["Felsinged"] = {
+			[186073] = "Interface\\Icons\\Spell_Fire_FelImmolation",
 		},
-		["Edge of Obliteration"] = {
-			[251815] = 1778227,
+		["Rupturing Blood"] = {
+			[274358] = 136133,
 		},
 		["Plasma Explosion"] = {
 			[218780] = 525024,
 		},
-		["Toxic Spores"] = {
-			[219235] = 134220,
+		["Initializing"] = {
+			[246504] = 986486,
 		},
 		["Aspect of the Wild"] = {
 			[193530] = 136074,
@@ -1050,8 +1057,8 @@ WeakAurasSaved = {
 		["Arcane Vulnerability"] = {
 			[255433] = 132146,
 		},
-		["Shimmering Feather"] = {
-			[212993] = "Interface\\Icons\\INV_Feather_05",
+		["Azerite Rounds: Blast"] = {
+			[256199] = 133584,
 		},
 		["Burning Embers"] = {
 			[250691] = 463282,
@@ -1059,8 +1066,8 @@ WeakAurasSaved = {
 		["Embrace of the Eclipse"] = {
 			[233263] = 236151,
 		},
-		["Initializing"] = {
-			[246504] = 986486,
+		["Smouldering"] = {
+			[251445] = 135813,
 		},
 		["Deadly Scythe"] = {
 			[258039] = 1692685,
@@ -1075,17 +1082,18 @@ WeakAurasSaved = {
 		["Blazing Eruption"] = {
 			[244912] = 135819,
 		},
-		["Fiery Phlegm"] = {
-			[228758] = "Interface\\Icons\\INV_SummerFest_FireSpirit",
-		},
-		["Reorigination Blast"] = {
-			[263504] = 1408832,
-		},
 		["Orb of Destruction"] = {
 			[205344] = 135800,
 		},
-		["Light of the Naaru"] = {
-			[183963] = "Interface\\Icons\\Spell_Holy_SurgeOfLight",
+		["Reorigination Blast"] = {
+			[263504] = 1408832,
+			[273251] = 1408832,
+		},
+		["Suffocating Dark"] = {
+			[233901] = 136194,
+		},
+		["Hydra Shot"] = {
+			[230139] = 133578,
 		},
 		["Digest"] = {
 			[181295] = "Interface\\Icons\\Spell_Shadow_DeathCoil",
@@ -1093,8 +1101,8 @@ WeakAurasSaved = {
 		["Shattered Bonds"] = {
 			[258000] = 1390941,
 		},
-		["Hydra Shot"] = {
-			[230139] = 133578,
+		["Focused Gaze"] = {
+			[198006] = "Interface\\Icons\\spell_druid_bearhug",
 		},
 		["Wasting Void"] = {
 			[186063] = "Interface\\Icons\\Ability_Creature_Disease_05",
@@ -1102,8 +1110,8 @@ WeakAurasSaved = {
 		["Poison Barrage"] = {
 			[270507] = 1033905,
 		},
-		["Focused Gaze"] = {
-			[198006] = "Interface\\Icons\\spell_druid_bearhug",
+		["Light of the Naaru"] = {
+			[183963] = "Interface\\Icons\\Spell_Holy_SurgeOfLight",
 		},
 		["Forging Strike"] = {
 			[254919] = 236253,
@@ -1111,8 +1119,8 @@ WeakAurasSaved = {
 		["Plague Bomb"] = {
 			[266948] = 1392546,
 		},
-		["Suffocating Dark"] = {
-			[233901] = 136194,
+		["Fiery Phlegm"] = {
+			[228758] = "Interface\\Icons\\INV_SummerFest_FireSpirit",
 		},
 		["Agony"] = {
 			[980] = 136139,
@@ -1120,8 +1128,8 @@ WeakAurasSaved = {
 		["Aggramar's Boon"] = {
 			[255200] = 237539,
 		},
-		["Azerite Rounds: Blast"] = {
-			[256199] = 133584,
+		["Toxic Spores"] = {
+			[219235] = 134220,
 		},
 		["Phantasmal Winds"] = {
 			[181957] = "Interface\\Icons\\Spell_Frost_ArcticWinds",
@@ -1129,8 +1137,8 @@ WeakAurasSaved = {
 		["Mannoroth's Gaze"] = {
 			[181597] = "Interface\\Icons\\ability_bossmannoroth_mannorothsgaze",
 		},
-		["Felsinged"] = {
-			[186073] = "Interface\\Icons\\Spell_Fire_FelImmolation",
+		["Gift of the Man'ari"] = {
+			[184124] = "Interface\\Icons\\Spell_Shadow_AntiMagicShell",
 		},
 		["Arcing Bonds"] = {
 			[208915] = 607854,
@@ -1139,24 +1147,23 @@ WeakAurasSaved = {
 		["Luring Destruction"] = {
 			[247159] = 1113436,
 		},
-		["Necrotic Venom"] = {
-			[215449] = "Interface\\Icons\\Ability_Creature_Poison_05",
-			[215460] = "Interface\\Icons\\Ability_Creature_Poison_05",
+		["Choking Shadow"] = {
+			[241822] = 462324,
 		},
 		["Creeping Nightmares"] = {
 			[210279] = "Interface\\Icons\\Ability_Warlock_Eradication",
 		},
-		["Desolate Gaze"] = {
-			[244768] = 236301,
+		["Essence of Night"] = {
+			[206466] = 607513,
 		},
 		["Embalming Fluid"] = {
 			[271564] = 461804,
 		},
-		["Mark of Lethon"] = {
-			[203124] = "Interface\\Icons\\inv_misc_head_dragon_bronze_nightmare",
-		},
 		["Frigid Blows"] = {
 			[233429] = 237526,
+		},
+		["Ironbark Shield"] = {
+			[261265] = 572025,
 		},
 		["Virulent Pathogen"] = {
 			[261440] = 132104,
@@ -1171,15 +1178,15 @@ WeakAurasSaved = {
 		["Sweeping Scythe"] = {
 			[248499] = 1692685,
 		},
-		["Tainted Essence"] = {
-			[240728] = 136121,
+		["Echoes of Doom"] = {
+			[248740] = 463286,
+			[248732] = 463284,
 		},
 		["Call of Night"] = {
 			[218809] = 135752,
 		},
-		["Echoes of Doom"] = {
-			[248740] = 463286,
-			[248732] = 463284,
+		["Salty Spittle"] = {
+			[228768] = "Interface\\Icons\\ability_shawaterelemental_split",
 		},
 		["Despoiled Ground"] = {
 			[180604] = "Interface\\Icons\\spell_fire_twilighthellfire",
@@ -1191,8 +1198,8 @@ WeakAurasSaved = {
 		["Dark Bargain"] = {
 			[273405] = 633004,
 		},
-		["Soulbind"] = {
-			[236459] = 607854,
+		["Corpulent Mass"] = {
+			[275129] = 2032223,
 		},
 		["Gift of the Sky"] = {
 			[258646] = 136111,
@@ -1206,8 +1213,9 @@ WeakAurasSaved = {
 		["Ablating Explosion"] = {
 			[209973] = 135728,
 		},
-		["Withering Curse"] = {
-			[265468] = 132095,
+		["Heart Seeker"] = {
+			[188929] = "Interface\\Icons\\Ability_Hunter_MarkedForDeath",
+			[180389] = "Interface\\Icons\\inv_ragnaros_heart",
 		},
 		["Moon Burn"] = {
 			[236519] = 136057,
@@ -1215,12 +1223,12 @@ WeakAurasSaved = {
 		["Ruiner"] = {
 			[246840] = 135798,
 		},
-		["Misdirection"] = {
-			[35079] = 132180,
-			[34477] = 132180,
-		},
 		["Cursed Blood"] = {
 			[215128] = "Interface\\Icons\\Spell_DeathKnight_BloodTap",
+		},
+		["Itchy Bite"] = {
+			[260016] = 538518,
+			[258075] = 538518,
 		},
 		["Burning Remnant"] = {
 			[245022] = 1032475,
@@ -1228,14 +1236,15 @@ WeakAurasSaved = {
 		["Touch of Doom"] = {
 			[179977] = "Interface\\Icons\\ability_bossgorefiend_touchofdoom",
 		},
-		["Burning Brush"] = {
-			[260541] = 429590,
+		["Conflexive Burst"] = {
+			[209598] = 1044088,
 		},
 		["Volatile Rot"] = {
 			[204463] = "Interface\\Icons\\Ability_Rogue_DeviousPoisons",
 		},
-		["Sargeras' Fear"] = {
-			[257931] = 237555,
+		["Chitinous Exoskeleton"] = {
+			[206947] = 134970,
+			[204448] = 134970,
 		},
 		["Omega Vector"] = {
 			[265129] = 136133,
@@ -1254,8 +1263,8 @@ WeakAurasSaved = {
 		["Shadow Reflection: Erupting"] = {
 			[236710] = 1357814,
 		},
-		["Voidtouched"] = {
-			[186135] = "Interface\\Icons\\Spell_Shadow_AntiShadow",
+		["Demolished"] = {
+			[249535] = 136201,
 		},
 		["Burn"] = {
 			[185157] = "Interface\\Icons\\Spell_Fire_FlameShock",
@@ -1263,17 +1272,17 @@ WeakAurasSaved = {
 		["Stasis Trap"] = {
 			[247641] = 132887,
 		},
-		["Bombardment"] = {
-			[82921] = 461846,
+		["Shadow Barrage"] = {
+			[273359] = 457655,
 		},
-		["Gale Slash"] = {
-			[268419] = 1029585,
+		["Misery"] = {
+			[243961] = 460857,
 		},
 		["Infested"] = {
 			[204504] = "Interface\\Icons\\Spell_Nature_RemoveDisease",
 		},
-		["Misery"] = {
-			[243961] = 460857,
+		["Font of Corruption"] = {
+			[180526] = "Interface\\Icons\\Spell_Shadow_TwistedFaith",
 		},
 		["Incorporeal Shot"] = {
 			[236305] = 959793,
@@ -1284,8 +1293,8 @@ WeakAurasSaved = {
 		["Empowered Shrapnel Blast"] = {
 			[248094] = 135804,
 		},
-		["Fel Ejection"] = {
-			[205649] = 841218,
+		["Rain of Fel"] = {
+			[248332] = 135797,
 		},
 		["Ablaze"] = {
 			[188208] = "Interface\\Icons\\inv_ember_fel",
@@ -1293,8 +1302,8 @@ WeakAurasSaved = {
 		["Scorching Blaze"] = {
 			[245994] = 459026,
 		},
-		["Rain of Fel"] = {
-			[248332] = 135797,
+		["Volatile Wound"] = {
+			[216024] = 135734,
 		},
 		["Deadwind Harvester"] = {
 			[216708] = 1060569,
@@ -1302,8 +1311,8 @@ WeakAurasSaved = {
 		["Black Winds"] = {
 			[242017] = 1394892,
 		},
-		["Nightmare Javelin"] = {
-			[211507] = "Interface\\Icons\\inv_polearm_2h_pvpdraenors2_d_01",
+		["Empowerment"] = {
+			[269670] = 136079,
 		},
 		["Touch of the Drowned"] = {
 			[268322] = 136148,
@@ -1327,8 +1336,8 @@ WeakAurasSaved = {
 		["Nightmare Bloom"] = {
 			[207681] = "Interface\\Icons\\ability_priest_voidentropy",
 		},
-		["Rot"] = {
-			[203096] = "Interface\\Icons\\Spell_Shadow_CreepingPlague",
+		["Doom Well"] = {
+			[179995] = "INTERFACE\\ICONS\\ability_warlock_soulsiphon",
 		},
 		["Marking Targets"] = {
 			[223138] = 132222,
@@ -1336,8 +1345,9 @@ WeakAurasSaved = {
 		["Befouling Ink"] = {
 			[232913] = 1500933,
 		},
-		["Gravity Squeeze"] = {
-			[239155] = 1394890,
+		["Homing Missile"] = {
+			[260829] = 369278,
+			[260838] = 369278,
 		},
 		["Delphuric Beam"] = {
 			[209244] = 135730,
@@ -1370,11 +1380,11 @@ WeakAurasSaved = {
 		["Scorned Touch"] = {
 			[211471] = "Interface\\Icons\\sha_spell_fire_blueimmolation_nightmare",
 		},
+		["Star Sign: Crab"] = {
+			[205429] = 1391538,
+		},
 		["Aura of Dread Thorns"] = {
 			[210346] = "Interface\\Icons\\sha_ability_warrior_bloodnova_nightmare",
-		},
-		["Exploit Weakness"] = {
-			[244892] = 1396978,
 		},
 		["Nightmare Explosion"] = {
 			[209471] = "Interface\\Icons\\ability_ironmaidens_whirlofblood",
@@ -1416,8 +1426,8 @@ WeakAurasSaved = {
 		["Debilitating Shout"] = {
 			[258128] = 589118,
 		},
-		["Shadow Vulnerability"] = {
-			[255430] = 136137,
+		["Runic Mark"] = {
+			[264105] = 252272,
 		},
 		["Time Bomb"] = {
 			[206617] = 609814,
@@ -1586,15 +1596,12 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -1609,7 +1616,10 @@ WeakAurasSaved = {
 						["TANK"] = true,
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -1758,15 +1768,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -1780,7 +1787,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -1960,17 +1970,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["text1Font"] = "Friz Quadrata TT",
 			["icon"] = true,
+			["text2Font"] = "Friz Quadrata TT",
 			["text2Containment"] = "INSIDE",
-			["parent"] = "T22 Uldir Raid",
+			["text1Font"] = "Friz Quadrata TT",
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["text2Font"] = "Friz Quadrata TT",
+			["xOffset"] = 0,
 			["stickyDuration"] = false,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
@@ -2001,7 +2011,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["xOffset"] = 0,
+			["parent"] = "T22 Uldir Raid",
 		},
 		["Supression Fire"] = {
 			["text2Point"] = "CENTER",
@@ -2125,14 +2135,14 @@ WeakAurasSaved = {
 			["icon"] = true,
 			["parent"] = "BfA Dungeons",
 			["text2Containment"] = "INSIDE",
-			["displayIcon"] = 524795,
+			["xOffset"] = 0,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["xOffset"] = 0,
+			["displayIcon"] = 524795,
 			["stickyDuration"] = false,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
@@ -2160,6 +2170,7 @@ WeakAurasSaved = {
 			["text1Enabled"] = true,
 			["inverse"] = false,
 			["text1Font"] = "Friz Quadrata TT",
+			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
@@ -2249,15 +2260,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -2270,7 +2278,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -2281,17 +2292,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["text2Font"] = "Friz Quadrata TT",
-			["text2Containment"] = "INSIDE",
 			["icon"] = true,
+			["text2Containment"] = "INSIDE",
+			["parent"] = "BfA Dungeons",
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["text1Enabled"] = true,
-			["parent"] = "BfA Dungeons",
+			["text2Font"] = "Friz Quadrata TT",
+			["xOffset"] = 0,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["text1Font"] = "Friz Quadrata TT",
@@ -2321,7 +2332,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["xOffset"] = 0,
+			["text1Enabled"] = true,
 		},
 		["Drain Fluids"] = {
 			["text2Point"] = "CENTER",
@@ -2584,15 +2595,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["role"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["race"] = {
 					["multi"] = {
 					},
@@ -2605,7 +2613,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["role"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -2750,15 +2761,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -2771,7 +2779,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -3009,257 +3020,6 @@ WeakAurasSaved = {
 			["cooldown"] = true,
 			["text1Containment"] = "OUTSIDE",
 		},
-		["Effective Health - Magic and Physical v2.01"] = {
-			["outline"] = "OUTLINE",
-			["xOffset"] = -620,
-			["displayText"] = "%c",
-			["customText"] = "function()\n    if aura_env.OutOfDate then\n        return \"|cFFFF0000EH is out of date|r\"\n    end\n    \n    --- CPU benchmarking ---\n    local start\n    local aura_env = aura_env\n    local Debug = aura_env.Debug\n    if Debug then\n        aura_env.count = aura_env.count or 1\n        aura_env.count = (aura_env.count + 1) %600\n        start = debugprofilestop()\n    end\n    \n    -- Setting some aura_env to local variables to improve performance --\n    local ClassID = aura_env.ClassID\n    local SpecID = aura_env.SpecID\n    local AoE = aura_env.AoE\n    local Mode = aura_env.Mode\n    local ColorFunction = aura_env.Color\n    local Threshold = aura_env.Threshold\n    local BasicReductions = aura_env.BasicReductions\n    \n    \n    -- Armor calulation // Armor scales differently depending on the enemy level, this makes sure is stays accurate --\n    local Armor = select(2,UnitArmor(\"player\"))\n    Armor = 1 - C_PaperDollInfo.GetArmorEffectiveness(Armor, aura_env.TargetLevel) -- Gets the reduction percentage and makes it usable\n    \n    \n    -- All Classes\n    local CurrentHealth = UnitHealth(\"player\")\n    local MaxHealth = UnitHealthMax(\"player\")\n    local Vers = 1 - (GetCombatRatingBonus(31) / 100)\n    local Avoid = 1\n    local ScanTarget = false\n    if AoE then Avoid = 1 - (GetAvoidance() / 100)\n    end\n    local Elusive = 1\n    local StaggerP, StaggerM = 1, 1\n    local Absorbs = UnitGetTotalAbsorbs(\"player\")\n    local AbsorbsP, AbsorbsM = Absorbs, Absorbs\n    \n    -- Initialize some variables --\n    local ClassDRP, ClassDRM = 1, 1\n    local PImmunity, MImmunity = 0, 0\n    \n    ----- General damage reduction buffs -----\n    local n = 1\n    local BuffID = select(10, UnitBuff(\"player\", n))\n    while BuffID do\n        local Reduction = 1\n        local PhysicalReduction = 1\n        local MagicReduction = 1\n        \n        if BasicReductions[BuffID] then\n            ClassDRP = ClassDRP * BasicReductions[BuffID][1]\n            ClassDRM = ClassDRM * BasicReductions[BuffID][2]\n        end\n        \n        \n        ---- More complex tracking ----\n        \n        local AMS, BloodS = 0, 0\n        \n        --- Death Knight ---\n        if BuffID == 48792 then\n            Reduction = 1 + (tonumber(select(18, UnitBuff(\"player\", n)) or 0)) / 100 -- Icebound Fortitude // using plus since the tooltip returns a negative value\n            \n        elseif BuffID == 48707 then\n            AMS = (select(16, UnitBuff(\"player\", n)) or 0)  -- Anti-Magic Shell\n            \n        elseif BuffID == 77535 then\n            BloodS = (select(16, UnitBuff(\"player\", n)) or 0)  -- Blood Shield\n            \n            \n            --- Demon Hunter ---\n        elseif BuffID == 212800 then\n            if IsPlayerSpell(205411) then Reduction = 0.50 -- Blur\n            else Reduction = 0.65 end\n            \n        elseif BuffID == 212988 then\n            Reduction = 1 - 0.03 * (select(3, UnitBuff(\"player\", n)) or 0) -- Painbringer\n            \n        elseif BuffID == 196555 then PImmunity = 1 -- Netherwalk\n            \n            \n            --- Druid ---\n        elseif BuffID == 102342 then\n            Reduction = 1 + (tonumber(select(16, UnitBuff(\"player\", n)) or 0)) / 100 -- Ironbark // using plus since the tooltip returns a negative value\n            \n            \n            --- Hunter ---\n        elseif BuffID == 186265 then -- Aspect of the Turtle\n            PImmunity = 1\n            MImmunity = 1\n            \n            \n            --- Mage ---\n        elseif BuffID == 45438 then -- Ice Block\n            PImmunity = 1\n            MImmunity = 1\n            \n            \n            --- Monk ---\n        elseif BuffID == 261769 then\n            Reduction = 1 + (select(16, UnitBuff(\"player\", n)) or 0) / 100 -- Inner Strength // using plus since the tooltip returns a negative value\n            \n            \n            --- Paladin ---\n        elseif BuffID == 210320 then\n            Reduction = 1 + (tonumber(select(16, UnitBuff(\"player\", n)) or 0)) / 100 -- Devotion Aura // using plus since the tooltip returns a negative value\n            \n        elseif BuffID == 1022 then PImmunity = 1 -- Blessing of Protection\n        elseif BuffID == 204018 then MImmunity = 1 -- Blessing of Spellwarding\n            \n        elseif BuffID == 188370 then\n            if IsEquippedItem(137047) then Reduction = 0.96 end -- Consecration (Legendary Ring)\n            \n        elseif BuffID == 642 then -- Divine Shield\n            PImmunity = 1\n            MImmunity = 1\n            \n            \n            --- Priest ---\n        elseif BuffID == 45242 then\n            Reduction = 1 - (select(3, UnitBuff(\"player\", n)) or 0) * 15 / 100 -- Focused Will\n            \n        elseif BuffID == 139 then\n            if IsPlayerSpell(235189) and UnitBuff(\"player\", n, nil, \"player\") then\n                Reduction = 0.90 -- Perseverance - Talent\n            end\n            \n            \n            --- Rogue ---\n        elseif BuffID == 1966 then\n            if not AoE and IsPlayerSpell(79008)\n            then Elusive = 0.70 -- Elusiveness\n            else -- Feint\n                if AoE then Avoid = Avoid * 0.50 end\n            end\n        elseif BuffID == 31224 then MImmunity = 1 -- Cloak of Shadows\n            \n            \n            --- Shaman ---\n        elseif BuffID == 260881 then\n            Reduction = 1 - (tonumber(select(3, UnitBuff(\"player\", n)) or 0)) * 5 / 100 -- Ghost in the Mist - Talent\n            \n            \n            --- Warlock ---\n            \n            \n            \n            --- Warrior ---\n        elseif BuffID == 184362 then -- Enrage\n            Reduction = 1.20\n            if IsPlayerSpell(208154) then Reduction = 1.15 end\n            \n            \n            --- Miscellaneous ---\n        elseif BuffID == 185736 then -- Suger-Crusted Fish Feast / Lemon Herb Filet\n            Vers = Vers - 0.005\n        end\n        \n        \n        AbsorbsP = Absorbs - AMS\n        AbsorbsM = Absorbs - BloodS\n        \n        ClassDRP = ClassDRP * Reduction * PhysicalReduction\n        ClassDRM = ClassDRM * Reduction * MagicReduction\n        n = n + 1\n        BuffID = select(10, UnitBuff(\"player\", n))\n    end\n    \n    \n    ----- Damage reductions with special calculations -----\n    \n    --- Death Knight ---\n    if ClassID == 6 then\n        local Necropolis = 1\n        if IsPlayerSpell(206967) then -- Will of the Necropolis - Talent\n            if CurrentHealth / MaxHealth < 0.35 then Necropolis = 0.65\n            end\n        end\n        ClassDRP = ClassDRP * Necropolis\n        ClassDRM = ClassDRM * Necropolis\n    end\n    \n    \n    --- Demon Hunter ---\n    if ClassID == 12 then\n        local DemWards = 1\n        if SpecID == 2 then\n            DemWards = 0.80 -- Demonic Wards - Passive\n            ScanTarget = true\n        end\n        \n        ClassDRP = ClassDRP * DemWards\n        ClassDRM = ClassDRM * DemWards\n    end\n    \n    \n    --- Druid ---\n    if ClassID == 11 then\n        local GuardA = 1\n        if IsEquippedItem(137015) and IsPlayerSpell(16931) then\n            GuardA = 0.895 -- Legendary chest\n        elseif IsPlayerSpell(16931) then\n            GuardA = 0.94 -- Thick Hide (Guardian Affinity)\n        end\n        if SpecID == 3 then\n            if IsPlayerSpell(204053) then\n                ScanTarget = true\n            end\n        end\n        \n        ClassDRP = ClassDRP * GuardA\n        ClassDRM = ClassDRM * GuardA\n    end\n    \n    \n    --- Hunter ---\n    if ClassID == 3 then\n    end\n    \n    \n    --- Mage ---\n    if ClassID == 8 then\n    end\n    \n    \n    --- Monk ---\n    if ClassID == 10 then\n        local Karma = 0\n        if SpecID == 1 then\n            ScanTarget = true\n            -- Gets stagger agaist current target, if no target found use base --\n            local StaggerBase, StaggerTarget = C_PaperDollInfo.GetStaggerPercentage(\"player\")\n            if not StaggerTarget then StaggerTarget = StaggerBase end\n            StaggerM = StaggerTarget * 0.35\n            StaggerP = 1 - StaggerTarget / 100\n            StaggerM = 1 - StaggerM / 100\n            \n            -- Stagger cap --\n            local Stagger = UnitStagger(\"player\") or 0 -- Calculate MaxHealth effective reduction for Stagger\n            local StaggerCapP = (CurrentHealth + AbsorbsP) / (CurrentHealth + AbsorbsP + 100 * MaxHealth - Stagger * 10)\n            local StaggerCapM = (CurrentHealth + AbsorbsM) / (CurrentHealth + AbsorbsM + 100 * MaxHealth - Stagger * 10)\n            if StaggerCapP < 0.01 then StaggerCapP = 0.01 end -- Stagger caps at 99%\n            if StaggerCapM < 0.01 then StaggerCapM = 0.01 end\n            if StaggerP < StaggerCapP then StaggerP = StaggerCapP end\n            if StaggerM < StaggerCapM then StaggerM = StaggerCapM end\n        end\n        if SpecID == 3 then\n            aura_env.GoodKarma = IsPlayerSpell(280195) -- Talent\n            Karma = aura_env.TouchOfKarma\n            Absorbs = Absorbs + Karma\n            AbsorbsP = AbsorbsP + Karma\n            AbsorbsM = AbsorbsM + Karma\n        end\n        \n        ClassDRP = ClassDRP * StaggerP\n        ClassDRM = ClassDRM * StaggerM\n    end\n    \n    \n    --- Paladin ---\n    if ClassID == 2 then\n    end\n    \n    \n    --- Priest ---\n    if ClassID == 5 then\n    end\n    \n    \n    --- Rogue ---\n    if ClassID == 4 then\n    end\n    \n    \n    --- Shaman ---\n    if ClassID == 7 then\n    end\n    \n    \n    --- Warlock ---\n    if ClassID == 9 then\n        local SoulLink = 1\n        if SpecID == 2 then -- Soul Link passive for Demonology Warlocks\n            if UnitExists(\"pet\") then\n                SoulLink = 0.80\n            end\n        end\n        \n        ClassDRP = ClassDRP * SoulLink\n        ClassDRM = ClassDRM * SoulLink\n    end\n    \n    \n    --- Warrior ---\n    if ClassID == 1 then\n        if SpecID == 3 then\n            ScanTarget = true\n        end\n        \n        ClassDRP = ClassDRP\n        ClassDRM = ClassDRM\n    end\n    \n    --- Miscellaneous ---\n    if aura_env.HighmountainTauren then\n        local Stamina = UnitStat(\"player\", 3)\n        local RuggedTenacity = floor((Stamina * 0.0003 * 20) + 0.5)\n        Absorbs = Absorbs + RuggedTenacity\n    end\n    \n    \n    --- Checking debuffs on target if needed ---\n    if ScanTarget then\n        local TD = 1\n        local DebuffID = select(10, UnitDebuff(\"target\", TD))\n        while DebuffID do\n            local DebuffTarget = 1\n            local DebuffTargetP = 1\n            local DebuffTargetM = 1\n            \n            --- Demon Hunter ---\n            if DebuffID == 207744 and select(3, UnitDebuff(\"target\", TD, nil, \"player\")) then\n                DebuffTarget = 0.60 -- Fiery Brand\n                \n            elseif DebuffID == 268178 and select(3, UnitDebuff(\"target\", TD, nil, \"player\")) then\n                DebuffTarget = 0.94 -- Void Reaver -- Talent\n                \n                \n                --- Druid ---\n            elseif DebuffID == 192090 and select(3, UnitDebuff(\"target\", TD, nil, \"player\")) then\n                DebuffTarget = 1 - 0.02 * (select(3, UnitDebuff(\"target\", TD, nil, \"player\")) or 0) -- Rend and Tear - Talent\n                \n                \n                --- Monk ---\n            elseif DebuffID == 123725 then\n                DebuffTarget = 1 + 0.01 * (select(17, UnitDebuff(\"target\", TD, nil, \"player\")) or 0) -- Breath of Fire // using plus since the tooltip returns a negative value\n                \n                \n                --- Warrior ---\n            elseif DebuffID == 1160 and select(7, UnitDebuff(\"target\", TD)) == \"player\" then\n                DebuffTarget = 0.80 -- Demoralizing Shout\n            end\n            \n            ClassDRP = ClassDRP * DebuffTarget * DebuffTargetP\n            ClassDRM = ClassDRM * DebuffTarget * DebuffTargetM\n            TD = TD + 1\n            DebuffID = select(10, UnitDebuff(\"target\", TD))\n        end\n    end\n    \n    \n    \n    -- Damage taken modifiers --\n    local ReductionP = Vers * Avoid * ClassDRP * Armor * Elusive\n    local ReductionM = Vers * Avoid * ClassDRM * Elusive\n    -- CurrentHealth health and shields --\n    local EHP = (CurrentHealth + AbsorbsP) / ReductionP\n    local EHM = (CurrentHealth + AbsorbsM) / ReductionM\n    \n    \n    -- Export pre-avoidance EHP, EHM and immunity status as global variables --\n    if aura_env.GlobalExport then\n        -- Calculate max effective health (no absorbs) --\n        local EHPMaxHealth = (MaxHealth + AbsorbsP) / ReductionP\n        local EHMMaxHealth = (MaxHealth + AbsorbsM) / ReductionM\n        -- Export to globals --\n        local Export = WA_ZELER_EH\n        Export.EHPMAX, Export.EHMMAX = EHPMaxHealth * Avoid * Elusive, EHMMaxHealth * Avoid * Elusive\n        Export.EHP, Export.EHM = EHP * Avoid * Elusive, EHM * Avoid * Elusive\n        \n        Export.REDP, Export.REDM = ReductionP / Avoid / Elusive, ReductionM / Avoid / Elusive\n        Export.ABS, Export.ABSP, Export.ABSM = Absorbs, AbsorbsP, AbsorbsM\n        Export.EHPIMMUNITY, Export.EHMIMMUNITY = PImmunity, MImmunity\n        Export.EHARMOR = Armor\n        Export.STAGGERP, Export.STAGGERM = StaggerP, StaggerM\n    end\n    \n    -- Formatting numbers --\n    local DivideP, DivideM = 1, 1\n    local ImportDecimal = aura_env.DisplayDecimals\n    local EHPdecimal, EHMdecimal = ImportDecimal, ImportDecimal\n    local letterP, letterM = \"\", \"\"\n    if EHP > 10^9 then\n        EHP = EHP / 10^9\n        DivideP = 10^9\n        letterP = \"B\"\n    elseif EHP > 10^8 then\n        EHP = EHP / 10^6\n        DivideP = 10^6\n        letterP = \"M\"\n        EHPdecimal = 0\n    elseif EHP > 10^6 then\n        EHP = EHP / 10^6\n        DivideP = 10^6\n        letterP = \"M\"\n    elseif EHP > 10^5 then\n        EHP = EHP / 10^3\n        DivideP = 10^3\n        letterP = \"K\"\n        EHPdecimal = 0\n    elseif EHP > 10^3 then\n        EHP = EHP / 10^3\n        DivideP = 10^3\n        letterP = \"K\"\n    elseif EHP > -1 then\n        EHP = EHP / 1\n        DivideP = 1\n        EHPdecimal = 0\n    end\n    \n    if EHM > 10^9 then\n        EHM = EHM / 10^9\n        DivideM = 10^9\n        letterM = \"B\"\n    elseif EHM > 10^8 then\n        EHM = EHM / 10^6\n        DivideM = 10^6\n        letterM = \"M\"\n        EHMdecimal = 0\n    elseif EHM > 10^6 then\n        EHM = EHM / 10^6\n        DivideM = 10^6\n        letterM = \"M\"\n    elseif EHM > 10^5 then\n        EHM = EHM / 10^3\n        DivideM = 10^3\n        letterM = \"K\"\n        EHMdecimal = 0\n    elseif EHM > 10^3 then\n        EHM = EHM / 10^3\n        DivideM = 10^3\n        letterM = \"K\"\n    elseif EHM > -1 then\n        EHM = EHM / 1\n        DivideM = 1\n        EHMdecimal = 0\n    end\n    \n    \n    -- Format displayed text with appropriate colors --\n    local Color = \"\"\n    if Mode ~= \"magic\" then\n        for i = 1, 6 do\n            if EHP >= Threshold[1][i] / DivideP then Color = ColorFunction[i] end\n        end\n        if PImmunity == 1 then Color = ColorFunction[7] end\n        EHP = string.format(\"P:|c%s%.\" .. EHPdecimal .. \"f\" .. letterP .. \"|r\", Color, EHP)\n    else EHP = \"\"\n    end\n    \n    if Mode ~= \"physical\" then\n        for i = 1, 6 do\n            if EHM >= Threshold[2][i] / DivideM then Color = ColorFunction[i] end\n        end\n        if MImmunity == 1 then Color = ColorFunction[7] end\n        EHM = string.format(\"M:|c%s%.\" .. EHMdecimal .. \"f\" .. letterM .. \"|r\", Color, EHM)\n    else EHM = \"\"\n    end\n    \n    local separator = \"\"\n    if Mode == \"both\" and aura_env.Align == \"horizontal\" then separator = \" | \"\n    elseif Mode == \"both\" and aura_env.Align == \"vertical\" then separator = \"\\n\" end\n    \n    --- CPU Benchmarking ---\n    if Debug then\n        aura_env.time = (aura_env.time or 0) + debugprofilestop() -start\n        if aura_env.count == 0 then\n            print(aura_env.time)\n            aura_env.time = 0\n        end\n        return \"P: \" .. ReductionP .. \"\\n\" .. \"M: \" .. ReductionM\n    end\n    \n    return EHP .. separator .. EHM\nend",
-			["yOffset"] = -420,
-			["anchorPoint"] = "CENTER",
-			["customTextUpdate"] = "update",
-			["url"] = "https://wago.io/B1pg1fRub/103",
-			["icon"] = true,
-			["fontFlags"] = "OUTLINE",
-			["internalVersion"] = 7,
-			["animation"] = {
-				["start"] = {
-					["type"] = "none",
-					["duration_type"] = "seconds",
-				},
-				["main"] = {
-					["colorR"] = 1,
-					["scalex"] = 1,
-					["colorA"] = 1,
-					["colorG"] = 1,
-					["use_translate"] = false,
-					["type"] = "custom",
-					["preset"] = "shake",
-					["translateFunc"] = "",
-					["scaley"] = 1,
-					["alpha"] = 0,
-					["colorB"] = 1,
-					["y"] = 0,
-					["colorType"] = "custom",
-					["use_color"] = false,
-					["translateType"] = "custom",
-					["colorFunc"] = "\n\n",
-					["rotate"] = 0,
-					["x"] = 8,
-					["duration_type"] = "seconds",
-				},
-				["finish"] = {
-					["type"] = "none",
-					["duration_type"] = "seconds",
-				},
-			},
-			["desc"] = "Made by Zeler-Ravencrest EU",
-			["font"] = "Friz Quadrata TT",
-			["version"] = 52,
-			["height"] = 48.1367568969727,
-			["load"] = {
-				["ingroup"] = {
-					["multi"] = {
-					},
-				},
-				["use_never"] = false,
-				["class"] = {
-					["single"] = "DRUID",
-					["multi"] = {
-					},
-				},
-				["role"] = {
-					["multi"] = {
-					},
-				},
-				["level"] = "110",
-				["size"] = {
-					["multi"] = {
-					},
-				},
-				["talent2"] = {
-					["multi"] = {
-					},
-				},
-				["use_level"] = false,
-				["talent"] = {
-					["multi"] = {
-					},
-				},
-				["spec"] = {
-					["single"] = 4,
-					["multi"] = {
-						true, -- [1]
-						[4] = true,
-					},
-				},
-				["difficulty"] = {
-					["multi"] = {
-					},
-				},
-				["use_zone"] = false,
-				["race"] = {
-					["multi"] = {
-					},
-				},
-				["faction"] = {
-					["multi"] = {
-					},
-				},
-				["level_operator"] = "==",
-				["pvptalent"] = {
-					["multi"] = {
-					},
-				},
-				["zoneId"] = "",
-				["use_zoneId"] = false,
-			},
-			["fontSize"] = 24,
-			["displayStacks"] = "%c",
-			["triggers"] = {
-				{
-					["trigger"] = {
-						["use_absorbMode"] = true,
-						["genericShowOn"] = "showOnActive",
-						["unit"] = "player",
-						["custom_hide"] = "timed",
-						["type"] = "status",
-						["use_health"] = true,
-						["health_operator"] = ">",
-						["unevent"] = "auto",
-						["debuffType"] = "HELPFUL",
-						["event"] = "Conditions",
-						["custom_type"] = "status",
-						["use_unit"] = true,
-						["health"] = "1",
-						["spellIds"] = {
-						},
-						["subeventSuffix"] = "_CAST_START",
-						["check"] = "update",
-						["use_alive"] = true,
-						["names"] = {
-						},
-						["subeventPrefix"] = "SPELL",
-					},
-					["untrigger"] = {
-					},
-				}, -- [1]
-				{
-					["trigger"] = {
-						["type"] = "custom",
-						["custom_type"] = "event",
-						["event"] = "Chat Message",
-						["subeventPrefix"] = "SPELL",
-						["custom"] = "function()\n    aura_env.SpecID = GetSpecialization() \nend",
-						["subeventSuffix"] = "_CAST_START",
-						["events"] = "ACTIVE_TALENT_GROUP_CHANGED",
-						["unevent"] = "auto",
-						["genericShowOn"] = "showOnActive",
-						["custom_hide"] = "timed",
-					},
-					["untrigger"] = {
-					},
-				}, -- [2]
-				{
-					["trigger"] = {
-						["type"] = "custom",
-						["custom_type"] = "event",
-						["event"] = "Chat Message",
-						["subeventPrefix"] = "SPELL",
-						["genericShowOn"] = "showOnActive",
-						["events"] = "COMBAT_LOG_EVENT_UNFILTERED",
-						["unevent"] = "auto",
-						["check"] = "event",
-						["custom"] = "function(event)\n    -- Original code from https://wago.io/B1M5OqeFb\n    if aura_env.ClassID == 10 and aura_env.SpecID == 3 then\n        local CLEU = {CombatLogGetCurrentEventInfo()}\n        local message = CLEU[2]\n        local destName = CLEU[9]\n        local Multiplier = 0.5\n        if aura_env.GoodKarma then\n            Multiplier = 1\n        end\n        if destName and UnitIsUnit(\"player\", destName) then\n            if message == \"SPELL_ABSORBED\" then\n                local chk = CLEU[9]\n                local spellID, absorbed = 0, 0\n                if type(chk) == \"number\" then -- Spell\n                    spellID = CLEU[19]\n                    absorbed = CLEU[22]\n                else -- Swing\n                    spellID = CLEU[16]\n                    absorbed = CLEU[19]\n                end\n                if spellID == 122470 then\n                    aura_env.TouchOfKarma = math.max(aura_env.TouchOfKarma - absorbed, 0)\n                end\n            elseif message == \"SPELL_AURA_APPLIED\" then\n                local spellID = CLEU[12]\n                if spellID == 122470 then\n                    aura_env.maxValue = UnitHealthMax(\"player\") * Multiplier\n                    aura_env.TouchOfKarma = aura_env.maxValue\n                end\n            elseif message == \"SPELL_AURA_REMOVED\" then\n                local spellID = CLEU[12]\n                if spellID == 122470 then\n                    aura_env.TouchOfKarma = 0\n                end\n            end\n        end\n    end\nend\n\n\n\n\n",
-						["subeventSuffix"] = "_CAST_START",
-						["custom_hide"] = "custom",
-					},
-					["untrigger"] = {
-					},
-				}, -- [3]
-				{
-					["trigger"] = {
-						["type"] = "custom",
-						["subeventSuffix"] = "_CAST_START",
-						["duration"] = "1",
-						["event"] = "Health",
-						["subeventPrefix"] = "SPELL",
-						["events"] = "PLAYER_TARGET_CHANGED,ENCOUNTER_START,INSTANCE_ENCOUNTER_ENGAGE_UNIT",
-						["genericShowOn"] = "showOnActive",
-						["check"] = "update",
-						["custom_type"] = "event",
-						["custom"] = "function()\n    local PlayerLevel = aura_env.PlayerLevel\n    local TargetLevel = PlayerLevel\n    if UnitExists(\"boss1\") then\n        TargetLevel = UnitLevel(\"boss1\")\n    elseif UnitExists(\"target\") then\n        TargetLevel = UnitLevel(\"target\")\n    end\n    if TargetLevel == -1 then -- Raid boss\n        TargetLevel = PlayerLevel + 3\n        -- elseif TargetLevel < aura_env.PlayerLevel then\n        --     TargetLevel = PlayerLevel -- Prevents the armor scaling from looking too strange. Currently disabled\n    end\n    aura_env.TargetLevel = TargetLevel\nend",
-						["custom_hide"] = "timed",
-					},
-					["untrigger"] = {
-					},
-				}, -- [4]
-				{
-					["trigger"] = {
-						["type"] = "custom",
-						["custom_type"] = "event",
-						["event"] = "Health",
-						["subeventPrefix"] = "SPELL",
-						["custom"] = "function(event, NewLevel)\n    aura_env.PlayerLevel = NewLevel\nend",
-						["genericShowOn"] = "showOnActive",
-						["events"] = "PLAYER_LEVEL_UP",
-						["subeventSuffix"] = "_CAST_START",
-						["custom_hide"] = "timed",
-					},
-					["untrigger"] = {
-					},
-				}, -- [5]
-				["disjunctive"] = "custom",
-				["customTriggerLogic"] = "function(t)\n    return t[1]\nend",
-				["activeTriggerMode"] = 1,
-			},
-			["regionType"] = "text",
-			["wordWrap"] = "WordWrap",
-			["displayIcon"] = 458720,
-			["fixedWidth"] = 200,
-			["stickyDuration"] = false,
-			["color"] = {
-				1, -- [1]
-				1, -- [2]
-				1, -- [3]
-				1, -- [4]
-			},
-			["anchorFrameParent"] = true,
-			["actions"] = {
-				["start"] = {
-					["custom"] = "\n\n",
-					["do_custom"] = false,
-				},
-				["init"] = {
-					["custom"] = "-- Made by Zeler-Ravencrest EU, with great help from Stryer-Ravencrest EU\naura_env.Mode = \"both\"        -- Choose from \"physical\", \"magic\", \"both\" to change the value(s) displayed\naura_env.Align = \"vertical\"   -- Choose which alignment you want. \"vertical\" for vertical alignment, \"horizontal\" for horizontal alignment\naura_env.AoE = true           -- Enable avoidance with true and disable it with false\naura_env.GlobalExport = true  -- Enable export of certain variables as global variables for use in other weakauras\naura_env.Debug = false        -- Enable debug with true. It will then return the damage reduction multipliers\nlocal text = true             -- Disable the 'P:' and the 'M:' with false\naura_env.DisplayDecimals = 1  -- The number of decimals displayed\n\naura_env.PlayerLevel = UnitLevel(\"player\")\naura_env.TargetLevel = aura_env.PlayerLevel\naura_env.TouchOfKarma = 0\naura_env.GoodKarma = IsPlayerSpell(280195) -- Wind Walker Monk - Talent\naura_env.HighmountainTauren = IsPlayerSpell(255659) -- Rugged Tenacity - Passive\n\n\nlocal GameVersion = GetBuildInfo()\nlocal G1 = (select(1, strsplit(\".\", GameVersion)))\nlocal G2 = (select(2, strsplit(\".\", GameVersion)))\nif type(G1) == \"string\" then G1 = tonumber(G1) end\nif type(G2) == \"string\" then G2 = tonumber(G2) end\n\nG2 = G2 / 10\nGameVersion = G1 + G2\nif GameVersion >= 8.2 then\n    aura_env.OutOfDate = true\n    return\nend\n\n\n-- Color values, the accepted values are from 0 to 255\n-- {red, green, blue}\naura_env.Color = {\n    {0, 255, 0},   -- Lowest HP\n    {255, 128, 0},\n    {0, 255, 0},\n    {0, 255, 255},\n    {255, 0, 255},\n    {255, 255, 0}, -- Highest HP\n    {0, 60, 255},  -- Immunity color\n}\n\n-- Thresholds at which the color changes (leave the first 0)\naura_env.Threshold = {\n    {0, 6950000, 9950000, 14950000, 24950000, 43950000}, -- Physical EH\n    {0, 5450000, 6450000, 9950000, 13950000, 19950000},  -- Magic EH\n}\n\nlocal function RGBtoHex(rgb)\n    return string.format(\"ff%02x%02x%02x\", rgb[1], rgb[2], rgb[3])\nend\n\nfor i = 1, #aura_env.Color do\n    aura_env.Color[i] = RGBtoHex(aura_env.Color[i])\nend\n\n-- Check player class and spec\naura_env.ClassID = select(3, UnitClass(\"player\"))\naura_env.SpecID = GetSpecialization()\n\n\n-- Class self-buffs: [Spell ID] = {Phys Reduction, Magic Reduction}\naura_env.BasicReductions = {\n    \n    --- Death Knight ---\n    [195181] = {0.84, 0.84}, -- Bone Shield\n    [194679] = {0.70, 0.70}, -- Rune Tap\n    \n    --- Demon Hunter ---\n    [218256] = {1, 0.70},    -- Empower Wards\n    \n    --- Druid ---\n    [158792] = {0.91, 0.91}, -- Pulverize\n    [22812] = {0.80, 0.80},  -- Barkskin\n    [61336] = {0.50, 0.50},  -- Survival Instincts\n    \n    --- Hunter ---\n    [186265] = {0.70, 0.70}, -- Aspect of the Turtle\n    \n    --- Mage ---\n    [113862] = {0.40, 0.40}, -- Greater Invisibility\n    [235450] = {1, 0.85},    -- Prismatic Barrier\n    -- [235313] = {0.80, 1},    -- Blazing Barrier\n    \n    --- Monk ---\n    [120954] = {0.80, 0.80}, -- Fortifying Brew (BrM)\n    [243435] = {0.80, 0.80}, -- Fortifying Brew (MW)\n    [122278] = {0.80, 0.80}, -- Dampen Harm, assumed at minimum reduction\n    [122783] = {1, 0.40},    -- Diffuse Magic\n    [115176] = {0.40, 0.40}, -- Zen Meditation\n    \n    --- Paladin ---\n    [498] = {0.80, 0.80},    -- Divine Protection\n    [31850] = {0.80, 0.80},  -- Ardent Defender\n    [205191] = {0.65, 1},    -- Eye for an Eye - talent\n    [86659] = {0.50, 0.50},  -- Guardian of Ancient Kings\n    [183436] = {0.70, 0.70}, -- Retribution - passive\n    [6940] = {0.70, 0.70},   -- Blessing of Sacrifice\n    [204335] = {0.80, 0.80}, -- Aegis of Light - talent\n    \n    --- Priest ---\n    [47585] = {0.40, 0.40},  -- Dispersion\n    [193065] = {0.90, 0.90}, -- Masochism - talent\n    [232698] = {0.90, 0.90}, -- Shadowform\n    [33206] = {0.60, 0.60},  -- Pain Suppression\n    -- [194384] = {0.97, 0.97}, -- Leniece - talent -- Currently disabled due to being unable to track if the casting priest has the talent or not\n    [81782] = {0.75, 0.75},  -- Power Word: Barrier\n    \n    --- Rogue ---\n    [45182] = {0.15, 0.15},  -- Cheating Death - Cheat Death talent\n    \n    --- Shaman ---\n    [108271] = {0.60, 0.60}, -- Astral Shift\n    [98007] = {0.90, 0.90},  -- Spirit Link Totem\n    \n    --- Warlock ---\n    [104773] = {0.60, 0.60}, -- Unending Resolve\n    \n    --- Warrior ---\n    [197690] = {0.80, 0.80}, -- Defensive Stance\n    [118038] = {0.65, 0.65}, -- Die by the Sword\n    [184364] = {0.70, 0.70}, -- Enraged Regeneration\n    [871] = {0.60, 0.60},    -- Shield Wall\n    [23920] = {1, 0.50},     -- Spell Reflection\n    [223658] = {0.70, 0.70}, -- Safeguard\n    \n    --- Miscellaneous ---\n    [241836] = {0.95, 0.95}, -- Shadow of Celumbra\n    [65116] = {0.90, 1},     -- Stoneform\n    [211080] = {0.90, 0.90}, -- Comforting light (Court of Stars)\n    [273809] = {1.30, 1.30}  -- Idol of Rage\n}\n\n\nif aura_env.GlobalExport then\n    WA_ZELER_EH = {}\nend",
-					["do_custom"] = true,
-				},
-				["finish"] = {
-					["stop_sound"] = false,
-				},
-			},
-			["stacksContainment"] = "INSIDE",
-			["zoom"] = 0.3,
-			["auto"] = true,
-			["desaturate"] = false,
-			["id"] = "Effective Health - Magic and Physical v2.01",
-			["width"] = 138.623931884766,
-			["frameStrata"] = 1,
-			["anchorFrameType"] = "SCREEN",
-			["justify"] = "LEFT",
-			["selfPoint"] = "TOPLEFT",
-			["inverse"] = false,
-			["automaticWidth"] = "Auto",
-			["init_started"] = 1,
-			["conditions"] = {
-			},
-			["stacksPoint"] = "CENTER",
-			["textColor"] = {
-				0.96862745098039, -- [1]
-				1, -- [2]
-				0.94509803921569, -- [3]
-				1, -- [4]
-			},
-		},
 		["Explosive Burst"] = {
 			["text2Point"] = "CENTER",
 			["text1FontSize"] = 13,
@@ -3366,15 +3126,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -3387,7 +3144,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -3398,12 +3158,12 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["icon"] = true,
-			["text2Containment"] = "INSIDE",
 			["text1Enabled"] = true,
-			["text1Font"] = "Friz Quadrata TT",
-			["parent"] = "BfA Dungeons",
+			["text2Containment"] = "INSIDE",
 			["text2Font"] = "Friz Quadrata TT",
+			["text1Font"] = "Friz Quadrata TT",
+			["icon"] = true,
+			["xOffset"] = 0,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["stickyDuration"] = false,
@@ -3481,7 +3241,7 @@ WeakAurasSaved = {
 				}, -- [2]
 			},
 			["cooldown"] = true,
-			["xOffset"] = 0,
+			["parent"] = "BfA Dungeons",
 		},
 		["Duelist Dash"] = {
 			["text2Point"] = "CENTER",
@@ -3640,6 +3400,7 @@ WeakAurasSaved = {
 			["text1Enabled"] = true,
 			["inverse"] = false,
 			["text1Font"] = "Friz Quadrata TT",
+			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
@@ -3868,15 +3629,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -3891,7 +3649,10 @@ WeakAurasSaved = {
 						["TANK"] = true,
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -4031,15 +3792,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -4052,7 +3810,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -4063,9 +3824,10 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["text1Enabled"] = true,
-			["text2Containment"] = "INSIDE",
 			["text2Font"] = "Friz Quadrata TT",
+			["text2Containment"] = "INSIDE",
+			["xOffset"] = 0,
+			["text1Font"] = "Friz Quadrata TT",
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
@@ -4073,7 +3835,6 @@ WeakAurasSaved = {
 				1, -- [4]
 			},
 			["parent"] = "BfA Dungeons",
-			["text1Font"] = "Friz Quadrata TT",
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["selfPoint"] = "CENTER",
@@ -4100,10 +3861,11 @@ WeakAurasSaved = {
 			["cooldownTextEnabled"] = true,
 			["inverse"] = false,
 			["icon"] = true,
+			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["xOffset"] = 0,
+			["text1Enabled"] = true,
 		},
 		["Beast Cleave Buffing Player"] = {
 			["textFlags"] = "None",
@@ -4168,12 +3930,12 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["pvptalent"] = {
+				["use_spec"] = true,
+				["faction"] = {
 					["multi"] = {
 					},
 				},
-				["use_spec"] = true,
-				["faction"] = {
+				["pvptalent"] = {
 					["multi"] = {
 					},
 				},
@@ -4257,12 +4019,12 @@ WeakAurasSaved = {
 			["backdropInFront"] = false,
 			["text"] = true,
 			["stickyDuration"] = false,
+			["init_started"] = 1,
 			["fontFlags"] = "OUTLINE",
 			["spark"] = false,
 			["sparkTexture"] = "Interface\\CastingBar\\UI-CastingBar-Spark",
 			["timer"] = true,
 			["timerFlags"] = "None",
-			["orientation"] = "HORIZONTAL",
 			["sparkBlendMode"] = "ADD",
 			["useAdjustededMax"] = false,
 			["actions"] = {
@@ -4274,30 +4036,30 @@ WeakAurasSaved = {
 				},
 			},
 			["borderOffset"] = 5,
+			["height"] = 30,
 			["textSize"] = 16,
-			["sparkWidth"] = 10,
 			["anchorFrameType"] = "SCREEN",
 			["border"] = false,
 			["borderEdge"] = "None",
-			["borderSize"] = 16,
 			["borderInFront"] = false,
+			["borderSize"] = 16,
+			["customTextUpdate"] = "update",
+			["icon_side"] = "LEFT",
+			["sparkHidden"] = "NEVER",
 			["borderColor"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				0.5, -- [4]
 			},
-			["icon_side"] = "LEFT",
-			["sparkHidden"] = "NEVER",
+			["sparkHeight"] = 30,
+			["timerSize"] = 16,
 			["sparkColor"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["sparkHeight"] = 30,
-			["timerSize"] = 16,
-			["icon"] = true,
 			["stacksColor"] = {
 				1, -- [1]
 				1, -- [2]
@@ -4305,21 +4067,21 @@ WeakAurasSaved = {
 				1, -- [4]
 			},
 			["displayTextRight"] = " ",
-			["sparkOffsetX"] = 0,
+			["icon"] = true,
 			["id"] = "Beast Cleave Buffing Player",
-			["customTextUpdate"] = "update",
+			["sparkOffsetX"] = 0,
 			["frameStrata"] = 1,
 			["width"] = 400,
+			["sparkWidth"] = 10,
 			["backdropColor"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				0.5, -- [4]
 			},
-			["height"] = 30,
 			["inverse"] = false,
 			["sparkDesature"] = false,
-			["init_started"] = 1,
+			["orientation"] = "HORIZONTAL",
 			["conditions"] = {
 			},
 			["cooldown"] = true,
@@ -4586,15 +4348,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -4609,7 +4368,10 @@ WeakAurasSaved = {
 						["TANK"] = true,
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -4924,15 +4686,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -4945,7 +4704,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -4956,17 +4718,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
+			["text1Font"] = "Friz Quadrata TT",
 			["parent"] = "BfA Dungeons",
-			["xOffset"] = 0,
 			["text2Containment"] = "INSIDE",
-			["displayIcon"] = 237587,
+			["xOffset"] = 0,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["text1Font"] = "Friz Quadrata TT",
+			["displayIcon"] = 237587,
 			["text2Font"] = "Friz Quadrata TT",
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
@@ -4994,7 +4756,6 @@ WeakAurasSaved = {
 			["cooldownTextEnabled"] = true,
 			["inverse"] = false,
 			["icon"] = true,
-			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
@@ -5121,17 +4882,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["parent"] = "BfA Dungeons",
-			["text1Enabled"] = true,
-			["text2Containment"] = "INSIDE",
-			["displayIcon"] = 796638,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
+			["parent"] = "BfA Dungeons",
+			["text2Containment"] = "INSIDE",
+			["text1Enabled"] = true,
 			["text1Font"] = "Friz Quadrata TT",
+			["displayIcon"] = 796638,
 			["text2Font"] = "Friz Quadrata TT",
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
@@ -5321,6 +5082,7 @@ WeakAurasSaved = {
 			["text1Enabled"] = true,
 			["inverse"] = false,
 			["text1Font"] = "Friz Quadrata TT",
+			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
@@ -5410,15 +5172,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -5431,7 +5190,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -5442,8 +5204,10 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["text1Font"] = "Friz Quadrata TT",
+			["parent"] = "BfA Dungeons",
 			["text2Containment"] = "INSIDE",
+			["icon"] = true,
+			["text1Font"] = "Friz Quadrata TT",
 			["text1Enabled"] = true,
 			["text1Color"] = {
 				1, -- [1]
@@ -5451,8 +5215,6 @@ WeakAurasSaved = {
 				1, -- [3]
 				1, -- [4]
 			},
-			["xOffset"] = 0,
-			["parent"] = "BfA Dungeons",
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["text2Font"] = "Friz Quadrata TT",
@@ -5479,10 +5241,11 @@ WeakAurasSaved = {
 			["cooldownTextEnabled"] = true,
 			["inverse"] = false,
 			["selfPoint"] = "CENTER",
+			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["icon"] = true,
+			["xOffset"] = 0,
 		},
 		["Purification Beam"] = {
 			["text2Point"] = "CENTER",
@@ -5577,15 +5340,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -5600,7 +5360,10 @@ WeakAurasSaved = {
 						["TANK"] = true,
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -5741,12 +5504,15 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["race"] = {
+				["role"] = {
 					["multi"] = {
 					},
 				},
@@ -5763,10 +5529,7 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["role"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["size"] = {
 					["single"] = "party",
 					["multi"] = {
@@ -5811,6 +5574,7 @@ WeakAurasSaved = {
 			["text1Enabled"] = true,
 			["inverse"] = false,
 			["text1Font"] = "Friz Quadrata TT",
+			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
@@ -5907,15 +5671,12 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -5928,7 +5689,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -5939,17 +5703,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["xOffset"] = 0,
-			["parent"] = "BfA Dungeons",
-			["text2Containment"] = "INSIDE",
-			["displayIcon"] = 2011119,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
+			["xOffset"] = 0,
+			["text2Containment"] = "INSIDE",
+			["parent"] = "BfA Dungeons",
 			["text1Font"] = "Friz Quadrata TT",
+			["displayIcon"] = 2011119,
 			["text2Font"] = "Friz Quadrata TT",
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
@@ -6309,6 +6073,7 @@ WeakAurasSaved = {
 			["text1Enabled"] = true,
 			["inverse"] = false,
 			["text1Font"] = "Friz Quadrata TT",
+			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
@@ -6571,15 +6336,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -6592,7 +6354,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -6603,17 +6368,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["xOffset"] = 0,
-			["parent"] = "BfA Dungeons",
-			["text2Containment"] = "INSIDE",
-			["displayIcon"] = 537022,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
+			["xOffset"] = 0,
+			["text2Containment"] = "INSIDE",
+			["parent"] = "BfA Dungeons",
 			["text1Font"] = "Friz Quadrata TT",
+			["displayIcon"] = 537022,
 			["text2Font"] = "Friz Quadrata TT",
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
@@ -6930,17 +6695,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["text2Font"] = "Friz Quadrata TT",
-			["text2Containment"] = "INSIDE",
 			["parent"] = "BfA Dungeons",
+			["text2Containment"] = "INSIDE",
+			["xOffset"] = 0,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["icon"] = true,
-			["xOffset"] = 0,
+			["text2Font"] = "Friz Quadrata TT",
+			["text1Enabled"] = true,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["text1Font"] = "Friz Quadrata TT",
@@ -6970,7 +6735,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["text1Enabled"] = true,
+			["icon"] = true,
 		},
 		["07-Critical Mass"] = {
 			["text2Point"] = "CENTER",
@@ -7234,12 +6999,17 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["use_zone"] = false,
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["role"] = {
+					["single"] = "TANK",
+					["multi"] = {
+						["TANK"] = true,
+					},
+				},
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -7252,12 +7022,7 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["role"] = {
-					["single"] = "TANK",
-					["multi"] = {
-						["TANK"] = true,
-					},
-				},
+				["use_zone"] = false,
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -7268,17 +7033,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["text2Font"] = "Friz Quadrata TT",
 			["parent"] = "BfA Dungeons",
-			["text2Containment"] = "INSIDE",
 			["text1Enabled"] = true,
+			["text2Containment"] = "INSIDE",
+			["displayIcon"] = 136050,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["displayIcon"] = 136050,
+			["text2Font"] = "Friz Quadrata TT",
 			["icon"] = true,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
@@ -7306,6 +7071,7 @@ WeakAurasSaved = {
 			["desaturate"] = false,
 			["inverse"] = false,
 			["text1Font"] = "Friz Quadrata TT",
+			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
@@ -7403,15 +7169,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -7426,7 +7189,10 @@ WeakAurasSaved = {
 						["TANK"] = true,
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -7438,9 +7204,9 @@ WeakAurasSaved = {
 				},
 			},
 			["xOffset"] = 0,
-			["icon"] = true,
-			["text2Containment"] = "INSIDE",
 			["text2Font"] = "Friz Quadrata TT",
+			["text2Containment"] = "INSIDE",
+			["parent"] = "BfA Dungeons",
 			["text1Font"] = "Friz Quadrata TT",
 			["conditions"] = {
 			},
@@ -7476,10 +7242,9 @@ WeakAurasSaved = {
 			["desaturate"] = false,
 			["inverse"] = false,
 			["selfPoint"] = "CENTER",
-			["init_started"] = 1,
 			["displayIcon"] = 132318,
 			["cooldown"] = true,
-			["parent"] = "BfA Dungeons",
+			["icon"] = true,
 		},
 		["Flashing Daggers"] = {
 			["text2Point"] = "CENTER",
@@ -7581,10 +7346,7 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["faction"] = {
 					["multi"] = {
 					},
@@ -7594,30 +7356,33 @@ WeakAurasSaved = {
 					},
 				},
 				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["role"] = {
 					["multi"] = {
 						["HEALER"] = true,
 						["DAMAGER"] = true,
 					},
 				},
-				["use_zoneId"] = true,
 				["size"] = {
 					["single"] = "party",
 					["multi"] = {
 					},
 				},
 			},
-			["parent"] = "BfA Dungeons",
-			["text1Enabled"] = true,
-			["text2Containment"] = "INSIDE",
-			["displayIcon"] = 236273,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
+			["parent"] = "BfA Dungeons",
+			["text2Containment"] = "INSIDE",
+			["text1Enabled"] = true,
 			["text1Font"] = "Friz Quadrata TT",
+			["displayIcon"] = 236273,
 			["text2Font"] = "Friz Quadrata TT",
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
@@ -7912,15 +7677,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -7935,7 +7697,10 @@ WeakAurasSaved = {
 						["TANK"] = true,
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -8073,14 +7838,11 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["class"] = {
-					["multi"] = {
-					},
-				},
 				["spec"] = {
 					["multi"] = {
 					},
 				},
+				["encounterid"] = "2134",
 				["use_zone"] = false,
 				["use_encounterid"] = true,
 				["difficulty"] = {
@@ -8107,7 +7869,10 @@ WeakAurasSaved = {
 					},
 				},
 				["use_difficulty"] = false,
-				["encounterid"] = "2134",
+				["class"] = {
+					["multi"] = {
+					},
+				},
 				["size"] = {
 					["multi"] = {
 						["twenty"] = true,
@@ -8250,15 +8015,15 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
-				["difficulty"] = {
-					["multi"] = {
-					},
-				},
 				["race"] = {
 					["multi"] = {
 					},
 				},
+				["difficulty"] = {
+					["multi"] = {
+					},
+				},
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -8271,7 +8036,7 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["use_zoneId"] = true,
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -8282,17 +8047,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["xOffset"] = 0,
-			["parent"] = "BfA Dungeons",
-			["text2Containment"] = "INSIDE",
-			["displayIcon"] = 1394887,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
+			["xOffset"] = 0,
+			["text2Containment"] = "INSIDE",
+			["parent"] = "BfA Dungeons",
 			["text1Font"] = "Friz Quadrata TT",
+			["displayIcon"] = 1394887,
 			["text2Font"] = "Friz Quadrata TT",
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
@@ -8651,6 +8416,7 @@ WeakAurasSaved = {
 			["text1Enabled"] = true,
 			["inverse"] = false,
 			["text1Font"] = "Friz Quadrata TT",
+			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
@@ -8745,15 +8511,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -8766,7 +8529,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -8999,6 +8765,7 @@ WeakAurasSaved = {
 			["selfPoint"] = "CENTER",
 			["inverse"] = false,
 			["text1Enabled"] = true,
+			["init_started"] = 1,
 			["displayIcon"] = 1033905,
 			["cooldown"] = true,
 			["parent"] = "BfA Dungeons",
@@ -9087,15 +8854,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -9108,7 +8872,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -9119,17 +8886,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
+			["text2Font"] = "Friz Quadrata TT",
+			["text2Containment"] = "INSIDE",
+			["parent"] = "BfA Dungeons",
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["text2Containment"] = "INSIDE",
 			["text1Enabled"] = true,
 			["text1Font"] = "Friz Quadrata TT",
-			["xOffset"] = 0,
-			["text2Font"] = "Friz Quadrata TT",
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["selfPoint"] = "CENTER",
@@ -9159,7 +8926,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["parent"] = "BfA Dungeons",
+			["xOffset"] = 0,
 		},
 		["Slicing Hurricane"] = {
 			["text2Point"] = "CENTER",
@@ -9245,15 +9012,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -9266,7 +9030,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -9277,17 +9044,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["icon"] = true,
-			["text2Containment"] = "INSIDE",
 			["parent"] = "BfA Dungeons",
+			["text2Containment"] = "INSIDE",
+			["text2Font"] = "Friz Quadrata TT",
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["xOffset"] = 0,
-			["text2Font"] = "Friz Quadrata TT",
+			["icon"] = true,
+			["text1Enabled"] = true,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["text1Font"] = "Friz Quadrata TT",
@@ -9317,7 +9084,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["text1Enabled"] = true,
+			["xOffset"] = 0,
 		},
 		["Soulfeast"] = {
 			["text2Point"] = "CENTER",
@@ -9403,15 +9170,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -9424,7 +9188,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -9435,17 +9202,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
+			["text2Font"] = "Friz Quadrata TT",
+			["text2Containment"] = "INSIDE",
+			["parent"] = "BfA Dungeons",
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["text2Containment"] = "INSIDE",
 			["text1Enabled"] = true,
 			["text1Font"] = "Friz Quadrata TT",
-			["xOffset"] = 0,
-			["text2Font"] = "Friz Quadrata TT",
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["selfPoint"] = "CENTER",
@@ -9475,7 +9242,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["parent"] = "BfA Dungeons",
+			["xOffset"] = 0,
 		},
 		["Swiftness Ward self buff"] = {
 			["text2Point"] = "CENTER",
@@ -9593,15 +9360,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -9615,7 +9379,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -9753,15 +9520,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -9774,7 +9538,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -9785,17 +9552,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["text2Font"] = "Friz Quadrata TT",
-			["text2Containment"] = "INSIDE",
 			["parent"] = "BfA Dungeons",
+			["text2Containment"] = "INSIDE",
+			["xOffset"] = 0,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["icon"] = true,
-			["xOffset"] = 0,
+			["text2Font"] = "Friz Quadrata TT",
+			["internalVersion"] = 7,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["text1Font"] = "Friz Quadrata TT",
@@ -9825,7 +9592,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["internalVersion"] = 7,
+			["icon"] = true,
 		},
 		["Tectonic Smash"] = {
 			["text2Point"] = "CENTER",
@@ -9916,12 +9683,17 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["use_zone"] = false,
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["role"] = {
+					["single"] = "TANK",
+					["multi"] = {
+						["TANK"] = true,
+					},
+				},
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -9934,12 +9706,7 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["role"] = {
-					["single"] = "TANK",
-					["multi"] = {
-						["TANK"] = true,
-					},
-				},
+				["use_zone"] = false,
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -9950,17 +9717,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["text2Font"] = "Friz Quadrata TT",
 			["parent"] = "BfA Dungeons",
-			["text2Containment"] = "INSIDE",
 			["text1Enabled"] = true,
+			["text2Containment"] = "INSIDE",
+			["displayIcon"] = 136025,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["displayIcon"] = 136025,
+			["text2Font"] = "Friz Quadrata TT",
 			["icon"] = true,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
@@ -9988,6 +9755,7 @@ WeakAurasSaved = {
 			["desaturate"] = false,
 			["inverse"] = false,
 			["text1Font"] = "Friz Quadrata TT",
+			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
@@ -10094,7 +9862,7 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -10107,13 +9875,13 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
+				["use_zoneId"] = true,
 				["role"] = {
 					["single"] = "TANK",
 					["multi"] = {
 						["TANK"] = true,
 					},
 				},
-				["use_zone"] = false,
 				["size"] = {
 					["single"] = "party",
 					["multi"] = {
@@ -10248,15 +10016,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -10269,7 +10034,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -10280,17 +10048,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["icon"] = true,
+			["parent"] = "BfA Dungeons",
 			["text2Containment"] = "INSIDE",
-			["xOffset"] = 0,
+			["text1Enabled"] = true,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["parent"] = "BfA Dungeons",
-			["text2Font"] = "Friz Quadrata TT",
+			["icon"] = true,
+			["xOffset"] = 0,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["text1Font"] = "Friz Quadrata TT",
@@ -10317,11 +10085,10 @@ WeakAurasSaved = {
 			},
 			["inverse"] = false,
 			["desaturate"] = false,
-			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["text1Enabled"] = true,
+			["text2Font"] = "Friz Quadrata TT",
 		},
 		["Oiled Blade"] = {
 			["text2Point"] = "CENTER",
@@ -10414,15 +10181,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -10435,7 +10199,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -10646,6 +10413,7 @@ WeakAurasSaved = {
 			["text1Enabled"] = true,
 			["inverse"] = false,
 			["text1Font"] = "Friz Quadrata TT",
+			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
@@ -10742,15 +10510,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -10763,7 +10528,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -10774,17 +10542,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["xOffset"] = 0,
-			["parent"] = "BfA Dungeons",
-			["text2Containment"] = "INSIDE",
-			["displayIcon"] = 1029009,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
+			["xOffset"] = 0,
+			["text2Containment"] = "INSIDE",
+			["parent"] = "BfA Dungeons",
 			["text1Font"] = "Friz Quadrata TT",
+			["displayIcon"] = 1029009,
 			["text2Font"] = "Friz Quadrata TT",
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
@@ -10910,15 +10678,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -10933,7 +10698,10 @@ WeakAurasSaved = {
 						["TANK"] = true,
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -10945,9 +10713,9 @@ WeakAurasSaved = {
 				},
 			},
 			["xOffset"] = 0,
-			["icon"] = true,
-			["text2Containment"] = "INSIDE",
 			["text2Font"] = "Friz Quadrata TT",
+			["text2Containment"] = "INSIDE",
+			["parent"] = "BfA Dungeons",
 			["text1Font"] = "Friz Quadrata TT",
 			["conditions"] = {
 			},
@@ -10983,10 +10751,9 @@ WeakAurasSaved = {
 			["desaturate"] = false,
 			["inverse"] = false,
 			["selfPoint"] = "CENTER",
-			["init_started"] = 1,
 			["displayIcon"] = 463569,
 			["cooldown"] = true,
-			["parent"] = "BfA Dungeons",
+			["icon"] = true,
 		},
 		["Jagged Nettles cast"] = {
 			["text2Point"] = "CENTER",
@@ -11110,9 +10877,9 @@ WeakAurasSaved = {
 				},
 			},
 			["parent"] = "BfA Dungeons",
-			["text2Font"] = "Friz Quadrata TT",
-			["text2Containment"] = "INSIDE",
 			["xOffset"] = 0,
+			["text2Containment"] = "INSIDE",
+			["icon"] = true,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
@@ -11151,7 +10918,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["icon"] = true,
+			["text2Font"] = "Friz Quadrata TT",
 		},
 		["Deadeye target 2"] = {
 			["text2Point"] = "CENTER",
@@ -11265,15 +11032,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -11286,7 +11050,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -11297,17 +11064,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["xOffset"] = 0,
-			["text2Containment"] = "INSIDE",
 			["text2Font"] = "Friz Quadrata TT",
+			["text2Containment"] = "INSIDE",
+			["parent"] = "BfA Dungeons",
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["desaturate"] = false,
-			["parent"] = "BfA Dungeons",
+			["xOffset"] = 0,
+			["icon"] = true,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["stickyDuration"] = false,
@@ -11337,7 +11104,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["icon"] = true,
+			["desaturate"] = false,
 		},
 		["Minor Swiftness Ward"] = {
 			["text2Point"] = "CENTER",
@@ -11438,7 +11205,7 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -11451,11 +11218,11 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
+				["use_zoneId"] = true,
 				["role"] = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
 				["size"] = {
 					["single"] = "party",
 					["multi"] = {
@@ -11621,17 +11388,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
+			["text2Font"] = "Friz Quadrata TT",
+			["text2Containment"] = "INSIDE",
+			["parent"] = "BfA Dungeons",
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["text2Containment"] = "INSIDE",
 			["text1Enabled"] = true,
 			["text1Font"] = "Friz Quadrata TT",
-			["xOffset"] = 0,
-			["text2Font"] = "Friz Quadrata TT",
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["selfPoint"] = "CENTER",
@@ -11661,7 +11428,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["parent"] = "BfA Dungeons",
+			["xOffset"] = 0,
 		},
 		["06-Rupturing Blood Offtank"] = {
 			["text2Point"] = "CENTER",
@@ -11971,15 +11738,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -11994,7 +11758,10 @@ WeakAurasSaved = {
 						["TANK"] = true,
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -12006,9 +11773,9 @@ WeakAurasSaved = {
 				},
 			},
 			["xOffset"] = 0,
-			["icon"] = true,
-			["text2Containment"] = "INSIDE",
 			["text2Font"] = "Friz Quadrata TT",
+			["text2Containment"] = "INSIDE",
+			["parent"] = "BfA Dungeons",
 			["text1Font"] = "Friz Quadrata TT",
 			["conditions"] = {
 			},
@@ -12044,10 +11811,9 @@ WeakAurasSaved = {
 			["desaturate"] = false,
 			["inverse"] = false,
 			["selfPoint"] = "CENTER",
-			["init_started"] = 1,
 			["displayIcon"] = 136125,
 			["cooldown"] = false,
-			["parent"] = "BfA Dungeons",
+			["icon"] = true,
 		},
 		["04-Eye Beam Cast"] = {
 			["text2Point"] = "CENTER",
@@ -12523,10 +12289,7 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -12539,25 +12302,28 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["use_zoneId"] = true,
-				["use_zone"] = false,
 				["size"] = {
 					["single"] = "party",
 					["multi"] = {
 					},
 				},
 			},
+			["parent"] = "BfA Dungeons",
+			["text2Containment"] = "INSIDE",
+			["xOffset"] = 0,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["text2Containment"] = "INSIDE",
 			["text1Enabled"] = true,
 			["text1Font"] = "Friz Quadrata TT",
-			["text2Font"] = "Friz Quadrata TT",
-			["parent"] = "BfA Dungeons",
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["selfPoint"] = "CENTER",
@@ -12587,7 +12353,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["xOffset"] = 0,
+			["text2Font"] = "Friz Quadrata TT",
 		},
 		["Conduction"] = {
 			["text2Point"] = "CENTER",
@@ -12675,15 +12441,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -12696,7 +12459,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -12707,17 +12473,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["xOffset"] = 0,
+			["text1Enabled"] = true,
 			["text2Containment"] = "INSIDE",
+			["parent"] = "BfA Dungeons",
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
+			["xOffset"] = 0,
 			["text1Font"] = "Friz Quadrata TT",
-			["icon"] = true,
-			["text1Enabled"] = true,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["text2Font"] = "Friz Quadrata TT",
@@ -12747,7 +12513,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["parent"] = "BfA Dungeons",
+			["icon"] = true,
 		},
 		["08-Wave of Corruption Stack"] = {
 			["text2Point"] = "CENTER",
@@ -12782,10 +12548,10 @@ WeakAurasSaved = {
 						["group_count"] = "1",
 						["debuffType"] = "HARMFUL",
 						["type"] = "custom",
-						["events"] = "COMBAT_LOG_EVENT_UNFILTERED, ENCOUNTER_START, UNIT_SPELLCAST_SUCCEEDED",
-						["unevent"] = "timed",
 						["custom_hide"] = "timed",
+						["unevent"] = "timed",
 						["custom_type"] = "event",
+						["events"] = "COMBAT_LOG_EVENT_UNFILTERED, ENCOUNTER_START, UNIT_SPELLCAST_SUCCEEDED",
 						["event"] = "Combat Log",
 						["custom"] = "function(event, ...)\n    \n    if event == \"ENCOUNTER_START\" then\n        aura_env.count = 0\n        aura_env.phase = 2\n    end\n    \n    if event == \"COMBAT_LOG_EVENT_UNFILTERED\" then\n        \n        local timestamp, subevent, hideCaster, sourceGUID, sourceName, sourceFlags, sourceRaidFlags, destGUID, destName, destFlags, destRaidFlags, spellID, spellName, spellSchool = ...\n        \n        \n        if spellID == 276839 then\n            aura_env.phase = 3\n        end\n        if subevent == \"SPELL_CAST_SUCCESS\" then \n            if aura_env.phase == 2 then\n                if spellID == 263482 then\n                    aura_env.count = 0\n                end\n                if spellID == 270373 then\n                    aura_env.count = aura_env.count+1\n                    if aura_env.count == 2 then\n                        aura_env.count = 0\n                        return true\n                    end\n                end\n            else\n                return false\n            end\n        end\n    end\nend\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
 						["spellIds"] = {
@@ -12839,8 +12605,11 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["encounterid"] = "2122",
 				["spec"] = {
+					["multi"] = {
+					},
+				},
+				["class"] = {
 					["multi"] = {
 					},
 				},
@@ -12869,22 +12638,13 @@ WeakAurasSaved = {
 					},
 				},
 				["use_difficulty"] = false,
-				["class"] = {
-					["multi"] = {
-					},
-				},
+				["encounterid"] = "2122",
 				["size"] = {
 					["multi"] = {
 						["twenty"] = true,
 						["flexible"] = true,
 					},
 				},
-			},
-			["text1Color"] = {
-				1, -- [1]
-				1, -- [2]
-				1, -- [3]
-				1, -- [4]
 			},
 			["color"] = {
 				1, -- [1]
@@ -12893,8 +12653,14 @@ WeakAurasSaved = {
 				1, -- [4]
 			},
 			["text2Font"] = "Friz Quadrata TT",
-			["text2Containment"] = "INSIDE",
 			["displayIcon"] = 132278,
+			["text2Containment"] = "INSIDE",
+			["text1Color"] = {
+				1, -- [1]
+				1, -- [2]
+				1, -- [3]
+				1, -- [4]
+			},
 			["text1Font"] = "Friz Quadrata TT",
 			["glow"] = false,
 			["cooldownTextEnabled"] = true,
@@ -13020,15 +12786,12 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -13041,7 +12804,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -13052,17 +12818,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
+			["text1Font"] = "Friz Quadrata TT",
 			["parent"] = "BfA Dungeons",
-			["xOffset"] = 0,
 			["text2Containment"] = "INSIDE",
-			["displayIcon"] = 511543,
+			["xOffset"] = 0,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["text1Font"] = "Friz Quadrata TT",
+			["displayIcon"] = 511543,
 			["text2Font"] = "Friz Quadrata TT",
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
@@ -13090,7 +12856,6 @@ WeakAurasSaved = {
 			["cooldownTextEnabled"] = true,
 			["inverse"] = false,
 			["icon"] = true,
-			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
@@ -13391,12 +13156,12 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["text1Enabled"] = true,
-			["text1Containment"] = "OUTSIDE",
 			["xOffset"] = 0,
-			["text2Containment"] = "INSIDE",
+			["text1Enabled"] = true,
 			["conditions"] = {
 			},
+			["text2Containment"] = "INSIDE",
+			["text1Containment"] = "OUTSIDE",
 			["text1Font"] = "Friz Quadrata TT",
 			["text2Font"] = "Friz Quadrata TT",
 			["actions"] = {
@@ -13528,15 +13293,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -13549,7 +13311,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -13560,17 +13325,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["icon"] = true,
+			["parent"] = "BfA Dungeons",
 			["text2Containment"] = "INSIDE",
-			["xOffset"] = 0,
+			["text1Enabled"] = true,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["parent"] = "BfA Dungeons",
-			["text2Font"] = "Friz Quadrata TT",
+			["icon"] = true,
+			["xOffset"] = 0,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["text1Font"] = "Friz Quadrata TT",
@@ -13597,11 +13362,10 @@ WeakAurasSaved = {
 			["desaturate"] = false,
 			["inverse"] = false,
 			["selfPoint"] = "CENTER",
-			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["text1Enabled"] = true,
+			["text2Font"] = "Friz Quadrata TT",
 		},
 		["Neurotoxin"] = {
 			["text2Point"] = "CENTER",
@@ -13726,17 +13490,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["xOffset"] = 0,
+			["text1Enabled"] = true,
 			["text2Containment"] = "INSIDE",
+			["parent"] = "BfA Dungeons",
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
+			["xOffset"] = 0,
 			["text1Font"] = "Friz Quadrata TT",
-			["icon"] = true,
-			["text1Enabled"] = true,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["text2Font"] = "Friz Quadrata TT",
@@ -13766,7 +13530,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["parent"] = "BfA Dungeons",
+			["icon"] = true,
 		},
 		["Soulrend"] = {
 			["text2Point"] = "CENTER",
@@ -14047,10 +13811,11 @@ WeakAurasSaved = {
 						["type"] = "event",
 						["spellId"] = "265530",
 						["unevent"] = "timed",
-						["unit"] = "player",
+						["subeventPrefix"] = "SPELL",
 						["duration"] = "24.5",
 						["genericShowOn"] = "showOnActive",
-						["subeventPrefix"] = "SPELL",
+						["names"] = {
+						},
 						["destUnit"] = "player",
 						["use_spellId"] = true,
 						["name"] = "Surging Darkness",
@@ -14058,8 +13823,7 @@ WeakAurasSaved = {
 						["spellIds"] = {
 						},
 						["use_destUnit"] = true,
-						["names"] = {
-						},
+						["unit"] = "player",
 						["debuffType"] = "HELPFUL",
 					},
 					["untrigger"] = {
@@ -14101,10 +13865,10 @@ WeakAurasSaved = {
 			["text"] = true,
 			["stickyDuration"] = false,
 			["textSize"] = 20,
+			["auto"] = true,
 			["height"] = 60,
 			["timer"] = true,
 			["timerFlags"] = "None",
-			["auto"] = true,
 			["sparkBlendMode"] = "ADD",
 			["useAdjustededMax"] = false,
 			["backgroundColor"] = {
@@ -14127,23 +13891,23 @@ WeakAurasSaved = {
 			},
 			["zoom"] = 0,
 			["borderOffset"] = 5,
-			["borderInFront"] = true,
+			["width"] = 320,
 			["border"] = false,
 			["borderEdge"] = "None",
-			["width"] = 320,
+			["borderInFront"] = true,
 			["borderSize"] = 16,
 			["borderInset"] = 11,
 			["icon_side"] = "RIGHT",
-			["url"] = "https://wago.io/ByyBK8vpG/27",
 			["id"] = "04-Surging Darkness",
+			["url"] = "https://wago.io/ByyBK8vpG/27",
 			["sparkHeight"] = 27,
+			["timerSize"] = 20,
 			["backdropColor"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				0.5, -- [4]
 			},
-			["timerSize"] = 20,
 			["stacksColor"] = {
 				1, -- [1]
 				1, -- [2]
@@ -14260,15 +14024,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -14281,7 +14042,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -14292,17 +14056,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["text2Font"] = "Friz Quadrata TT",
-			["text2Containment"] = "INSIDE",
-			["xOffset"] = 0,
-			["text1Font"] = "Friz Quadrata TT",
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
+			["text2Containment"] = "INSIDE",
 			["parent"] = "BfA Dungeons",
+			["text1Font"] = "Friz Quadrata TT",
+			["xOffset"] = 0,
+			["internalVersion"] = 7,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["desaturate"] = false,
@@ -14332,7 +14096,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["internalVersion"] = 7,
+			["text2Font"] = "Friz Quadrata TT",
 		},
 		["08-Putrid Blood"] = {
 			["text2Point"] = "CENTER",
@@ -14458,16 +14222,16 @@ WeakAurasSaved = {
 					},
 				},
 			},
+			["xOffset"] = 0,
+			["text1Containment"] = "OUTSIDE",
+			["displayIcon"] = 458969,
+			["text2Containment"] = "INSIDE",
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["xOffset"] = 0,
-			["text1Containment"] = "OUTSIDE",
-			["text2Containment"] = "INSIDE",
-			["displayIcon"] = 458969,
 			["text1Font"] = "Friz Quadrata TT",
 			["glow"] = false,
 			["desaturate"] = false,
@@ -14599,15 +14363,12 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -14622,7 +14383,10 @@ WeakAurasSaved = {
 						["TANK"] = true,
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -14769,15 +14533,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -14792,7 +14553,10 @@ WeakAurasSaved = {
 						["TANK"] = true,
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -14804,9 +14568,9 @@ WeakAurasSaved = {
 				},
 			},
 			["xOffset"] = 0,
-			["icon"] = true,
-			["text2Containment"] = "INSIDE",
 			["text2Font"] = "Friz Quadrata TT",
+			["text2Containment"] = "INSIDE",
+			["parent"] = "BfA Dungeons",
 			["text1Font"] = "Friz Quadrata TT",
 			["conditions"] = {
 			},
@@ -14842,10 +14606,9 @@ WeakAurasSaved = {
 			["desaturate"] = false,
 			["inverse"] = false,
 			["selfPoint"] = "CENTER",
-			["init_started"] = 1,
 			["displayIcon"] = 463569,
 			["cooldown"] = true,
-			["parent"] = "BfA Dungeons",
+			["icon"] = true,
 		},
 		["Dark Omen"] = {
 			["text2Point"] = "CENTER",
@@ -14931,15 +14694,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -14952,7 +14712,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -14963,12 +14726,12 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["text2Font"] = "Friz Quadrata TT",
-			["text2Containment"] = "INSIDE",
 			["text1Enabled"] = true,
-			["text1Font"] = "Friz Quadrata TT",
-			["parent"] = "BfA Dungeons",
+			["text2Containment"] = "INSIDE",
 			["xOffset"] = 0,
+			["text1Font"] = "Friz Quadrata TT",
+			["text2Font"] = "Friz Quadrata TT",
+			["icon"] = true,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["desaturate"] = false,
@@ -15003,7 +14766,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["icon"] = true,
+			["parent"] = "BfA Dungeons",
 		},
 		["Jagged Nettles"] = {
 			["text2Point"] = "CENTER",
@@ -15289,15 +15052,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zone"] = false,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["use_zoneId"] = true,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -15311,7 +15071,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["talent2"] = {
 					["multi"] = {
 					},
@@ -15495,16 +15258,16 @@ WeakAurasSaved = {
 					},
 				},
 			},
+			["text1Containment"] = "OUTSIDE",
+			["xOffset"] = 0,
+			["conditions"] = {
+			},
+			["text2Containment"] = "INSIDE",
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
-			},
-			["text1Containment"] = "OUTSIDE",
-			["xOffset"] = 0,
-			["text2Containment"] = "INSIDE",
-			["conditions"] = {
 			},
 			["text1Font"] = "Friz Quadrata TT",
 			["icon"] = true,
@@ -15623,15 +15386,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -15644,7 +15404,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -15655,17 +15418,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["icon"] = true,
-			["text2Containment"] = "INSIDE",
 			["parent"] = "BfA Dungeons",
+			["text2Containment"] = "INSIDE",
+			["text2Font"] = "Friz Quadrata TT",
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["xOffset"] = 0,
-			["text2Font"] = "Friz Quadrata TT",
+			["icon"] = true,
+			["text1Enabled"] = true,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["text1Font"] = "Friz Quadrata TT",
@@ -15695,7 +15458,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["text1Enabled"] = true,
+			["xOffset"] = 0,
 		},
 		["Final Blast"] = {
 			["text2Point"] = "CENTER",
@@ -15816,17 +15579,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["xOffset"] = 0,
 			["parent"] = "BfA Dungeons",
-			["text2Containment"] = "INSIDE",
 			["icon"] = true,
+			["text2Containment"] = "INSIDE",
+			["displayIcon"] = 133713,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["displayIcon"] = 133713,
+			["xOffset"] = 0,
 			["stickyDuration"] = false,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
@@ -15854,6 +15617,7 @@ WeakAurasSaved = {
 			["text1Enabled"] = true,
 			["inverse"] = false,
 			["text1Font"] = "Friz Quadrata TT",
+			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
@@ -15950,15 +15714,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -15971,7 +15732,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -15982,17 +15746,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
+			["text1Font"] = "Friz Quadrata TT",
 			["parent"] = "BfA Dungeons",
-			["xOffset"] = 0,
 			["text2Containment"] = "INSIDE",
-			["displayIcon"] = 132284,
+			["xOffset"] = 0,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["text1Font"] = "Friz Quadrata TT",
+			["displayIcon"] = 132284,
 			["text2Font"] = "Friz Quadrata TT",
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
@@ -16020,7 +15784,6 @@ WeakAurasSaved = {
 			["cooldownTextEnabled"] = true,
 			["inverse"] = false,
 			["icon"] = true,
-			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
@@ -16312,12 +16075,12 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["parent"] = "BfA Dungeons",
-			["text2Containment"] = "INSIDE",
 			["icon"] = true,
-			["text1Font"] = "Friz Quadrata TT",
-			["text1Enabled"] = true,
+			["text2Containment"] = "INSIDE",
 			["text2Font"] = "Friz Quadrata TT",
+			["text1Font"] = "Friz Quadrata TT",
+			["parent"] = "BfA Dungeons",
+			["xOffset"] = 0,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["selfPoint"] = "CENTER",
@@ -16352,7 +16115,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["xOffset"] = 0,
+			["text1Enabled"] = true,
 		},
 		["Death Lents"] = {
 			["text2Point"] = "CENTER",
@@ -16649,9 +16412,9 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["icon"] = true,
 			["text1Containment"] = "OUTSIDE",
 			["xOffset"] = 0,
+			["icon"] = true,
 			["text2Containment"] = "INSIDE",
 			["conditions"] = {
 			},
@@ -17000,12 +16763,15 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["race"] = {
+				["role"] = {
 					["multi"] = {
 					},
 				},
@@ -17022,10 +16788,7 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["role"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["size"] = {
 					["single"] = "party",
 					["multi"] = {
@@ -17035,14 +16798,14 @@ WeakAurasSaved = {
 			["parent"] = "BfA Dungeons",
 			["icon"] = true,
 			["text2Containment"] = "INSIDE",
-			["displayIcon"] = 132155,
+			["xOffset"] = 0,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["xOffset"] = 0,
+			["displayIcon"] = 132155,
 			["stickyDuration"] = false,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
@@ -17070,135 +16833,11 @@ WeakAurasSaved = {
 			["text1Enabled"] = true,
 			["inverse"] = false,
 			["text1Font"] = "Friz Quadrata TT",
+			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
 			["text2Font"] = "Friz Quadrata TT",
-		},
-		["Mythic+ Interrupt Tracker DG v3"] = {
-			["grow"] = "UP",
-			["controlledChildren"] = {
-				"Mythic+ Interrupt Tracker v3", -- [1]
-			},
-			["xOffset"] = -747.880340576172,
-			["yOffset"] = -156.871246337891,
-			["anchorPoint"] = "CENTER",
-			["space"] = 2,
-			["url"] = "https://wago.io/SkjHi61Bz/17",
-			["actions"] = {
-				["start"] = {
-				},
-				["finish"] = {
-				},
-				["init"] = {
-				},
-			},
-			["triggers"] = {
-				{
-					["trigger"] = {
-						["type"] = "aura",
-						["subeventSuffix"] = "_CAST_START",
-						["event"] = "Health",
-						["unit"] = "player",
-						["spellIds"] = {
-						},
-						["buffShowOn"] = "showOnActive",
-						["subeventPrefix"] = "SPELL",
-						["names"] = {
-						},
-						["debuffType"] = "HELPFUL",
-					},
-					["untrigger"] = {
-					},
-				}, -- [1]
-				["disjunctive"] = "all",
-				["activeTriggerMode"] = -10,
-			},
-			["internalVersion"] = 7,
-			["animation"] = {
-				["start"] = {
-					["duration_type"] = "seconds",
-					["type"] = "none",
-				},
-				["main"] = {
-					["duration_type"] = "seconds",
-					["type"] = "none",
-				},
-				["finish"] = {
-					["duration_type"] = "seconds",
-					["type"] = "none",
-				},
-			},
-			["align"] = "CENTER",
-			["stagger"] = 0,
-			["height"] = 22,
-			["load"] = {
-				["ingroup"] = {
-					["multi"] = {
-					},
-				},
-				["talent"] = {
-					["multi"] = {
-					},
-				},
-				["spec"] = {
-					["multi"] = {
-					},
-				},
-				["talent2"] = {
-					["multi"] = {
-					},
-				},
-				["difficulty"] = {
-					["multi"] = {
-					},
-				},
-				["race"] = {
-					["multi"] = {
-					},
-				},
-				["role"] = {
-					["multi"] = {
-					},
-				},
-				["pvptalent"] = {
-					["multi"] = {
-					},
-				},
-				["use_class"] = false,
-				["faction"] = {
-					["multi"] = {
-					},
-				},
-				["class"] = {
-					["multi"] = {
-					},
-				},
-				["size"] = {
-					["multi"] = {
-					},
-				},
-			},
-			["animate"] = false,
-			["scale"] = 1,
-			["border"] = "None",
-			["regionType"] = "dynamicgroup",
-			["sort"] = "ascending",
-			["expanded"] = false,
-			["constantFactor"] = "RADIUS",
-			["borderOffset"] = 16,
-			["id"] = "Mythic+ Interrupt Tracker DG v3",
-			["frameStrata"] = 1,
-			["width"] = 250.00003051758,
-			["selfPoint"] = "BOTTOM",
-			["uid"] = ")jhThQSo4nn",
-			["anchorFrameType"] = "SCREEN",
-			["rotation"] = 0,
-			["background"] = "None",
-			["conditions"] = {
-			},
-			["radius"] = 200,
-			["backgroundInset"] = 0,
 		},
 		["Reinforcing Ward boss buff"] = {
 			["text2Point"] = "CENTER",
@@ -17436,16 +17075,18 @@ WeakAurasSaved = {
 					},
 				},
 				["encounterid"] = "2122",
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zone"] = false,
 				["use_encounterid"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["role"] = {
+					["single"] = "HEALER",
+					["multi"] = {
+						["HEALER"] = true,
+					},
+				},
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -17462,10 +17103,8 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["role"] = {
-					["single"] = "HEALER",
+				["race"] = {
 					["multi"] = {
-						["HEALER"] = true,
 					},
 				},
 				["size"] = {
@@ -17506,10 +17145,11 @@ WeakAurasSaved = {
 						["type"] = "event",
 						["spellId"] = "274582",
 						["subeventSuffix"] = "_CAST_SUCCESS",
-						["unit"] = "player",
+						["subeventPrefix"] = "SPELL",
 						["duration"] = "14",
 						["genericShowOn"] = "showOnActive",
-						["subeventPrefix"] = "SPELL",
+						["names"] = {
+						},
 						["destUnit"] = "player",
 						["use_spellId"] = true,
 						["name"] = "Malignant Growth",
@@ -17517,8 +17157,7 @@ WeakAurasSaved = {
 						},
 						["event"] = "Combat Log",
 						["use_destUnit"] = false,
-						["names"] = {
-						},
+						["unit"] = "player",
 						["debuffType"] = "HELPFUL",
 					},
 					["untrigger"] = {
@@ -17576,10 +17215,10 @@ WeakAurasSaved = {
 			["text"] = true,
 			["stickyDuration"] = false,
 			["displayTextLeft"] = " ",
+			["auto"] = true,
 			["height"] = 60,
 			["timer"] = true,
 			["timerFlags"] = "None",
-			["auto"] = true,
 			["sparkBlendMode"] = "ADD",
 			["useAdjustededMax"] = false,
 			["actions"] = {
@@ -17602,23 +17241,23 @@ WeakAurasSaved = {
 				1, -- [3]
 				0.5, -- [4]
 			},
-			["customTextUpdate"] = "update",
+			["width"] = 300,
 			["border"] = false,
 			["borderEdge"] = "None",
-			["width"] = 300,
+			["customTextUpdate"] = "update",
 			["borderInFront"] = true,
 			["url"] = "https://wago.io/ByyBK8vpG/27",
 			["icon_side"] = "RIGHT",
+			["id"] = "08-Malignant Growth",
 			["backdropColor"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				0.5, -- [4]
 			},
-			["id"] = "08-Malignant Growth",
 			["sparkHeight"] = 27,
-			["borderInset"] = 11,
 			["displayTextRight"] = "Dance",
+			["borderInset"] = 11,
 			["stacksColor"] = {
 				1, -- [1]
 				1, -- [2]
@@ -17768,14 +17407,14 @@ WeakAurasSaved = {
 			["icon"] = true,
 			["parent"] = "BfA Dungeons",
 			["text2Containment"] = "INSIDE",
-			["displayIcon"] = 132309,
+			["xOffset"] = 0,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["xOffset"] = 0,
+			["displayIcon"] = 132309,
 			["stickyDuration"] = false,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
@@ -17803,6 +17442,7 @@ WeakAurasSaved = {
 			["text1Enabled"] = true,
 			["inverse"] = false,
 			["text1Font"] = "Friz Quadrata TT",
+			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
@@ -17892,15 +17532,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -17913,7 +17550,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -17924,12 +17564,12 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["parent"] = "BfA Dungeons",
-			["text2Containment"] = "INSIDE",
 			["icon"] = true,
-			["text1Font"] = "Friz Quadrata TT",
-			["text1Enabled"] = true,
+			["text2Containment"] = "INSIDE",
 			["text2Font"] = "Friz Quadrata TT",
+			["text1Font"] = "Friz Quadrata TT",
+			["parent"] = "BfA Dungeons",
+			["xOffset"] = 0,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["selfPoint"] = "CENTER",
@@ -17964,7 +17604,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["xOffset"] = 0,
+			["text1Enabled"] = true,
 		},
 		["02-Sundering Scalpel"] = {
 			["text2Point"] = "CENTER",
@@ -18088,14 +17728,14 @@ WeakAurasSaved = {
 			["text1Font"] = "Friz Quadrata TT",
 			["text2Font"] = "Friz Quadrata TT",
 			["text2Containment"] = "INSIDE",
-			["stickyDuration"] = false,
+			["xOffset"] = 0,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["parent"] = "T22 Uldir Raid",
+			["stickyDuration"] = false,
 			["glow"] = false,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
@@ -18126,7 +17766,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["xOffset"] = 0,
+			["parent"] = "T22 Uldir Raid",
 		},
 		["Creeping Rot"] = {
 			["text2Point"] = "CENTER",
@@ -18250,14 +17890,14 @@ WeakAurasSaved = {
 			["parent"] = "BfA Dungeons",
 			["icon"] = true,
 			["text2Containment"] = "INSIDE",
-			["displayIcon"] = 236271,
+			["xOffset"] = 0,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["xOffset"] = 0,
+			["displayIcon"] = 236271,
 			["stickyDuration"] = false,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
@@ -18285,6 +17925,7 @@ WeakAurasSaved = {
 			["text1Enabled"] = true,
 			["inverse"] = false,
 			["text1Font"] = "Friz Quadrata TT",
+			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
@@ -18380,15 +18021,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -18401,7 +18039,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -18412,18 +18053,18 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["parent"] = "BfA Dungeons",
-			["icon"] = true,
-			["text2Containment"] = "INSIDE",
-			["conditions"] = {
-			},
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
+			["parent"] = "BfA Dungeons",
+			["text2Containment"] = "INSIDE",
+			["icon"] = true,
 			["text1Font"] = "Friz Quadrata TT",
+			["conditions"] = {
+			},
 			["text2Font"] = "Friz Quadrata TT",
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
@@ -18548,15 +18189,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -18571,7 +18209,10 @@ WeakAurasSaved = {
 						["TANK"] = true,
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -18709,15 +18350,12 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -18730,7 +18368,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -18741,17 +18382,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["text1Enabled"] = true,
+			["parent"] = "BfA Dungeons",
 			["text2Containment"] = "INSIDE",
 			["xOffset"] = 0,
 			["text1Font"] = "Friz Quadrata TT",
+			["text1Enabled"] = true,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["icon"] = true,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["text2Font"] = "Friz Quadrata TT",
@@ -18778,11 +18419,10 @@ WeakAurasSaved = {
 			["cooldownTextEnabled"] = true,
 			["inverse"] = false,
 			["selfPoint"] = "CENTER",
-			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["parent"] = "BfA Dungeons",
+			["icon"] = true,
 		},
 		["08-Dark Bargain don't soak"] = {
 			["text2Point"] = "CENTER",
@@ -18934,11 +18574,11 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["stickyDuration"] = false,
-			["desaturate"] = true,
 			["xOffset"] = 0,
-			["text2Containment"] = "INSIDE",
+			["desaturate"] = true,
 			["displayIcon"] = 458969,
+			["text2Containment"] = "INSIDE",
+			["parent"] = "T22 Uldir Raid",
 			["text1Font"] = "Friz Quadrata TT",
 			["text2Font"] = "Friz Quadrata TT",
 			["icon"] = true,
@@ -18976,7 +18616,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["parent"] = "T22 Uldir Raid",
+			["stickyDuration"] = false,
 		},
 		["01-Enlarged Heart Offtank"] = {
 			["text2Point"] = "CENTER",
@@ -19246,10 +18886,7 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -19262,16 +18899,21 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["use_zoneId"] = true,
-				["use_zone"] = false,
 				["size"] = {
 					["single"] = "party",
 					["multi"] = {
 					},
 				},
 			},
-			["text1Font"] = "Friz Quadrata TT",
+			["parent"] = "BfA Dungeons",
 			["text2Containment"] = "INSIDE",
+			["icon"] = true,
+			["text1Font"] = "Friz Quadrata TT",
 			["text1Enabled"] = true,
 			["text1Color"] = {
 				1, -- [1]
@@ -19279,8 +18921,6 @@ WeakAurasSaved = {
 				1, -- [3]
 				1, -- [4]
 			},
-			["xOffset"] = 0,
-			["parent"] = "BfA Dungeons",
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["text2Font"] = "Friz Quadrata TT",
@@ -19307,10 +18947,11 @@ WeakAurasSaved = {
 			["cooldownTextEnabled"] = true,
 			["inverse"] = false,
 			["selfPoint"] = "CENTER",
+			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["icon"] = true,
+			["xOffset"] = 0,
 		},
 		["01-Enlarged Heart Help"] = {
 			["text2Point"] = "CENTER",
@@ -19479,10 +19120,10 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["xOffset"] = 0,
-			["text2Font"] = "Friz Quadrata TT",
-			["text2Containment"] = "INSIDE",
 			["cooldownTextEnabled"] = true,
+			["xOffset"] = 0,
+			["text2Containment"] = "INSIDE",
+			["text2Font"] = "Friz Quadrata TT",
 			["text1Font"] = "Friz Quadrata TT",
 			["text1Color"] = {
 				1, -- [1]
@@ -19976,17 +19617,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["icon"] = true,
-			["text2Containment"] = "INSIDE",
 			["parent"] = "BfA Dungeons",
+			["text2Containment"] = "INSIDE",
+			["text2Font"] = "Friz Quadrata TT",
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["xOffset"] = 0,
-			["text2Font"] = "Friz Quadrata TT",
+			["icon"] = true,
+			["text1Enabled"] = true,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["text1Font"] = "Friz Quadrata TT",
@@ -20016,7 +19657,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["text1Enabled"] = true,
+			["xOffset"] = 0,
 		},
 		["06-Thrumming Pulse"] = {
 			["text2Point"] = "CENTER",
@@ -20278,15 +19919,15 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["use_zoneId"] = true,
-				["difficulty"] = {
-					["multi"] = {
-					},
-				},
 				["race"] = {
 					["multi"] = {
 					},
 				},
+				["difficulty"] = {
+					["multi"] = {
+					},
+				},
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -20299,7 +19940,7 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["use_zoneId"] = true,
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -20310,17 +19951,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["icon"] = true,
+			["xOffset"] = 0,
 			["text2Containment"] = "INSIDE",
-			["parent"] = "BfA Dungeons",
+			["text1Enabled"] = true,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["xOffset"] = 0,
-			["text2Font"] = "Friz Quadrata TT",
+			["icon"] = true,
+			["parent"] = "BfA Dungeons",
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["text1Font"] = "Friz Quadrata TT",
@@ -20347,11 +19988,10 @@ WeakAurasSaved = {
 			["desaturate"] = false,
 			["inverse"] = false,
 			["selfPoint"] = "CENTER",
-			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["text1Enabled"] = true,
+			["text2Font"] = "Friz Quadrata TT",
 		},
 		["Trample"] = {
 			["text2Point"] = "CENTER",
@@ -20510,6 +20150,7 @@ WeakAurasSaved = {
 			["text1Enabled"] = true,
 			["inverse"] = false,
 			["text1Font"] = "Friz Quadrata TT",
+			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
@@ -20608,15 +20249,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -20631,7 +20269,10 @@ WeakAurasSaved = {
 						["TANK"] = true,
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -20977,15 +20618,15 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
-				["difficulty"] = {
-					["multi"] = {
-					},
-				},
 				["race"] = {
 					["multi"] = {
 					},
 				},
+				["difficulty"] = {
+					["multi"] = {
+					},
+				},
+				["use_zoneId"] = true,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -20998,7 +20639,7 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["use_size"] = true,
 				["size"] = {
 					["single"] = "party",
@@ -21086,12 +20727,12 @@ WeakAurasSaved = {
 						["unevent"] = "timed",
 						["debuffType"] = "HARMFUL",
 						["event"] = "Combat Log",
-						["custom"] = "function(channel, msg, language, channelString, target, flags, unknown, channelNumber, channelName, unknown, counter)\n    if message then\n        if msg:find(\"spell:273361\") then\n            return true\n        end\n    end\nend\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
 						["events"] = "CHAT_MSG_RAID_BOSS_EMOTE",
-						["use_spellId"] = true,
 						["spellIds"] = {
 							274387, -- [1]
 						},
+						["use_spellId"] = true,
+						["custom"] = "function(channel, msg, language, channelString, target, flags, unknown, channelNumber, channelName, unknown, counter)\n    if message then\n        if msg:find(\"spell:273361\") then\n            return true\n        end\n    end\nend\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
 						["name"] = "Pool of Darkness",
 						["subeventSuffix"] = "_CAST_SUCCESS",
 						["custom_type"] = "event",
@@ -21335,15 +20976,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -21356,7 +20994,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -21367,17 +21008,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["text2Font"] = "Friz Quadrata TT",
-			["text2Containment"] = "INSIDE",
 			["icon"] = true,
+			["text2Containment"] = "INSIDE",
+			["parent"] = "BfA Dungeons",
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["selfPoint"] = "CENTER",
-			["parent"] = "BfA Dungeons",
+			["text2Font"] = "Friz Quadrata TT",
+			["xOffset"] = 0,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["stickyDuration"] = false,
@@ -21407,7 +21048,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["xOffset"] = 0,
+			["selfPoint"] = "CENTER",
 		},
 		["Purification Beam cast"] = {
 			["text2Point"] = "CENTER",
@@ -21501,15 +21142,12 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -21524,7 +21162,10 @@ WeakAurasSaved = {
 						["TANK"] = true,
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -21697,17 +21338,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["xOffset"] = 0,
 			["parent"] = "BfA Dungeons",
-			["text2Containment"] = "INSIDE",
 			["icon"] = true,
+			["text2Containment"] = "INSIDE",
+			["displayIcon"] = 303690,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["displayIcon"] = 303690,
+			["xOffset"] = 0,
 			["stickyDuration"] = false,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
@@ -21735,6 +21376,7 @@ WeakAurasSaved = {
 			["text1Enabled"] = true,
 			["inverse"] = false,
 			["text1Font"] = "Friz Quadrata TT",
+			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
@@ -21865,9 +21507,9 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["icon"] = true,
 			["text1Containment"] = "OUTSIDE",
 			["xOffset"] = 0,
+			["icon"] = true,
 			["text2Containment"] = "INSIDE",
 			["conditions"] = {
 			},
@@ -22167,15 +21809,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -22188,7 +21827,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -22199,17 +21841,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["icon"] = true,
+			["parent"] = "BfA Dungeons",
 			["text2Containment"] = "INSIDE",
-			["xOffset"] = 0,
+			["text1Enabled"] = true,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["parent"] = "BfA Dungeons",
-			["text2Font"] = "Friz Quadrata TT",
+			["icon"] = true,
+			["xOffset"] = 0,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["text1Font"] = "Friz Quadrata TT",
@@ -22236,11 +21878,10 @@ WeakAurasSaved = {
 			["desaturate"] = false,
 			["inverse"] = false,
 			["selfPoint"] = "CENTER",
-			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["text1Enabled"] = true,
+			["text2Font"] = "Friz Quadrata TT",
 		},
 		["Volatile Pods"] = {
 			["text2Point"] = "CENTER",
@@ -22365,17 +22006,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["xOffset"] = 0,
-			["parent"] = "BfA Dungeons",
-			["text2Containment"] = "INSIDE",
-			["displayIcon"] = 1394887,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
+			["xOffset"] = 0,
+			["text2Containment"] = "INSIDE",
+			["parent"] = "BfA Dungeons",
 			["text1Font"] = "Friz Quadrata TT",
+			["displayIcon"] = 1394887,
 			["text2Font"] = "Friz Quadrata TT",
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
@@ -22493,15 +22134,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zone"] = false,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["use_zoneId"] = true,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -22515,7 +22153,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["talent2"] = {
 					["multi"] = {
 					},
@@ -22526,17 +22167,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
+			["text2Font"] = "Friz Quadrata TT",
+			["text2Containment"] = "INSIDE",
+			["parent"] = "BfA Dungeons",
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["text2Containment"] = "INSIDE",
 			["text1Enabled"] = true,
 			["text1Font"] = "Friz Quadrata TT",
-			["xOffset"] = 0,
-			["text2Font"] = "Friz Quadrata TT",
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["selfPoint"] = "CENTER",
@@ -22566,7 +22207,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["parent"] = "BfA Dungeons",
+			["xOffset"] = 0,
 		},
 		["Lucre's Call"] = {
 			["text2Point"] = "CENTER",
@@ -22660,15 +22301,12 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -22683,7 +22321,10 @@ WeakAurasSaved = {
 						["TANK"] = true,
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -22830,15 +22471,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -22853,7 +22491,10 @@ WeakAurasSaved = {
 						["TANK"] = true,
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -23161,15 +22802,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -23182,7 +22820,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -23193,17 +22834,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["text2Font"] = "Friz Quadrata TT",
-			["text2Containment"] = "INSIDE",
 			["parent"] = "BfA Dungeons",
+			["text2Containment"] = "INSIDE",
+			["xOffset"] = 0,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["icon"] = true,
-			["xOffset"] = 0,
+			["text2Font"] = "Friz Quadrata TT",
+			["internalVersion"] = 7,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["text1Font"] = "Friz Quadrata TT",
@@ -23233,7 +22874,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["internalVersion"] = 7,
+			["icon"] = true,
 		},
 		["Broadside"] = {
 			["text2Point"] = "CENTER",
@@ -23392,6 +23033,7 @@ WeakAurasSaved = {
 			["text1Enabled"] = true,
 			["inverse"] = false,
 			["text1Font"] = "Friz Quadrata TT",
+			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
@@ -23481,15 +23123,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -23502,7 +23141,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -23513,12 +23155,12 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["parent"] = "BfA Dungeons",
-			["text2Containment"] = "INSIDE",
 			["icon"] = true,
-			["text1Font"] = "Friz Quadrata TT",
-			["text1Enabled"] = true,
+			["text2Containment"] = "INSIDE",
 			["text2Font"] = "Friz Quadrata TT",
+			["text1Font"] = "Friz Quadrata TT",
+			["parent"] = "BfA Dungeons",
+			["xOffset"] = 0,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["selfPoint"] = "CENTER",
@@ -23553,7 +23195,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["xOffset"] = 0,
+			["text1Enabled"] = true,
 		},
 		["01-Fixate"] = {
 			["text2Point"] = "CENTER",
@@ -23679,10 +23321,10 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["text2Font"] = "Friz Quadrata TT",
-			["xOffset"] = 0,
-			["text2Containment"] = "INSIDE",
 			["icon"] = true,
+			["text2Font"] = "Friz Quadrata TT",
+			["text2Containment"] = "INSIDE",
+			["xOffset"] = 0,
 			["text1Font"] = "Friz Quadrata TT",
 			["text1Color"] = {
 				1, -- [1]
@@ -23835,15 +23477,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -23856,7 +23495,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -23867,16 +23509,16 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["xOffset"] = 0,
+			["desaturate"] = false,
 			["text2Containment"] = "INSIDE",
-			["text1Font"] = "Friz Quadrata TT",
+			["parent"] = "BfA Dungeons",
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["desaturate"] = false,
+			["text1Font"] = "Friz Quadrata TT",
 			["icon"] = true,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
@@ -23904,11 +23546,10 @@ WeakAurasSaved = {
 			},
 			["inverse"] = false,
 			["text1Enabled"] = true,
-			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["parent"] = "BfA Dungeons",
+			["xOffset"] = 0,
 		},
 		["Dark Revelation"] = {
 			["text2Point"] = "CENTER",
@@ -24003,15 +23644,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -24026,7 +23664,10 @@ WeakAurasSaved = {
 						["TANK"] = true,
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -24173,15 +23814,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -24196,7 +23834,10 @@ WeakAurasSaved = {
 						["TANK"] = true,
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -24208,9 +23849,9 @@ WeakAurasSaved = {
 				},
 			},
 			["xOffset"] = 0,
-			["icon"] = true,
-			["text2Containment"] = "INSIDE",
 			["text2Font"] = "Friz Quadrata TT",
+			["text2Containment"] = "INSIDE",
+			["parent"] = "BfA Dungeons",
 			["text1Font"] = "Friz Quadrata TT",
 			["conditions"] = {
 			},
@@ -24246,10 +23887,9 @@ WeakAurasSaved = {
 			["desaturate"] = false,
 			["inverse"] = false,
 			["selfPoint"] = "CENTER",
-			["init_started"] = 1,
 			["displayIcon"] = 136125,
 			["cooldown"] = true,
-			["parent"] = "BfA Dungeons",
+			["icon"] = true,
 		},
 		["Itchy Bite"] = {
 			["text2Point"] = "CENTER",
@@ -24367,17 +24007,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["text2Font"] = "Friz Quadrata TT",
-			["text2Containment"] = "INSIDE",
 			["icon"] = true,
+			["text2Containment"] = "INSIDE",
+			["parent"] = "BfA Dungeons",
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["text1Enabled"] = true,
-			["parent"] = "BfA Dungeons",
+			["text2Font"] = "Friz Quadrata TT",
+			["xOffset"] = 0,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["text1Font"] = "Friz Quadrata TT",
@@ -24407,7 +24047,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["xOffset"] = 0,
+			["text1Enabled"] = true,
 		},
 		["08-Dark Bargain"] = {
 			["text2Point"] = "CENTER",
@@ -24537,16 +24177,16 @@ WeakAurasSaved = {
 					},
 				},
 			},
+			["text1Containment"] = "OUTSIDE",
+			["xOffset"] = 0,
+			["conditions"] = {
+			},
+			["text2Containment"] = "INSIDE",
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
-			},
-			["text1Containment"] = "OUTSIDE",
-			["xOffset"] = 0,
-			["text2Containment"] = "INSIDE",
-			["conditions"] = {
 			},
 			["text1Font"] = "Friz Quadrata TT",
 			["icon"] = true,
@@ -24675,15 +24315,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -24698,7 +24335,10 @@ WeakAurasSaved = {
 						["TANK"] = true,
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -24710,9 +24350,9 @@ WeakAurasSaved = {
 				},
 			},
 			["xOffset"] = 0,
-			["icon"] = true,
-			["text2Containment"] = "INSIDE",
 			["text2Font"] = "Friz Quadrata TT",
+			["text2Containment"] = "INSIDE",
+			["parent"] = "BfA Dungeons",
 			["text1Font"] = "Friz Quadrata TT",
 			["conditions"] = {
 			},
@@ -24748,10 +24388,9 @@ WeakAurasSaved = {
 			["desaturate"] = false,
 			["inverse"] = false,
 			["selfPoint"] = "CENTER",
-			["init_started"] = 1,
 			["displayIcon"] = 136125,
 			["cooldown"] = true,
-			["parent"] = "BfA Dungeons",
+			["icon"] = true,
 		},
 		["08-Power Matrix Status 2"] = {
 			["text2Point"] = "BOTTOM",
@@ -25128,10 +24767,7 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -25144,8 +24780,11 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["use_zoneId"] = true,
-				["use_zone"] = false,
 				["size"] = {
 					["single"] = "party",
 					["multi"] = {
@@ -25449,15 +25088,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -25470,7 +25106,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -25481,12 +25120,12 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["parent"] = "BfA Dungeons",
-			["text2Containment"] = "INSIDE",
 			["icon"] = true,
-			["text1Font"] = "Friz Quadrata TT",
-			["text1Enabled"] = true,
+			["text2Containment"] = "INSIDE",
 			["text2Font"] = "Friz Quadrata TT",
+			["text1Font"] = "Friz Quadrata TT",
+			["parent"] = "BfA Dungeons",
+			["xOffset"] = 0,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["selfPoint"] = "CENTER",
@@ -25521,7 +25160,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["xOffset"] = 0,
+			["text1Enabled"] = true,
 		},
 		["08-Bursting Boil Spawn"] = {
 			["text2Point"] = "BOTTOM",
@@ -25641,14 +25280,11 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["class"] = {
-					["multi"] = {
-					},
-				},
 				["spec"] = {
 					["multi"] = {
 					},
 				},
+				["encounterid"] = "2122",
 				["use_zone"] = false,
 				["use_encounterid"] = true,
 				["difficulty"] = {
@@ -25673,7 +25309,10 @@ WeakAurasSaved = {
 					},
 				},
 				["use_difficulty"] = true,
-				["encounterid"] = "2122",
+				["class"] = {
+					["multi"] = {
+					},
+				},
 				["size"] = {
 					["multi"] = {
 						["twenty"] = true,
@@ -25858,19 +25497,19 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["faction"] = {
-					["multi"] = {
-					},
-				},
 				["pvptalent"] = {
 					["multi"] = {
 					},
 				},
+				["use_spec"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_spec"] = true,
+				["faction"] = {
+					["multi"] = {
+					},
+				},
 				["talent2"] = {
 					["multi"] = {
 					},
@@ -25938,6 +25577,7 @@ WeakAurasSaved = {
 				["activeTriggerMode"] = -10,
 			},
 			["internalVersion"] = 7,
+			["init_started"] = 1,
 			["animation"] = {
 				["start"] = {
 					["type"] = "none",
@@ -25979,7 +25619,6 @@ WeakAurasSaved = {
 			["textSize"] = 17,
 			["height"] = 30,
 			["timerFlags"] = "None",
-			["orientation"] = "HORIZONTAL",
 			["sparkBlendMode"] = "BLEND",
 			["backdropColor"] = {
 				1, -- [1]
@@ -25989,25 +25628,20 @@ WeakAurasSaved = {
 			},
 			["icon"] = true,
 			["sparkRotation"] = 0,
+			["sparkRotationMode"] = "AUTO",
 			["url"] = "https://wago.io/VJJKTGtlm/7",
-			["textFlags"] = "None",
 			["width"] = 400,
 			["border"] = true,
 			["borderEdge"] = "1 Pixel",
-			["backgroundColor"] = {
-				0.10980392156863, -- [1]
-				0.10980392156863, -- [2]
-				0.10980392156863, -- [3]
-				1, -- [4]
-			},
+			["textFlags"] = "None",
 			["borderInFront"] = true,
-			["useAdjustededMax"] = false,
+			["borderSize"] = 1,
 			["icon_side"] = "LEFT",
 			["sparkHidden"] = "NEVER",
-			["timer"] = true,
+			["useAdjustededMax"] = false,
 			["sparkHeight"] = 25,
 			["displayTextRight"] = "%ps",
-			["borderBackdrop"] = "Solid",
+			["timer"] = true,
 			["stacksColor"] = {
 				1, -- [1]
 				1, -- [2]
@@ -26015,21 +25649,26 @@ WeakAurasSaved = {
 				1, -- [4]
 			},
 			["timerSize"] = 16,
-			["stacksFont"] = "Friz Quadrata TT",
+			["borderBackdrop"] = "Solid",
 			["id"] = "Dire Frenzy Tracker",
-			["borderSize"] = 1,
+			["stacksFont"] = "Friz Quadrata TT",
 			["frameStrata"] = 5,
 			["anchorFrameType"] = "SCREEN",
+			["backgroundColor"] = {
+				0.10980392156863, -- [1]
+				0.10980392156863, -- [2]
+				0.10980392156863, -- [3]
+				1, -- [4]
+			},
 			["sparkColor"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["sparkRotationMode"] = "AUTO",
 			["inverse"] = false,
 			["sparkDesature"] = false,
-			["init_started"] = 1,
+			["orientation"] = "HORIZONTAL",
 			["conditions"] = {
 			},
 			["auto"] = true,
@@ -26158,17 +25797,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
+			["text1Font"] = "Friz Quadrata TT",
 			["parent"] = "BfA Dungeons",
-			["xOffset"] = 0,
 			["text2Containment"] = "INSIDE",
-			["displayIcon"] = 1041234,
+			["xOffset"] = 0,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["text1Font"] = "Friz Quadrata TT",
+			["displayIcon"] = 1041234,
 			["text2Font"] = "Friz Quadrata TT",
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
@@ -26196,7 +25835,6 @@ WeakAurasSaved = {
 			["cooldownTextEnabled"] = true,
 			["inverse"] = false,
 			["icon"] = true,
-			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
@@ -26485,17 +26123,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["parent"] = "BfA Dungeons",
-			["text2Containment"] = "INSIDE",
 			["icon"] = true,
+			["text2Containment"] = "INSIDE",
+			["text1Enabled"] = true,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["text2Font"] = "Friz Quadrata TT",
-			["text1Enabled"] = true,
+			["parent"] = "BfA Dungeons",
+			["xOffset"] = 0,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["text1Font"] = "Friz Quadrata TT",
@@ -26525,7 +26163,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["xOffset"] = 0,
+			["text2Font"] = "Friz Quadrata TT",
 		},
 		["Slam"] = {
 			["text2Point"] = "CENTER",
@@ -26619,15 +26257,15 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
-				["difficulty"] = {
-					["multi"] = {
-					},
-				},
 				["race"] = {
 					["multi"] = {
 					},
 				},
+				["difficulty"] = {
+					["multi"] = {
+					},
+				},
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -26642,7 +26280,7 @@ WeakAurasSaved = {
 						["TANK"] = true,
 					},
 				},
-				["use_zone"] = false,
+				["use_zoneId"] = true,
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -26788,15 +26426,12 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -26811,7 +26446,10 @@ WeakAurasSaved = {
 						["TANK"] = true,
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -26955,15 +26593,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -26976,7 +26611,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -26987,18 +26625,18 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["parent"] = "BfA Dungeons",
-			["icon"] = true,
-			["text2Containment"] = "INSIDE",
-			["conditions"] = {
-			},
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
+			["parent"] = "BfA Dungeons",
+			["text2Containment"] = "INSIDE",
+			["icon"] = true,
 			["text1Font"] = "Friz Quadrata TT",
+			["conditions"] = {
+			},
 			["text2Font"] = "Friz Quadrata TT",
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
@@ -27131,7 +26769,7 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -27144,13 +26782,13 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
+				["use_zoneId"] = true,
 				["role"] = {
 					["single"] = "TANK",
 					["multi"] = {
 						["TANK"] = true,
 					},
 				},
-				["use_zone"] = false,
 				["size"] = {
 					["single"] = "party",
 					["multi"] = {
@@ -27284,15 +26922,15 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["use_zoneId"] = true,
-				["difficulty"] = {
-					["multi"] = {
-					},
-				},
 				["race"] = {
 					["multi"] = {
 					},
 				},
+				["difficulty"] = {
+					["multi"] = {
+					},
+				},
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -27305,7 +26943,7 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["use_zoneId"] = true,
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -27316,12 +26954,12 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["xOffset"] = 0,
-			["text2Containment"] = "INSIDE",
 			["parent"] = "BfA Dungeons",
-			["text1Font"] = "Friz Quadrata TT",
-			["icon"] = true,
+			["text2Containment"] = "INSIDE",
 			["text2Font"] = "Friz Quadrata TT",
+			["text1Font"] = "Friz Quadrata TT",
+			["xOffset"] = 0,
+			["text1Enabled"] = true,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["desaturate"] = false,
@@ -27356,7 +26994,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["text1Enabled"] = true,
+			["icon"] = true,
 		},
 		["08-Blood Feast"] = {
 			["text2Point"] = "CENTER",
@@ -27522,11 +27160,11 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["stickyDuration"] = false,
-			["xOffset"] = 0,
 			["text2Font"] = "Friz Quadrata TT",
-			["text2Containment"] = "INSIDE",
+			["xOffset"] = 0,
 			["displayIcon"] = 132278,
+			["text2Containment"] = "INSIDE",
+			["glow"] = false,
 			["text1Font"] = "Friz Quadrata TT",
 			["cooldownTextEnabled"] = true,
 			["color"] = {
@@ -27569,7 +27207,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["glow"] = false,
+			["stickyDuration"] = false,
 		},
 		["Blade Combo"] = {
 			["text2Point"] = "CENTER",
@@ -28207,17 +27845,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["text1Font"] = "Friz Quadrata TT",
 			["icon"] = true,
+			["text2Font"] = "Friz Quadrata TT",
 			["text2Containment"] = "INSIDE",
-			["parent"] = "T22 Uldir Raid",
+			["text1Font"] = "Friz Quadrata TT",
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["text2Font"] = "Friz Quadrata TT",
+			["xOffset"] = 0,
 			["stickyDuration"] = false,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
@@ -28248,7 +27886,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["xOffset"] = 0,
+			["parent"] = "T22 Uldir Raid",
 		},
 		["01-Cudgle of Gore"] = {
 			["text2Point"] = "CENTER",
@@ -28379,9 +28017,9 @@ WeakAurasSaved = {
 			},
 			["text1Enabled"] = true,
 			["text2Font"] = "Friz Quadrata TT",
-			["parent"] = "T22 Uldir Raid",
-			["text2Containment"] = "INSIDE",
 			["displayIcon"] = 1981044,
+			["text2Containment"] = "INSIDE",
+			["parent"] = "T22 Uldir Raid",
 			["text1Font"] = "Friz Quadrata TT",
 			["stickyDuration"] = false,
 			["icon"] = true,
@@ -28697,15 +28335,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -28718,7 +28353,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -28885,15 +28523,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -28907,7 +28542,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -29413,6 +29051,7 @@ WeakAurasSaved = {
 			["text1Enabled"] = true,
 			["inverse"] = false,
 			["text1Font"] = "Friz Quadrata TT",
+			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
@@ -29511,15 +29150,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -29534,7 +29170,10 @@ WeakAurasSaved = {
 						["TANK"] = true,
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -29707,10 +29346,11 @@ WeakAurasSaved = {
 						["type"] = "event",
 						["spellId"] = "271224",
 						["subeventSuffix"] = "_AURA_APPLIED",
-						["unit"] = "player",
+						["subeventPrefix"] = "SPELL",
 						["duration"] = "7.5",
 						["genericShowOn"] = "showOnActive",
-						["subeventPrefix"] = "SPELL",
+						["names"] = {
+						},
 						["destUnit"] = "player",
 						["use_spellId"] = true,
 						["name"] = "Plasma Discharge",
@@ -29718,8 +29358,7 @@ WeakAurasSaved = {
 						},
 						["event"] = "Combat Log",
 						["use_destUnit"] = true,
-						["names"] = {
-						},
+						["unit"] = "player",
 						["debuffType"] = "HELPFUL",
 					},
 					["untrigger"] = {
@@ -29782,9 +29421,9 @@ WeakAurasSaved = {
 			["stickyDuration"] = false,
 			["icon"] = false,
 			["auto"] = true,
+			["url"] = "https://wago.io/ByyBK8vpG/27",
 			["height"] = 60,
 			["timerFlags"] = "None",
-			["url"] = "https://wago.io/ByyBK8vpG/27",
 			["sparkBlendMode"] = "ADD",
 			["useAdjustededMax"] = false,
 			["backgroundColor"] = {
@@ -29796,23 +29435,23 @@ WeakAurasSaved = {
 			["zoom"] = 0,
 			["borderOffset"] = 5,
 			["timer"] = true,
-			["displayTextLeft"] = " ",
+			["width"] = 300,
 			["border"] = false,
 			["borderEdge"] = "None",
-			["width"] = 300,
+			["displayTextLeft"] = " ",
 			["borderInFront"] = true,
 			["borderInset"] = 11,
 			["icon_side"] = "RIGHT",
-			["sparkRotationMode"] = "AUTO",
 			["id"] = "01-Plasma Discharge",
+			["sparkRotationMode"] = "AUTO",
 			["sparkHeight"] = 27,
+			["displayTextRight"] = "Zone Drops",
 			["backdropColor"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				0.5, -- [4]
 			},
-			["displayTextRight"] = "Zone Drops",
 			["stacksColor"] = {
 				1, -- [1]
 				1, -- [2]
@@ -29984,14 +29623,14 @@ WeakAurasSaved = {
 			["parent"] = "BfA Dungeons",
 			["icon"] = true,
 			["text2Containment"] = "INSIDE",
-			["displayIcon"] = 132104,
+			["xOffset"] = 0,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["xOffset"] = 0,
+			["displayIcon"] = 132104,
 			["stickyDuration"] = false,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
@@ -30019,6 +29658,7 @@ WeakAurasSaved = {
 			["text1Enabled"] = true,
 			["inverse"] = false,
 			["text1Font"] = "Friz Quadrata TT",
+			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
@@ -30108,15 +29748,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -30129,7 +29766,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -30140,12 +29780,12 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["parent"] = "BfA Dungeons",
-			["text2Containment"] = "INSIDE",
 			["icon"] = true,
-			["text1Font"] = "Friz Quadrata TT",
-			["text1Enabled"] = true,
+			["text2Containment"] = "INSIDE",
 			["text2Font"] = "Friz Quadrata TT",
+			["text1Font"] = "Friz Quadrata TT",
+			["parent"] = "BfA Dungeons",
+			["xOffset"] = 0,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["selfPoint"] = "CENTER",
@@ -30180,7 +29820,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["xOffset"] = 0,
+			["text1Enabled"] = true,
 		},
 		["Ancient Mindbender"] = {
 			["text2Point"] = "CENTER",
@@ -30298,12 +29938,12 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["xOffset"] = 0,
-			["text2Containment"] = "INSIDE",
 			["icon"] = true,
-			["text1Font"] = "Friz Quadrata TT",
-			["parent"] = "BfA Dungeons",
+			["text2Containment"] = "INSIDE",
 			["text2Font"] = "Friz Quadrata TT",
+			["text1Font"] = "Friz Quadrata TT",
+			["xOffset"] = 0,
+			["text1Enabled"] = true,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["desaturate"] = false,
@@ -30338,7 +29978,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["text1Enabled"] = true,
+			["parent"] = "BfA Dungeons",
 		},
 		["06-Shadow Barrage"] = {
 			["text2Point"] = "CENTER",
@@ -30465,9 +30105,9 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["text2Font"] = "Friz Quadrata TT",
 			["text1Enabled"] = true,
 			["xOffset"] = 0,
+			["text2Font"] = "Friz Quadrata TT",
 			["text2Containment"] = "INSIDE",
 			["displayIcon"] = 457655,
 			["text1Font"] = "Friz Quadrata TT",
@@ -30600,15 +30240,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -30621,7 +30258,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -30632,17 +30272,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["xOffset"] = 0,
-			["parent"] = "BfA Dungeons",
-			["text2Containment"] = "INSIDE",
-			["displayIcon"] = 1394887,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
+			["xOffset"] = 0,
+			["text2Containment"] = "INSIDE",
+			["parent"] = "BfA Dungeons",
 			["text1Font"] = "Friz Quadrata TT",
+			["displayIcon"] = 1394887,
 			["text2Font"] = "Friz Quadrata TT",
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
@@ -30762,12 +30402,15 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["race"] = {
+				["role"] = {
 					["multi"] = {
 					},
 				},
@@ -30784,10 +30427,7 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["role"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["size"] = {
 					["single"] = "party",
 					["multi"] = {
@@ -30832,6 +30472,7 @@ WeakAurasSaved = {
 			["text1Enabled"] = true,
 			["inverse"] = false,
 			["text1Font"] = "Friz Quadrata TT",
+			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
@@ -31252,14 +30893,11 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["class"] = {
-					["multi"] = {
-					},
-				},
 				["spec"] = {
 					["multi"] = {
 					},
 				},
+				["encounterid"] = "2122",
 				["use_zone"] = false,
 				["use_encounterid"] = true,
 				["difficulty"] = {
@@ -31284,7 +30922,10 @@ WeakAurasSaved = {
 					},
 				},
 				["use_difficulty"] = true,
-				["encounterid"] = "2122",
+				["class"] = {
+					["multi"] = {
+					},
+				},
 				["size"] = {
 					["multi"] = {
 						["twenty"] = true,
@@ -31362,6 +31003,7 @@ WeakAurasSaved = {
 		["Vol'zith Adds left"] = {
 			["outline"] = "OUTLINE",
 			["fontSize"] = 15,
+			["init_started"] = 1,
 			["color"] = {
 				1, -- [1]
 				1, -- [2]
@@ -31391,17 +31033,17 @@ WeakAurasSaved = {
 						["debuffType"] = "HELPFUL",
 						["unevent"] = "auto",
 						["genericShowOn"] = "showOnActive",
-						["subeventPrefix"] = "SPELL",
-						["event"] = "Chat Message",
 						["unit"] = "player",
+						["event"] = "Chat Message",
+						["names"] = {
+						},
 						["subeventSuffix"] = "_CAST_START",
-						["custom"] = "function(event)\n    if event == \"ENCOUNTER_START\" then\n        aura_env.adds = 0\n    end\n    \n    if event == \"ENCOUNTER_END\" then\n        aura_env.adds = 0\n    end\n    if event == \"COMBAT_LOG_EVENT_UNFILTERED\" then\n        \n        local timestamp, subevent, hideCaster, sourceGUID, sourceName, sourceFlags, sourceRaidFlags, destGUID, destName, destFlags, destRaidFlags, spellID, spellName, spellSchool = CombatLogGetCurrentEventInfo()\n        \n        \n        if subevent == \"SPELL_CAST_SUCCESS\" then\n            if spellID == 267310 then\n                aura_env.adds = aura_env.adds-1\n                if aura_env.adds <= 0 then\n                    aura_env.adds = 0\n                end\n                return true\n            end\n            if spellID == 267299 then\n                aura_env.adds = aura_env.adds+5\n                return true\n            end\n        end\n    end\nend\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
 						["spellIds"] = {
 						},
 						["events"] = "COMBAT_LOG_EVENT_UNFILTERED, ENCOUNTER_START, ENCOUNTER_END",
+						["custom"] = "function(event)\n    if event == \"ENCOUNTER_START\" then\n        aura_env.adds = 0\n    end\n    \n    if event == \"ENCOUNTER_END\" then\n        aura_env.adds = 0\n    end\n    if event == \"COMBAT_LOG_EVENT_UNFILTERED\" then\n        \n        local timestamp, subevent, hideCaster, sourceGUID, sourceName, sourceFlags, sourceRaidFlags, destGUID, destName, destFlags, destRaidFlags, spellID, spellName, spellSchool = CombatLogGetCurrentEventInfo()\n        \n        \n        if subevent == \"SPELL_CAST_SUCCESS\" then\n            if spellID == 267310 then\n                aura_env.adds = aura_env.adds-1\n                if aura_env.adds <= 0 then\n                    aura_env.adds = 0\n                end\n                return true\n            end\n            if spellID == 267299 then\n                aura_env.adds = aura_env.adds+5\n                return true\n            end\n        end\n    end\nend\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
 						["check"] = "event",
-						["names"] = {
-						},
+						["subeventPrefix"] = "SPELL",
 						["custom_type"] = "status",
 						["custom_hide"] = "timed",
 					},
@@ -31451,12 +31093,12 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["class"] = {
+				["encounterid"] = "2133",
+				["spec"] = {
 					["multi"] = {
 					},
 				},
-				["encounterid"] = "2133",
-				["race"] = {
+				["role"] = {
 					["multi"] = {
 					},
 				},
@@ -31465,10 +31107,7 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["role"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -31481,8 +31120,11 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
-				["spec"] = {
+				["race"] = {
+					["multi"] = {
+					},
+				},
+				["class"] = {
 					["multi"] = {
 					},
 				},
@@ -31585,15 +31227,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -31606,7 +31245,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -31744,15 +31386,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -31765,7 +31404,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -31776,17 +31418,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
+			["text2Font"] = "Friz Quadrata TT",
+			["text2Containment"] = "INSIDE",
+			["parent"] = "BfA Dungeons",
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["text2Containment"] = "INSIDE",
 			["text1Enabled"] = true,
 			["text1Font"] = "Friz Quadrata TT",
-			["xOffset"] = 0,
-			["text2Font"] = "Friz Quadrata TT",
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["selfPoint"] = "CENTER",
@@ -31816,7 +31458,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["parent"] = "BfA Dungeons",
+			["xOffset"] = 0,
 		},
 		["Tentacle Slam"] = {
 			["text2Point"] = "CENTER",
@@ -31860,11 +31502,11 @@ WeakAurasSaved = {
 						["custom_hide"] = "timed",
 						["name"] = "Trample",
 						["use_spellId"] = true,
+						["events"] = "UNIT_SPELLCAST_START",
 						["custom"] = "function(arg1, arg2, arg3, arg4, spellID)\n    if arg4 == 267385 then\n        return true\n    end\n    \nend",
 						["spellIds"] = {
 							260569, -- [1]
 						},
-						["events"] = "UNIT_SPELLCAST_START",
 						["custom_type"] = "event",
 						["use_specific_unit"] = false,
 						["use_absorbMode"] = true,
@@ -31913,16 +31555,16 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["race"] = {
-					["multi"] = {
-					},
-				},
 				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -31990,6 +31632,382 @@ WeakAurasSaved = {
 			["displayIcon"] = 537022,
 			["cooldown"] = true,
 			["xOffset"] = 0,
+		},
+		["Effective Health v2.0.1"] = {
+			["outline"] = "OUTLINE",
+			["xOffset"] = -620,
+			["displayText"] = "%c",
+			["customText"] = "function()\n    if aura_env.OutOfDate then\n        return \"|cFFFF0000EH is out of date|r\"\n    end\n    \n    --- CPU benchmarking ---\n    local start\n    local aura_env = aura_env\n    local Debug = aura_env.Debug\n    if Debug then\n        aura_env.count = aura_env.count or 1\n        aura_env.count = (aura_env.count + 1) %600\n        start = debugprofilestop()\n    end\n    \n    -- Setting some aura_env to local variables to improve performance --\n    local ClassID = aura_env.ClassID\n    local SpecID = aura_env.SpecID\n    local AoE = aura_env.AoE\n    local Mode = aura_env.Mode\n    local ColorFunction = aura_env.Color\n    local Threshold = aura_env.Threshold\n    local BasicReductions = aura_env.BasicReductions\n    \n    \n    -- Armor calulation // Armor scales differently depending on the enemy level, this makes sure is stays accurate --\n    local Armor = select(2,UnitArmor(\"player\"))\n    Armor = 1 - C_PaperDollInfo.GetArmorEffectiveness(Armor, aura_env.TargetLevel) -- Gets the reduction percentage and makes it usable\n    \n    \n    -- All Classes\n    local CurrentHealth = UnitHealth(\"player\")\n    local MaxHealth = UnitHealthMax(\"player\")\n    local Vers = 1 - (GetCombatRatingBonus(31) / 100)\n    local Avoid = 1\n    local ScanTarget = false\n    if AoE then Avoid = 1 - (GetAvoidance() / 100)\n    end\n    local Elusive = 1\n    local StaggerP, StaggerM = 1, 1\n    local Absorbs = UnitGetTotalAbsorbs(\"player\")\n    local AbsorbsP, AbsorbsM = Absorbs, Absorbs\n    \n    -- Initialize some variables --\n    local ClassDRP, ClassDRM = 1, 1\n    local PImmunity, MImmunity = 0, 0\n    \n    ----- General damage reduction buffs -----\n    local n = 1\n    local BuffID = select(10, UnitBuff(\"player\", n))\n    while BuffID do\n        local Reduction = 1\n        local PhysicalReduction = 1\n        local MagicReduction = 1\n        \n        if BasicReductions[BuffID] then\n            ClassDRP = ClassDRP * BasicReductions[BuffID][1]\n            ClassDRM = ClassDRM * BasicReductions[BuffID][2]\n        end\n        \n        \n        ---- More complex tracking ----\n        \n        local AMS, BloodS = 0, 0\n        \n        --- Death Knight ---\n        if BuffID == 48792 then\n            Reduction = 1 + (tonumber(select(18, UnitBuff(\"player\", n)) or 0)) / 100 -- Icebound Fortitude // using plus since the tooltip returns a negative value\n            \n        elseif BuffID == 48707 then\n            AMS = (select(16, UnitBuff(\"player\", n)) or 0)  -- Anti-Magic Shell\n            \n        elseif BuffID == 77535 then\n            BloodS = (select(16, UnitBuff(\"player\", n)) or 0)  -- Blood Shield\n            \n            \n            --- Demon Hunter ---\n        elseif BuffID == 212800 then\n            if IsPlayerSpell(205411) then Reduction = 0.50 -- Blur\n            else Reduction = 0.65 end\n            \n        elseif BuffID == 212988 then\n            Reduction = 1 - 0.03 * (select(3, UnitBuff(\"player\", n)) or 0) -- Painbringer\n            \n        elseif BuffID == 196555 then PImmunity = 1 -- Netherwalk\n            \n            \n            --- Druid ---\n        elseif BuffID == 102342 then\n            Reduction = 1 + (tonumber(select(16, UnitBuff(\"player\", n)) or 0)) / 100 -- Ironbark // using plus since the tooltip returns a negative value\n            \n            \n            --- Hunter ---\n        elseif BuffID == 186265 then -- Aspect of the Turtle\n            PImmunity = 1\n            MImmunity = 1\n            \n            \n            --- Mage ---\n        elseif BuffID == 45438 then -- Ice Block\n            PImmunity = 1\n            MImmunity = 1\n            \n            \n            --- Monk ---\n        elseif BuffID == 261769 then\n            Reduction = 1 + (select(16, UnitBuff(\"player\", n)) or 0) / 100 -- Inner Strength // using plus since the tooltip returns a negative value\n            \n            \n            --- Paladin ---\n        elseif BuffID == 210320 then\n            Reduction = 1 + (tonumber(select(16, UnitBuff(\"player\", n)) or 0)) / 100 -- Devotion Aura // using plus since the tooltip returns a negative value\n            \n        elseif BuffID == 1022 then PImmunity = 1 -- Blessing of Protection\n        elseif BuffID == 204018 then MImmunity = 1 -- Blessing of Spellwarding\n            \n        elseif BuffID == 188370 then\n            if IsEquippedItem(137047) then Reduction = 0.96 end -- Consecration (Legendary Ring)\n            \n        elseif BuffID == 642 then -- Divine Shield\n            PImmunity = 1\n            MImmunity = 1\n            \n            \n            --- Priest ---\n        elseif BuffID == 45242 then\n            Reduction = 1 - (select(3, UnitBuff(\"player\", n)) or 0) * 15 / 100 -- Focused Will\n            \n        elseif BuffID == 139 then\n            if IsPlayerSpell(235189) and UnitBuff(\"player\", n, nil, \"player\") then\n                Reduction = 0.90 -- Perseverance - Talent\n            end\n            \n            \n            --- Rogue ---\n        elseif BuffID == 1966 then\n            if not AoE and IsPlayerSpell(79008)\n            then Elusive = 0.70 -- Elusiveness\n            else -- Feint\n                if AoE then Avoid = Avoid * 0.50 end\n            end\n        elseif BuffID == 31224 then MImmunity = 1 -- Cloak of Shadows\n            \n            \n            --- Shaman ---\n        elseif BuffID == 260881 then\n            Reduction = 1 - (tonumber(select(3, UnitBuff(\"player\", n)) or 0)) * 5 / 100 -- Ghost in the Mist - Talent\n            \n            \n            --- Warlock ---\n            \n            \n            \n            --- Warrior ---\n        elseif BuffID == 184362 then -- Enrage\n            Reduction = 1.20\n            if IsPlayerSpell(208154) then Reduction = 1.15 end\n            \n            \n            --- Miscellaneous ---\n        elseif BuffID == 185736 then -- Suger-Crusted Fish Feast / Lemon Herb Filet\n            Vers = Vers - 0.005\n        end\n        \n        \n        AbsorbsP = Absorbs - AMS\n        AbsorbsM = Absorbs - BloodS\n        \n        ClassDRP = ClassDRP * Reduction * PhysicalReduction\n        ClassDRM = ClassDRM * Reduction * MagicReduction\n        n = n + 1\n        BuffID = select(10, UnitBuff(\"player\", n))\n    end\n    \n    \n    ----- Damage reductions with special calculations -----\n    \n    --- Death Knight ---\n    if ClassID == 6 then\n        local Necropolis = 1\n        if IsPlayerSpell(206967) then -- Will of the Necropolis - Talent\n            if CurrentHealth / MaxHealth < 0.35 then Necropolis = 0.65\n            end\n        end\n        ClassDRP = ClassDRP * Necropolis\n        ClassDRM = ClassDRM * Necropolis\n    end\n    \n    \n    --- Demon Hunter ---\n    if ClassID == 12 then\n        local DemWards = 1\n        if SpecID == 2 then\n            DemWards = 0.80 -- Demonic Wards - Passive\n            ScanTarget = true\n        end\n        \n        ClassDRP = ClassDRP * DemWards\n        ClassDRM = ClassDRM * DemWards\n    end\n    \n    \n    --- Druid ---\n    if ClassID == 11 then\n        local GuardA = 1\n        if IsEquippedItem(137015) and IsPlayerSpell(16931) then\n            GuardA = 0.895 -- Legendary chest\n        elseif IsPlayerSpell(16931) then\n            GuardA = 0.94 -- Thick Hide (Guardian Affinity)\n        end\n        if SpecID == 3 then\n            if IsPlayerSpell(204053) then\n                ScanTarget = true\n            end\n        end\n        \n        ClassDRP = ClassDRP * GuardA\n        ClassDRM = ClassDRM * GuardA\n    end\n    \n    \n    --- Hunter ---\n    if ClassID == 3 then\n    end\n    \n    \n    --- Mage ---\n    if ClassID == 8 then\n    end\n    \n    \n    --- Monk ---\n    if ClassID == 10 then\n        local Karma = 0\n        if SpecID == 1 then\n            ScanTarget = true\n            -- Gets stagger agaist current target, if no target found use base --\n            local StaggerBase, StaggerTarget = C_PaperDollInfo.GetStaggerPercentage(\"player\")\n            if not StaggerTarget then StaggerTarget = StaggerBase end\n            StaggerM = StaggerTarget * 0.35\n            StaggerP = 1 - StaggerTarget / 100\n            StaggerM = 1 - StaggerM / 100\n            \n            -- Stagger cap --\n            local Stagger = UnitStagger(\"player\") or 0 -- Calculate MaxHealth effective reduction for Stagger\n            local StaggerCapP = (CurrentHealth + AbsorbsP) / (CurrentHealth + AbsorbsP + 100 * MaxHealth - Stagger * 10)\n            local StaggerCapM = (CurrentHealth + AbsorbsM) / (CurrentHealth + AbsorbsM + 100 * MaxHealth - Stagger * 10)\n            if StaggerCapP < 0.01 then StaggerCapP = 0.01 end -- Stagger caps at 99%\n            if StaggerCapM < 0.01 then StaggerCapM = 0.01 end\n            if StaggerP < StaggerCapP then StaggerP = StaggerCapP end\n            if StaggerM < StaggerCapM then StaggerM = StaggerCapM end\n        end\n        if SpecID == 3 then\n            aura_env.GoodKarma = IsPlayerSpell(280195) -- Talent\n            Karma = aura_env.TouchOfKarma\n            Absorbs = Absorbs + Karma\n            AbsorbsP = AbsorbsP + Karma\n            AbsorbsM = AbsorbsM + Karma\n        end\n        \n        ClassDRP = ClassDRP * StaggerP\n        ClassDRM = ClassDRM * StaggerM\n    end\n    \n    \n    --- Paladin ---\n    if ClassID == 2 then\n    end\n    \n    \n    --- Priest ---\n    if ClassID == 5 then\n    end\n    \n    \n    --- Rogue ---\n    if ClassID == 4 then\n    end\n    \n    \n    --- Shaman ---\n    if ClassID == 7 then\n    end\n    \n    \n    --- Warlock ---\n    if ClassID == 9 then\n        local SoulLink = 1\n        if SpecID == 2 then -- Soul Link passive for Demonology Warlocks\n            if UnitExists(\"pet\") then\n                SoulLink = 0.80\n            end\n        end\n        \n        ClassDRP = ClassDRP * SoulLink\n        ClassDRM = ClassDRM * SoulLink\n    end\n    \n    \n    --- Warrior ---\n    if ClassID == 1 then\n        if SpecID == 3 then\n            ScanTarget = true\n        end\n        \n        ClassDRP = ClassDRP\n        ClassDRM = ClassDRM\n    end\n    \n    --- Miscellaneous ---\n    if aura_env.HighmountainTauren then\n        local Stamina = UnitStat(\"player\", 3)\n        local RuggedTenacity = floor((Stamina * 0.0003 * 20) + 0.5)\n        Absorbs = Absorbs + RuggedTenacity\n    end\n    \n    \n    --- Checking debuffs on target if needed ---\n    if ScanTarget then\n        local TD = 1\n        local DebuffID = select(10, UnitDebuff(\"target\", TD))\n        while DebuffID do\n            local DebuffTarget = 1\n            local DebuffTargetP = 1\n            local DebuffTargetM = 1\n            \n            --- Demon Hunter ---\n            if DebuffID == 207744 and select(3, UnitDebuff(\"target\", TD, nil, \"player\")) then\n                DebuffTarget = 0.60 -- Fiery Brand\n                \n            elseif DebuffID == 268178 and select(3, UnitDebuff(\"target\", TD, nil, \"player\")) then\n                DebuffTarget = 0.94 -- Void Reaver -- Talent\n                \n                \n                --- Druid ---\n            elseif DebuffID == 192090 and select(3, UnitDebuff(\"target\", TD, nil, \"player\")) then\n                DebuffTarget = 1 - 0.02 * (select(3, UnitDebuff(\"target\", TD, nil, \"player\")) or 0) -- Rend and Tear - Talent\n                \n                \n                --- Monk ---\n            elseif DebuffID == 123725 then\n                DebuffTarget = 1 + 0.01 * (select(17, UnitDebuff(\"target\", TD, nil, \"player\")) or 0) -- Breath of Fire // using plus since the tooltip returns a negative value\n                \n                \n                --- Warrior ---\n            elseif DebuffID == 1160 and select(7, UnitDebuff(\"target\", TD)) == \"player\" then\n                DebuffTarget = 0.80 -- Demoralizing Shout\n            end\n            \n            ClassDRP = ClassDRP * DebuffTarget * DebuffTargetP\n            ClassDRM = ClassDRM * DebuffTarget * DebuffTargetM\n            TD = TD + 1\n            DebuffID = select(10, UnitDebuff(\"target\", TD))\n        end\n    end\n    \n    \n    \n    -- Damage taken modifiers --\n    local ReductionP = Vers * Avoid * ClassDRP * Armor * Elusive\n    local ReductionM = Vers * Avoid * ClassDRM * Elusive\n    -- CurrentHealth health and shields --\n    local EHP = (CurrentHealth + AbsorbsP) / ReductionP\n    local EHM = (CurrentHealth + AbsorbsM) / ReductionM\n    \n    \n    -- Export pre-avoidance EHP, EHM and immunity status as global variables --\n    if aura_env.GlobalExport then\n        -- Calculate max effective health (no absorbs) --\n        local EHPMaxHealth = (MaxHealth + AbsorbsP) / ReductionP\n        local EHMMaxHealth = (MaxHealth + AbsorbsM) / ReductionM\n        -- Export to globals --\n        local Export = WA_ZELER_EH\n        Export.EHPMAX, Export.EHMMAX = EHPMaxHealth * Avoid * Elusive, EHMMaxHealth * Avoid * Elusive\n        Export.EHP, Export.EHM = EHP * Avoid * Elusive, EHM * Avoid * Elusive\n        \n        Export.REDP, Export.REDM = ReductionP / Avoid / Elusive, ReductionM / Avoid / Elusive\n        Export.ABS, Export.ABSP, Export.ABSM = Absorbs, AbsorbsP, AbsorbsM\n        Export.EHPIMMUNITY, Export.EHMIMMUNITY = PImmunity, MImmunity\n        Export.EHARMOR = Armor\n        Export.STAGGERP, Export.STAGGERM = StaggerP, StaggerM\n    end\n    \n    -- Formatting numbers --\n    local DivideP, DivideM = 1, 1\n    local ImportDecimal = aura_env.DisplayDecimals\n    local EHPdecimal, EHMdecimal = ImportDecimal, ImportDecimal\n    local letterP, letterM = \"\", \"\"\n    if EHP > 10^9 then\n        EHP = EHP / 10^9\n        DivideP = 10^9\n        letterP = \"B\"\n    elseif EHP > 10^8 then\n        EHP = EHP / 10^6\n        DivideP = 10^6\n        letterP = \"M\"\n        EHPdecimal = 0\n    elseif EHP > 10^6 then\n        EHP = EHP / 10^6\n        DivideP = 10^6\n        letterP = \"M\"\n    elseif EHP > 10^5 then\n        EHP = EHP / 10^3\n        DivideP = 10^3\n        letterP = \"K\"\n        EHPdecimal = 0\n    elseif EHP > 10^3 then\n        EHP = EHP / 10^3\n        DivideP = 10^3\n        letterP = \"K\"\n    elseif EHP > -1 then\n        EHP = EHP / 1\n        DivideP = 1\n        EHPdecimal = 0\n    end\n    \n    if EHM > 10^9 then\n        EHM = EHM / 10^9\n        DivideM = 10^9\n        letterM = \"B\"\n    elseif EHM > 10^8 then\n        EHM = EHM / 10^6\n        DivideM = 10^6\n        letterM = \"M\"\n        EHMdecimal = 0\n    elseif EHM > 10^6 then\n        EHM = EHM / 10^6\n        DivideM = 10^6\n        letterM = \"M\"\n    elseif EHM > 10^5 then\n        EHM = EHM / 10^3\n        DivideM = 10^3\n        letterM = \"K\"\n        EHMdecimal = 0\n    elseif EHM > 10^3 then\n        EHM = EHM / 10^3\n        DivideM = 10^3\n        letterM = \"K\"\n    elseif EHM > -1 then\n        EHM = EHM / 1\n        DivideM = 1\n        EHMdecimal = 0\n    end\n    \n    \n    -- Format displayed text with appropriate colors --\n    local Color = \"\"\n    if Mode ~= \"magic\" then\n        for i = 1, 6 do\n            if EHP >= Threshold[1][i] / DivideP then Color = ColorFunction[i] end\n        end\n        if PImmunity == 1 then Color = ColorFunction[7] end\n        EHP = string.format(\"P:|c%s%.\" .. EHPdecimal .. \"f\" .. letterP .. \"|r\", Color, EHP)\n    else EHP = \"\"\n    end\n    \n    if Mode ~= \"physical\" then\n        for i = 1, 6 do\n            if EHM >= Threshold[2][i] / DivideM then Color = ColorFunction[i] end\n        end\n        if MImmunity == 1 then Color = ColorFunction[7] end\n        EHM = string.format(\"M:|c%s%.\" .. EHMdecimal .. \"f\" .. letterM .. \"|r\", Color, EHM)\n    else EHM = \"\"\n    end\n    \n    local separator = \"\"\n    if Mode == \"both\" and aura_env.Align == \"horizontal\" then separator = \" | \"\n    elseif Mode == \"both\" and aura_env.Align == \"vertical\" then separator = \"\\n\" end\n    \n    --- CPU Benchmarking ---\n    if Debug then\n        aura_env.time = (aura_env.time or 0) + debugprofilestop() -start\n        if aura_env.count == 0 then\n            print(aura_env.time)\n            aura_env.time = 0\n        end\n        return \"P: \" .. ReductionP .. \"\\n\" .. \"M: \" .. ReductionM\n    end\n    \n    return EHP .. separator .. EHM\nend",
+			["yOffset"] = -420,
+			["anchorPoint"] = "CENTER",
+			["customTextUpdate"] = "update",
+			["url"] = "https://wago.io/B1pg1fRub/103",
+			["icon"] = true,
+			["fontFlags"] = "OUTLINE",
+			["internalVersion"] = 7,
+			["animation"] = {
+				["start"] = {
+					["type"] = "none",
+					["duration_type"] = "seconds",
+				},
+				["main"] = {
+					["colorR"] = 1,
+					["scalex"] = 1,
+					["colorA"] = 1,
+					["colorG"] = 1,
+					["use_translate"] = false,
+					["type"] = "custom",
+					["preset"] = "shake",
+					["translateFunc"] = "",
+					["scaley"] = 1,
+					["alpha"] = 0,
+					["colorB"] = 1,
+					["y"] = 0,
+					["colorType"] = "custom",
+					["use_color"] = false,
+					["translateType"] = "custom",
+					["colorFunc"] = "\n\n",
+					["rotate"] = 0,
+					["x"] = 8,
+					["duration_type"] = "seconds",
+				},
+				["finish"] = {
+					["type"] = "none",
+					["duration_type"] = "seconds",
+				},
+			},
+			["desc"] = "Made by Zeler-Ravencrest EU",
+			["font"] = "Friz Quadrata TT",
+			["version"] = 52,
+			["height"] = 48.1367568969727,
+			["load"] = {
+				["ingroup"] = {
+					["multi"] = {
+					},
+				},
+				["use_never"] = false,
+				["class"] = {
+					["single"] = "DRUID",
+					["multi"] = {
+					},
+				},
+				["role"] = {
+					["multi"] = {
+					},
+				},
+				["level"] = "110",
+				["size"] = {
+					["multi"] = {
+					},
+				},
+				["talent2"] = {
+					["multi"] = {
+					},
+				},
+				["use_level"] = false,
+				["talent"] = {
+					["multi"] = {
+					},
+				},
+				["spec"] = {
+					["single"] = 4,
+					["multi"] = {
+						true, -- [1]
+						[4] = true,
+					},
+				},
+				["difficulty"] = {
+					["multi"] = {
+					},
+				},
+				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
+				["faction"] = {
+					["multi"] = {
+					},
+				},
+				["level_operator"] = "==",
+				["pvptalent"] = {
+					["multi"] = {
+					},
+				},
+				["zoneId"] = "",
+				["use_zoneId"] = false,
+			},
+			["fontSize"] = 24,
+			["displayStacks"] = "%c",
+			["triggers"] = {
+				{
+					["trigger"] = {
+						["use_absorbMode"] = true,
+						["genericShowOn"] = "showOnActive",
+						["unit"] = "player",
+						["custom_hide"] = "timed",
+						["type"] = "status",
+						["use_health"] = true,
+						["health_operator"] = ">",
+						["unevent"] = "auto",
+						["debuffType"] = "HELPFUL",
+						["event"] = "Conditions",
+						["custom_type"] = "status",
+						["use_unit"] = true,
+						["health"] = "1",
+						["spellIds"] = {
+						},
+						["subeventSuffix"] = "_CAST_START",
+						["check"] = "update",
+						["use_alive"] = true,
+						["names"] = {
+						},
+						["subeventPrefix"] = "SPELL",
+					},
+					["untrigger"] = {
+					},
+				}, -- [1]
+				{
+					["trigger"] = {
+						["type"] = "custom",
+						["custom_type"] = "event",
+						["event"] = "Chat Message",
+						["subeventPrefix"] = "SPELL",
+						["custom"] = "function()\n    aura_env.SpecID = GetSpecialization() \nend",
+						["subeventSuffix"] = "_CAST_START",
+						["events"] = "ACTIVE_TALENT_GROUP_CHANGED",
+						["unevent"] = "auto",
+						["genericShowOn"] = "showOnActive",
+						["custom_hide"] = "timed",
+					},
+					["untrigger"] = {
+					},
+				}, -- [2]
+				{
+					["trigger"] = {
+						["type"] = "custom",
+						["custom_type"] = "event",
+						["event"] = "Chat Message",
+						["subeventPrefix"] = "SPELL",
+						["genericShowOn"] = "showOnActive",
+						["events"] = "COMBAT_LOG_EVENT_UNFILTERED",
+						["unevent"] = "auto",
+						["check"] = "event",
+						["custom"] = "function(event)\n    -- Original code from https://wago.io/B1M5OqeFb\n    if aura_env.ClassID == 10 and aura_env.SpecID == 3 then\n        local CLEU = {CombatLogGetCurrentEventInfo()}\n        local message = CLEU[2]\n        local destName = CLEU[9]\n        local Multiplier = 0.5\n        if aura_env.GoodKarma then\n            Multiplier = 1\n        end\n        if destName and UnitIsUnit(\"player\", destName) then\n            if message == \"SPELL_ABSORBED\" then\n                local chk = CLEU[9]\n                local spellID, absorbed = 0, 0\n                if type(chk) == \"number\" then -- Spell\n                    spellID = CLEU[19]\n                    absorbed = CLEU[22]\n                else -- Swing\n                    spellID = CLEU[16]\n                    absorbed = CLEU[19]\n                end\n                if spellID == 122470 then\n                    aura_env.TouchOfKarma = math.max(aura_env.TouchOfKarma - absorbed, 0)\n                end\n            elseif message == \"SPELL_AURA_APPLIED\" then\n                local spellID = CLEU[12]\n                if spellID == 122470 then\n                    aura_env.maxValue = UnitHealthMax(\"player\") * Multiplier\n                    aura_env.TouchOfKarma = aura_env.maxValue\n                end\n            elseif message == \"SPELL_AURA_REMOVED\" then\n                local spellID = CLEU[12]\n                if spellID == 122470 then\n                    aura_env.TouchOfKarma = 0\n                end\n            end\n        end\n    end\nend\n\n\n\n\n",
+						["subeventSuffix"] = "_CAST_START",
+						["custom_hide"] = "custom",
+					},
+					["untrigger"] = {
+					},
+				}, -- [3]
+				{
+					["trigger"] = {
+						["type"] = "custom",
+						["subeventSuffix"] = "_CAST_START",
+						["duration"] = "1",
+						["event"] = "Health",
+						["subeventPrefix"] = "SPELL",
+						["events"] = "PLAYER_TARGET_CHANGED,ENCOUNTER_START,INSTANCE_ENCOUNTER_ENGAGE_UNIT",
+						["genericShowOn"] = "showOnActive",
+						["check"] = "update",
+						["custom_type"] = "event",
+						["custom"] = "function()\n    local PlayerLevel = aura_env.PlayerLevel\n    local TargetLevel = PlayerLevel\n    if UnitExists(\"boss1\") then\n        TargetLevel = UnitLevel(\"boss1\")\n    elseif UnitExists(\"target\") then\n        TargetLevel = UnitLevel(\"target\")\n    end\n    if TargetLevel == -1 then -- Raid boss\n        TargetLevel = PlayerLevel + 3\n        -- elseif TargetLevel < aura_env.PlayerLevel then\n        --     TargetLevel = PlayerLevel -- Prevents the armor scaling from looking too strange. Currently disabled\n    end\n    aura_env.TargetLevel = TargetLevel\nend",
+						["custom_hide"] = "timed",
+					},
+					["untrigger"] = {
+					},
+				}, -- [4]
+				{
+					["trigger"] = {
+						["type"] = "custom",
+						["custom_type"] = "event",
+						["event"] = "Health",
+						["subeventPrefix"] = "SPELL",
+						["custom"] = "function(event, NewLevel)\n    aura_env.PlayerLevel = NewLevel\nend",
+						["genericShowOn"] = "showOnActive",
+						["events"] = "PLAYER_LEVEL_UP",
+						["subeventSuffix"] = "_CAST_START",
+						["custom_hide"] = "timed",
+					},
+					["untrigger"] = {
+					},
+				}, -- [5]
+				["disjunctive"] = "custom",
+				["customTriggerLogic"] = "function(t)\n    return t[1]\nend",
+				["activeTriggerMode"] = 1,
+			},
+			["regionType"] = "text",
+			["wordWrap"] = "WordWrap",
+			["displayIcon"] = 458720,
+			["fixedWidth"] = 200,
+			["stickyDuration"] = false,
+			["color"] = {
+				1, -- [1]
+				1, -- [2]
+				1, -- [3]
+				1, -- [4]
+			},
+			["anchorFrameParent"] = true,
+			["actions"] = {
+				["start"] = {
+					["custom"] = "\n\n",
+					["do_custom"] = false,
+				},
+				["init"] = {
+					["custom"] = "-- Made by Zeler-Ravencrest EU, with great help from Stryer-Ravencrest EU\naura_env.Mode = \"both\"        -- Choose from \"physical\", \"magic\", \"both\" to change the value(s) displayed\naura_env.Align = \"vertical\"   -- Choose which alignment you want. \"vertical\" for vertical alignment, \"horizontal\" for horizontal alignment\naura_env.AoE = true           -- Enable avoidance with true and disable it with false\naura_env.GlobalExport = true  -- Enable export of certain variables as global variables for use in other weakauras\naura_env.Debug = false        -- Enable debug with true. It will then return the damage reduction multipliers\nlocal text = true             -- Disable the 'P:' and the 'M:' with false\naura_env.DisplayDecimals = 1  -- The number of decimals displayed\n\naura_env.PlayerLevel = UnitLevel(\"player\")\naura_env.TargetLevel = aura_env.PlayerLevel\naura_env.TouchOfKarma = 0\naura_env.GoodKarma = IsPlayerSpell(280195) -- Wind Walker Monk - Talent\naura_env.HighmountainTauren = IsPlayerSpell(255659) -- Rugged Tenacity - Passive\n\n\nlocal GameVersion = GetBuildInfo()\nlocal G1 = (select(1, strsplit(\".\", GameVersion)))\nlocal G2 = (select(2, strsplit(\".\", GameVersion)))\nif type(G1) == \"string\" then G1 = tonumber(G1) end\nif type(G2) == \"string\" then G2 = tonumber(G2) end\n\nG2 = G2 / 10\nGameVersion = G1 + G2\nif GameVersion >= 8.2 then\n    aura_env.OutOfDate = true\n    return\nend\n\n\n-- Color values, the accepted values are from 0 to 255\n-- {red, green, blue}\naura_env.Color = {\n    {0, 255, 0},   -- Lowest HP\n    {255, 128, 0},\n    {0, 255, 0},\n    {0, 255, 255},\n    {255, 0, 255},\n    {255, 255, 0}, -- Highest HP\n    {0, 60, 255},  -- Immunity color\n}\n\n-- Thresholds at which the color changes (leave the first 0)\naura_env.Threshold = {\n    {0, 6950000, 9950000, 14950000, 24950000, 43950000}, -- Physical EH\n    {0, 5450000, 6450000, 9950000, 13950000, 19950000},  -- Magic EH\n}\n\nlocal function RGBtoHex(rgb)\n    return string.format(\"ff%02x%02x%02x\", rgb[1], rgb[2], rgb[3])\nend\n\nfor i = 1, #aura_env.Color do\n    aura_env.Color[i] = RGBtoHex(aura_env.Color[i])\nend\n\n-- Check player class and spec\naura_env.ClassID = select(3, UnitClass(\"player\"))\naura_env.SpecID = GetSpecialization()\n\n\n-- Class self-buffs: [Spell ID] = {Phys Reduction, Magic Reduction}\naura_env.BasicReductions = {\n    \n    --- Death Knight ---\n    [195181] = {0.84, 0.84}, -- Bone Shield\n    [194679] = {0.70, 0.70}, -- Rune Tap\n    \n    --- Demon Hunter ---\n    [218256] = {1, 0.70},    -- Empower Wards\n    \n    --- Druid ---\n    [158792] = {0.91, 0.91}, -- Pulverize\n    [22812] = {0.80, 0.80},  -- Barkskin\n    [61336] = {0.50, 0.50},  -- Survival Instincts\n    \n    --- Hunter ---\n    [186265] = {0.70, 0.70}, -- Aspect of the Turtle\n    \n    --- Mage ---\n    [113862] = {0.40, 0.40}, -- Greater Invisibility\n    [235450] = {1, 0.85},    -- Prismatic Barrier\n    -- [235313] = {0.80, 1},    -- Blazing Barrier\n    \n    --- Monk ---\n    [120954] = {0.80, 0.80}, -- Fortifying Brew (BrM)\n    [243435] = {0.80, 0.80}, -- Fortifying Brew (MW)\n    [122278] = {0.80, 0.80}, -- Dampen Harm, assumed at minimum reduction\n    [122783] = {1, 0.40},    -- Diffuse Magic\n    [115176] = {0.40, 0.40}, -- Zen Meditation\n    \n    --- Paladin ---\n    [498] = {0.80, 0.80},    -- Divine Protection\n    [31850] = {0.80, 0.80},  -- Ardent Defender\n    [205191] = {0.65, 1},    -- Eye for an Eye - talent\n    [86659] = {0.50, 0.50},  -- Guardian of Ancient Kings\n    [183436] = {0.70, 0.70}, -- Retribution - passive\n    [6940] = {0.70, 0.70},   -- Blessing of Sacrifice\n    [204335] = {0.80, 0.80}, -- Aegis of Light - talent\n    \n    --- Priest ---\n    [47585] = {0.40, 0.40},  -- Dispersion\n    [193065] = {0.90, 0.90}, -- Masochism - talent\n    [232698] = {0.90, 0.90}, -- Shadowform\n    [33206] = {0.60, 0.60},  -- Pain Suppression\n    -- [194384] = {0.97, 0.97}, -- Leniece - talent -- Currently disabled due to being unable to track if the casting priest has the talent or not\n    [81782] = {0.75, 0.75},  -- Power Word: Barrier\n    \n    --- Rogue ---\n    [45182] = {0.15, 0.15},  -- Cheating Death - Cheat Death talent\n    \n    --- Shaman ---\n    [108271] = {0.60, 0.60}, -- Astral Shift\n    [98007] = {0.90, 0.90},  -- Spirit Link Totem\n    \n    --- Warlock ---\n    [104773] = {0.60, 0.60}, -- Unending Resolve\n    \n    --- Warrior ---\n    [197690] = {0.80, 0.80}, -- Defensive Stance\n    [118038] = {0.65, 0.65}, -- Die by the Sword\n    [184364] = {0.70, 0.70}, -- Enraged Regeneration\n    [871] = {0.60, 0.60},    -- Shield Wall\n    [23920] = {1, 0.50},     -- Spell Reflection\n    [223658] = {0.70, 0.70}, -- Safeguard\n    \n    --- Miscellaneous ---\n    [241836] = {0.95, 0.95}, -- Shadow of Celumbra\n    [65116] = {0.90, 1},     -- Stoneform\n    [211080] = {0.90, 0.90}, -- Comforting light (Court of Stars)\n    [273809] = {1.30, 1.30}  -- Idol of Rage\n}\n\n\nif aura_env.GlobalExport then\n    WA_ZELER_EH = {}\nend",
+					["do_custom"] = true,
+				},
+				["finish"] = {
+					["stop_sound"] = false,
+				},
+			},
+			["stacksContainment"] = "INSIDE",
+			["zoom"] = 0.3,
+			["auto"] = true,
+			["desaturate"] = false,
+			["id"] = "Effective Health v2.0.1",
+			["width"] = 138.623931884766,
+			["frameStrata"] = 1,
+			["anchorFrameType"] = "SCREEN",
+			["justify"] = "LEFT",
+			["selfPoint"] = "TOPLEFT",
+			["inverse"] = false,
+			["automaticWidth"] = "Auto",
+			["init_started"] = 1,
+			["conditions"] = {
+			},
+			["stacksPoint"] = "CENTER",
+			["textColor"] = {
+				0.96862745098039, -- [1]
+				1, -- [2]
+				0.94509803921569, -- [3]
+				1, -- [4]
+			},
+		},
+		["Interrupt Tracker DG v3"] = {
+			["grow"] = "UP",
+			["controlledChildren"] = {
+				"Mythic+ Interrupt Tracker v3", -- [1]
+			},
+			["xOffset"] = -747.880340576172,
+			["yOffset"] = -156.871246337891,
+			["anchorPoint"] = "CENTER",
+			["space"] = 2,
+			["url"] = "https://wago.io/SkjHi61Bz/17",
+			["actions"] = {
+				["start"] = {
+				},
+				["finish"] = {
+				},
+				["init"] = {
+				},
+			},
+			["triggers"] = {
+				{
+					["trigger"] = {
+						["type"] = "aura",
+						["subeventSuffix"] = "_CAST_START",
+						["event"] = "Health",
+						["unit"] = "player",
+						["spellIds"] = {
+						},
+						["buffShowOn"] = "showOnActive",
+						["subeventPrefix"] = "SPELL",
+						["names"] = {
+						},
+						["debuffType"] = "HELPFUL",
+					},
+					["untrigger"] = {
+					},
+				}, -- [1]
+				["disjunctive"] = "all",
+				["activeTriggerMode"] = -10,
+			},
+			["internalVersion"] = 7,
+			["animation"] = {
+				["start"] = {
+					["duration_type"] = "seconds",
+					["type"] = "none",
+				},
+				["main"] = {
+					["duration_type"] = "seconds",
+					["type"] = "none",
+				},
+				["finish"] = {
+					["duration_type"] = "seconds",
+					["type"] = "none",
+				},
+			},
+			["align"] = "CENTER",
+			["stagger"] = 0,
+			["height"] = 22,
+			["load"] = {
+				["ingroup"] = {
+					["multi"] = {
+					},
+				},
+				["talent"] = {
+					["multi"] = {
+					},
+				},
+				["spec"] = {
+					["multi"] = {
+					},
+				},
+				["talent2"] = {
+					["multi"] = {
+					},
+				},
+				["difficulty"] = {
+					["multi"] = {
+					},
+				},
+				["race"] = {
+					["multi"] = {
+					},
+				},
+				["role"] = {
+					["multi"] = {
+					},
+				},
+				["pvptalent"] = {
+					["multi"] = {
+					},
+				},
+				["use_class"] = false,
+				["faction"] = {
+					["multi"] = {
+					},
+				},
+				["class"] = {
+					["multi"] = {
+					},
+				},
+				["size"] = {
+					["multi"] = {
+					},
+				},
+			},
+			["animate"] = false,
+			["scale"] = 1,
+			["border"] = "None",
+			["regionType"] = "dynamicgroup",
+			["sort"] = "ascending",
+			["expanded"] = false,
+			["constantFactor"] = "RADIUS",
+			["borderOffset"] = 16,
+			["id"] = "Interrupt Tracker DG v3",
+			["frameStrata"] = 1,
+			["width"] = 250.00003051758,
+			["selfPoint"] = "BOTTOM",
+			["uid"] = ")jhThQSo4nn",
+			["anchorFrameType"] = "SCREEN",
+			["rotation"] = 0,
+			["background"] = "None",
+			["conditions"] = {
+			},
+			["radius"] = 200,
+			["backgroundInset"] = 0,
 		},
 		["Mythic+ Interrupt Tracker v3"] = {
 			["textFlags"] = "None",
@@ -32102,27 +32120,27 @@ WeakAurasSaved = {
 				1, -- [4]
 			},
 			["borderBackdrop"] = "Blizzard Tooltip",
-			["parent"] = "Mythic+ Interrupt Tracker DG v3",
+			["parent"] = "Interrupt Tracker DG v3",
 			["customText"] = "function(expirationTime, duration, progress, formatedDuration, name, icon, stacks)\n    if not aura_env.state then return end\n    local now = GetTime()\n    if not aura_env.state.last or aura_env.state.last < now - 0.1 then\n        aura_env.state.last = now\n        local region = WeakAuras.GetRegion(aura_env.id,aura_env.cloneId)\n        if expirationTime<GetTime() then\n            local color = WeakAurasSaved['displays'][aura_env.id].barColor\n            region.bar.bg:SetVertexColor(color[1],color[2],color[3],color[4])\n            aura_env.state.coloredName = aura_env.getColored(aura_env.state.sourceName)\n            aura_env.state.coloredProgress = aura_env.options.readyTextGreen and \"|cFF00FF00Ready|r\" or \"Ready\"\n        else \n            local color = WeakAurasSaved['displays'][aura_env.id].backgroundColor\n            region.bar.bg:SetVertexColor(color[1],color[2],color[3],color[4])\n            aura_env.state.coloredName = aura_env.state.sourceName\n            aura_env.state.coloredProgress = progress \n        end\n        \n    end\nend\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
 			["customTextUpdate"] = "update",
 			["textSize"] = 12,
 			["triggers"] = {
 				{
 					["trigger"] = {
-						["subeventPrefix"] = "SPELL",
-						["type"] = "custom",
-						["events"] = "COMBAT_LOG_EVENT_UNFILTERED",
 						["unevent"] = "timed",
+						["type"] = "custom",
+						["subeventSuffix"] = "_CAST_START",
 						["custom_type"] = "stateupdate",
+						["subeventPrefix"] = "SPELL",
 						["use_absorbMode"] = true,
 						["genericShowOn"] = "showOnActive",
 						["names"] = {
 						},
-						["subeventSuffix"] = "_CAST_START",
 						["event"] = "Combat Log",
 						["spellIds"] = {
 						},
 						["custom"] = "function(allstates,event,...)\n    \n    if event == \"COMBAT_LOG_EVENT_UNFILTERED\" then        \n        local subevent = select(2,...)\n        if subevent == \"SPELL_CAST_SUCCESS\" then\n            local sourceName = select(5,...)\n            local sourceGUID = select(4,...)\n            local spellId = select(12,...)\n            if aura_env.trackedSpells[spellId] then\n                sourceName = gsub(sourceName, \"%-[^|]+\", \"\") --strip realm name\n                --Attribute Pet Spell's to its owner\n                local type = strsplit(\"-\",sourceGUID)\n                if type == \"Pet\" then\n                    for unit in aura_env.GroupMembers() do\n                        if UnitGUID(unit..\"pet\") == sourceGUID then\n                            sourceGUID = UnitGUID(unit)                        \n                            sourceName = UnitName(unit)\n                            sourceName = gsub(sourceName, \"%-[^|]+\", \"\")\n                            break\n                        end\n                    end\n                end            \n                --merge warlock spellIds\n                if spellId == 119910 or spellId == 132409 then spellId = 19647 end\n                --recover old states for the same spellId and sourceGUID            \n                local state\n                for idx,s in pairs(allstates) do\n                    if s.sourceGUID == sourceGUID and s.spellId == spellId then\n                        state = s\n                    end\n                end\n                if not state then\n                    local idx = #allstates+1\n                    allstates[idx] = allstates[idx] or {}\n                    state = allstates[idx]\n                end            \n                state.show = true\n                state.changed = true\n                state.sourceName = sourceName\n                state.progressType = 'timed'\n                state.autoHide = false\n                state.resort = true\n                \n                local duration = aura_env.trackedSpells[spellId].default\n                --check talent mods\n                if aura_env.inspectLib then\n                    duration = aura_env.getDuration(spellId,sourceGUID)\n                end\n                \n                state.duration = duration\n                state.expirationTime = duration + GetTime() \n                local icon = select(3,GetSpellInfo(spellId))\n                state.icon = icon\n                state.sourceGUID = sourceGUID\n                state.spellId = spellId                     \n                return true            \n            end        \n        end\n    end\n    \nend\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+						["events"] = "COMBAT_LOG_EVENT_UNFILTERED",
 						["check"] = "event",
 						["use_unit"] = true,
 						["unit"] = "player",
@@ -32142,20 +32160,20 @@ WeakAurasSaved = {
 				},
 				["main"] = {
 					["type"] = "custom",
-					["colorType"] = "custom",
+					["scalex"] = 1,
+					["duration_type"] = "seconds",
 					["colorA"] = 1,
 					["scaley"] = 1,
-					["duration_type"] = "seconds",
 					["alpha"] = 0,
-					["colorR"] = 1,
+					["colorType"] = "custom",
 					["y"] = 0,
 					["colorB"] = 1,
 					["colorG"] = 1,
 					["x"] = 0,
 					["colorFunc"] = "function()\n    \n    if aura_env.state and aura_env.state.sourceName then\n        local englishClass = select(2,UnitClass(aura_env.state.sourceName))\n        if englishClass then            \n            local colors = RAID_CLASS_COLORS[englishClass]\n            if colors then\n                return colors.r,colors.g,colors.b,1\n            end            \n        end\n    end\n    \n    \nend\n\n\n\n\n\n\n\n\n",
 					["rotate"] = 0,
-					["scalex"] = 1,
 					["use_color"] = true,
+					["colorR"] = 1,
 				},
 				["finish"] = {
 					["duration_type"] = "seconds",
@@ -32165,6 +32183,7 @@ WeakAurasSaved = {
 			["backdropInFront"] = false,
 			["text"] = true,
 			["stickyDuration"] = false,
+			["init_started"] = 1,
 			["actions"] = {
 				["start"] = {
 				},
@@ -32191,14 +32210,13 @@ WeakAurasSaved = {
 				1, -- [3]
 				0.5, -- [4]
 			},
-			["init_started"] = 1,
-			["anchorFrameType"] = "SCREEN",
 			["auto"] = true,
 			["useAdjustededMax"] = false,
 			["height"] = 21.9999847412109,
+			["sparkWidth"] = 10,
 			["border"] = false,
 			["borderEdge"] = "None",
-			["sparkWidth"] = 10,
+			["anchorFrameType"] = "SCREEN",
 			["borderSize"] = 16,
 			["sparkOffsetX"] = 0,
 			["icon_side"] = "LEFT",
@@ -32313,15 +32331,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -32334,7 +32349,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -32345,17 +32363,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["text2Font"] = "Friz Quadrata TT",
-			["text2Containment"] = "INSIDE",
 			["text1Enabled"] = true,
+			["text2Containment"] = "INSIDE",
+			["parent"] = "BfA Dungeons",
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["icon"] = true,
-			["parent"] = "BfA Dungeons",
+			["text2Font"] = "Friz Quadrata TT",
+			["xOffset"] = 0,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["text1Font"] = "Friz Quadrata TT",
@@ -32385,7 +32403,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["xOffset"] = 0,
+			["icon"] = true,
 		},
 		["Dust Cloud Enemy"] = {
 			["text2Point"] = "CENTER",
@@ -32504,17 +32522,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["parent"] = "BfA Dungeons",
+			["text1Containment"] = "OUTSIDE",
 			["text2Containment"] = "INSIDE",
 			["xOffset"] = 0,
 			["text1Font"] = "Friz Quadrata TT",
+			["parent"] = "BfA Dungeons",
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["text2Font"] = "Friz Quadrata TT",
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["stickyDuration"] = false,
@@ -32541,11 +32559,10 @@ WeakAurasSaved = {
 			["cooldownTextEnabled"] = true,
 			["inverse"] = false,
 			["icon"] = true,
-			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["text1Containment"] = "OUTSIDE",
+			["text2Font"] = "Friz Quadrata TT",
 		},
 		["08-Reorigination Blast Buff"] = {
 			["text2Point"] = "CENTER",
@@ -32694,11 +32711,11 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["stickyDuration"] = false,
-			["xOffset"] = 0,
 			["text2Font"] = "Friz Quadrata TT",
-			["text2Containment"] = "INSIDE",
+			["xOffset"] = 0,
 			["displayIcon"] = 1408832,
+			["text2Containment"] = "INSIDE",
+			["glow"] = false,
 			["text1Font"] = "Friz Quadrata TT",
 			["cooldownTextEnabled"] = true,
 			["color"] = {
@@ -32741,7 +32758,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["glow"] = false,
+			["stickyDuration"] = false,
 		},
 		["Virulent Pathogen"] = {
 			["text2Point"] = "CENTER",
@@ -32836,15 +32853,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -32859,7 +32873,10 @@ WeakAurasSaved = {
 						["TANK"] = true,
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -32871,9 +32888,9 @@ WeakAurasSaved = {
 				},
 			},
 			["text2Font"] = "Friz Quadrata TT",
-			["icon"] = true,
-			["text2Containment"] = "INSIDE",
 			["xOffset"] = 0,
+			["text2Containment"] = "INSIDE",
+			["parent"] = "BfA Dungeons",
 			["text1Font"] = "Friz Quadrata TT",
 			["conditions"] = {
 			},
@@ -32909,10 +32926,179 @@ WeakAurasSaved = {
 			["desaturate"] = false,
 			["inverse"] = false,
 			["selfPoint"] = "CENTER",
-			["init_started"] = 1,
 			["displayIcon"] = 463569,
 			["cooldown"] = true,
-			["parent"] = "BfA Dungeons",
+			["icon"] = true,
+		},
+		["Infested on nameplate"] = {
+			["outline"] = "OUTLINE",
+			["color"] = {
+				0.97647058823529, -- [1]
+				1, -- [2]
+				1, -- [3]
+				1, -- [4]
+			},
+			["displayText"] = "%c",
+			["customText"] = "function()\nend\n\n\n\n",
+			["yOffset"] = -111.99960327148,
+			["anchorPoint"] = "CENTER",
+			["customTextUpdate"] = "update",
+			["url"] = "https://wago.io/Sk2SO80WX/5",
+			["icon"] = true,
+			["fontFlags"] = "OUTLINE",
+			["internalVersion"] = 7,
+			["selfPoint"] = "CENTER",
+			["desaturate"] = false,
+			["font"] = "Friz Quadrata TT",
+			["version"] = 2,
+			["height"] = 72.000015258789,
+			["load"] = {
+				["ingroup"] = {
+					["multi"] = {
+					},
+				},
+				["use_never"] = false,
+				["zone"] = "The Nighthold",
+				["encounterid"] = "2092",
+				["use_encounterid"] = false,
+				["role"] = {
+					["multi"] = {
+					},
+				},
+				["use_difficulty"] = true,
+				["size"] = {
+					["single"] = "party",
+					["multi"] = {
+						["party"] = true,
+					},
+				},
+				["talent2"] = {
+					["multi"] = {
+					},
+				},
+				["zoneId"] = 1088,
+				["talent"] = {
+					["multi"] = {
+					},
+				},
+				["spec"] = {
+					["multi"] = {
+					},
+				},
+				["difficulty"] = {
+					["single"] = "challenge",
+					["multi"] = {
+						["mythic"] = true,
+						["challenge"] = true,
+					},
+				},
+				["use_spellknown"] = false,
+				["class"] = {
+					["multi"] = {
+					},
+				},
+				["faction"] = {
+					["multi"] = {
+					},
+				},
+				["use_zone"] = false,
+				["use_zoneId"] = false,
+				["pvptalent"] = {
+					["multi"] = {
+					},
+				},
+				["race"] = {
+					["multi"] = {
+					},
+				},
+			},
+			["fontSize"] = 72,
+			["displayStacks"] = " ",
+			["automaticWidth"] = "Auto",
+			["regionType"] = "text",
+			["fixedWidth"] = 200,
+			["wordWrap"] = "WordWrap",
+			["anchorFrameType"] = "SCREEN",
+			["triggers"] = {
+				{
+					["trigger"] = {
+						["type"] = "custom",
+						["names"] = {
+						},
+						["unevent"] = "auto",
+						["subeventPrefix"] = "SPELL",
+						["unit"] = "player",
+						["genericShowOn"] = "showOnActive",
+						["use_unit"] = true,
+						["subeventSuffix"] = "_CAST_START",
+						["spellIds"] = {
+						},
+						["custom"] = "--mostly pirated from a man who pirated it from pottm's star augur nameplate aura, credit also to weakauras discord for unitbuff workaround\nfunction()\n    if GetTime()-(aura_env.LastScan or 0) < 0.3 then return end \n    aura_env.LastScan=GetTime()\n    aura_env.everyFrame()\n    local ret = false\n    \n    if GetCVar(\"nameplateShowEnemies\") == \"1\" then      \n        local spell = GetSpellInfo(277242)\n        for i = 1, 40 do\n            local enemy = \"nameplate\"..i\n            local _, icon = GetUnitBuff(enemy, spell)\n            \n            if icon then\n                aura_env.addTextureToNameplate(enemy, icon, 40, 1, 1, 1, 1)\n                ret = true\n            end\n        end\n    end\n    \n    return ret\nend",
+						["debuffType"] = "HELPFUL",
+						["check"] = "update",
+						["event"] = "Chat Message",
+						["custom_type"] = "status",
+						["custom_hide"] = "timed",
+					},
+					["untrigger"] = {
+						["custom"] = "function()\n    return true\nend",
+					},
+				}, -- [1]
+				["disjunctive"] = "any",
+				["activeTriggerMode"] = 1,
+			},
+			["init_completed"] = 1,
+			["justify"] = "LEFT",
+			["conditions"] = {
+			},
+			["stacksContainment"] = "INSIDE",
+			["zoom"] = 0,
+			["auto"] = true,
+			["stickyDuration"] = false,
+			["id"] = "Infested on nameplate",
+			["animation"] = {
+				["start"] = {
+					["type"] = "none",
+					["duration_type"] = "seconds",
+				},
+				["main"] = {
+					["preset"] = "alphaPulse",
+					["type"] = "none",
+					["duration_type"] = "seconds",
+				},
+				["finish"] = {
+					["type"] = "none",
+					["duration_type"] = "seconds",
+				},
+			},
+			["frameStrata"] = 1,
+			["width"] = 27.000003814697,
+			["xOffset"] = 1.0001831054688,
+			["uid"] = "(4PzkSpD8pq",
+			["inverse"] = false,
+			["actions"] = {
+				["start"] = {
+					["custom"] = "",
+					["do_custom"] = false,
+				},
+				["finish"] = {
+					["custom"] = "",
+					["do_custom"] = false,
+				},
+				["init"] = {
+					["custom"] = "--[[\nClick 'Expand' for settings\n]]--\n\n\n------SETTINGS ----------------------------------------------------------------------------\n------change the numeric values below to move the position of the icon --------------------\nlocal vertOffset = 50 --  default value 50, vertical offset of icon from nameplate, smaller values are closer to nameplate\nlocal horizOffset = 0 --  default value 0, horizontal offset, negative values will move it to the left, positive to the right\n\n\n\n\n\n\n------DON'T EDIT BELOW HERE --------------------------------------------------------------\n------------------------------------------------------------------------------------------\nGetUnitAura = function(unit, spell, filter)\n    for i = 1, 40 do\n        local name, _, _, _, _, _, _, _, _, spellId = UnitAura(unit, i, filter)\n        if not name then return end\n        if spell == spellId or spell == name then\n            return UnitAura(unit, i, filter)\n        end\n    end\nend\nGetUnitBuff = function(unit, spell, filter)\n    return GetUnitAura(unit, spell, filter)\nend\nGetUnitDebuff = function(unit, spell, filter)\n    filter = filter and filter..\"|HARMFUL\" or \"HARMFUL\"\n    return GetUnitAura(unit, spell, filter)\nend\n\naura_env.texturePool = {}\naura_env.textureIndex = 0\naura_env.string = \"Interface\\\\AddOns\\\\WeakAuras\\\\Media\\\\Textures\\\\Circle_White.tga\"\n\naura_env.rangecheck = function(uId)\n    local range = 0\n    if IsItemInRange(37727, uId) then range = 5--Ruby Acorn\n    elseif IsItemInRange(63427, uId) then range = 8--Worgsaw\n    elseif CheckInteractDistance(uId, 3) then range = 10\n    elseif CheckInteractDistance(uId, 2) then range = 11\n    elseif IsItemInRange(32321, uId) then range = 13--reports 12 but actual range tested is 13\n    elseif IsItemInRange(6450, uId) then range = 18--Bandages.\n    elseif IsItemInRange(21519, uId) then range = 22--Item says 20, returns true until 22.\n    elseif CheckInteractDistance(uId, 1) then range = 30\n    elseif UnitInRange(uId) then range = 43\n    elseif IsItemInRange(116139, uId)  then range = 50\n    elseif IsItemInRange(32825, uId) then range = 60\n    elseif IsItemInRange(35278, uId) then range = 80\n    else range = 1000 end--Just so it has a numeric value, even if it's unknown to protect from nil errors\n    return range\nend\naura_env.round = function(num, idp)\n    local mult = 10^(idp or 0)\n    return math.floor(num * mult + 0.5) / mult\nend\n\naura_env.getTextureFromPool = function()\n    aura_env.textureIndex = aura_env.textureIndex + 1\n    if aura_env.textureIndex > #aura_env.texturePool then\n        local frame = CreateFrame(\"Frame\") --, nil, UIParent)\n        frame:SetFrameStrata(\"BACKGROUND\")\n        frame:SetFrameLevel(0)\n        frame:SetPoint(\"CENTER\", 0, 0)\n        frame:Hide()\n        frame.icon = frame:CreateTexture(nil, \"BACKGROUND\", nil, -8)\n        frame.icon:SetAllPoints()\n        frame.string = frame:CreateFontString(nil, \"BACKGROUND\", nil, -7)\n        aura_env.texturePool[aura_env.textureIndex] = frame\n    end\n    return aura_env.texturePool[aura_env.textureIndex]\nend\n\n\n\naura_env.addTextureToNameplate = function(unit, icon, width2, r2, g2, b2, a2, duration)\n    local nameplate = C_NamePlate.GetNamePlateForUnit(unit)\n    if not nameplate then return end\n    local frame = aura_env.getTextureFromPool()\n    frame:ClearAllPoints()\n    frame:SetPoint(\"CENTER\", nameplate, \"CENTER\", horizOffset, vertOffset)\n    frame:SetSize(width2, width2)\n    frame.icon:SetVertexColor(r2, g2, b2, a2)\n    frame.string:SetFont(\"Fonts\\\\FRIZQT__.TTF\", 10, \"OUTLINE\")\n    frame.string:SetPoint(\"TOPLEFT\", frame, \"TOPLEFT\", 0, 10)\n    frame.icon:SetTexture(icon)\n    if duration ~= -1 then\n        frame.string:SetText(duration)\n    else\n        frame.string:SetText(\"\")\n    end\n    frame:Show()\nend\n\n\naura_env.everyFrame = function()\n    \n    \n    for i=1, #aura_env.texturePool do\n        aura_env.texturePool[i]:Hide()\n    end\n    aura_env.textureIndex = 0\n    \n    \nend",
+					["do_custom"] = true,
+				},
+			},
+			["init_started"] = 1,
+			["displayIcon"] = 136235,
+			["stacksPoint"] = "BOTTOMRIGHT",
+			["textColor"] = {
+				1, -- [1]
+				1, -- [2]
+				1, -- [3]
+				1, -- [4]
+			},
 		},
 		["Swiftness Ward"] = {
 			["text2Point"] = "CENTER",
@@ -33005,15 +33191,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -33026,7 +33209,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -33171,15 +33357,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -33192,7 +33375,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -33840,16 +34026,16 @@ WeakAurasSaved = {
 					},
 				},
 			},
+			["text2Font"] = "Friz Quadrata TT",
+			["xOffset"] = 0,
+			["displayIcon"] = 1396973,
+			["text2Containment"] = "INSIDE",
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["text2Font"] = "Friz Quadrata TT",
-			["xOffset"] = 0,
-			["text2Containment"] = "INSIDE",
-			["displayIcon"] = 1396973,
 			["text1Font"] = "Friz Quadrata TT",
 			["cooldownTextEnabled"] = true,
 			["color"] = {
@@ -33973,15 +34159,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -33994,7 +34177,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -34005,17 +34191,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["text2Font"] = "Friz Quadrata TT",
-			["text2Containment"] = "INSIDE",
-			["xOffset"] = 0,
-			["text1Font"] = "Friz Quadrata TT",
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
+			["text2Containment"] = "INSIDE",
 			["parent"] = "BfA Dungeons",
+			["text1Font"] = "Friz Quadrata TT",
+			["xOffset"] = 0,
+			["text1Enabled"] = true,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["selfPoint"] = "CENTER",
@@ -34045,7 +34231,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["text1Enabled"] = true,
+			["text2Font"] = "Friz Quadrata TT",
 		},
 		["Withering Curse"] = {
 			["text2Point"] = "CENTER",
@@ -34131,15 +34317,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -34152,7 +34335,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -34163,17 +34349,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["text2Font"] = "Friz Quadrata TT",
-			["text2Containment"] = "INSIDE",
 			["parent"] = "BfA Dungeons",
+			["text2Containment"] = "INSIDE",
+			["xOffset"] = 0,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["icon"] = true,
-			["xOffset"] = 0,
+			["text2Font"] = "Friz Quadrata TT",
+			["text1Enabled"] = true,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["text1Font"] = "Friz Quadrata TT",
@@ -34203,7 +34389,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["text1Enabled"] = true,
+			["icon"] = true,
 		},
 		["Unstable Hex"] = {
 			["text2Point"] = "CENTER",
@@ -34322,17 +34508,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["icon"] = true,
-			["text2Containment"] = "INSIDE",
-			["xOffset"] = 0,
-			["text1Font"] = "Friz Quadrata TT",
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
+			["text2Containment"] = "INSIDE",
 			["parent"] = "BfA Dungeons",
+			["text1Font"] = "Friz Quadrata TT",
+			["xOffset"] = 0,
+			["text1Enabled"] = true,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["text2Font"] = "Friz Quadrata TT",
@@ -34362,7 +34548,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["text1Enabled"] = true,
+			["icon"] = true,
 		},
 		["02-Surgical Beam Side"] = {
 			["text2Point"] = "BOTTOMRIGHT",
@@ -34393,12 +34579,10 @@ WeakAurasSaved = {
 						["type"] = "event",
 						["spellId"] = "277973",
 						["unevent"] = "timed",
-						["names"] = {
-							"Defense Grid", -- [1]
-						},
+						["unit"] = "player",
 						["duration"] = "8",
 						["genericShowOn"] = "showOnActive",
-						["unit"] = "player",
+						["subeventPrefix"] = "SPELL",
 						["subeventSuffix"] = "_CAST_SUCCESS",
 						["use_spellId"] = true,
 						["spellIds"] = {
@@ -34407,7 +34591,9 @@ WeakAurasSaved = {
 						["event"] = "Combat Log",
 						["custom_type"] = "event",
 						["name"] = "Uldir Defensive Beam",
-						["subeventPrefix"] = "SPELL",
+						["names"] = {
+							"Defense Grid", -- [1]
+						},
 						["custom_hide"] = "timed",
 					},
 					["untrigger"] = {
@@ -34589,8 +34775,8 @@ WeakAurasSaved = {
 				{
 					["trigger"] = {
 						["type"] = "status",
-						["power"] = "0",
 						["unevent"] = "auto",
+						["subeventSuffix"] = "_CAST_START",
 						["power_operator"] = "<=",
 						["use_absorbMode"] = true,
 						["genericShowOn"] = "showOnActive",
@@ -34602,7 +34788,7 @@ WeakAurasSaved = {
 						["event"] = "Power",
 						["use_unit"] = true,
 						["use_powertype"] = false,
-						["subeventSuffix"] = "_CAST_START",
+						["power"] = "0",
 					},
 					["untrigger"] = {
 						["unit"] = "boss2",
@@ -35391,16 +35577,16 @@ WeakAurasSaved = {
 				},
 			},
 			["icon"] = true,
-			["xOffset"] = 0,
+			["parent"] = "BfA Dungeons",
 			["text2Containment"] = "INSIDE",
-			["displayIcon"] = 134732,
+			["text2Font"] = "Friz Quadrata TT",
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["parent"] = "BfA Dungeons",
+			["displayIcon"] = 134732,
 			["stickyDuration"] = false,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
@@ -35432,7 +35618,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["text2Font"] = "Friz Quadrata TT",
+			["xOffset"] = 0,
 		},
 		["Heaving Blow"] = {
 			["text2Point"] = "CENTER",
@@ -35521,12 +35707,15 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["race"] = {
+				["role"] = {
 					["multi"] = {
 					},
 				},
@@ -35543,10 +35732,7 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["role"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["size"] = {
 					["single"] = "party",
 					["multi"] = {
@@ -35591,6 +35777,7 @@ WeakAurasSaved = {
 			["text1Enabled"] = true,
 			["inverse"] = false,
 			["text1Font"] = "Friz Quadrata TT",
+			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
@@ -35712,17 +35899,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["icon"] = true,
-			["text2Containment"] = "INSIDE",
 			["parent"] = "BfA Dungeons",
+			["text2Containment"] = "INSIDE",
+			["xOffset"] = 0,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["text2Font"] = "Friz Quadrata TT",
-			["xOffset"] = 0,
+			["icon"] = true,
+			["internalVersion"] = 7,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["text1Font"] = "Friz Quadrata TT",
@@ -35752,7 +35939,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["internalVersion"] = 7,
+			["text2Font"] = "Friz Quadrata TT",
 		},
 		["04-Surging Darkness M"] = {
 			["textFlags"] = "None",
@@ -35793,11 +35980,11 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["spec"] = {
+				["encounterid"] = "2136",
+				["class"] = {
 					["multi"] = {
 					},
 				},
-				["encounterid"] = "2136",
 				["race"] = {
 					["multi"] = {
 					},
@@ -35822,7 +36009,7 @@ WeakAurasSaved = {
 					},
 				},
 				["use_difficulty"] = true,
-				["class"] = {
+				["spec"] = {
 					["multi"] = {
 					},
 				},
@@ -35865,10 +36052,11 @@ WeakAurasSaved = {
 						["type"] = "event",
 						["spellId"] = "265530",
 						["unevent"] = "timed",
-						["unit"] = "player",
+						["subeventPrefix"] = "SPELL",
 						["duration"] = "20",
 						["genericShowOn"] = "showOnActive",
-						["subeventPrefix"] = "SPELL",
+						["names"] = {
+						},
 						["destUnit"] = "player",
 						["use_spellId"] = true,
 						["name"] = "Surging Darkness",
@@ -35876,8 +36064,7 @@ WeakAurasSaved = {
 						["spellIds"] = {
 						},
 						["use_destUnit"] = true,
-						["names"] = {
-						},
+						["unit"] = "player",
 						["debuffType"] = "HELPFUL",
 					},
 					["untrigger"] = {
@@ -35955,23 +36142,23 @@ WeakAurasSaved = {
 				1, -- [3]
 				0.5, -- [4]
 			},
-			["displayTextLeft"] = "   RND      MID      RND    MID",
 			["width"] = 320,
+			["displayTextLeft"] = "   RND      MID      RND    MID",
 			["border"] = false,
 			["borderEdge"] = "None",
 			["sparkWidth"] = 2,
 			["borderInFront"] = true,
+			["sparkHidden"] = "NEVER",
+			["icon_side"] = "RIGHT",
 			["backdropColor"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				0.5, -- [4]
 			},
-			["icon_side"] = "RIGHT",
-			["sparkHidden"] = "NEVER",
-			["borderInset"] = 11,
-			["sparkHeight"] = 27,
 			["displayTextRight"] = " ",
+			["sparkHeight"] = 27,
+			["borderInset"] = 11,
 			["customTextUpdate"] = "update",
 			["stacksColor"] = {
 				1, -- [1]
@@ -36087,15 +36274,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -36110,7 +36294,10 @@ WeakAurasSaved = {
 						["TANK"] = true,
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -36253,12 +36440,17 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["use_zone"] = false,
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["role"] = {
+					["single"] = "TANK",
+					["multi"] = {
+						["TANK"] = true,
+					},
+				},
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -36271,12 +36463,7 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["role"] = {
-					["single"] = "TANK",
-					["multi"] = {
-						["TANK"] = true,
-					},
-				},
+				["use_zone"] = false,
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -36287,17 +36474,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["text2Font"] = "Friz Quadrata TT",
 			["parent"] = "BfA Dungeons",
-			["text2Containment"] = "INSIDE",
 			["text1Enabled"] = true,
+			["text2Containment"] = "INSIDE",
+			["displayIcon"] = 451165,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["displayIcon"] = 451165,
+			["text2Font"] = "Friz Quadrata TT",
 			["icon"] = true,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
@@ -36325,6 +36512,7 @@ WeakAurasSaved = {
 			["desaturate"] = false,
 			["inverse"] = false,
 			["text1Font"] = "Friz Quadrata TT",
+			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
@@ -36414,15 +36602,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -36435,7 +36620,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -36446,17 +36634,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["text1Enabled"] = true,
-			["text2Containment"] = "INSIDE",
 			["xOffset"] = 0,
-			["text1Font"] = "Friz Quadrata TT",
-			["text2Font"] = "Friz Quadrata TT",
+			["text2Containment"] = "INSIDE",
+			["parent"] = "BfA Dungeons",
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
+			["text1Font"] = "Friz Quadrata TT",
+			["text2Font"] = "Friz Quadrata TT",
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["selfPoint"] = "CENTER",
@@ -36486,7 +36674,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["parent"] = "BfA Dungeons",
+			["text1Enabled"] = true,
 		},
 		["03-Rotting Regurgitation"] = {
 			["text2Point"] = "CENTER",
@@ -36684,10 +36872,10 @@ WeakAurasSaved = {
 						["type"] = "event",
 						["spellId"] = "267945",
 						["unevent"] = "timed",
-						["use_unit"] = true,
+						["unit"] = "player",
 						["duration"] = "11",
 						["genericShowOn"] = "showOnActive",
-						["unit"] = "player",
+						["subeventPrefix"] = "SPELL",
 						["names"] = {
 							"Defense Grid", -- [1]
 						},
@@ -36698,7 +36886,7 @@ WeakAurasSaved = {
 						["event"] = "Combat Log",
 						["subeventSuffix"] = "_CAST_SUCCESS",
 						["name"] = "Wind Tunnel",
-						["subeventPrefix"] = "SPELL",
+						["use_unit"] = true,
 						["debuffType"] = "HARMFUL",
 					},
 					["untrigger"] = {
@@ -36961,16 +37149,16 @@ WeakAurasSaved = {
 					},
 				},
 			},
+			["xOffset"] = 0,
+			["text2Font"] = "Friz Quadrata TT",
+			["displayIcon"] = 135830,
+			["text2Containment"] = "INSIDE",
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["xOffset"] = 0,
-			["text2Font"] = "Friz Quadrata TT",
-			["text2Containment"] = "INSIDE",
-			["displayIcon"] = 135830,
 			["text1Font"] = "Friz Quadrata TT",
 			["glow"] = false,
 			["text1Enabled"] = true,
@@ -37577,6 +37765,7 @@ WeakAurasSaved = {
 			["text1Enabled"] = true,
 			["inverse"] = false,
 			["text1Font"] = "Friz Quadrata TT",
+			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
@@ -37837,15 +38026,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -37858,7 +38044,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -37869,17 +38058,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["icon"] = true,
-			["text2Containment"] = "INSIDE",
 			["text2Font"] = "Friz Quadrata TT",
+			["text2Containment"] = "INSIDE",
+			["parent"] = "BfA Dungeons",
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["xOffset"] = 0,
-			["parent"] = "BfA Dungeons",
+			["icon"] = true,
+			["text1Enabled"] = true,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["text1Font"] = "Friz Quadrata TT",
@@ -37909,7 +38098,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["text1Enabled"] = true,
+			["xOffset"] = 0,
 		},
 		["Chemical Burn"] = {
 			["text2Point"] = "CENTER",
@@ -37995,15 +38184,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -38016,7 +38202,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -38027,12 +38216,12 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["parent"] = "BfA Dungeons",
-			["text2Containment"] = "INSIDE",
 			["icon"] = true,
-			["text1Font"] = "Friz Quadrata TT",
-			["text1Enabled"] = true,
+			["text2Containment"] = "INSIDE",
 			["text2Font"] = "Friz Quadrata TT",
+			["text1Font"] = "Friz Quadrata TT",
+			["parent"] = "BfA Dungeons",
+			["xOffset"] = 0,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["selfPoint"] = "CENTER",
@@ -38067,7 +38256,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["xOffset"] = 0,
+			["text1Enabled"] = true,
 		},
 		["04-Orb of Corruption"] = {
 			["text2Point"] = "CENTER",
@@ -38329,15 +38518,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -38350,7 +38536,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -38361,17 +38550,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["icon"] = true,
-			["text2Containment"] = "INSIDE",
-			["parent"] = "BfA Dungeons",
-			["text1Font"] = "Friz Quadrata TT",
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
+			["text2Containment"] = "INSIDE",
 			["text1Enabled"] = true,
+			["text1Font"] = "Friz Quadrata TT",
+			["parent"] = "BfA Dungeons",
+			["xOffset"] = 0,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["text2Font"] = "Friz Quadrata TT",
@@ -38401,7 +38590,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["xOffset"] = 0,
+			["icon"] = true,
 		},
 		["08-Bursting Boil"] = {
 			["text2Point"] = "CENTER",
@@ -38490,14 +38679,11 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["class"] = {
-					["multi"] = {
-					},
-				},
 				["spec"] = {
 					["multi"] = {
 					},
 				},
+				["encounterid"] = "2122",
 				["use_zone"] = false,
 				["use_encounterid"] = true,
 				["difficulty"] = {
@@ -38522,7 +38708,10 @@ WeakAurasSaved = {
 					},
 				},
 				["use_difficulty"] = true,
-				["encounterid"] = "2122",
+				["class"] = {
+					["multi"] = {
+					},
+				},
 				["size"] = {
 					["multi"] = {
 						["twenty"] = true,
@@ -38658,15 +38847,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -38679,7 +38865,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -38690,12 +38879,12 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["parent"] = "BfA Dungeons",
-			["text2Containment"] = "INSIDE",
 			["icon"] = true,
-			["text1Font"] = "Friz Quadrata TT",
-			["text1Enabled"] = true,
+			["text2Containment"] = "INSIDE",
 			["text2Font"] = "Friz Quadrata TT",
+			["text1Font"] = "Friz Quadrata TT",
+			["parent"] = "BfA Dungeons",
+			["xOffset"] = 0,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["selfPoint"] = "CENTER",
@@ -38730,7 +38919,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["xOffset"] = 0,
+			["text1Enabled"] = true,
 		},
 		["05-Omega Vector"] = {
 			["text2Point"] = "CENTER",
@@ -39072,6 +39261,7 @@ WeakAurasSaved = {
 			["backdropInFront"] = false,
 			["text"] = true,
 			["stickyDuration"] = false,
+			["init_started"] = 1,
 			["timer"] = true,
 			["timerFlags"] = "None",
 			["stacksFont"] = "Friz Quadrata TT",
@@ -39234,15 +39424,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -39257,7 +39444,10 @@ WeakAurasSaved = {
 						["TANK"] = true,
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -39406,20 +39596,17 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["race"] = {
-					["multi"] = {
-					},
-				},
-				["difficulty"] = {
-					["multi"] = {
-					},
-				},
 				["role"] = {
 					["multi"] = {
 						["HEALER"] = true,
 						["DAMAGER"] = true,
 					},
 				},
+				["difficulty"] = {
+					["multi"] = {
+					},
+				},
+				["use_zoneId"] = true,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -39429,7 +39616,10 @@ WeakAurasSaved = {
 					},
 				},
 				["use_zone"] = false,
-				["use_zoneId"] = true,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["use_size"] = true,
 				["size"] = {
 					["single"] = "party",
@@ -39437,17 +39627,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["parent"] = "BfA Dungeons",
-			["text1Enabled"] = true,
-			["text2Containment"] = "INSIDE",
-			["displayIcon"] = 524795,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
+			["parent"] = "BfA Dungeons",
+			["text2Containment"] = "INSIDE",
+			["text1Enabled"] = true,
 			["text1Font"] = "Friz Quadrata TT",
+			["displayIcon"] = 524795,
 			["text2Font"] = "Friz Quadrata TT",
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
@@ -39531,16 +39721,16 @@ WeakAurasSaved = {
 					},
 				},
 				["encounterid"] = "2144",
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zone"] = false,
 				["use_encounterid"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["role"] = {
+					["multi"] = {
+					},
+				},
 				["talent2"] = {
 					["multi"] = {
 					},
@@ -39557,7 +39747,7 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["role"] = {
+				["race"] = {
 					["multi"] = {
 					},
 				},
@@ -39599,10 +39789,11 @@ WeakAurasSaved = {
 						["type"] = "event",
 						["spellId"] = "278888",
 						["subeventSuffix"] = "_AURA_APPLIED",
-						["unit"] = "player",
+						["subeventPrefix"] = "SPELL",
 						["duration"] = "7.5",
 						["genericShowOn"] = "showOnActive",
-						["subeventPrefix"] = "SPELL",
+						["names"] = {
+						},
 						["destUnit"] = "player",
 						["use_spellId"] = true,
 						["name"] = "Plasma Discharge",
@@ -39610,8 +39801,7 @@ WeakAurasSaved = {
 						},
 						["event"] = "Combat Log",
 						["use_destUnit"] = true,
-						["names"] = {
-						},
+						["unit"] = "player",
 						["debuffType"] = "HELPFUL",
 					},
 					["untrigger"] = {
@@ -39674,37 +39864,37 @@ WeakAurasSaved = {
 			["stickyDuration"] = false,
 			["textSize"] = 20,
 			["auto"] = true,
+			["url"] = "https://wago.io/ByyBK8vpG/27",
 			["height"] = 60,
 			["timerFlags"] = "None",
-			["url"] = "https://wago.io/ByyBK8vpG/27",
 			["sparkBlendMode"] = "ADD",
 			["useAdjustededMax"] = false,
 			["icon"] = false,
 			["zoom"] = 0,
 			["borderOffset"] = 5,
 			["timer"] = true,
+			["width"] = 300,
+			["border"] = false,
+			["borderEdge"] = "None",
 			["backgroundColor"] = {
 				0, -- [1]
 				0, -- [2]
 				0, -- [3]
 				0.6869395673275, -- [4]
 			},
-			["border"] = false,
-			["borderEdge"] = "None",
-			["width"] = 300,
 			["borderInFront"] = true,
 			["borderInset"] = 11,
 			["icon_side"] = "RIGHT",
-			["sparkRotationMode"] = "AUTO",
 			["id"] = "01-Plasma Discharge p3",
+			["sparkRotationMode"] = "AUTO",
 			["sparkHeight"] = 27,
+			["displayTextRight"] = "Zone Drops",
 			["backdropColor"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				0.5, -- [4]
 			},
-			["displayTextRight"] = "Zone Drops",
 			["stacksColor"] = {
 				1, -- [1]
 				1, -- [2]
@@ -39911,6 +40101,7 @@ WeakAurasSaved = {
 			["text1Enabled"] = true,
 			["inverse"] = false,
 			["text1Font"] = "Friz Quadrata TT",
+			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
@@ -40011,15 +40202,15 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
-				["difficulty"] = {
-					["multi"] = {
-					},
-				},
 				["race"] = {
 					["multi"] = {
 					},
 				},
+				["difficulty"] = {
+					["multi"] = {
+					},
+				},
+				["use_zoneId"] = true,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -40034,7 +40225,7 @@ WeakAurasSaved = {
 						["TANK"] = true,
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["use_size"] = true,
 				["size"] = {
 					["single"] = "party",
@@ -40043,9 +40234,9 @@ WeakAurasSaved = {
 				},
 			},
 			["xOffset"] = 0,
-			["icon"] = true,
-			["text2Containment"] = "INSIDE",
 			["text2Font"] = "Friz Quadrata TT",
+			["text2Containment"] = "INSIDE",
+			["parent"] = "BfA Dungeons",
 			["text1Font"] = "Friz Quadrata TT",
 			["conditions"] = {
 			},
@@ -40081,10 +40272,9 @@ WeakAurasSaved = {
 			["desaturate"] = false,
 			["inverse"] = false,
 			["selfPoint"] = "CENTER",
-			["init_started"] = 1,
 			["displayIcon"] = 136125,
 			["cooldown"] = false,
-			["parent"] = "BfA Dungeons",
+			["icon"] = true,
 		},
 		["Serpentine Gust"] = {
 			["text2Point"] = "CENTER",
@@ -40510,15 +40700,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zone"] = false,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["use_zoneId"] = true,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -40532,7 +40719,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["talent2"] = {
 					["multi"] = {
 					},
@@ -40543,17 +40733,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
+			["text2Font"] = "Friz Quadrata TT",
+			["text2Containment"] = "INSIDE",
+			["parent"] = "BfA Dungeons",
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["text2Containment"] = "INSIDE",
 			["text1Enabled"] = true,
 			["text1Font"] = "Friz Quadrata TT",
-			["xOffset"] = 0,
-			["text2Font"] = "Friz Quadrata TT",
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["selfPoint"] = "CENTER",
@@ -40583,7 +40773,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["parent"] = "BfA Dungeons",
+			["xOffset"] = 0,
 		},
 		["Sundering Blow"] = {
 			["text2Point"] = "CENTER",
@@ -40701,17 +40891,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
+			["text2Font"] = "Friz Quadrata TT",
+			["text2Containment"] = "INSIDE",
+			["parent"] = "BfA Dungeons",
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["text2Containment"] = "INSIDE",
 			["text1Enabled"] = true,
 			["text1Font"] = "Friz Quadrata TT",
-			["xOffset"] = 0,
-			["text2Font"] = "Friz Quadrata TT",
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["selfPoint"] = "CENTER",
@@ -40741,7 +40931,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["parent"] = "BfA Dungeons",
+			["xOffset"] = 0,
 		},
 		["Decaying Spores"] = {
 			["text2Point"] = "CENTER",
@@ -40827,15 +41017,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -40848,7 +41035,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -40859,17 +41049,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["text2Font"] = "Friz Quadrata TT",
-			["text2Containment"] = "INSIDE",
 			["parent"] = "BfA Dungeons",
+			["text2Containment"] = "INSIDE",
+			["xOffset"] = 0,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["icon"] = true,
-			["xOffset"] = 0,
+			["text2Font"] = "Friz Quadrata TT",
+			["text1Enabled"] = true,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["text1Font"] = "Friz Quadrata TT",
@@ -40899,7 +41089,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["text1Enabled"] = true,
+			["icon"] = true,
 		},
 		["Touch of the Drowned"] = {
 			["text2Point"] = "CENTER",
@@ -41017,17 +41207,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["text2Font"] = "Friz Quadrata TT",
-			["text2Containment"] = "INSIDE",
 			["parent"] = "BfA Dungeons",
+			["text2Containment"] = "INSIDE",
+			["xOffset"] = 0,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["icon"] = true,
-			["xOffset"] = 0,
+			["text2Font"] = "Friz Quadrata TT",
+			["internalVersion"] = 7,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["text1Font"] = "Friz Quadrata TT",
@@ -41057,7 +41247,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["internalVersion"] = 7,
+			["icon"] = true,
 		},
 		["Crashing Tide"] = {
 			["text2Point"] = "CENTER",
@@ -41099,11 +41289,11 @@ WeakAurasSaved = {
 						["use_specific_unit"] = false,
 						["custom"] = "function(arg1, arg2, arg3, arg4, spellID)\n    if arg4 == 261563 then\n        return true\n    end\n    \nend",
 						["use_spellId"] = true,
+						["events"] = "UNIT_SPELLCAST_START",
 						["name"] = "Trample",
 						["spellIds"] = {
 							260569, -- [1]
 						},
-						["events"] = "UNIT_SPELLCAST_START",
 						["custom_type"] = "event",
 						["names"] = {
 							"Wildfire", -- [1]
@@ -41155,15 +41345,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -41178,7 +41365,10 @@ WeakAurasSaved = {
 						["TANK"] = true,
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -41494,15 +41684,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -41517,7 +41704,10 @@ WeakAurasSaved = {
 						["TANK"] = true,
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -41529,9 +41719,9 @@ WeakAurasSaved = {
 				},
 			},
 			["xOffset"] = 0,
-			["icon"] = true,
-			["text2Containment"] = "INSIDE",
 			["text2Font"] = "Friz Quadrata TT",
+			["text2Containment"] = "INSIDE",
+			["parent"] = "BfA Dungeons",
 			["text1Font"] = "Friz Quadrata TT",
 			["conditions"] = {
 			},
@@ -41567,10 +41757,9 @@ WeakAurasSaved = {
 			["desaturate"] = false,
 			["inverse"] = false,
 			["selfPoint"] = "CENTER",
-			["init_started"] = 1,
 			["displayIcon"] = 463569,
 			["cooldown"] = true,
-			["parent"] = "BfA Dungeons",
+			["icon"] = true,
 		},
 		["Azerite Heartseeker 2"] = {
 			["text2Point"] = "CENTER",
@@ -41663,15 +41852,15 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
-				["difficulty"] = {
-					["multi"] = {
-					},
-				},
 				["race"] = {
 					["multi"] = {
 					},
 				},
+				["difficulty"] = {
+					["multi"] = {
+					},
+				},
+				["use_zoneId"] = true,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -41684,7 +41873,7 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["use_size"] = true,
 				["size"] = {
 					["single"] = "party",
@@ -41692,8 +41881,10 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["text1Font"] = "Friz Quadrata TT",
+			["parent"] = "BfA Dungeons",
 			["text2Containment"] = "INSIDE",
+			["icon"] = true,
+			["text1Font"] = "Friz Quadrata TT",
 			["text1Enabled"] = true,
 			["text1Color"] = {
 				1, -- [1]
@@ -41701,8 +41892,6 @@ WeakAurasSaved = {
 				1, -- [3]
 				1, -- [4]
 			},
-			["xOffset"] = 0,
-			["parent"] = "BfA Dungeons",
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["text2Font"] = "Friz Quadrata TT",
@@ -41732,7 +41921,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["icon"] = true,
+			["xOffset"] = 0,
 		},
 		["Sighted Artillery"] = {
 			["text2Point"] = "CENTER",
@@ -41827,15 +42016,15 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["use_zoneId"] = true,
-				["difficulty"] = {
-					["multi"] = {
-					},
-				},
 				["race"] = {
 					["multi"] = {
 					},
 				},
+				["difficulty"] = {
+					["multi"] = {
+					},
+				},
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -41850,7 +42039,7 @@ WeakAurasSaved = {
 						["TANK"] = true,
 					},
 				},
-				["use_zone"] = false,
+				["use_zoneId"] = true,
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -42064,6 +42253,7 @@ WeakAurasSaved = {
 			["text1Enabled"] = true,
 			["inverse"] = false,
 			["icon"] = true,
+			["init_started"] = 1,
 			["displayIcon"] = 132222,
 			["cooldown"] = true,
 			["parent"] = "BfA Dungeons",
@@ -42191,17 +42381,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
+			["text1Font"] = "Friz Quadrata TT",
 			["parent"] = "BfA Dungeons",
-			["xOffset"] = 0,
 			["text2Containment"] = "INSIDE",
-			["displayIcon"] = 136051,
+			["xOffset"] = 0,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["text1Font"] = "Friz Quadrata TT",
+			["displayIcon"] = 136051,
 			["text2Font"] = "Friz Quadrata TT",
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
@@ -42229,7 +42419,6 @@ WeakAurasSaved = {
 			["cooldownTextEnabled"] = true,
 			["inverse"] = false,
 			["icon"] = true,
-			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
@@ -42357,14 +42546,14 @@ WeakAurasSaved = {
 			["parent"] = "BfA Dungeons",
 			["icon"] = true,
 			["text2Containment"] = "INSIDE",
-			["displayIcon"] = 136214,
+			["xOffset"] = 0,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["xOffset"] = 0,
+			["displayIcon"] = 136214,
 			["stickyDuration"] = false,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
@@ -42392,6 +42581,7 @@ WeakAurasSaved = {
 			["text1Enabled"] = true,
 			["inverse"] = false,
 			["text1Font"] = "Friz Quadrata TT",
+			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
@@ -42516,10 +42706,10 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["text2Font"] = "Friz Quadrata TT",
-			["xOffset"] = 0,
-			["text2Containment"] = "INSIDE",
 			["icon"] = true,
+			["text2Font"] = "Friz Quadrata TT",
+			["text2Containment"] = "INSIDE",
+			["xOffset"] = 0,
 			["text1Font"] = "Friz Quadrata TT",
 			["text1Color"] = {
 				1, -- [1]
@@ -42643,15 +42833,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -42664,7 +42851,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -42675,8 +42865,10 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["text1Font"] = "Friz Quadrata TT",
+			["parent"] = "BfA Dungeons",
 			["text2Containment"] = "INSIDE",
+			["icon"] = true,
+			["text1Font"] = "Friz Quadrata TT",
 			["text1Enabled"] = true,
 			["text1Color"] = {
 				1, -- [1]
@@ -42684,8 +42876,6 @@ WeakAurasSaved = {
 				1, -- [3]
 				1, -- [4]
 			},
-			["xOffset"] = 0,
-			["parent"] = "BfA Dungeons",
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["text2Font"] = "Friz Quadrata TT",
@@ -42712,10 +42902,11 @@ WeakAurasSaved = {
 			["cooldownTextEnabled"] = true,
 			["inverse"] = false,
 			["selfPoint"] = "CENTER",
+			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["icon"] = true,
+			["xOffset"] = 0,
 		},
 		["Widowmaker Toxin"] = {
 			["text2Point"] = "CENTER",
@@ -42809,10 +43000,7 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -42825,17 +43013,21 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["use_zoneId"] = true,
-				["use_zone"] = false,
 				["size"] = {
 					["single"] = "party",
 					["multi"] = {
 					},
 				},
 			},
-			["text1Enabled"] = true,
-			["text2Containment"] = "INSIDE",
 			["text2Font"] = "Friz Quadrata TT",
+			["text2Containment"] = "INSIDE",
+			["xOffset"] = 0,
+			["text1Font"] = "Friz Quadrata TT",
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
@@ -42843,7 +43035,6 @@ WeakAurasSaved = {
 				1, -- [4]
 			},
 			["parent"] = "BfA Dungeons",
-			["text1Font"] = "Friz Quadrata TT",
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["selfPoint"] = "CENTER",
@@ -42870,10 +43061,11 @@ WeakAurasSaved = {
 			["cooldownTextEnabled"] = true,
 			["inverse"] = false,
 			["icon"] = true,
+			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["xOffset"] = 0,
+			["text1Enabled"] = true,
 		},
 		["Noxious Breath Trash"] = {
 			["text2Point"] = "CENTER",
@@ -42966,15 +43158,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -42987,7 +43176,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -42998,17 +43190,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
+			["text1Font"] = "Friz Quadrata TT",
 			["parent"] = "BfA Dungeons",
-			["xOffset"] = 0,
 			["text2Containment"] = "INSIDE",
-			["displayIcon"] = 136182,
+			["xOffset"] = 0,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["text1Font"] = "Friz Quadrata TT",
+			["displayIcon"] = 136182,
 			["text2Font"] = "Friz Quadrata TT",
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
@@ -43036,7 +43228,6 @@ WeakAurasSaved = {
 			["cooldownTextEnabled"] = true,
 			["inverse"] = false,
 			["icon"] = true,
-			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
@@ -43303,15 +43494,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -43324,7 +43512,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -43639,15 +43830,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -43660,7 +43848,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -43713,6 +43904,231 @@ WeakAurasSaved = {
 			["displayIcon"] = 237590,
 			["cooldown"] = true,
 			["text2Font"] = "Friz Quadrata TT",
+		},
+		["Focus Bar - Beast Mastery"] = {
+			["sparkWidth"] = 10,
+			["stacksSize"] = 16,
+			["xOffset"] = 0,
+			["stacksFlags"] = "OUTLINE",
+			["yOffset"] = -55,
+			["anchorPoint"] = "CENTER",
+			["borderColor"] = {
+				0, -- [1]
+				0, -- [2]
+				0, -- [3]
+				0.5, -- [4]
+			},
+			["rotateText"] = "NONE",
+			["backgroundColor"] = {
+				0, -- [1]
+				0, -- [2]
+				0, -- [3]
+				0.5, -- [4]
+			},
+			["fontFlags"] = "OUTLINE",
+			["icon_color"] = {
+				1, -- [1]
+				1, -- [2]
+				1, -- [3]
+				1, -- [4]
+			},
+			["selfPoint"] = "CENTER",
+			["barColor"] = {
+				0.73333333333333, -- [1]
+				0.23137254901961, -- [2]
+				0.13333333333333, -- [3]
+				1, -- [4]
+			},
+			["desaturate"] = false,
+			["sparkOffsetY"] = 0,
+			["load"] = {
+				["talent2"] = {
+					["multi"] = {
+					},
+				},
+				["use_never"] = false,
+				["talent"] = {
+					["multi"] = {
+					},
+				},
+				["spec"] = {
+					["single"] = 1,
+					["multi"] = {
+						[2] = true,
+					},
+				},
+				["class"] = {
+					["single"] = "HUNTER",
+					["multi"] = {
+					},
+				},
+				["difficulty"] = {
+					["multi"] = {
+					},
+				},
+				["race"] = {
+					["multi"] = {
+					},
+				},
+				["use_class"] = true,
+				["role"] = {
+					["multi"] = {
+					},
+				},
+				["pvptalent"] = {
+					["multi"] = {
+					},
+				},
+				["use_spec"] = true,
+				["faction"] = {
+					["multi"] = {
+					},
+				},
+				["use_combat"] = true,
+				["ingroup"] = {
+					["multi"] = {
+					},
+				},
+				["size"] = {
+					["multi"] = {
+					},
+				},
+			},
+			["timerColor"] = {
+				1, -- [1]
+				1, -- [2]
+				1, -- [3]
+				1, -- [4]
+			},
+			["smoothProgress"] = true,
+			["useAdjustededMin"] = false,
+			["regionType"] = "aurabar",
+			["stacks"] = false,
+			["texture"] = "Minimalist",
+			["textFont"] = "Friz Quadrata TT",
+			["borderOffset"] = 0,
+			["spark"] = true,
+			["timerFont"] = "Friz Quadrata TT",
+			["alpha"] = 1,
+			["borderInset"] = 1,
+			["textColor"] = {
+				1, -- [1]
+				1, -- [2]
+				1, -- [3]
+				1, -- [4]
+			},
+			["sparkOffsetX"] = 0,
+			["parent"] = "Beast Mastery Hunter",
+			["customText"] = "function()\nreturn string.format(\"%.2f%%\" ,UnitSpellHaste(\"player\"));\nend",
+			["customTextUpdate"] = "update",
+			["displayTextLeft"] = " %p",
+			["triggers"] = {
+				{
+					["trigger"] = {
+						["type"] = "status",
+						["unevent"] = "auto",
+						["event"] = "Power",
+						["use_absorbMode"] = true,
+						["genericShowOn"] = "showOnActive",
+						["subeventPrefix"] = "SPELL",
+						["use_unit"] = true,
+						["powertype"] = 2,
+						["spellIds"] = {
+						},
+						["subeventSuffix"] = "_CAST_START",
+						["unit"] = "player",
+						["names"] = {
+						},
+						["use_powertype"] = true,
+						["debuffType"] = "HELPFUL",
+					},
+					["untrigger"] = {
+					},
+				}, -- [1]
+				["disjunctive"] = "all",
+				["activeTriggerMode"] = -10,
+			},
+			["internalVersion"] = 7,
+			["animation"] = {
+				["start"] = {
+					["type"] = "none",
+					["duration_type"] = "seconds",
+				},
+				["main"] = {
+					["type"] = "none",
+					["duration_type"] = "seconds",
+				},
+				["finish"] = {
+					["type"] = "none",
+					["duration_type"] = "seconds",
+				},
+			},
+			["backdropInFront"] = false,
+			["text"] = true,
+			["stickyDuration"] = false,
+			["init_started"] = 1,
+			["textSize"] = 24,
+			["zoom"] = 0,
+			["timer"] = false,
+			["timerFlags"] = "OUTLINE",
+			["actions"] = {
+				["start"] = {
+				},
+				["init"] = {
+					["custom"] = "local bar = aura_env.region.bar\nif not bar.full then \n    local full = CreateFrame(\"StatusBar\", nil, bar, \"FullResourcePulseFrame\")\n    bar.full = full\nend\nlocal w,h = bar:GetWidth(), bar:GetHeight()\nbar.full:ClearAllPoints()\nbar.full:SetPoint(\"Right\", bar, \"RIGHT\")\nbar.full:SetSize(w,h)\nbar.full.SpikeFrame:SetSize(w,h);\nbar.full.PulseFrame:SetSize(w,h);\nbar.full.SpikeFrame.AlertSpikeStay:SetSize(w/4, h);\nbar.full.PulseFrame.YellowGlow:SetSize(w/4, h);\nbar.full.PulseFrame.SoftGlow:SetSize(w/4, h);\nbar.full:Initialize(true);\nbar.full:SetMaxValue(UnitPowerMax(\"player\"))\nbar.full.currValue = UnitPower(\"player\")\n\nbar.full:RegisterUnitEvent(\"UNIT_POWER_FREQUENT\", \"player\");\nbar.full:RegisterUnitEvent(\"UNIT_MAXPOWER\", \"player\");\nbar.full:SetScript(\"OnEvent\", function(self, event, ...)\n        if event == \"UNIT_MAXPOWER\" then\n            self:SetMaxValue(UnitPowerMax(\"player\"))\n        end\n        if event == \"UNIT_POWER_FREQUENT\" then\n            local currValue = UnitPower(\"player\")\n            self:StartAnimIfFull(self.currValue, currValue);\n            self.currValue = currValue\n        end\n    end\n)",
+					["do_custom"] = false,
+				},
+				["finish"] = {
+				},
+			},
+			["sparkBlendMode"] = "ADD",
+			["backdropColor"] = {
+				1, -- [1]
+				1, -- [2]
+				1, -- [3]
+				0.5, -- [4]
+			},
+			["auto"] = true,
+			["url"] = "https://wago.io/r1xpnTFl7/8",
+			["borderBackdrop"] = "None",
+			["sparkRotationMode"] = "AUTO",
+			["border"] = true,
+			["borderEdge"] = "1 Pixel",
+			["width"] = 400,
+			["borderSize"] = 3,
+			["useAdjustededMax"] = false,
+			["icon_side"] = "RIGHT",
+			["sparkRotation"] = 0,
+			["id"] = "Focus Bar - Beast Mastery",
+			["sparkHeight"] = 80,
+			["sparkColor"] = {
+				1, -- [1]
+				1, -- [2]
+				1, -- [3]
+				1, -- [4]
+			},
+			["timerSize"] = 16,
+			["stacksColor"] = {
+				1, -- [1]
+				1, -- [2]
+				1, -- [3]
+				1, -- [4]
+			},
+			["displayTextRight"] = " ",
+			["textFlags"] = "THICKOUTLINE",
+			["sparkHidden"] = "NEVER",
+			["borderInFront"] = true,
+			["frameStrata"] = 3,
+			["anchorFrameType"] = "SCREEN",
+			["icon"] = false,
+			["stacksFont"] = "Friz Quadrata TT",
+			["inverse"] = false,
+			["sparkDesature"] = false,
+			["orientation"] = "HORIZONTAL",
+			["conditions"] = {
+			},
+			["height"] = 35,
+			["sparkTexture"] = "Interface\\CastingBar\\UI-CastingBar-Spark",
 		},
 		["Shattered Defenses"] = {
 			["text2Point"] = "CENTER",
@@ -43883,231 +44299,6 @@ WeakAurasSaved = {
 			["displayIcon"] = 463569,
 			["cooldown"] = true,
 			["text2Font"] = "Friz Quadrata TT",
-		},
-		["Focus Bar - Beast Mastery"] = {
-			["sparkWidth"] = 10,
-			["stacksSize"] = 16,
-			["xOffset"] = 0,
-			["stacksFlags"] = "OUTLINE",
-			["yOffset"] = -55,
-			["anchorPoint"] = "CENTER",
-			["borderColor"] = {
-				0, -- [1]
-				0, -- [2]
-				0, -- [3]
-				0.5, -- [4]
-			},
-			["rotateText"] = "NONE",
-			["backgroundColor"] = {
-				0, -- [1]
-				0, -- [2]
-				0, -- [3]
-				0.5, -- [4]
-			},
-			["fontFlags"] = "OUTLINE",
-			["icon_color"] = {
-				1, -- [1]
-				1, -- [2]
-				1, -- [3]
-				1, -- [4]
-			},
-			["selfPoint"] = "CENTER",
-			["barColor"] = {
-				0.73333333333333, -- [1]
-				0.23137254901961, -- [2]
-				0.13333333333333, -- [3]
-				1, -- [4]
-			},
-			["desaturate"] = false,
-			["sparkOffsetY"] = 0,
-			["load"] = {
-				["talent2"] = {
-					["multi"] = {
-					},
-				},
-				["use_never"] = false,
-				["talent"] = {
-					["multi"] = {
-					},
-				},
-				["spec"] = {
-					["single"] = 1,
-					["multi"] = {
-						[2] = true,
-					},
-				},
-				["class"] = {
-					["single"] = "HUNTER",
-					["multi"] = {
-					},
-				},
-				["difficulty"] = {
-					["multi"] = {
-					},
-				},
-				["race"] = {
-					["multi"] = {
-					},
-				},
-				["use_class"] = true,
-				["role"] = {
-					["multi"] = {
-					},
-				},
-				["faction"] = {
-					["multi"] = {
-					},
-				},
-				["pvptalent"] = {
-					["multi"] = {
-					},
-				},
-				["use_spec"] = true,
-				["use_combat"] = true,
-				["ingroup"] = {
-					["multi"] = {
-					},
-				},
-				["size"] = {
-					["multi"] = {
-					},
-				},
-			},
-			["timerColor"] = {
-				1, -- [1]
-				1, -- [2]
-				1, -- [3]
-				1, -- [4]
-			},
-			["smoothProgress"] = true,
-			["useAdjustededMin"] = false,
-			["regionType"] = "aurabar",
-			["stacks"] = false,
-			["texture"] = "Minimalist",
-			["textFont"] = "Friz Quadrata TT",
-			["borderOffset"] = 0,
-			["spark"] = true,
-			["timerFont"] = "Friz Quadrata TT",
-			["alpha"] = 1,
-			["borderInset"] = 1,
-			["textColor"] = {
-				1, -- [1]
-				1, -- [2]
-				1, -- [3]
-				1, -- [4]
-			},
-			["sparkOffsetX"] = 0,
-			["parent"] = "Beast Mastery Hunter",
-			["customText"] = "function()\nreturn string.format(\"%.2f%%\" ,UnitSpellHaste(\"player\"));\nend",
-			["customTextUpdate"] = "update",
-			["displayTextLeft"] = " %p",
-			["triggers"] = {
-				{
-					["trigger"] = {
-						["type"] = "status",
-						["unevent"] = "auto",
-						["event"] = "Power",
-						["use_absorbMode"] = true,
-						["genericShowOn"] = "showOnActive",
-						["subeventPrefix"] = "SPELL",
-						["use_unit"] = true,
-						["powertype"] = 2,
-						["spellIds"] = {
-						},
-						["subeventSuffix"] = "_CAST_START",
-						["unit"] = "player",
-						["names"] = {
-						},
-						["use_powertype"] = true,
-						["debuffType"] = "HELPFUL",
-					},
-					["untrigger"] = {
-					},
-				}, -- [1]
-				["disjunctive"] = "all",
-				["activeTriggerMode"] = -10,
-			},
-			["internalVersion"] = 7,
-			["animation"] = {
-				["start"] = {
-					["type"] = "none",
-					["duration_type"] = "seconds",
-				},
-				["main"] = {
-					["type"] = "none",
-					["duration_type"] = "seconds",
-				},
-				["finish"] = {
-					["type"] = "none",
-					["duration_type"] = "seconds",
-				},
-			},
-			["backdropInFront"] = false,
-			["text"] = true,
-			["stickyDuration"] = false,
-			["textSize"] = 24,
-			["zoom"] = 0,
-			["timer"] = false,
-			["timerFlags"] = "OUTLINE",
-			["actions"] = {
-				["start"] = {
-				},
-				["init"] = {
-					["custom"] = "local bar = aura_env.region.bar\nif not bar.full then \n    local full = CreateFrame(\"StatusBar\", nil, bar, \"FullResourcePulseFrame\")\n    bar.full = full\nend\nlocal w,h = bar:GetWidth(), bar:GetHeight()\nbar.full:ClearAllPoints()\nbar.full:SetPoint(\"Right\", bar, \"RIGHT\")\nbar.full:SetSize(w,h)\nbar.full.SpikeFrame:SetSize(w,h);\nbar.full.PulseFrame:SetSize(w,h);\nbar.full.SpikeFrame.AlertSpikeStay:SetSize(w/4, h);\nbar.full.PulseFrame.YellowGlow:SetSize(w/4, h);\nbar.full.PulseFrame.SoftGlow:SetSize(w/4, h);\nbar.full:Initialize(true);\nbar.full:SetMaxValue(UnitPowerMax(\"player\"))\nbar.full.currValue = UnitPower(\"player\")\n\nbar.full:RegisterUnitEvent(\"UNIT_POWER_FREQUENT\", \"player\");\nbar.full:RegisterUnitEvent(\"UNIT_MAXPOWER\", \"player\");\nbar.full:SetScript(\"OnEvent\", function(self, event, ...)\n        if event == \"UNIT_MAXPOWER\" then\n            self:SetMaxValue(UnitPowerMax(\"player\"))\n        end\n        if event == \"UNIT_POWER_FREQUENT\" then\n            local currValue = UnitPower(\"player\")\n            self:StartAnimIfFull(self.currValue, currValue);\n            self.currValue = currValue\n        end\n    end\n)",
-					["do_custom"] = false,
-				},
-				["finish"] = {
-				},
-			},
-			["sparkBlendMode"] = "ADD",
-			["backdropColor"] = {
-				1, -- [1]
-				1, -- [2]
-				1, -- [3]
-				0.5, -- [4]
-			},
-			["orientation"] = "HORIZONTAL",
-			["auto"] = true,
-			["url"] = "https://wago.io/r1xpnTFl7/8",
-			["sparkRotationMode"] = "AUTO",
-			["useAdjustededMax"] = false,
-			["border"] = true,
-			["borderEdge"] = "1 Pixel",
-			["width"] = 400,
-			["borderSize"] = 3,
-			["icon"] = false,
-			["icon_side"] = "RIGHT",
-			["sparkColor"] = {
-				1, -- [1]
-				1, -- [2]
-				1, -- [3]
-				1, -- [4]
-			},
-			["id"] = "Focus Bar - Beast Mastery",
-			["sparkHeight"] = 80,
-			["textFlags"] = "THICKOUTLINE",
-			["displayTextRight"] = " ",
-			["stacksColor"] = {
-				1, -- [1]
-				1, -- [2]
-				1, -- [3]
-				1, -- [4]
-			},
-			["timerSize"] = 16,
-			["borderInFront"] = true,
-			["sparkHidden"] = "NEVER",
-			["sparkRotation"] = 0,
-			["frameStrata"] = 3,
-			["anchorFrameType"] = "SCREEN",
-			["stacksFont"] = "Friz Quadrata TT",
-			["borderBackdrop"] = "None",
-			["inverse"] = false,
-			["sparkDesature"] = false,
-			["init_started"] = 1,
-			["conditions"] = {
-			},
-			["height"] = 35,
-			["sparkTexture"] = "Interface\\CastingBar\\UI-CastingBar-Spark",
 		},
 		["Channel Lightning"] = {
 			["text2Point"] = "CENTER",
@@ -44430,10 +44621,10 @@ WeakAurasSaved = {
 			["xOffset"] = 0,
 			["parent"] = "BfA Dungeons",
 			["text2Containment"] = "INSIDE",
+			["text2Font"] = "Friz Quadrata TT",
+			["text1Font"] = "Friz Quadrata TT",
 			["conditions"] = {
 			},
-			["text1Font"] = "Friz Quadrata TT",
-			["text2Font"] = "Friz Quadrata TT",
 			["stickyDuration"] = false,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
@@ -44555,15 +44746,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -44576,7 +44764,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -44587,17 +44778,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["icon"] = true,
-			["text2Containment"] = "INSIDE",
-			["xOffset"] = 0,
-			["text1Font"] = "Friz Quadrata TT",
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
+			["text2Containment"] = "INSIDE",
 			["parent"] = "BfA Dungeons",
+			["text1Font"] = "Friz Quadrata TT",
+			["xOffset"] = 0,
+			["text1Enabled"] = true,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["text2Font"] = "Friz Quadrata TT",
@@ -44627,7 +44818,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["text1Enabled"] = true,
+			["icon"] = true,
 		},
 		["08-Mind-Numbing Chatter"] = {
 			["text2Point"] = "CENTER",
@@ -44757,12 +44948,12 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["icon"] = true,
-			["text1Containment"] = "OUTSIDE",
 			["xOffset"] = 0,
-			["text2Containment"] = "INSIDE",
+			["text1Containment"] = "OUTSIDE",
 			["conditions"] = {
 			},
+			["text2Containment"] = "INSIDE",
+			["parent"] = "T22 Uldir Raid",
 			["text1Font"] = "Friz Quadrata TT",
 			["text2Font"] = "Friz Quadrata TT",
 			["text1Enabled"] = true,
@@ -44799,7 +44990,7 @@ WeakAurasSaved = {
 			},
 			["displayIcon"] = 460857,
 			["cooldown"] = true,
-			["parent"] = "T22 Uldir Raid",
+			["icon"] = true,
 		},
 		["Merciless Assault"] = {
 			["text2Point"] = "CENTER",
@@ -44958,6 +45149,7 @@ WeakAurasSaved = {
 			["text1Enabled"] = true,
 			["inverse"] = false,
 			["text1Font"] = "Friz Quadrata TT",
+			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
@@ -45090,9 +45282,9 @@ WeakAurasSaved = {
 				},
 			},
 			["xOffset"] = 0,
-			["icon"] = true,
-			["text2Containment"] = "INSIDE",
 			["text2Font"] = "Friz Quadrata TT",
+			["text2Containment"] = "INSIDE",
+			["parent"] = "BfA Dungeons",
 			["text1Font"] = "Friz Quadrata TT",
 			["conditions"] = {
 			},
@@ -45128,10 +45320,9 @@ WeakAurasSaved = {
 			["desaturate"] = false,
 			["inverse"] = false,
 			["selfPoint"] = "CENTER",
-			["init_started"] = 1,
 			["displayIcon"] = 132098,
 			["cooldown"] = true,
-			["parent"] = "BfA Dungeons",
+			["icon"] = true,
 		},
 		["08-Imperfect Physiology"] = {
 			["text2Point"] = "CENTER",
@@ -45241,14 +45432,11 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["class"] = {
-					["multi"] = {
-					},
-				},
 				["spec"] = {
 					["multi"] = {
 					},
 				},
+				["encounterid"] = "2122",
 				["use_zone"] = false,
 				["use_encounterid"] = true,
 				["difficulty"] = {
@@ -45275,7 +45463,10 @@ WeakAurasSaved = {
 					},
 				},
 				["use_difficulty"] = false,
-				["encounterid"] = "2122",
+				["class"] = {
+					["multi"] = {
+					},
+				},
 				["size"] = {
 					["multi"] = {
 						["twenty"] = true,
@@ -45283,11 +45474,11 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["stickyDuration"] = false,
-			["cooldownTextEnabled"] = true,
 			["xOffset"] = 0,
-			["text2Containment"] = "INSIDE",
+			["cooldownTextEnabled"] = true,
 			["displayIcon"] = 458969,
+			["text2Containment"] = "INSIDE",
+			["parent"] = "T22 Uldir Raid",
 			["text1Font"] = "Friz Quadrata TT",
 			["text2Font"] = "Friz Quadrata TT",
 			["text1Enabled"] = true,
@@ -45325,7 +45516,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["parent"] = "T22 Uldir Raid",
+			["stickyDuration"] = false,
 		},
 		["Charge"] = {
 			["text2Point"] = "CENTER",
@@ -45450,17 +45641,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["xOffset"] = 0,
-			["parent"] = "BfA Dungeons",
-			["text2Containment"] = "INSIDE",
-			["displayIcon"] = 2011119,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
+			["xOffset"] = 0,
+			["text2Containment"] = "INSIDE",
+			["parent"] = "BfA Dungeons",
 			["text1Font"] = "Friz Quadrata TT",
+			["displayIcon"] = 2011119,
 			["text2Font"] = "Friz Quadrata TT",
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
@@ -45585,15 +45776,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -45608,7 +45796,10 @@ WeakAurasSaved = {
 						["TANK"] = true,
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -45751,12 +45942,15 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["race"] = {
+				["role"] = {
 					["multi"] = {
 					},
 				},
@@ -45773,10 +45967,7 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["role"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["size"] = {
 					["single"] = "party",
 					["multi"] = {
@@ -45822,6 +46013,7 @@ WeakAurasSaved = {
 			["text1Enabled"] = true,
 			["inverse"] = false,
 			["icon"] = true,
+			["init_started"] = 1,
 			["displayIcon"] = 1033905,
 			["cooldown"] = true,
 			["parent"] = "BfA Dungeons",
@@ -46098,15 +46290,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -46119,7 +46308,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -46130,17 +46322,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
+			["text2Font"] = "Friz Quadrata TT",
+			["text2Containment"] = "INSIDE",
+			["parent"] = "BfA Dungeons",
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["text2Containment"] = "INSIDE",
 			["text1Enabled"] = true,
 			["text1Font"] = "Friz Quadrata TT",
-			["xOffset"] = 0,
-			["text2Font"] = "Friz Quadrata TT",
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["selfPoint"] = "CENTER",
@@ -46170,7 +46362,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["parent"] = "BfA Dungeons",
+			["xOffset"] = 0,
 		},
 		["Force Cannon"] = {
 			["text2Point"] = "CENTER",
@@ -46259,12 +46451,15 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["race"] = {
+				["role"] = {
 					["multi"] = {
 					},
 				},
@@ -46281,27 +46476,24 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["role"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["size"] = {
 					["single"] = "party",
 					["multi"] = {
 					},
 				},
 			},
-			["xOffset"] = 0,
 			["parent"] = "BfA Dungeons",
-			["text2Containment"] = "INSIDE",
 			["icon"] = true,
+			["text2Containment"] = "INSIDE",
+			["displayIcon"] = 236201,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["displayIcon"] = 236201,
+			["xOffset"] = 0,
 			["stickyDuration"] = false,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
@@ -46329,6 +46521,7 @@ WeakAurasSaved = {
 			["text1Enabled"] = true,
 			["inverse"] = false,
 			["text1Font"] = "Friz Quadrata TT",
+			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
@@ -46460,17 +46653,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["parent"] = "BfA Dungeons",
-			["text1Enabled"] = true,
-			["text2Containment"] = "INSIDE",
-			["displayIcon"] = 460952,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
+			["parent"] = "BfA Dungeons",
+			["text2Containment"] = "INSIDE",
+			["text1Enabled"] = true,
 			["text1Font"] = "Friz Quadrata TT",
+			["displayIcon"] = 460952,
 			["text2Font"] = "Friz Quadrata TT",
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
@@ -46612,8 +46805,11 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["encounterid"] = "2134",
 				["spec"] = {
+					["multi"] = {
+					},
+				},
+				["class"] = {
 					["multi"] = {
 					},
 				},
@@ -46644,10 +46840,7 @@ WeakAurasSaved = {
 					},
 				},
 				["use_difficulty"] = true,
-				["class"] = {
-					["multi"] = {
-					},
-				},
+				["encounterid"] = "2134",
 				["size"] = {
 					["multi"] = {
 						["twenty"] = true,
@@ -46657,10 +46850,10 @@ WeakAurasSaved = {
 			},
 			["xOffset"] = 0,
 			["stickyDuration"] = false,
-			["parent"] = "T22 Uldir Raid",
-			["text2Containment"] = "INSIDE",
 			["conditions"] = {
 			},
+			["text2Containment"] = "INSIDE",
+			["parent"] = "T22 Uldir Raid",
 			["text1Font"] = "Friz Quadrata TT",
 			["icon"] = true,
 			["text1Enabled"] = true,
@@ -47015,17 +47208,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["parent"] = "BfA Dungeons",
+			["text1Font"] = "Friz Quadrata TT",
 			["text2Containment"] = "INSIDE",
-			["icon"] = true,
+			["xOffset"] = 0,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["text1Font"] = "Friz Quadrata TT",
-			["xOffset"] = 0,
+			["icon"] = true,
+			["text1Enabled"] = true,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["text2Font"] = "Friz Quadrata TT",
@@ -47055,7 +47248,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["text1Enabled"] = true,
+			["parent"] = "BfA Dungeons",
 		},
 		["Sonic Screech "] = {
 			["text2Point"] = "CENTER",
@@ -47179,14 +47372,14 @@ WeakAurasSaved = {
 			["parent"] = "BfA Dungeons",
 			["icon"] = true,
 			["text2Containment"] = "INSIDE",
-			["displayIcon"] = 252188,
+			["xOffset"] = 0,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["xOffset"] = 0,
+			["displayIcon"] = 252188,
 			["stickyDuration"] = false,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
@@ -47214,6 +47407,7 @@ WeakAurasSaved = {
 			["text1Enabled"] = true,
 			["inverse"] = false,
 			["text1Font"] = "Friz Quadrata TT",
+			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
@@ -47720,6 +47914,7 @@ WeakAurasSaved = {
 			["text1Enabled"] = true,
 			["inverse"] = false,
 			["text1Font"] = "Friz Quadrata TT",
+			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
@@ -48027,15 +48222,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -48048,7 +48240,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -48926,9 +49121,9 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["stickyDuration"] = false,
 			["xOffset"] = 0,
 			["text2Font"] = "Friz Quadrata TT",
+			["stickyDuration"] = false,
 			["text2Containment"] = "INSIDE",
 			["displayIcon"] = 457655,
 			["text1Font"] = "Friz Quadrata TT",
@@ -49783,12 +49978,12 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["icon"] = true,
-			["text1Containment"] = "OUTSIDE",
 			["xOffset"] = 0,
-			["text2Containment"] = "INSIDE",
+			["text1Containment"] = "OUTSIDE",
 			["conditions"] = {
 			},
+			["text2Containment"] = "INSIDE",
+			["parent"] = "T22 Uldir Raid",
 			["text1Font"] = "Friz Quadrata TT",
 			["text2Font"] = "Friz Quadrata TT",
 			["text1Enabled"] = true,
@@ -49825,7 +50020,7 @@ WeakAurasSaved = {
 			},
 			["displayIcon"] = 136183,
 			["cooldown"] = true,
-			["parent"] = "T22 Uldir Raid",
+			["icon"] = true,
 		},
 		["08-Gaze of G'huun soon"] = {
 			["text2Point"] = "CENTER",
@@ -49887,8 +50082,8 @@ WeakAurasSaved = {
 				{
 					["trigger"] = {
 						["type"] = "status",
-						["power"] = "80",
 						["unevent"] = "auto",
+						["subeventSuffix"] = "_CAST_START",
 						["power_operator"] = ">=",
 						["use_absorbMode"] = true,
 						["genericShowOn"] = "showOnActive",
@@ -49900,7 +50095,7 @@ WeakAurasSaved = {
 						["event"] = "Power",
 						["use_unit"] = true,
 						["use_powertype"] = false,
-						["subeventSuffix"] = "_CAST_START",
+						["power"] = "80",
 					},
 					["untrigger"] = {
 						["unit"] = "boss1",
@@ -50004,11 +50199,11 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["text2Font"] = "Friz Quadrata TT",
-			["glow"] = false,
 			["xOffset"] = 0,
-			["text2Containment"] = "INSIDE",
+			["glow"] = false,
 			["displayIcon"] = 136183,
+			["text2Containment"] = "INSIDE",
+			["parent"] = "T22 Uldir Raid",
 			["text1Font"] = "Friz Quadrata TT",
 			["text1Color"] = {
 				1, -- [1]
@@ -50046,7 +50241,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["parent"] = "T22 Uldir Raid",
+			["text2Font"] = "Friz Quadrata TT",
 		},
 		["Suppression Slam"] = {
 			["text2Point"] = "CENTER",
@@ -50140,15 +50335,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -50163,7 +50355,10 @@ WeakAurasSaved = {
 						["TANK"] = true,
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -50487,15 +50682,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -50510,7 +50702,10 @@ WeakAurasSaved = {
 						["TANK"] = true,
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -50648,15 +50843,12 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zoneId"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["use_zoneId"] = true,
+				["use_zone"] = false,
 				["pvptalent"] = {
 					["multi"] = {
 					},
@@ -50669,7 +50861,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -50680,17 +50875,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
+			["text1Enabled"] = true,
+			["text2Containment"] = "INSIDE",
+			["xOffset"] = 0,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["text2Containment"] = "INSIDE",
 			["parent"] = "BfA Dungeons",
 			["text1Font"] = "Friz Quadrata TT",
-			["text2Font"] = "Friz Quadrata TT",
-			["text1Enabled"] = true,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
 			["selfPoint"] = "CENTER",
@@ -50720,7 +50915,7 @@ WeakAurasSaved = {
 			["conditions"] = {
 			},
 			["cooldown"] = true,
-			["xOffset"] = 0,
+			["text2Font"] = "Friz Quadrata TT",
 		},
 		["Shocking Claw"] = {
 			["text2Point"] = "CENTER",
@@ -50811,20 +51006,15 @@ WeakAurasSaved = {
 					},
 				},
 				["use_size"] = true,
-				["role"] = {
-					["single"] = "TANK",
+				["race"] = {
 					["multi"] = {
-						["TANK"] = true,
 					},
 				},
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["race"] = {
-					["multi"] = {
-					},
-				},
+				["use_zone"] = false,
 				["use_zoneId"] = true,
 				["pvptalent"] = {
 					["multi"] = {
@@ -50834,7 +51024,12 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["role"] = {
+					["single"] = "TANK",
+					["multi"] = {
+						["TANK"] = true,
+					},
+				},
 				["ingroup"] = {
 					["multi"] = {
 					},
@@ -50845,17 +51040,17 @@ WeakAurasSaved = {
 					},
 				},
 			},
-			["text2Font"] = "Friz Quadrata TT",
 			["parent"] = "BfA Dungeons",
-			["text2Containment"] = "INSIDE",
 			["text1Enabled"] = true,
+			["text2Containment"] = "INSIDE",
+			["displayIcon"] = 136050,
 			["text1Color"] = {
 				1, -- [1]
 				1, -- [2]
 				1, -- [3]
 				1, -- [4]
 			},
-			["displayIcon"] = 136050,
+			["text2Font"] = "Friz Quadrata TT",
 			["icon"] = true,
 			["text1FontFlags"] = "THICKOUTLINE",
 			["regionType"] = "icon",
@@ -50883,6 +51078,7 @@ WeakAurasSaved = {
 			["desaturate"] = false,
 			["inverse"] = false,
 			["text1Font"] = "Friz Quadrata TT",
+			["init_started"] = 1,
 			["conditions"] = {
 			},
 			["cooldown"] = true,
@@ -50934,7 +51130,8 @@ WeakAurasSaved = {
 				},
 				["use_role"] = true,
 				["encounterid"] = "2122",
-				["race"] = {
+				["role"] = {
+					["single"] = "HEALER",
 					["multi"] = {
 					},
 				},
@@ -50943,11 +51140,7 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["role"] = {
-					["single"] = "HEALER",
-					["multi"] = {
-					},
-				},
+				["use_zone"] = false,
 				["talent2"] = {
 					["multi"] = {
 					},
@@ -50964,7 +51157,10 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["size"] = {
 					["multi"] = {
 					},
@@ -51003,10 +51199,11 @@ WeakAurasSaved = {
 						["type"] = "event",
 						["spellId"] = "263482",
 						["unevent"] = "timed",
-						["unit"] = "player",
+						["subeventPrefix"] = "SPELL",
 						["duration"] = "28",
 						["genericShowOn"] = "showOnActive",
-						["subeventPrefix"] = "SPELL",
+						["names"] = {
+						},
 						["destUnit"] = "player",
 						["use_spellId"] = true,
 						["name"] = "Reorigination Blast",
@@ -51014,8 +51211,7 @@ WeakAurasSaved = {
 						["spellIds"] = {
 						},
 						["use_destUnit"] = false,
-						["names"] = {
-						},
+						["unit"] = "player",
 						["debuffType"] = "HELPFUL",
 					},
 					["untrigger"] = {
@@ -51063,9 +51259,9 @@ WeakAurasSaved = {
 				1, -- [3]
 				1, -- [4]
 			},
+			["auto"] = true,
 			["height"] = 60,
 			["timerFlags"] = "None",
-			["auto"] = true,
 			["sparkBlendMode"] = "ADD",
 			["useAdjustededMax"] = false,
 			["actions"] = {
@@ -51088,18 +51284,18 @@ WeakAurasSaved = {
 				1, -- [3]
 				0.5, -- [4]
 			},
-			["borderSize"] = 16,
+			["width"] = 300,
 			["border"] = false,
 			["borderEdge"] = "None",
-			["width"] = 300,
+			["borderSize"] = 16,
 			["borderInFront"] = true,
 			["borderInset"] = 11,
 			["icon_side"] = "RIGHT",
-			["url"] = "https://wago.io/ByyBK8vpG/27",
 			["id"] = "08-Reorigination Blast",
+			["url"] = "https://wago.io/ByyBK8vpG/27",
 			["sparkHeight"] = 27,
-			["sparkRotationMode"] = "AUTO",
 			["displayTextRight"] = "Raid Damage",
+			["sparkRotationMode"] = "AUTO",
 			["stacksColor"] = {
 				1, -- [1]
 				1, -- [2]
@@ -51178,14 +51374,19 @@ WeakAurasSaved = {
 					},
 				},
 				["encounterid"] = "2122",
-				["use_zone"] = false,
+				["race"] = {
+					["multi"] = {
+					},
+				},
 				["use_encounterid"] = true,
 				["difficulty"] = {
 					["multi"] = {
 					},
 				},
-				["race"] = {
+				["role"] = {
+					["single"] = "HEALER",
 					["multi"] = {
+						["HEALER"] = true,
 					},
 				},
 				["ingroup"] = {
@@ -51204,12 +51405,7 @@ WeakAurasSaved = {
 					["multi"] = {
 					},
 				},
-				["role"] = {
-					["single"] = "HEALER",
-					["multi"] = {
-						["HEALER"] = true,
-					},
-				},
+				["use_zone"] = false,
 				["size"] = {
 					["multi"] = {
 					},
@@ -51248,10 +51444,11 @@ WeakAurasSaved = {
 						["type"] = "event",
 						["spellId"] = "276839",
 						["subeventSuffix"] = "_CAST_SUCCESS",
-						["unit"] = "player",
+						["subeventPrefix"] = "SPELL",
 						["duration"] = "23.5",
 						["genericShowOn"] = "showOnActive",
-						["subeventPrefix"] = "SPELL",
+						["names"] = {
+						},
 						["destUnit"] = "player",
 						["use_spellId"] = true,
 						["name"] = "Collapse",
@@ -51259,8 +51456,7 @@ WeakAurasSaved = {
 						},
 						["event"] = "Combat Log",
 						["use_destUnit"] = false,
-						["names"] = {
-						},
+						["unit"] = "player",
 						["debuffType"] = "HELPFUL",
 					},
 					["untrigger"] = {
@@ -51308,9 +51504,9 @@ WeakAurasSaved = {
 				1, -- [3]
 				1, -- [4]
 			},
+			["auto"] = true,
 			["height"] = 60,
 			["timerFlags"] = "None",
-			["auto"] = true,
 			["sparkBlendMode"] = "ADD",
 			["useAdjustededMax"] = false,
 			["icon"] = false,
@@ -51322,18 +51518,18 @@ WeakAurasSaved = {
 				1, -- [3]
 				0.5, -- [4]
 			},
-			["borderSize"] = 16,
+			["width"] = 300,
 			["border"] = false,
 			["borderEdge"] = "None",
-			["width"] = 300,
+			["borderSize"] = 16,
 			["borderInFront"] = true,
 			["borderInset"] = 11,
 			["icon_side"] = "RIGHT",
-			["url"] = "https://wago.io/ByyBK8vpG/27",
 			["id"] = "08-Collapse",
+			["url"] = "https://wago.io/ByyBK8vpG/27",
 			["sparkHeight"] = 27,
-			["sparkRotationMode"] = "AUTO",
 			["displayTextRight"] = "Dodge",
+			["sparkRotationMode"] = "AUTO",
 			["stacksColor"] = {
 				1, -- [1]
 				1, -- [2]

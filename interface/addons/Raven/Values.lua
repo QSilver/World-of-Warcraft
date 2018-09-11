@@ -8,14 +8,15 @@ local valueFunctions, colorFunctions
 
 -- Value functions have an optional input parameter: unit (specified when creating a value bar)
 -- Functions return:
---   1. status - true if the unit exists and no errors are detected
+--   1. status - true if the unit exists (always true for functions with no unit)
 --   2. value - current numeric value, depending on the selected function
---   3. maxValue - maximum numeric value, used to calculate how much of a value bar to fill
+--   3. maxValue - maximum value, used to calculate how much of a bar to fill, optionally override in bar settings
 --   4. valueText - if not nil then this will be shown instead of numeric value in "timer text"
---   5. altR, altG, altB - if not nil then this is alternative color to use for value bar
+--   5. valueLabel - if not nil then this will be either appended to or replace "label text", depending on bar settings
+--   6. altR, altG, altB - if not nil then this is alternative color to use for value bar, selectable in bar settings
 
--- Add option for value bars to use alternative color or use a default or custom color or class color
 -- Class color might be a good option for all custom bars
+-- Must update more frequently! Check out power bar delay on monk windwalker...
 
 local function ValueUnitLevel(unit) return UnitLevel(unit), 120 end
 
@@ -25,14 +26,29 @@ local function ValueUnitPower(unit) return UnitPower(unit) or 0, UnitPowerMax(un
 
 local function ValueUnitThreat(unit) return UnitThreatSituation("player", unit) or 0, 3 end
 
+local function ValueUnitAbsorb(unit) return UnitGetTotalAbsorbs(unit) or 0, UnitHealthMax(unit) end
+
+local function ValueUnitIncomingHeals(unit) return UnitGetIncomingHeals(unit) or 0, UnitHealthMax(unit) end
+
+local function ValueUnitStagger(unit) return UnitStagger(unit) or 0, UnitHealthMax(unit) end
+
 local function ValuePlayerXP() return UnitXP("player") or 0, UnitXPMax("player") end
+
+local function ValueFrameRate() return math.floor(GetFramerate() or 0), tonumber(GetCVar("maxFPS")) or 60 end
+
+local function ValueLatency() local bwi, bwo, lat = GetNetStats(); return math.floor(lat or 0), 100 end
 
 local functionTable = {
 	[L["Level"]] = { func = ValueUnitLevel, unit = true },
 	[L["Health"]] = { func = ValueUnitHealth, unit = true },
 	[L["Power"]] = { func = ValueUnitPower, unit = true },
 	[L["Threat"]] = { func = ValueUnitThreat, unit = true },
+	[L["Absorb"]] = { func = ValueUnitAbsorb, unit = true },
+	[L["Incoming Heals"]] = { func = ValueUnitIncomingHeals, unit = true },
+	[L["Stagger"]] = { func = ValueUnitStagger, unit = true },
 	[L["XP"]] = { func = ValuePlayerXP, unit = false },
+	[L["Framerate"]] = { func = ValueFrameRate, unit = false },
+	[L["Latency"]] = { func = ValueLatency, unit = false },
 }
 
 -- Color functions are used to return specialized colors such as reaction color

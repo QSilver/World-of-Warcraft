@@ -102,6 +102,12 @@ dbGACperChar = {
 						["success"] = true,
 					},
 				},
+				[1900] = {
+					[1536583976] = {
+						["result"] = 100,
+						["success"] = true,
+					},
+				},
 				[1901] = {
 					[1534540748] = {
 						["result"] = 100,
@@ -126,8 +132,20 @@ dbGACperChar = {
 						["success"] = true,
 					},
 				},
+				[2073] = {
+					[1536583977] = {
+						["result"] = 100,
+						["success"] = true,
+					},
+				},
 				[1887] = {
 					[1534979921] = {
+						["result"] = 100,
+						["success"] = true,
+					},
+				},
+				[1917] = {
+					[1536528453] = {
 						["result"] = 100,
 						["success"] = true,
 					},

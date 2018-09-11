@@ -1,15 +1,16 @@
 # BigWigs
 
-## [v109](https://github.com/BigWigsMods/BigWigs/tree/v109) (2018-09-09)
-[Full Changelog](https://github.com/BigWigsMods/BigWigs/compare/v108.2...v109)
+## [v111](https://github.com/BigWigsMods/BigWigs/tree/v111) (2018-09-11)
+[Full Changelog](https://github.com/BigWigsMods/BigWigs/compare/v110.1...v111)
 
+- Update option files  
+- Uldir/Vectis: Add an extra safety check  
+- Uldir/Vectis: Make the Omega Vector say countdown adaptive, in line with latest hotfix.  
 - bump version  
-- Add "Noto Sans SemiCondensed".  
-- Uldir/Zekvoz: Adjust stage soon warnings slightly and add a timer for Anub'ar Voidweaver at the start of stage 2  
-- Uldir/Zekvoz: Add Eruption timers for Surging Darkness  
-- Uldir/Vectis: add Immunosuppression bars and warnings and add a counter to Contagion  
-- Uldir/Taloc: Add a counter to Cudgel of Gore & Hardened Arteries  
-- Uldir/Mythrax: Add stage warnings and timers, warn on Obliteration Blast _start, improve timers  
-- Uldir/Zul: Add stage warnings, Fix Pool of Darkness, Add stage 2 timers, Remove say message on Fixate  
-- Uldir/Taloc: Adjust stage warnings  
-- Uldir/Ghuun: Fix Wave of Corruption and update timers  
+- Uldir: Tweak interrupt warnings.  
+- Uldir/Zul: Add marker to Dark Revelation say.  
+- Uldir/Mythrax: Add Imminent Ruin marker and add marker to the say.  
+- Uldir/Zul: Fix bar option  
+- Uldir/Zul: Add warnings when the minions spawn, cleanups.  
+- Uldir/Mythrax: Add proximity display. Sort GUI abilities into stages. Fix intermission bar icon. Fix imminent Ruin playing multiple sounds. Change Obliteration Beam sound.  
+- Uldir/Zul: Fix Dark Revelation target bar.  

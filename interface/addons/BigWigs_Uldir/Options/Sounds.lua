@@ -63,15 +63,17 @@ BigWigs:AddSounds("Zul", {
 	[273361] = "info",
 	[273365] = "warning",
 	[273451] = "alarm",
-	[273889] = "long",
 	[274271] = "alarm",
 	[274358] = "warning",
 	[276299] = "alarm",
+	["bloodhexer"] = "long",
+	["crawg"] = "long",
+	["crusher"] = "long",
 	["stages"] = "long",
 })
 
 BigWigs:AddSounds("Mythrax the Unraveler", {
-	[272115] = "alert",
+	[272115] = "long",
 	[272404] = "warning",
 	[272536] = "alert",
 	[273282] = {"alarm","alert"},

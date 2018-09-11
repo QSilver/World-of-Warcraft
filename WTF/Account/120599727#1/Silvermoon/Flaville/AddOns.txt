@@ -36,7 +36,7 @@ CrucibleWeight: enabled
 DejaCharacterStats: enabled
 Details: enabled
 Details_DmgRank: enabled
-Details_DeathGraphs: enabled
+Details_DeathGraphs: disabled
 Details_DpsTuning: enabled
 Details_EncounterDetails: enabled
 Details_RaidCheck: enabled
@@ -156,3 +156,5 @@ Auc-Stat-StdDev: enabled
 Auc-Util-FixAH: enabled
 AzeriteTooltip: enabled
 AzeriteForge: disabled
+AllTheThings: disabled
+RaiderIO: disabled

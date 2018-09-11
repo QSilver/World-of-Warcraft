@@ -488,7 +488,8 @@ function MOD:CopyStandardColors(s, d)
 		d.cooldownColor = MOD.CopyColor(s.cooldownColor); d.notificationColor = MOD.CopyColor(s.notificationColor)
 		d.poisonColor = MOD.CopyColor(s.poisonColor); d.curseColor = MOD.CopyColor(s.curseColor)
 		d.magicColor = MOD.CopyColor(s.magicColor); d.diseaseColor = MOD.CopyColor(s.diseaseColor)
-		d.stealColor = MOD.CopyColor(s.stealColor); d.brokerColor = MOD.CopyColor(s.brokerColor); d.valueColor = MOD.CopyColor(s.valueColor)
+		d.stealColor = MOD.CopyColor(s.stealColor); d.enrageColor = MOD.CopyColor(s.enrageColor);
+		d.brokerColor = MOD.CopyColor(s.brokerColor); d.valueColor = MOD.CopyColor(s.valueColor)
 	end
 end
 
@@ -507,7 +508,6 @@ function MOD:GetSpellID(name)
 	local id = MOD.db.global.SpellIDs[name]
 	if id == 0 then return nil end -- only scan invalid ones once in a session
 	if id and (name ~= GetSpellInfo(id)) then id = nil end -- verify it is still valid
-	
 	if not id and not InCombatLockdown() then -- disallow the search when in combat due to script time limit (MoP)
 		id = 0
 		while id < maxSpellID do -- determined during initialization
@@ -709,24 +709,32 @@ function MOD:SetDispelDefaults()
 			dispelTypes.Poison = true; dispelTypes.Curse = true
 		end
 	elseif MOD.myClass == "MONK" then
-		if RavenCheckSpellKnown(115450) then -- Detox
+		if RavenCheckSpellKnown(115450) then -- Detox (healer)
 			dispelTypes.Poison = true; dispelTypes.Disease = true; dispelTypes.Magic = true
+		elseif RavenCheckSpellKnown(218164) then -- Detox
+			dispelTypes.Poison = true; dispelTypes.Disease = true
 		end
 	elseif MOD.myClass == "PRIEST" then
-		if RavenCheckSpellKnown(527) then
-			dispelTypes.Magic = true; dispelTypes.Disease = true -- Purify
-		elseif RavenCheckSpellKnown(32375) then
-			dispelTypes.Magic = true -- Mass Dispel
+		if RavenCheckSpellKnown(527) then -- Purify
+			dispelTypes.Magic = true; dispelTypes.Disease = true
+		elseif RavenCheckSpellKnown(32375) then -- Mass Dispel
+			dispelTypes.Magic = true
 		end
 	elseif MOD.myClass == "PALADIN" then
 		if RavenCheckSpellKnown(4987) then -- Cleanse
 			dispelTypes.Poison = true; dispelTypes.Disease = true; dispelTypes.Magic = true
+		elseif RavenCheckSpellKnown(213644) then
+			dispelTypes.Poison = true; dispelTypes.Disease = true -- Cleanse Toxins
 		end
 	elseif MOD.myClass == "SHAMAN" then
-		if RavenCheckSpellKnown(77130) then
-			dispelTypes.Curse = true; dispelTypes.Magic = true -- Purify Spirit
-		elseif RavenCheckSpellKnown(51886) then
-			dispelTypes.Curse = true -- Cleanse Spirit
+		if RavenCheckSpellKnown(77130) then -- Purify Spirit
+			dispelTypes.Curse = true; dispelTypes.Magic = true
+		elseif RavenCheckSpellKnown(51886) then -- Cleanse Spirit
+			dispelTypes.Curse = true
+		end
+	elseif MOD.myClass == "MAGE" then
+		if RavenCheckSpellKnown(475) then -- Remove Curse
+			dispelTypes.Curse = true
 		end
 	end
 	MOD.updateDispels = false
@@ -912,6 +920,7 @@ MOD.DefaultProfile = {
 		DefaultMagicColor = MOD.CopyColor(DebuffTypeColor["Magic"]),
 		DefaultDiseaseColor = MOD.CopyColor(DebuffTypeColor["Disease"]),
 		DefaultStealColor = MOD.HexColor("ef2929"), -- Red1
+		DefaultEnrageColor = MOD.HexColor("ffb249"), -- Brown-Orange
 		ButtonFacadeIcons = true,		-- enable use of ButtonFacade for icons
 		ButtonFacadeNormal = true,		-- enable color of normal texture in ButtonFacade
 		ButtonFacadeBorder = false,		-- enable color of border texture in ButtonFacade

@@ -11,6 +11,7 @@ local media = LibStub("LibSharedMedia-3.0")
 local wc = { r = 1, g = 1, b = 1, a = 1 }
 local rc = { r = 1, g = 0, b = 0, a = 1 }
 local vc = { r = 1, g = 0, b = 0, a = 0 }
+local zc = { r = 1, g = 1, b = 1, a = 0 }
 local gc = { r = 0.5, g = 0.5, b = 0.5, a = 0.5 }
 local hidden = false
 local detectedBar = { enableBar = true, sorder = 0 }
@@ -44,13 +45,14 @@ MOD.BarGroupTemplate = { -- default bar group settings
 	sor = "A", reverseSort = false, timeSort = true, playerSort = false,
 	configuration = 1, anchor = false, anchorX = 0, anchorY = 0, anchorLastBar = false, anchorRow = false, anchorColumn = true, anchorEmpty = false,
 	growDirection = true, fillBars = false, wrap = 0, wrapDirection = false, snapCenter = false, maxBars = 0, desaturateReadyIcon = false,
-	pulseStart = false, pulseEnd = false, flashExpiring = false, flashTime = 5, hide = false, fade = false, ghost = false, delayTime = 5,
+	pulseStart = false, pulseEnd = false, flashExpiring = false, flashTime = 5, shineStart = false,
+	ghost = false, delayTime = 5, hide = false, fade = false,
 	bgNormalAlpha = 1, bgCombatAlpha = 1, mouseAlpha = 1, fadeAlpha = 1, testTimers = 10, testStatic = 0, testLoop = false,
 	soundSpellStart = false, soundSpellEnd = false, soundSpellExpire = false, soundAltStart = "None", soundAltEnd = "None", soundAltExpire = "None",
 	labelOffset = 0, labelInset = 0, labelWrap = false, labelCenter = false, labelAlign = "MIDDLE",
 	timeOffset = 0, timeInset = 0, timeAlign = "normal", timeIcon = false, iconOffset = 0, iconInset = 0, iconHide = false, iconAlign = "CENTER",
 	expireTime = 5, expirePercentage = 0, expireMinimum = 0, colorExpiring = false, expireMSBT = false, criticalMSBT = false, clockReverse = true,
-	expireColor = false, expireLabelColor = false, expireTimeColor = false, tickColor = false, spellExpireTimes = false,
+	expireColor = false, expireLabelColor = false, expireTimeColor = false, tickColor = false, shineColor = false, spellExpireTimes = false,
 	desaturate = false, desaturateFriend = false, disableAlpha = false,
 	timelineWidth = 225, timelineHeight = 25, timelineDuration = 300, timelineExp = 3, timelineHide = false, timelineAlternate = true,
 	timelineSwitch = 2, timelineTexture = "Blizzard", timelineAlpha = 1, timelineColor = false, timelineLabels = false,
@@ -501,6 +503,8 @@ function MOD:GetSpecialColorForBar(bg, bar, btype)
 			c = cc and bg.stealColor or MOD.db.global.DefaultStealColor
 		elseif bar.isMagic then
 			c = cc and bg.magicColor or MOD.db.global.DefaultMagicColor
+		elseif bar.isEnrage then
+			c = cc and bg.enrageColor or MOD.db.global.DefaultEnrageColor
 		else
 			c = cc and bg.buffColor or MOD.db.global.DefaultBuffColor
 		end
@@ -688,6 +692,7 @@ function MOD:UpdateBarGroup(bp)
 		MOD.Nest_SetBarGroupAttribute(bg, "targetFirst", bp.targetFirst) -- for multi-target tracking, sort target first
 		MOD.Nest_SetBarGroupAttribute(bg, "pulseStart", bp.pulseStart) -- pulse icon at start
 		MOD.Nest_SetBarGroupAttribute(bg, "pulseEnd", bp.pulseEnd) -- pulse icon when expiring
+		MOD.Nest_SetBarGroupAttribute(bg, "shineStart", bp.shineStart) -- shine animation at start
 		MOD.Nest_SetBarGroupAttribute(bg, "noMouse", bp.noMouse) -- disable interactivity
 		MOD.Nest_SetBarGroupAttribute(bg, "iconMouse", bp.iconMouse) -- mouse-only interactivity
 		MOD.Nest_SetBarGroupAttribute(bg, "anchorTips", bp.anchorTips) -- manual tooltip anchor
@@ -1110,19 +1115,21 @@ local function UpdateBar(bp, vbp, bg, b, icon, timeLeft, duration, count, btype,
 		bat.listID = b.listID -- for tooltip to show if found in a spell list
 		if vbp.casterTips then bat.caster = ttCaster else bat.caster = nil end
 		bat.saveBar = b -- not valid in auto bar group since it then points to a local not a permanent table!
-		bat.pulseStart = b.pulseStart; bat.pulseEnd = b.pulseEnd -- pulse icon when expiring
+		bat.pulseStart = b.pulseStart; bat.pulseEnd = b.pulseEnd -- pulse icon when start or expiring
+		bat.shineStart = b.shineStart -- shine animation on start
 		bat.fullReverse = b.startReady and bp.readyReverse -- ready bar can use reverse setting of the Full Bars option
 		
 		if b.colorExpiring then -- set color to switch at expiration time, default is red
 			bat.expireColor = (b.expireColor or rc); bat.expireLabelColor = (b.expireLabelColor or vc)
-			bat.expireTimeColor = (b.expireTimeColor or vc); bat.tickColor = (b.tickColor or vc)
+			bat.expireTimeColor = (b.expireTimeColor or vc); bat.tickColor = (b.tickColor or vc); bat.shineColor = (b.shineColor or zc)
 			bat.colorTime, bat.colorMinimum = GetExpireTime(vbp, b, duration, true, false)
 		elseif vbp.colorExpiring then
 			bat.expireColor = (vbp.expireColor or rc); bat.expireLabelColor = (vbp.expireLabelColor or vc)
-			bat.expireTimeColor = (vbp.expireTimeColor or vc); bat.tickColor = (vbp.tickColor or vc)
+			bat.expireTimeColor = (vbp.expireTimeColor or vc); bat.tickColor = (vbp.tickColor or vc); bat.shineColor = (vbp.shineColor or zc)
 			bat.colorTime, bat.colorMinimum = GetExpireTime(vbp, b, duration, false, true)
 		else
-			bat.expireColor = nil; bat.expireLabelColor = nil; bat.expireTimeColor = nil; bat.tickColor = nil; bat.colorTime = nil; bat.colorMinimum = nil
+			bat.expireColor = nil; bat.expireLabelColor = nil; bat.expireTimeColor = nil
+			bat.tickColor = nil; bat.shineColor = nil; bat.colorTime = nil; bat.colorMinimum = nil
 		end
 		
 		if b.expireMSBT then -- set color to switch at expiration time, default is red
@@ -1171,7 +1178,8 @@ local function UpdateBar(bp, vbp, bg, b, icon, timeLeft, duration, count, btype,
 		if vbp.targetAlpha and ttUnit == "all" and b.group ~= UnitGUID("target") then alpha = alpha * vbp.targetAlpha end
 		if (IsOn(b.flashBar) and (b.flashBar == MOD:CheckCondition(b.flashCondition))) or -- conditional flashing
 				(MOD.Nest_IsTimer(bar) and ((vbp.flashExpiring and vbp.flashTime and (timeLeft < vbp.flashTime)) or -- bar group flash when expiring
-				(b.flashExpiring and b.flashTime and (timeLeft < b.flashTime)))) then -- custom bar flash when expiring
+				(b.flashExpiring and b.flashTime and (timeLeft < b.flashTime)))) or -- custom bar flash when expiring
+				(b.flashReady and b.startReady) then -- ready bar flash option
 			MOD.Nest_SetFlash(bar, true)
 		elseif IsOn(b.fadeBar) then -- conditional fade for bars is higher priority than bar group setting for delayed fade
 			if (b.fadeBar == MOD:CheckCondition(b.fadeCondition)) and b.fadeAlpha then alpha = alpha * b.fadeAlpha; faded = true end
@@ -1332,7 +1340,7 @@ local function DetectNewBuffs(unit, n, aura, isBuff, bp, vbp, bg)
 		end
 		b.group = id -- if unit is "all" then this is GUID of unit with buff, otherwise it is nil
 		b.groupName = gname -- if unit is "all" then this is the name of the unit with buff, otherwise it is nil
-		b.uniqueID = tag; b.listID = listID; b.barLabel = label; b.isStealable = isStealable; b.isMagic = isMagic
+		b.uniqueID = tag; b.listID = listID; b.barLabel = label; b.isStealable = isStealable; b.isMagic = isMagic; b.isEnrage = isEnrage
 		UpdateBar(bp, vbp, bg, b, icon, aura[2], aura[5], aura[3], ttype, tt, ta, unit, aura[16], isMine)
 	end
 end

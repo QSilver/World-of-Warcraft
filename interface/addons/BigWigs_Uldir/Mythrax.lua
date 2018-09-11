@@ -7,7 +7,7 @@ local mod, CL = BigWigs:NewBoss("Mythrax the Unraveler", 1861, 2194)
 if not mod then return end
 mod:RegisterEnableMob(134546)
 mod.engageId = 2135
---mod.respawnTime = 30
+mod.respawnTime = 30 -- XXX verify
 
 --------------------------------------------------------------------------------
 -- Locals
@@ -18,6 +18,7 @@ local nextStageWarning = 69
 local annihilationList = {}
 local visionCount = 1
 local beamCount = 1
+local ruinCount = 0
 
 --------------------------------------------------------------------------------
 -- Localization
@@ -32,19 +33,25 @@ end
 -- Initialization
 --
 
+local imminentRuinMarker = mod:AddMarkerOption(false, "player", 1, 272536, 1, 2) -- Imminent Ruin
 function mod:GetOptions()
 	return {
 		"stages",
 		{272146, "INFOBOX"}, -- Annihilation
 		{273282, "TANK"}, -- Essence Shear
 		273538, -- Obliteration Blast
-		272404, -- Oblivion Sphere
+		{272404, "PROXIMITY"}, -- Oblivion Sphere
 		{272536, "SAY", "SAY_COUNTDOWN"}, -- Imminent Ruin
+		imminentRuinMarker,
+		279013, -- Essence Shatter
 		273810, -- Xalzaix's Awakening
 		274230, -- Oblivion's Veil
 		272115, -- Obliteration Beam
 		273949, -- Visions of Madness
-		279013, -- Essence Shatter
+	}, {
+		["stages"] = CL.general,
+		[273282] = CL.stage:format(1),
+		[273810] = CL.stage:format(2),
 	}
 end
 
@@ -72,8 +79,9 @@ end
 
 function mod:OnEngage()
 	stage = 1
+	ruinCount = 0
 	nextStageWarning = 69
-	wipe(annihilationList)
+	annihilationList = {}
 
 	self:OpenInfo(272146) -- Annihilation
 
@@ -82,6 +90,7 @@ function mod:OnEngage()
 	self:Bar(273538, 15) -- Obliteration Blast
 	self:Bar(273282, 20.5) -- Essence Shear
 
+	self:OpenProximity(272404, 8) -- Oblivion Sphere
 	self:RegisterUnitEvent("UNIT_HEALTH_FREQUENT", nil, "boss1")
 end
 
@@ -105,6 +114,7 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 		stage = 2
 		self:PlaySound("stages", "long")
 		self:Message("stages", "cyan", nil, CL.stage:format(stage), false)
+		self:CloseProximity(272404) -- Oblivion Sphere
 
 		self:StopBar(272536) -- Imminent Ruin
 		self:StopBar(273282) -- Essence Shear
@@ -114,7 +124,7 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 		visionCount = 1
 		beamCount = 1
 
-		self:CDBar("stages", 84, CL.intermission)
+		self:CDBar("stages", 84, CL.intermission, 274230) -- 274230 = inv_icon_shadowcouncilorb_purple
 
 		self:CDBar(272115, 23) -- Obliteration Beam
 		self:CDBar(273949, 34) -- Visions of Madness
@@ -122,6 +132,7 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 		stage = 1
 		self:PlaySound("stages", "long")
 		self:Message("stages", "cyan", nil, CL.stage:format(stage), false)
+		self:OpenProximity(272404, 8) -- Oblivion Sphere
 
 		self:Bar(272536, 5) -- Imminent Ruin
 		self:Bar(272404, 9) -- Oblivion Sphere
@@ -131,8 +142,7 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 end
 
 function mod:Annihilation(args)
-	local amount = args.amount or 1
-	annihilationList[args.destName] = amount
+	annihilationList[args.destName] = args.amount or 1
 	self:SetInfoByTable(args.spellId, annihilationList)
 end
 
@@ -173,18 +183,23 @@ function mod:OblivionSphere(args)
 end
 
 function mod:ImminentRuin()
+	ruinCount = 0
 	self:Bar(272536, 15)
 end
 
 do
 	local playerList = mod:NewTargetList()
 	function mod:ImminentRuinApplied(args)
+		ruinCount = ruinCount + 1
 		playerList[#playerList+1] = args.destName
-		self:PlaySound(args.spellId, "alert")
 		self:TargetsMessage(args.spellId, "yellow", playerList, 2)
 		if self:Me(args.destGUID) then
-			self:Say(args.spellId)
+			self:Say(args.spellId, CL.count_rticon:format(args.spellName, ruinCount, ruinCount))
 			self:SayCountdown(args.spellId, 12)
+			self:PlaySound(args.spellId, "alert")
+		end
+		if self:GetOption(imminentRuinMarker) then
+			SetRaidTarget(args.destName, ruinCount)
 		end
 	end
 end
@@ -192,6 +207,9 @@ end
 function mod:ImminentRuinRemoved(args)
 	if self:Me(args.destGUID) then
 		self:CancelSayCountdown(args.spellId)
+	end
+	if self:GetOption(imminentRuinMarker) then
+		SetRaidTarget(args.destName, 0)
 	end
 end
 
@@ -208,7 +226,7 @@ end
 
 function mod:ObliterationBeam(args)
 	self:Message(args.spellId, "orange")
-	self:PlaySound(args.spellId, "alert")
+	self:PlaySound(args.spellId, "long")
 	self:CastBar(args.spellId, 7.5) -- 2.5s cast, 5s channel
 
 	beamCount = beamCount + 1

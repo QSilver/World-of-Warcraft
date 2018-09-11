@@ -5,7 +5,7 @@
 ## Author: Jaliborc (João Cardoso)
 ## X-License: GNU General Public License Version 3
 ## X-Category: Inventory
-## Version: 13.11
+## Version: 13.12
 
 ## Dependencies: Scrap
 ## LoadOnDemand: 1

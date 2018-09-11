@@ -1,3 +1,31 @@
+Version 3.96
+
+
+Known issues:
+-- BfA stat squish cleanup still a work in progress
+--   AOE Advice spell equations need complete overhaul
+--   Some text providers need changes to better display small numbers
+-- Debuff tooltips are currently bugged when using ElvUI
+--   Deselect 'VuhDo Options > Panels > Tooltips > Tooltips > Debuffs'
+-- Bug in French language clients for Priest 'Shadow Mend' spell
+--   Work around for now is to create and bind a custom macro:
+--     /cast [@vuhdo] Soins rapides
+
+
+Bugfixes:
+-- Fixed display of custom debuffs after closing VuhDo Options
+-- Fixed display of debuff tooltips after zone change
+-- Fixed incoming heal and shield bar height when there is no mana bar
+-- Fixed export of custom debuffs in profile string
+-- Fixed range detection for out of phase units
+
+
+Improvements:
+-- Added default custom debuffs for 8.0 World Boss encounters
+-- Added Mage spell 'Remove Curse' to list of 'Curse' debuff types
+
+
+--------------------------------------------------------------
 Version 3.95
 
 

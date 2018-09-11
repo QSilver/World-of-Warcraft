@@ -350,6 +350,7 @@ end
 local eventKill = { UNIT_DIED = true, UNIT_DESTROYED = true, UNIT_DISSIPATES = true, PARTY_KILL = true, SPELL_INSTAKILL = true, }
 local eventAura = { SPELL_AURA_APPLIED = true, SPELL_AURA_APPLIED_DOSE = true, SPELL_AURA_REMOVED_DOSE = true, SPELL_AURA_REFRESH = true, }
 local eventInternal = { SPELL_AURA_APPLIED = true, SPELL_AURA_APPLIED_DOSE = true, SPELL_AURA_REFRESH = true, SPELL_ENERGIZE = true, SPELL_HEAL = true, }
+
 local function CombatLogTracker() -- xxBFAxx no longer passes in arguments with the event
 	timeStamp, e, hc, srcGUID, srcName, sf1, sf2, dstGUID, dstName, df1, df2, spellID, spellName, spellSchool, auraType, amount = CombatLogGetCurrentEventInfo()
 

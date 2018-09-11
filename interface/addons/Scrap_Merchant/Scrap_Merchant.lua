@@ -135,37 +135,33 @@ end
 
 function Scrap:OnEnter()
 	GameTooltip:SetOwner(self, 'ANCHOR_RIGHT')
-	self:OnTooltipShow()
+	self:ShowTooltip(GameTooltip, L.SellJunk)
 	GameTooltip:Show()
 end
 
-function Scrap:OnTooltipShow(title)
+function Scrap:ShowTooltip(tooltip, title)
 	local infoType, itemID = GetCursorInfo()
 	if infoType == 'item' then
 		if self:IsJunk(itemID) then
-			GameTooltip:SetText(L.Remove, 1, 1, 1)
+			tooltip:SetText(L.Remove, 1, 1, 1)
 		else
-			GameTooltip:SetText(L.Add, 1, 1, 1)
+			tooltip:SetText(L.Add, 1, 1, 1)
 		end
 	else
 		local value = self:GetJunkValue()
 		local counters = {}
 
-		if self:AnyJunk() then
-			GameTooltip:SetText(title or L.SellJunk)
-
-			for bag, slot in self:IterateJunk() do
-				local _, count, _, quality = GetContainerItemInfo(bag, slot)
-				counters[quality] = (counters[quality] or 0) + count
-			end
-
-			for qual, count in pairs(counters) do
-				local r,g,b = GetItemQualityColor(qual)
-				GameTooltip:AddDoubleLine(_G['ITEM_QUALITY' .. qual .. '_DESC'], count, r,g,b, r,g,b)
-			end
-
-			GameTooltip:AddLine(value > 0 and (SELL_PRICE .. ':  ' .. GetCoinTextureString(value)) or ITEM_UNSELLABLE, 1,1,1)
+		for bag, slot in self:IterateJunk() do
+			local _, count, _, quality = GetContainerItemInfo(bag, slot)
+			counters[quality] = (counters[quality] or 0) + count
 		end
+
+		tooltip:SetText(title)
+		for qual, count in pairs(counters) do
+			local r,g,b = GetItemQualityColor(qual)
+			tooltip:AddDoubleLine(_G['ITEM_QUALITY' .. qual .. '_DESC'], count, r,g,b, r,g,b)
+		end
+		tooltip:AddLine(value > 0 and (SELL_PRICE .. ':  ' .. GetCoinTextureString(value)) or ITEM_UNSELLABLE, 1,1,1)
 	end
 end
 

@@ -13759,7 +13759,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_volatile_wound"] = {
+				["WeakAuras_widowmaker_toxin"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -13795,7 +13795,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_widowmaker_toxin"] = {
+				["WeakAuras_02_sanitizing_strike_cast_(tank_only)"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -13957,7 +13957,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_putrid_blood"] = {
+				["WeakAuras_volatile_wound"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -13993,7 +13993,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_sanitizing_strike_cast_(tank_only)"] = {
+				["WeakAuras_08_putrid_blood"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -14497,7 +14497,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_taint_of_ghuun"] = {
+				["WeakAuras"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -14533,7 +14533,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras"] = {
+				["WeakAuras_taint_of_ghuun"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16045,7 +16045,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_shackled_torment_2"] = {
+				["WeakAuras_rd_soul_harvest"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16063,7 +16063,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_rd_soul_harvest"] = {
+				["WeakAuras_shackled_torment_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -17323,7 +17323,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_exhilaration_gcd"] = {
+				["WeakAuras_abyssal_reach"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -17341,7 +17341,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_3_-_frigid_blows"] = {
+				["WeakAuras_exhilaration_gcd"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -17413,7 +17413,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_abyssal_reach"] = {
+				["WeakAuras_soul_harvest"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -17503,7 +17503,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_soul_harvest"] = {
+				["WeakAuras_05-contagion"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -17989,7 +17989,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_wildfire_bomb_gcd"] = {
+				["WeakAuras_chain_:)"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -18025,7 +18025,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_chaos_seed"] = {
+				["WeakAuras_wildfire_bomb_gcd"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -18043,7 +18043,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_chain_:)"] = {
+				["WeakAuras_chaos_seed"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -22577,7 +22577,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_05-contagion"] = {
+				["WeakAuras_3_-_frigid_blows"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]

@@ -1,4 +1,4 @@
-AAP_BonusCrap = {}
+AAP_BonusCrapAAP_BonusCrap = {}
 function AAP.GliderCountFunc()
 	return GetItemCount(109076)
 end
@@ -726,6 +726,20 @@ function AAP.UpdateQuestList()
 			end
 				AAP.QuestList.QuestFrames[ars]:SetAlpha(1)
 				AAP.QuestList.QuestFrames[ars]:Show()
+			end
+			for AAP_index,AAP_value in pairs(AAP.ActiveStuff["Done"]) do
+				if (AAP_value and AAP_ActiveQuests[AAP_value] and AAP_ActiveQuests[AAP_value]["Title"] and IsQuestFlaggedCompleted(AAP_value) == false) then
+					ars = ars + 1
+					AAP.QuestList.QuestFrames["FS"..ars]:SetText(" - Q: "..AAP_ActiveQuests[AAP_value]["Title"])
+					local aapwidth = AAP.QuestList.QuestFrames["FS"..ars]:GetStringWidth()
+					if (aapwidth and aapwidth > 400) then
+						AAP.QuestList.QuestFrames[ars]:SetWidth(aapwidth+10)
+					else
+						AAP.QuestList.QuestFrames[ars]:SetWidth(410)
+					end
+					AAP.QuestList.QuestFrames[ars]:SetAlpha(1)
+					AAP.QuestList.QuestFrames[ars]:Show()
+				end
 			end
 			AAP.BookingList["AAP.SetQPTT"] = 1
 		elseif (AAP.ActiveStuff and AAP.ActiveStuff["CRange"]) then

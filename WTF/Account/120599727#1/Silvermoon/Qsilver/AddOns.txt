@@ -475,7 +475,7 @@ CrucibleWeight: enabled
 DejaCharacterStats: enabled
 Details: enabled
 Details_DmgRank: enabled
-Details_DeathGraphs: enabled
+Details_DeathGraphs: disabled
 Details_DpsTuning: enabled
 Details_EncounterDetails: enabled
 Details_RaidCheck: enabled
@@ -556,3 +556,5 @@ RaiderIO_DB_TW_H: disabled
 RaiderIO_DB_TW_A: disabled
 RaiderIO_DB_KR_H: disabled
 RaiderIO_DB_KR_A: disabled
+AllTheThings: disabled
+RaiderIO: disabled

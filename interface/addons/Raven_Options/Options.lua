@@ -30,7 +30,7 @@ local effects = { -- settings used to enter spell effects
 }
 
 local lists = { -- settings used to enter spell lists
-	select = nil, enter = false, toggle = false, list = nil, spell = nil
+	select = nil, enter = false, toggle = false, list = nil, spell = nil, copy = false,
 }
 
 local bars = { -- settings used to enter bars and bar groups
@@ -77,13 +77,13 @@ local function ValidateSpellName(name, allowPlusIDs, warnings)
 	end
 	local t = tonumber(name)
 	if t then
-		name = GetSpellInfo(t) -- convert spell id
+		name = GetSpellInfo(t) -- convert spell id to a name
 		if name == "" then name = nil end
 	else
 		local found, _, idString = string.find(name, "^|c%x+|Hspell:(.+)|h%[.*%]")
 		if found then local id = tonumber(idString); if id then name = GetSpellInfo(id); if name == "" then name = nil end end end -- convert hyperlink
 	end
-	if name and not GetSpellTexture(name) then
+	if name and not (GetSpellTexture(name) or MOD:GetSpellID(name)) then -- check if spell icon available and if not fall back to spell id search
 		if (warnings == true) or ((warnings == nil) and MOD.db.profile.spellDebug) then print(L["Not valid string"](name)); return nil end
 	end
 	return name
@@ -92,6 +92,11 @@ end
 -- Return a sorted list suitable for an input selection widget
 local function GetSortedList(list) local i, t = 0, {}; if list then for n in pairs(list) do i = i + 1; t[i] = n end end; table.sort(t); return t end
 local function GetSortedListEntry(list, n) for i, k in pairs(GetSortedList(list)) do if n == k then return i end end return nil end
+
+local function CheckListEntry(list, n)
+	if n then return n end
+	for i, k in pairs(GetSortedList(list)) do return k end -- if n is nil then return first entry in list
+end
 
 -- Update the addon when the profile changes
 local function OnProfileChanged()
@@ -1365,10 +1370,11 @@ local function GetSelectedSpellList()
 	return nil
 end
 
-local function AddNewSpellList(name)
+local function AddNewSpellList(name, copySelected)
 	if name and name ~= "" then
 		local slt = MOD.db.global.SpellLists[name]
 		if not slt then slt = {}; MOD.db.global.SpellLists[name] = slt end
+		if copySelected and lists.list then for k, v in pairs(lists.list) do slt[k] = v end end
 		lists.select = name; lists.list = slt
 	else
 		lists.select = nil; lists.list = nil
@@ -2717,6 +2723,15 @@ MOD.OptionsTable = {
 								MOD:UpdateAllBarGroups()
 							end,
 						},
+						EnrageColor = {
+							type = "color", order = 45, name = L["Enrage"], hasAlpha = false, width = "half",
+							get = function(info) local t = MOD.db.global.DefaultEnrageColor; return t.r, t.g, t.b, t.a end,
+							set = function(info, r, g, b, a)
+								local t = MOD.db.global.DefaultEnrageColor
+								t.r = r; t.g = g; t.b = b; t.a = a
+								MOD:UpdateAllBarGroups()
+							end,
+						},
 						Space2 = { type = "description", name = "", order = 80 },
 						ResetBarColors = {
 							type = "execute", order = 85, name = L["Reset Bar Colors"],
@@ -3223,13 +3238,19 @@ MOD.OptionsTable = {
 						},
 						NewList = {
 							type = "execute", order = 15, name = L["New Spell List"],
-							desc = L["Create a new spell list."],
+							desc = L["Create a new spell list (or select an existing one by name)."],
 							hidden = function(info) return lists.enter end,
-							func = function(info) lists.enter, lists.toggle = true, true end,
+							func = function(info) lists.enter, lists.toggle, lists.copy = true, true, false end,
+						},
+						CopyList = {
+							type = "execute", order = 16, name = L["Copy Spell List"],
+							desc = L["Copy the selected spell list into a new or existing spell list."],
+							hidden = function(info) return lists.enter end,
+							func = function(info) lists.enter, lists.toggle, lists.copy = true, true, true end,
 						},
 						NewSpellList = {
 							type = "input", order = 20, name = L["Enter Spell List Name"],
-							desc = L["Enter name for a new spell list."],
+							desc = L["Enter name for either a new or existing spell list."],
 							hidden = function(info) return not lists.enter end,
 							get = function(info)
 								lists.enter = lists.toggle
@@ -3237,13 +3258,19 @@ MOD.OptionsTable = {
 								if not lists.enter then MOD:UpdateOptions() end
 								return false
 							end,
-							set = function(info, value) lists.enter = false; AddNewSpellList(value) end,
+							set = function(info, value)
+								lists.enter = false
+								if value and (value ~= "") then
+									if not lists.copy then lists.spell = nil end
+									AddNewSpellList(value, lists.copy)
+								end
+							end,
 						},
 						CancelNewSpellList = {
 							type = "execute", order = 21, name = L["Cancel"], width = "half",
 							desc = L["Cancel creating a new spell list."],
 							hidden = function(info) return not lists.enter end,
-							func = function(info) lists.enter, lists.toggle = false, false end,
+							func = function(info) lists.enter, lists.toggle, lists.copy = false, false, false end,
 						},
 						DeleteSpellList = {
 							type = "execute", order = 25, name = L["Delete Spell List"],
@@ -3260,12 +3287,15 @@ MOD.OptionsTable = {
 									type = "input", order = 10, name = L["Enter Spell"],
 									desc = L["Enter a spell name (or numeric identifier, optionally preceded by # for a specific spell id)."],
 									get = function(info) return nil end,
-									set = function(info, n) n = ValidateSpellName(n, true)
+									set = function(info, n) n = ValidateSpellName(n, true, false)
 										if n and lists.list then lists.list[n] = MOD:GetSpellID(n) or true; lists.spell = n end end,
 								},
 								SelectSpell = {
 									type = "select", order = 20, name = L["Spell List"],
-									get = function(info) return GetSortedListEntry(lists.list, lists.spell) end,
+									get = function(info)
+										lists.spell = CheckListEntry(lists.list, lists.spell)
+										return GetSortedListEntry(lists.list, lists.spell)
+									end,
 									set = function(info, value) lists.spell = GetSortedList(lists.list)[value] end,
 									values = function(info) return GetSortedList(lists.list) end,
 									style = "dropdown",
@@ -3273,7 +3303,12 @@ MOD.OptionsTable = {
 								DeleteSpell = {
 									type = "execute", order = 30, name = L["Delete"], width = "half",
 									desc = L["Delete the selected spell from the list."],
-									func = function(info) if lists.list and lists.spell then lists.list[lists.spell] = nil; lists.spell = nil end end,
+									func = function(info)
+										if lists.list and lists.spell then
+											lists.list[lists.spell] = nil
+											lists.spell = CheckListEntry(lists.list, nil)
+										end
+									end,
 								},
 								ResetList = {
 									type = "execute", order = 40, name = L["Reset"], width = "half",
@@ -3283,7 +3318,7 @@ MOD.OptionsTable = {
 								},
 								SpellIcon = {
 									type = "description", order = 50, name = "", width = "half", 
-									hidden = function(info) return lists.enter or not lists.select or not lists.list end,
+									hidden = function(info) return lists.enter or not lists.select or not lists.list or not lists.spell end,
 									image = function(info) local t = MOD:GetIcon(lists.spell); return t end,
 									imageWidth = 24, imageHeight = 24,
 								},
@@ -4144,61 +4179,69 @@ MOD.OptionsTable = {
 									set = function(info, value) SetBarGroupField("pulseStart", value) end,
 								},
 								PulseEnd = {
-									type = "toggle", order = 15, name = L["Pulse When Expiring"],
+									type = "toggle", order = 11, name = L["Pulse When Expiring"],
 									desc = L["Enable icon pulse when bar is expiring."],
 									get = function(info) return GetBarGroupField("pulseEnd") end,
 									set = function(info, value) SetBarGroupField("pulseEnd", value) end,
 								},
-								FlashExpiring = {
-									type = "toggle", order = 20, name = L["Flash When Expiring"],
-									desc = L["Enable flashing of expiring bars."],
-									get = function(info) return GetBarGroupField("flashExpiring") end,
-									set = function(info, value) SetBarGroupField("flashExpiring", value) end,
+								ShineStart = {
+									type = "toggle", order = 15, name = L["Shine At Start"],
+									desc = L["Enable icon shine effect when bar is started."],
+									get = function(info) return GetBarGroupField("shineStart") end,
+									set = function(info, value) SetBarGroupField("shineStart", value) end,
 								},
-								FlashTime = {
-									type = "range", order = 25, name = L["Flash Time"], min = 1, max = 300, step = 1,
-									desc = L["Set number of seconds before expiration that bar should start flashing."],
-									disabled = function(info) return not GetBarGroupField("flashExpiring") end,
-									get = function(info) return GetBarGroupField("flashTime") end,
-									set = function(info, value) SetBarGroupField("flashTime", value) end,
-								},
-								space1 = { type = "description", name = "", order = 30 },
+								space0 = { type = "description", name = "", order = 20 },
 								HideEnable = {
-									type = "toggle", order = 35, name = L["Hide After Start"],
+									type = "toggle", order = 25, name = L["Hide After Start"],
 									desc = L["Enable hide after start for timer bars (does not hide bars with unlimited duration)."],
 									get = function(info) return GetBarGroupField("hide") end,
 									set = function(info, value) SetBarGroupField("hide", value) end,
 								},
 								FadeEnable = {
-									type = "toggle", order = 40, name = L["Fade After Start"],
+									type = "toggle", order = 26, name = L["Fade After Start"],
 									desc = L["Enable fade after start (i.e., switch to fade opacity after a delay)."],
 									disabled = function(info) return GetBarGroupField("hide") end,
 									get = function(info) return GetBarGroupField("fade") end,
 									set = function(info, value) SetBarGroupField("fade", value) end,
 								},
+								space1 = { type = "description", name = "", order = 30 },
+								FlashExpiring = {
+									type = "toggle", order = 35, name = L["Flash When Expiring"],
+									desc = L["Enable flashing of expiring bars."],
+									get = function(info) return GetBarGroupField("flashExpiring") end,
+									set = function(info, value) SetBarGroupField("flashExpiring", value) end,
+								},
+								FlashTime = {
+									type = "range", order = 36, name = L["Flash Time"], min = 1, max = 300, step = 1,
+									desc = L["Set number of seconds before expiration that bar should start flashing."],
+									disabled = function(info) return not GetBarGroupField("flashExpiring") end,
+									get = function(info) return GetBarGroupField("flashTime") end,
+									set = function(info, value) SetBarGroupField("flashTime", value) end,
+								},
+								space1a = { type = "description", name = "", order = 40 },
 								GhostEnable = {
-									type = "toggle", order = 41, name = L["Ghost When Expiring"],
+									type = "toggle", order = 45, name = L["Ghost When Expiring"],
 									desc = L["Enable ghost bar/icon (i.e., continue to show for delay period after would normally disappear)."],
 									disabled = function(info) return GetBarGroupField("hide") end,
 									get = function(info) return GetBarGroupField("ghost") end,
 									set = function(info, value) SetBarGroupField("ghost", value) end,
 								},
-								FadeDelay = {
-									type = "range", order = 45, name = L["Delay Time"], min = 0, max = 300, step = 1,
+								GhostDelay = {
+									type = "range", order = 46, name = L["Delay Time"], min = 0, max = 300, step = 1,
 									desc = L["Set number of seconds before bar (or ghost) will hide or fade."],
 									disabled = function(info) return not GetBarGroupField("fade") and not GetBarGroupField("hide") and not GetBarGroupField("ghost") end,
 									get = function(info) return GetBarGroupField("delayTime") or 5 end,
 									set = function(info, value) SetBarGroupField("delayTime", value) end,
 								},
-								space2 = { type = "description", name = "", order = 60 },
+								space2 = { type = "description", name = "", order = 50 },
 								SpellStartSound = {
-									type = "toggle", order = 70, name = L["Start Spell Sound"],
+									type = "toggle", order = 55, name = L["Start Spell Sound"],
 									desc = L["Play associated spell sound, if any, when bar starts (spell sounds are set up on Spells tab)."],
 									get = function(info) return GetBarGroupField("soundSpellStart") end,
 									set = function(info, value) SetBarGroupField("soundSpellStart", value) end,
 								},
 								AltStartSound = {
-									type = "select", order = 75, name = L["Alternative Start Sound"], 
+									type = "select", order = 56, name = L["Alternative Start Sound"], 
 									desc = L["Select sound to play when bar starts and there is no associated spell sound (or start spell sounds are not enabled)."],
 									dialogControl = 'LSM30_Sound',
 									values = AceGUIWidgetLSMlists.sound,
@@ -4206,26 +4249,26 @@ MOD.OptionsTable = {
 									set = function(info, value) SetBarGroupField("soundAltStart", value) end,
 								},
 								ReplayEnable = {
-									type = "toggle", order = 76, name = L["Replay"], width = "half",
+									type = "toggle", order = 57, name = L["Replay"], width = "half",
 									desc = L["Enable replay of start sound (after a specified amount of time) while bar is active."],
 									get = function(info) return GetBarGroupField("replay") end,
 									set = function(info, value) SetBarGroupField("replay", value) end,
 								},
 								ReplayDelay = {
-									type = "range", order = 77, name = L["Replay Time"], min = 1, max = 60, step = 1,
+									type = "range", order = 58, name = L["Replay Time"], min = 1, max = 60, step = 1,
 									desc = L["Set number of seconds between replays of start sound."],
 									get = function(info) return GetBarGroupField("replayTime") or 5 end,
 									set = function(info, value) SetBarGroupField("replayTime", value) end,
 								},
-								space3 = { type = "description", name = "", order = 79 },
+								space3 = { type = "description", name = "", order = 60 },
 								SpellEndSound = {
-									type = "toggle", order = 80, name = L["Finish Spell Sound"],
+									type = "toggle", order = 65, name = L["Finish Spell Sound"],
 									desc = L["Play associated spell sound, if any, when bar finishes (spell sounds are set up on Spells tab)."],
 									get = function(info) return GetBarGroupField("soundSpellEnd") end,
 									set = function(info, value) SetBarGroupField("soundSpellEnd", value) end,
 								},
 								AltEndSound = {
-									type = "select", order = 85, name = L["Alternative Finish Sound"], 
+									type = "select", order = 66, name = L["Alternative Finish Sound"], 
 									desc = L["Select sound to play when bar finishes and there is no associated spell sound (or finish spell sounds are not enabled)."],
 									dialogControl = 'LSM30_Sound',
 									values = AceGUIWidgetLSMlists.sound,
@@ -4341,15 +4384,28 @@ MOD.OptionsTable = {
 										MOD:UpdateAllBarGroups()
 									end,
 								},
-								space7 = { type = "description", name = "", order = 110 },
+								ShineColor = {
+									type = "color", order = 110, name = L["Shine"], hasAlpha = true, width = "half",
+									desc = L["Set color for expire time shine effect (set invisible opacity to disable showing shine effect)."],
+									disabled = function(info) return not GetBarGroupField("colorExpiring") end,
+									get = function(info)
+										local t = GetBarGroupField("shineColor"); if t then return t.r, t.g, t.b, t.a else return 1, 0, 0, 0 end
+									end,
+									set = function(info, r, g, b, a)
+										local t = GetBarGroupField("shineColor"); if t then t.r = r; t.g = g; t.b = b; t.a = a else
+											t = { r = r, g = g, b = b, a = a }; SetBarGroupField("shineColor", t) end
+										MOD:UpdateAllBarGroups()
+									end,
+								},
+								space7 = { type = "description", name = "", order = 120 },
 								MSBTWarning = {
-									type = "toggle", order = 111, name = L["Combat Text"],
+									type = "toggle", order = 121, name = L["Combat Text"],
 									desc = L["Enable warning in combat text for expiring bars."],
 									get = function(info) return GetBarGroupField("expireMSBT") end,
 									set = function(info, value) SetBarGroupField("expireMSBT", value) end,
 								},
 								ColorMSBT = {
-									type = "color", order = 112, name = L["Color"], hasAlpha = true, width = "half",
+									type = "color", order = 122, name = L["Color"], hasAlpha = true, width = "half",
 									desc = L["Set color for combat text warning."],
 									disabled = function(info) return not GetBarGroupField("expireMSBT") end,
 									get = function(info)
@@ -4362,7 +4418,7 @@ MOD.OptionsTable = {
 									end,
 								},
 								MSBTCritical = {
-									type = "toggle", order = 113, name = L["Critical"], width = "half",
+									type = "toggle", order = 123, name = L["Critical"], width = "half",
 									desc = L["Enable combat text warning as critical."],
 									get = function(info) return GetBarGroupField("criticalMSBT") end,
 									set = function(info, value) SetBarGroupField("criticalMSBT", value) end,
@@ -7333,7 +7389,8 @@ MOD.OptionsTable = {
 									func = function(info) local bg = GetBarGroupEntry()
 										bg.buffColor = nil; bg.debuffColor = nil; bg.cooldownColor = nil
 										bg.notificationColor = nil; bg.brokerColor = nil; bg.valueColor = nil
-										bg.poisonColor = nil; bg.curseColor = nil; bg.magicColor = nil; bg.diseaseColor = nil; bg.stealColor = nil
+										bg.poisonColor = nil; bg.curseColor = nil; bg.magicColor = nil
+										bg.diseaseColor = nil; bg.stealColor = nil; bg.enrageColor = nil
 										MOD:UpdateAllBarGroups()
 									end,
 								},
@@ -7479,6 +7536,18 @@ MOD.OptionsTable = {
 										local t = GetBarGroupField("stealColor")
 										if t then t.r = r; t.g = g; t.b = b; t.a = a else
 											t = { r = r, g = g, b = b, a = a }; SetBarGroupField("stealColor", t) end
+										MOD:UpdateAllBarGroups()
+									end,
+								},
+								EnrageColor = {
+									type = "color", order = 35, name = L["Enrage"], hasAlpha = false, width = "half",
+									disabled = function(info) return GetBarGroupField("useDefaultColors") end,
+									get = function(info) local t = GetBarGroupField("enrageColor") or MOD.db.global.DefaultEnrageColor
+										return t.r, t.g, t.b, t.a end,
+									set = function(info, r, g, b, a)
+										local t = GetBarGroupField("enrageColor")
+										if t then t.r = r; t.g = g; t.b = b; t.a = a else
+											t = { r = r, g = g, b = b, a = a }; SetBarGroupField("enrageColor", t) end
 										MOD:UpdateAllBarGroups()
 									end,
 								},
@@ -12120,6 +12189,30 @@ MOD.barOptions = {
 			},
 		},
 	},
+	OpacityGroup = {
+		type = "group", order = 25, name = L["Opacity"], inline = true,
+		hidden = function(info) return NoBar() end,
+		args = {
+			NormalAlpha = {
+				type = "range", order = 55, name = L["Normal"], min = 0, max = 1, step = 0.05,
+				desc = L["Set normal opacity for this bar."],
+				get = function(info) return GetBarField(info, "normalAlpha") or 1 end,
+				set = function(info, value) SetBarField(info, "normalAlpha", value) end,
+			},
+			FadeAlpha = {
+				type = "range", order = 58, name = L["Fade Effects"], min = 0, max = 1, step = 0.05,
+				desc = L["Set opacity for faded bar."],
+				get = function(info) return GetBarField(info, "fadeAlpha") or 1 end,
+				set = function(info, value) SetBarField(info, "fadeAlpha", value) end,
+			},
+			ReadyAlpha = {
+				type = "range", order = 59, name = L["Ready Bars"], min = 0, max = 1, step = 0.05,
+				desc = L["Set opacity for ready bar."],
+				get = function(info) return GetBarField(info, "readyAlpha") or 1 end,
+				set = function(info, value) SetBarField(info, "readyAlpha", value) end,
+			},
+		},
+	},
 	EffectsGroup = {
 		type = "group", order = 30, name = L["Special Effects"],  inline = true,
 		hidden = function(info) return NoBar() end,
@@ -12130,83 +12223,41 @@ MOD.barOptions = {
 				get = function(info) return GetBarField(info, "pulseStart") end,
 				set = function(info, value) SetBarField(info, "pulseStart", value) end,
 			},
-			PulseEnd = {
-				type = "toggle", order = 15, name = L["Pulse When Expiring"],
-				desc = L["Enable icon pulse when bar is expiring."],
-				get = function(info) return GetBarField(info, "pulseEnd") end,
-				set = function(info, value) SetBarField(info, "pulseEnd", value) end,
+			ShineStart = {
+				type = "toggle", order = 16, name = L["Shine At Start"],
+				desc = L["Enable icon shine effect when bar is started."],
+				get = function(info) return GetBarField(info, "shineStart") end,
+				set = function(info, value) SetBarField(info, "shineStart", value) end,
 			},
-			DesaturateReady = {
-				type = "toggle", order = 17, name = L["Desaturate Icon When Ready"],
-				desc = L["Desaturate the bar's icon when ready."],
-				disabled = function(info) return not GetBarField(info, "enableReady") end,
-				get = function(info) return GetBarField(info, "desaturateReadyIcon") end,
-				set = function(info, value) SetBarField(info, "desaturateReadyIcon", value) end,
-			},
-			space1 = { type = "description", name = "", order = 20 },
-			FlashExpiring = {
-				type = "toggle", order = 25, name = L["Flash When Expiring"],
-				desc = L["Enable flashing of expiring bars."],
-				get = function(info) return GetBarField(info, "flashExpiring") end,
-				set = function(info, value) SetBarField(info, "flashExpiring", value) end,
-			},
-			FlashTime = {
-				type = "range", order = 30, name = L["Flash Time"], min = 1, max = 300, step = 1,
-				desc = L["Set number of seconds before expiration that bar should start flashing."],
-				disabled = function(info) return not GetBarField(info, "flashExpiring") end,
-				get = function(info) return GetBarField(info, "flashTime") end,
-				set = function(info, value) SetBarField(info, "flashTime", value) end,
-			},
-			space2 = { type = "description", name = "", order = 35 },
+			space0 = { type = "description", name = "", order = 20 },
 			HideEnable = {
-				type = "toggle", order = 36, name = L["Hide After Start"],
+				type = "toggle", order = 25, name = L["Hide After Start"],
 				desc = L["Enable hide after start for timer bars (does not hide bars with unlimited duration)."],
 				get = function(info) return GetBarField(info, "hide") end,
 				set = function(info, value) SetBarField(info, "hide", value) end,
 			},
 			FadeEnable = {
-				type = "toggle", order = 40, name = L["Fade After Start"],
+				type = "toggle", order = 26, name = L["Fade After Start"],
 				desc = L["Enable fade after start (i.e., switch to fade opacity after a delay)."],
 				disabled = function(info) return GetBarField(info, "hide") end, -- preference to hide
 				get = function(info) return GetBarField(info, "fade") end,
 				set = function(info, value) SetBarField(info, "fade", value) end,
 			},
-			GhostEnable = {
-				type = "toggle", order = 41, name = L["Ghost When Expiring"],
-				desc = L["Enable ghost bar/icon (i.e., continue to show for delay period after would normally disappear)."],
-				disabled = function(info) return GetBarGroupField("hide") end,
-				get = function(info) return GetBarField(info, "ghost") end,
-				set = function(info, value) SetBarField(info, "ghost", value) end,
+			space1 = { type = "description", name = "", order = 27 },
+			FlashReady = {
+				type = "toggle", order = 28, name = L["Flash Ready Bar"],
+				desc = L["Enable flashing of ready bars."],
+				get = function(info) return GetBarField(info, "flashReady") end,
+				set = function(info, value) SetBarField(info, "flashReady", value) end,
 			},
-			spacer2a = { type = "description", name = "", order = 44 },
-			FadeDelay = {
-				type = "range", order = 45, name = L["Delay Time"], min = 0, max = 300, step = 1,
-				desc = L["Set number of seconds before bar (or ghost) will hide or fade."],
-				disabled = function(info) return not GetBarField(info, "fade") and not GetBarField(info, "hide") and not GetBarField(info, "ghost") end,
-				get = function(info) return GetBarField(info, "delayTime") or 5 end,
-				set = function(info, value) SetBarField(info, "delayTime", value) end,
-			},
-			spacer2b = { type = "description", name = "", order = 50 },
-			NormalAlpha = {
-				type = "range", order = 55, name = L["Normal Opacity"], min = 0, max = 1, step = 0.05,
-				desc = L["Set normal opacity for this bar."],
-				get = function(info) return GetBarField(info, "normalAlpha") or 1 end,
-				set = function(info, value) SetBarField(info, "normalAlpha", value) end,
-			},
-			FadeAlpha = {
-				type = "range", order = 58, name = L["Fade Opacity"], min = 0, max = 1, step = 0.05,
-				desc = L["Set fade opacity for this bar."],
-				disabled = function(info) return (GetBarField(info, "hide") or not GetBarField(info, "fade")) and IsOff(GetBarField(info, "fadeBar")) end,
-				get = function(info) return GetBarField(info, "fadeAlpha") or 1 end,
-				set = function(info, value) SetBarField(info, "fadeAlpha", value) end,
-			},
-			ReadyAlpha = {
-				type = "range", order = 59, name = L["Ready Opacity"], min = 0, max = 1, step = 0.05,
-				desc = L["Set opacity for ready bar."],
+			DesaturateReady = {
+				type = "toggle", order = 29, name = L["Desaturate Ready Bar Icon"],
+				desc = L["Desaturate icon for ready bar."],
 				disabled = function(info) return not GetBarField(info, "enableReady") end,
-				get = function(info) return GetBarField(info, "readyAlpha") or 1 end,
-				set = function(info, value) SetBarField(info, "readyAlpha", value) end,
+				get = function(info) return GetBarField(info, "desaturateReadyIcon") end,
+				set = function(info, value) SetBarField(info, "desaturateReadyIcon", value) end,
 			},
+			spacer2 = { type = "description", name = "", order = 50 },
 			space3 = { type = "description", name = "", order = 60 },
 			SpellStartSound = {
 				type = "toggle", order = 61, name = L["Start Spell Sound"],
@@ -12294,14 +12345,69 @@ MOD.barOptions = {
 				set = function(info, value) if value == 0 then value = nil end SetBarField(info, "expireMinimum", value) end,
 			},
 			space3e = { type = "description", name = "", order = 80 },
+			FlashExpiring = {
+				type = "toggle", order = 81, name = L["Flash When Expiring"],
+				desc = L["Enable flashing of expiring bars."],
+				get = function(info) return GetBarField(info, "flashExpiring") end,
+				set = function(info, value) SetBarField(info, "flashExpiring", value) end,
+			},
+			FlashTime = {
+				type = "range", order = 82, name = L["Flash Time"], min = 1, max = 300, step = 1,
+				desc = L["Set number of seconds before expiration that bar should start flashing."],
+				disabled = function(info) return not GetBarField(info, "flashExpiring") end,
+				get = function(info) return GetBarField(info, "flashTime") end,
+				set = function(info, value) SetBarField(info, "flashTime", value) end,
+			},
+			space3f = { type = "description", name = "", order = 85 },
+			GhostEnable = {
+				type = "toggle", order = 86, name = L["Ghost When Expiring"],
+				desc = L["Enable ghost bar/icon (i.e., continue to show for delay period after would normally disappear)."],
+				disabled = function(info) return GetBarGroupField("hide") end,
+				get = function(info) return GetBarField(info, "ghost") end,
+				set = function(info, value) SetBarField(info, "ghost", value) end,
+			},
+			GhostDelay = {
+				type = "range", order = 87, name = L["Delay Time"], min = 0, max = 300, step = 1,
+				desc = L["Set number of seconds before bar (or ghost) will hide or fade."],
+				disabled = function(info) return not GetBarField(info, "fade") and not GetBarField(info, "hide") and not GetBarField(info, "ghost") end,
+				get = function(info) return GetBarField(info, "delayTime") or 5 end,
+				set = function(info, value) SetBarField(info, "delayTime", value) end,
+			},
+			space3g = { type = "description", name = "", order = 90 },
+			PulseEnd = {
+				type = "toggle", order = 91, name = L["Pulse When Expiring"],
+				desc = L["Enable icon pulse when bar is expiring."],
+				get = function(info) return GetBarField(info, "pulseEnd") end,
+				set = function(info, value) SetBarField(info, "pulseEnd", value) end,
+			},
+			ShineEnd = {
+				type = "toggle", order = 92, name = L["Shine When Expiring"],
+				desc = L["Enable shine effect for expiring bars."],
+				get = function(info) return GetBarField(info, "shineEnd") end,
+				set = function(info, value) SetBarField(info, "shineEnd", value) end,
+			},
+			ShineColor = {
+				type = "color", order = 93, name = L["Shine Color"], width = "half",
+				desc = L["Set color for expire time shine effect."],
+				disabled = function(info) return not GetBarField(info, "colorExpiring") end,
+				get = function(info)
+					local t = GetBarField(info, "shineColor"); if t then return t.r, t.g, t.b, t.a else return 1, 0, 0, 0 end
+				end,
+				set = function(info, r, g, b, a)
+					local t = GetBarField(info, "shineColor"); if t then t.r = r; t.g = g; t.b = b; t.a = a else
+						t = { r = r, g = g, b = b, a = a }; SetBarField(info, "shineColor", t) end
+					MOD:UpdateAllBarGroups()
+				end,
+			},
+			space3h = { type = "description", name = "", order = 95 },
 			ColorExpiring = {
-				type = "toggle", order = 81, name = L["Expire Color Options"],
+				type = "toggle", order = 96, name = L["Expire Color Options"],
 				desc = L["Enable color changes for expiring bars (and, for icon configurations, make background visible if opacity is set to invisible to enable bar as highlight)."],
 				get = function(info) return GetBarField(info, "colorExpiring") end,
 				set = function(info, value) SetBarField(info, "colorExpiring", value) end,
 			},
 			BarExpireColor = {
-				type = "color", order = 82, name = L["Bar"], hasAlpha = true, width = "half",
+				type = "color", order = 98, name = L["Bar"], hasAlpha = true, width = "half",
 				desc = L["Set bar color for when about to expire (set invisible opacity to disable color change)."],
 				disabled = function(info) return not GetBarField(info, "colorExpiring") end,
 				get = function(info)
@@ -12316,7 +12422,7 @@ MOD.barOptions = {
 				end,
 			},
 			LabelTextColor = {
-				type = "color", order = 83, name = L["Label"], hasAlpha = true, width = "half",
+				type = "color", order = 99, name = L["Label"], hasAlpha = true, width = "half",
 				desc = L["Set label color for when bar is about to expire (set invisible opacity to disable color change)."],
 				disabled = function(info) return not GetBarField(info, "colorExpiring") end,
 				get = function(info)
@@ -12331,7 +12437,7 @@ MOD.barOptions = {
 				end,
 			},
 			TimeTextColor = {
-				type = "color", order = 84, name = L["Time"], hasAlpha = true, width = "half",
+				type = "color", order = 100, name = L["Time"], hasAlpha = true, width = "half",
 				desc = L["Set time color for when bar is about to expire (set invisible opacity to disable color change)."],
 				disabled = function(info) return not GetBarField(info, "colorExpiring") end,
 				get = function(info)
@@ -12346,7 +12452,7 @@ MOD.barOptions = {
 				end,
 			},
 			TickColor = {
-				type = "color", order = 85, name = L["Tick"], hasAlpha = true, width = "half",
+				type = "color", order = 101, name = L["Tick"], hasAlpha = true, width = "half",
 				desc = L["Set color for expire time tick (set invisible opacity to disable showing tick on bar)."],
 				disabled = function(info) return not GetBarField(info, "colorExpiring") end,
 				get = function(info)
@@ -12358,15 +12464,15 @@ MOD.barOptions = {
 					MOD:UpdateAllBarGroups()
 				end,
 			},
-			space3f = { type = "description", name = "", order = 90 },
+			space4 = { type = "description", name = "", order = 105 },
 			MSBTWarning = {
-				type = "toggle", order = 91, name = L["Combat Text"],
+				type = "toggle", order = 106, name = L["Combat Text"],
 				desc = L["Enable warning in combat text for expiring bars."],
 				get = function(info) return GetBarField(info, "expireMSBT") end,
 				set = function(info, value) SetBarField(info, "expireMSBT", value) end,
 			},
 			ColorMSBT = {
-				type = "color", order = 93, name = L["Color"], hasAlpha = true, width = "half",
+				type = "color", order = 107, name = L["Color"], hasAlpha = true, width = "half",
 				desc = L["Set color for combat text warning."],
 				disabled = function(info) return not GetBarField(info, "expireMSBT") end,
 				get = function(info)
@@ -12381,15 +12487,15 @@ MOD.barOptions = {
 				end,
 			},
 			MSBTCritical = {
-				type = "toggle", order = 94, name = L["Critical"],
+				type = "toggle", order = 108, name = L["Critical"],
 				desc = L["Enable combat text warning as critical."],
 				disabled = function(info) return not GetBarField(info, "expireMSBT") end,
 				get = function(info) return GetBarField(info, "criticalMSBT") end,
 				set = function(info, value) SetBarField(info, "criticalMSBT", value) end,
 			},
-			spacer4 = { type = "description", name = "", order = 100 },
+			spacer4a = { type = "description", name = "", order = 109 },
 			HideBar = {
-				type = "toggle", order = 101, name = L["Hide"], width = "half",
+				type = "toggle", order = 111, name = L["Hide"], width = "half",
 				desc = L["If checked, bar is conditionally hidden."],
 				get = function(info) return IsOn(GetBarField(info, "hideBar")) end,
 				set = function(info, value)
@@ -12399,30 +12505,30 @@ MOD.barOptions = {
 				end,
 			},
 			HideBarTrue = {
-				type = "toggle", order = 102, name = L["True"], width = "half",
+				type = "toggle", order = 112, name = L["True"], width = "half",
 				desc = L["If checked, bar is hidden if the condition is true."],
 				disabled = function(info) return IsOff(GetBarField(info, "hideBar")) end,
 				get = function(info) return GetBarField(info, "hideBar") == true end,
 				set = function(info, v) SetBarField(info, "hideBar", true); MOD:UpdateAllBarGroups() end,
 			},
 			HideBarFalse = {
-				type = "toggle", order = 103, name = L["False"], width = "half",
+				type = "toggle", order = 113, name = L["False"], width = "half",
 				desc = L["If checked, bar is hidden if the condition is false."],
 				disabled = function(info) return IsOff(GetBarField(info, "hideBar")) end,
 				get = function(info) return GetBarField(info, "hideBar") == false end,
 				set = function(info, v) SetBarField(info, "hideBar", false); MOD:UpdateAllBarGroups() end,
 			},
 			SelectCondition1 = {
-				type = "select", order = 104, name = L["Hide Condition"],
+				type = "select", order = 114, name = L["Hide Condition"],
 				disabled = function(info) return IsOff(GetBarField(info, "hideBar")) end,
 				get = function(info) return GetBarSelectedCondition(GetSelectConditionList(), GetBarField(info, "hideCondition")) end,
 				set = function(info, value) SetBarField(info, "hideCondition", GetSelectConditionList()[value]) end,
 				values = function(info) return GetSelectConditionList() end,
 				style = "dropdown",
 			},
-			spacer5 = { type = "description", name = "", order = 110 },
+			spacer5 = { type = "description", name = "", order = 120 },
 			FlashBar = {
-				type = "toggle", order = 111, name = L["Flash"], width = "half",
+				type = "toggle", order = 121, name = L["Flash"], width = "half",
 				desc = L["If checked, bar will conditionally flash."],
 				get = function(info) return IsOn(GetBarField(info, "flashBar")) end,
 				set = function(info, value)
@@ -12432,30 +12538,30 @@ MOD.barOptions = {
 				end,
 			},
 			FlashBarTrue = {
-				type = "toggle", order = 112, name = L["True"], width = "half",
+				type = "toggle", order = 122, name = L["True"], width = "half",
 				desc = L["If checked, bar will flash if the condition is true."],
 				disabled = function(info) return IsOff(GetBarField(info, "flashBar")) end,
 				get = function(info) return GetBarField(info, "flashBar") == true end,
 				set = function(info, v) SetBarField(info, "flashBar", true); MOD:UpdateAllBarGroups() end,
 			},
 			FlashBarFalse = {
-				type = "toggle", order = 113, name = L["False"], width = "half",
+				type = "toggle", order = 123, name = L["False"], width = "half",
 				desc = L["If checked, bar will flash if the condition is false."],
 				disabled = function(info) return IsOff(GetBarField(info, "flashBar")) end,
 				get = function(info) return GetBarField(info, "flashBar") == false end,
 				set = function(info, v) SetBarField(info, "flashBar", false); MOD:UpdateAllBarGroups() end,
 			},
 			SelectCondition2 = {
-				type = "select", order = 114, name = L["Flash Condition"],
+				type = "select", order = 124, name = L["Flash Condition"],
 				disabled = function(info) return IsOff(GetBarField(info, "flashBar")) end,
 				get = function(info) return GetBarSelectedCondition(GetSelectConditionList(), GetBarField(info, "flashCondition")) end,
 				set = function(info, value) SetBarField(info, "flashCondition", GetSelectConditionList()[value]) end,
 				values = function(info) return GetSelectConditionList() end,
 				style = "dropdown",
 			},
-			spacer6 = { type = "description", name = "", order = 120 },
+			spacer6 = { type = "description", name = "", order = 130 },
 			FadeBar = {
-				type = "toggle", order = 121, name = L["Fade"], width = "half",
+				type = "toggle", order = 131, name = L["Fade"], width = "half",
 				desc = L["If checked, bar will conditionally change from normal opacity to fade opacity."],
 				get = function(info) return IsOn(GetBarField(info, "fadeBar")) end,
 				set = function(info, value)
@@ -12465,36 +12571,36 @@ MOD.barOptions = {
 				end,
 			},
 			FadeBarTrue = {
-				type = "toggle", order = 125, name = L["True"], width = "half",
+				type = "toggle", order = 135, name = L["True"], width = "half",
 				desc = L["If checked, bar will fade if the condition is true."],
 				disabled = function(info) return IsOff(GetBarField(info, "fadeBar")) end,
 				get = function(info) return GetBarField(info, "fadeBar") == true end,
 				set = function(info, v) SetBarField(info, "fadeBar", true); MOD:UpdateAllBarGroups() end,
 			},
 			FadeBarFalse = {
-				type = "toggle", order = 126, name = L["False"], width = "half",
+				type = "toggle", order = 136, name = L["False"], width = "half",
 				desc = L["If checked, bar will fade if the condition is false."],
 				disabled = function(info) return IsOff(GetBarField(info, "fadeBar")) end,
 				get = function(info) return GetBarField(info, "fadeBar") == false end,
 				set = function(info, v) SetBarField(info, "fadeBar", false); MOD:UpdateAllBarGroups() end,
 			},
 			SelectCondition3 = {
-				type = "select", order = 127, name = L["Fade Condition"],
+				type = "select", order = 137, name = L["Fade Condition"],
 				disabled = function(info) return IsOff(GetBarField(info, "fadeBar")) end,
 				get = function(info) return GetBarSelectedCondition(GetSelectConditionList(), GetBarField(info, "fadeCondition")) end,
 				set = function(info, value) SetBarField(info, "fadeCondition", GetSelectConditionList()[value]) end,
 				values = function(info) return GetSelectConditionList() end,
 				style = "dropdown",
 			},
-			spacer7 = { type = "description", name = "", order = 130 },
+			spacer7 = { type = "description", name = "", order = 140 },
 			ColorCondition = {
-				type = "toggle", order = 131, name = L["Color"], width = "half",
+				type = "toggle", order = 141, name = L["Color"], width = "half",
 				desc = L["If checked, spell color is overridden based on the value of the condition (in order to show spell color, the Bar Color Scheme on Appearance tab for Foreground must be set to Spell)."],
 				get = function(info) return GetBarField(info, "colorBar") end,
 				set = function(info, value) SetBarField(info, "colorBar", value) end,
 			},
 			TrueConditionColor = {
-				type = "color", order = 135, name = L["True"], hasAlpha = true, width = "half",
+				type = "color", order = 145, name = L["True"], hasAlpha = true, width = "half",
 				desc = L["Set bar color for when condition is true (set invisible opacity to disable color change)."],
 				disabled = function(info) return not GetBarField(info, "colorBar") end,
 				get = function(info)
@@ -12509,7 +12615,7 @@ MOD.barOptions = {
 				end,
 			},
 			FalseConditionColor = {
-				type = "color", order = 136, name = L["False"], hasAlpha = true, width = "half",
+				type = "color", order = 146, name = L["False"], hasAlpha = true, width = "half",
 				desc = L["Set bar color for when condition is false (set invisible opacity to disable color change)."],
 				disabled = function(info) return not GetBarField(info, "colorBar") end,
 				get = function(info)
@@ -12524,7 +12630,7 @@ MOD.barOptions = {
 				end,
 			},
 			SelectCondition4 = {
-				type = "select", order = 137, name = L["Color Condition"],
+				type = "select", order = 147, name = L["Color Condition"],
 				disabled = function(info) return not GetBarField(info, "colorBar") end,
 				get = function(info) return GetBarSelectedCondition(GetSelectConditionList(), GetBarField(info, "colorCondition")) end,
 				set = function(info, value) SetBarField(info, "colorCondition", GetSelectConditionList()[value]) end,
@@ -12554,7 +12660,7 @@ MOD.barOptions = {
 					},
 					ValueBar = {
 						type = "toggle", order = 30, name = L["Value"], width = "half",
-						disabled = function(info) return true end, -- temporarily disabled prior to release build
+						-- disabled = function(info) return true end, -- temporarily disabled for release build
 						desc = L["If checked, this is a value bar."],
 						get = function(info) return bars.template.barType == "Value" end,
 						set = function(info, value) SetSelectedBarType("Value") end,
@@ -12626,14 +12732,20 @@ MOD.barOptions = {
 						set = function(info, n) n = ValidateSpellName(n, true, not bars.template.warnings); conditions.name = n end,
 					},
 					ValidateSpell = {
-						type = "toggle", order = 20, name = L["Warnings"],
+						type = "toggle", order = 20, name = L["Warnings"], width = "half",
 						desc = L["Enable warnings about invalid spells."],
 						get = function(info) return not bars.template.warnings end,
 						set = function(info, value) bars.template.warnings = not value end,
 					},
+					SpellIcon = {
+						type = "description", order = 30, name = "", width = "half", 
+						hidden = function(info) return not MOD:GetIcon(conditions.name) end,
+						image = function(info) local t = MOD:GetIcon(conditions.name); return t end,
+						imageWidth = 24, imageHeight = 24,
+					},
 					SpellLabel = {
 						hidden = function(info) return not(conditions.name and string.find(conditions.name, "^#%d+")) end,
-						type = "description", order = 30, name = function(info) return MOD:GetLabel(conditions.name) end,
+						type = "description", order = 40, name = function(info) return MOD:GetLabel(conditions.name) end,
 					},
 				},
 			},

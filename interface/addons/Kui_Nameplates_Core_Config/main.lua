@@ -107,7 +107,7 @@ function SlashCmdList.KUINAMEPLATESCORE(msg)
         end
 
         d:AddText(format('%s %d.%d%s%s%s%s',
-            '2.17.4',knp.MAJOR,knp.MINOR,
+            '2.17.5',knp.MAJOR,knp.MINOR,
             debug,custom,barauras,extras))
 
         d:AddText(KuiNameplatesCore.config.csv)
