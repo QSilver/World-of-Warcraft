@@ -926,6 +926,10 @@ local default_profile = {
 			scale = 1,
 		},
 		
+		options_window = {
+			scale = 1,
+		},
+		
 	--> segments
 		segments_amount = 18,
 		segments_amount_to_save = 18,
@@ -1337,6 +1341,7 @@ local default_global_data = {
 			last_mythicrun_chart = {},
 			mythicrun_chart_frame = {},
 			mythicrun_chart_frame_minimized = {},
+			mythicrun_chart_frame_ready = {},
 		},
 	
 	--> plugin window positions

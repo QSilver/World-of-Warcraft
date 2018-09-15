@@ -328,6 +328,8 @@ if not L then return end
 --[[Translation missing --]]
 --[[ L["STRING_DETACH_DESC"] = ""--]] 
 --[[Translation missing --]]
+--[[ L["STRING_DISCARD"] = ""--]] 
+--[[Translation missing --]]
 --[[ L["STRING_DISPELLED"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["STRING_DODGE"] = ""--]] 

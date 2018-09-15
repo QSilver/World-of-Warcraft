@@ -64,7 +64,7 @@ EnhancedMenu: enabled
 ErrorMonster: enabled
 ExRT: enabled
 GTFO: enabled
-GuildNewsFilter: enabled
+GuildNewsFilter: disabled
 HandyNotes: enabled
 HandyNotes_BrokenShore: enabled
 HandyNotes_Argus: enabled
@@ -158,3 +158,4 @@ AzeriteTooltip: enabled
 AzeriteForge: disabled
 AllTheThings: disabled
 RaiderIO: disabled
+QE-DungeonTips: disabled

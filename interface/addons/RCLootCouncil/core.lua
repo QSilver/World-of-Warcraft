@@ -3,12 +3,10 @@
 
 --[[ TODOs/Notes
 	Things marked with "todo"
-		- Emulate award stuff - i.e. log awards without awarding
 		- IDEA Change popups so they only hide on award/probably add the error message to it.
 
 	Backwards compability breaks:
 		- Remove equipLoc, subType, texture from lootTable. They can all be created with GetItemInfoInstant()
-		- Remove name from lootTable. This isn't needed at all.
 -------------------------------- ]]
 
 --[[CHANGELOG
@@ -116,9 +114,9 @@ function RCLootCouncil:OnInitialize()
 	self.verCheckDisplayed = false -- Have we shown a "out-of-date"?
 	self.moduleVerCheckDisplayed = {} -- Have we shown a "out-of-date" for a module? The key of the table is the baseName of the module.
 
-	self.EJLastestInstanceID = 946 -- UPDATE this whenever we change test data.
+	self.EJLastestInstanceID = 1031 -- UPDATE this whenever we change test data.
 									-- The lastest raid instance Enouncter Journal id.
-									-- Antorus, the Burning Throne.
+									-- Uldir
 									-- HOWTO get this number: Open the instance we want in the Adventure Journal. Use command '/dump EJ_GetInstanceInfo()'
 									-- The 8th return value is sth like "|cff66bbff|Hjournal:0:946:14|h[Antorus, the Burning Throne]|h|r"
 									-- The number at the position of the above 946 is what we want.
@@ -126,28 +124,31 @@ function RCLootCouncil:OnInitialize()
 	self.council = {} -- council from ML
 	self.mldb = {} -- db recived from ML
 	self.responses = {
-		AWARDED        = { color = {1,1,1,1},				sort = 0.1,		text = L["Awarded"],},
-		NOTANNOUNCED	= { color = {1,0,1,1},				sort = 501,		text = L["Not announced"],},
-		ANNOUNCED		= { color = {1,0,1,1},				sort = 502,		text = L["Loot announced, waiting for answer"], },
-		WAIT				= { color = {1,1,0,1},				sort = 503,		text = L["Candidate is selecting response, please wait"], },
-		TIMEOUT			= { color = {1,0,0,1},				sort = 504,		text = L["Candidate didn't respond on time"], },
-		REMOVED			= { color = {0.8,0.5,0,1},			sort = 505,		text = L["Candidate removed"], },
-		NOTHING			= { color = {0.5,0.5,0.5,1},		sort = 505,		text = L["Offline or RCLootCouncil not installed"], },
-		PASS				= { color = {0.7, 0.7,0.7,1},		sort = 800,		text = _G.PASS,},
-		AUTOPASS			= { color = {0.7,0.7,0.7,1},		sort = 801,		text = L["Autopass"], },
-		DISABLED			= { color = {0.3,0.35,0.5,1},		sort = 802,		text = L["Candidate has disabled RCLootCouncil"], },
-		NOTINRAID		= { color = {0.7,0.6,0,1}, 		sort = 803, 	text = L["Candidate is not in the instance"]},
-		DEFAULT			= { color = {1,0,0,1},				sort = 899, 	text = L["Response isn't available. Please upgrade RCLootCouncil."]},
-		--[[1]]			  { color = {0,1,0,1},				sort = 1,		text = L["Mainspec/Need"],},
-		--[[2]]			  { color = {1,0.5,0,1},			sort = 2,		text = L["Offspec/Greed"],	},
-		--[[3]]			  { color = {0,0.7,0.7,1},			sort = 3,		text = L["Minor Upgrade"],},
-		tier = {
-			--[[1]]		  { color = {0.1,1,0.5,1},			sort = 1,		text = L["4th Tier Piece"],},
-			--[[2]]		  { color = {1,1,0.5,1},			sort = 2,		text = L["2nd Tier Piece"],},
-			--[[3]]		  { color = {1,0.5,1,1},			sort = 3,		text = L["Tier Piece that doesn't complete a set"],},
-			--[[4]]		  { color = {0.5,1,1,1},			sort = 4,		text = L["Upgrade to existing tier/random upgrade"],},
+		default = {
+			AWARDED        = { color = {1,1,1,1},				sort = 0.1,		text = L["Awarded"],},
+			PL					= { color = {1, 0.6,0,1},			sort = 498,		text = L["Personal Loot - Non tradeable"]},
+			PL_REJECT		= { color = {0.2,0,0,1},			sort = 499,		text = L["Personal Loot - Rejected Trade"]},
+			NOTANNOUNCED	= { color = {1,0,1,1},				sort = 501,		text = L["Not announced"],},
+			ANNOUNCED		= { color = {1,0,1,1},				sort = 502,		text = L["Loot announced, waiting for answer"], },
+			WAIT				= { color = {1,1,0,1},				sort = 503,		text = L["Candidate is selecting response, please wait"], },
+			TIMEOUT			= { color = {1,0,0,1},				sort = 504,		text = L["Candidate didn't respond on time"], },
+			REMOVED			= { color = {0.8,0.5,0,1},			sort = 505,		text = L["Candidate removed"], },
+			NOTHING			= { color = {0.5,0.5,0.5,1},		sort = 505,		text = L["Offline or RCLootCouncil not installed"], },
+			PASS				= { color = {0.7, 0.7,0.7,1},		sort = 800,		text = _G.PASS,},
+			AUTOPASS			= { color = {0.7,0.7,0.7,1},		sort = 801,		text = L["Autopass"], },
+			DISABLED			= { color = {0.3,0.35,0.5,1},		sort = 802,		text = L["Candidate has disabled RCLootCouncil"], },
+			NOTINRAID		= { color = {0.7,0.6,0,1}, 		sort = 803, 	text = L["Candidate is not in the instance"]},
+			DEFAULT			= { color = {1,0,0,1},				sort = 899, 	text = L["Response isn't available. Please upgrade RCLootCouncil."]},
+			--[[1]]			  { color = {0,1,0,1},				sort = 1,		text = L["Mainspec/Need"],},
+			--[[2]]			  { color = {1,0.5,0,1},			sort = 2,		text = L["Offspec/Greed"],	},
+			--[[3]]			  { color = {0,0.7,0.7,1},			sort = 3,		text = L["Minor Upgrade"],},
 		},
-		relic = {}, -- Created further down
+		['*'] = {
+			['*'] = {
+				text = L["Response"],
+				color = {1,1,1,1},
+			},
+		},
 	}
 	self.chatCmdHelp = {
 		{cmd = "config",	desc = L["chat_commands_config"]},
@@ -163,6 +164,7 @@ function RCLootCouncil:OnInitialize()
 		{cmd = "winners", desc = L["chat_commands_winners"]},
 		{cmd = "sync", desc = L["chat_commands_sync"]},
 	}
+
 
 	self.testMode = false;
 
@@ -273,19 +275,20 @@ function RCLootCouncil:OnInitialize()
 					background = "Blizzard Garrison Background 2",
 					border = "Blizzard Dialog Gold",
 				},
+				bfa = {
+					name = "Battle for Azeroth",
+					bgColor = {0.55, 0.84, 1, 1},
+					borderColor = {0.62, 0.86, 0.87, 0.85},
+					border = "Blizzard Dialog",
+					background = "Blizzard Garrison Background 3",
+				},
 			},
-			currentSkin = "new_blue",
+			currentSkin = "bfa",
 
 			modules = { -- For storing module specific data
 				['*'] = {
 					filters = { -- Default filtering is showed
 						['*'] = true,
-						tier = { -- New section in v2.4.0
-							['*'] = true,
-						},
-						relic = { -- v2.7
-							['*'] = true
-						},
 						ranks = {
 							['*'] = true
 						},
@@ -313,23 +316,23 @@ function RCLootCouncil:OnInitialize()
 			council = {},
 
 			maxButtons = 10,
-			numButtons = 3,
 			buttons = {
-				{	text = _G.NEED,					whisperKey = L["whisperKey_need"], },	-- 1
-				{	text = _G.GREED,				whisperKey = L["whisperKey_greed"],},	-- 2
-				{	text = L["Minor Upgrade"],		whisperKey = L["whisperKey_minor"],},	-- 3
+				default = {
+					{	text = _G.NEED,					whisperKey = L["whisperKey_need"], },	-- 1
+					{	text = _G.GREED,					whisperKey = L["whisperKey_greed"],},	-- 2
+					{	text = L["Minor Upgrade"],		whisperKey = L["whisperKey_minor"],},	-- 3
+					numButtons = 3,
+				},
+				['*'] = {
+					['*'] = {
+						text = L["Button"],
+					},
+					numButtons = 3,
+				},
 			},
-			tierButtonsEnabled = true,
-			tierNumButtons = 4,
-			tierButtons = {
-				{	text = L["4 Piece"],					whisperKey = "1, 4tier, 4piece"},		-- 1
-				{	text = L["2 Piece"],					whisperKey = "2, 2tier, 2piece"},		-- 2
-				{	text = L["Other piece"],			whisperKey = "3, other, tier, piece"}, -- 3
-				{	text = _G.UPGRADE,					whisperKey = "4, upgrade, up"},			-- 4
+			enabledButtons = { -- By default all extra buttons are disabled
+				["*"] = false,
 			},
-			relicButtonsEnabled = false,
-			relicNumButtons = 2,
-			relicButtons = {}, -- Created below
 			numMoreInfoButtons = 1,
 			maxAwardReasons = 10,
 			numAwardReasons = 3,
@@ -351,43 +354,24 @@ function RCLootCouncil:OnInitialize()
 				[132204] = true, [151248] = true, [151249] = true, [151250] = true, -- Sticky Volatile Essence, Fragment of the Guardian's Seal (Tomb of Sargeras)
 				[152902] = true, [152906] = true, [152907] = true, [155831] = true, -- Rune of Passage (Antorus shortcut item), Pantheon's Blessing
 				[152908] = true, [152909] = true, [152910] = true, -- Sigil of the Dark Titan (Another Antorus shortcut item)
+				[162461] = true, -- Sanguicell (BfA crafting)
 			},
 		},
 	} -- defaults end
 
 	-- create the other buttons/responses
 	for i = 1, self.defaults.profile.maxButtons do
-		if i > self.defaults.profile.numButtons then
-			tinsert(self.defaults.profile.buttons, {
+		if i > self.defaults.profile.buttons.default.numButtons then
+			tinsert(self.defaults.profile.buttons.default, {
 				text = L["Button"].." "..i,
 				whisperKey = ""..i,
 			})
-			tinsert(self.defaults.profile.responses, {
+			tinsert(self.defaults.profile.responses.default, {
 				color = {0.7, 0.7,0.7,1},
 				sort = i,
 				text = L["Button"]..i,
 			})
 		end
-		if i > self.defaults.profile.tierNumButtons then
-			tinsert(self.defaults.profile.tierButtons, {
-				text = L["Button"].." "..i,
-				whisperKey = ""..i,
-			})
-			tinsert(self.defaults.profile.responses.tier, {
-				color = {0.7, 0.7,0.7,1},
-				sort = i,
-				text = L["Button"]..i,
-			})
-		end
-		tinsert(self.defaults.profile.relicButtons, {
-			text = L["Button"].." "..i,
-			whisperKey = ""..i,
-		})
-		tinsert(self.defaults.profile.responses.relic, {
-			color = {0.7, 0.7,0.7,1},
-			sort = i,
-			text = L["Button"]..i,
-		})
 	end
 	-- create the other AwardReasons
 	for i = #self.defaults.profile.awardReasons+1, self.defaults.profile.maxAwardReasons do
@@ -418,9 +402,7 @@ function RCLootCouncil:OnInitialize()
 	debugLog = self.db.global.log
 
 	-- register the optionstable
-	self.options = self:OptionsTable()
-	self.options.args.settings.args.profiles = LibStub("AceDBOptions-3.0"):GetOptionsTable(self.db)
-	LibStub("AceConfigRegistry-3.0"):RegisterOptionsTable("RCLootCouncil", self.options)
+	LibStub("AceConfigRegistry-3.0"):RegisterOptionsTable("RCLootCouncil", function() return self:OptionsTable() end)
 
 	-- add it to blizz options
 	self.optionsFrame = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("RCLootCouncil", "RCLootCouncil", nil, "settings")
@@ -466,9 +448,29 @@ function RCLootCouncil:OnEnable()
 	-- in the :CreateFrame() all :Prints as expected :o
 	self:ActivateSkin(db.currentSkin)
 
-	if self.db.global.version and self:VersionCompare(self.db.global.version, self.version) then -- We've upgraded
-		if self:VersionCompare(self.db.global.version, "2.8.1") then
-			wipe(db.itemStorage) -- Just in case some weird items are still there
+	if self.db.global.version and self:VersionCompare(self.db.global.version, "2.9.0") then --self.version) then -- We've upgraded
+		if #self.db.profile.buttons > 0 or self.db.profile.tierButtons or #self.db.profile.responses > 0 then -- Indicators that old buttons haven't been migrated
+			for k,v in ipairs(self.db.profile.buttons) do
+				self.db.profile.buttons.default[k].text = v.text and v.text or self.db.profile.buttons.default[k].text
+				self.db.profile.buttons.default[k].whisperKey = v.whisperKey and v.whisperKey or self.db.profile.buttons.default[k].whisperKey
+				self.db.profile.buttons[k] = nil
+			end
+			if #self.db.profile.buttons > 0 then self.db.profile.buttons.default.numButtons = #self.db.profile.buttons end
+			for k,v in ipairs(self.db.profile.responses) do
+				if v.text then self.db.profile.responses.default[k].text = v.text end
+				if v.color then self.db.profile.responses.default[k].color = v.color end
+				self.db.profile.responses[k] = nil
+			end
+			-- Delete unnecessary records
+			self.db.profile.tierNumButtons = nil
+			self.db.profile.relicNumButtons = nil
+			self.db.profile.relicButtonsEnabled = nil
+			self.db.profile.tierButtonsEnabled = nil
+			self.db.profile.numButtons = nil
+			self.db.profile.relicButtons = nil
+			self.db.profile.tierButtons = nil
+			self.db.profile.responses.relic = nil
+			self.db.profile.responses.tier = nil
 		end
 
 		self.db.global.oldVersion = self.db.global.version
@@ -708,27 +710,32 @@ function RCLootCouncil:ChatCommand(msg)
 end
 
 -- Update the recentTradableItem by link, if it is in bag and tradable.
-function RCLootCouncil:UpdateAndSendRecentTradableItem(link)
+function RCLootCouncil:UpdateAndSendRecentTradableItem(info, count)
 	for i = 0, NUM_BAG_SLOTS do
 		for j = 1, GetContainerNumSlots(i) do
 			local _, _, _, _, _, _, link2 = GetContainerItemInfo(i, j)
-			if link2 and self:ItemIsItem(link, link2) then
+			if link2 and self:ItemIsItem(info.link, link2) then
 				if self:GetContainerItemTradeTimeRemaining(i, j) > 0 then
 					if self.mldb.rejectTrade then
-						LibDialog:Spawn("RCLOOTCOUNCIL_KEEP_ITEM", link)
+						LibDialog:Spawn("RCLOOTCOUNCIL_KEEP_ITEM", info.link)
 						return
 					end
-					self:SendCommand("group", "tradable", link)
+					self:SendCommand("group", "tradable", info.link, info.guid)
 					return
 				else -- Not tradeable
 					-- REVIEW: This might fail if the recipient happens to have an exact copy of the item
-					self:SendCommand("group", "not_tradeable", link)
+					self:SendCommand("group", "not_tradeable", info.link, info.guid)
 					return
 				end
 			end
 		end
 	end
-	self:Debug("Error - UpdateAndSendRecentTradableItem",link, "not found in bags")
+	-- We haven't found it, maybe we just haven't received it yet, so try again in one second
+	if not count or (count and count < 3) then -- Only try a few times
+		self:Debug("UpdateAndSendRecentTradableItem: Didn't find item on try ", count or 1)
+		return self:ScheduleTimer("UpdateAndSendRecentTradableItem",1,info, count and count + 1 or 1)
+	end
+	self:Debug("Error - UpdateAndSendRecentTradableItem",info.link, "not found in bags")
 end
 
 -- Send the msg to the channel if it is valid. Otherwise just print the messsage.
@@ -839,7 +846,7 @@ function RCLootCouncil:OnCommReceived(prefix, serializedMsg, distri, sender)
 					self:PrepareLootTable(lootTable)
 
 					-- v2.0.1: It seems people somehow receives mldb without numButtons, so check for it aswell.
-					if not self.mldb or (self.mldb and not self.mldb.numButtons) then -- Really shouldn't happen, but I'm tired of people somehow not receiving it...
+					if not self.mldb then -- Really shouldn't happen, but I'm tired of people somehow not receiving it...
 						self:Debug("Received loot table without having mldb :(", sender)
 						self:SendCommand(self.masterLooter, "MLdb_request")
 						return self:ScheduleTimer("OnCommReceived", 5, prefix, serializedMsg, distri, sender)
@@ -914,7 +921,7 @@ function RCLootCouncil:OnCommReceived(prefix, serializedMsg, distri, sender)
 					noone should really be able to send it without being ML in the first place. So just accept it as is. ]]
 				-- [[2.7: Probably should still check this. There are issues otherwise.]]
 				if self:UnitIsUnit(sender, self.masterLooter) then
-					self.mldb = unpack(data)
+					self:OnMLDBReceived(unpack(data))
 				else
 					self:Debug("Non-ML:", sender, "sent Mldb!")
 				end
@@ -1119,6 +1126,27 @@ function RCLootCouncil:DebugLog(msg, ...)
 		tremove(debugLog, 1)
 	end
 	tinsert(debugLog, msg)
+end
+
+function RCLootCouncil:OnMLDBReceived(mldb)
+	self:Debug("OnMLDBReceived")
+	-- mldb inheritance from db
+	self.mldb = mldb
+	for type, responses in pairs(mldb.responses) do
+	   for response in pairs(responses) do
+	      if not self.defaults.profile.responses[type] then
+				--if not self.mldb.responses[type] then self.mldb.responses[type] = {} end
+				--if not self.mldb.responses[type][response] then self.mldb.responses[type][response] = {} end
+	         setmetatable(self.mldb.responses[type], {__index = self.defaults.profile.responses.default})
+	      end
+	   end
+	end
+	if not self.mldb.responses.default then self.mldb.responses.default = {} end
+	setmetatable(self.mldb.responses.default, {__index = self.defaults.profile.responses.default})
+	--setmetatable(self.mldb.buttons, {__index = function() return self.defaults.profile.buttons.default end})
+	if not self.mldb.buttons.default then self.mldb.buttons.default = {} end
+	setmetatable(self.mldb.buttons.default, { __index = self.defaults.profile.buttons.default,})
+	-- self.mldb = mldb
 end
 
 -- if fullTest, add items in the encounterJournal to the test items.
@@ -1889,7 +1917,8 @@ function RCLootCouncil:OnEvent(event, ...)
 		self.guildRank = self:GetPlayersGuildRank();
 		if unregisterGuildEvent then
 			self:UnregisterEvent("GUILD_ROSTER_UPDATE"); -- we don't need it any more
-			self:GetGuildOptions() -- get the guild data to the options table now that it's ready
+			-- v2.9: Handled in options
+			--self:GetGuildOptions() -- get the guild data to the options table now that it's ready
 		end
 	elseif event == "ENCOUNTER_END" then
 		self:DebugLog("Event:", event, ...)
@@ -1898,8 +1927,9 @@ function RCLootCouncil:OnEvent(event, ...)
 
 	elseif event == "LOOT_OPENED" then
 		self:Debug("Event:", event, ...)
-		self:Debug("GetUnitName:", GetUnitName("target"))
-		self:Debug("UnitGUID:", UnitGUID("target"))
+		if not IsInInstance() then return end -- Don't do anything out of instances
+		-- self:Debug("GetUnitName:", GetUnitName("target"))
+		-- self:Debug("UnitGUID:", UnitGUID("target"))
 		if select(1, ...) ~= "scheduled" and self.LootOpenScheduled then return end -- When this function is scheduled to run again, but LOOT_OPENDED event fires, return.
 		self.LootOpenScheduled = false
 		wipe(self.lootSlotInfo)
@@ -1908,18 +1938,24 @@ function RCLootCouncil:OnEvent(event, ...)
 		self.lootOpen = true
 		for i = 1,  GetNumLootItems() do
 			if LootSlotHasItem(i) then
-				local texture, name, quantity, quality, locked, isQuestItem, questId, isActive = GetLootSlotInfo(i)
-				local link = GetLootSlotLink(i)
+				local texture, name, quantity, _, quality, _, isQuestItem = GetLootSlotInfo(i)
 				if texture then
-					self:Debug("Adding to self.lootSlotInfo",i,link, quality)
-					self.lootSlotInfo[i] = {
-						name = name,
-						link = link, -- This could be nil, if the item is money.
-						quantity = quantity,
-						quality = quality,
-						locked = locked,
-						guid = (GetLootSourceInfo(i)), -- Boss GUID
-					}
+					local link = GetLootSlotLink(i)
+					local isCraftingReagent
+					if link then  -- Link is not present on coins
+						 isCraftingReagent = select(17, GetItemInfo(link))
+					end
+					if not (isQuestItem or isCraftingReagent) then -- Ignore quest and crafting items
+						self:Debug("Adding to self.lootSlotInfo",i,link, quality)
+						self.lootSlotInfo[i] = {
+							name = name,
+							link = link, -- This could be nil, if the item is money.
+							quantity = quantity,
+							quality = quality,
+							guid = self.Utils:ExtractCreatureID((GetLootSourceInfo(i))), -- Boss GUID
+							boss = (GetUnitName("target")),
+						}
+					end
 				else -- It's possible that item in the loot window is uncached. Retry in the next frame.
 					self:Debug("Loot uncached when the loot window is opened. Retry in the next frame.", link)
 					self.LootOpenScheduled = true
@@ -1932,20 +1968,32 @@ function RCLootCouncil:OnEvent(event, ...)
 			self:GetActiveModule("masterlooter"):OnLootOpen()
 		end
 	elseif event == "LOOT_CLOSED" then
+		if not IsInInstance() then return end -- Don't do anything out of instances
 		self:Debug("Event:", event, ...)
+		local i = 0
+		for k, info in pairs(self.lootSlotInfo) do
+			if not info.isLooted then
+				self:SendCommand("group", "fakeLoot", info.link, info.guid)
+				return
+			end
+			i = k
+		end
+		-- Otherwise they've looted everything, so send ack
+		if i ~= 0 then -- We're not guaranteed to have something stored
+			self:SendCommand("group", "looted", self.lootSlotInfo[i].guid)
+		end
 		self.lootOpen = false
 	elseif event == "LOOT_SLOT_CLEARED" then
 		local slot = ...
-		if self.lootSlotInfo[slot] then -- If not, this is the 2nd LOOT_CLEARED event for the same thing. -_-
+		if self.lootSlotInfo[slot] and not self.lootSlotInfo[slot].isLooted then -- If not, this is the 2nd LOOT_CLEARED event for the same thing. -_-
 			local link = self.lootSlotInfo[slot].link
 			local quality = self.lootSlotInfo[slot].quality
 			self:Debug("OnLootSlotCleared()", slot, link, quality)
-			self.lootSlotInfo[slot] = nil
-			-- v2.8.1 NOTE Quality is not ready here. Functionality handling on ENCOUNTER_LOOT_RECEIVED
-		--[[	if quality and quality >= GetLootThreshold() and IsInInstance() then -- Only send when in instance
+			if quality and quality >= GetLootThreshold() and IsInInstance() then -- Only send when in instance
 				-- Note that we don't check if this is master looted or not. We only know this is looted by ourselves.
-				self:ScheduleTimer("UpdateAndSendRecentTradableItem", 1, link) -- Delay a bit, need some time to between item removed from loot slot and moved to the bag.
-			end]]
+				self:ScheduleTimer("UpdateAndSendRecentTradableItem", 2, self.lootSlotInfo[slot]) -- Delay a bit, need some time to between item removed from loot slot and moved to the bag.
+			end
+			self.lootSlotInfo[slot].isLooted = true
 
 			if self.isMasterLooter then
 				self:GetActiveModule("masterlooter"):OnLootSlotCleared(slot, link)
@@ -1953,9 +2001,9 @@ function RCLootCouncil:OnEvent(event, ...)
 		end
 	elseif event == "ENCOUNTER_LOOT_RECEIVED" then
 		self:Debug("Event:", event, ...)
-		if self:UnitIsUnit("player", select(5, ...)) then
-			self:ScheduleTimer("UpdateAndSendRecentTradableItem", 2, select(3,...))
-		end
+		-- if self:UnitIsUnit("player", select(5, ...)) then
+		-- 	self:ScheduleTimer("UpdateAndSendRecentTradableItem", 2, select(3,...))
+		-- end
 
 	else
 		self:Debug("NonHandled Event:", event, ...)
@@ -1984,7 +2032,7 @@ function RCLootCouncil:NewMLCheck()
 		-- At this point we know the ML has changed, so we can wipe the council
 		self:Debug("Resetting council as we have a new ML!")
 		self.council = {}
-		self.mldb = {}
+	--	self.mldb = {}
 		self.isCouncil = false
 		self:Debug("MasterLooter = ", self.masterLooter)
 		-- Check to see if we have recieved mldb within 15 secs, otherwise request it
@@ -2245,6 +2293,10 @@ end
 
 function RCLootCouncil:GetItemNameFromLink(link)
 	return strmatch(link or "", "%[(.+)%]")
+end
+
+function RCLootCouncil:GetItemStringClean(link)
+	return gsub(self:GetItemStringFromLink(link), "item:", "")
 end
 
 -- The link of same item generated from different players, or if two links are generated between player spec switch, are NOT the same
@@ -2846,62 +2898,101 @@ function RCLootCouncil.Ambiguate(name)
 	return db.ambiguate and Ambiguate(name, "none") or Ambiguate(name, "short")
 end
 
---- Returns the text of a button, returning settings from mldb if possible, otherwise from default buttons.
--- @paramsig index [, isTier, isRelic]
--- @param index The button's index.
--- @param isTier True if the response belongs to a tier item.
--- @param isRelic True if the response belongs to a relic item.
-function RCLootCouncil:GetButtonText(i, isTier, isRelic)
-	if isTier and self.mldb.tierButtonsEnabled and type(i) == "number" then -- Non numbers is status texts, handled as normal response
-		return (self.mldb.tierButtons and self.mldb.tierButtons[i]) and self.mldb.tierButtons[i].text or db.tierButtons[i].text
-	elseif isRelic and self.mldb.relicButtonsEnabled and type(i) == "number" then
-		return (self.mldb.relicButtons and self.mldb.relicButtons[i]) and self.mldb.relicButtons[i].text or db.relicButtons[i].text
-	else
-		return (self.mldb.buttons and self.mldb.buttons[i]) and self.mldb.buttons[i].text or db.buttons[i].text
+RCLootCouncil.BTN_SLOTS = {
+	INVTYPE_HEAD 				= "AZERITE",
+	INVTYPE_CHEST 				= "AZERITE",
+	INVTYPE_ROBE 				= "AZERITE",
+	INVTYPE_SHOULDER 			= "AZERITE",
+	INVTYPE_2HWEAPON			= "WEAPON",
+	INVTYPE_WEAPONMAINHAND	= "WEAPON",
+	INVTYPE_WEAPONOFFHAND	= "WEAPON",
+	INVTYPE_WEAPON				= "WEAPON",
+	INVTYPE_THROWN				= "WEAPON",
+	INVTYPE_RANGED				= "WEAPON",
+	INVTYPE_RANGEDRIGHT		= "WEAPON",
+	INVTYPE_HOLDABLE			= "WEAPON",
+}
+
+--- Fetches a response of a given type, based on the group leader's settings if possible
+-- @param type The type of response. Defaults to "default".
+-- @param name The name of the response.
+-- @see RCLootCouncil.db.responses
+-- @return A table from db.responses containing the response info
+function RCLootCouncil:GetResponse(type, name)
+	-- REVIEW With proper inheritance, most of this should be redundant
+	-- Check if the type should be translated to something else
+	type = type and type or "default"
+	if self.mldb.responses and not self.mldb.responses[type] and self.BTN_SLOTS[type] and self.mldb.responses[self.BTN_SLOTS[type]] then
+		type = self.BTN_SLOTS[type]
 	end
+   if type == "default" or (self.mldb and not self.mldb.responses[type]) then -- We have a value if mldb is blank
+      if db.responses.default[name] or self.mldb.responses.default[name] then
+         return (self.mldb.responses and self.mldb.responses.default and self.mldb.responses.default[name]) or db.responses.default[name]
+      else
+         self:Debug("No db.responses.default entry for response:", name)
+         return self.defaults.profile.responses.default.DEFAULT -- Use default
+      end
+   else -- This must be supplied by the ml
+      if next(self.mldb) then
+         if self.mldb.responses[type] then
+            if self.mldb.responses[type][name] then
+               return self.mldb.responses[type][name]
+            else
+               self:Debug("No mldb.responses["..tostring(type).."] entry for response:".. tostring(name))
+            end
+         else
+				-- This type is not enabled, so use default:
+            if db.responses.default[name] or self.mldb.responses.default[name] then
+               return self.mldb.responses.default and self.mldb.responses.default[name] or db.responses.default[name]
+            else
+               self:Debug("Unknown response entry", type, name)
+               return db.responses.default.DEFAULT -- Use default
+            end
+         end
+      else
+         self:Debug("No mldb for GetReponse: ".. tostring(type).. ", ".. tostring(name))
+      end
+   end
+   return {} -- Fallback
 end
 
---- The following functions returns the text, sort or color of a response, returning a result from mldb if possible, otherwise from the default responses.
--- @paramsig response [, isTier, isRelic]
--- @param response Index in db.responses.
--- @param isTier True if the response belongs to a tier item.
--- @param isRelic True if the response belongs to a relic item.
-function RCLootCouncil:GetResponseText(response, isTier, isRelic)
-	local ret
-	if isTier and self.mldb.tierButtonsEnabled and type(response) == "number" then
-		ret = (self.mldb.responses.tier and self.mldb.responses.tier[response]) and self.mldb.responses.tier[response].text or db.responses.tier[response].text
-	elseif isRelic and self.mldb.relicButtonsEnabled and type(response) == "number" then
-		ret = (self.mldb.responses.relic and self.mldb.responses.relic[response]) and self.mldb.responses.relic[response].text or db.responses.relic[response].text
-	else
-		ret = (self.mldb.responses and self.mldb.responses[response]) and self.mldb.responses[response].text or db.responses[response].text
+--- Returns the number of buttons of a specific type
+function RCLootCouncil:GetNumButtons(type)
+	type = type and type or "default"
+   if not next(self.mldb) then
+      -- No mldb, so just return the default
+		return db.buttons[type] and db.buttons[type].numButtons or 0
+   end
+	if not self.mldb.buttons[type] and self.BTN_SLOTS[type] and self.mldb.buttons[self.BTN_SLOTS[type]] then
+		type = self.BTN_SLOTS[type]
 	end
-	return ret or db.responses.DEFAULT.text
+   if type == "default" or not self.mldb.buttons[type] then -- Has special definition
+      return self.mldb.buttons.default and self.mldb.buttons.default.numButtons or db.buttons.default.numButtons or 0
+   else -- Here we can rely on the responses as we have no defaults
+      if self.mldb.buttons[type] then
+         return #self.mldb.buttons[type]
+      else
+         error("No mldb.buttons entry for: " .. tostring(type))
+      end
+   end
 end
 
----
-function RCLootCouncil:GetResponseColor(response, isTier, isRelic)
-	local color
-	if isTier and self.mldb.tierButtonsEnabled and type(response) == "number" then
-		color = (self.mldb.responses.tier and self.mldb.responses.tier[response]) and self.mldb.responses.tier[response].color or db.responses.tier[response].color
- 	elseif isRelic and self.mldb.relicButtonsEnabled and type(response) == "number" then
-		color = (self.mldb.responses.relic and self.mldb.responses.relic[response]) and self.mldb.responses.relic[response].color or db.responses.relic[response].color
- 	else
-		color = (self.mldb.responses and self.mldb.responses[response]) and self.mldb.responses[response].color or db.responses[response].color
+--- Returns all buttons of a specific type, defaults to "default"
+function RCLootCouncil:GetButtons(type)
+	type = type and type or "default"
+	self:Debug("GetButtons", type)
+	-- Check if the type should be translated to something else
+	if self.mldb and not self.mldb.buttons[type] and self.BTN_SLOTS[type] and self.mldb.buttons[self.BTN_SLOTS[type]] then
+		type = self.BTN_SLOTS[type]
+		self:Debug("Setting type to", type)
 	end
-	return unpack(color or db.responses.DEFAULT.color)
+   return self.mldb and self.mldb.buttons[type] or self.mldb.buttons.default
 end
 
----
-function RCLootCouncil:GetResponseSort(response, isTier, isRelic)
-	local ret
-	if isTier and self.mldb.tierButtonsEnabled and type(response) == "number" then
-		ret = (self.mldb.responses.tier and self.mldb.responses.tier[response]) and self.mldb.responses.tier[response].sort or db.responses.tier[response].sort
-	elseif isRelic and self.mldb.relicButtonsEnabled and type(response) == "number" then
-		ret = (self.mldb.responses.relic and self.mldb.responses.relic[response]) and self.mldb.responses.relic[response].sort or db.responses.relic[response].sort
-	else
-		ret = (self.mldb.responses and self.mldb.responses[response]) and self.mldb.responses[response].sort or db.responses[response].sort
-	end
-	return ret or db.responses.DEFAULT.sort
+--- Shorthand for :GetResponse(type, name).color
+-- @return Returned in an unpacked format for use in SetTextColor functions.
+function RCLootCouncil:GetResponseColor(type, name)
+	return unpack(self:GetResponse(type, name).color)
 end
 
 --#end UI Functions -----------------------------------------------------

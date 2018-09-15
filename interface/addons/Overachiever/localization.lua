@@ -66,6 +66,13 @@ School of %s
 	ACH_CONSUME_91_INCOMPLETE = "I dare you to eat 91 all at once!";
 	ACH_CONSUME_91_COMPLETE = "Gluttony already proven"; --"1000% Satisfied";
 
+	ACH_ACQUIRE_INCOMPLETE = "Need to acquire";
+	ACH_ACQUIRE_COMPLETE = "Already acquired";
+	ACH_ACQUIRE_INCOMPLETE_EXTRA = "Haven't acquired";
+
+	ACH_MISSIONCOMPLETE_INCOMPLETE = "Need to complete";
+	ACH_MISSIONCOMPLETE_COMPLETE = "Previously completed";
+
 	ACH_LETITSNOW_INCOMPLETE = "Need to use Handful of Snowflakes";
 	ACH_LETITSNOW_COMPLETE = "Already used Handful of Snowflakes";
 	ACH_FISTFULOFLOVE_INCOMPLETE = "Need to use Handful of Rose Petals";
@@ -171,10 +178,16 @@ School of %s
 	OPT_SATISFIEDTIPS = "1000% Satisfied?";
 	OPT_SATISFIEDTIPS_TIP = "Add a line to the tooltips of items that are part the achievement's criteria to indicate whether you need to consume them.";
 
+	OPT_ACQUIREDTIPS = "Item acquired?";
+	OPT_ACQUIREDTIPS_TIP = "Add a line to the tooltips of items to indicate whether you need to acquire them for an achievement.";
+
+	OPT_MISSIONCOMPLETE = "Mission completed?";
+	OPT_MISSIONCOMPLETE_TIP = "Add a line to the tooltips of missions to indicate whether you need to complete them for an achievement.";
+
 	OPT_LABEL_NEEDTOKILL = 'Kill Creature Achievements ("%s," "%s," etc.)';
 	OPT_KILLCREATURETIPS = "Creature killed?";
-	OPT_KILLCREATURETIPS_TIP = "Add a line to the tooltips of creatures (excluding critters) that need to be killed to meet the criteria of an incomplete achievement indicating whether you still need to kill them.";
-	OPT_KILLCREATURETIPS_TIP2 = "Note: At startup (or when this is option is enabled), every achievement is scanned to find unit IDs. Not all achievements provide such IDs. Most do, but the tooltips of creatures which are the criteria of those that don't won't be altered by this option.";
+	OPT_KILLCREATURETIPS_TIP = "Add a line to the tooltips of creatures (excluding critters) indicating whether you need to kill them for an incomplete achievement.";
+	OPT_KILLCREATURETIPS_TIP2 = "|nNote: This relies on achievements providing mob IDs. Many kill-achievements do, but not all. Creatures needed for those that don't will not have updated tooltips, with a few exceptions where the data has been manually entered into Overachiever.";
 
 	OPT_KILLCREATURETIPS_EXCLUDE_GUILD = "Exclude guild achievements";
 
@@ -527,34 +540,20 @@ L["BINDING_NAME_OVERACHIEVER_TAB_SUGGESTIONS"] = "Ouvrir l'onglet des suggestion
 L["BINDING_NAME_OVERACHIEVER_TAB_WATCH"] = "Ouvre l'onglet de suivi"
 L["COMPLETEDATE"] = "Accompli le %1$d/%2$02d/%3$02d"
 L["CRITTER"] = "Bestiole"
---[[Translation missing --]]
---[[ L["HOLIDAY_BREWFEST"] = ""--]] 
---[[Translation missing --]]
---[[ L["HOLIDAY_CHILDRENSWEEK"] = ""--]] 
---[[Translation missing --]]
---[[ L["HOLIDAY_DARKMOONFAIRE"] = ""--]] 
---[[Translation missing --]]
---[[ L["HOLIDAY_DAYOFTHEDEAD"] = ""--]] 
---[[Translation missing --]]
---[[ L["HOLIDAY_HALLOWSEND"] = ""--]] 
---[[Translation missing --]]
---[[ L["HOLIDAY_LOVEISINTHEAIR"] = ""--]] 
---[[Translation missing --]]
---[[ L["HOLIDAY_LUNARFESTIVAL"] = ""--]] 
---[[Translation missing --]]
---[[ L["HOLIDAY_MIDSUMMER"] = ""--]] 
---[[Translation missing --]]
---[[ L["HOLIDAY_MIDSUMMER_SHORT"] = ""--]] 
---[[Translation missing --]]
---[[ L["HOLIDAY_NOBLEGARDEN"] = ""--]] 
---[[Translation missing --]]
---[[ L["HOLIDAY_PIGRIMSBOUNTY"] = ""--]] 
---[[Translation missing --]]
---[[ L["HOLIDAY_PIRATESDAY"] = ""--]] 
---[[Translation missing --]]
---[[ L["HOLIDAY_WINTERVEIL"] = ""--]] 
---[[Translation missing --]]
---[[ L["HOLIDAY_WINTERVEIL_SHORT"] = ""--]] 
+L["HOLIDAY_BREWFEST"] = "Fête des Brasseurs"
+L["HOLIDAY_CHILDRENSWEEK"] = "Semaine des enfants"
+L["HOLIDAY_DARKMOONFAIRE"] = "Foire de Sombrelune"
+L["HOLIDAY_DAYOFTHEDEAD"] = "Jour des morts"
+L["HOLIDAY_HALLOWSEND"] = "Sanssaint"
+L["HOLIDAY_LOVEISINTHEAIR"] = "De l'amour dans l'air"
+L["HOLIDAY_LUNARFESTIVAL"] = "Fête lunaire"
+L["HOLIDAY_MIDSUMMER"] = "Fête du Feu du solstice d'été"
+L["HOLIDAY_MIDSUMMER_SHORT"] = "Solstice d'été"
+L["HOLIDAY_NOBLEGARDEN"] = "Le Jardin des nobles"
+L["HOLIDAY_PIGRIMSBOUNTY"] = "Les Bienfaits du pèlerin"
+L["HOLIDAY_PIRATESDAY"] = "Jour des pirates"
+L["HOLIDAY_WINTERVEIL"] = "Voile d'hiver"
+L["HOLIDAY_WINTERVEIL_SHORT"] = "Voile d'hiver"
 L["INCOMPLETE"] = "Inachevés"
 L["KILL_COMPLETE"] = "Déjà tué"
 L["KILL_INCOMPLETE"] = "Doit tuer"
@@ -613,8 +612,7 @@ L["OPT_DRAGSAVE"] = "Sauver la position"
 L["OPT_FISTFULOFLOVETIPS"] = "Vous signale si vous avez besoin de lancer une Poignée de pétales de rose"
 L["OPT_FISTFULOFLOVETIPS_TIP"] = "Si le haut fait est inachevé, ajoute une ligne à l'infobulle des joueurs des combinaisons race/classe concernées pour vous indiquer si vous devez utiliser une Poignée de pétales de rose sur eux."
 L["OPT_KILLCREATURETIPS"] = "Ajoute si vous devez tuer une créature"
---[[Translation missing --]]
---[[ L["OPT_KILLCREATURETIPS_EXCLUDE_GUILD"] = ""--]] 
+L["OPT_KILLCREATURETIPS_EXCLUDE_GUILD"] = "Exclure les hauts faits de guilde"
 L["OPT_KILLCREATURETIPS_TIP"] = "Ajoute une ligne à l'infobulle des créatures (hormis les bestioles) qui doivent être tuées pour atteindre l'objectif d'un haut fait inachevé pour indiquer si vous devez encore les tuer."
 L["OPT_KILLCREATURETIPS_TIP2"] = "Note : Au démarrage (ou lorsque cette option est activée) tous les hauts faits sont analysés afin de découvrir les IDs des \"unités\". Ils n'en fournissent pas tous. La plupart le font, mais les infobulles des créatures concernées par ceux qui ne le font pas ne seront pas affectées par cette option."
 --[[Translation missing --]]
@@ -630,8 +628,7 @@ L["OPT_LABEL_ACHTWO"] = "\"%s\" et \"%s\""
 --[[Translation missing --]]
 --[[ L["OPT_LABEL_DRAENORANGLER"] = ""--]] 
 L["OPT_LABEL_MAINUI"] = "Modifications de l'IU principale des Hauts faits"
---[[Translation missing --]]
---[[ L["OPT_LABEL_MISC"] = ""--]] 
+L["OPT_LABEL_MISC"] = "Divers"
 L["OPT_LABEL_NEEDTOKILL"] = "Hauts faits d'élimination de monstres (\"%s,\" \"%s,\" etc.)"
 L["OPT_LABEL_SEASONALACHS"] = "SAISON ACHEVÉES"
 --[[Translation missing --]]
@@ -730,12 +727,10 @@ L["OPT_WELLREADTIPS_TIP"] = "Si le haut fait est inachevé, ajoute une ligne dan
 L["OPTPANEL_REMINDERTOOLTIPS"] = "Rappel des info-bulles"
 --[[Translation missing --]]
 --[[ L["OVERACHIEVER_INSTALLED_MSG"] = ""--]] 
---[[Translation missing --]]
---[[ L["OVERACHIEVER_INSTALLED_TOAST"] = ""--]] 
+L["OVERACHIEVER_INSTALLED_TOAST"] = "OVERACHIEVER INSTALLÉ !"
 --[[Translation missing --]]
 --[[ L["OVERACHIEVER_UPDATED_MSG"] = ""--]] 
---[[Translation missing --]]
---[[ L["OVERACHIEVER_UPDATED_TOAST"] = ""--]] 
+L["OVERACHIEVER_UPDATED_TOAST"] = "MISE À JOUR D'OVERACHIEVER !"
 L["PROGRESS"] = "Progression"
 --[[Translation missing --]]
 --[[ L["PROGRESSIFOTHERCOMPLETED"] = ""--]] 
@@ -2712,7 +2707,7 @@ L["ACH_CONSUME_91_INCOMPLETE"] = "Ti sfido a mangiarne 91 tutti in una volta!"
 L["ACH_CONSUME_COMPLETE"] = "Già consumato"
 L["ACH_CONSUME_INCOMPLETE"] = "Da consumare"
 L["ACH_CONSUME_INCOMPLETE_EXTRA"] = "Non consumato"
-L["ACH_FISHSCHOOL_FORMAT"] = "%s Scuola"
+L["ACH_FISHSCHOOL_FORMAT"] = "Banco di %s"
 L["ACH_FISTFULOFLOVE_COMPLETE"] = "Già usato la Manciata di Petali di Rosa"
 L["ACH_FISTFULOFLOVE_INCOMPLETE"] = "Hai bisogno di usare la Manciata di Petali di Rosa"
 L["ACH_LETITSNOW_COMPLETE"] = "Già usato la Manciata di Petali di Rosa"
@@ -2777,7 +2772,7 @@ L["OPT_AUTOTRACKTIMED_TIP"] = "Traccia automaticamente imprese con criteri di te
 --[[ L["OPT_AUTOTRACKTIMED_TIP_BG"] = ""--]] 
 L["OPT_BUNNYMAKERTIPS"] = "Fiori di Primavera usati?"
 L["OPT_BUNNYMAKERTIPS_TIP"] = "Se l'impresa non è completa, aggiungere una riga nel tooltip del giocatoredel sesso appropriato per indicare se è necessario utilizzare i Fiori di Primavera su di loro. Nota che i giocatori nemici che sono 10 o più livelli superiori sono considerati livello almeno 18."
-L["OPT_CHECKYOURHEADTIPS"] = "Utilizzare la lanterna poderata jack-o'?"
+L["OPT_CHECKYOURHEADTIPS"] = "Jack Lanterna Appesantito usato?"
 L["OPT_CHECKYOURHEADTIPS_TIP"] = "Se l'impresa non è completata, aggiungi una riga nel tooltip del giocatore per indicare se è necessario utilizzare un lanterna poderata Jack-o'-su di loro."
 L["OPT_CONSUMEITEMTIPS"] = "Aggiungi se gli oggetti devono essere consumati ai loro tooltip"
 L["OPT_CONSUMEITEMTIPS_TIP"] = "Se l'obiettivo è incompleto, aggiungi una linea al tooltip degli oggetti che fanno parte dei criteri indicati se devi consumarli."

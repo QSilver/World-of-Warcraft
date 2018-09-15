@@ -54,8 +54,8 @@ MethodDungeonToolsDB = {
 		},
 		["anchorTo"] = "CENTER",
 		["currentDungeonIdx"] = 21,
-		["xoffset"] = -109.40160369873,
 		["anchorFrom"] = "CENTER",
+		["xoffset"] = -109.40160369873,
 		["yoffset"] = 38.5514259338379,
 	},
 }

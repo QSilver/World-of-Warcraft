@@ -229,29 +229,6 @@ else
   }
 end
 
--- Achievements common to class halls:
-local achClassHall = {
-	10994, -- A Glorious Campaign
-	11223, -- Legendary Research
-	11298, -- A Classy Outfit
-	
-	10461, -- Fighting with Style: Classic
-	10747, -- Fighting with Style: Upgraded
-	10748, -- Fighting with Style: Valorous
-	10749, -- Fighting with Style: War-torn
-	11612, -- Fighting with Style: Challenging
-	10852, -- Artifact or Artifiction
-	11171, -- Arsenal of Power
-	11609, -- Power Unbound
-	11144, -- Power Realized
-
-	10706, -- Training the Troops
-	11214, -- Many Missions
-	11218, -- There's a Boss In There
-	11219, -- Need Backup
-	11220, -- Roster of Champions
-}
-
 local achDarkmoonFaire = {
 	6019, 6021, 6023, 6027, 6028, 6029, 6032, 6026, 6025, 6022, 6020, IsAlliance and 6030 or 6031, 6332, 9250, 9885, 9894, 9983, 9755, 9756, 9770, 9786, 9780, 9793, 9800, 9806, 9812, 9819,
 	-- Blight Boar concert:
@@ -333,6 +310,37 @@ local achDraenorGarrisonShipyard = {
 	10165, -- Ironsides
 	IsAlliance and 10256 or 10258, -- Charting a Course
 	10166, -- Naval Mechanics (broken?)
+}
+
+-- Achievements common to class halls:
+local achClassHall = {
+	10994, -- A Glorious Campaign
+	11223, -- Legendary Research
+	11298, -- A Classy Outfit
+	
+	10461, -- Fighting with Style: Classic
+	10747, -- Fighting with Style: Upgraded
+	10748, -- Fighting with Style: Valorous
+	10749, -- Fighting with Style: War-torn
+	--11612, -- Fighting with Style: Challenging - now a Feat of Strength
+	10852, -- Artifact or Artifiction
+	11171, -- Arsenal of Power
+	11609, -- Power Unbound
+	11144, -- Power Realized
+
+	10706, -- Training the Troops
+	11214, -- Many Missions
+	11218, -- There's a Boss In There
+	11219, -- Need Backup
+	11220, -- Roster of Champions
+}
+
+-- Battle for Azeroth achievements related to the War Campaign Ship (mission table, etc.)
+local achWarship = {
+	IsAlliance and 12896 or 12867, -- Azeroth at War: The Barrens
+	IsAlliance and 12898 or 12869, -- Azeroth at War: After Lordaeron
+	IsAlliance and 12899 or 12870, -- Azeroth at War: Kalimdor on Fire
+	12872, -- The Dirty Five
 }
 
 local achBrawlersGuild = {
@@ -796,6 +804,8 @@ if (IsAlliance) then
   ACHID_ZONE_MISC["Lunarfall"] = achDraenorGarrison
   ACHID_ZONE_MISC["Shadowmoon Valley (Draenor)"].SUBZONES["Lunarfall Shipyard"] = achDraenorGarrisonShipyard
 
+  ACHID_ZONE_MISC["Wind's Redemption"] = achWarship
+
   ACHID_ZONE_MISC["Deeprun Tram"] = { SUBZONES = { ["Bizmo's Brawlpub"] = achBrawlersGuild } }
 
 else
@@ -817,13 +827,15 @@ else
   -- "The Sunreavers", "Champion of the Horde":
   tinsert(ACHID_ZONE_MISC["Icecrown"], 3677)
   tinsert(ACHID_ZONE_MISC["Icecrown"], 2788)
-  
+
   tinsert(ACHID_ZONE_MISC["Frostfire Ridge"], 8671) -- "You'll Get Caught Up in The... Frostfire!"
   tinsert(ACHID_ZONE_MISC["Frostfire Ridge"], 9606) -- "Frostfire Fridge"
   tinsert(ACHID_ZONE_MISC["Frostfire Ridge"], 9529) -- "On the Shadow's Trail"
 
   ACHID_ZONE_MISC["Frostwall"] = achDraenorGarrison -- !! name not 100% verified (have to run Horde char around outskirts of their garrison, refreshing suggestions, to test)
   ACHID_ZONE_MISC["Frostfire Ridge"].SUBZONES["Frostwall Shipyard"] = achDraenorGarrisonShipyard
+
+  ACHID_ZONE_MISC["The Banshee's Wail"] = achWarship
 
   ACHID_ZONE_MISC["Brawl'gar Arena"] = achBrawlersGuild
 
@@ -1130,7 +1142,10 @@ local ACHID_INSTANCES = {
 	},
 
 -- Legion Scenarios
-	["The Deaths of Chromie"] = 11941 -- Chromie Homie
+	["The Deaths of Chromie"] = 11941, -- Chromie Homie
+
+-- Battle for Azeroth Dungeons
+	["Tol Dagor"] = 12840, -- Tol Dagor (series: normal -> heroic -> mythic)
 }
 -- Aliases
 ACHID_INSTANCES["Molten Core"] = ACHID_INSTANCES["The Molten Core"]
@@ -1494,7 +1509,7 @@ local ACHID_INSTANCES_MYTHIC = {
 		11397, -- Mythic: Guarm
 		11398, -- Mythic: Helya
 		11396, -- Mythic: Odyn
-		11387, -- The Chosen
+		--11387, -- The Chosen - now a Feat of Strength
 		11337, -- You Runed Everything!
 	},
 	["Tomb of Sargeras"] = {
@@ -1518,6 +1533,12 @@ local ACHID_INSTANCES_MYTHIC = {
 		11995, -- Mythic: Portal Keeper Hasabel
 		12000, -- Mythic: The Coven of Shivarra
 		11999, -- Mythic: Varimathras
+	},
+
+-- Battle for Azeroth Dungeons
+	["Tol Dagor"] = {
+		12457, -- Remix to Ignition
+		12462, -- Shot Through the Heart
 	},
 }
 
@@ -2540,67 +2561,90 @@ end
 --]]
 
 --[[
+do
+	local okayFoS = {
+		-- Achievements marked as Feat of Strength that we're okay with still being suggested (because they're still achievable or we think they might be).
+		-- Periodically revisit these!
+		[11869] = true, -- Done during Black Temple timewalking. Pretty sure that will happen again later so it's achievable.
+		-- Ashran might come back later and, until then, no real harm suggesting these for that zone:
+		[9256] = true,
+		[9257] = true,
+	}
 -- /run Overachiever.Debug_GetMissingAch()
-local function getAchIDsFromTab(from, to)
-  for k,v in pairs(from) do
-    if (type(v) == "table") then
-      getAchIDsFromTab(v, to)
-    else
-      if (type(v) == "string") then
-        local id, crit = strsplit(":", v)
-        id, crit = tonumber(id) or id, tonumber(crit) or crit
-        to[id] = to[id] or {}
-        to[id][crit] = true
-      else
-        to[v] = to[v] or false
-      end
-    end
-  end
-end
---local isAchievementInUI = Overachiever.IsAchievementInUI
---local function isPreviousAchievementInUI(id)
---  id = GetPreviousAchievement(id)
---  if (id) then
---    if (isAchievementInUI(id)) then  return true;  end
---    return isPreviousAchievementInUI(id)
---  end
---end
-local FEAT_OF_STRENGTH_ID = 81;
-local GUILD_FEAT_OF_STRENGTH_ID = 15093;
+	local function getAchIDsFromTab(from, to)
+	  for k,v in pairs(from) do
+		if (type(v) == "table") then
+		  getAchIDsFromTab(v, to)
+		else
+		  if (type(v) == "string") then
+			local id, crit = strsplit(":", v)
+			id, crit = tonumber(id) or id, tonumber(crit) or crit
+			to[id] = to[id] or {}
+			to[id][crit] = true
+		  else
+			to[v] = to[v] or false
+		  end
+		end
+	  end
+	end
+	--local isAchievementInUI = Overachiever.IsAchievementInUI
+	--local function isPreviousAchievementInUI(id)
+	--  id = GetPreviousAchievement(id)
+	--  if (id) then
+	--    if (isAchievementInUI(id)) then  return true;  end
+	--    return isPreviousAchievementInUI(id)
+	--  end
+	--end
+	local FEAT_OF_STRENGTH_ID = 81
+	local GUILD_FEAT_OF_STRENGTH_ID = 15093
+	local function isInFeatOfStrengthCategory(id)
+		local cat = GetAchievementCategory(id)
+		local isFOS = false
+		if (cat == FEAT_OF_STRENGTH_ID or cat == GUILD_FEAT_OF_STRENGTH_ID) then
+			isFOS = true
+		else
+			local _, catParent = GetCategoryInfo(cat)
+			if (catParent == FEAT_OF_STRENGTH_ID or catParent == GUILD_FEAT_OF_STRENGTH_ID) then
+				isFOS = true
+			end
+		end
+		return isFOS
+	end
 
-function Overachiever.Debug_GetMissingAch()
-  wipe(suggested)
-  getAchIDsFromTab(Overachiever.SUGGESTIONS, suggested)
-  getAchIDsFromTab(OVERACHIEVER_ACHID, suggested)
-  getAchIDsFromTab(OVERACHIEVER_EXPLOREZONEID, suggested)
-  local count = 0
-  for id, crit in pairs(suggested) do
-    if (type(id) ~= "number") then
-      print("Invalid ID type:",id,type(id))
-      count = count + 1
-    elseif (GetAchievementInfo(id)) then
-      --if (not isAchievementInUI(id, true) and not isPreviousAchievementInUI(id)) then
-      --  print(GetAchievementLink(id),"is not found in the UI for this character.")
-      --  count = count + 1
-      local cat = GetAchievementCategory(id)
-      if (cat == FEAT_OF_STRENGTH_ID or cat == GUILD_FEAT_OF_STRENGTH_ID) then
-        print(GetAchievementLink(id)," ("..id..") is a Feat of Strength.")
-        count = count + 1
-      elseif (crit) then
-        local num = GetAchievementNumCriteria(id)
-        for c in pairs(crit) do
-          if (c > num) then
-            print(GetAchievementLink(id),"is missing criteria #"..(tostring(c) or "<?>"))
-            count = count + 1
-          end
-        end
-      end
-    else
-      print("Missing ID:",id..(crit and " (with criteria)" or ""))
-      count = count + 1
-    end
-  end
-  print("Overachiever.Debug_GetMissingAch():",count,"problems found.")
+	function Overachiever.Debug_GetMissingAch()
+	  wipe(suggested)
+	  getAchIDsFromTab(Overachiever.SUGGESTIONS, suggested)
+	  getAchIDsFromTab(OVERACHIEVER_ACHID, suggested)
+	  getAchIDsFromTab(OVERACHIEVER_EXPLOREZONEID, suggested)
+	  local count = 0
+	  for id, crit in pairs(suggested) do
+		if (type(id) ~= "number") then
+		  print("Invalid ID type:",id,type(id))
+		  count = count + 1
+		elseif (GetAchievementInfo(id)) then
+		  ----if (not isAchievementInUI(id, true) and not isPreviousAchievementInUI(id)) then
+		  --if (not Overachiever.IsAchievementInUI(id, true)) then
+		  --  print(GetAchievementLink(id),"is not found in the UI for this character.")
+		  --  count = count + 1
+		  if (not okayFoS[id] and isInFeatOfStrengthCategory(id)) then
+			print(GetAchievementLink(id)," ("..id..") is a Feat of Strength.")
+			count = count + 1
+		  elseif (crit) then
+			local num = GetAchievementNumCriteria(id)
+			for c in pairs(crit) do
+			  if (c > num) then
+				print(GetAchievementLink(id),"is missing criteria #"..(tostring(c) or "<?>"))
+				count = count + 1
+			  end
+			end
+		  end
+		else
+		  print("Missing ID:",id..(crit and " (with criteria)" or ""))
+		  count = count + 1
+		end
+	  end
+	  print("Overachiever.Debug_GetMissingAch():",count,"problems found.")
+	end
 end
 --]]
 

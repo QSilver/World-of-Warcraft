@@ -6,7 +6,8 @@
 	rscupdhpcheckhr=GetTime()
 
 --SetMapToCurrentZone()
-if C_Map.GetBestMapForUnit("player")==1094 or C_Map.GetBestMapForUnit("player")==1088 or C_Map.GetBestMapForUnit("player")==1147 then
+--if C_Map.GetBestMapForUnit("player")==1094 or C_Map.GetBestMapForUnit("player")==1088 or C_Map.GetBestMapForUnit("player")==1147 then
+if racheckzoneId({777,778,779,780,781,782,783,784,785,786,787,788,789,764,765,766,767,768,769,770,771,772,850,851,852,853,854,855,856},C_Map.GetBestMapForUnit("player")) then
 	RaidAchievement_legionrra:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
 	RaidAchievement_legionrra:RegisterEvent("UNIT_POWER_UPDATE")
 	RaidAchievement_legionrra:RegisterEvent("CHAT_MSG_RAID_BOSS_EMOTE")
@@ -62,7 +63,7 @@ end
 
 function legionrraonevent(self,event,...)
 
-local arg1, arg2, arg3,arg4,arg5,arg6 = ...
+local arg1, arg2, arg3,arg4,arg5,arg6 = CombatLogGetCurrentEventInfo()
 
 
 
@@ -145,7 +146,7 @@ end
 
 if event == "COMBAT_LOG_EVENT_UNFILTERED" and lfrenable==nil then
 
-local arg1, arg2, arg3,arg4,arg5,arg6,argNEW1,arg7,arg8,arg9,argNEW2,arg10,arg11,arg12,arg13,arg14, arg15,arg16,arg17,arg18,arg19 = ...
+local arg1, arg2, arg3,arg4,arg5,arg6,argNEW1,arg7,arg8,arg9,argNEW2,arg10,arg11,arg12,arg13,arg14, arg15,arg16,arg17,arg18,arg19 = CombatLogGetCurrentEventInfo()
 
 
 --ТУТ АЧИВЫ
@@ -218,7 +219,7 @@ end
 -- OLD
 if (1==2) then
 --BRF (2 dung)
-if C_Map.GetBestMapForUnit("player")==988 then
+if racheckzoneId({596,597,598,599,600},C_Map.GetBestMapForUnit("player")) then
 
 if arg2=="UNIT_DIED" then
   if legionrraspisokon[1]==1 and legionrraachdone1 then
@@ -279,7 +280,7 @@ end
 --
 --
 
-if C_Map.GetBestMapForUnit("player")==1026 then
+if racheckzoneId({661,662,663,664,665,666,667,668,669,670},C_Map.GetBestMapForUnit("player")) then
 if arg2=="UNIT_DIED" then
   if legionrraspisokon[6]==1 and legionrraachdone1 then
      local id=raGetUnitID(arg7)

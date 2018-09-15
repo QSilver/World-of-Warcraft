@@ -2,12 +2,12 @@
 HandyNotes_AzerothsTopTunesDB = {
 	["profileKeys"] = {
 		["Stephanna - Argent Dawn"] = "Default",
-		["Myvanna - Silvermoon"] = "Default",
+		["Simroth - Silvermoon"] = "Default",
 		["Lachrymas - Silvermoon"] = "Default",
-		["Alyara - Silvermoon"] = "Default",
+		["Myvanna - Silvermoon"] = "Default",
 		["Kjerstina - Silvermoon"] = "Default",
 		["Flaville - Silvermoon"] = "Default",
-		["Simroth - Silvermoon"] = "Default",
+		["Alyara - Silvermoon"] = "Default",
 		["Qsilver - Silvermoon"] = "Default",
 	},
 	["profiles"] = {

@@ -15,8 +15,10 @@ Auc-Stat-Simple: enabled
 Auc-Stat-Purchased: enabled
 Auc-Stat-StdDev: enabled
 Auc-Util-FixAH: enabled
-GuildNewsFilter: enabled
+GuildNewsFilter: disabled
 AzeriteTooltip: enabled
 AzeriteForge: disabled
 AllTheThings: disabled
 RaiderIO: disabled
+Quartz: enabled
+QE-DungeonTips: disabled

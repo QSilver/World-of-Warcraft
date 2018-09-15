@@ -5,7 +5,7 @@ function phraonload()
 	_, phraenglishclass = UnitClass("player")
 	phrahuntertime=0
 	
-	raPandaModVers=8.001
+	raPandaModVers=8.002
 
 local _, a2 = GetInstanceInfo()
 if select(3,GetInstanceInfo())==2 and a2=="party" then
@@ -106,7 +106,7 @@ end
 
 
 function phraonevent(self,event,...)
-local arg1, arg2, arg3,arg4,arg5,arg6 = ...
+local arg1, arg2, arg3,arg4,arg5,arg6 = CombatLogGetCurrentEventInfo()
 
 if event == "PLAYER_ALIVE" then
 ralldelaycombatrezet=GetTime()+4
@@ -216,7 +216,7 @@ end
 
 if event == "COMBAT_LOG_EVENT_UNFILTERED" then
 
-local arg1, arg2,arg3,arg4,arg5,arg6,argNEW1,arg7,arg8,arg9,argNEW2,arg10,arg11,arg12,arg13,arg14,arg15 = ...
+local arg1, arg2,arg3,arg4,arg5,arg6,argNEW1,arg7,arg8,arg9,argNEW2,arg10,arg11,arg12,arg13,arg14,arg15 = CombatLogGetCurrentEventInfo()
 
 
 

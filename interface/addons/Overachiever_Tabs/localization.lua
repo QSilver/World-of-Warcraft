@@ -297,20 +297,17 @@ elseif (locale == "frFR") then  -- French
 --[[ L["EVENTNOTICE_ENDS_TIME"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["EVENTNOTICE_HELP"] = ""--]] 
---[[Translation missing --]]
---[[ L["EVENTNOTICE_ONGOING"] = ""--]] 
+L["EVENTNOTICE_ONGOING"] = "Cet évènement est en cours."
 --[[Translation missing --]]
 --[[ L["EVENTNOTICE_STARTED_TODAY"] = ""--]] 
---[[Translation missing --]]
---[[ L["EVENTNOTICE_STARTS_HOURS"] = ""--]] 
+L["EVENTNOTICE_STARTS_HOURS"] = "Cet évènement commence dans |cff7eff00 %s |4heure:heures;|r."
 --[[Translation missing --]]
 --[[ L["EVENTNOTICE_STARTS_MINUTES"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["EVENTNOTICE_TIP"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["RELATED_BASE"] = ""--]] 
---[[Translation missing --]]
---[[ L["RELATED_CLOSE"] = ""--]] 
+L["RELATED_CLOSE"] = "Fermer"
 --[[Translation missing --]]
 --[[ L["RELATED_FILTERED_OUT"] = ""--]] 
 --[[Translation missing --]]
@@ -335,21 +332,18 @@ L["SEARCH_NAME"] = "Nom :"
 L["SEARCH_RESET"] = "Réinitialiser"
 L["SEARCH_RESULTS"] = "%s |4haut fait trouvé:hauts faits trouvés;."
 L["SEARCH_REWARD"] = "Récompense :"
---[[Translation missing --]]
---[[ L["SEARCH_SEARCHING"] = ""--]] 
+L["SEARCH_SEARCHING"] = "Recherche..."
 L["SEARCH_SUBMIT"] = "Chercher"
 L["SEARCH_TAB"] = "Recherches"
 L["SEARCH_TYPE"] = "Type :"
 L["SEARCH_TYPE_ALL"] = "Tout"
 L["SEARCH_TYPE_GUILD"] = "Guilde"
 L["SEARCH_TYPE_INDIV"] = "Personnel"
---[[Translation missing --]]
---[[ L["SEARCH_TYPE_OTHER"] = ""--]] 
+L["SEARCH_TYPE_OTHER"] = "Autre"
 L["SUGGESTIONS_DIFFICULTY"] = "Difficulté d'instance :"
 L["SUGGESTIONS_DIFFICULTY_AUTO"] = "Auto-détection"
 L["SUGGESTIONS_DIFFICULTY_HEROIC"] = "Héroïque"
---[[Translation missing --]]
---[[ L["SUGGESTIONS_DIFFICULTY_MYTHIC"] = ""--]] 
+L["SUGGESTIONS_DIFFICULTY_MYTHIC"] = "Mythique"
 L["SUGGESTIONS_DIFFICULTY_NORMAL"] = "Normale"
 L["SUGGESTIONS_EMPTY"] = "Overachiever n'a aucune suggestion pour le moment"
 L["SUGGESTIONS_EMPTY_TRADESKILL"] = " %s: Overachiever n'a aucune suggestion à faire pour le moment."
@@ -383,20 +377,14 @@ L["SUGGESTIONS_RESULTS_TRADESKILL"] = " %s: %d |4suggestion trouvée:suggestions
 --[[Translation missing --]]
 --[[ L["SUGGESTIONS_SHOWHIDDEN_TIP2"] = ""--]] 
 L["SUGGESTIONS_TAB"] = "Suggestions"
---[[Translation missing --]]
---[[ L["SUGGESTIONS_ZONERENAME_DALARAN_BROKENISLES"] = ""--]] 
---[[Translation missing --]]
---[[ L["SUGGESTIONS_ZONERENAME_DALARAN_NORTHREND"] = ""--]] 
+L["SUGGESTIONS_ZONERENAME_DALARAN_BROKENISLES"] = "Dalaran (Îles Brisées)"
+L["SUGGESTIONS_ZONERENAME_DALARAN_NORTHREND"] = "Dalaran (Norfendre)"
 --[[Translation missing --]]
 --[[ L["SUGGESTIONS_ZONERENAME_KARAZHAN_LEGION"] = ""--]] 
---[[Translation missing --]]
---[[ L["SUGGESTIONS_ZONERENAME_NAGRAND_DRAENOR"] = ""--]] 
---[[Translation missing --]]
---[[ L["SUGGESTIONS_ZONERENAME_NAGRAND_OUTLAND"] = ""--]] 
---[[Translation missing --]]
---[[ L["SUGGESTIONS_ZONERENAME_SHADOWMOONVALLEY_DRAENOR"] = ""--]] 
---[[Translation missing --]]
---[[ L["SUGGESTIONS_ZONERENAME_SHADOWMOONVALLEY_OUTLAND"] = ""--]] 
+L["SUGGESTIONS_ZONERENAME_NAGRAND_DRAENOR"] = "Nagrand (Draenor)"
+L["SUGGESTIONS_ZONERENAME_NAGRAND_OUTLAND"] = "Nagrand (Outreterre)"
+L["SUGGESTIONS_ZONERENAME_SHADOWMOONVALLEY_DRAENOR"] = "Vallée d’Ombrelune (Draenor)"
+L["SUGGESTIONS_ZONERENAME_SHADOWMOONVALLEY_OUTLAND"] = "Vallée d’Ombrelune (Outreterre)"
 L["TAB_HELP"] = "|cffffffffCtrl-click|r sur un haut fait pour l'afficher dans l'IU standard.|n|nUn |cfffffffffond bleu|r signifie qu'il fait partie d'une série dont vous n'avez pas encore effectué une étape précédente.|n|nUn |cfffffffffond rouge|r signifie qu'il ne peut pas être trouvé dans l'IU standard de ce personnage car il est propre à la faction adverse ou bien il s'agit d'un Tour de force non accompli.|n|nA |cfffffffffond vert|r signifie qu'un rappel pour ce haut fait a été affiché récemment dans une infobulle ou qu'il possède une alarme qui s'est déclenchée il y a peu."
 L["TAB_SORT"] = "Trier par :"
 L["TAB_SORT_COMPLETE"] = "Date d'accomplissement"

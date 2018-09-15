@@ -14,7 +14,8 @@ mod.respawnTime = 30
 --
 
 local omegaList = {}
-local omegaIconCount = 1
+local omegaMarker = {false, false, false, false}
+local omegaIconMax = mod:Mythic() and 4 or 3
 local pathogenBombCount = 1
 local contagionCount = 1
 local immunosuppressionCount = 1
@@ -22,11 +23,14 @@ local nextLiquify = 0
 local lingeringInfectionList = {}
 local omegaVectorDuration = nil
 
+local nameList = {}
+local UpdateInfoBox
+
 --------------------------------------------------------------------------------
 -- Initialization
 --
 
-local omegaVectorMarker = mod:AddMarkerOption(false, "player", 1, 265143, 1, 2, 3) -- Omega Vector
+local omegaVectorMarker = mod:AddMarkerOption(false, "player", 1, 265143, 1, 2, 3, 4) -- Omega Vector
 function mod:GetOptions()
 	return {
 		{265143, "SAY_COUNTDOWN"}, -- Omega Vector
@@ -34,10 +38,15 @@ function mod:GetOptions()
 		{265127, "INFOBOX"}, -- Lingering Infection
 		{265178, "TANK"}, -- Evolving Affliction
 		267242, -- Contagion
-		{265212, "SAY", "SAY_COUNTDOWN", "ICON"}, -- Gestate
+		{265212, "SAY", "ICON"}, -- Gestate
 		265206, -- Immunosuppression
 		265217, -- Liquefy
 		266459, -- Plague Bomb
+		-- Mythic
+		{274990, "FLASH"}, -- Bursting Lesions
+	},{
+		[265143] = "general",
+		[274990] = CL.mythic,
 	}
 end
 
@@ -51,21 +60,24 @@ function mod:OnBossEnable()
 	self:Log("SPELL_AURA_APPLIED_DOSE", "EvolvingAfflictionApplied", 265178)
 	self:Log("SPELL_CAST_START", "Contagion", 267242)
 	self:Log("SPELL_CAST_SUCCESS", "Gestate", 265209)
-	self:Log("SPELL_AURA_APPLIED", "GestateApplied", 265212)
 	self:Log("SPELL_AURA_REMOVED", "GestateRemoved", 265212)
 	self:Log("SPELL_CAST_START", "Immunosuppression", 265206)
 	self:Death("PlagueAmalgamDeath", 135016)
 	self:Log("SPELL_CAST_START", "Liquefy", 265217)
 	self:Log("SPELL_AURA_REMOVED", "LiquefyRemoved", 265217)
 	self:Log("SPELL_CAST_SUCCESS", "PlagueBomb", 266459)
+
+	-- Mythic
+	self:Log("SPELL_AURA_APPLIED", "BurstingLesionsApplied", 274990)
 end
 
 function mod:OnEngage()
 	omegaList = {}
 	lingeringInfectionList = {}
-	omegaIconCount = 1
+	omegaMarker = {false, false, false, false}
 	contagionCount = 1
 	omegaVectorDuration = nil
+	omegaIconMax = self:Mythic() and 4 or 3
 
 	self:Bar(267242, 20.5, CL.count:format(self:SpellName(267242), contagionCount)) -- Contagion
 	self:Bar(265212, 10) -- Gestate
@@ -73,32 +85,132 @@ function mod:OnEngage()
 	nextLiquify = GetTime() + 90
 	self:Bar(265217, 90) -- Liquefy
 
-	self:OpenInfo(265127, self:SpellName(265127)) -- Lingering Infection
+	self:OpenInfo(265127, self:SpellName(265127), "TEMP") -- Lingering Infection
+	nameList = {}
+	for unit in self:IterateGroup() do
+		nameList[#nameList+1] = self:UnitName(unit)
+	end
+	UpdateInfoBox()
 end
 
 --------------------------------------------------------------------------------
 -- Event Handlers
 --
 
+do
+	local function sortFunc(x,y)
+		local px, py = lingeringInfectionList[x] or -1, lingeringInfectionList[y] or -1
+		if px == py then
+			return x > y
+		else
+			return px > py
+		end
+	end
+	local tsort = table.sort
+
+	function UpdateInfoBox()
+		tsort(nameList, sortFunc)
+		for i = 1, 20 do
+			local n = nameList[i]
+			local result = lingeringInfectionList[n]
+			if i % 2 == 0 then
+				if result then
+					local icon = GetRaidTargetIndex(n)
+					mod:SetInfo(265127, i+19, (icon and ("  |T13700%d:0|t"):format(icon) or "  ") .. mod:ColorName(n))
+					mod:SetInfo(265127, i+20, result)
+					local vector = omegaList[n] and omegaList[n][1]
+					if vector then
+						local t = GetTime()
+						local elap = t - vector
+						local duration = omegaVectorDuration or 10
+						local remaining = duration - elap
+						if IsItemInRange(63427, n) then -- Worgsaw, 8yd
+							mod:SetInfoBar(265127, i+19, remaining/duration, 0, 0, 1)
+						else
+							mod:SetInfoBar(265127, i+19, remaining/duration)
+						end
+					else
+						mod:SetInfoBar(265127, i+19, 0)
+					end
+				else
+					mod:SetInfo(265127, i+19, "")
+					mod:SetInfo(265127, i+20, "")
+					mod:SetInfoBar(265127, i+19, 0)
+				end
+			else
+				if result then
+					local icon = GetRaidTargetIndex(n)
+					mod:SetInfo(265127, i, (icon and ("|T13700%d:0|t"):format(icon) or "") .. mod:ColorName(n))
+					mod:SetInfo(265127, i+1, result)
+					local vector = omegaList[n] and omegaList[n][1]
+					if vector then
+						local t = GetTime()
+						local elap = t - vector
+						local duration = omegaVectorDuration or 10
+						local remaining = duration - elap
+						if IsItemInRange(63427, n) then -- Worgsaw, 8yd
+							mod:SetInfoBar(265127, i, remaining/duration, 0, 0, 1)
+						else
+							mod:SetInfoBar(265127, i, remaining/duration)
+						end
+					else
+						mod:SetInfoBar(265127, i, 0)
+					end
+				else
+					mod:SetInfo(265127, i, "")
+					mod:SetInfo(265127, i+1, "")
+					mod:SetInfoBar(265127, i, 0)
+				end
+			end
+		end
+
+		if mod.isEngaged then
+			mod:SimpleTimer(UpdateInfoBox, 0.1)
+		end
+	end
+end
+
 function mod:OmegaVectorApplied(args)
+	if not lingeringInfectionList[args.destName] then
+		lingeringInfectionList[args.destName] = 0
+	end
+
 	if not omegaList[args.destName] then
-		omegaList[args.destName] = 1
+		local t = GetTime()
+		omegaList[args.destName] = {t}
 		if not omegaVectorDuration then
 			local _, _, _, expires = self:UnitDebuff(args.destName, args.spellId)
 			if expires then -- Safety
-				local duration = expires-GetTime()
+				local duration = expires-t
 				if duration > 9 then -- Safety
 					omegaVectorDuration = duration
 				end
 			end
 		end
 	else
-		omegaList[args.destName] = omegaList[args.destName] + 1
+		local count = #omegaList[args.destName]
+		local t = GetTime()
+		omegaList[args.destName][count+1] = t
 	end
-	if self:GetOption(omegaVectorMarker) and omegaList[args.destName] == 1 then
-		SetRaidTarget(args.destName, (omegaIconCount%3)+1) -- Normal: 1 Heroic+: 1->2->3->1
-		omegaIconCount = omegaIconCount + 1
+
+	local icon
+	for i = 1, omegaIconMax do
+		-- If 2 debuffs on a player always mark with the one expiring first
+		if omegaMarker[i] == args.destName and not icon then
+			icon = i
+		elseif not omegaMarker[i] then
+			omegaMarker[i] = args.destName
+			if not icon then
+				icon = i
+			end
+			break
+		end
 	end
+
+	if self:GetOption(omegaVectorMarker) and icon then
+		SetRaidTarget(args.destName, icon)
+	end
+
 	if self:Me(args.destGUID) then
 		self:TargetMessage2(265143, "blue", args.destName)
 		self:PlaySound(265143, "alarm")
@@ -107,15 +219,28 @@ function mod:OmegaVectorApplied(args)
 end
 
 function mod:OmegaVectorRemoved(args)
-	omegaList[args.destName] = omegaList[args.destName] - 1
-	if omegaList[args.destName] == 0 then
-		omegaList[args.destName] = nil
-		if self:GetOption(omegaVectorMarker) then
-			SetRaidTarget(args.destName, 0)
+	tremove(omegaList[args.destName], 1)
+
+	local icon, found = 0, false
+	for i = 1, omegaIconMax do
+		if omegaMarker[i] == args.destName then
+			if found then
+				icon = i
+				break
+			else
+				found = true
+				omegaMarker[i] = false
+			end
 		end
-		if self:Me(args.destGUID) then
-			self:CancelSayCountdown(265143)
-		end
+	end
+
+	if self:GetOption(omegaVectorMarker) then
+		-- Either remove the mark or update it to the next debuff
+		SetRaidTarget(args.destName, icon)
+	end
+
+	if self:Me(args.destGUID) and icon == 0 then
+		self:CancelSayCountdown(265143)
 	end
 end
 
@@ -132,7 +257,7 @@ end
 
 function mod:EvolvingAfflictionApplied(args)
 	self:StackMessage(args.spellId, args.destName, args.amount, "purple")
-	self:PlaySound(args.spellId, "alert", args.destName)
+	self:PlaySound(args.spellId, "alert", nil, args.destName)
 end
 
 function mod:Contagion(args)
@@ -160,16 +285,7 @@ function mod:Gestate(args)
 	self:CDBar(265206, 6, CL.count:format(self:SpellName(265206), immunosuppressionCount)) -- Immunosuppression
 end
 
-function mod:GestateApplied(args)
-	if self:Me(args.destGUID) then
-		self:SayCountdown(args.spellId, 5)
-	end
-end
-
 function mod:GestateRemoved(args)
-	if self:Me(args.destGUID) then
-		self:CancelSayCountdown(args.spellId)
-	end
 	self:PrimaryIcon(args.spellId)
 end
 
@@ -215,5 +331,13 @@ function mod:PlagueBomb(args)
 	pathogenBombCount = pathogenBombCount + 1
 	if pathogenBombCount < 3 then
 		self:Bar(args.spellId, 12.2)
+	end
+end
+
+function mod:BurstingLesionsApplied(args)
+	if self:Me(args.destGUID) then
+		self:TargetMessage2(args.spellId, "blue", args.destName)
+		self:PlaySound(args.spellId, "warning")
+		self:Flash(args.spellId)
 	end
 end

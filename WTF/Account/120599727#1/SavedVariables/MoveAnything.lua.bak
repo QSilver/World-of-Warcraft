@@ -129,19 +129,6 @@ MADB = {
 					},
 				},
 				["AchievementFrame"] = {
-					["UIPanelWindows"] = {
-						["xoffset"] = 80,
-						["whileDead"] = 1,
-						["pushable"] = 0,
-						["area"] = "doublewide",
-					},
-					["orgPos"] = {
-						"TOPLEFT", -- [1]
-						"UIParent", -- [2]
-						"TOPLEFT", -- [3]
-						0, -- [4]
-						-104.000007629395, -- [5]
-					},
 					["name"] = "AchievementFrame",
 					["pos"] = {
 						"BOTTOMLEFT", -- [1]

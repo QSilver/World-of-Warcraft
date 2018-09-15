@@ -178,6 +178,7 @@ L["STRING_DAMAGE_TAKEN_FROM2"] = "applied damage with"
 L["STRING_DEFENSES"] = "Defenses"
 L["STRING_DESCENDING"] = "Descending"
 L["STRING_DETACH_DESC"] = "Break Window Group"
+L["STRING_DISCARD"] = "Discard"
 L["STRING_DISPELLED"] = "Buffs/Debuffs Removed"
 L["STRING_DODGE"] = "Dodge"
 L["STRING_DOT"] = " (DoT)"
@@ -1588,8 +1589,7 @@ L["STRING_WELCOME_12"] = "Choose how fast the window get updated, you may also e
 --[[ L["STRING_WELCOME_13"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["STRING_WELCOME_14"] = ""--]] 
---[[Translation missing --]]
---[[ L["STRING_WELCOME_15"] = ""--]] 
+L["STRING_WELCOME_15"] = "Tooltip for the update speed in the welcome window."
 --[[Translation missing --]]
 --[[ L["STRING_WELCOME_16"] = ""--]] 
 --[[Translation missing --]]

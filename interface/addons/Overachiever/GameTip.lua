@@ -834,6 +834,9 @@ local ConsumeItemAch = {
   DraenorCuisine = { "Item_consumed", L.ACH_CONSUME_COMPLETE, L.ACH_CONSUME_INCOMPLETE, L.ACH_CONSUME_INCOMPLETE_EXTRA, {} },
   BrewfestDiet = { "Brewfest_consumed", L.ACH_CONSUME_COMPLETE, L.ACH_CONSUME_INCOMPLETE, L.ACH_CONSUME_INCOMPLETE_EXTRA, {} },
   DarkmoonFaireFeast = { "Darkmoon_consumed", L.ACH_CONSUME_COMPLETE, L.ACH_CONSUME_INCOMPLETE, L.ACH_CONSUME_INCOMPLETE_EXTRA, {} },
+
+  -- Item-related achievements that aren't actually about consuming items, but the system should work for them fine:
+  ThreeSheetsToTheWind = { "Item_acquired", L.ACH_ACQUIRE_COMPLETE, L.ACH_ACQUIRE_INCOMPLETE, L.ACH_ACQUIRE_INCOMPLETE_EXTRA, {} },
 };
 
 local MiscItemAch = {
@@ -1098,11 +1101,13 @@ function Overachiever.ExamineItem(tooltip)
 	local itemMinLevel
 
 	for key,tab in pairs(ConsumeItemAch) do
-		local id, text, complete, achcomplete = ItemConsumedCheck(key, tab, itemID)
-		if (text) then
-			if (itemMinLevel == nil) then  itemMinLevel = select(5, GetItemInfo(link)) or 0;  end
-			--print("itemMinLevel",itemMinLevel,id,name,UnitLevel("player"))
-			storeTooltip(tooltip, id, text, complete, name, (achcomplete or itemMinLevel > UnitLevel("player")))
+		if (Overachiever_Settings[ tab[1] ]) then
+			local id, text, complete, achcomplete = ItemConsumedCheck(key, tab, itemID)
+			if (text) then
+				if (itemMinLevel == nil) then  itemMinLevel = select(5, GetItemInfo(link)) or 0;  end
+				--print("itemMinLevel",itemMinLevel,id,name,UnitLevel("player"))
+				storeTooltip(tooltip, id, text, complete, name, (achcomplete or itemMinLevel > UnitLevel("player")))
+			end
 		end
 	end
 
@@ -1336,6 +1341,101 @@ end
 --]]
 
 TjBagWatch.RegisterFunc(BagUpdate, true)
+
+
+-- MISSIONS
+-------------
+
+local missionsFrame = CreateFrame("frame")
+Overachiever.MissionsFrame = missionsFrame
+
+
+local MissionAch = {
+	MissionBarrens = true,
+	MissionLordaeron = true,
+	MissionKalimdor = true
+}
+
+local function MissionCheck(key, missionID)
+	local id = OVERACHIEVER_ACHID[key]
+	local achcomplete = select(4, GetAchievementInfo(id))
+	if (achcomplete and not Overachiever_Settings[ "Mission_complete_whencomplete" ]) then  return;  end
+	local isCrit, complete = isCriteria_asset(id, missionID)
+	if (not isCrit) then  return;  end
+	local tip = complete and L.ACH_MISSIONCOMPLETE_COMPLETE or achcomplete and L.ACH_MISSIONCOMPLETE_INCOMPLETE_EXTRA or L.ACH_MISSIONCOMPLETE_INCOMPLETE
+	return id, tip, complete, achcomplete
+end
+
+local function getMissionID(button)
+	if (button.info) then
+		return button.info.missionID
+	else
+		if (GarrisonLandingPageReport and GarrisonLandingPageReport.List) then
+			-- See function GarrisonLandingPageReportMission_OnEnter in Blizzard_GarrisonLandingPage.lua:
+			local items = GarrisonLandingPageReport.List.items
+			if GarrisonLandingPageReport.selectedTab == GarrisonLandingPageReport.Available then
+				items = GarrisonLandingPageReport.List.AvailableItems;
+			end
+			local item = items[button.id]
+			if (item) then
+				return item.missionID
+			end
+		end
+	end
+	return false
+	--GarrisonLandingPageReport.List.AvailableItems
+end
+
+local function missionButtonOnEnter(self, ...)
+	--print("missionButtonOnEnter", self.id)
+	if (Overachiever_Settings.Mission_complete) then
+		--local name = self.info and self.info.name or self.Title and self.Title:GetText()
+		local missionID = getMissionID(self)
+		if (missionID) then
+			local id, text, complete
+			for key,tab in pairs(MissionAch) do
+				local id, text, complete = MissionCheck(key, missionID)
+				if (text) then
+					local r, g, b
+					if (complete) then
+						r, g, b = tooltip_complete.r, tooltip_complete.g, tooltip_complete.b
+					else
+						r, g, b = tooltip_incomplete.r, tooltip_incomplete.g, tooltip_incomplete.b
+					end
+					GameTooltip:AddLine(" ")
+					GameTooltip:AddLine(text, r, g, b)
+					GameTooltip:AddTexture(AchievementIcon)
+					GameTooltip:Show()
+					break
+				end
+			end
+		end
+	end
+	-- If we want to check by name instead:
+	--local name = self.Title and self.Title:GetText()
+	-- self.info.missionID : Can see it on BFAMissionFrameMissionsListScrollFrameButton1 but not GarrisonLandingPageReportListListScrollFrameButton1, so we
+	-- have to rely on name. (Likewise, we see self.info.name on the former but not the latter, so we get the name from self.Title:GetText() instead.)
+end
+
+
+missionsFrame:RegisterEvent("ADDON_LOADED")
+
+missionsFrame:SetScript("OnEvent", function(self, event, arg1, ...)
+	--print("MissionsFrame OnEvent", event, arg1, ...)
+	if (event == "ADDON_LOADED" and arg1 == "Blizzard_GarrisonUI") then
+		missionsFrame:UnregisterEvent("ADDON_LOADED")
+		Overachiever.MissionsFrame, missionsFrame = nil, nil
+		for k,v in pairs(BFAMissionFrameMissionsListScrollFrame.buttons) do
+			-- BFAMissionFrameMissionsListScrollFrameButton1 thru ...Button9
+			v:HookScript("OnEnter", missionButtonOnEnter)
+			--print(v:GetName())
+		end
+		for k,v in pairs(GarrisonLandingPageReportListListScrollFrame.buttons) do
+			-- GarrisonLandingPageReportListListScrollFrameButton1 thru ...Button10
+			v:HookScript("OnEnter", missionButtonOnEnter)
+		end
+	end
+end)
 
 
 -- Register some Blizzard sounds

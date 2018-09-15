@@ -7,10 +7,6 @@ if not L then return end
 L[" is not active in this raid."] = "在当前团队中未启用。"
 L[" you are now the Master Looter and RCLootCouncil is now handling looting."] = "你现在是战利品分配者，RCLootCouncil正在管理分配。"
 L["&p was awarded with &i for &r!"] = "&p获得了&i，理由为&r！"
-L["2 Piece"] = "两件"
-L["2nd Tier Piece"] = "第2件套装"
-L["4 Piece"] = "4件"
-L["4th Tier Piece"] = "第4件套装"
 L["A format to copy/paste to another player."] = "一个可以给其他玩家复制/粘贴的格式。"
 L["A new session has begun, type '/rc open' to open the voting frame."] = "新的分配会话已经开始，输入'/rc open'打开投票界面。"
 L["A tab delimited output for Excel. Might work with other spreadsheets."] = "以Tab字符分隔的导出格式。支持Excel。也有可能支持其他类型表格软件。"
@@ -31,8 +27,9 @@ L["add_ranks_desc2"] = [=[在上方选择一个会阶，添加该会阶以及高
 
 点击"当前议会成员"页来查看你所选择的成员。]=]
 L["add_rolls_desc"] = "自动给所有会话添加1-100的掷点。"
+--[[Translation missing --]]
+--[[ L["Additional Buttons"] = ""--]] 
 L["All items"] = "所有物品"
-L["All items has been awarded and  the loot session concluded"] = "所有战利品已分配完毕，分配会话结束。"
 --[[Translation missing --]]
 --[[ L["All items have been awarded and the loot session concluded"] = ""--]] 
 L["All items usable by the candidate"] = "所有此人可用的物品"
@@ -40,10 +37,8 @@ L["All unawarded items"] = "所有未分配物品"
 L["Alt click Looting"] = "Alt+左键分配"
 L["alt_click_looting_desc"] = "启用Alt+左键分配。使用Alt+左键点击物品以开始分配。"
 L["Alternatively, flag the loot as award later."] = "另外，标记该物品为稍后分配。"
-L["Always use RCLootCouncil when I'm Master Looter"] = "当拥有分配权时，总是使用RCLootCouncil"
 --[[Translation missing --]]
 --[[ L["Always use RCLootCouncil with Personal Loot"] = ""--]] 
-L["Always use when leader"] = "当为队长时，总是使用"
 L["always_show_tooltip_howto"] = "双击切换是否总显示tooltip"
 L["Announce Awards"] = "通告分配"
 L["Announce Considerations"] = "通告考虑的物品"
@@ -73,10 +68,8 @@ L["Are you sure you want to give #item to #player?"] = "确定将%s分配给 %s�
 L["Are you sure you want to reannounce all unawarded items to %s?"] = "你确定要向 %s 重新通告所有未分配物品吗？"
 L["Are you sure you want to request rolls for all unawarded items from %s?"] = "你确定要让 %s 对所有未分配物品掷点吗？"
 L["Armor Token"] = "套装代币"
-L["Ask me every time I become Master Looter"] = "当成为战利品分配者时，总是询问我"
 --[[Translation missing --]]
 --[[ L["Ask me every time Personal Loot is enabled"] = ""--]] 
-L["Ask me when leader"] = "当为队长时，询问我"
 L["Auto Award"] = "自动分配"
 L["Auto Award to"] = "自动分配给"
 L["Auto awarded 'item'"] = "自动分配 %s"
@@ -120,6 +113,8 @@ L["award_reasons_desc"] = [=[团员无法选择的分配理由。
 L["Awarded"] = "已分配"
 L["Awarded item cannot be awarded later."] = "已分配物品无法被稍后分配。"
 L["Awards"] = "分配"
+--[[Translation missing --]]
+--[[ L["Azerite Armor"] = ""--]] 
 L["Background"] = "背景"
 L["Background Color"] = "背景颜色"
 L["Banking"] = "收藏"
@@ -206,12 +201,8 @@ L["Double click to delete this entry."] = "双击删除此项"
 L["Dropped by:"] = "掉落自："
 L["Edit Entry"] = "修改此项"
 L["Enable Loot History"] = "启用拾取历史"
-L["Enable Relic Buttons"] = "启用圣物按钮"
-L["Enable Tier Buttons"] = "启用套装选项"
 L["Enable Timeout"] = "启用超时"
 L["enable_loot_history_desc"] = "启用历史记录。如果关闭，RCLootCouncil 将不会记录任何数据。"
-L["enable_relicbuttons_desc"] = "选中此项以对圣物启用单独的按钮"
-L["enable_tierbuttons_desc"] = "选中此项以对套装启用单独的按钮"
 L["enable_timeout_desc"] = "勾选以启用拾取窗口限时"
 L["Enter your note:"] = "输入你的备注："
 L["EQdkp-Plus XML output, tailored for Enjin import."] = "EQdkp-Plus XML导出，适用 Enjin。"
@@ -242,6 +233,8 @@ L["ignore_input_usage"] = "此功能只接受物品ID(数字), 物品名字以�
 L["ignore_list_desc"] = "被RCLootCouncil忽略的物品，点击该物品来移除它。"
 L["ignore_options_desc"] = "控制RCLootCouncil忽略的物品。如果添加的物品未显示，切到其他标签再切回来，这样你就可以看到了。"
 L["import_desc"] = "将数据粘贴于此。只显示前2500个字符以避免游戏卡顿。"
+--[[Translation missing --]]
+--[[ L["Invalid selection"] = ""--]] 
 L["Item"] = "物品"
 L["'Item' is added to the award later list."] = "%s被加入到了稍后分配列表了。"
 L["Item quality is below the loot threshold"] = "物品品质低于物品分配界限。"
@@ -252,7 +245,6 @@ L["item_in_bags_low_trade_time_remaining_reminder"] = "你的背包中的以下�
 L["Items stored in the loot master's bag for award later cannot be awarded later."] = "存放在战利品分配者背包内的物品无法被稍后分配。"
 L["Items under consideration:"] = "在考虑中的物品："
 L["Latest item(s) won"] = "最近获得的物品"
-L["leaderUsage_desc"] = "做为团长的时候，采用相同的配置？"
 L["Length"] = "长度"
 L["Log"] = "记录"
 L["log_desc"] = "启用以在拾取历史中记录"
@@ -273,6 +265,8 @@ L["Lower Quality Limit"] = "最低品质限定"
 L["lower_quality_limit_desc"] = [=[选择自动分配时物品的最低品质限定 (含此品质！)。
 注意: 这将会更改物品分配界限。]=]
 L["Mainspec/Need"] = "主天赋/需求"
+--[[Translation missing --]]
+--[[ L["Mass deletion of history entries."] = ""--]] 
 L["Master Looter"] = "战利品分配者"
 L["master_looter_desc"] = "注意: 这些设置仅供战利品分配者使用。"
 L["Message"] = "消息"
@@ -332,6 +326,24 @@ L["Open the Loot History"] = "打开拾取历史"
 L["open_the_loot_history_desc"] = "点击打开拾取历史。"
 L["Opens the synchronizer"] = "打开同步界面"
 --[[Translation missing --]]
+--[[ L["opt_addButton_desc"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_buttonsGroup_desc"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_deleteDate_confirm"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_deleteDate_desc"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_deleteName_confirm"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_deleteName_desc"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_deletePatch_confirm"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_deletePatch_desc"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_moreButtons_desc"] = ""--]] 
+--[[Translation missing --]]
 --[[ L["opt_printCompletedTrade_Desc"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["opt_printCompletedTrade_Name"] = ""--]] 
@@ -339,9 +351,14 @@ L["Opens the synchronizer"] = "打开同步界面"
 --[[ L["opt_rejectTrade_Desc"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["opt_rejectTrade_Name"] = ""--]] 
-L["Other piece"] = "其他套装"
 --[[Translation missing --]]
 --[[ L["Out of instance"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["Patch"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["Personal Loot - Non tradeable"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["Personal Loot - Rejected Trade"] = ""--]] 
 L["'player' can't receive 'type'"] = "%s 不能接收 %s - 版本不符？"
 L["'player' declined your sync request"] = "%s拒绝了你的同步请求"
 L["'player' has asked you to reroll"] = "%s 要求你重新选择"
@@ -353,8 +370,6 @@ L["'player' hasn't opened the sync window"] = "%s 没有打开同步窗口 (/rc 
 L["Player is not in the group"] = "玩家不在队伍中"
 --[[Translation missing --]]
 --[[ L["Player is not in this instance"] = ""--]] 
-L["Player is not in this instance or his inventory is full"] = "玩家不在副本中或者背包满"
-L["Player is not in this instance or is ineligible for this item"] = "玩家不在副本中或者无权拾取此物品。"
 L["Player is offline"] = "玩家不在线"
 L["Please wait a few seconds until all data has been synchronized."] = "请等待几秒以接收数据。"
 L["Please wait before trying to sync again."] = "请稍后再尝试同步。"
@@ -373,8 +388,6 @@ L["Reannounce ..."] = "再次通告..."
 L["Reannounced 'item' to 'target'"] = "已重新通告 %s 给 %s"
 L["Reason"] = "理由"
 L["reason_desc"] = "自动分配时添加至历史记录的分配理由。"
-L["Relic Buttons and Responses"] = "圣物按钮与回应"
-L["relic_buttons_desc"] = "选择处理圣物时使用的按钮/回应。这与以上的概念基本一致，只是这些将会在圣物掉落时显示。放弃按钮仍然会被加入最右侧。"
 L["Remove All"] = "移除所有"
 L["Remove from consideration"] = "从待定中移除"
 L["remove_all_desc"] = "移除所有议会成员。"
@@ -421,6 +434,8 @@ L["Simple BBCode output."] = "简单BBCode导出。"
 L["Skins"] = "皮肤"
 L["skins_description"] = "选择一个默认皮肤或自己创建一个。注意这只有装饰效果。打开版本检查查看效果 ('/rc version')。"
 --[[Translation missing --]]
+--[[ L["Slot"] = ""--]] 
+--[[Translation missing --]]
 --[[ L["Socket"] = ""--]] 
 L["Something went wrong :'("] = "出现了一些问题"
 L["Something went wrong during syncing, please try again."] = "同步出现错误，请重试。"
@@ -429,6 +444,10 @@ L["sort_items_desc"] = "将物品按照类型与装等排序。"
 L["Standard .csv output."] = "标准csv格式导出。"
 L["Status texts"] = "状态文字"
 L["Store in bag and award later"] = "存入背包以稍后分配"
+--[[Translation missing --]]
+--[[ L["Succesfully deleted %d entries"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["Succesfully deleted %d entries from %s"] = ""--]] 
 L["Successfully imported 'number' entries."] = "成功导入%d条数据。"
 L["Successfully received 'type' from 'player'"] = "成功从 %2$s 获得%1$s。"
 L["Sync"] = "同步"
@@ -465,11 +484,8 @@ L["This item has been awarded"] = "这件物品已经被分配了"
 L["Tier 19"] = "T19"
 L["Tier 20"] = "T20"
 L["Tier 21"] = "T21"
-L["Tier Buttons and Responses"] = "套装按钮与回应"
-L["Tier Piece that doesn't complete a set"] = "不成套的套装部位"
 L["Tier Tokens ..."] = "套装代币 ..."
 L["Tier tokens received from here:"] = "从这里获得的套装代币："
-L["tier_buttons_desc"] = "选择处理套装时使用的按钮/回应。这与以上的概念基本一致，只是这些将会在套装掉落时显示。放弃按钮仍然会被加入最右侧。"
 L["tier_token_heroic"] = "英雄"
 L["tier_token_mythic"] = "史诗"
 L["tier_token_normal"] = "普通"
@@ -496,7 +512,6 @@ L["Unguilded"] = "无公会"
 L["Unknown date"] = "未知日期"
 L["Unknown/Chest"] = "未知/箱子"
 L["Unvote"] = "取消投票"
-L["Upgrade to existing tier/random upgrade"] = "升级当前套装/其他套装"
 L["Upper Quality Limit"] = "品质上限"
 L["upper_quality_limit_desc"] = [=[选择自动分配时物品的品质上限 (含此品质！).
 注意: 这将会更改物品分配界限。]=]
@@ -530,7 +545,6 @@ L["You are not allowed to see the Voting Frame right now."] = "你现在无法�
 --[[Translation missing --]]
 --[[ L["You are not in an instance"] = ""--]] 
 L["You can only auto award items with a quality lower than 'quality' to yourself due to Blizaard restrictions"] = "由于暴雪的限定，你只能自动分配低于%s品质的物品给自己"
-L["You cannot initiate a test while in a group without being the MasterLooter."] = "当你在队伍中且不是战利品分配者时无法开始测试。"
 L["You cannot start an empty session."] = "你无法开始不含任何物品的分配进程。"
 L["You cannot use the menu when the session has ended."] = "你无法使用菜单，因为分配已经结束。"
 L["You cannot use this command without being the Master Looter"] = "你无法使用此命令，因为你不是战利品分配者"

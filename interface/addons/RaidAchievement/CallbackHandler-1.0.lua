@@ -24,7 +24,7 @@ end
 
 local function CreateDispatcher(argCount)
 	local code = [[
-	local next, xpcall, eh = ...
+	local next, xpcall, eh = CombatLogGetCurrentEventInfo()
 
 	local method, ARGS
 	local function call() method(ARGS) end
@@ -34,7 +34,7 @@ local function CreateDispatcher(argCount)
 		index, method = next(handlers)
 		if not method then return end
 		local OLD_ARGS = ARGS
-		ARGS = ...
+		ARGS = CombatLogGetCurrentEventInfo()
 		repeat
 			xpcall(call, eh)
 			index, method = next(handlers, index)

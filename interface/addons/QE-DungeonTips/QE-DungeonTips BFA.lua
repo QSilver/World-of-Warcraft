@@ -1,6 +1,6 @@
 --[[
 Questionably Epic Mythic+ Dungeon Tips
-Version: 4.5 (Battle for Azeroth)
+Version: 4.6 (Battle for Azeroth)
 Developed by: Voulk
 Contact: 
 	Discord: Voulk#1858
@@ -45,7 +45,143 @@ local tipsMap = {
 	----------------Battle for Azeroth-----------------
 	---------------------------------------------------
 	
-		----- Ataldazar -----
+	----- Uldir -----
+	-- Taloc --
+	[137119] = {{"Important", "Drop the Plasma Discharge debuff out of the raid."}, {"Important", "Dodge: Boss charge (immediately follows Cudgel of Gore). Big hitbox."},
+				{"Important", "Dodge: Sanguine Static: cast time, big red balls flying from boss"}, {"Important", "At 60% boss room turns into elevator. Dodge beams (you can kind of see them under platform) and kill the blobs."}, 
+				{"TANK", "Run out during Cudgel of Gore. He'll clear any pools he charges over."},
+				{"HEALER", "Healing CDs: Cudgel of Gore. Every 1 minute starting at ~0:40. None when platform descending."}}, -- Taloc the Corrupted
+		[138530] = 	{{"Important", "Drop Plasma Discharge out of the raid"}, {"Important", "Dodge: Boss charge (immediately follows Cudgel of Gore). Big hitbox."},
+				{"Important", "Dodge: Sanguine Static: cast time, big red balls flying from boss"}, {"Important", "At 60% boss room turns into elevator. Dodge beams (you can kind of see them under platform) and kill the blobs."}, 
+				{"TANK", "Run out during Cudgel of Gore. He'll clear any pools he charges over."},
+				{"HEALER", "Healing CDs: Cudgel of Gore. Every 1 minute starting at ~0:40. None when platform descending."}}, -- Taloc the Corrupted (Volatile Droplet)
+		[138959] = 	{{"Important", "Drop Plasma Discharge out of the raid"}, {"Important", "Dodge: Boss charge (immediately follows Cudgel of Gore). Big hitbox."},
+				{"Important", "Dodge: Sanguine Static: cast time, big red balls flying from boss"}, {"Important", "At 60% boss room turns into elevator. Dodge beams (you can kind of see them under platform) and kill the blobs."}, 
+				{"TANK", "Run out during Cudgel of Gore. He'll clear any pools he charges over."},
+				{"HEALER", "Healing CDs: Cudgel of Gore. Every 1 minute starting at ~0:40. None when platform descending."}}, -- Taloc the Corrupted (Coalesced Blood)	
+				
+				
+	-- Mother			
+	[135452] = {{"Important", "Three rooms. You cross in small groups since crossing deals raid damage and spawns an add. Hero the last room."}, {"PriorityTarget", "Priority Target: Remnant of Corruption."},
+				{"Important", "Run against the wind pushback, dodge the fire swirlies and avoid the beams."}, {"Interrupts", "Interrupt: Clinging Corruption (cast by adds, likely a wipe if one gets through)"},
+				{"Important", "Heroic: Beam can drop from the roof. Stand in the yellow swirlies to survive."}, {"TANK", "Frontal Cleave: Sanitizing Strike (cone). Command raid not to stand in front of boss."},
+				{"HEALER", "Healing CDs: on group crosses. Have one healer stay with tank in first room until they move."}}, -- MOTHER
+	[138089] = {{"Important", "Three rooms. You cross in small groups since crossing deals raid damage and spawns an add. Hero the last room."}, {"PriorityTarget", "Priority Target: Remnant of Corruption."},
+				{"Important", "Run against the wind pushback, dodge the fire swirlies and avoid the beams."}, {"Interrupts", "Interrupt: Clinging Corruption (cast by adds, likely a wipe if one gets through)"},
+				{"Important", "Heroic: Beam can drop from the roof. Stand in the yellow swirlies to survive."}, {"TANK", "Frontal Cleave: Sanitizing Strike (cone). Command raid not to stand in front of boss."},
+				{"HEALER", "Healing CDs: on group crosses. Have one healer stay with tank in first room until they move."}}, -- MOTHER (2nd ID)
+		[136315] = {{"Important", "Three rooms. You cross in small groups since crossing deals raid damage and spawns an add. Hero the last room."}, {"PriorityTarget", "Priority Target: Remnant of Corruption."},
+				{"Important", "Run against the wind pushback, dodge the fire swirlies and avoid the beams."}, {"Interrupts", "Interrupt: Clinging Corruption (cast by adds, likely a wipe if one gets through)"},
+				{"Important", "Heroic: Beam can drop from the roof. Stand in the yellow swirlies to survive."}, {"TANK", "Frontal Cleave: Sanitizing Strike (cone). Command raid not to stand in front of boss."},
+				{"HEALER", "Healing CDs: on group crosses. Have one healer stay with tank in first room until they move."}}, -- MOTHER (Remnant of Corruption)
+				
+	-- Fetid Devourer
+	[133298] = {{"Important", "Have your back against wall when Shockwave Stomp hits."}, {"Important", "Pop bloodlust at 50% since boss takes +50% damage."}, 
+				{"Important", "Key Dodge: Rotting Regurgitation. Big cone but long cast time."}, {"PriorityTargets", "Kill the egg nearest boss. Ignore the other and just DPS him."},
+				{"TANK", "Stand on top of each other. Every 4th melee attack will shred the offtank. Very heavy hitting boss."}, {"HEALER", "Focus heal debuff targets. Putrid Paroxysm is especially painful."},
+				{"HEALER", "ALL healers must watch the tanks. Use your external cooldowns."}}, -- Fetid Devourer
+		[133492] = {{"Important", "Have your back against wall when Shockwave Stomp hits"}, {"Important", "Pop bloodlust at 50% since boss takes +50% damage."}, 
+				{"Important", "Key Dodge: Rotting Regurgitation. Big cone but long cast time."}, {"PriorityTargets", "Kill the egg nearest boss. Ignore the other and just DPS him."},
+				{"TANK", "Stand on top of each other. Every 4th melee attack will shred the offtank. Very heavy hitting boss."}, {"HEALER", "Focus heal debuff targets. Putrid Paroxysm is especially painful."},
+				{"HEALER", "ALL healers must watch the tanks. Use your external cooldowns."}}, -- Fetid Devourer (Corruption Corpuscle)
+				
+				
+	-- Zek'Voz
+	[134445] = {{"Important", "Move out of raid with eyebeam. Use mobility cooldowns. It's very quick, and very painful."}, {"Important", "Run out of raid with Rolling Deceit. It drops a cloud that spawns an add when stood in."},
+				{"Important", "Surging Darkness deals damage in three consecutive circles. Move to the non-dark area. It's slow. Don't die to it."}, {"Interrupts", "Interrupt(!): Void Bolt (Void Weavers), Psionic Blast (MC'd players)"},
+				{"DAMAGE", "P3 (30%): Have best DPS catch orbs of Corruption for big damage increase. Interrupt and kill them when they get MC'd."}, {"TANK", "Tank swap after every Might of the Void combo. It reduces healing and hits hard."},
+				{"HEALER", "Healing CD: Surging Darkness, or through the fight for efficiency. There's moderate persistent ticking damage."}}, -- Zek'voz, Herald of N'zoth
+		[135824] = {{"Important", "Move out of raid with eyebeam. Use mobility cooldowns. It's very quick, and very painful."}, {"Important", "Run out of raid with Rolling Deceit. It drops a cloud that spawns an add when stood in."},
+				{"Important", "Surging Darkness deals damage in three consecutive circles. Move to the non-dark area. It's slow. Don't die to it."}, {"Interrupts", "Interrupt(!): Void Bolt (Void Weavers), Psionic Blast (MC'd players)"},
+				{"DAMAGE", "P3 (30%): Have best DPS catch orbs of Corruption for big damage increase. Interrupt and kill them when they get MC'd."}, {"TANK", "Tank swap after Might of the Void combo. Reduces healing, hits hard."},
+				{"HEALER", "Healing CD: Surging Darkness, or through the fight for efficiency. There's moderate persistent ticking damage."}}, -- Zek'voz, Herald of N'zoth (Nerubian Voidweaver)	
+		
+				
+	-- Vectis
+	[134442] = {{"Important", "Two stack points. Raid moves from one to the other on Gestate cast."}, {"Important", "Move out of stack point if 8+ Lingering Infection stacks to stop yourself getting more."},
+				{"Important", "P2 (boss in pool): Dodge the big red waves. They add debuff stacks and are 100% avoidable."}, {"Important", "P2: Have one person in each big circle to soak Plague Bombs."},
+				{"PriorityTargets", "Priority Target: Plague Amalgam"},
+				{"TANK", "Tank swap at 4+ Evolving Affliction stacks."}, {"HEALER", "Healing CDs: Contagion (Big AoE). Heal off any Immosuppression absorbs"}}, -- Vectis
+		[135016] = {{"Important", "Two stack points. Raid moves from one to the other on Gestate cast."}, {"Important", "Move out of stack point if 8+ Lingering Infection stacks to stop yourself getting more."},
+				{"Important", "P2 (boss in pool): Dodge the big red waves. They add debuff stacks and are 100% avoidable."}, {"Important", "P2: Have one person in each big circle to soak Plague Bombs."},
+				{"PriorityTargets", "Priority Target: Plague Amalgam"},
+				{"TANK", "Tank swap at 4+ Evolving Affliction stacks."}, {"HEALER", "Healing CDs: Contagion (Big AoE). Heal off any Immosuppression absorbs"}}, -- Vectis (Plague Amalgam)			
+				
+				
+				
+	-- Zul, Reborn
+	[138967] = {{"Important", "(H)One player soaks each pool of darkness. They'll need spot heals."}, {"Important", "Run far from the raid with the Dark Revelations debuff."},
+				{"Important", "Entire fight is a DPS check and you'll get a stacking DoT on you in P2 based on how long the fight has been going."}, {"PriorityTargets", "Priority Target: Hexer > Crusher > Crawgs."},
+				{"Important", "Minions of Zul need to be offensively purged or killed. They'll fear the raid if they reach."}, 
+				{"Interrupts", "Interrupt (Hexer): Bloodshard (big burst on lowest damage player)"}, {"TANK", "P1: Face Crusher away from raid at 100 energy and (H) tank hexers away from other hexers"},
+				{"TANK", "P2: Face away from raid. Tank swap when Rupturing Blood goes out and run debuff out of raid."}, {"HEALER", "Healing CDs: Dark Revelation but have them all up for P2. HEAVY AOE DAMAGE. Don't overlap CDs."}
+				}, -- Zul, Reborn
+		[139051] = {{"Important", "(H)One player soaks each pool of darkness. They'll need spot heals."}, {"Important", "Run far from the raid with the Dark Revelations debuff."},
+				{"Important", "Entire fight is a DPS check and you'll get a stacking DoT on you in P2 based on how long the fight has been going."}, {"PriorityTargets", "Priority Target: Hexer > Crusher > Crawgs."},
+				{"Important", "Minions of Zul need to be offensively purged or killed. They'll fear the raid if they reach."}, 
+				{"Interrupts", "Interrupt (Hexer): Bloodshard (big burst on lowest damage player)"}, {"TANK", "P1: Face Crusher away from raid at 100 energy and (H) tank hexers away from other hexers"},
+				{"TANK", "P2: Face away from raid. Tank swap when Rupturing Blood goes out and run debuff out of raid."}, {"HEALER", "Healing CDs: Dark Revelation but have them all up for P2. HEAVY AOE DAMAGE. Don't overlap CDs."}
+				}, -- Zul, Reborn (Nazmani Crusher)
+		[139057] = {{"Important", "(H)One player soaks each pool of darkness. They'll need spot heals."}, {"Important", "Run far from the raid with the Dark Revelations debuff."},
+				{"Important", "Entire fight is a DPS check and you'll get a stacking DoT on you in P2 based on how long the fight has been going."}, {"PriorityTargets", "Priority Target: Hexer > Crusher > Crawgs."},
+				{"Important", "Minions of Zul need to be offensively purged or killed. They'll fear the raid if they reach."}, 
+				{"Interrupts", "Interrupt (Hexer): Bloodshard (big burst on lowest damage player)"}, {"TANK", "P1: Face Crusher away from raid at 100 energy and (H) tank hexers away from other hexers"},
+				{"TANK", "P2: Face away from raid. Tank swap when Rupturing Blood goes out and run debuff out of raid."}, {"HEALER", "Healing CDs: Dark Revelation but have them all up for P2. HEAVY AOE DAMAGE. Don't overlap CDs."}
+				}, -- Zul, Reborn (Hexer)
+		[139059] = {{"Important", "(H)One player soaks each pool of darkness. They'll need spot heals."}, {"Important", "Run far from the raid with the Dark Revelations debuff."},
+				{"Important", "Entire fight is a DPS check and you'll get a stacking DoT on you in P2 based on how long the fight has been going."}, {"PriorityTargets", "Priority Target: Hexer > Crusher > Crawgs."},
+				{"Important", "Minions of Zul need to be offensively purged or killed. They'll fear the raid if they reach."}, 
+				{"Interrupts", "Interrupt (Hexer): Bloodshard (big burst on lowest damage player)"}, {"TANK", "P1: Face Crusher away from raid at 100 energy and (H) tank hexers away from other hexers"},
+				{"TANK", "P2: Face away from raid. Tank swap when Rupturing Blood goes out and run debuff out of raid."}, {"HEALER", "Healing CDs: Dark Revelation but have them all up for P2. HEAVY AOE DAMAGE. Don't overlap CDs."}
+				}, -- Zul, Reborn (Crawg)	
+				
+				
+	-- Mythrax
+	[134546] = {{"Important", "Stacking DoT through fight that also reduces max HP. Run over orbs to reduce stacks. Tanks get priority. Lust at 20% (H)."}, {"Important", "Dodge: Obliteration Blast, stay spread 5+ yards"},
+				{"Important", "Use knockbacks or light damage to knock allies out of orbs. Raidwide AoE when they're released."}, {"Important", "Run out with Imminent Ruin. Run far."},
+				{"Important", "P2 (cast on a timer): Boss immune to damage. Will cast giant beams at random players. Watch where he's facing. Don't be there."},
+				{"Interrupts", "Interrupt: Void Volley (Destroyers), Mind Flay (Visions)"}, {"PriortyTargets", "Priority Target: Visions of Madness > Destroyers"},
+				{"TANK", "Tank swap after Essence Shear. P2: Tank destroyers away from each other and face away from raid."}, {"HEALER", "Healing CDs: Imminent Ruin. Conserve mana in P2."}}, -- Mythrax the Unraveler
+		[139381] = {{"Important", "Stacking DoT through fight that also reduces max HP. Run over orbs to reduce stacks. Tanks get priority. Lust at 20% (H)."}, {"Important", "Dodge: Obliteration Blast, stay spread 5+ yards"},
+				{"Important", "Use knockbacks or light damage to knock allies out of orbs. Raidwide AoE when they're released."}, {"Important", "Run out with Imminent Ruin. Run far."},
+				{"Important", "P2 (cast on a timer): Boss immune to damage. Will cast giant beams at random players. Watch where he's facing. Don't be there."},
+				{"Interrupts", "Interrupt: Void Volley (Destroyers), Mind Flay (Visions)"}, {"PriortyTargets", "Priority Target: Visions of Madness > Destroyers"},
+				{"TANK", "Tank swap after Essence Shear. P2: Tank destroyers away from each other and face away from raid."}, {"HEALER", "Healing CDs: Imminent Ruin. Conserve mana in P2."}}, -- Mythrax the Unraveler
+		[139487] = {{"Important", "Stacking DoT through fight that also reduces max HP. Run over orbs to reduce stacks. Tanks get priority. Lust at 20% (H)."}, {"Important", "Dodge: Obliteration Blast, stay spread 5+ yards"},
+				{"Important", "Use knockbacks or light damage to knock allies out of orbs. Raidwide AoE when they're released."}, {"Important", "Run out with Imminent Ruin. Run far."},
+				{"Important", "P2 (cast on a timer): Boss immune to damage. Will cast giant beams at random players. Watch where he's facing. Don't be there."},
+				{"Interrupts", "Interrupt: Void Volley (Destroyers), Mind Flay (Visions)"}, {"PriortyTargets", "Priority Target: Visions of Madness > Destroyers"},
+				{"TANK", "Tank swap after Essence Shear. P2: Tank destroyers away from each other and face away from raid."}, {"HEALER", "Healing CDs: Imminent Ruin. Conserve mana in P2."}}, -- Mythrax the Unraveler				
+	
+	
+	-- G'Huun
+	[132998] = {{"Important", "When orbs spawn up the side have 2-3 players throw it between them up the ramp to dunk it in the machine at the end."},
+				{"Important", "Run out: Explosive Corruption. Drops a patch and spawns balls."}, {"Important", "Stack in Blood Feast circle to remove Putrid Blood debuff."},
+				{"Important", "P3 (20%): Dodge collapsing ceiling, face away from boss during Gaze or you'll get feared."}, {"PriorityTargets", "Priority Targets: Tendril > Terror > Young"},
+				{"Interrupts", "Interrupt: Torment (Terror), Decaying Eruption (Tendril)"},
+				{"TANK", "Tank Dark Young near other adds during Dark Bargain cast."},
+				{"TANK", "P2: Tank Swap when Corruption Bite stacks too high."}, {"HEALER", "Healing CDs: Reorigination Blast. Ticks four times in 24 seconds. Use as they come up in P3."}}, -- G'huun
+		[138531] = {{"Important", "When orbs spawn up the side have 2-3 players throw it between them up the ramp to dunk it in the machine at the end."},
+				{"Important", "Run out: Explosive Corruption. Drops a patch and spawns balls."}, {"Important", "Stack in Blood Feast circle to remove Putrid Blood debuff."},
+				{"Important", "P3 (20%): Dodge collapsing ceiling, face away from boss during Gaze or you'll get feared."}, {"PriorityTargets", "Priority Targets: Tendril > Terror > Young"},
+				{"Interrupts", "Interrupt: Torment (Terror), Decaying Eruption (Tendril)"},
+				{"TANK", "Tank Dark Young near other adds during Dark Bargain cast."},
+				{"TANK", "P2: Tank Swap when Corruption Bite stacks too high."}, {"HEALER", "Healing CDs: Reorigination Blast. Ticks four times in 24 seconds. Use as they come up in P3."}}, -- G'huun (Cyclopean Terror)
+		[138529] = {{"Important", "When orbs spawn up the side have 2-3 players throw it between them up the ramp to dunk it in the machine at the end."},
+				{"Important", "Run out: Explosive Corruption. Drops a patch and spawns balls."}, {"Important", "Stack in Blood Feast circle to remove Putrid Blood debuff."},
+				{"Important", "P3 (20%): Dodge collapsing ceiling, face away from boss during Gaze or you'll get feared."}, {"PriorityTargets", "Priority Targets: Tendril > Terror > Young"},
+				{"Interrupts", "Interrupt: Torment (Terror), Decaying Eruption (Tendril)"},
+				{"TANK", "Tank Dark Young near other adds during Dark Bargain cast."},
+				{"TANK", "P2: Tank Swap when Corruption Bite stacks too high."}, {"HEALER", "Healing CDs: Reorigination Blast. Ticks four times in 24 seconds. Use as they come up in P3."}}, -- G'huun (Dark Young)
+		[134010] = {{"Important", "When orbs spawn up the side have 2-3 players throw it between them up the ramp to dunk it in the machine at the end."},
+				{"Important", "Run out: Explosive Corruption. Drops a patch and spawns balls."}, {"Important", "Stack in Blood Feast circle to remove Putrid Blood debuff."},
+				{"Important", "P3 (20%): Dodge collapsing ceiling, face away from boss during Gaze or you'll get feared."}, {"PriorityTargets", "Priority Targets: Tendril > Terror > Young"},
+				{"Interrupts", "Interrupt: Torment (Terror), Decaying Eruption (Tendril)"},
+				{"TANK", "Tank Dark Young near other adds during Dark Bargain cast."},
+				{"TANK", "P2: Tank Swap when Corruption Bite stacks too high."}, {"HEALER", "Healing CDs: Reorigination Blast. Ticks four times in 24 seconds. Use as they come up in P3."}}, -- G'huun (Gibbering Horror)
+				
+	
+	----- Ataldazar -----
 	
 	-- Trash toward Priestess
 	[122971] = {{"Important", "Ranged players should stay spread 8 yards to avoid his charge hitting more than one player"}, {"Important", "Enrage: Dispel or Kite away during Fanatic's Rage"},
@@ -421,7 +557,8 @@ local tipsMap = {
 				{"Important", "Try and go down whichever path has fewer Blood Matrons"}}, -- Chosen Blood Matron
 	[133663] = {{"Important", "Will pelt random allies. Hooked Snare is a DoT. Consider defensives here."}}, -- Fanatical Headhunter
 	[131492] = {{"Interrupts", "Interrupt(!!): Dark Reconstitution (big heal)"}, {"Interrupts", "Interrupt or Purge(!): Gift of G'huun (+100% damage, unkillable)"}}, -- Devout Blood Priest
-	[133685] = {{"Interrupts", "Interrupt(!!!): Harrowing Despair (BIG AoE)"}, {"Important", "Will also channel on random players. Spread a little so you don't share the damage"}, {"HEALER", "Dark Omen should be on you bars and they'll need some decent healing."}}, -- Befouled Spirit
+	[133685] = {{"Interrupts", "Interrupt(!!!): Harrowing Despair (BIG AoE)"}, {"Important", "Will also channel on random players. Spread a little so you don't share the damage"}, 
+				{"HEALER", "Dark Omen should be on you bars and they'll need some decent healing."}}, -- Befouled Spirit
 	
 	-- The Crag
 	[133835] = {{"Important", "Will fixate a random player. Kite, CC, don't get hit."}, {"Interrupts", "Interrupt: Sonic Screech (AoE damage, interrupts spells)"}}, -- Feral Bloodswarmer
@@ -599,7 +736,7 @@ local tipsMap = {
 	[134137] = {{"Important", "Move out of the blue swirl."}, {"Interrupts", "Interrupt as many Water Blasts as you can but it isn't urgent."}}, -- 	Temple Attendant
 	[134173] = {{"Important", "Mostly harmless."}}, -- 	Animated Droplet
 	[136186] = {{"Interrupts", "Interrupt(!!): Mending Rapids (Massive heal)"}, {"Important", "Anchor of Binding will toss an anchor at a player. Dodgeable."}}, -- 	Tidesage Spiritualist
-	[134144] = {{"Important", "Dangerous mob. Will throw players into the air and deal heavy AoE damage."}, {"Important", "You can't avoid the Rising Tides. No LoS, no outranging."}}, -- 	Living Current
+	[134144] = {{"Important", "Dangerous mob. Will throw players into the air and deal heavy AoE damage."}, {"Important", "You CAN now Line of Sight the Rising Tides. Healers / DPS are encouraged to."}}, -- 	Living Current
 	
 	-- Path to Council
 	[139800] = {{"Important", "Move from the windy zones and dodge any tornadoes."}, {"Interrupts", "Interrupt: Tempest (spawns high damage dodgeable tornadoes)"}}, -- 	Galecaller Apprentice
@@ -1328,7 +1465,14 @@ addon.acceptedDungeons = {
 	[1017] = true, -- Waycrest Manor
 	[1018] = true, -- Waycrest Manor
 	
-	[9999] = true, -- Uldir
+	[1148] = true, -- Uldir
+	[1149] = true, -- Uldir
+	[1150] = true, -- Uldir
+	[1151] = true, -- Uldir
+	[1152] = true, -- Uldir
+	[1153] = true, -- Uldir
+	[1154] = true, -- Uldir
+	[1155] = true, -- Uldir
 	
 	-- Legion
 	[751] = true, -- Blackrook Hold

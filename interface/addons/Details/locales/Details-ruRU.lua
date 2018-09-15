@@ -176,6 +176,8 @@ L["STRING_DAMAGE_TAKEN_FROM2"] = "принятый урон с"
 L["STRING_DEFENSES"] = "Защита"
 L["STRING_DESCENDING"] = "По убыванию"
 L["STRING_DETACH_DESC"] = "Разделить группу окон"
+--[[Translation missing --]]
+--[[ L["STRING_DISCARD"] = ""--]] 
 L["STRING_DISPELLED"] = "Баффы/Дебафы удалены"
 L["STRING_DODGE"] = "Уклонение"
 L["STRING_DOT"] = "(ДоТ)"
@@ -520,10 +522,8 @@ L["STRING_OPTIONS_BG_ALL_ALLY_DESC"] = [=[Когда включено, враж�
 
 |cFFFFFF00Важно|r: изменения применяются последующего вступления в бой.]=]
 L["STRING_OPTIONS_BG_ANCHOR"] = "Поля боя:"
---[[Translation missing --]]
---[[ L["STRING_OPTIONS_BG_UNIQUE_SEGMENT"] = ""--]] 
---[[Translation missing --]]
---[[ L["STRING_OPTIONS_BG_UNIQUE_SEGMENT_DESC"] = ""--]] 
+L["STRING_OPTIONS_BG_UNIQUE_SEGMENT"] = "Уникальный сегмент"
+L["STRING_OPTIONS_BG_UNIQUE_SEGMENT_DESC"] = "Создается один сегмент в начале поля боя и длится до его окончания."
 L["STRING_OPTIONS_CAURAS"] = "Собирать 'Ауры'"
 L["STRING_OPTIONS_CAURAS_DESC"] = [=[Включить захват:
 

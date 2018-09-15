@@ -2,7 +2,7 @@
 Questionably Epic Mythic+ Dungeon Tips
 Configuration Page
 
-Version: 4.5
+Version: 4.6
 Developed by: Voulk
 Contact: 
 	Discord: Voulk#1858
@@ -195,7 +195,7 @@ function addon:setEnabled()
 	
 	--print(C_Map.GetBestMapForUnit("player"))
 	--print(addon.acceptedDungeons[C_Map.GetBestMapForUnit("player")])
-	if inInstance and instanceType == "party" and QEConfig.ShowFrame == "Show in separate frame" and addon.acceptedDungeons[C_Map.GetBestMapForUnit("player")] then
+	if inInstance and QEConfig.ShowFrame == "Show in separate frame" and addon.acceptedDungeons[C_Map.GetBestMapForUnit("player")] then
 		--local mapID = C_Map.GetBestMapForUnit("player")
 		--if not acceptedDungeons[mapID] then return end	
 		--local isShown = QE_TipPanel:IsVisible()

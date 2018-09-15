@@ -1,10 +1,5 @@
 
 KalielsTrackerDB = {
-	["char"] = {
-		["Qsilver - Silvermoon"] = {
-			["collapsed"] = true,
-		},
-	},
 	["global"] = {
 		["helpTutorial"] = 11,
 		["version"] = "3.1.1",

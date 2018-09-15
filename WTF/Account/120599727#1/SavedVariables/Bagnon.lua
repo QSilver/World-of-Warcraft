@@ -52,8 +52,8 @@ Bagnon_Sets = {
 			["scale"] = 1,
 			["alpha"] = 1,
 			["brokerObject"] = "BagnonLauncher",
-			["y"] = 319.556488037109,
-			["x"] = -153.931640625,
+			["y"] = 259.385589599609,
+			["x"] = -148.461547851563,
 			["sort"] = false,
 			["borderColor"] = {
 			},

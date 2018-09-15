@@ -14,6 +14,7 @@ mod.respawnTime = 32
 --
 
 local stage = 1
+local decayingFleshMonster = nil
 
 --------------------------------------------------------------------------------
 -- Localization
@@ -35,6 +36,10 @@ if L then
 	L.crusher_msg = "Crusher"
 	L.crusher_desc = "Warnings and timers for when the Nazmani Crusher spawns."
 	L.crusher_icon = "inv_bloodtrollfemaleheaddire01"
+
+	L.custom_off_decaying_flesh_marker = "Decaying Flesh Marker"
+	L.custom_off_decaying_flesh_marker_desc = "Mark the enemy forces afflicted by Decaying Flesh with {rt8}, requires promoted or leader."
+	L.custom_off_decaying_flesh_marker_icon = 276434
 end
 
 --------------------------------------------------------------------------------
@@ -61,6 +66,7 @@ function mod:GetOptions()
 		{274358, "SAY_COUNTDOWN"}, -- Rupturing Blood
 		274271, -- Deathwish
 		deathwishMarker,
+		"custom_off_decaying_flesh_marker",
 	}, {
 		["stages"] = CL.general,
 		[269936] = -18530, -- Minion of Zul
@@ -93,6 +99,10 @@ function mod:OnBossEnable()
 	self:Log("SPELL_AURA_REMOVED", "RupturingBloodRemoved", 274358)
 	self:Log("SPELL_AURA_APPLIED", "DeathwishApplied", 274271)
 	self:Log("SPELL_AURA_REMOVED", "DeathwishRemoved", 274271)
+
+	-- Mythic
+	self:Log("SPELL_AURA_APPLIED", "DecayingFleshApplied", 276434)
+	self:Log("SPELL_AURA_REMOVED", "DecayingFleshRemoved", 276434)
 end
 
 function mod:OnEngage()
@@ -100,9 +110,9 @@ function mod:OnEngage()
 	self:Bar(273361, 21) -- Pool of Darkness
 	self:Bar(273365, 30) -- Dark Revelation
 
-	self:CDBar("crawg", 37, CL.soon:format(L.crawg_msg), L.crawg_icon)
-	self:CDBar("bloodhexer", 50, CL.soon:format(L.bloodhexer_msg), L.bloodhexer_icon)
-	self:CDBar("crusher", 75, CL.soon:format(L.crusher_msg), L.crusher_icon)
+	self:CDBar("crawg", self:Mythic() and 46.5 or 37, CL.soon:format(L.crawg_msg), L.crawg_icon)
+	self:CDBar("bloodhexer", self:Mythic() and 73 or 50, CL.soon:format(L.bloodhexer_msg), L.bloodhexer_icon)
+	self:CDBar("crusher", self:Mythic() and 70 or 75, CL.soon:format(L.crusher_msg), L.crusher_icon)
 
 	self:RegisterUnitEvent("UNIT_HEALTH_FREQUENT", nil, "boss1")
 end
@@ -110,6 +120,36 @@ end
 --------------------------------------------------------------------------------
 -- Event Handlers
 --
+
+function mod:DecayingFleshApplied(args)
+	if self:GetOption("custom_off_decaying_flesh_marker") then
+		local unit = self:GetUnitIdByGUID(args.destGUID)
+		if unit then
+			SetRaidTarget(unit, 8)
+		else
+			decayingFleshMonster = args.destGUID
+			self:RegisterTargetEvents("DecayingFleshMark")
+		end
+	end
+end
+function mod:DecayingFleshRemoved(args)
+	if self:GetOption("custom_off_decaying_flesh_marker") then
+		local unit = self:GetUnitIdByGUID(args.destGUID)
+		if unit then
+			SetRaidTarget(unit, 0)
+		end
+		self:UnregisterTargetEvents()
+		decayingFleshMonster = nil
+	end
+end
+
+function mod:DecayingFleshMark(_, unit, guid)
+	if decayingFleshMonster == guid then
+		SetRaidTarget(unit, 8)
+		self:UnregisterTargetEvents()
+		decayingFleshMonster = nil
+	end
+end
 
 function mod:UNIT_HEALTH_FREQUENT(event, unit)
 	local hp = UnitHealth(unit) / UnitHealthMax(unit) * 100
@@ -141,9 +181,9 @@ do
 		local meOnly = mod:CheckOption(273365, "ME_ONLY")
 
 		if isOnMe then
-			self:TargetBar(273365, 10, args.destName)
+			mod:TargetBar(273365, 10, mod:UnitName("player"))
 		else
-			self:Bar(-18530, 10, -18530, 172884) -- Minion of Zul, spell_shadow_shadowfiend
+			mod:Bar(-18530, 10, -18530, 172884) -- Minion of Zul, spell_shadow_shadowfiend
 		end
 
 		if isOnMe and (meOnly or #playerList == 1) then
@@ -285,13 +325,13 @@ function mod:RupturingBloodApplied(args)
 	if self:Me(args.destGUID) then
 		self:CancelSayCountdown(args.spellId)
 		self:SayCountdown(args.spellId, 20, nil, 5)
-		self:PlaySound(args.spellId, "warning", args.destName)
+		self:PlaySound(args.spellId, "warning", nil, args.destName)
 		self:StackMessage(args.spellId, args.destName, args.amount, "purple")
 	elseif self:Tank() and self:Tank(args.destName) then
 		local amount = args.amount or 1
 		self:StackMessage(args.spellId, args.destName, amount, "purple")
 		if amount > 2 then
-			self:PlaySound(args.spellId, "warning", args.destName)
+			self:PlaySound(args.spellId, "warning", nil, args.destName)
 		end
 	end
 end

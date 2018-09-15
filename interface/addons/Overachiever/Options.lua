@@ -26,6 +26,8 @@ Overachiever.DefaultSettings = {
   Item_consumed = true;
   Item_consumed_whencomplete = false;
   Item_satisfied = true;
+  Item_acquired = true;
+  Mission_complete = true;
   CreatureTip_killed = true;
   CreatureTip_killed_exclude_guild = false;
   LetItSnow_flaked = false;
@@ -131,7 +133,7 @@ function Overachiever.CreateOptions(THIS_TITLE, BuildCriteriaLookupTab_check, Au
   }
 
   local items_reminders = {
-	{ type = "Oa_AchLabel", text = L.OPT_LABEL_NEEDTOKILL, topBuffer = 4, id1 = IDs.MediumRare, id2 = IDs.NorthernExposure, id3 = IDs.Glorious },
+	{ type = "Oa_AchLabel", text = L.OPT_LABEL_NEEDTOKILL, topBuffer = 4, id1 = IDs.MediumRare, id2 = IDs.NorthernExposure, id3 = IDs.Glorious, id4 = IDs.BattleMonsters },
 	{ variable = "CreatureTip_killed", text = L.OPT_KILLCREATURETIPS, tooltip = L.OPT_KILLCREATURETIPS_TIP,
 	  tooltip2 = L.OPT_KILLCREATURETIPS_TIP2, OnChange = BuildCriteriaLookupTab_check, xOffset = 28 },
 	{ variable = "CreatureTip_killed_exclude_guild", text = L.OPT_KILLCREATURETIPS_EXCLUDE_GUILD, xOffset = 39 },
@@ -163,6 +165,12 @@ function Overachiever.CreateOptions(THIS_TITLE, BuildCriteriaLookupTab_check, Au
 
 	{ type = "Oa_AchLabel", topBuffer = 4, id1 = IDs.RightAsRain, xOffset = 0 },
 	{ variable = "Item_satisfied", text = L.OPT_SATISFIEDTIPS, tooltip = L.OPT_SATISFIEDTIPS_TIP, xOffset = 28 },
+
+	{ type = "Oa_AchLabel", topBuffer = 4, id1 = IDs.ThreeSheetsToTheWind, xOffset = 0 },
+	{ variable = "Item_acquired", text = L.OPT_ACQUIREDTIPS, tooltip = L.OPT_ACQUIREDTIPS_TIP, xOffset = 28 },
+
+	{ type = "Oa_AchLabel", topBuffer = 4, id1 = IDs.MissionBarrens, id2 = IDs.MissionLordaeron, id3 = IDs.MissionKalimdor, xOffset = 0 },
+	{ variable = "Mission_complete", text = L.OPT_MISSIONCOMPLETE, tooltip = L.OPT_MISSIONCOMPLETE_TIP, xOffset = 28 },
 
 	{ type = "labelwrap", text = L.OPT_LABEL_SEASONALACHS, justifyH = "CENTER", topBuffer = 16, xOffset = 0 },
 

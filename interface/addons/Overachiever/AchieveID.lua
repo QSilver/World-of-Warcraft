@@ -43,11 +43,14 @@ OVERACHIEVER_ACHID = {
 	LegionMenu = 10762,			-- "The Legion Menu"
 	BattleMenu = IsAlliance and 12744 or 12746,		-- "The Kul Tiran Menu" / "The Zandalari Menu"
 
+	ThreeSheetsToTheWind = 13061,	-- "Three Sheets to the Wind"
+
 	MediumRare = 1311,			-- "Medium Rare"
 	BloodyRare = 1312,			-- "Bloody Rare"
 	NorthernExposure = 2256,	-- "Northern Exposure"
 	Frostbitten = 2257,			-- "Frostbitten"
 	Glorious = 7439,			-- "Glorious!"
+	BattleMonsters = 12587,		-- "Unbound Monstrosities"
 
 	StoodInTheFire = 5518,		-- "Stood in the Fire"
 	SurveyingTheDamage = 4827,	-- "Surveying the Damage"
@@ -58,6 +61,10 @@ OVERACHIEVER_ACHID = {
 	BunnyMaker = 2422,		-- "Shake Your Bunny-Maker"
 	CheckYourHead = 291,	-- "Check Your Head"
 	TurkeyLurkey = 3559,	-- "Turkey Lurkey"
+
+	MissionBarrens = IsAlliance and 12896 or 12867, -- Azeroth at War: The Barrens
+	MissionLordaeron = IsAlliance and 12898 or 12869, -- Azeroth at War: After Lordaeron
+	MissionKalimdor = IsAlliance and 12899 or 12870, -- Azeroth at War: Kalimdor on Fire
 
 	-- Statistics:
 	Stat_ConsumeDrinks = 346,	-- "Beverages consumed"
@@ -70,7 +77,8 @@ OVERACHIEVER_MOB_CRIT = {
 	-- For achievements where Overachiever's "kill" criteria lookup doesn't work, e.g. due to the asset ID being for quests instead of NPCs for some
 	-- reason. Format: [<mob ID>] = { <achievement ID>, <ach's criteria index>[, <2nd achievement ID>, <2nd ach's criteria index>[, ...]] }  ()
 
-	--[[ We no longer need these. The regular lookup method seems to work fine.
+	-- LEGION:
+
 	-- Adventurer of Azsuna:
 	[90244] = { 11261, 10 }, -- Unbound Rift (start w/object)
 	[90505] = { 11261, 11 }, -- Syphonus & Leodrath
@@ -194,7 +202,11 @@ OVERACHIEVER_MOB_CRIT = {
 	[112497] = { 11265, 30 }, -- Maia the White
 	[112802] = { 11265, 31 }, -- Mar'tura
 	[102303] = { 11265, 32 }, -- Lieutenant Strathmar
-	--]]
+
+	-- BATTLE FOR AZEROTH:
+
+	-- Adventurer of <x>:
+	--
 };
 
 --[[

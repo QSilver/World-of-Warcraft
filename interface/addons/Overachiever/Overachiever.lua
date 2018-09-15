@@ -428,7 +428,7 @@ local function BuildCriteriaLookupTab_check()
 	end
 	if (Overachiever_Settings.CreatureTip_killed and not TjAchieve.IsCritAssetCacheReady(TjAchieve.CRITTYPE_KILL)) then
 		local data
-		if (Overachiever.GetCache) then  data = Overachiever.GetCache("kill");  end
+		if (Overachiever.GetCache) then  data = Overachiever.GetCache("kill", true);  end
 		if (data) then
 			TjAchieve.PopulateCritAssetCache(TjAchieve.CRITTYPE_KILL, data)
 			if (Overachiever_Debug) then  chatprint("BuildCriteriaLookupTab_check: kill cache populated from saved variables");  end
@@ -439,7 +439,7 @@ local function BuildCriteriaLookupTab_check()
 				if (not Overachiever_Settings.Throttle_AchLookup) then
 					TjAchieve.RushBuildCritAssetCache(TjAchieve.CRITTYPE_KILL, true)
 					if (Overachiever_Debug) then  chatprint("BuildCriteriaLookupTab_check: kill caching rushed");  end
-					if (Overachiever.SaveCache) then  Overachiever.SaveCache("kill");  end
+					if (Overachiever.SaveCache) then  Overachiever.SaveCache("kill", true);  end
 				else
 					if (Overachiever_Debug) then
 						chatprint("BuildCriteriaLookupTab_check: kill caching started")
@@ -449,7 +449,7 @@ local function BuildCriteriaLookupTab_check()
 					end
 					if (Overachiever.SaveCache) then
 						TjAchieve.AddBuildCritAssetCacheListener(TjAchieve.CRITTYPE_KILL, function()
-							Overachiever.SaveCache("kill")
+							Overachiever.SaveCache("kill", true)
 						end)
 					end
 				end
@@ -519,6 +519,7 @@ function Overachiever.GetKillCriteriaLookup(doNotRush)
 				--]]
 			else
 				AchLookup_kill[mobID] = list
+				numCopy = numCopy + 1
 			end
 		end
 		if (Overachiever_Debug) then  chatprint('GetKillCriteriaLookup: Copied '..numCopy..' entries from OVERACHIEVER_MOB_CRIT.');  end
@@ -995,6 +996,7 @@ do
 	  --local notInUI
       for i,ach in ipairs(list) do
         _, name, _, completed = GetAchievementInfo(ach)
+		if (Overachiever_Debug) then  name = name .. " (" .. ach .. ")";  end
         if (completed) then
           anycomplete = true
         else
@@ -1045,6 +1047,7 @@ do
     else
 	  local ach = list
       local _, name, _, completed = GetAchievementInfo(ach)
+	  if (Overachiever_Debug) then  name = name .. " (" .. ach .. ")";  end
 
 	  --local alteredName
 	  if (Overachiever.GetCachedFactionForData) then

@@ -499,7 +499,7 @@ Details_ChartViewer: enabled
 Emoji: enabled
 Emoji_TwitchEmotes: enabled
 ExRT: enabled
-GuildNewsFilter: enabled
+GuildNewsFilter: disabled
 HandyNotes_BrokenShore: enabled
 HandyNotes_Argus: enabled
 HandyNotes_AzerothsTopTunes: enabled
@@ -558,3 +558,4 @@ RaiderIO_DB_KR_H: disabled
 RaiderIO_DB_KR_A: disabled
 AllTheThings: disabled
 RaiderIO: disabled
+QE-DungeonTips: disabled

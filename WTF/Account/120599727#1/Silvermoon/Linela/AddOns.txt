@@ -330,7 +330,7 @@ Emoji: enabled
 Emoji_TwitchEmotes: enabled
 EnhancedMenu: enabled
 ExRT: enabled
-GuildNewsFilter: enabled
+GuildNewsFilter: disabled
 HandyNotes_BrokenShore: enabled
 HandyNotes_Argus: enabled
 HandyNotes_AzerothsTopTunes: enabled
@@ -382,3 +382,4 @@ AzeriteTooltip: enabled
 AzeriteForge: disabled
 AllTheThings: disabled
 RaiderIO: disabled
+QE-DungeonTips: disabled

@@ -180,7 +180,7 @@ end
 
 function prraonevent(self,event,...)
 
-local arg1, arg2, arg3,arg4,arg5,arg6 = ...
+local arg1, arg2, arg3,arg4,arg5,arg6 = CombatLogGetCurrentEventInfo()
 
 
 
@@ -255,7 +255,7 @@ end
 
 if event == "COMBAT_LOG_EVENT_UNFILTERED" and lfrenable==nil then
 
-local arg1, arg2, arg3,arg4,arg5,arg6,argNEW1,arg7,arg8,arg9,argNEW2,arg10,arg11,arg12,arg13,arg14, arg15,arg16,arg17,arg18,arg19 = ...
+local arg1, arg2, arg3,arg4,arg5,arg6,argNEW1,arg7,arg8,arg9,argNEW2,arg10,arg11,arg12,arg13,arg14, arg15,arg16,arg17,arg18,arg19 = CombatLogGetCurrentEventInfo()
 
 
 --ТУТ АЧИВЫ

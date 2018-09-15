@@ -1449,9 +1449,9 @@ end
 --- Open the "Info Box" display.
 -- @param key the option key to check
 -- @string title the title of the window
-function boss:OpenInfo(key, title)
+function boss:OpenInfo(key, title, TEMP)
 	if checkFlag(self, key, C.INFOBOX) then
-		self:SendMessage("BigWigs_ShowInfoBox", self, title)
+		self:SendMessage("BigWigs_ShowInfoBox", self, title, TEMP)
 	end
 end
 
@@ -1576,6 +1576,20 @@ function boss:Message(key, color, sound, text, icon)
 				self:SendMessage("BigWigs_Sound", self, key, sound)
 			end
 		end
+	end
+end
+
+function boss:Message2(key, color, text, icon)
+	if checkFlag(self, key, C.MESSAGE) then
+		self:SendMessage("BigWigs_Message", self, key, type(text) == "string" and text or spells[text or key], color, icon ~= false and icons[icon or key])
+	end
+end
+
+function boss:PersonalMessage(key, localeString, text, icon)
+	if checkFlag(self, key, C.MESSAGE) then
+		local str = localeString and CL[localeString] or CL.you
+		local msg = format(str, type(text) == "string" and text or spells[text or key])
+		self:SendMessage("BigWigs_Message", self, key, msg, "blue", icon ~= false and icons[icon or key])
 	end
 end
 

@@ -1,5 +1,29 @@
-changeset:   739:6af1603684c5
+changeset:   743:16c8b07b352a
 tag:         tip
+user:        Tercio
+date:        Tue Sep 11 22:19:59 2018 -0300
+summary:     - Added macro text box in Encounter Plugin.
+
+
+changeset:   742:882d9fa124cf
+user:        Tercio
+date:        Tue Sep 11 19:57:17 2018 -0300
+summary:     - Added a new panel to open the Chart after a mythic dungeon.
+
+
+changeset:   741:4d105898bbc1
+user:        Tercio
+date:        Mon Sep 10 21:17:53 2018 -0300
+summary:     - Details! is ready for Uldir mythic raiding!.
+
+
+changeset:   740:aa2d4ac294e0
+user:        Tercio
+date:        Mon Sep 10 11:20:00 2018 -0300
+summary:     - Removed RaiderIO integration.
+
+
+changeset:   739:6af1603684c5
 user:        Tercio
 date:        Tue Aug 28 13:03:08 2018 -0300
 summary:     - Fixed custom display 'Dynamic Overall Data'.

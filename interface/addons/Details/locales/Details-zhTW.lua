@@ -174,6 +174,8 @@ L["STRING_DAMAGE_TAKEN_FROM2"] = "施加傷害在"
 L["STRING_DEFENSES"] = "防禦"
 L["STRING_DESCENDING"] = "遞減"
 L["STRING_DETACH_DESC"] = "分離視窗群組"
+--[[Translation missing --]]
+--[[ L["STRING_DISCARD"] = ""--]] 
 L["STRING_DISPELLED"] = "移除的增益/減益"
 L["STRING_DODGE"] = "閃避"
 L["STRING_DOT"] = "(DoT)"

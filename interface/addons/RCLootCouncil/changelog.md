@@ -1,3 +1,50 @@
+### v2.9.0
+---
+* **Appearance**
+* Added a new default Battle for Azeroth skin.
+* Remember you can change the appearance in the options menu.
+* Added a different colored frame for when rolling for items you own yourself.
+
+
+* **Buttons and Responses**
+* ~~Removed~~ Tier and relic buttons.
+* Added new buttons for every gear slot available.
+* You can now set custom buttons and responses for each type of gear, and even groups of gear such as Azerite Armor.
+* By default none of these are enabled, and must be added manually. As always only the group leader's set of buttons is used.
+* The new buttons are not backwards compatible with older versions, but altered default buttons/responses have been migrated.
+
+
+* **Loot History Mass Deletion**
+* It's now possible to delete multiple entries at once from the loot history.
+* Just go to the options menu ("/rc config") and have a look at the loot history settings.
+* Currently delete by name, patch, and number of days is supported - let me know if you need more.
+
+
+* **Candidate Loot Status**
+* The backend of this has been implemented.
+* As this was a lot harder to do than anticipated, I still need a bit more time to ensure it's working.
+
+
+* Added Battle for Azeroth trinkets to the autopass table.
+* Non-tradeable and rejected trades from PL are now registered in the loot history.
+* Quest and crafting items are now always ignored.
+
+
+###### Bugfixes
+* *Fixed EQDKP Plus exports (#360).*
+* *All item icons are now shift-right-clickable to see Azerite Traits.*
+
+
+###### Dev
+* Changed parameters in `UpdateAndSendRecentTradableItem()` to contain the table itself.
+* Changed comms `tradeable` and `non_tradeable` to include boss guid as the last parameter.
+* Added to new comms `looted` and `fakeLoot` to deal with looting status.
+* Changed the structure of `db.responses` and `db.buttons`.
+* Removed `:GetResponseText` and the likes. Use the new `:GetResponse` and `:GetButtons` functions.
+* Changed `mldb` to fit the new scheme, which includes inheritance from normal db.
+* Removed a few values from the lootTable.
+
+
 ### v2.8.3
 ---
 * **Trading**

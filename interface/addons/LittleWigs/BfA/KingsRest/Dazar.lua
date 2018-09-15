@@ -68,6 +68,11 @@ function mod:OnEngage()
 	self:CDBar(268932, 12.1) -- Gale Slash
 end
 
+function mod:VerifyEnable(unit)
+	local hp = UnitHealthMax(unit)
+	return hp > 0 and (UnitHealth(unit) / hp) > 0.1 -- 10%
+end
+
 function mod:OnBossDisable()
 	mobCollector = {}
 end

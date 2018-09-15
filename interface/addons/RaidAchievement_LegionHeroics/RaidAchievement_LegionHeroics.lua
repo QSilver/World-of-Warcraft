@@ -118,7 +118,7 @@ end
 
 
 function legionhraonevent(self,event,...)
-local arg1, arg2, arg3,arg4,arg5,arg6 = ...
+local arg1, arg2, arg3,arg4,arg5,arg6 = CombatLogGetCurrentEventInfo()
 
 if event == "PLAYER_ALIVE" then
 ralldelaycombatrezet=GetTime()+4
@@ -218,7 +218,7 @@ end
 
 if event == "COMBAT_LOG_EVENT_UNFILTERED" then
 
-local arg1, arg2,arg3,arg4,arg5,arg6,argNEW1,arg7,arg8,arg9,argNEW2,arg10,arg11,arg12,arg13,arg14,arg15 = ...
+local arg1, arg2,arg3,arg4,arg5,arg6,argNEW1,arg7,arg8,arg9,argNEW2,arg10,arg11,arg12,arg13,arg14,arg15 = CombatLogGetCurrentEventInfo()
 
 
 
@@ -235,7 +235,7 @@ end
 
 
 --Black Rook Hold
-if C_Map.GetBestMapForUnit("player")==1081 then
+if racheckzoneId({793,751,752,753,754,755,756},C_Map.GetBestMapForUnit("player")) then
 
 if arg2=="UNIT_DIED" and legionbosskilled==nil then
   if legionhraspisokon[1]==1 and legionhraachdone1 then

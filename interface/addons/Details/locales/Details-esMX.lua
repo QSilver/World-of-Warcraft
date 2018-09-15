@@ -214,6 +214,8 @@ L["STRING_DEFENSES"] = "Defensas"
 --[[Translation missing --]]
 --[[ L["STRING_DESCENDING"] = ""--]] 
 L["STRING_DETACH_DESC"] = "Desagrupar ventanas"
+--[[Translation missing --]]
+--[[ L["STRING_DISCARD"] = ""--]] 
 L["STRING_DISPELLED"] = "Bufos/debufos disipados"
 L["STRING_DODGE"] = "Esquivado"
 L["STRING_DOT"] = " (DoT)"

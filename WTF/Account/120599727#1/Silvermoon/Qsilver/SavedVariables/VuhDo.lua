@@ -128,23 +128,23 @@ VUHDO_CONFIG = {
 	["BLIZZ_UI_HIDE_FOCUS"] = 2,
 	["DETECT_DEBUFFS_IGNORE_NO_HARM"] = true,
 	["DETECT_DEBUFFS_IGNORE_BY_CLASS"] = true,
-	["EMERGENCY_TRIGGER"] = 100,
-	["BLIZZ_UI_HIDE_RAID_MGR"] = 2,
-	["LOCK_CLICKS_THROUGH"] = false,
-	["MAX_EMERGENCIES"] = 5,
-	["IS_USE_BUTTON_FACADE"] = false,
-	["SHOW_OVERHEAL"] = true,
-	["SHOW_PLAYER_TAGS"] = true,
-	["RES_IS_SHOW_TEXT"] = false,
-	["UPDATE_HOTS_MS"] = 250,
-	["IS_DC_SHIELD_DISABLED"] = false,
-	["IS_ALWAYS_OVERWRITE_PROFILE"] = false,
-	["HIDE_PANELS_SOLO"] = false,
-	["CURRENT_PROFILE"] = "Q",
 	["AUTO_PROFILES"] = {
 	},
-	["SHOW_INCOMING"] = true,
 	["BLIZZ_UI_HIDE_TARGET"] = 2,
+	["BLIZZ_UI_HIDE_RAID_MGR"] = 2,
+	["LOCK_CLICKS_THROUGH"] = false,
+	["IS_USE_BUTTON_FACADE"] = false,
+	["MAX_EMERGENCIES"] = 5,
+	["SHOW_PLAYER_TAGS"] = true,
+	["SHOW_OVERHEAL"] = true,
+	["UPDATE_HOTS_MS"] = 250,
+	["RES_IS_SHOW_TEXT"] = false,
+	["IS_DC_SHIELD_DISABLED"] = false,
+	["HIDE_PANELS_SOLO"] = false,
+	["CURRENT_PROFILE"] = "Q",
+	["EMERGENCY_TRIGGER"] = 100,
+	["SHOW_INCOMING"] = true,
+	["IS_ALWAYS_OVERWRITE_PROFILE"] = false,
 	["OMIT_FOCUS"] = false,
 	["SPELL_TRACE"] = {
 		["isOthers"] = false,
@@ -5067,7 +5067,7 @@ VUHDO_PANEL_SETUP = {
 			["orientation"] = "TOPLEFT",
 			["relativePoint"] = "BOTTOMLEFT",
 			["scale"] = 1,
-			["height"] = 34.9999771118164,
+			["height"] = 143,
 			["growth"] = "TOPLEFT",
 			["width"] = 422.000030517578,
 		},
@@ -5080,7 +5080,6 @@ VUHDO_PANEL_SETUP = {
 		},
 		["frameStrata"] = "MEDIUM",
 		["MODEL"] = {
-			["ordering"] = 0,
 			["groups"] = {
 				1, -- [1]
 				2, -- [2]
@@ -5092,6 +5091,7 @@ VUHDO_PANEL_SETUP = {
 				8, -- [8]
 			},
 			["sort"] = 0,
+			["ordering"] = 0,
 			["isReverse"] = false,
 		},
 		["TOOLTIP"] = {
@@ -7747,7 +7747,7 @@ VUHDO_BUFF_SETTINGS = {
 			["useOpacity"] = true,
 		},
 		["enabled"] = false,
-		["name"] = "Tackcalb",
+		["name"] = "Abbey",
 		["filter"] = {
 			[999] = true,
 		},
@@ -7955,9 +7955,9 @@ VUHDO_SPELLS_KEYBOARD = {
 			"-w10", -- [2]
 			"", -- [3]
 		},
-		["ctrlshift2"] = {
-			"CTRL-SHIFT-", -- [1]
-			"-w14", -- [2]
+		["ctrl2"] = {
+			"CTRL-", -- [1]
+			"-w6", -- [2]
 			"", -- [3]
 		},
 		["2"] = {
@@ -7965,9 +7965,9 @@ VUHDO_SPELLS_KEYBOARD = {
 			"-w2", -- [2]
 			"", -- [3]
 		},
-		["shift1"] = {
-			"SHIFT-", -- [1]
-			"-w7", -- [2]
+		["ctrlshift2"] = {
+			"CTRL-SHIFT-", -- [1]
+			"-w14", -- [2]
 			"", -- [3]
 		},
 		["shift2"] = {
@@ -8020,9 +8020,9 @@ VUHDO_SPELLS_KEYBOARD = {
 			"-w9", -- [2]
 			"", -- [3]
 		},
-		["ctrl2"] = {
-			"CTRL-", -- [1]
-			"-w6", -- [2]
+		["shift1"] = {
+			"SHIFT-", -- [1]
+			"-w7", -- [2]
 			"", -- [3]
 		},
 	},
@@ -8049,9 +8049,9 @@ VUHDO_SPELLS_KEYBOARD = {
 			"-w10", -- [2]
 			"", -- [3]
 		},
-		["ctrlshift2"] = {
-			"CTRL-SHIFT-", -- [1]
-			"-w14", -- [2]
+		["ctrl2"] = {
+			"CTRL-", -- [1]
+			"-w6", -- [2]
 			"", -- [3]
 		},
 		["2"] = {
@@ -8059,9 +8059,9 @@ VUHDO_SPELLS_KEYBOARD = {
 			"-w2", -- [2]
 			"", -- [3]
 		},
-		["shift1"] = {
-			"SHIFT-", -- [1]
-			"-w7", -- [2]
+		["ctrlshift2"] = {
+			"CTRL-SHIFT-", -- [1]
+			"-w14", -- [2]
 			"", -- [3]
 		},
 		["shift2"] = {
@@ -8114,9 +8114,9 @@ VUHDO_SPELLS_KEYBOARD = {
 			"-w9", -- [2]
 			"", -- [3]
 		},
-		["ctrl2"] = {
-			"CTRL-", -- [1]
-			"-w6", -- [2]
+		["shift1"] = {
+			"SHIFT-", -- [1]
+			"-w7", -- [2]
 			"", -- [3]
 		},
 	},
@@ -8157,46 +8157,13 @@ VUHDO_SPEC_LAYOUTS = {
 }
 VUHDO_GROUP_SIZE = 1
 VUHDO_RAID = {
-	["pet"] = {
-		["number"] = 1,
-		["classId"] = 40,
-		["visible"] = true,
-		["isVehicle"] = false,
-		["group"] = 0,
-		["afk"] = false,
-		["range"] = true,
-		["unit"] = "pet",
-		["zone"] = "Boralus Harbor",
-		["debuff"] = 0,
-		["healthmax"] = 102823,
-		["baseRange"] = true,
-		["class"] = "WARRIOR",
-		["sortMaxHp"] = 102823,
-		["targetUnit"] = "pettarget",
-		["dead"] = false,
-		["map"] = "Boralus",
-		["charmed"] = false,
-		["fullName"] = "Gara",
-		["power"] = 120,
-		["aggro"] = false,
-		["powertype"] = 2,
-		["threatPerc"] = 0,
-		["isPet"] = true,
-		["connected"] = true,
-		["name"] = "Gara",
-		["className"] = "Gara",
-		["powermax"] = 120,
-		["ownerUnit"] = "player",
-		["threat"] = 0,
-		["health"] = 102823,
-	},
 	["player"] = {
-		["zone"] = "Boralus Harbor",
+		["zone"] = "Stormsong Valley",
 		["baseRange"] = true,
 		["class"] = "HUNTER",
 		["role"] = 62,
-		["sortMaxHp"] = 127108,
-		["map"] = "Boralus",
+		["sortMaxHp"] = 123120,
+		["map"] = "Stormsong Valley",
 		["threat"] = 0,
 		["powermax"] = 120,
 		["threatPerc"] = 0,
@@ -8209,7 +8176,7 @@ VUHDO_RAID = {
 		["range"] = true,
 		["unit"] = "player",
 		["powertype"] = 2,
-		["healthmax"] = 127108,
+		["healthmax"] = 123120,
 		["dead"] = false,
 		["charmed"] = false,
 		["fullName"] = "Qsilver",
@@ -8217,9 +8184,9 @@ VUHDO_RAID = {
 		["aggro"] = false,
 		["visible"] = true,
 		["targetUnit"] = "target",
-		["health"] = 127108,
+		["health"] = 123120,
 		["className"] = "Hunter",
-		["afk"] = true,
+		["afk"] = false,
 		["debuff"] = 0,
 		["connected"] = true,
 		["petUnit"] = "pet",
@@ -8231,16 +8198,16 @@ VUHDO_INDICATOR_CONFIG = {
 		["MOUSEOVER_HIGHLIGHT"] = "",
 		["AGGRO_BAR"] = "",
 		["BACKGROUND_BAR"] = "Background: Solid",
-		["DAMAGE_FLASH_BAR"] = "",
-		["SWIFTMEND_INDICATOR"] = "Role Icon",
-		["INCOMING_BAR"] = "",
 		["SIDE_LEFT"] = "",
+		["CLUSTER_BORDER"] = "",
+		["INCOMING_BAR"] = "",
+		["DAMAGE_FLASH_BAR"] = "",
 		["THREAT_MARK"] = "",
-		["BAR_BORDER"] = "Border: Multi + Aggro",
 		["SIDE_RIGHT"] = "",
 		["MANA_BAR"] = "Manabars: Mana only",
+		["BAR_BORDER"] = "Border: Multi + Aggro",
 		["HEALTH_BAR"] = "Health (generic, class col)",
-		["CLUSTER_BORDER"] = "",
+		["SWIFTMEND_INDICATOR"] = "Role Icon",
 		["HEALTH_BAR_PANEL"] = {
 			"", -- [1]
 			"", -- [2]

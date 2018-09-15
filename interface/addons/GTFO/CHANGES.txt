@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------
-r421 | Zensunim | 2018-09-10 02:42:50 +0000 (Mon, 10 Sep 2018) | 5 lines
+r423 | Zensunim | 2018-09-13 07:20:22 +0000 (Thu, 13 Sep 2018) | 2 lines
 Changed paths:
    M /trunk/GTFO.lua
    M /trunk/GTFO.toc
@@ -7,28 +7,7 @@ Changed paths:
    M /trunk/GTFO_Spells_BFA.lua
    M /trunk/ReadMe.txt
 
-4.46.5
-* Added Battle for Azeroth spells (world)
+4.46.6
 * Added BFA spells for Uldir
-* Added BFA spells for Tol Dagor
-* Added BFA spells for Atal'Dazar
-------------------------------------------------------------------------
-r420 | Zensunim | 2018-08-28 22:42:50 +0000 (Tue, 28 Aug 2018) | 2 lines
-Changed paths:
-   M /trunk/GTFO_Fail_BFA.lua
-
-* Added Battle for Azeroth spells (world)
-
-------------------------------------------------------------------------
-r419 | Zensunim | 2018-08-28 05:03:55 +0000 (Tue, 28 Aug 2018) | 2 lines
-Changed paths:
-   M /trunk/GTFO.lua
-   M /trunk/GTFO.toc
-   M /trunk/GTFO_Fail_BFA.lua
-   M /trunk/GTFO_Spells_BFA.lua
-   M /trunk/ReadMe.txt
-
-* Added Battle for Azeroth spells (world)
-
 ------------------------------------------------------------------------
 

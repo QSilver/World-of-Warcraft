@@ -176,6 +176,8 @@ L["STRING_DAMAGE_TAKEN_FROM2"] = "적용된 피해 출처:"
 L["STRING_DEFENSES"] = "방어"
 L["STRING_DESCENDING"] = "내림차순"
 L["STRING_DETACH_DESC"] = "창 그룹 해제"
+--[[Translation missing --]]
+--[[ L["STRING_DISCARD"] = ""--]] 
 L["STRING_DISPELLED"] = "제거된 강화 효과/약화 효과"
 L["STRING_DODGE"] = "회피"
 L["STRING_DOT"] = " (지속 효과)"

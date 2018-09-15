@@ -96,7 +96,7 @@ end
 
 
 function pzraonevent(self,event,...)
-local arg1, arg2, arg3,arg4,arg5,arg6 = ...
+local arg1, arg2, arg3,arg4,arg5,arg6 = CombatLogGetCurrentEventInfo()
 
 if event == "PLAYER_ALIVE" then
 ralldelaycombatrezet=GetTime()+4
@@ -196,7 +196,7 @@ end
 
 if event == "COMBAT_LOG_EVENT_UNFILTERED" then
 
-local arg1, arg2,arg3,arg4,arg5,arg6,argNEW1,arg7,arg8,arg9,argNEW2,arg10,arg11,arg12,arg13,arg14,arg15 = ...
+local arg1, arg2,arg3,arg4,arg5,arg6,argNEW1,arg7,arg8,arg9,argNEW2,arg10,arg11,arg12,arg13,arg14,arg15 = CombatLogGetCurrentEventInfo()
 
 
 

@@ -1352,3 +1352,6 @@ Change Log:
 * Added BFA spells for Uldir
 * Added BFA spells for Tol Dagor
 * Added BFA spells for Atal'Dazar
+
+4.46.6
+* Added BFA spells for Uldir

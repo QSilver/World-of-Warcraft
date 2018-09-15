@@ -98,7 +98,7 @@ VUHDO_PROFILES = {
 				["scale"] = 1,
 				["relativePoint"] = "BOTTOMLEFT",
 				["orientation"] = "TOPLEFT",
-				["height"] = 143,
+				["height"] = 215.000045776367,
 				["growth"] = "TOPLEFT",
 				["width"] = 422.000030517578,
 			}, -- [1]

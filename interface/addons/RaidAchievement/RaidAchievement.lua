@@ -6,7 +6,7 @@ if GetLocale()=="deDE" or GetLocale()=="ruRU" or GetLocale()=="zhTW" or GetLocal
 end
 
 
-	raversion=8.001
+	raversion=8.002
 	local raverstiptext="alpha"
 	if string.len(raversion)==6 then
 		raverstiptext="beta"
@@ -191,7 +191,7 @@ end
 
 
 function PhoenixStyleEA_OnEvent(self,event,...)
-local arg1, arg2, arg3,arg4,arg5,arg6 = ...
+local arg1, arg2, arg3,arg4,arg5,arg6 = CombatLogGetCurrentEventInfo()
 
 
 if event == "PLAYER_ALIVE" then
@@ -1152,14 +1152,23 @@ end
 
 
 function chechtekzoneea()
-if C_Map.GetBestMapForUnit("player") and C_Map.GetBestMapForUnit("player")>0 and C_Map.GetMapInfo(C_Map.GetBestMapForUnit("player")) then
+if C_Map.GetMapInfo(C_Map.GetBestMapForUnit("player")).name then
 local a1, a2, a3, a4, a5 = GetInstanceInfo()
 if UnitInRaid("player") or (a2=="raid" or a2=="scenario" or (a2=="party" and a3==2) or a3==14) then
 --SetMapToCurrentZone()
 end
 
 --ульдуар
-if C_Map.GetBestMapForUnit("player")==529 then
+--if C_Map.GetBestMapForUnit("player")==529 then
+local idheroics={147,148,149,150,151,152}
+local buul=0
+for i=1,#idheroics do
+	if idheroics[i]==C_Map.GetBestMapForUnit("player") then
+		buul=1
+	end
+end
+if buul==1 then
+
 if IsAddOnLoaded("RaidAchievement_Ulduar")==false and wasuldatryloadea==nil then
 wasuldatryloadea=1
 local loaded, reason = LoadAddOn("RaidAchievement_Ulduar")
@@ -1172,7 +1181,16 @@ end
 end
 
 --Накс Сарт
-if C_Map.GetBestMapForUnit("player")==535 or C_Map.GetBestMapForUnit("player")==718 or C_Map.GetBestMapForUnit("player")==531 then
+--if C_Map.GetBestMapForUnit("player")==535 or C_Map.GetBestMapForUnit("player")==718 or C_Map.GetBestMapForUnit("player")==531 then
+local idheroics={162,163,164,165,166,167,248,155}
+local buul=0
+for i=1,#idheroics do
+	if idheroics[i]==C_Map.GetBestMapForUnit("player") then
+		buul=1
+	end
+end
+if buul==1 then
+
 if IsAddOnLoaded("RaidAchievement_Naxxramas")==false and wasnaxtryloadea==nil then
 wasnaxtryloadea=1
 local loaded, reason = LoadAddOn("RaidAchievement_Naxxramas")
@@ -1185,7 +1203,16 @@ end
 end
 
 --Цитадель
-if C_Map.GetBestMapForUnit("player")==604 then
+--if C_Map.GetBestMapForUnit("player")==604 then
+local idheroics={186,187,188,189,190,191,192,193,698,699,700,701}
+local buul=0
+for i=1,#idheroics do
+	if idheroics[i]==C_Map.GetBestMapForUnit("player") then
+		buul=1
+	end
+end
+if buul==1 then
+
 if IsAddOnLoaded("RaidAchievement_Icecrown")==false and wasictryloadea==nil then
 wasictryloadea=1
 local loaded, reason = LoadAddOn("RaidAchievement_Icecrown")
@@ -1198,7 +1225,16 @@ end
 end
 
 --рейды каты
-if C_Map.GetBestMapForUnit("player")==754 or C_Map.GetBestMapForUnit("player")==758 or C_Map.GetBestMapForUnit("player")==800 or C_Map.GetBestMapForUnit("player")==824 then
+--if C_Map.GetBestMapForUnit("player")==754 or C_Map.GetBestMapForUnit("player")==758 or C_Map.GetBestMapForUnit("player")==800 or C_Map.GetBestMapForUnit("player")==824 then
+local idheroics={285,286,294,295,296,367,368,369,409,410,411,412,413,414,415}
+local buul=0
+for i=1,#idheroics do
+	if idheroics[i]==C_Map.GetBestMapForUnit("player") then
+		buul=1
+	end
+end
+if buul==1 then
+
 if IsAddOnLoaded("RaidAchievement_CataRaids")==false and wascrtryloadea==nil then
 wascrtryloadea=1
 local loaded, reason = LoadAddOn("RaidAchievement_CataRaids")
@@ -1211,7 +1247,16 @@ end
 end
 
 --рейды панды
-if C_Map.GetBestMapForUnit("player")==897 or C_Map.GetBestMapForUnit("player")==896 or C_Map.GetBestMapForUnit("player")==886 or C_Map.GetBestMapForUnit("player")==930 or C_Map.GetBestMapForUnit("player")==953 then
+--if C_Map.GetBestMapForUnit("player")==897 or C_Map.GetBestMapForUnit("player")==896 or C_Map.GetBestMapForUnit("player")==886 or C_Map.GetBestMapForUnit("player")==930 or C_Map.GetBestMapForUnit("player")==953 then
+local idheroics={474,475,471,472,473,728,456,508,509,510,511,512,513,514,515,556,557,558,559,560,561,562,563,564,565,566,567,568,569,570}
+local buul=0
+for i=1,#idheroics do
+	if idheroics[i]==C_Map.GetBestMapForUnit("player") then
+		buul=1
+	end
+end
+if buul==1 then
+
 if IsAddOnLoaded("RaidAchievement_PandaRaids")==false and wasprtryloadea==nil then
 wasprtryloadea=1
 local loaded, reason = LoadAddOn("RaidAchievement_PandaRaids")
@@ -1224,7 +1269,16 @@ end
 end
 
 --тут добавить рейды WoD
-if C_Map.GetBestMapForUnit("player")==988 or C_Map.GetBestMapForUnit("player")==1026 then
+--if C_Map.GetBestMapForUnit("player")==988 or C_Map.GetBestMapForUnit("player")==1026 then
+local idheroics={596,597,598,599,600,661,662,663,664,665,666,667,668,669,670}
+local buul=0
+for i=1,#idheroics do
+	if idheroics[i]==C_Map.GetBestMapForUnit("player") then
+		buul=1
+	end
+end
+if buul==1 then
+
 if IsAddOnLoaded("RaidAchievement_WoDRaids")==false and waswodrtryloadea==nil then
 waswodrtryloadea=1
 local loaded, reason = LoadAddOn("RaidAchievement_WoDRaids")
@@ -1238,7 +1292,16 @@ end
 
 
 --тут добавить рейды Legion
-if C_Map.GetBestMapForUnit("player")==1094 or C_Map.GetBestMapForUnit("player")==1088 or C_Map.GetBestMapForUnit("player")==1147 then
+--if C_Map.GetBestMapForUnit("player")==1094 or C_Map.GetBestMapForUnit("player")==1088 or C_Map.GetBestMapForUnit("player")==1147 then
+local idheroics={777,778,779,780,781,782,783,784,785,786,787,788,789,764,765,766,767,768,769,770,771,772,850,851,852,853,854,855,856}
+local buul=0
+for i=1,#idheroics do
+	if idheroics[i]==C_Map.GetBestMapForUnit("player") then
+		buul=1
+	end
+end
+if buul==1 then
+
 if IsAddOnLoaded("RaidAchievement_WoDRaids")==false and waslegionrtryloadea==nil then
 waslegionrtryloadea=1
 local loaded, reason = LoadAddOn("RaidAchievement_LegionRaids")
@@ -1251,7 +1314,7 @@ end
 end
 
 --героики вотлк
-local idheroics={522,534,530,525,526,603,602,601,520,524,536,542,533}
+local idheroics={132,160,161,153,154,138,139,140,185,184,823,183,129,370,136,137,168,171,157,158,159}--{522,534,530,525,526,603,602,601,520,524,536,542,533}
 local buul=0
 for i=1,#idheroics do
 	if idheroics[i]==C_Map.GetBestMapForUnit("player") then
@@ -1284,7 +1347,7 @@ end
 end
 
 --героики каты
-local idheroics={756,764,767,753,768,769,757,759,747,781,793,820,819,816}
+local idheroics={291,292,835,836,310,311,312,313,314,315,316,322,323,283,284,324,325,737,293,297,298,299,277,333,233,337,401,402,403,404,405,406,399,400,398}--{756,764,767,753,768,769,757,759,747,781,793,820,819,816}
 local buul=0
 for i=1,#idheroics do
 	if idheroics[i]==C_Map.GetBestMapForUnit("player") then
@@ -1317,7 +1380,7 @@ end
 end
 
 --героики панды
-local idheroics={867, 876, 877, 875, 885, 887, 898, 871, 874}
+local idheroics={791,792,439,440,441,442,872,873,874,443,444,445,446,437,438,453,454,455,457,458,459,476,477,478,479,431,432,302,303,304,305,435,436,804,805}--{867, 876, 877, 875, 885, 887, 898, 871, 874}
 local buul=0
 for i=1,#idheroics do
 	if idheroics[i]==C_Map.GetBestMapForUnit("player") then
@@ -1351,7 +1414,7 @@ end
 
 
 --сценарии панды
-local idheroics={878, 899, 884, 900, 880, 906, 882,911,912,883,914,937,939,940,938}
+local idheroics={447,999999,999999,481,482,999999,450,999999,487,451,488,489,999999,999999,524,522}--{878, 899, 884, 900, 880, 906, 882,911,912,883,914,937,939,940,938}
 local buul=0
 for i=1,#idheroics do
 	if idheroics[i]==C_Map.GetBestMapForUnit("player") then
@@ -1386,7 +1449,7 @@ end
 
 
 --героики WoD
-local idheroics={964,987,984,989,995,993,1008,969}
+local idheroics={573,595,593,601,602,616,617,618,606,607,608,609,620,621,574,575,576}--{964,987,984,989,995,993,1008,969}
 local buul=0
 for i=1,#idheroics do
 	if idheroics[i]==C_Map.GetBestMapForUnit("player") then
@@ -1421,7 +1484,7 @@ end
 
 
 --героики Legion
-local idheroics={1081,1087,1067,1046,1041,1042,1065,1079,1045,1066}
+local idheroics={793,751,752,753,754,755,756,761,762,763,733,713,790,829,703,704,705,999999,731,749,798,677,678,679,710,711,712,723,732}--{1081,1087,1067,1046,1041,1042,1065,1079,1045,1066}
 local buul=0
 for i=1,#idheroics do
 	if idheroics[i]==C_Map.GetBestMapForUnit("player") then
@@ -2448,4 +2511,24 @@ if (guid.find(guid,"Creature") or guid.find(guid,"Pet-") or guid.find(guid,"Game
 else
 	return 0
 end
+end
+
+
+function racheckzoneId(_zoneList, _zoneId)
+
+if (type(_zoneList) == "number") then
+	if _zoneList==_zoneId then
+		return true
+	else
+		return false
+	end
+else
+	for iz=1,#_zoneList do
+		if _zoneList[iz]==_zoneId then
+			return true
+		end
+	end
+end
+return false
+
 end

@@ -166,11 +166,11 @@ VUHDO_CONFIG = {
 	},
 	["OMIT_PLAYER_TARGETS"] = false,
 	["DETECT_DEBUFFS_REMOVABLE_ONLY_ICONS"] = true,
-	["MAX_EMERGENCIES"] = 5,
+	["LOCK_CLICKS_THROUGH"] = false,
 	["SHOW_SHIELD_BAR"] = true,
-	["SHOW_OVERHEAL"] = true,
+	["MAX_EMERGENCIES"] = 5,
 	["SHOW_PLAYER_TAGS"] = true,
-	["RES_IS_SHOW_TEXT"] = false,
+	["SHOW_OVERHEAL"] = true,
 	["UPDATE_HOTS_MS"] = 250,
 	["BLIZZ_UI_HIDE_PARTY"] = 2,
 	["CUSTOM_DEBUFF"] = {
@@ -5028,17 +5028,17 @@ VUHDO_CONFIG = {
 	},
 	["HIDE_PANELS_SOLO"] = false,
 	["CURRENT_PROFILE"] = "Q",
-	["AUTO_PROFILES"] = {
-	},
+	["EMERGENCY_TRIGGER"] = 100,
 	["SHOW_INCOMING"] = true,
 	["OMIT_FOCUS"] = false,
 	["IS_SHARE"] = true,
 	["HIDE_EMPTY_BUTTONS"] = false,
 	["OMIT_SELF"] = false,
-	["EMERGENCY_TRIGGER"] = 100,
-	["BLIZZ_UI_HIDE_TARGET"] = 2,
+	["AUTO_PROFILES"] = {
+	},
 	["IS_ALWAYS_OVERWRITE_PROFILE"] = false,
 	["IS_DC_SHIELD_DISABLED"] = false,
+	["RES_IS_SHOW_TEXT"] = false,
 	["THREAT"] = {
 		["AGGRO_USE_TEXT"] = false,
 		["AGGRO_TEXT_LEFT"] = ">>",
@@ -5049,8 +5049,8 @@ VUHDO_CONFIG = {
 	["SHOW_TEXT_OVERHEAL"] = true,
 	["IS_USE_BUTTON_FACADE"] = false,
 	["SHOW_OWN_INCOMING"] = true,
-	["LOCK_CLICKS_THROUGH"] = false,
 	["BLIZZ_UI_HIDE_RAID_MGR"] = 2,
+	["BLIZZ_UI_HIDE_TARGET"] = 2,
 }
 VUHDO_PANEL_SETUP = {
 	{
@@ -5067,7 +5067,7 @@ VUHDO_PANEL_SETUP = {
 			["scale"] = 1,
 			["relativePoint"] = "BOTTOMLEFT",
 			["orientation"] = "TOPLEFT",
-			["height"] = 179.000061035156,
+			["height"] = 215.000045776367,
 			["growth"] = "TOPLEFT",
 			["width"] = 422.000030517578,
 		},
@@ -5080,7 +5080,6 @@ VUHDO_PANEL_SETUP = {
 		},
 		["frameStrata"] = "MEDIUM",
 		["MODEL"] = {
-			["sort"] = 0,
 			["ordering"] = 0,
 			["groups"] = {
 				1, -- [1]
@@ -5092,6 +5091,7 @@ VUHDO_PANEL_SETUP = {
 				7, -- [7]
 				8, -- [8]
 			},
+			["sort"] = 0,
 			["isReverse"] = false,
 		},
 		["TOOLTIP"] = {
@@ -7746,7 +7746,7 @@ VUHDO_BUFF_SETTINGS = {
 			["B"] = 1,
 		},
 		["enabled"] = false,
-		["name"] = "Duiveldari",
+		["name"] = "Abbey",
 		["filter"] = {
 			[999] = true,
 		},
@@ -7955,9 +7955,9 @@ VUHDO_SPELLS_KEYBOARD = {
 			"-w10", -- [2]
 			"", -- [3]
 		},
-		["shift1"] = {
-			"SHIFT-", -- [1]
-			"-w7", -- [2]
+		["ctrlshift2"] = {
+			"CTRL-SHIFT-", -- [1]
+			"-w14", -- [2]
 			"", -- [3]
 		},
 		["2"] = {
@@ -7965,9 +7965,9 @@ VUHDO_SPELLS_KEYBOARD = {
 			"-w2", -- [2]
 			"", -- [3]
 		},
-		["ctrl2"] = {
-			"CTRL-", -- [1]
-			"-w6", -- [2]
+		["shift1"] = {
+			"SHIFT-", -- [1]
+			"-w7", -- [2]
 			"", -- [3]
 		},
 		["shift2"] = {
@@ -8020,9 +8020,9 @@ VUHDO_SPELLS_KEYBOARD = {
 			"-w3", -- [2]
 			"", -- [3]
 		},
-		["ctrlshift2"] = {
-			"CTRL-SHIFT-", -- [1]
-			"-w14", -- [2]
+		["ctrl2"] = {
+			"CTRL-", -- [1]
+			"-w6", -- [2]
 			"", -- [3]
 		},
 	},
@@ -8052,9 +8052,9 @@ VUHDO_SPELLS_KEYBOARD = {
 			"-w10", -- [2]
 			"", -- [3]
 		},
-		["shift1"] = {
-			"SHIFT-", -- [1]
-			"-w7", -- [2]
+		["ctrlshift2"] = {
+			"CTRL-SHIFT-", -- [1]
+			"-w14", -- [2]
 			"", -- [3]
 		},
 		["2"] = {
@@ -8062,9 +8062,9 @@ VUHDO_SPELLS_KEYBOARD = {
 			"-w2", -- [2]
 			"", -- [3]
 		},
-		["ctrl2"] = {
-			"CTRL-", -- [1]
-			"-w6", -- [2]
+		["shift1"] = {
+			"SHIFT-", -- [1]
+			"-w7", -- [2]
 			"", -- [3]
 		},
 		["shift2"] = {
@@ -8117,9 +8117,9 @@ VUHDO_SPELLS_KEYBOARD = {
 			"-w3", -- [2]
 			"", -- [3]
 		},
-		["ctrlshift2"] = {
-			"CTRL-SHIFT-", -- [1]
-			"-w14", -- [2]
+		["ctrl2"] = {
+			"CTRL-", -- [1]
+			"-w6", -- [2]
 			"", -- [3]
 		},
 	},
@@ -8155,148 +8155,15 @@ VUHDO_SPEC_LAYOUTS = {
 	["selected"] = "",
 	["2"] = "",
 }
-VUHDO_GROUP_SIZE = 5
+VUHDO_GROUP_SIZE = 1
 VUHDO_RAID = {
-	["party3"] = {
-		["zone"] = "Tradewinds Market",
-		["baseRange"] = false,
-		["class"] = "HUNTER",
-		["role"] = 62,
-		["sortMaxHp"] = 129086,
-		["map"] = "Boralus",
-		["threat"] = 0,
-		["powermax"] = 120,
-		["threatPerc"] = 0,
-		["isPet"] = false,
-		["name"] = "Roselutea",
-		["number"] = 3,
-		["isVehicle"] = false,
-		["group"] = 1,
-		["classId"] = 22,
-		["unit"] = "party3",
-		["powertype"] = 2,
-		["healthmax"] = 129086,
-		["dead"] = false,
-		["charmed"] = false,
-		["fullName"] = "Roselutea",
-		["power"] = 120,
-		["aggro"] = false,
-		["visible"] = false,
-		["targetUnit"] = "party3target",
-		["health"] = 129086,
-		["className"] = "Hunter",
-		["afk"] = false,
-		["debuff"] = 0,
-		["connected"] = true,
-		["petUnit"] = "partypet3",
-	},
-	["party2"] = {
-		["zone"] = "The MOTHERLODE!!",
-		["baseRange"] = true,
-		["class"] = "WARLOCK",
-		["role"] = 62,
-		["sortMaxHp"] = 124560,
-		["map"] = "The MOTHERLODE!!",
-		["threat"] = 0,
-		["powermax"] = 100000,
-		["threatPerc"] = 0,
-		["isPet"] = false,
-		["name"] = "Wobbers",
-		["number"] = 2,
-		["isVehicle"] = false,
-		["group"] = 1,
-		["classId"] = 25,
-		["range"] = true,
-		["unit"] = "party2",
-		["powertype"] = 0,
-		["healthmax"] = 124560,
-		["dead"] = false,
-		["charmed"] = false,
-		["fullName"] = "Wobbers",
-		["power"] = 100000,
-		["aggro"] = false,
-		["visible"] = true,
-		["targetUnit"] = "party2target",
-		["health"] = 124560,
-		["className"] = "Warlock",
-		["afk"] = false,
-		["debuff"] = 0,
-		["connected"] = true,
-		["petUnit"] = "partypet2",
-	},
-	["pet"] = {
-		["number"] = 1,
-		["targetUnit"] = "pettarget",
-		["visible"] = true,
-		["isVehicle"] = false,
-		["group"] = 0,
-		["classId"] = 40,
-		["range"] = true,
-		["unit"] = "pet",
-		["zone"] = "The MOTHERLODE!!",
-		["debuff"] = 0,
-		["healthmax"] = 102823,
-		["baseRange"] = true,
-		["afk"] = false,
-		["sortMaxHp"] = 102823,
-		["class"] = "WARRIOR",
-		["dead"] = false,
-		["map"] = "The MOTHERLODE!!",
-		["threat"] = 0,
-		["fullName"] = "Gara",
-		["power"] = 120,
-		["aggro"] = false,
-		["powertype"] = 2,
-		["threatPerc"] = 0,
-		["isPet"] = true,
-		["charmed"] = false,
-		["name"] = "Gara",
-		["className"] = "Gara",
-		["powermax"] = 120,
-		["ownerUnit"] = "player",
-		["connected"] = true,
-		["health"] = 102823,
-	},
-	["partypet2"] = {
-		["visible"] = true,
-		["number"] = 2,
-		["isVehicle"] = false,
-		["baseRange"] = true,
-		["afk"] = false,
-		["range"] = true,
-		["unit"] = "partypet2",
-		["zone"] = "The MOTHERLODE!!",
-		["powertype"] = 3,
-		["healthmax"] = 56052,
-		["targetUnit"] = "partypet2target",
-		["group"] = 0,
-		["sortMaxHp"] = 56052,
-		["class"] = "WARLOCK",
-		["dead"] = false,
-		["map"] = "The MOTHERLODE!!",
-		["threat"] = 0,
-		["powermax"] = 200,
-		["power"] = 200,
-		["aggro"] = false,
-		["debuff"] = 0,
-		["threatPerc"] = 0,
-		["classId"] = 40,
-		["isPet"] = true,
-		["charmed"] = false,
-		["health"] = 56052,
-		["className"] = "Gaknam",
-		["fullName"] = "Gaknam",
-		["ownerUnit"] = "party2",
-		["connected"] = true,
-		["name"] = "Gaknam",
-	},
 	["player"] = {
-		["zone"] = "The MOTHERLODE!!",
+		["zone"] = "Boralus Harbor",
 		["baseRange"] = true,
 		["class"] = "HUNTER",
 		["role"] = 62,
-		["sortMaxHp"] = 127108,
-		["map"] = "The MOTHERLODE!!",
+		["sortMaxHp"] = 122520,
+		["map"] = "Boralus",
 		["threat"] = 0,
 		["powermax"] = 120,
 		["threatPerc"] = 0,
@@ -8309,7 +8176,7 @@ VUHDO_RAID = {
 		["range"] = true,
 		["unit"] = "player",
 		["powertype"] = 2,
-		["healthmax"] = 127108,
+		["healthmax"] = 122520,
 		["dead"] = false,
 		["charmed"] = false,
 		["fullName"] = "Qsilver",
@@ -8317,112 +8184,12 @@ VUHDO_RAID = {
 		["aggro"] = false,
 		["visible"] = true,
 		["targetUnit"] = "target",
-		["health"] = 127108,
+		["health"] = 122520,
 		["className"] = "Hunter",
 		["afk"] = false,
 		["debuff"] = 0,
 		["connected"] = true,
 		["petUnit"] = "pet",
-	},
-	["partypet3"] = {
-		["number"] = 3,
-		["zone"] = "The MOTHERLODE!!",
-		["isVehicle"] = false,
-		["baseRange"] = false,
-		["classId"] = 40,
-		["range"] = false,
-		["unit"] = "partypet3",
-		["visible"] = false,
-		["debuff"] = 0,
-		["healthmax"] = 104422,
-		["powertype"] = 0,
-		["targetUnit"] = "partypet3target",
-		["sortMaxHp"] = 104422,
-		["group"] = 0,
-		["dead"] = false,
-		["map"] = "The MOTHERLODE!!",
-		["threat"] = 0,
-		["fullName"] = "Tesla",
-		["power"] = 0,
-		["aggro"] = false,
-		["afk"] = false,
-		["threatPerc"] = 0,
-		["isPet"] = true,
-		["connected"] = true,
-		["health"] = 104422,
-		["className"] = "",
-		["powermax"] = 0,
-		["ownerUnit"] = "party3",
-		["name"] = "Tesla",
-		["charmed"] = false,
-	},
-	["party4"] = {
-		["zone"] = "Boralus Harbor",
-		["baseRange"] = false,
-		["class"] = "DRUID",
-		["role"] = 60,
-		["sortMaxHp"] = 126397,
-		["map"] = "Boralus",
-		["threat"] = 0,
-		["powermax"] = 20000,
-		["threatPerc"] = 0,
-		["isPet"] = false,
-		["name"] = "Tackcalb",
-		["number"] = 4,
-		["isVehicle"] = false,
-		["group"] = 1,
-		["classId"] = 27,
-		["range"] = false,
-		["unit"] = "party4",
-		["powertype"] = 0,
-		["healthmax"] = 126397,
-		["dead"] = false,
-		["charmed"] = false,
-		["fullName"] = "Tackcalb",
-		["power"] = 20000,
-		["aggro"] = false,
-		["visible"] = false,
-		["targetUnit"] = "party4target",
-		["health"] = 126397,
-		["className"] = "Druid",
-		["afk"] = false,
-		["debuff"] = 0,
-		["connected"] = true,
-		["petUnit"] = "partypet4",
-	},
-	["party1"] = {
-		["zone"] = "The MOTHERLODE!!",
-		["baseRange"] = true,
-		["class"] = "SHAMAN",
-		["role"] = 63,
-		["sortMaxHp"] = 120240,
-		["map"] = "The MOTHERLODE!!",
-		["threat"] = 0,
-		["powermax"] = 100000,
-		["threatPerc"] = 0,
-		["isPet"] = false,
-		["name"] = "Tjani",
-		["number"] = 1,
-		["isVehicle"] = false,
-		["group"] = 1,
-		["classId"] = 26,
-		["range"] = true,
-		["unit"] = "party1",
-		["powertype"] = 0,
-		["healthmax"] = 120240,
-		["dead"] = false,
-		["charmed"] = false,
-		["fullName"] = "Tjani",
-		["power"] = 100000,
-		["aggro"] = false,
-		["visible"] = true,
-		["targetUnit"] = "party1target",
-		["health"] = 120240,
-		["className"] = "Shaman",
-		["afk"] = false,
-		["debuff"] = 0,
-		["connected"] = true,
-		["petUnit"] = "partypet1",
 	},
 }
 VUHDO_INDICATOR_CONFIG = {
@@ -8432,7 +8199,7 @@ VUHDO_INDICATOR_CONFIG = {
 		["AGGRO_BAR"] = "",
 		["BACKGROUND_BAR"] = "Background: Solid",
 		["INCOMING_BAR"] = "",
-		["SIDE_LEFT"] = "",
+		["DAMAGE_FLASH_BAR"] = "",
 		["HEALTH_BAR_PANEL"] = {
 			"", -- [1]
 			"", -- [2]
@@ -8445,14 +8212,14 @@ VUHDO_INDICATOR_CONFIG = {
 			"", -- [9]
 			"", -- [10]
 		},
-		["CLUSTER_BORDER"] = "",
+		["SWIFTMEND_INDICATOR"] = "Role Icon",
 		["THREAT_MARK"] = "",
-		["MANA_BAR"] = "Manabars: Mana only",
 		["BAR_BORDER"] = "Border: Multi + Aggro",
 		["SIDE_RIGHT"] = "",
+		["MANA_BAR"] = "Manabars: Mana only",
 		["HEALTH_BAR"] = "Health (generic, class col)",
-		["SWIFTMEND_INDICATOR"] = "Role Icon",
-		["DAMAGE_FLASH_BAR"] = "",
+		["CLUSTER_BORDER"] = "",
+		["SIDE_LEFT"] = "",
 	},
 	["CUSTOM"] = {
 		["THREAT_BAR"] = {

@@ -113,7 +113,7 @@ do -- enUS / enGB
 	L.Slash_Error_Unkown = "ERROR: Something went wrong!"
 end
 
-if LOCALE == "deDE" then -- Sinusquell (47), Tiggi2702 (6)
+if LOCALE == "deDE" then -- Sinusquell (42), Tiggi2702 (6)
 L["Config_Importing_ImportingCanUpdate"] = "Beim Importieren können vorhandene Skalierung aktualisiert werden."
 L["Config_Importing_ImportingCanUpdate_Desc"] = "Wenn Sie eine Skalierung mit demselben Namen, derselben Klasse und Spezialisierung wie eine bereits vorhandene Skalierung importieren, wird die vorhandene Skalierung mit den neuen Gewichtungen aktualisiert, anstatt eine neue Skalierung zu erstellen. "
 L["Config_Importing_ImportingCanUpdate_Desc_Clarification"] = "Es kann mehrere Skalierungen mit demselben Namen geben, solange sie für verschiedene Spezialisierungen oder Klassen gelten. "
@@ -226,15 +226,11 @@ L["WeightEditor_TooltipText"] = "Angezeigt im Tooltip"
 L["WeightEditor_VersionText"] = "Version %s"
 
 
-elseif LOCALE == "esES" then
---[[Translation missing --]]
---[[ L["Config_Importing_ImportingCanUpdate"] = ""--]] 
---[[Translation missing --]]
---[[ L["Config_Importing_ImportingCanUpdate_Desc"] = ""--]] 
---[[Translation missing --]]
---[[ L["Config_Importing_ImportingCanUpdate_Desc_Clarification"] = ""--]] 
---[[Translation missing --]]
---[[ L["Config_Importing_Title"] = ""--]] 
+elseif LOCALE == "esES" then -- isaracho (3)
+L["Config_Importing_ImportingCanUpdate"] = "Importar puede causar que cambien las escalas actuales"
+L["Config_Importing_ImportingCanUpdate_Desc"] = "Cunado importes una escala con el mismo nombre, clase y especialización que una existente, la escala existente será actualizada con los nuevos valores en lugar de crear una nueva escala."
+L["Config_Importing_ImportingCanUpdate_Desc_Clarification"] = "Puede haber múltiples escalas con el mismo nombre mientras sean para diferentes especializaciones o clases."
+L["Config_Importing_Title"] = "Importando"
 --[[Translation missing --]]
 --[[ L["Config_Scales_Desc"] = ""--]] 
 --[[Translation missing --]]
@@ -929,7 +925,7 @@ L["WeightEditor_TooltipText"] = "Mostrar na descrição dos itens"
 L["WeightEditor_VersionText"] = "Versão %s"
 
 
-elseif LOCALE == "ruRU" then -- dartraiden (74)
+elseif LOCALE == "ruRU" then -- dartraiden (77)
 L["Config_Importing_ImportingCanUpdate"] = "Обновлять уже существующие наборы при импорте"
 L["Config_Importing_ImportingCanUpdate_Desc"] = "При импорте набора, совпадающего с существующим по имени, классу и специализации, вместо создания нового набора будет обновлён уже существующий набор."
 L["Config_Importing_ImportingCanUpdate_Desc_Clarification"] = "Допустимы наборы с одинаковыми названиями, если они предназначены для разных специализаций или классов."
@@ -938,12 +934,9 @@ L["Config_Scales_Desc"] = "Следующие настройки влияют л
 L["Config_Scales_OwnClassDefaultsOnly"] = "Показывать наборы по умолчанию, предназначенные лишь для моего класса"
 L["Config_Scales_OwnClassDefaultsOnly_Desc"] = "Показывать не все наборы по умолчанию, а только подходящие для вашего класса."
 L["Config_Scales_Title"] = "Список наборов"
---[[Translation missing --]]
---[[ L["Config_Score_AddItemLevelToScore"] = ""--]] 
---[[Translation missing --]]
---[[ L["Config_Score_AddItemLevelToScore_Desc"] = ""--]] 
---[[Translation missing --]]
---[[ L["Config_Score_Title"] = ""--]] 
+L["Config_Score_AddItemLevelToScore"] = "Добавить уровень предмета ко всем рейтингам"
+L["Config_Score_AddItemLevelToScore_Desc"] = "Добавить уровень азеритовых предметов к текущему, потенциальному и максимальному рейтингам."
+L["Config_Score_Title"] = "Рейтинг"
 L["Config_SettingsSavedPerChar"] = [=[Все эти настройки сохраняются отдельно для каждого персонажа.
 Созданные вами наборы являются общими для всех персонажей.]=]
 L["Config_WeightEditor_Desc"] = "Следующие настройки влияют лишь на показ талантов в редакторе наборов. Даже если вы отключите их, ценность азеритовых талантов будет учтена, если она у них указана."
@@ -1131,11 +1124,11 @@ L["WeightEditor_TooltipText"] = "툴팁에 표시하기 "
 L["WeightEditor_VersionText"] = "버전 %s "
 
 
-elseif LOCALE == "zhCN" then -- plok245 (43), riggzh (34)
-L["Config_Importing_ImportingCanUpdate"] = "导入可以更新现有配置"
-L["Config_Importing_ImportingCanUpdate_Desc"] = "当导入配置名称相同并且职业专精一致时，将更新现有配置，而不是建立新配置。"
+elseif LOCALE == "zhCN" then -- plok245 (41), riggzh (36)
+L["Config_Importing_ImportingCanUpdate"] = "导入覆盖现有配置"
+L["Config_Importing_ImportingCanUpdate_Desc"] = "当导入配置名称相同并且职业专精一致时，将覆盖现有配置，而不是建立新配置。"
 L["Config_Importing_ImportingCanUpdate_Desc_Clarification"] = "可以有多个同名配置，只要它们用于不同的专精或职业。"
-L["Config_Importing_Title"] = "导入中"
+L["Config_Importing_Title"] = "导入"
 L["Config_Scales_Desc"] = "以下设置仅影响默认配置。所有自定义配置将在每个职业显示。"
 L["Config_Scales_OwnClassDefaultsOnly"] = "只显示自己职业的默认配置"
 L["Config_Scales_OwnClassDefaultsOnly_Desc"] = "只显示你自己职业的默认配置，而不是显示所有的默认配置。"

@@ -72,7 +72,7 @@ end
 
 
 function nxraonevent(self,event,...)
-local arg1, arg2, arg3,arg4,arg5,arg6 = ...
+local arg1, arg2, arg3,arg4,arg5,arg6 = CombatLogGetCurrentEventInfo()
 
 
 if event == "PLAYER_REGEN_DISABLED" then
@@ -125,7 +125,7 @@ end
 
 if event == "COMBAT_LOG_EVENT_UNFILTERED" then
 
-local arg1, arg2, argnew, arg3,arg4,arg5,argnew2,arg6,arg7,arg8,argnew3,arg9,arg10,arg11,arg12,arg13,arg14, arg15,arg16,arg17,arg18,arg19,arg20 = ...
+local arg1, arg2, argnew, arg3,arg4,arg5,argnew2,arg6,arg7,arg8,argnew3,arg9,arg10,arg11,arg12,arg13,arg14, arg15,arg16,arg17,arg18,arg19,arg20 = CombatLogGetCurrentEventInfo()
 
 
 

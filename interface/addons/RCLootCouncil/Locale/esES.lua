@@ -7,10 +7,6 @@ if not L then return end
 L[" is not active in this raid."] = "no está activo en esta banda."
 L[" you are now the Master Looter and RCLootCouncil is now handling looting."] = "A partir de ahora eres el Maestro Despojador y RCLootCouncil maneja el reparto."
 L["&p was awarded with &i for &r!"] = "&p fue premiado con &i por &r!"
-L["2 Piece"] = "2ª Pieza"
-L["2nd Tier Piece"] = "Segundo bonus de tier"
-L["4 Piece"] = "4ª pieza"
-L["4th Tier Piece"] = "4 bonus de tier"
 L["A format to copy/paste to another player."] = "Establece un formato para copiar/pegar a otro jugador."
 L["A new session has begun, type '/rc open' to open the voting frame."] = "Una nueva sesion ha comenzado, escriba '/rc open' para abrir ventana de votación"
 L["A tab delimited output for Excel. Might work with other spreadsheets."] = "Un tabulador delimita una salida de Excel. Es posible que funcione con otra hoja de cálculo."
@@ -33,8 +29,9 @@ Clic en los rangos de la izquierda para añadir jugadores individualmente al con
 Clic en la ventana 'Consejo actual' para ver su selección.]=]
 --[[Translation missing --]]
 --[[ L["add_rolls_desc"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["Additional Buttons"] = ""--]] 
 L["All items"] = "Todos los objetos"
-L["All items has been awarded and  the loot session concluded"] = "Todos los objetos han sido repartidos y la sesion del reparto ha finalizado"
 --[[Translation missing --]]
 --[[ L["All items have been awarded and the loot session concluded"] = ""--]] 
 --[[Translation missing --]]
@@ -44,10 +41,8 @@ L["All items has been awarded and  the loot session concluded"] = "Todos los obj
 L["Alt click Looting"] = "Pulsar ALT para Repartir"
 L["alt_click_looting_desc"] = "Activar el clic de ALT para repartir el loot, es decir, se inicia una sesión de reparto del loot manteniendo pulsada la tecla Alt (izquierdo) y haciendo clic en un objeto."
 L["Alternatively, flag the loot as award later."] = "Alternativamente, marcar el loot para premiar más tarde."
-L["Always use RCLootCouncil when I'm Master Looter"] = "Utilizar siempre RCLootCouncil cuando soy el Maestro Despojador"
 --[[Translation missing --]]
 --[[ L["Always use RCLootCouncil with Personal Loot"] = ""--]] 
-L["Always use when leader"] = "Utilizar siempre cuando sea el lider"
 --[[Translation missing --]]
 --[[ L["always_show_tooltip_howto"] = ""--]] 
 L["Announce Awards"] = "Anunciar premios"
@@ -85,10 +80,8 @@ L["Are you sure you want to give #item to #player?"] = "¿Estás seguro que quie
 --[[Translation missing --]]
 --[[ L["Are you sure you want to request rolls for all unawarded items from %s?"] = ""--]] 
 L["Armor Token"] = "Ficha de armadura"
-L["Ask me every time I become Master Looter"] = "Preguntarme cada vez que me convierta en Maestro Despojador"
 --[[Translation missing --]]
 --[[ L["Ask me every time Personal Loot is enabled"] = ""--]] 
-L["Ask me when leader"] = "Preguntarme cuando sea el lider"
 L["Auto Award"] = "Recompensa automática"
 L["Auto Award to"] = "Recompensar automáticamente a"
 L["Auto awarded 'item'"] = "Auto entregar %s"
@@ -136,6 +129,8 @@ Se usa al cambiar una respuesta con el menu del clic derecho y con Recompensa Au
 --[[Translation missing --]]
 --[[ L["Awarded item cannot be awarded later."] = ""--]] 
 L["Awards"] = "Recompensas"
+--[[Translation missing --]]
+--[[ L["Azerite Armor"] = ""--]] 
 L["Background"] = "Fondo"
 L["Background Color"] = "Color de fondo"
 L["Banking"] = "Banco"
@@ -231,12 +226,8 @@ L["Double click to delete this entry."] = "Doble click para borrar esta entrada.
 L["Dropped by:"] = "Despojado de"
 L["Edit Entry"] = "Editar entrada"
 L["Enable Loot History"] = "Activar historial de botin"
-L["Enable Relic Buttons"] = "Activar los botones de reliquias"
-L["Enable Tier Buttons"] = "Activar los botones del tier"
 L["Enable Timeout"] = "Habilitar tiempo de espera"
 L["enable_loot_history_desc"] = "Activado el historial. RCLootCouncil no registrara nada si esta deshabilitado."
-L["enable_relicbuttons_desc"] = "Marca para activar un conjunto de botones separados cuando se tiren por las reliquias"
-L["enable_tierbuttons_desc"] = "Marca para activar un conjunto de botones separados cuando se tiren por las piezas de tier"
 L["enable_timeout_desc"] = "Marca la casilla para habilitar tiempo maximo en la ventana de Loot"
 L["Enter your note:"] = "Escribe tu nota"
 L["EQdkp-Plus XML output, tailored for Enjin import."] = "Exportar para EQdkp-Plus XML, hecho para importar en Enjin."
@@ -269,6 +260,8 @@ L["ignore_input_usage"] = "Esta funcion solo acepta ItemIDs (numero identificado
 L["ignore_list_desc"] = "Articulo esta siendo ignorado por RCLootCouncil.Haga clic en un elemento para eliminarlo."
 L["ignore_options_desc"] = "Control de los objetos que RCLootCouncil debe ignorar. Si se agrega un objeto que no se almacena en cache, es necesario cambiar a otra ventana y regresar a la misma para que lo vea en la lista."
 L["import_desc"] = "Pega los datos aqui. Solo se mostraran los primeros 2500 caracteres para evitar que el juego se congele"
+--[[Translation missing --]]
+--[[ L["Invalid selection"] = ""--]] 
 L["Item"] = "Objeto"
 --[[Translation missing --]]
 --[[ L["'Item' is added to the award later list."] = ""--]] 
@@ -284,7 +277,6 @@ L["Item(s) replaced:"] = "Objeto/s sustituidos:"
 --[[ L["Items stored in the loot master's bag for award later cannot be awarded later."] = ""--]] 
 L["Items under consideration:"] = "Objetos en consideracion:"
 L["Latest item(s) won"] = "Ultimo(s) objeto(s) repartidos"
-L["leaderUsage_desc"] = "Usar la misma configuración cuando se entra en una instancia como líder?"
 L["Length"] = "Duración"
 L["Log"] = "Registro"
 L["log_desc"] = "Permite incluir botin en el historial"
@@ -304,6 +296,8 @@ L["Lower Quality Limit"] = "Limite Inferior de Calidad"
 L["lower_quality_limit_desc"] = [=[Seleccionar la calidad mas baja de los objetos a repartir automaticamente (calidad seleccionada incluida).
 Nota: Esto sobreescribe el umbral normal de saqueo.]=]
 L["Mainspec/Need"] = "Especializacion principal / Necesidad"
+--[[Translation missing --]]
+--[[ L["Mass deletion of history entries."] = ""--]] 
 L["Master Looter"] = "Maestro de botin"
 L["master_looter_desc"] = "Nota: Estos ajustes solo se utilizaran cuando eres el maestro despojador."
 L["Message"] = "Mensaje"
@@ -369,6 +363,24 @@ L["Open the Loot History"] = "Abrir Hitorial de botin"
 L["open_the_loot_history_desc"] = "Pulsar para abrir historial de botin"
 L["Opens the synchronizer"] = "Abrir el sincronizador"
 --[[Translation missing --]]
+--[[ L["opt_addButton_desc"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_buttonsGroup_desc"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_deleteDate_confirm"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_deleteDate_desc"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_deleteName_confirm"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_deleteName_desc"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_deletePatch_confirm"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_deletePatch_desc"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_moreButtons_desc"] = ""--]] 
+--[[Translation missing --]]
 --[[ L["opt_printCompletedTrade_Desc"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["opt_printCompletedTrade_Name"] = ""--]] 
@@ -376,9 +388,14 @@ L["Opens the synchronizer"] = "Abrir el sincronizador"
 --[[ L["opt_rejectTrade_Desc"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["opt_rejectTrade_Name"] = ""--]] 
-L["Other piece"] = "Otra pieza"
 --[[Translation missing --]]
 --[[ L["Out of instance"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["Patch"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["Personal Loot - Non tradeable"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["Personal Loot - Rejected Trade"] = ""--]] 
 L["'player' can't receive 'type'"] = "%s no puede recibir %s - version anterior"
 --[[Translation missing --]]
 --[[ L["'player' declined your sync request"] = ""--]] 
@@ -393,9 +410,6 @@ L["'player' has ended the session"] = "%s Ha terminado la sesion"
 L["Player is not in the group"] = "El jugador no esta en el grupo"
 --[[Translation missing --]]
 --[[ L["Player is not in this instance"] = ""--]] 
-L["Player is not in this instance or his inventory is full"] = "El jugador no esta en la estancia o su inventario esta lleno"
---[[Translation missing --]]
---[[ L["Player is not in this instance or is ineligible for this item"] = ""--]] 
 L["Player is offline"] = "El jugador esta desconectado"
 L["Please wait a few seconds until all data has been synchronized."] = "Por favor espera unos segundos antes de que todos los datos sean sincronizados"
 --[[Translation missing --]]
@@ -421,10 +435,6 @@ L["Reannounce ..."] = "Volver anunciar"
 --[[ L["Reannounced 'item' to 'target'"] = ""--]] 
 L["Reason"] = "Motivo"
 L["reason_desc"] = "El motivo de la recompensa a añadir al Historial de Saqueo al repartir automaticamente."
---[[Translation missing --]]
---[[ L["Relic Buttons and Responses"] = ""--]] 
---[[Translation missing --]]
---[[ L["relic_buttons_desc"] = ""--]] 
 L["Remove All"] = "Eliminar todo"
 L["Remove from consideration"] = "Eliminar consideracion"
 L["remove_all_desc"] = "Eliminar todos los miembros del consejo"
@@ -482,6 +492,8 @@ L["Simple BBCode output."] = "Exportar en BBCode simple."
 L["Skins"] = "Apariencias"
 L["skins_description"] = "Selecciona una de las apariencias por defecto o crea la tuya. Esto es puramente estético. Abre el comprobador de versión para ver los resultados rápidamente ('/rc version')."
 --[[Translation missing --]]
+--[[ L["Slot"] = ""--]] 
+--[[Translation missing --]]
 --[[ L["Socket"] = ""--]] 
 L["Something went wrong :'("] = "Algo salio mal :("
 --[[Translation missing --]]
@@ -494,6 +506,10 @@ L["Standard .csv output."] = "Exportar en .csv estándar."
 L["Status texts"] = "Textos de estado"
 --[[Translation missing --]]
 --[[ L["Store in bag and award later"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["Succesfully deleted %d entries"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["Succesfully deleted %d entries from %s"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["Successfully imported 'number' entries."] = ""--]] 
 --[[Translation missing --]]
@@ -535,14 +551,8 @@ L["Tier 20"] = true
 --[[Translation missing --]]
 --[[ L["Tier 21"] = ""--]] 
 --[[Translation missing --]]
---[[ L["Tier Buttons and Responses"] = ""--]] 
---[[Translation missing --]]
---[[ L["Tier Piece that doesn't complete a set"] = ""--]] 
---[[Translation missing --]]
 --[[ L["Tier Tokens ..."] = ""--]] 
 L["Tier tokens received from here:"] = "Fichas de conjunto recibidas de aquí:"
---[[Translation missing --]]
---[[ L["tier_buttons_desc"] = ""--]] 
 L["tier_token_heroic"] = "Heroico"
 L["tier_token_mythic"] = "Mítico"
 L["tier_token_normal"] = "Normal"
@@ -573,8 +583,6 @@ L["Unguilded"] = "Sin Hermandad"
 L["Unknown date"] = "Fecha desconocida"
 L["Unknown/Chest"] = "Desconocido "
 L["Unvote"] = true
---[[Translation missing --]]
---[[ L["Upgrade to existing tier/random upgrade"] = ""--]] 
 L["Upper Quality Limit"] = "Limite Superior de Calidad"
 L["upper_quality_limit_desc"] = [=[Seleccionar la calidad mas alta de los objetos a repartir automaticamente (calidad seleccionada incluida)
 Nota: Esto sobrescribe el umbral normal de saqueo.]=]
@@ -609,7 +617,6 @@ L["You are not allowed to see the Voting Frame right now."] = "No se le permite 
 --[[Translation missing --]]
 --[[ L["You are not in an instance"] = ""--]] 
 L["You can only auto award items with a quality lower than 'quality' to yourself due to Blizaard restrictions"] = "Solo puede adjudicar premios automaticamente con una calidad inferior %s debido a restricciones de Blizaard"
-L["You cannot initiate a test while in a group without being the MasterLooter."] = "No puede iniciar una prueba de grupo si no es maestro despojador"
 L["You cannot start an empty session."] = "No puedes iniciar una sesión vacía."
 L["You cannot use the menu when the session has ended."] = "No puede utilizar el menu cuando el reparto ha terminado."
 L["You cannot use this command without being the Master Looter"] = "No puede utilizar este comando sin ser el maestro despojador"

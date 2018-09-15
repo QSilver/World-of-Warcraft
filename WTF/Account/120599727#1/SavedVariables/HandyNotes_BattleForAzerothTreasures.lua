@@ -6,6 +6,9 @@ HandyNotes_BattleForAzerothTreasuresDB = {
 				[895] = {
 					[52253215] = true,
 				},
+				[862] = {
+					[53204480] = true,
+				},
 				[864] = {
 					[42549216] = true,
 					[61433843] = true,
@@ -18,9 +21,6 @@ HandyNotes_BattleForAzerothTreasuresDB = {
 					[41412392] = true,
 					[63984784] = true,
 					[44408053] = true,
-				},
-				[862] = {
-					[53204480] = true,
 				},
 			},
 		},

@@ -138,8 +138,8 @@ AzeritePowerWeightsDB = {
 				["onlyOwnClassDefaults"] = true,
 				["tooltipScales"] = {
 					{
-						["scaleName"] = "Default",
-						["scaleID"] = "D/3/1/Default",
+						["scaleName"] = "HeroDamage Stacks ST T22 10-09-2018",
+						["scaleID"] = "C/3/253/HeroDamage Stacks ST T22 10-09-2018",
 					}, -- [1]
 				},
 				["zonePowers"] = true,
