@@ -18,8 +18,8 @@ Loads all triggers of display id.
 UnloadAll
 Unloads all triggers.
 
-UnloadDisplay(id)
-Unloads all triggers of the display id.
+UnloadDisplays(id)
+Unloads all triggers of the display ids.
 
 ScanAll
 Resets the trigger state for all triggers.
@@ -30,10 +30,6 @@ Modernizes all generic triggers in data.
 #####################################################
 # Helper functions mainly for the WeakAuras Options #
 #####################################################
-
-CanGroupShowWithZero(data)
-Returns whether the first trigger could be shown without any affected group members.
-If that is the case no automatic icon can be determined. Only used by the options dialog.
 
 CanHaveDuration(data, triggernum)
 Returns whether the trigger can have a duration.
@@ -172,7 +168,11 @@ function TestForMultiSelect(trigger, arg)
     end
     test = test..")";
   elseif(trigger["use_"..name]) then -- single selection
-    local value = trigger[name].single;
+    local value = trigger[name] and trigger[name].single;
+    if (not value) then
+      test = "false";
+      return test;
+    end
     if not arg.test then
       test = trigger[name].single and "("..name.."=="..(tonumber(value) or "[["..value.."]]")..")";
     else
@@ -599,6 +599,7 @@ function WeakAuras.ScanEvents(event, arg1, arg2, ...)
   WeakAuras.StartProfileSystem("generictrigger " .. orgEvent )
   local event_list = loaded_events[event];
   if (not event_list) then
+    WeakAuras.StopProfileSystem("generictrigger " .. orgEvent )
     return
   end
   if(event == "COMBAT_LOG_EVENT_UNFILTERED") then
@@ -606,6 +607,7 @@ function WeakAuras.ScanEvents(event, arg1, arg2, ...)
 
     event_list = event_list[arg2];
     if (not event_list) then
+      WeakAuras.StopProfileSystem("generictrigger " .. orgEvent )
       return;
     end
     WeakAuras.ScanEventsInternal(event_list, event, CombatLogGetCurrentEventInfo());
@@ -619,6 +621,7 @@ function WeakAuras.ScanEvents(event, arg1, arg2, ...)
   else
     WeakAuras.ScanEventsInternal(event_list, event, arg1, arg2, ...);
   end
+  WeakAuras.StopProfileSystem("generictrigger " .. orgEvent )
 end
 
 function WeakAuras.ScanEventsInternal(event_list, event, arg1, arg2, ... )
@@ -639,32 +642,33 @@ function WeakAuras.ScanEventsInternal(event_list, event, arg1, arg2, ... )
     WeakAuras.StopProfileAura(id);
     WeakAuras.ActivateAuraEnvironment(nil);
   end
-  WeakAuras.StopProfileSystem("generictrigger " .. orgEvent )
 end
 
-function GenericTrigger.ScanAll(recentlyLoaded)
-  for id, _ in pairs(loaded_auras) do
-    if (not recentlyLoaded or recentlyLoaded[id]) then
-      local updateTriggerState = false;
-      WeakAuras.ActivateAuraEnvironment(id);
-      for triggernum, event in pairs(events[id] or {}) do
-        local allStates = WeakAuras.GetTriggerStateForTrigger(id, triggernum);
-        if (event.force_events) then
-          if (type(event.force_events) == "string") then
-            updateTriggerState = RunTriggerFunc(allStates, events[id][triggernum], id, triggernum, event.force_events) or updateTriggerState;
-          elseif (type(event.force_events) == "boolean" and event.force_events) then
-            for i, eventName in pairs(event.events) do
-              updateTriggerState = RunTriggerFunc(allStates, events[id][triggernum], id, triggernum, eventName) or updateTriggerState;
-            end
-          end
+function GenericTrigger.ScanWithFakeEvent(id)
+  local updateTriggerState = false;
+  WeakAuras.ActivateAuraEnvironment(id);
+  for triggernum, event in pairs(events[id] or {}) do
+    local allStates = WeakAuras.GetTriggerStateForTrigger(id, triggernum);
+    if (event.force_events) then
+      if (type(event.force_events) == "string") then
+        updateTriggerState = RunTriggerFunc(allStates, events[id][triggernum], id, triggernum, event.force_events) or updateTriggerState;
+      elseif (type(event.force_events) == "boolean" and event.force_events) then
+        for i, eventName in pairs(event.events) do
+          updateTriggerState = RunTriggerFunc(allStates, events[id][triggernum], id, triggernum, eventName) or updateTriggerState;
         end
       end
-
-      if (updateTriggerState) then
-        WeakAuras.UpdatedTriggerState(id);
-      end
-      WeakAuras.ActivateAuraEnvironment(nil);
     end
+  end
+
+  if (updateTriggerState) then
+    WeakAuras.UpdatedTriggerState(id);
+  end
+  WeakAuras.ActivateAuraEnvironment(nil);
+end
+
+function GenericTrigger.ScanAll()
+  for id, _ in pairs(loaded_auras) do
+    GenericTrigger.ScanWithFakeEvent(id);
   end
 end
 
@@ -698,27 +702,31 @@ function GenericTrigger.UnloadAll()
   WeakAuras.UnregisterAllEveryFrameUpdate();
 end
 
-function GenericTrigger.UnloadDisplay(id)
-  loaded_auras[id] = false;
-  for eventname, events in pairs(loaded_events) do
-    if(eventname == "COMBAT_LOG_EVENT_UNFILTERED") then
-      for subeventname, subevents in pairs(events) do
-        subevents[id] = nil;
+function GenericTrigger.UnloadDisplays(toUnload)
+  for id in pairs(toUnload) do
+    loaded_auras[id] = false;
+    for eventname, events in pairs(loaded_events) do
+      if(eventname == "COMBAT_LOG_EVENT_UNFILTERED") then
+        for subeventname, subevents in pairs(events) do
+          subevents[id] = nil;
+        end
+      else
+        events[id] = nil;
       end
-    else
-      events[id] = nil;
     end
+    WeakAuras.UnregisterEveryFrameUpdate(id);
   end
-  WeakAuras.UnregisterEveryFrameUpdate(id);
 end
 
+local genericTriggerRegisteredEvents = {};
 local frame = CreateFrame("FRAME");
 WeakAuras.frames["WeakAuras Generic Trigger Frame"] = frame;
 frame:RegisterEvent("PLAYER_ENTERING_WORLD");
+genericTriggerRegisteredEvents["PLAYER_ENTERING_WORLD"] = true;
 frame:SetScript("OnEvent", HandleEvent);
 
 function GenericTrigger.Delete(id)
-  GenericTrigger.UnloadDisplay(id);
+  GenericTrigger.UnloadDisplays({[id] = true});
 end
 
 function GenericTrigger.Rename(oldid, newid)
@@ -770,32 +778,55 @@ local function trueFunction()
   return true;
 end
 
-function GenericTrigger.LoadDisplay(id)
-  local register_for_frame_updates = false;
-  if(events[id]) then
-    loaded_auras[id] = true;
-    for triggernum, data in pairs(events[id]) do
-      for index, event in pairs(data.events) do
-        if (event == "COMBAT_LOG_EVENT_UNFILTERED_CUSTOM") then
-          frame:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED");
-        elseif (event == "FRAME_UPDATE") then
-          register_for_frame_updates = true;
-        else
-          xpcall(frame.RegisterEvent, trueFunction, frame, event)
-          aceEvents:RegisterMessage(event, HandleEvent, frame)
+local eventsToRegister = {};
+function GenericTrigger.LoadDisplays(toLoad, loadEvent, ...)
+  for id in pairs(toLoad) do
+    local register_for_frame_updates = false;
+    if(events[id]) then
+      loaded_auras[id] = true;
+      for triggernum, data in pairs(events[id]) do
+        for index, event in pairs(data.events) do
+          if (event == "COMBAT_LOG_EVENT_UNFILTERED_CUSTOM") then
+            eventsToRegister["COMBAT_LOG_EVENT_UNFILTERED"] = true;
+          elseif (event == "FRAME_UPDATE") then
+            register_for_frame_updates = true;
+          else
+            if (genericTriggerRegisteredEvents[event]) then
+              -- Already registered event
+            else
+              eventsToRegister[event] = true;
+            end
+          end
         end
-      end
 
-      LoadEvent(id, triggernum, data);
+        LoadEvent(id, triggernum, data);
+      end
+    end
+
+    if(register_for_frame_updates) then
+      WeakAuras.RegisterEveryFrameUpdate(id);
+    else
+      WeakAuras.UnregisterEveryFrameUpdate(id);
     end
   end
 
-  if(register_for_frame_updates) then
-    WeakAuras.RegisterEveryFrameUpdate(id);
-  else
-    WeakAuras.UnregisterEveryFrameUpdate(id);
+  for event in pairs(eventsToRegister) do
+    xpcall(frame.RegisterEvent, trueFunction, frame, event)
+    genericTriggerRegisteredEvents[event] = true;
   end
 
+  for id in pairs(toLoad) do
+    GenericTrigger.ScanWithFakeEvent(id);
+  end
+
+  if (eventsToRegister[loadEvent]) then
+    WeakAuras.ScanEvents(loadEvent, ...);
+  end
+
+  wipe(eventsToRegister);
+end
+
+function GenericTrigger.FinishLoadUnload()
 end
 
 --- Adds a display, creating all internal data structures for all triggers.
@@ -827,9 +858,21 @@ function GenericTrigger.Add(data, region)
             else
               error("Improper arguments to WeakAuras.Add - no event prototype can be found for event type \""..trigger.event.."\" and default prototype reset failed.");
             end
-          elseif(trigger.event == "Combat Log" and not (trigger.subeventPrefix..trigger.subeventSuffix)) then
-            error("Improper arguments to WeakAuras.Add - event type is \"Combat Log\" but subevent is not defined");
           else
+            if (trigger.event == "Combat Log") then
+              if (not trigger.subeventPrefix) then
+                trigger.subeventPrefix = ""
+              end
+              if (not trigger.subeventSuffix) then
+                trigger.subeventSuffix = "";
+              end
+              if not(WeakAuras.subevent_actual_prefix_types[trigger.subeventPrefix]) then
+                trigger.subeventSuffix = "";
+              end
+            end
+
+
+
             triggerFuncStr = ConstructFunction(event_prototypes[trigger.event], trigger);
 
             statesParameter = event_prototypes[trigger.event].statesParameter;
@@ -1317,6 +1360,7 @@ do
   local cdReadyFrame;
 
   local spells = {};
+  local spellKnown = {};
   local spellsRune = {}
   local spellCdDurs = {};
   local spellCdExps = {};
@@ -1364,12 +1408,16 @@ do
     cdReadyFrame:RegisterEvent("UNIT_INVENTORY_CHANGED")
     cdReadyFrame:RegisterEvent("PLAYER_EQUIPMENT_CHANGED");
     cdReadyFrame:RegisterEvent("ACTIONBAR_UPDATE_COOLDOWN");
+    cdReadyFrame:RegisterEvent("SPELLS_CHANGED");
+    cdReadyFrame:RegisterEvent("PLAYER_ENTERING_WORLD");
     cdReadyFrame:SetScript("OnEvent", function(self, event, ...)
       WeakAuras.StartProfileSystem("generictrigger cd tracking");
       if(event == "SPELL_UPDATE_COOLDOWN" or event == "SPELL_UPDATE_CHARGES"
         or event == "RUNE_POWER_UPDATE" or event == "ACTIONBAR_UPDATE_COOLDOWN"
         or event == "PLAYER_TALENT_UPDATE" or event == "PLAYER_PVP_TALENT_UPDATE") then
         WeakAuras.CheckCooldownReady();
+      elseif(event == "SPELLS_CHANGED") then
+        WeakAuras.CheckSpellKnown();
       elseif(event == "UNIT_SPELLCAST_SENT") then
         local unit, guid, castGUID, name = ...;
         if(unit == "player") then
@@ -1397,6 +1445,9 @@ do
   end
 
   function WeakAuras.GetSpellCooldown(id, ignoreRuneCD, showgcd)
+    if (not spellKnown[id]) then
+      return;
+    end
     local startTime, duration, gcdCooldown;
     if (ignoreRuneCD) then
       if (spellsRune[id] and spellCdExpsRune[id] and spellCdDursRune[id]) then
@@ -1428,6 +1479,9 @@ do
   end
 
   function WeakAuras.GetSpellCharges(id)
+    if (not spellKnown[id]) then
+      return;
+    end
     return spellCharges[id], spellChargesMax[id];
   end
 
@@ -1637,6 +1691,16 @@ do
     end
 
     return charges, maxCharges, startTime, duration, cooldownBecauseRune;
+  end
+
+  function WeakAuras.CheckSpellKnown()
+    for id, _ in pairs(spells) do
+      local known = WeakAuras.IsSpellKnownIncludingPet(id);
+      if (known ~= spellKnown[id]) then
+        spellKnown[id] = known;
+        WeakAuras.ScanEvents("SPELL_COOLDOWN_CHANGED", id);
+      end
+    end
   end
 
   function WeakAuras.CheckSpellCooldows(runeDuration)
@@ -1881,6 +1945,7 @@ do
       return;
     end
     spells[id] = true;
+    spellKnown[id] = WeakAuras.IsSpellKnownIncludingPet(id);
 
     local charges, maxCharges, startTime, duration = WeakAuras.GetSpellCooldownUnified(id);
     spellCharges[id] = charges;
@@ -2578,10 +2643,6 @@ do
   end
 end
 
-function GenericTrigger.CanGroupShowWithZero(data)
-  return false;
-end
-
 local uniqueId = 0;
 function WeakAuras.GetUniqueCloneId()
   uniqueId = (uniqueId + 1) % 1000000;
@@ -2960,11 +3021,17 @@ function GenericTrigger.GetTriggerConditions(data, triggernum)
       return result;
     elseif (trigger.custom_type == "stateupdate") then
       if (events[data.id][triggernum] and events[data.id][triggernum].tsuConditionVariables) then
+        if (type(events[data.id][triggernum].tsuConditionVariables)) ~= "table" then
+          return nil;
+        end
         local result = CopyTable(events[data.id][triggernum].tsuConditionVariables);
         -- Make the life of tsu authors easier, by automatically filling in the details for
         -- expirationTime, duration, value, total, stacks, if those exists but aren't a table value
         -- By allowing a short-hand notation of just variable = type
         -- In addition to the long form of variable = { type = xyz, display = "desc"}
+        if (not result) then
+          return nil;
+        end
 
         for k, v in pairs(commonConditions) do
           if (result[k] and type(result[k]) ~= "table") then
@@ -3079,6 +3146,34 @@ function GenericTrigger.CreateFallbackState(data, triggernum, state)
     RunOverlayFuncs(event, state);
   end
   WeakAuras.ActivateAuraEnvironment(nil);
+end
+
+function GenericTrigger.GetName(triggerType)
+  if (triggerType == "status") then
+    return L["Status"];
+  end
+  if (triggerType == "event") then
+    return L["Event"];
+  end
+  if (triggerType == "custom") then
+    return L["Custom"];
+  end
+end
+
+function GenericTrigger.GetTriggerDescription(data, triggernum, namestable)
+  local trigger = data.triggers[triggernum].trigger
+  if(trigger.type == "event" or trigger.type == "status") then
+    if(trigger.type == "event") then
+      tinsert(namestable, {L["Trigger:"], (WeakAuras.event_types[trigger.event] or L["Undefined"])});
+    else
+      tinsert(namestable, {L["Trigger:"], (WeakAuras.status_types[trigger.event] or L["Undefined"])});
+    end
+    if(trigger.event == "Combat Log" and trigger.subeventPrefix and trigger.subeventSuffix) then
+      tinsert(namestable, {L["Message type:"], (WeakAuras.subevent_prefix_types[trigger.subeventPrefix] or L["Undefined"]).." "..(WeakAuras.subevent_suffix_types[trigger.subeventSuffix] or L["Undefined"])});
+    end
+  else
+    tinsert(namestable, {L["Trigger:"], L["Custom"]});
+  end
 end
 
 WeakAuras.RegisterTriggerSystem({"event", "status", "custom"}, GenericTrigger);

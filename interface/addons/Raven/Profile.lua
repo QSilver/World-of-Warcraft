@@ -577,6 +577,26 @@ function MOD:GetColor(name, spellID)
 	return c
 end
 
+-- Add a color to the cache, update values in case they have changed
+function MOD:SetExpireColor(name, c)
+	if name and c then
+		local t = MOD.db.global.ExpireColors[name]
+		if t then
+			t.r, t.g, t.b, t.a = c.r, c.g, c.b, c.a or 1
+		else
+			MOD.db.global.ExpireColors[name] = MOD.CopyColor(c)
+		end
+	end
+end
+
+-- Get a color from the cache of given name, but if not in cache then return nil
+function MOD:GetExpireColor(name, spellID)
+	local c = nil
+	if spellID then c = MOD.db.global.ExpireColors["#" .. tostring(spellID)] end -- allow names stored as #spellid
+	if not c then c = MOD.db.global.ExpireColors[name] end
+	return c
+end
+
 -- Add a label to the cache but only if different from name
 function MOD:SetLabel(name, label)
 	if name and label then
@@ -633,6 +653,9 @@ end
 
 -- Reset all expire times to default values
 function MOD:ResetExpireTimeDefaults() table.wipe(MOD.db.global.ExpireTimes) end
+
+-- Reset all expire colors to default values
+function MOD:ResetExpireColorDefaults() table.wipe(MOD.db.global.ExpireColors) end
 
 -- Add a spell duration to the per-profile cache, always save latest value since could change with haste
 -- When the spell id is known, save duration indexed by spell id; otherwise save indexed by name
@@ -893,6 +916,7 @@ MOD.DefaultProfile = {
 		Sounds = {},					-- cache of sounds for actions and spells
 		ExpireTimes = {},				-- cache of expire times for actions and spells
 		SpellColors = {},				-- cache of colors for actions and spells
+		ExpireColors = {},				-- cache of expire colors for actions and spells
 		SpellIcons = {},				-- cache of spell icons that override default icons
 		SpellIDs = {},					-- cache of spell ids that had to be looked up
 		SpellTypes = {},				-- cache of spell types (indexed by spell id)
@@ -927,8 +951,9 @@ MOD.DefaultProfile = {
 		SoundChannel = "Master",		-- by default, use the Master sound channel
 		HideOmniCC = false,				-- hide OmniCC counts on all bar group icons
 		HideBorder = true,				-- hide custom border in all bar groups
-		TukuiSkin = true,				-- skin with Tukui borders
+		TukuiSkin = true,				-- skin bars with Tukui borders
 		TukuiFont = true,				-- skin with Tukui fonts
+		TukuiIcon = true,				-- skin icons also with Tukui borders
 		TukuiScale = true,				-- skin Tukui with pixel perfect size and position
 		PixelPerfect = false,			-- enable pixel perfect size and position
 		PixelIconBorder = false,		-- enable a single pixel color border for icons

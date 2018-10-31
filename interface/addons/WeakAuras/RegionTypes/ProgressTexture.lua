@@ -181,19 +181,19 @@ function spinnerFunctions.SetProgress(self, region, angle1, angle2)
   self.angle1 = angle1;
   self.angle2 = angle2;
 
-  local scalex = region.scale_x or 1;
-  local scaley = region.scale_y or 1;
+  local crop_x = region.crop_x or 1;
+  local crop_y = region.crop_y or 1;
   local rotation = region.rotation or 0;
   local mirror_h = region.mirror_h or false;
   local mirror_v = region.mirror_v or false;
 
-  local width = region.width - self.offset;
-  local height = region.height - self.offset;
+  local width = region.width * (region.scalex or 1) - self.offset;
+  local height = region.height * (region.scaley or 1) - self.offset;
 
   if (angle2 - angle1 >= 360) then
     -- SHOW everything
     self.coords[1]:SetFull();
-    self.coords[1]:Transform(scalex, scaley, rotation, mirror_h, mirror_v);
+    self.coords[1]:Transform(crop_x, crop_y, rotation, mirror_h, mirror_v);
     self.coords[1]:Show();
 
     self.coords[2]:Hide();
@@ -212,18 +212,18 @@ function spinnerFunctions.SetProgress(self, region, angle1, angle2)
 
   if (index1 + 1 >= index2) then
     self.coords[1]:SetAngle(width, height, angle1, angle2);
-    self.coords[1]:Transform(scalex, scaley, rotation, mirror_h, mirror_v);
+    self.coords[1]:Transform(crop_x, crop_y, rotation, mirror_h, mirror_v);
     self.coords[1]:Show();
     self.coords[2]:Hide();
     self.coords[3]:Hide();
   elseif(index1 + 3 >= index2) then
     local firstEndAngle = (index1 + 1) * 90 + 45;
     self.coords[1]:SetAngle(width, height, angle1, firstEndAngle);
-    self.coords[1]:Transform(scalex, scaley, rotation, mirror_h, mirror_v);
+    self.coords[1]:Transform(crop_x, crop_y, rotation, mirror_h, mirror_v);
     self.coords[1]:Show();
 
     self.coords[2]:SetAngle(width, height, firstEndAngle, angle2);
-    self.coords[2]:Transform(scalex, scaley, rotation, mirror_h, mirror_v);
+    self.coords[2]:Transform(crop_x, crop_y, rotation, mirror_h, mirror_v);
     self.coords[2]:Show();
 
     self.coords[3]:Hide();
@@ -232,15 +232,15 @@ function spinnerFunctions.SetProgress(self, region, angle1, angle2)
     local secondEndAngle = firstEndAngle + 180;
 
     self.coords[1]:SetAngle(width, height, angle1, firstEndAngle);
-    self.coords[1]:Transform(scalex, scaley, rotation, mirror_h, mirror_v);
+    self.coords[1]:Transform(crop_x, crop_y, rotation, mirror_h, mirror_v);
     self.coords[1]:Show();
 
     self.coords[2]:SetAngle(width, height, firstEndAngle, secondEndAngle);
-    self.coords[2]:Transform(scalex, scaley, rotation, mirror_h, mirror_v);
+    self.coords[2]:Transform(crop_x, crop_y, rotation, mirror_h, mirror_v);
     self.coords[2]:Show();
 
     self.coords[3]:SetAngle(width, height, secondEndAngle, angle2);
-    self.coords[3]:Transform(scalex, scaley, rotation, mirror_h, mirror_v);
+    self.coords[3]:Transform(crop_x, crop_y, rotation, mirror_h, mirror_v);
     self.coords[3]:Show();
   end
 end
@@ -649,15 +649,15 @@ local textureFunctions = {
     self:SetValueFunction(startProgress, endProgress);
 
     local region = self.region;
-    local scalex = region.scale_x or 1;
-    local scaley = region.scale_y or 1;
+    local crop_x = region.crop_x or 1;
+    local crop_y = region.crop_y or 1;
     local rotation = region.rotation or 0;
     local mirror_h = region.mirror_h or false;
     local mirror_v = region.mirror_v or false;
     local user_x = region.user_x;
     local user_y = region.user_y;
 
-    self.coord:Transform(scalex, scaley, rotation, mirror_h, mirror_v, user_x, user_y);
+    self.coord:Transform(crop_x, crop_y, rotation, mirror_h, mirror_v, user_x, user_y);
     self.coord:Apply();
   end,
 
@@ -703,6 +703,8 @@ end
 
 local TextureSetValueFunction = function(self, progress)
   self.progress = progress;
+  progress = max(0, progress);
+  progress = min(1, progress);
   self.foreground:SetValue(0, progress);
 end
 
@@ -770,14 +772,14 @@ local function ensureExtraSpinners(region, count)
   end
 end
 
-local function convertToProgress(rprogress, additionalProgress, min, totalWidth, inverse)
+local function convertToProgress(rprogress, additionalProgress, adjustMin, totalWidth, inverse, clamp)
   local startProgress = 0;
   local endProgress = 0;
 
   if (additionalProgress.min and additionalProgress.max) then
     if (totalWidth ~= 0) then
-      startProgress = max( (additionalProgress.min - min) / totalWidth, 0);
-      endProgress = (additionalProgress.max - min) / totalWidth;
+      startProgress = max( (additionalProgress.min - adjustMin) / totalWidth, 0);
+      endProgress = (additionalProgress.max - adjustMin) / totalWidth;
 
       if (inverse) then
         startProgress = 1 - startProgress;
@@ -801,6 +803,12 @@ local function convertToProgress(rprogress, additionalProgress, min, totalWidth,
       end
     end
   end
+
+  if (clamp) then
+    startProgress = max(0, min(1, startProgress));
+    endProgress = max(0, min(1, endProgress));
+  end
+
   return startProgress, endProgress;
 end
 
@@ -822,7 +830,7 @@ local function SetAdditionalProgress(self, additionalProgress, min, max, inverse
       local extraTexture = self.extraTextures[index];
 
       local totalWidth = max - min;
-      local startProgress, endProgress = convertToProgress(self.progress, additionalProgress, min, totalWidth, effectiveInverse);
+      local startProgress, endProgress = convertToProgress(self.progress, additionalProgress, min, totalWidth, effectiveInverse, self.overlayclip);
       if ((endProgress - startProgress) == 0) then
         extraTexture:Hide();
       else
@@ -859,7 +867,7 @@ local function SetAdditionalProgressCircular(self, additionalProgress, min, max,
       local extraSpinner = self.extraSpinners[index];
 
       local totalWidth = max - min;
-      local startProgress, endProgress = convertToProgress(self.progress, additionalProgress, min, totalWidth, effectiveInverse);
+      local startProgress, endProgress = convertToProgress(self.progress, additionalProgress, min, totalWidth, effectiveInverse, self.overlayclip);
       if (endProgress < startProgress) then
         startProgress, endProgress = endProgress, startProgress;
       end
@@ -1005,6 +1013,7 @@ local function modify(parent, region, data)
   region.scalex = 1;
   region.scaley = 1;
   region.aspect =  data.width / data.height;
+  region.overlayclip = data.overlayclip;
 
   region.textureWrapMode = data.textureWrapMode;
 
@@ -1039,8 +1048,8 @@ local function modify(parent, region, data)
   end
 
   region.mirror_h = data.mirror;
-  region.scale_x = 1 + (data.crop_x or 0.41);
-  region.scale_y = 1 + (data.crop_y or 0.41);
+  region.crop_x = 1 + (data.crop_x or 0.41);
+  region.crop_y = 1 + (data.crop_y or 0.41);
   region.rotation = data.rotation or 0;
   region.user_x = -1 * (data.user_x or 0);
   region.user_y = data.user_y or 0;

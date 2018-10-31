@@ -180,7 +180,7 @@ end
 
 function prraonevent(self,event,...)
 
-local arg1, arg2, arg3,arg4,arg5,arg6 = CombatLogGetCurrentEventInfo()
+local arg1, arg2, arg3,arg4,arg5,arg6 = ...
 
 
 
@@ -347,7 +347,7 @@ if arg2=="SPELL_AURA_APPLIED" and (arg10==119985 or arg10==119414) then
 		if raunitplayertrue then
       --проверка что нет дебаффа на хихиканье
       local spbuf=GetSpellInfo(129147)
-      if UnitBuff(arg8, spbuf) or UnitDebuff(arg8, spbuf) then
+      if checkBuff(arg8, spbuf) or checkDeBuff(arg8, spbuf) then
       else
         prrafailnoreason(3,arg8) --arg8
       end

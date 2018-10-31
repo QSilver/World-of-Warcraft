@@ -162,8 +162,12 @@ L["Change Response"] = "Modifier la réponse"
 L["Changing loot threshold to enable Auto Awarding"] = "Le seuil de qualité est en train d'être modifié afin que l'attribution automatique puisse être activée"
 L["Changing LootMethod to Master Looting"] = "Le système de butin a été changé en Maître du butin"
 L["channel_desc"] = "Le canal dans lequel sera envoyé le message."
+--[[Translation missing --]]
+--[[ L["Chat print"] = ""--]] 
 L["chat tVersion string"] = "|cFF87CEFARCLootCouncil |cFFFFFFFFversion |cFFFFA500 %s - %s"
 L["chat version String"] = "|cFF87CEFARCLootCouncil |cFFFFFFFFversion |cFFFFA500 %s"
+--[[Translation missing --]]
+--[[ L["chat_cmd_add_invalid_owner"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["chat_commands_add"] = ""--]] 
 --[[Translation missing --]]
@@ -595,6 +599,8 @@ L["Total items received:"] = "Nombre total d'objets reçus :"
 L["Total items won:"] = "Nombre total d'objets remportés :"
 --[[Translation missing --]]
 --[[ L["trade_complete_message"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["trade_item_to_trade_not_found"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["trade_wrongwinner_message"] = ""--]] 
 L["tVersion_outdated_msg"] = "La dernière version de test de RCLootCouncil est : %s"

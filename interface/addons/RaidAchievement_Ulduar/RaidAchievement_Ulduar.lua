@@ -78,7 +78,7 @@ local i=1
 
 while i<=#thisraidtableea do
 
-local _, _, _, stack = UnitDebuff(thisraidtableea[i], pseaspellname1)
+local _, _, _, stack = checkDeBuff(thisraidtableea[i], pseaspellname1)
 if stack==nil then else
 if stack>2 then
 pseafailnoreason(8, thisraidtableea[i],1)
@@ -106,7 +106,7 @@ end
 
 
 function psfeaUlduaronevent(self,event,...)
-local arg1, arg2, arg3,arg4,arg5,arg6 = CombatLogGetCurrentEventInfo()
+local arg1, arg2, arg3,arg4,arg5,arg6 = ...
 
 if event == "ADDON_LOADED" then
 	if arg1=="RaidAchievement_Ulduar" then

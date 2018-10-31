@@ -144,6 +144,7 @@ L["chat_commands_add"]     = "Add an item to the session frame"
 L["chat_commands_award"]   = "Start a session with items looted to your inventory"
 L["chat_commands_winners"] = "Display the winners of awarded items looted to your inventory"
 L["chat_commands_sync"]    = "Open the synchronizer view"
+L["Chat print"] = true
 L["Check this to loot the items and distribute them later."] = true
 L["Check to append the realmname of a player from another realm"] = true
 L["Check to have all frames minimize when entering combat"] = true
@@ -474,9 +475,12 @@ L["You must select a target"] = true
 L["You're already running a session."] = true
 L["Your note:"] = true
 
+L["chat_cmd_add_invalid_owner"] = "The player %s was either invalid or not a candidate."
+
 L["error_test_as_non_leader"] = "You cannot initiate a test while in a group without being the group leader."
 L["trade_complete_message"] = "%s traded %s to %s."
 L["trade_wrongwinner_message"] = "WARNING: %s traded %s to %s instead of %s!"
+L["trade_item_to_trade_not_found"] = "WARNING: Item to trade: %s couldn't be found in your inventory!"
 
 
 L["opt_addButton_desc"] = "Add a new button group for the selected slot."

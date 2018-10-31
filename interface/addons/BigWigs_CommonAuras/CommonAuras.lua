@@ -70,6 +70,8 @@ local toggleOptions = {
 	31821, -- Aura Mastery
 	64843, -- Divine Hymn
 	47788, -- Guardian Spirit
+	64901, -- Symbol of Hope
+	265202, -- Holy Word: Salvation
 	33206, -- Pain Suppression
 	62618, -- Power Word: Barrier
 	108280, -- Healing Tide Totem
@@ -162,12 +164,12 @@ local function GetOptions()
 	end
 	local function messageColorGet(info)
 		local key = info[#info-1]
-		local color = colors[key] or "Personal"
+		local color = colors[key] or "blue"
 		return cModule:GetColor(color, mod.name, key)
 	end
 	local function messageColorSet(info, r, g, b)
 		local key = info[#info-1]
-		local color = colors[key] or "Personal"
+		local color = colors[key] or "blue"
 		cModule.db.profile[color][mod.name][key] = {r, g, b, 1}
 	end
 
@@ -597,6 +599,8 @@ function mod:OnRegister()
 		[271466] = "PowerWordBarrier", -- Luminous Barrier
 		[47788] = "GuardianSpirit",
 		[64843] = "DivineHymn",
+		[64901] = "SymbolOfHope",
+		[265202] = "HolyWordSalvation",
 		[102342] = "Ironbark",
 		[740] = "Tranquility",
 		[31821] = "AuraMastery",
@@ -678,24 +682,26 @@ local nonCombat = { -- Map of spells to only show out of combat.
 local firedNonCombat = {} -- Bars that we fired that should be hidden on combat.
 
 -- green:  utility and healing cds
--- orange: damaging cds
 -- yellow: targeted cds
+-- orange: damaging cds
 -- red:    dps cds
 -- blue:   everything else
 colors = {
-	[102342] = "yellow", -- Ironbark
 	[106898] = "green", -- Stampeding Roar
 	[740] = "green", -- Tranquility
-	rebirth = "green",
-	[116849] = "yellow", -- Life Cocoon
+	rebirth = "green", -- Rebirth
 	[115310] = "green", -- Revival
-	[6940] = "orange", -- Blessing of Sacrifice
 	[64843] = "green", -- Divine Hymn
+	[265202] = "green", -- Holy Word: Salvation
+	[64901] = "green", -- Symbol of Hope
+	[108280] = "green", -- Healing Tide Totem
+	[102342] = "yellow", -- Ironbark
+	[116849] = "yellow", -- Life Cocoon
 	[47788] = "yellow", -- Guardian Spirit
 	[33206] = "yellow", -- Pain Suppression
-	[2825] = "red", -- Bloodlust
-	[108280] = "green", -- Healing Tide Totem
+	[6940] = "orange", -- Blessing of Sacrifice
 	[98008] = "orange", -- Spirit Link Totem
+	[2825] = "red", -- Bloodlust
 }
 
 local function checkFlag(key, flag, player)
@@ -713,7 +719,7 @@ local icons = setmetatable({}, {__index =
 })
 local function message(key, text, player, icon)
 	if checkFlag(key, C.MESSAGE, player) then
-		mod:SendMessage("BigWigs_Message", mod, key, text, colors[key] or "blue", icons[icon or key])
+		mod:SendMessage("BigWigs_Message", mod, key, text, colors[key] or "blue", icons[icon or key], checkFlag(key, C.EMPHASIZE))
 	end
 end
 local function bar(key, length, player, text, icon)
@@ -1033,6 +1039,15 @@ end
 
 function mod:GuardianSpiritOff(_, _, nick, spellName)
 	stopbar(spellName, nick) -- removed on absorbed fatal blow
+end
+
+function mod:SymbolOfHope(_, spellId, nick, spellName)
+	message(spellId, L.used_cast:format(nick, spellName))
+	bar(spellId, 6, target, spellName)
+end
+
+function mod:HolyWordSalvation(_, spellId, nick, spellName)
+	message(spellId, L.used_cast:format(nick, spellName))
 end
 
 function mod:PainSuppression(target, spellId, nick, spellName)

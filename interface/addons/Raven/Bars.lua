@@ -14,8 +14,8 @@ local vc = { r = 1, g = 0, b = 0, a = 0 }
 local zc = { r = 1, g = 1, b = 1, a = 0 }
 local gc = { r = 0.5, g = 0.5, b = 0.5, a = 0.5 }
 local hidden = false
-local detectedBar = { enableBar = true, sorder = 0 }
-local headerBar = { enableBar = true, sorder = 0 }
+local detectedBar = {}
+local headerBar = {}
 local groupIDs = {}
 local settingsTemplate = {} -- settings are initialized from default bar group template
 local activeSpells = {} -- temporary table used for finding ghost bars
@@ -44,16 +44,25 @@ MOD.BarGroupTemplate = { -- default bar group settings
 	useDefaultDimensions = true, useDefaultFontsAndTextures = true, useDefaultColors = true, useDefaultTimeFormat = false, strata = "MEDIUM",
 	sor = "A", reverseSort = false, timeSort = true, playerSort = false,
 	configuration = 1, anchor = false, anchorX = 0, anchorY = 0, anchorLastBar = false, anchorRow = false, anchorColumn = true, anchorEmpty = false,
-	growDirection = true, fillBars = false, wrap = 0, wrapDirection = false, snapCenter = false, maxBars = 0, desaturateReadyIcon = false,
-	pulseStart = false, pulseEnd = false, flashExpiring = false, flashTime = 5, shineStart = false,
-	ghost = false, delayTime = 5, hide = false, fade = false,
+	growDirection = true, fillBars = false, wrap = 0, wrapDirection = false, snapCenter = false, maxBars = 0,
+	disableBGSFX = false, customizeSFX = false,	shineColor = false, sparkleColor = false, glowColor = false,
+	expireFGBG = false, flashPeriod = 1.2, flashPercent = 50, combatTextExcludesBG = false,
+	shineStart = false, sparkleStart, pulseStart = false, glowStart = false, flashStart = false, desatStart = false,
+	shineExpiring = false, sparkleExpiring = false, pulseExpiring = false, glowExpiring = false, flashExpiring = false, desatExpiring = false,
+	startEffectTime = 5, endEffectTime = 5, delayTime = 0,
+	combatStart = false, combatCriticalStart = false, expireMSBT = false, criticalMSBT = false,
+	combatEnd = false, combatCriticalEnd = false, combatReady = false, combatCriticalReady = false,
+	shineReady = false, sparkleReady = false, pulseReady = false, glowReady = false, flashReady = false, desaturateReadyIcon = false,
+	shineEnd = false, sparkleEnd = false, pulseEnd = false, splash = false, ghost = false, hide = false, fade = false,
 	bgNormalAlpha = 1, bgCombatAlpha = 1, mouseAlpha = 1, fadeAlpha = 1, testTimers = 10, testStatic = 0, testLoop = false,
-	soundSpellStart = false, soundSpellEnd = false, soundSpellExpire = false, soundAltStart = "None", soundAltEnd = "None", soundAltExpire = "None",
+	soundSpellStart = false, soundSpellEnd = false, soundSpellExpire = false, soundSpellReady = false,
+	soundAltStart = "None", soundAltEnd = "None", soundAltExpire = "None", soundAltReady = "None",
 	labelOffset = 0, labelInset = 0, labelWrap = false, labelCenter = false, labelAlign = "MIDDLE",
 	timeOffset = 0, timeInset = 0, timeAlign = "normal", timeIcon = false, iconOffset = 0, iconInset = 0, iconHide = false, iconAlign = "CENTER",
-	expireTime = 5, expirePercentage = 0, expireMinimum = 0, colorExpiring = false, expireMSBT = false, criticalMSBT = false, clockReverse = true,
-	expireColor = false, expireLabelColor = false, expireTimeColor = false, tickColor = false, shineColor = false, spellExpireTimes = false,
-	desaturate = false, desaturateFriend = false, disableAlpha = false,
+	flashTime = 5, expirePercentage = 0, expireMinimum = 0, colorExpiring = false, clockReverse = true,
+	expireColor = false, expireLabelColor = false, expireTimeColor = false, tickColor = false,
+	combatColorStart = false, combatColorEnd = false, combatColorReady = false, colorMSBT = false,
+	spellExpireTimes = false, spellExpireColors = false, desaturate = false, desaturateFriend = false, disableAlpha = false,
 	timelineWidth = 225, timelineHeight = 25, timelineDuration = 300, timelineExp = 3, timelineHide = false, timelineAlternate = true,
 	timelineSwitch = 2, timelineTexture = "Blizzard", timelineAlpha = 1, timelineColor = false, timelineLabels = false,
 	timelineSplash = true, timelineSplashX = 0, timelineSplashY = 0, timelinePercent = 50, timelineOffset = 0, timelineDelta = 0,
@@ -93,6 +102,8 @@ MOD.BarGroupTemplate = { -- default bar group settings
 	filterCooldownSpells2 = false, filterCooldownTable2 = nil, filterCooldownSpells3 = false, filterCooldownTable3 = nil,
 	filterCooldownSpells4 = false, filterCooldownTable4 = nil, filterCooldownSpells5 = false, filterCooldownTable5 = nil,
 	showBuff = false, showDebuff = false, showCooldown = false, filterBuffBars = false, filterDebuffBars = false, filterCooldownBars = false,
+	selectAll = true, selectPlayer = false, selectPet = false, selectBoss = false, selectDispel = false, selectSteal = false,
+	selectPoison = false, selectCurse = false, selectMagic = false, selectDisease = false, selectEnrage = false,
 }
 
 MOD.BarGroupLayoutTemplate = { -- all the bar group settings involved in layout configuration
@@ -118,7 +129,7 @@ end
 function MOD:InitializeBars()
 	local bgs = MOD.Nest_GetBarGroups()
 	if bgs then for _, bg in pairs(bgs) do MOD.Nest_DeleteBarGroup(bg) end end -- first remove any bar groups represented in the graphics library
-		
+
 	for _, bg in pairs(MOD.db.profile.BarGroups) do -- then set up the ones specified in the profile
 		if IsOn(bg) then
 			for n, k in pairs(MOD.db.global.Defaults) do -- add default settings for layout, fonts and textures
@@ -176,68 +187,6 @@ function MOD:FinalizeSettings()
 	for _, settings in pairs(MOD.db.global.Settings) do
 		for n, k in pairs(settingsTemplate) do if settings[n] == k then settings[n] = nil end end -- remove values still set to defaults
 		for n in pairs(colorTemplate) do if DefaultColor(settings[n]) then settings[n] = nil end end -- detect basic colors set to defaults
-	end
-end
-
--- Fire off test bars for this bar group, remove if any already exist
-function MOD:TestBarGroup(bp)
-	local bg = MOD.Nest_GetBarGroup(bp.name)
-	if bg then
-		local found = false
-		local icon = "Interface\\Icons\\INV_Drink_20"
-		local timers = bp.testTimers or 0; if timers == 0 then timers = 10 end
-		local static = bp.testStatic or 0
-		for i = 1, timers do
-			local bar = MOD.Nest_GetBar(bg, ">>Timer<<" .. string.format("%02d", i))
-			if bar then found = true; MOD.Nest_DeleteBar(bg, bar) end
-		end
-		for i = 1, static do
-			local bar = MOD.Nest_GetBar(bg, ">>Test<<" .. string.format("%02d", i))
-			if bar then found = true; MOD.Nest_DeleteBar(bg, bar) end
-		end
-		if not found then
-			for i = 1, timers do			
-				local bar = MOD.Nest_CreateBar(bg, ">>Timer<<" .. string.format("%02d", i))
-				if bar then
-					local c = MOD.ColorPalette[testColors[(i % 10) + 1]]
-					MOD.Nest_SetColors(bar, c.r, c.g, c.b, 1, c.r, c.g, c.b, 1, c.r, c.g, c.b, 1)
-					MOD.Nest_SetLabel(bar, L["Timer Bar"] .. " " .. i); MOD.Nest_SetIcon(bar, icon); MOD.Nest_SetCount(bar, i)
-					MOD.Nest_StartTimer(bar, i * 5, 60, 60)
-					bar.attributes.updated = true
-				end
-			end
-			for i = 1, static do			
-				local bar = MOD.Nest_CreateBar(bg, ">>Test<<" .. string.format("%02d", i))
-				if bar then
-					local c = MOD.ColorPalette[testColors[(i % 10) + 1]]
-					MOD.Nest_SetColors(bar, c.r, c.g, c.b, 1, c.r, c.g, c.b, 1, c.r, c.g, c.b, 1)
-					MOD.Nest_SetLabel(bar, L["Test Bar"] .. " " .. i); MOD.Nest_SetIcon(bar, icon); MOD.Nest_SetCount(bar, i)
-					bar.attributes.updated = true
-				end
-			end
-		end
-	end
-end
-
--- Make sure not to delete any unexpired test bars
-local function UpdateTestBars(bp, bg)
-	local timers = bp.testTimers or 0; if timers == 0 then timers = 10 end
-	local static = bp.testStatic or 0
-	for i = 1, timers do
-		local bar = MOD.Nest_GetBar(bg, ">>Timer<<" .. string.format("%02d", i))
-		if bar then
-			local timeLeft = MOD.Nest_GetTimes(bar)
-			if timeLeft and (timeLeft > 0) then
-				bar.attributes.updated = true
-			elseif bp.testLoop then
-				MOD.Nest_StartTimer(bar, i * 5, 60, 60)
-				bar.attributes.updated = true
-			end
-		end
-	end
-	for i = 1, static do
-		local bar = MOD.Nest_GetBar(bg, ">>Test<<" .. string.format("%02d", i))
-		if bar then bar.attributes.updated = true end
 	end
 end
 
@@ -452,7 +401,7 @@ end
 
 -- Get the right color for the bar based on bar group settings
 local function GetColorForBar(bg, bar, btype)
-	local bt, ba, b, c = bar.barType, bar.action, nil, nil
+	local bt, c = bar.barType, nil
 	local scheme = bg.barColors
 	if scheme == "Spell" then
 		if bar.color then c = bar.color else c = MOD:GetSpellColorForBar(bar) end
@@ -510,45 +459,6 @@ function MOD:GetSpecialColorForBar(bg, bar, btype)
 		end
 	end
 	return c
-end
-
--- Return a bar's expiration time and minimum duration based on settings for either bar or bar group
--- If bar group allows override then use spell's expire time when one has been set on the Spells tab
-local function GetExpireTime(bg, bar, duration, useBar, useBg)
-	local et, mt, pt = nil, nil, 0
-	if useBar then
-		et = bar.expireTime or 5; mt = bar.expireMinimum or 0
-		pt = (duration or 0) * (bar.expirePercentage or 0) / 100
-	elseif useBg then
-		et = bg.expireTime or 5; mt = bg.expireMinimum or 0
-		pt = (duration or 0) * (bg.expirePercentage or 0) / 100
-	end
-	if not bg.spellExpireTimes then
-		local st = MOD:GetSpellExpireTime(bar.action)
-		if st then et = st end
-	end
-	if et and (pt > et) then et = pt end
-	return et, mt
-end
-
--- Get the start, finish and expire sound files to play for a bar
-local function GetSoundsForBar(bg, bar, duration)
-	local start, finish, expire, replay, replayTime, sp = nil, nil, nil, nil, nil
-	if bg.soundSpellStart or bar.soundSpellStart then sp = MOD:GetAssociatedSpellForBar(bar); if sp then start = MOD:GetSound(sp, bar.spellID) end end
-	if not start and bar.soundAltStart ~= "None" then start = bar.soundAltStart end
-	if not start and bg.soundAltStart ~= "None" then start = bg.soundAltStart end
-	if bg.replay then replay = true; replayTime = bg.replayTime or 5 elseif bar.replay then replay = true; replayTime = bar.replayTime or 5 end
-	if start then start = media:Fetch("sound", start) end
-	if bg.soundSpellEnd or bar.soundSpellEnd then sp = MOD:GetAssociatedSpellForBar(bar); if sp then finish = MOD:GetSound(sp, bar.spellID) end end
-	if not finish and bar.soundAltEnd ~= "None" then finish = bar.soundAltEnd end
-	if not finish and bg.soundAltEnd ~= "None" then finish = bg.soundAltEnd end
-	if finish then finish = media:Fetch("sound", finish) end
-	local et, mt = GetExpireTime(bg, bar, duration, bar.soundSpellExpire, bg.soundSpellExpire)
-	if et then sp = MOD:GetAssociatedSpellForBar(bar); if sp then expire = MOD:GetSound(sp, bar.spellID) end end
-	if not expire and bar.soundAltExpire ~= "None" then expire = bar.soundAltExpire; et, mt = GetExpireTime(bg, bar, duration, true, false) end
-	if not expire and bg.soundAltExpire ~= "None" then expire = bg.soundAltExpire; et, mt = GetExpireTime(bg, bar, duration, false, true)  end
-	if expire then expire = media:Fetch("sound", expire) else et = nil; mt = nil end
-	return start, finish, expire, et, mt, replay, replayTime
 end
 
 -- Initialize bar group in graphics library and set default values from those set in profile
@@ -640,17 +550,19 @@ function MOD:UpdateBarGroup(bp)
 			if (bp.filterDebuff or bp.showDebuff) and bp.filterDebuffLink then UpdateLinkedFilter(bp, true, "Debuff") end -- shared settings for debuffs
 			if (bp.filterCooldown or bp.showCooldown) and bp.filterCooldownLink then UpdateLinkedFilter(bp, true, "Cooldown") end -- shared settings for buffs
 		end
-
 		ResetCache(bp, "Buff"); ResetCache(bp, "Debuff"); ResetCache(bp, "Cooldown")
 		if bp.bars then -- create caches for buff, debuff, cooldown actions
 			for _, b in pairs(bp.bars) do
-				local t = b.barType
-				if (t == "Buff") or (t == "Debuff") then
-					SetCache(bp, t, b.action, b.monitor)
-				elseif t == "Cooldown" then
-					SetCache(bp, t, b.action, true)
-				elseif t == "Broker" then
-					MOD:ActivateDataBroker(b.action)
+				local ba = b.action
+				if ba then
+					local t = b.barType
+					if (t == "Buff") or (t == "Debuff") then
+						SetCache(bp, t, ba, b.monitor)
+					elseif t == "Cooldown" then
+						SetCache(bp, t, ba, true)
+					elseif t == "Broker" then
+						MOD:ActivateDataBroker(ba)
+					end
 				end
 			end
 		end
@@ -690,9 +602,6 @@ function MOD:UpdateBarGroup(bp)
 			bp.timelineSwitch, bp.timelinePercent, bp.timelineSplash, bp.timelineSplashX, bp.timelineSplashY, bp.timelineOffset, bp.timelineDelta,
 			bgtexture, bp.timelineAlpha, bp.timelineColor or gc, bp.timelineLabels or defaultLabels)
 		MOD.Nest_SetBarGroupAttribute(bg, "targetFirst", bp.targetFirst) -- for multi-target tracking, sort target first
-		MOD.Nest_SetBarGroupAttribute(bg, "pulseStart", bp.pulseStart) -- pulse icon at start
-		MOD.Nest_SetBarGroupAttribute(bg, "pulseEnd", bp.pulseEnd) -- pulse icon when expiring
-		MOD.Nest_SetBarGroupAttribute(bg, "shineStart", bp.shineStart) -- shine animation at start
 		MOD.Nest_SetBarGroupAttribute(bg, "noMouse", bp.noMouse) -- disable interactivity
 		MOD.Nest_SetBarGroupAttribute(bg, "iconMouse", bp.iconMouse) -- mouse-only interactivity
 		MOD.Nest_SetBarGroupAttribute(bg, "anchorTips", bp.anchorTips) -- manual tooltip anchor
@@ -795,6 +704,7 @@ local function Bar_OnUpdate(bar)
 	local spell = bat.tooltipSpell
 	local caster = bat.caster
 	GameTooltip:ClearLines() -- clear current tooltip contents
+	-- MOD.Debug("tt", tt, id, unit, spell, caster)
 	if tt == "text" then
 		GameTooltip:SetText(id)
 	elseif (tt == "inventory") or (tt == "weapon") then
@@ -833,6 +743,12 @@ local function Bar_OnUpdate(bar)
 		GameTooltip:AddLine(id)
 		GameTooltip:AddLine(L["Header click"], 1, 1, 1, true)
 		GameTooltip:AddLine(L["Header shift click"], 1, 1, 1, true)
+	elseif tt == "test" then
+		if id == "timer" then
+			GameTooltip:SetText(L["Timer Bar"] .. " " .. tostring(unit))
+		else
+			GameTooltip:SetText(L["Test Bar"] .. " " .. tostring(unit))
+		end
 	end
 	if IsAltKeyDown() and IsControlKeyDown() then
 		if spell then GameTooltip:AddLine("<Spell #" .. tonumber(spell) .. ">", 0, 1, 0.2, false) end
@@ -940,6 +856,74 @@ local function Bar_OnClick(frame, bgName, barName, button)
 	end
 end
 
+-- Fire off test bars for this bar group, remove if any already exist
+function MOD:TestBarGroup(bp)
+	local bg = MOD.Nest_GetBarGroup(bp.name)
+	if bg then
+		local found = false
+		local icon = "Interface\\Icons\\INV_Drink_20"
+		local timers = bp.testTimers or 0; if timers == 0 then timers = 10 end
+		local static = bp.testStatic or 0
+		for i = 1, timers do
+			local bar = MOD.Nest_GetBar(bg, ">>Timer<<" .. string.format("%02d", i))
+			if bar then found = true; MOD.Nest_DeleteBar(bg, bar) end
+		end
+		for i = 1, static do
+			local bar = MOD.Nest_GetBar(bg, ">>Test<<" .. string.format("%02d", i))
+			if bar then found = true; MOD.Nest_DeleteBar(bg, bar) end
+		end
+		if not found then
+			for i = 1, timers do			
+				local bar = MOD.Nest_CreateBar(bg, ">>Timer<<" .. string.format("%02d", i))
+				if bar then
+					local bat = bar.attributes
+					local c = MOD.ColorPalette[testColors[(i % 10) + 1]]
+					MOD.Nest_SetColors(bar, c.r, c.g, c.b, 1, c.r, c.g, c.b, 1, c.r, c.g, c.b, 1)
+					MOD.Nest_SetLabel(bar, L["Timer Bar"] .. " " .. i); MOD.Nest_SetIcon(bar, icon); MOD.Nest_SetCount(bar, i)
+					MOD.Nest_StartTimer(bar, i * 5, 60, 60)
+					MOD.Nest_SetCallbacks(bar, nil, Bar_OnEnter, Bar_OnLeave)
+					bat.tooltipType = "test"; bat.tooltipID = "timer"; bat.tooltipUnit = i
+					bat.updated = true
+				end
+			end
+			for i = 1, static do			
+				local bar = MOD.Nest_CreateBar(bg, ">>Test<<" .. string.format("%02d", i))
+				if bar then
+					local bat = bar.attributes
+					local c = MOD.ColorPalette[testColors[(i % 10) + 1]]
+					MOD.Nest_SetColors(bar, c.r, c.g, c.b, 1, c.r, c.g, c.b, 1, c.r, c.g, c.b, 1)
+					MOD.Nest_SetLabel(bar, L["Test Bar"] .. " " .. i); MOD.Nest_SetIcon(bar, icon); MOD.Nest_SetCount(bar, i)
+					MOD.Nest_SetCallbacks(bar, nil, Bar_OnEnter, Bar_OnLeave)
+					bat.tooltipType = "test"; bat.tooltipID = "test"; bat.tooltipUnit = i
+					bat.updated = true
+				end
+			end
+		end
+	end
+end
+
+-- Make sure not to delete any unexpired test bars
+local function UpdateTestBars(bp, bg)
+	local timers = bp.testTimers or 0; if timers == 0 then timers = 10 end
+	local static = bp.testStatic or 0
+	for i = 1, timers do
+		local bar = MOD.Nest_GetBar(bg, ">>Timer<<" .. string.format("%02d", i))
+		if bar then
+			local timeLeft = MOD.Nest_GetTimes(bar)
+			if timeLeft and (timeLeft > 0) then
+				bar.attributes.updated = true
+			elseif bp.testLoop then
+				MOD.Nest_StartTimer(bar, i * 5, 60, 60)
+				bar.attributes.updated = true
+			end
+		end
+	end
+	for i = 1, static do
+		local bar = MOD.Nest_GetBar(bg, ">>Test<<" .. string.format("%02d", i))
+		if bar then bar.attributes.updated = true end
+	end
+end
+
 -- Return true if time and duration pass a bar group's filters
 local function CheckTimeAndDuration(bp, timeLeft, duration)
 	if (timeLeft == 0) and (duration == 0) then -- test for unlimited duration
@@ -1006,18 +990,43 @@ local function GetTooltipNumber(ttType, ttID, ttUnit, ttOffset)
 	return nil
 end
 
+-- Show combat text using either the MSBT addon or Blizzard's combat text
+-- Other combat text addons may be added if they have a defined API
+-- There is no support for Parrot and SCT since these no longer work in BfA
+local function ShowCombatText(label, group, caption, icon, crit, ec)
+	if MOD.suppress then return true end -- combat text is suppressed
+	local t
+	if group then t = string.format("%s [%s] %s", label, group, caption) else t = string.format("%s %s", label, caption) end
+	
+	if MikSBT then
+		MikSBT.DisplayMessage(t, MikSBT.DISPLAYTYPE_NOTIFICATION, crit, ec.r * 255, ec.g * 255, ec.b * 255, nil, nil, nil, icon)
+	elseif _G.SHOW_COMBAT_TEXT == "1" then
+		CombatText_AddMessage(t, COMBAT_TEXT_SCROLL_FUNCTION, ec.r, ec.g, ec.b, crit and "crit")
+	end
+	return true
+end
+
+-- Play a sound after looking it up in SharedMedia 
+local function PlaySoundMedia(soundMedia)
+	if soundMedia and not MOD.suppress then -- make sure sound is not suppressed
+		local sound = media:Fetch("sound", soundMedia)
+		if sound then PlaySoundFile(sound, Raven.db.global.SoundChannel) end
+	end
+end
+
 -- Manage a bar, creating one if not currently active, otherwise updating as necessary
 -- Use originating bar group (bp) for filtering, display bar group (vbp) for appearance options
 local function UpdateBar(bp, vbp, bg, b, icon, timeLeft, duration, count, btype, ttType, ttID, ttUnit, ttCaster, isMine)
+	local now = GetTime()
 	if duration > 0 then -- check if timer bar
 		local elapsed = duration - timeLeft
-		if (b.hide and (elapsed >= (b.delayTime or 5))) or (bp.hide and (elapsed >= (bp.delayTime or 5))) then return end
+		if (b.hide and (elapsed >= (b.delayTime or 0))) or (bp.hide and (elapsed >= (bp.delayTime or 0))) then return end
 	end
 	
 	local bar, barname, label = nil, b.barLabel .. b.uniqueID, b.barLabel
 	if vbp.sor == "X" then barname = string.format("%05d ", b.sorder) .. barname end
 	if bp.detectTotems then barname = b.uniqueID .. b.barLabel end -- use slot order for auto-generated totem bars
-	
+
 	local maxTime = duration
 	if vbp.setDuration then -- override with uniform duration for all bars in group (optionally ignore shorter bars)
 		if not vbp.setOnlyLongDuration or (duration > vbp.uniformDuration) then maxTime = vbp.uniformDuration end
@@ -1065,7 +1074,7 @@ local function UpdateBar(bp, vbp, bg, b, icon, timeLeft, duration, count, btype,
 		else
 			if bar then MOD.Nest_DeleteBar(bg, bar); bar = nil end
 			bar = MOD.Nest_CreateBar(bg, barname)
-			if bar then MOD.Nest_StartTimer(bar, timeLeft, duration, maxTime); if b.ghost then bar.attributes.ghostDuration = b.delayTime or 5 end end
+			if bar then MOD.Nest_StartTimer(bar, timeLeft, duration, maxTime); if b.ghost then bar.attributes.ghostDuration = b.endEffectTime or 5 end end
 		end
 	elseif bp.showNoDuration or (b.barType == "Notification") or (b.barType == "Broker") or (b.barType == "Value") or b.enableReady then -- bars without duration
 		if bar and MOD.Nest_IsTimer(bar) then MOD.Nest_DeleteBar(bg, bar); bar = nil end
@@ -1075,7 +1084,9 @@ local function UpdateBar(bp, vbp, bg, b, icon, timeLeft, duration, count, btype,
 		end	
 	end
 	if bar then
-		local bat = bar.attributes -- optimization to address overhead from setting a large number of bar attributes
+		local bat = bar.attributes -- lower overhead from setting a large number of bar attributes
+		local _, _, _, startTime = MOD.Nest_GetTimes(bar) -- get time bar was created
+		local elapsed = now - startTime -- how much time since bar was created
 		if b.barType == "Value" and b.frequent then frequentBars[b] = bar end -- save in the frequent bar update table
 		bat.updated = true -- for mark/sweep bar deletion
 		bat.ghostTime = nil -- delete in case was previously a ghost bar
@@ -1115,45 +1126,7 @@ local function UpdateBar(bp, vbp, bg, b, icon, timeLeft, duration, count, btype,
 		bat.listID = b.listID -- for tooltip to show if found in a spell list
 		if vbp.casterTips then bat.caster = ttCaster else bat.caster = nil end
 		bat.saveBar = b -- not valid in auto bar group since it then points to a local not a permanent table!
-		bat.pulseStart = b.pulseStart; bat.pulseEnd = b.pulseEnd -- pulse icon when start or expiring
-		bat.shineStart = b.shineStart -- shine animation on start
 		bat.fullReverse = b.startReady and bp.readyReverse -- ready bar can use reverse setting of the Full Bars option
-		
-		if b.colorExpiring then -- set color to switch at expiration time, default is red
-			bat.expireColor = (b.expireColor or rc); bat.expireLabelColor = (b.expireLabelColor or vc)
-			bat.expireTimeColor = (b.expireTimeColor or vc); bat.tickColor = (b.tickColor or vc); bat.shineColor = (b.shineColor or zc)
-			bat.colorTime, bat.colorMinimum = GetExpireTime(vbp, b, duration, true, false)
-		elseif vbp.colorExpiring then
-			bat.expireColor = (vbp.expireColor or rc); bat.expireLabelColor = (vbp.expireLabelColor or vc)
-			bat.expireTimeColor = (vbp.expireTimeColor or vc); bat.tickColor = (vbp.tickColor or vc); bat.shineColor = (vbp.shineColor or zc)
-			bat.colorTime, bat.colorMinimum = GetExpireTime(vbp, b, duration, false, true)
-		else
-			bat.expireColor = nil; bat.expireLabelColor = nil; bat.expireTimeColor = nil
-			bat.tickColor = nil; bat.shineColor = nil; bat.colorTime = nil; bat.colorMinimum = nil
-		end
-		
-		if b.expireMSBT then -- set color to switch at expiration time, default is red
-			bat.colorMSBT = (b.colorMSBT or rc); bat.criticalMSBT = b.criticalMSBT
-			bat.expireMSBT = (b.expireTime or 5); bat.minimumMSBT = (b.expireMinimum or 0)
-		elseif vbp.expireMSBT then
-			bat.colorMSBT = (vbp.colorMSBT or rc); bat.criticalMSBT = vbp.criticalMSBT
-			bat.expireMSBT = (vbp.expireTime or 5); bat.minimumMSBT = (vbp.expireMinimum or 0)
-		else
-			bat.colorMSBT = nil; bat.criticalMSBT = nil; bat.expireMSBT = nil; bat.minimumMSBT = nil
-		end
-		
-		if MOD.db.profile.muteSFX or b.startReady then -- don't play sounds if muted or ready bar
-			bat.soundStart = nil; bat.soundEnd = nil; bat.soundExpire = nil; bat.expireTime = nil
-		else
-			local start, finish, expire, expireTime, expireMinimum, replay, replayTime = GetSoundsForBar(vbp, b, duration)
-			bat.soundStart = start -- play sound at start
-			bat.soundEnd = finish -- play sound when finished
-			bat.soundExpire = expire -- play sound when expiring
-			bat.expireTime = expireTime -- time to play expire sound
-			bat.expireMinimum = expireMinimum -- minimum duration to enable expire sound
-			bat.replay = replay -- replay start sound as long as bar is active
-			bat.replayTime = replayTime -- how often to replay start sound
-		end
 		
 		if b.barType ~= "Notification" and b.barType ~= "Broker" and b.barType ~= "Value" then
 			bat.saveBarGroup = vbp; bat.saveBarType = b.barType; bat.saveBarAction = b.action
@@ -1171,34 +1144,270 @@ local function UpdateBar(bp, vbp, bg, b, icon, timeLeft, duration, count, btype,
 		local click, onEnter, onLeave = Bar_OnClick, nil, nil
 		if vbp.showTooltips and (vbp.combatTips or not MOD.status.inCombat) then onEnter = Bar_OnEnter; onLeave = Bar_OnLeave end
 		MOD.Nest_SetCallbacks(bar, click, onEnter, onLeave)
+
+		local sfxBG = (vbp.auto or not b.disableBGSFX) and not b.startReady and not vbp.disableBGSFX -- using bar group special effects
+		local sfxBar = not vbp.auto and not b.disableBarSFX -- using custom bar special effects
 		
-		local dft, gd = not vbp.useDefaultFontsAndTextures, MOD.db.global.Defaults -- indicates the bar group has overrides for fonts and textures		
-		local faded, alpha = false, 1 -- set flash and adjust alpha for special effects
-		if MOD.status.inCombat then alpha = (dft and vbp.combatAlpha or gd.combatAlpha) else alpha = (dft and vbp.alpha or gd.alpha) end
-		if vbp.targetAlpha and ttUnit == "all" and b.group ~= UnitGUID("target") then alpha = alpha * vbp.targetAlpha end
-		if (IsOn(b.flashBar) and (b.flashBar == MOD:CheckCondition(b.flashCondition))) or -- conditional flashing
-				(MOD.Nest_IsTimer(bar) and ((vbp.flashExpiring and vbp.flashTime and (timeLeft < vbp.flashTime)) or -- bar group flash when expiring
-				(b.flashExpiring and b.flashTime and (timeLeft < b.flashTime)))) or -- custom bar flash when expiring
-				(b.flashReady and b.startReady) then -- ready bar flash option
-			MOD.Nest_SetFlash(bar, true)
-		elseif IsOn(b.fadeBar) then -- conditional fade for bars is higher priority than bar group setting for delayed fade
-			if (b.fadeBar == MOD:CheckCondition(b.fadeCondition)) and b.fadeAlpha then alpha = alpha * b.fadeAlpha; faded = true end
-		elseif b.fade and b.fadeAlpha and not b.startReady then
-			local _, _, _, startTime = MOD.Nest_GetTimes(bar) -- get time bar was created
-			if ((GetTime() - startTime) >= (b.delayTime or 5)) then alpha = alpha * b.fadeAlpha; faded = true end
-		elseif vbp.fade and vbp.fadeAlpha and not b.startReady then
-			local _, _, _, startTime = MOD.Nest_GetTimes(bar) -- get time bar was created
-			if ((GetTime() - startTime) >= (vbp.delayTime or 5)) then alpha = alpha * vbp.fadeAlpha; faded = true end
-		else
-			MOD.Nest_SetFlash(bar, false)
+		local expireBar, expireBG = nil, nil -- calculate expire times for bar group and/or custom bar
+		if sfxBar and (duration > (b.expireMinimum or 0)) then
+			expireBar = b.flashTime or 5
+			local pt = duration * (b.expirePercentage or 0) / 100
+			if pt > expireBar then expireBar = pt end -- percent setting is minimum so only override if longer
+			if not b.spellExpireTimes then -- for some reason, this is set to false when using spell's expire times
+				local st = MOD:GetSpellExpireTime(b.action, b.spellID)
+				if st then expireBar = st end -- always override the expire time setting when set
+			end
 		end
-		if not faded then -- fading is highest priority
+		if sfxBG and (duration > (vbp.expireMinimum or 0)) then
+			expireBG = vbp.flashTime or 5
+			local pt = duration * (vbp.expirePercentage or 0) / 100
+			if pt > expireBG then expireBG = pt end -- percent setting is minimum so only override if longer
+			if not vbp.spellExpireTimes then -- for some reason, this is set to false when using spell's expire times
+				local st = MOD:GetSpellExpireTime(b.action, b.spellID)
+				if st then expireBG = st end -- always override the expire time setting when set
+			end
+		end
+
+		local inStartBG = sfxBG and ((elapsed >= (vbp.delayTime or 0)) and ((vbp.startEffectTime == 0) or (elapsed <= ((vbp.delayTime or 0) + (vbp.startEffectTime or 5)))))
+		local inStartBar = sfxBar and not b.startReady and ((elapsed >= (b.delayTime or 0)) and ((b.startEffectTime == 0) or (elapsed <= ((b.delayTime or 0) + (b.startEffectTime or 5)))))
+		local inExpireBG = sfxBG and expireBG and (timeLeft <= expireBG) and (timeLeft > 0)
+		local inExpireBar = sfxBar and not b.startReady and expireBar and (timeLeft <= expireBar) and (timeLeft > 0)
+		local inFinish = (timeLeft <= 0.62) and (timeLeft > 0) -- let one or two frames show after shine and pulse finish
+		local inFinishBG = inFinish and sfxBG
+		local inFinishBar = inFinish and sfxBar and not b.startReady
+		local inReadyBar = sfxBar and b.startReady
+		local t
+		
+		if inStartBG and not vbp.selectAll then -- check filters for auto bar group start effects
+			-- filters include: isPlayer, isPet, isBoss, isDispel, isStealable, isPoison, isCurse, isMagic, isDisease, isEnrage
+			inStartBG = (b.isPlayer and vbp.selectPlayer) or (b.isPet and vbp.selectPet) or (b.isBoss and vbp.selectBoss) or
+				(b.isDispel and vbp.selectDispel) or (b.isStealable and vbp.selectStealable) or
+				(b.isPoison and vbp.selectPoison) or (b.isCurse and vbp.selectCurse) or (b.isMagic and vbp.selectMagic) or
+				(b.isDisease and vbp.selectDisease) or (b.isEnrage and vbp.selectEnrage)
+		end
+		
+		if elapsed == 0 then
+			bar.shineStart = false; bar.sparkleStart = false; bar.pulseStart = false -- reset flags for when bars are started or restarted
+			bar.shineExpiring = false; bar.sparkleExpiring = false; bar.pulseExpiring = false -- and for when bars are expiring
+			bar.shineEnd = false; bar.sparkleEnd = false; bar.pulseEnd = false -- and for when bars are nearly finished
+			bar.shineReady = false; bar.sparkleReady = false; bar.pulseReady = false -- and for ready bars
+			bar.soundStart = false; bar.soundExpire = false; bar.soundEnd = false; bar.soundReady = false -- and for playing sounds
+			bar.combatStart = false; bar.expireMSBT = false; bar.combatEnd = false; bar.combatReady = false -- and for combat text displays
+			
+			if not bar.timers then bar.timers = {} else table.wipe(bar.timers) end -- reset table used to set times for forced updates
+			if sfxBG then
+				t = now + (vbp.delayTime or 0); if t > now then bar.timers.inStartBG = t end
+				if vbp.startEffectTime ~= 0 then t = t + (vbp.startEffectTime or 5); if t > now then bar.timers.effectBG = t end end
+			end
+			if sfxBar then
+				t = now + (b.delayTime or 0); if t > now then bar.timers.inStartBar = t end
+				if b.startEffectTime ~= 0 then t = t + (b.startEffectTime or 5); if t > now then bar.timers.effectBar = t end end
+			end
+			if (duration > 0) and (timeLeft > 0) then
+				if sfxBG and not inExpireBG then bar.timers.inExpireBG = expireBG and (now + duration - expireBG) or nil end
+				if sfxBar and not inExpireBar then bar.timers.inExpireBar = expireBar and (now + duration - expireBar) or nil end
+				t = now + duration; if t > now then bar.timers.final = t end
+				t = t - 0.62; if t > now then bar.timers.inFinish = t end
+			end
+		end
+		
+		if inExpireBar and b.colorExpiring then -- change bar, label and time colors when expiring
+			t = (b.spellExpireColors and MOD:GetExpireColor(b.action, b.spellID)) or b.expireColor or rc; if t.a > 0 then
+				MOD.Nest_SetForegroundColor(bar, t.r, t.g, t.b)
+				if b.expireFGBG then MOD.Nest_SetBackgroundColor(bar, t.r, t.g, t.b) end
+			end
+			t = b.expireLabelColor or vc; if t.a > 0 then MOD.Nest_SetLabelColor(bar, t.r, t.g, t.b) end
+			t = b.expireTimeColor or vc; if t.a > 0 then MOD.Nest_SetTimeColor(bar, t.r, t.g, t.b) end
+		elseif inExpireBG and vbp.colorExpiring then
+			t = (vbp.spellExpireColors and MOD:GetExpireColor(b.action, b.spellID)) or vbp.expireColor or rc; if t.a > 0 then
+				MOD.Nest_SetForegroundColor(bar, t.r, t.g, t.b)
+				if vbp.expireFGBG then MOD.Nest_SetBackgroundColor(bar, t.r, t.g, t.b) end
+			end
+			t = vbp.expireLabelColor or vc; if t.a > 0 then MOD.Nest_SetLabelColor(bar, t.r, t.g, t.b) end
+			t = vbp.expireTimeColor or vc; if t.a > 0 then MOD.Nest_SetTimeColor(bar, t.r, t.g, t.b) end
+		else
+			MOD.Nest_SetLabelColor(bar) -- clear override of label text color
+			MOD.Nest_SetTimeColor(bar) -- clear override of time text color
+		end
+		
+		local ticky = false
+		if duration > 0 then -- only timer bars of limited duration get ticks
+			local offset = 0
+			if sfxBar and b.colorExpiring then -- custom bar has precedence over bar group special effects if both are enabled
+				t = b.tickColor or vc -- show or hide tick mark for custom bar
+				if bar.timers.inExpireBar and bar.timers.final then offset = bar.timers.final - bar.timers.inExpireBar end
+				if t.a > 0 then MOD.Nest_SetTick(bar, true, offset, t.r, t.g, t.b, t.a); ticky = true end
+			elseif sfxBG and vbp.colorExpiring then
+				t = vbp.tickColor or vc -- show or hide tick mark for bar group
+				if bar.timers.inExpireBG and bar.timers.final then offset = bar.timers.final - bar.timers.inExpireBG end
+				if t.a > 0 then MOD.Nest_SetTick(bar, true, offset, t.r, t.g, t.b, t.a); ticky = true end
+			end
+		end
+		if not ticky then MOD.Nest_SetTick(bar, false, 0) end
+
+		bat.shineColor = wc; bat.sparkleColor = wc; bat.glowColor = wc -- first set defaults for customization options
+		bat.flashPeriod = 1.2; bat.flashPercent = 50
+		
+		if sfxBG and vbp.customizeSFX then -- second apply bar group sfx settings
+			bat.shineColor = vbp.shineColor or bat.shineColor
+			bat.sparkleColor = vbp.sparkleColor or bat.sparkleColor
+			bat.glowColor = vbp.glowColor or bat.glowColor
+			bat.flashPeriod = vbp.flashPeriod or bat.flashPeriod
+			bat.flashPercent = vbp.flashPercent or bat.flashPercent
+		end
+		
+		if sfxBar and b.customizeSFX then -- finally, override with sfx settings for custom bars, if any are set
+			bat.shineColor = b.shineColor or bat.shineColor
+			bat.sparkleColor = b.sparkleColor or bat.sparkleColor
+			bat.glowColor = b.glowColor or bat.glowColor
+			bat.flashPeriod = b.flashPeriod or bat.flashPeriod
+			bat.flashPercent = b.flashPercent or bat.flashPercent
+		end
+			
+		local shineStart = not bar.shineStart and ((vbp.shineStart and inStartBG) or (b.shineStart and inStartBar)) -- shine at start
+		local shineExpiring = not bar.shineExpiring and ((vbp.shineExpiring and inExpireBG) or (b.shineExpiring and inExpireBar)) -- shine at expire time
+		local shineEnd = not bar.shineEnd and ((vbp.shineEnd and inFinishBG) or (b.shineEnd and inFinishBar)) -- shine at finish
+		local shineReady = not bar.shineReady and (b.shineReady and inReadyBar) -- shine when ready bar starts
+		MOD.Nest_SetShine(bar, shineStart or shineReady or ((duration > 0) and (shineExpiring or shineEnd)))
+		if shineStart then bar.shineStart = true end
+		if shineExpiring then bar.shineExpiring = true end
+		if shineEnd then bar.shineEnd = true end
+		if shineReady then bar.shineReady = true end
+
+		local sparkleStart = not bar.sparkleStart and ((vbp.sparkleStart and inStartBG) or (b.sparkleStart and inStartBar)) -- sparkle at start
+		local sparkleExpiring = not bar.sparkleExpiring and ((vbp.sparkleExpiring and inExpireBG) or (b.sparkleExpiring and inExpireBar)) -- sparkle at expire time
+		local sparkleEnd = not bar.sparkleEnd and ((vbp.sparkleEnd and inFinishBG) or (b.sparkleEnd and inFinishBar)) -- sparkle at finish
+		local sparkleReady = not bar.sparkleReady and (b.sparkleReady and inReadyBar) -- sparkle when ready bar starts
+		MOD.Nest_SetSparkle(bar, sparkleStart or sparkleReady or ((duration > 0) and (sparkleExpiring or sparkleEnd)))
+		if sparkleStart then bar.sparkleStart = true end
+		if sparkleExpiring then bar.sparkleExpiring = true end
+		if sparkleEnd then bar.sparkleEnd = true end
+		if sparkleReady then bar.sparkleReady = true end
+
+		local pulseStart = not bar.pulseStart and ((vbp.pulseStart and inStartBG) or (b.pulseStart and inStartBar)) -- pulse at start
+		local pulseExpiring = not bar.pulseExpiring and ((vbp.pulseExpiring and inExpireBG) or (b.pulseExpiring and inExpireBar)) -- pulse at expire time
+		local pulseEnd = not bar.pulseEnd and ((vbp.pulseEnd and inFinishBG) or (b.pulseEnd and inFinishBar)) -- pulse at finish
+		local pulseReady = not bar.pulseReady and (b.pulseReady and inReadyBar) -- pulse when ready bar starts
+		MOD.Nest_SetPulse(bar, pulseStart or pulseReady or ((duration > 0) and (pulseExpiring or pulseEnd)))
+		if pulseStart then bar.pulseStart = true end
+		if pulseExpiring then bar.pulseExpiring = true end
+		if pulseEnd then bar.pulseEnd = true end
+		if pulseReady then bar.pulseReady = true end
+		
+		if (inFinishBG and vbp.splash) or (inFinishBar and b.splash) then bat.splash = true end -- 
+
+		local isFlashing = (IsOn(b.flashBar) and (b.flashBar == MOD:CheckCondition(b.flashCondition))) or -- conditional flashing
+				(vbp.flashStart and inStartBG) or (b.flashStart and inStartBar) or -- bar group or custom bar start effect
+				(vbp.flashExpiring and inExpireBG) or (b.flashExpiring and inExpireBar) or -- bar group or custom bar expire effect
+				(b.flashReady and b.startReady) -- ready bar flash option
+		MOD.Nest_SetFlash(bar, isFlashing)
+		
+		local isGlowing = (IsOn(b.glowBar) and (b.glowBar == MOD:CheckCondition(b.glowCondition))) or -- conditional glow
+				(vbp.glowStart and inStartBG) or (b.glowStart and inStartBar) or -- bar group or custom bar start effect
+				(vbp.glowExpiring and inExpireBG) or (b.glowExpiring and inExpireBar) or -- bar group or custom bar expire effect
+				(b.glowReady and inReadyBar) -- custom bar ready effect
+		MOD.Nest_SetGlow(bar, isGlowing)
+
+		local isDesaturated = (vbp.desatStart and inStartBG) or (b.desatStart and inStartBar) or -- bar group or custom bar start effect
+				(vbp.desatExpiring and inExpireBG) or (b.desatExpiring and inExpireBar) or -- bar group or custom bar expire effect
+				(b.desaturateReadyIcon and inReadyBar) -- custom bar ready effect
+		if isDesaturated then bat.desaturate = true end -- desaturate icons (should not interfere with other desaturate settings)
+
+		local isFaded = false
+		local dft, gd = not vbp.useDefaultFontsAndTextures, MOD.db.global.Defaults -- indicates the bar group has overrides for fonts and textures		
+		local alpha = 1 -- adjust alpha based on bar group options and special effects
+		if MOD.status.inCombat then alpha = (dft and vbp.combatAlpha or gd.combatAlpha) else alpha = (dft and vbp.alpha or gd.alpha) end
+		if vbp.targetAlpha and ttUnit == "all" and b.group ~= UnitGUID("target") then alpha = alpha * vbp.targetAlpha end		
+		if IsOn(b.fadeBar) then -- conditional fade for bars is higher priority than bar group setting for delayed fade
+			if (b.fadeBar == MOD:CheckCondition(b.fadeCondition)) and b.fadeAlpha then alpha = alpha * b.fadeAlpha; isFaded = true end
+		elseif b.fade and b.fadeAlpha and not b.startReady then
+			if inStartBar then alpha = alpha * b.fadeAlpha; isFaded = true end
+		elseif vbp.fade and vbp.fadeAlpha and not b.startReady then
+			if inStartBG then alpha = alpha * vbp.fadeAlpha; isFaded = true end
+		end
+		
+		if not isFaded then -- fading is highest priority
 			if b.startReady or (b.enableReady and b.readyCharges and count and (count >= 1)) then
 				if b.readyAlpha then alpha = alpha * b.readyAlpha end -- adjust alpha for ready bars
-				if b.desaturateReadyIcon then bat.desaturate = true end -- optionally desaturate icons for ready bars
 			elseif b.normalAlpha then alpha = alpha * b.normalAlpha end
 		end
 		MOD.Nest_SetAlpha(bar, alpha)
+		
+		local tBar = not b.combatTextExcludesBG and bg.name or nil
+		local tBG = not vbp.combatTextExcludesBG and bg.name or nil
+		if not bar.combatStart then
+			if inStartBar and b.combatStart then
+				bar.combatStart = ShowCombatText(label, tBar, L["started"], icon, b.combatCriticalStart, b.combatColorStart or rc)
+			elseif inStartBG and vbp.combatStart then
+				bar.combatStart = ShowCombatText(label, tBG, L["started"], icon, vbp.combatCriticalStart, vbp.combatColorStart or rc)
+			end
+		end
+		if not bar.expireMSBT then
+			if inExpireBar and b.expireMSBT then
+				bar.expireMSBT = ShowCombatText(label, tBar, L["expiring"], icon, b.criticalMSBT, b.colorMSBT or rc)
+			elseif inExpireBG and vbp.expireMSBT then
+				bar.expireMSBT = ShowCombatText(label, tBG, L["expiring"], icon, vbp.criticalMSBT, vbp.colorMSBT or rc)
+			end
+		end
+		if not bar.combatEnd then
+			if inFinishBar and b.combatEnd then
+				bar.combatEnd = ShowCombatText(label, tBar, L["finished"], icon, b.combatCriticalEnd, b.combatColorEnd or rc)
+			elseif inFinishBG and vbp.combatEnd then
+				bar.combatEnd = ShowCombatText(label, tBG, L["finished"], icon, vbp.combatCriticalEnd, vbp.combatColorEnd or rc)
+			end
+		end
+		if not bar.combatReady and inReadyBar and b.combatReady then
+			bar.combatReady = ShowCombatText(label, tBar, L["ready"], icon, b.combatCriticalReady, b.combatColorReady or rc)
+		end
+		
+		if not MOD.db.profile.muteSFX then -- make sure sounds are not muted
+			if (inStartBG and (vbp.soundSpellStart or (vbp.soundAltStart ~= "None"))) or ((inStartBar and (b.soundSpellStart or (b.soundAltStart ~= "None")))) then
+				local sound, sp, replay, replayTime = nil, nil, false, 5 -- play start sound effect
+				if vbp.soundSpellStart or b.soundSpellStart then sp = MOD:GetAssociatedSpellForBar(b); if sp then sound = MOD:GetSound(sp, b.spellID) end end
+				if not sound and b.soundAltStart ~= "None" then sound = b.soundAltStart end
+				if not sound and vbp.soundAltStart ~= "None" then sound = vbp.soundAltStart end
+				if vbp.replay then replay = true; replayTime = (vbp.replayTime or 5) elseif b.replay then replay = true; replayTime = (b.replayTime or 5) end
+				if sound and (not bar.soundStart or (replay and (now > bar.replayTime))) then
+					PlaySoundMedia(sound)
+					bar.replayTime = now + replayTime			
+					bar.soundStart = true
+				end
+			end
+			
+			if not bar.soundExpire and ((inExpireBG and (vbp.soundSpellExpire or (vbp.soundAltExpire ~= "None"))) or
+					(inExpireBar and (b.soundSpellExpire or (b.soundAltExpire ~= "None")))) then
+				local sound, sp = nil, nil -- play expire sound effect
+				if vbp.soundSpellExpire or b.soundSpellExpire then sp = MOD:GetAssociatedSpellForBar(b); if sp then sound = MOD:GetSound(sp, b.spellID) end end
+				if not sound and b.soundAltExpire ~= "None" then sound = b.soundAltExpire end
+				if not sound and vbp.soundAltExpire ~= "None" then sound = vbp.soundAltExpire end
+				if sound then
+					PlaySoundMedia(sound)
+					bar.soundExpire = true
+				end
+			end
+			
+			if not bar.soundEnd and ((inFinishBG and (vbp.soundSpellEnd or (vbp.soundAltEnd ~= "None"))) or
+					(inFinishBar and (b.soundSpellEnd or (b.soundAltEnd ~= "None")))) then
+				local sound, sp = nil, nil -- play finish sound effect
+				if vbp.soundSpellEnd or b.soundSpellEnd then sp = MOD:GetAssociatedSpellForBar(b); if sp then sound = MOD:GetSound(sp, b.spellID) end end
+				if not sound and b.soundAltEnd ~= "None" then sound = b.soundAltEnd end
+				if not sound and vbp.soundAltEnd ~= "None" then sound = vbp.soundAltEnd end
+				if sound then
+					PlaySoundMedia(sound)
+					bar.soundEnd = true
+				end
+			end
+			
+			if not bar.soundReady and (inReadyBar and (b.soundSpellReady or (b.soundAltReady ~= "None"))) then
+				local sound, sp = nil, nil -- play ready sound effect
+				if b.soundSpellReady then sp = MOD:GetAssociatedSpellForBar(b); if sp then sound = MOD:GetSound(sp, b.spellID) end end
+				if not sound and b.soundAltReady ~= "None" then sound = b.soundAltReady end
+				if sound then
+					PlaySoundMedia(sound)
+					bar.soundReady = true
+				end
+			end
+		end
 	end
 end
 
@@ -1214,7 +1423,7 @@ end
 
 -- Check if an action is in the associated filter bar group
 local function CheckFilterBarGroup(bgname, btype, action, value)
-	if not bgname then return false end
+	if not bgname or not action then return false end
 	local bg = MOD.db.profile.BarGroups[bgname]
 	if IsOn(bg) then
 		if bg.auto then -- auto bar groups look in the filter list (doesn't matter if black list or white list)
@@ -1324,6 +1533,7 @@ local function DetectNewBuffs(unit, n, aura, isBuff, bp, vbp, bg)
 			and not (bp.noTargetBuffs and UnitIsUnit(unit, "target")) and not (bp.noFocusBuffs and UnitIsUnit(unit, "focus")) and
 			MOD:CheckCastBy(aura[6], bp.detectBuffsCastBy))) and CheckTimeAndDuration(bp, aura[2], aura[5]) and includeTypes and excludeTypes then
 		local b, tag = detectedBar, "Buff"
+		table.wipe(b); b.enableBar = true; b.sorder = 0 
 		b.action = n; b.spellID = spellID; b.barType = "Buff"
 		if tc then tag = tag .. tc else tc = "unknown" end -- include caster in unique tag
 		if ttype == "Minion" then tag = tag .. ta end -- for warlock minions add guid to the unique tag
@@ -1340,7 +1550,9 @@ local function DetectNewBuffs(unit, n, aura, isBuff, bp, vbp, bg)
 		end
 		b.group = id -- if unit is "all" then this is GUID of unit with buff, otherwise it is nil
 		b.groupName = gname -- if unit is "all" then this is the name of the unit with buff, otherwise it is nil
-		b.uniqueID = tag; b.listID = listID; b.barLabel = label; b.isStealable = isStealable; b.isMagic = isMagic; b.isEnrage = isEnrage
+		b.uniqueID = tag; b.listID = listID; b.barLabel = label
+		b.isPlayer = isMine; b.isPet = (aura[6] == "pet"); b.isBoss = isBoss
+		b.isStealable = isStealable; b.isMagic = isMagic; b.isEnrage = isEnrage
 		UpdateBar(bp, vbp, bg, b, icon, aura[2], aura[5], aura[3], ttype, tt, ta, unit, aura[16], isMine)
 	end
 end
@@ -1408,6 +1620,7 @@ local function DetectNewDebuffs(unit, n, aura, isBuff, bp, vbp, bg)
 			and not (bp.noTargetDebuffs and UnitIsUnit(unit, "target")) and not (bp.noFocusDebuffs and UnitIsUnit(unit, "focus")) and
 			MOD:CheckCastBy(aura[6], bp.detectDebuffsCastBy))) and CheckTimeAndDuration(bp, aura[2], aura[5]) and includeTypes and excludeTypes then
 		local b, tag = detectedBar, "Debuff"
+		table.wipe(b); b.enableBar = true; b.sorder = 0 
 		b.action = n; b.spellID = aura[14]; b.barType = "Debuff"
 		if tc then tag = tag .. tc else tc = "unknown" end -- include caster in unique tag
 		if not units[tc] and aura[10] and (aura[10] > 0) then tag = tag .. tostring(math.floor((aura[10] * 100) + 0.5)) end -- add expire time to tag
@@ -1423,6 +1636,8 @@ local function DetectNewDebuffs(unit, n, aura, isBuff, bp, vbp, bg)
 		b.group = id -- if unit is "all" then this is GUID of unit with debuff, otherwise it is nil
 		b.groupName = gname -- if unit is "all" then this is the name of the unit with buff, otherwise it is nil
 		b.uniqueID = tag; b.listID = listID; b.barLabel = label
+		b.isPlayer = isMine; b.isPet = (aura[6] == "pet"); b.isBoss = isBoss
+		b.isDispel = isDispel; b.isPoison = isPoison; b.isMagic = isMagic; b.isCurse = isCurse; b.isDisease = isDisease
 		UpdateBar(bp, vbp, bg, b, aura[8], aura[2], aura[5], aura[3], aura[4], tt, ta, unit, aura[16], isMine)
 	end
 end
@@ -1470,6 +1685,7 @@ local function AutoRuneBars(bp, vbp, bg)
 	for i = 1, 6 do
 		local rune = MOD.runeSlots[i]
 		local b = detectedBar
+		table.wipe(b); b.enableBar = true; b.sorder = 0 
 		b.action = L["Rune"]; b.spellID = nil; b.barLabel = runeSlotPrefix[i] .. b.action
 		b.barType = "Cooldown"; b.uniqueID = "Cooldown"; b.group = nil
 		local icon = GetSpellTexture(207321) -- icon for Spell Eater
@@ -1492,6 +1708,7 @@ local function AutoTotemBars(bp, vbp, bg)
 	local now = GetTime()
 	for i = 1, 4 do
 		local b = detectedBar
+		table.wipe(b); b.enableBar = true; b.sorder = 0 
 		b.barType = "Cooldown"; b.uniqueID = "Totem" .. i; b.group = nil
 		local haveTotem, name, startTime, duration, icon = GetTotemInfo(i)
 		if haveTotem and name and name ~= "" and now <= (startTime + duration) then -- generate timer bar for the totem in the slot
@@ -1541,7 +1758,9 @@ local function DetectNewCooldowns(n, cd, bp, vbp, bg)
 	if bp.filterCooldownBars and CheckFilterBarGroup(bp.filterCooldownBarGroup, "Cooldown", n, true) then return end -- check if in filter bar group
 	if MOD:CheckCastBy(cd[7], bp.detectCooldownsBy) and CheckCooldownType(cd, bp) and CheckTimeAndDuration(bp, cd[1], cd[4]) then
 		local b = detectedBar
+		table.wipe(b); b.enableBar = true; b.sorder = 0 
 		b.action = n; b.spellID = cd[8]; b.barType = "Cooldown"; b.barLabel = MOD:GetLabel(n, cd[8]); b.uniqueID = "Cooldown"; b.listID = listID; b.group = nil
+		b.isPlayer = (cd[7] == "player"); b.isPet = (cd[7] == "pet")
 		if CheckSharedCooldowns(b, bp) then
 			UpdateBar(bp, vbp, bg, b, cd[2], cd[1], cd[4], cd[9], nil, cd[5], cd[6], nil, nil, true)
 		end
@@ -1591,6 +1810,7 @@ local function UpdateBarGroupBars(bp, vbp, bg)
 					local b, label = headerBar, name
 					local rti = MOD:GetRaidTarget(id)
 					if rti then label = prefixRaidTargetIcon .. rti .. ":0|t " .. name end
+					table.wipe(b); b.enableBar = true; b.sorder = 0
 					b.action = ""; b.spellID = nil; b.barLabel = label; b.barType = "Notification"
 					b.uniqueID = id; b.group = id
 					UpdateBar(bp, vbp, bg, b, nil, 0, 0, nil, nil, "header", name, id, nil, nil)
@@ -1622,7 +1842,7 @@ local function UpdateBarGroupBars(bp, vbp, bg)
 							end
 							bar.barLabel = saveLabel -- restore in case of multiple bar copies
 						end
-						if not found and bar.enableReady then -- see if need aura ready bar
+						if not found and bar.enableReady and aname then -- see if need aura ready bar
 							if (bar.readyNotUsable or MOD:CheckSpellStatus(aname, true, true) or IsUsableItem(aname)) then -- check if really usable
 								if not bar.readyTime then bar.readyTime = 0 end
 								if bar.readyTime == 0 then bar.startReady = nil end
@@ -1642,7 +1862,7 @@ local function UpdateBarGroupBars(bp, vbp, bg)
 								found = true
 							end
 						end
-						if not found and bar.enableReady and (bar.readyNotUsable or MOD:CheckSpellStatus(aname, true) or IsUsableItem(aname)) then -- see if need cooldown ready bar
+						if not found and bar.enableReady and aname and (bar.readyNotUsable or MOD:CheckSpellStatus(aname, true) or IsUsableItem(aname)) then -- see if need cooldown ready bar
 							if not bar.readyTime then bar.readyTime = 0 end
 							if bar.readyTime == 0 then bar.startReady = nil end
 							if not bar.startReady or ((GetTime() - bar.startReady) < bar.readyTime) then
@@ -1670,9 +1890,9 @@ local function UpdateBarGroupBars(bp, vbp, bg)
 							local isUnit = MOD:IsUnitValue(name)
 							bar.value, bar.maxValue = f(isUnit and bar.monitor or nil)
 						end
-						UpdateBar(bp, vbp, bg, bar, icon, 0, 0, nil, nil, "value", bar.barLabel, bar.action, nil, true)
+						UpdateBar(bp, vbp, bg, bar, icon, 0, 0, nil, nil, "value", bar.barLabel, bar.action or "", nil, true)
 					elseif t == "Broker" then
-						local db = MOD.knownBrokers[bar.action] -- check in the registered brokers table
+						local db = MOD.knownBrokers[bar.action or ""] -- check in the registered brokers table
 						if db then
 							bar.spellID = nil
 							local icon = nil
@@ -1732,11 +1952,11 @@ local function UpdateBarGroupBars(bp, vbp, bg)
 	end
 end
 
--- Look for expired timer bars and update them as ghost bars, if necessary
-local function UpdateGhostBars(bp, bg)
+-- Look for expired timer bars and show final effects (ghost bars, splash effects)
+local function UpdateFinalEffects(bp, bg)
 	local now = GetTime()
-	table.wipe(activeSpells) -- this table will be used to track which spells have currently active timer bars so don't show ghost bars for them
-	for _, bar in pairs(MOD.Nest_GetBars(bg)) do -- first find any elapsed timer bars that might be made into ghosts
+	table.wipe(activeSpells) -- this table will be used to track which spells have currently active timer bars so don't show effects for them
+	for _, bar in pairs(MOD.Nest_GetBars(bg)) do -- first, find any elapsed timer bars and build table of active spells
 		if MOD.Nest_IsTimer(bar) then
 			local bat = bar.attributes
 			if bat.updated then
@@ -1744,24 +1964,23 @@ local function UpdateGhostBars(bp, bg)
 			end
 		end
 	end
-	if not bp.auto then -- if custom bar group then check for individual bar ghost option (overrides bar group option)
-		for _, bar in pairs(MOD.Nest_GetBars(bg)) do
-			if MOD.Nest_IsTimer(bar) then
-				local bat = bar.attributes
+	
+	for _, bar in pairs(MOD.Nest_GetBars(bg)) do -- second, create ghost bars or trigger splash effects for expired timer bars
+		if MOD.Nest_IsTimer(bar) then
+			local bat = bar.attributes
+			if not bp.auto then -- if custom bar group check for individual bar ghost option (overrides bar group option)
 				if bat.ghostDuration and not bat.updated and not activeSpells[bat.tooltipSpell or 0] then -- check if candidate for ghost bar
 					if not bat.ghostTime then MOD.Nest_SetCount(bar, nil); bat.ghostTime = now + bat.ghostDuration end
 					if bat.ghostTime >= now then bat.updated = true end
 				end
-			end
-		end
-	elseif bp.ghost then -- for auto bars, if ghost enabled, any elapsed timer is a potential ghost bar
-		for _, bar in pairs(MOD.Nest_GetBars(bg)) do
-			if MOD.Nest_IsTimer(bar) then
-				local bat = bar.attributes
+			elseif bp.ghost then -- for auto bars, if ghost enabled, any elapsed timer is a potential ghost bar
 				if not bat.updated and not activeSpells[bat.tooltipSpell or 0] then
-					if not bat.ghostTime then MOD.Nest_SetCount(bar, nil); bat.ghostTime = now + (bp.delayTime or 5) end
+					if not bat.ghostTime then MOD.Nest_SetCount(bar, nil); bat.ghostTime = now + (bp.endEffectTime or 5) end
 					if bat.ghostTime >= now then bat.updated = true end
 				end
+			end
+			if bat.splash and not bat.updated and not activeSpells[bat.tooltipSpell or 0] then -- trigger splash effect
+				MOD.Nest_SplashEffect(bg, bar)
 			end
 		end
 	end
@@ -1796,7 +2015,7 @@ function MOD:UpdateBars()
 						MOD.Nest_SetBarGroupAlpha(bg, MOD.status.inCombat and bp.bgCombatAlpha or bp.bgNormalAlpha, bp.mouseAlpha, bp.disableAlpha)
 						ShowStripe(bp, bg) -- deferred to make sure condition is valid
 					end				
-					UpdateGhostBars(bp, bg) -- create and/or update ghost bars in this bar group
+					UpdateFinalEffects(bp, bg) -- create and/or update ghost bars in this bar group
 					UpdateTestBars(bp, bg) -- update any unexpired test bars in this bar group
 					MOD.Nest_DeleteBarsWithAttribute(bg, "updated", false) -- then, remove any bars in the group that weren't updated
 				else -- if not then hide any bars that might be around

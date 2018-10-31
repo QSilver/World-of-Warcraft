@@ -1,6 +1,9 @@
 # BigWigs
 
-## [v114.1](https://github.com/BigWigsMods/BigWigs/tree/v114.1) (2018-09-14)
-[Full Changelog](https://github.com/BigWigsMods/BigWigs/compare/v114...v114.1)
+## [v121.3](https://github.com/BigWigsMods/BigWigs/tree/v121.3) (2018-10-24)
+[Full Changelog](https://github.com/BigWigsMods/BigWigs/compare/v121.2...v121.3)
 
-- Uldir/Zul: Another error fix on Zul.  
+- BattleOfDazaralor/Mekkatorque: Drycode  
+- BattleOfDazaralor/Rastakhan: Drycode  
+- Uldir/Mother: Don't trigger a beam timer update in the first room  
+- Uldir/Mythrax: Change proximity check to 5 yards (#565)  

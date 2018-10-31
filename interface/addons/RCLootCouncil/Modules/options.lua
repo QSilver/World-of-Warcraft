@@ -65,7 +65,7 @@ local function createNewButtonSet(path, name, order)
 	for i = 1, addon.db.profile.buttons[name].numButtons do
 		addon.db.profile.responses[name][i].sort = i -- Sort is static, just set it
 		path[name].args["button"..i] = {
-			order = i * 3 + 1,
+			order = i * 5 + 1,
 			name = L["Button"].." "..i,
 			desc = format(L["Set the text on button 'number'"], i),
 			type = "input",
@@ -74,22 +74,61 @@ local function createNewButtonSet(path, name, order)
 			hidden = function() return addon.db.profile.buttons[name].numButtons < i end,
 		}
 		path[name].args["picker"..i] = {
-			order = i * 3 + 2,
+			order = i * 5 + 2,
 			name = L["Response color"],
 			desc = L["response_color_desc"],
+			width = 0.8,
 			type = "color",
 			get = function() return unpack(addon.db.profile.responses[name][i].color or {1,1,1,1})	end,
 			set = function(info,r,g,b,a) addon:ConfigTableChanged("responses"); addon.db.profile.responses[name][i].color = {roundColors(r,g,b,a)} end,
 			hidden = function() return addon.db.profile.buttons[name].numButtons < i end,
 		}
 		path[name].args["text"..i] = {
-			order = i * 3 + 3,
+			order = i * 5 + 3,
 			name = L["Response"],
 			desc = format(L["Set the text for button i's response."], i),
 			type = "input",
 			get = function() return addon.db.profile.responses[name][i].text end,
 			set = function(info, value) addon:ConfigTableChanged("responses"); addon.db.profile.responses[name][i].text = tostring(value) end,
 			hidden = function() return addon.db.profile.buttons[name].numButtons < i end,
+		}
+		-- Move Up/Down buttons
+		path[name].args["move_up"..i] = {
+			order = i * 5 + 4,
+			name = "",
+			type = "execute",
+			width = 0.1,
+			image = "Interface\\Buttons\\UI-ScrollBar-ScrollUpButton-Up",
+			disabled = function(info) return i == 1 end, -- Disable the top button
+			func = function()
+				-- We basically need to switch two variables, this up, and the former up down.
+				-- Variables: addon.db.profile.responses[name] + addon.db.profile.buttons[name]
+				-- Temp store this data
+				local tempBtn = addon.db.profile.buttons[name][i]
+				local tempResponse = addon.db.profile.responses[name][i]
+				-- Move i - 1 down to i
+				addon.db.profile.buttons[name][i] = addon.db.profile.buttons[name][i - 1]
+				addon.db.profile.responses[name][i] = addon.db.profile.responses[name][i - 1]
+				-- And move the temp up
+				addon.db.profile.buttons[name][i - 1] = tempBtn
+				addon.db.profile.responses[name][i - 1] = tempResponse
+			end,
+		}
+		path[name].args["move_down"..i] = {
+			order = i * 5 + 4.1,
+			name = "", --L["Move Down"],
+			type = "execute",
+			width = 0.1,
+			image = "Interface\\Buttons\\UI-ScrollBar-ScrollDownButton-Up",
+			disabled = function() return i == addon.db.profile.buttons[name].numButtons end, -- Disable the bottom button
+			func = function()
+				local tempBtn = addon.db.profile.buttons[name][i]
+				local tempResponse = addon.db.profile.responses[name][i]
+				addon.db.profile.buttons[name][i] = addon.db.profile.buttons[name][i + 1]
+				addon.db.profile.responses[name][i] = addon.db.profile.responses[name][i + 1]
+				addon.db.profile.buttons[name][i + 1] = tempBtn
+				addon.db.profile.responses[name][i + 1] = tempResponse
+			end,
 		}
 	end
 end
@@ -351,6 +390,7 @@ function addon:OptionsTable()
 												return
 											end
 											self:GetActiveModule("history"):DeleteAllEntriesByName(selections.deleteName)
+											selections.deleteName = "" -- Barrow: Needs to be reset.
 										end,
 									},
 									deleteDate = {
@@ -387,6 +427,7 @@ function addon:OptionsTable()
 												return
 											end
 											self:GetActiveModule("history"):DeleteEntriesOlderThanEpoch(selections.deleteDate)
+											selections.deleteDate = "" -- Barrow: Needs to be reset.
 										end,
 									},
 									deletePatch = {
@@ -419,8 +460,41 @@ function addon:OptionsTable()
 												return
 											end
 											self:GetActiveModule("history"):DeleteEntriesOlderThanEpoch(selections.deletePatch)
+											selections.deletePatch = "" -- Barrow: Needs to be reset.
 										end,
-									}
+									},
+									deleteCustomDays = {
+										order = 18,
+										name = addon:CompleteFormatSimpleStringWithPluralRule(_G.DAYS, 2),
+										desc = L["opt_deleteDate_desc"],
+										type = "input",
+										width = "double",
+										validate = function(info, txt)
+											return type(tonumber(txt)) == "number" and true or "Input must be a number"
+										end,
+										get = function(info)
+											return selections[info[#info]] or ""
+										end,
+										set = function(info, txt)
+											selections[info[#info]] = txt
+										end,
+									},
+									deleteCustomDaysBtn = {
+										order = 19,
+										name = _G.DELETE,
+										type = "execute",
+										confirm = function() return L["opt_deleteDate_confirm"] end,
+										func = function(info)
+											if not selections.deleteCustomDays then
+												addon:Print(L["Invalid selection"])
+												return
+											end
+											-- Convert days into seconds
+											local days = selections.deleteCustomDays * 60 * 60 * 24
+											self:GetActiveModule("history"):DeleteEntriesOlderThanEpoch(days)
+											selections.deleteCustomDays = ""
+										end,
+									},
 								},
 							},
 						},
@@ -1041,6 +1115,7 @@ function addon:OptionsTable()
 											RAID = _G.CHAT_MSG_RAID	,
 											RAID_WARNING = _G.CHAT_MSG_RAID_WARNING,
 											group = _G.GROUP, -- must be converted
+											chat = L["Chat print"],
 										},
 										set = function(i,v) self.db.profile.announceChannel = v end,
 										hidden = function() return not self.db.profile.announceItems end,
@@ -1429,11 +1504,12 @@ function addon:OptionsTable()
 		},
 	}
 	-- #region Create options thats made with loops
+	-- NOTE Kind of redundant, but the createNewButtonSet() was created with groups in mind, not the default buttons
 	-- Buttons
 	local button, picker, text = {}, {}, {}
-	for i = 1, self.db.profile.maxButtons do
+	for i = 1, self.db.profile.buttons.default.numButtons do
 		button = {
-			order = i * 3 + 1,
+			order = i * 5 + 1,
 			name = L["Button"].." "..i,
 			desc = format(L["Set the text on button 'number'"], i),
 			type = "input",
@@ -1443,9 +1519,10 @@ function addon:OptionsTable()
 		}
 		options.args.mlSettings.args.buttonsTab.args.buttonOptions.args["button"..i] = button;
 		picker = {
-			order = i * 3 + 2,
+			order = i * 5 + 2,
 			name = L["Response color"],
 			desc = L["response_color_desc"],
+			width = 0.8,
 			type = "color",
 			get = function() return unpack(self.db.profile.responses.default[i].color)	end,
 			set = function(info,r,g,b,a) addon:ConfigTableChanged("responses"); self.db.profile.responses.default[i].color = {roundColors(r,g,b,a)} end,
@@ -1453,7 +1530,7 @@ function addon:OptionsTable()
 		}
 		options.args.mlSettings.args.buttonsTab.args.buttonOptions.args["picker"..i] = picker;
 		text = {
-			order = i * 3 + 3,
+			order = i * 5 + 3,
 			name = L["Response"],
 			desc = format(L["Set the text for button i's response."], i),
 			type = "input",
@@ -1462,6 +1539,43 @@ function addon:OptionsTable()
 			hidden = function() return self.db.profile.buttons.default.numButtons < i end,
 		}
 		options.args.mlSettings.args.buttonsTab.args.buttonOptions.args["text"..i] = text;
+		options.args.mlSettings.args.buttonsTab.args.buttonOptions.args["move_up"..i] = {
+			order = i * 5 + 4,
+			name = "",
+			type = "execute",
+			width = 0.1,
+			image = "Interface\\Buttons\\UI-ScrollBar-ScrollUpButton-Up",
+			disabled = function() return i == 1 end, -- Disable the top button
+			func = function()
+				-- We basically need to switch two variables, this up, and the former up down.
+				-- Variables: addon.db.profile.responses[name] + addon.db.profile.buttons[name]
+				-- Temp store this data
+				local tempBtn = self.db.profile.buttons.default[i]
+				local tempResponse = self.db.profile.responses.default[i]
+				-- Move i - 1 down to i
+				self.db.profile.buttons.default[i] = self.db.profile.buttons.default[i - 1]
+				self.db.profile.responses.default[i] = self.db.profile.responses.default[i - 1]
+				-- And move the temp up
+				self.db.profile.buttons.default[i - 1] = tempBtn
+				self.db.profile.responses.default[i - 1] = tempResponse
+			end,
+		}
+		options.args.mlSettings.args.buttonsTab.args.buttonOptions.args["move_down"..i] = {
+			order = i * 5 + 4.1,
+			name = "",
+			type = "execute",
+			width = 0.1,
+			image = "Interface\\Buttons\\UI-ScrollBar-ScrollDownButton-Up",
+			disabled = function() return i == self.db.profile.buttons.default.numButtons end,
+			func = function()
+				local tempBtn = self.db.profile.buttons.default[i]
+				local tempResponse = self.db.profile.responses.default[i]
+				self.db.profile.buttons.default[i] = self.db.profile.buttons.default[i + 1]
+				self.db.profile.responses.default[i] = self.db.profile.responses.default[i + 1]
+				self.db.profile.buttons.default[i + 1] = tempBtn
+				self.db.profile.responses.default[i + 1] = tempResponse
+			end,
+		}
 
 		local whisperKeys = {
 			order = i + 3,
@@ -1477,7 +1591,7 @@ function addon:OptionsTable()
 	end
 
 	-- Award Reasons
-	for i = 1, self.db.profile.maxAwardReasons do
+	for i = 1, self.db.profile.numAwardReasons do
 		options.args.mlSettings.args.awardsTab.args.awardReasons.args["reason"..i] = {
 			order = i+1,
 			name = L["Reason"]..i,
@@ -1504,7 +1618,7 @@ function addon:OptionsTable()
 			name = L["Log"],
 			desc = L["log_desc"],
 			type = "toggle",
-			width = "half",
+			width = 0.4,
 			get = function() return self.db.profile.awardReasons[i].log end,
 			set = function() self.db.profile.awardReasons[i].log = not self.db.profile.awardReasons[i].log end,
 			hidden = function() return self.db.profile.numAwardReasons < i end,
@@ -1514,6 +1628,7 @@ function addon:OptionsTable()
 			name = _G.ROLL_DISENCHANT,
 			desc = L["disenchant_desc"],
 			type = "toggle",
+			width = 0.8,
 			get = function() return self.db.profile.awardReasons[i].disenchant end,
 			set = function(info, val)
 				for k,v in ipairs(self.db.profile.awardReasons) do
@@ -1523,6 +1638,36 @@ function addon:OptionsTable()
 				self.db.profile.disenchant = val
 			end,
 			hidden = function() return self.db.profile.numAwardReasons < i end,
+		}
+		options.args.mlSettings.args.awardsTab.args.awardReasons.args["moveUp"..i] = {
+			order = i + 1.4,
+			name = "",
+			type = "execute",
+			width = 0.1,
+			image = "Interface\\Buttons\\UI-ScrollBar-ScrollUpButton-Up",
+			disabled = function() return i == 1 end, -- Disable the top button
+			func = function()
+				local tempResponse = self.db.profile.awardReasons[i]
+				-- Move i - 1 down to i
+				self.db.profile.awardReasons[i] = self.db.profile.awardReasons[i - 1]
+				-- And move the temp up
+				self.db.profile.awardReasons[i - 1] = tempResponse
+			end,
+		}
+		options.args.mlSettings.args.awardsTab.args.awardReasons.args["moveDown"..i] = {
+			order = i + 1.5,
+			name = "",
+			type = "execute",
+			width = 0.1,
+			image = "Interface\\Buttons\\UI-ScrollBar-ScrollDownButton-Up",
+			disabled = function() return i == self.db.profile.numAwardReasons end, -- Disable the bottom button
+			func = function()
+				local tempResponse = self.db.profile.awardReasons[i]
+				-- Move i - 1 down to i
+				self.db.profile.awardReasons[i] = self.db.profile.awardReasons[i + 1]
+				-- And move the temp up
+				self.db.profile.awardReasons[i + 1] = tempResponse
+			end,
 		}
 	end
 	-- Announce Channels
@@ -1539,10 +1684,11 @@ function addon:OptionsTable()
 				YELL = _G.CHAT_MSG_YELL,
 				PARTY = _G.CHAT_MSG_PARTY,
 				GUILD = _G.CHAT_MSG_GUILD,
-				OFFICER = _G.CHAT_MSG_RAID_WARNING,
+				OFFICER = _G.CHAT_MSG_OFFICER,
 				RAID = _G.CHAT_MSG_RAID,
 				RAID_WARNING = _G.CHAT_MSG_RAID_WARNING,
 				group = _G.GROUP,
+				chat = L["Chat print"],
 			},
 			set = function(j,v) self.db.profile.awardText[i].channel = v	end,
 			get = function() return self.db.profile.awardText[i].channel end,

@@ -1,3 +1,13 @@
+### v1.2.3
+- [x] Warfront boss should no longer be flagged as killed if your faction doesn't have access to it
+
+### v1.2.2
+- [x] Fixed a crash caused by the missing The Eye of Eternity raid in ``instancesData``
+- [x] Azeroth's World Bosses availability should now be fixed
+
+### v1.2.1
+- [x] Fixed instances ``instanceID`` match with EJ
+
 ### v1.2.0
 - [x] Reworked the addon so frames will now be matched with EJ tiles according to its ``instanceID`` attribute instead of ``tooltipTitle``, so no more locale dependant!
 - [x] Azeroth's World Bosses lockout tooltip will now display the unavailable status of inactive bosses, as well as the status of the Warfront boss

@@ -26,7 +26,7 @@ MethodDungeonToolsDB = {
 				{
 					["objects"] = {
 					},
-					["week"] = 4,
+					["week"] = 5,
 					["value"] = {
 						["currentPull"] = 1,
 						["currentSublevel"] = 1,

@@ -74,6 +74,8 @@ local L = WeakAuras.L
 	--[[Translation missing --]]
 	L["Cooldown Tracking"] = "Cooldown Tracking"
 	--[[Translation missing --]]
+	L["Create Auras"] = "Create Auras"
+	--[[Translation missing --]]
 	L["Debuffs"] = "Debuffs"
 	--[[Translation missing --]]
 	L["Enchants"] = "Enchants"
@@ -92,7 +94,11 @@ local L = WeakAuras.L
 	--[[Translation missing --]]
 	L["Highlight while debuffed."] = "Highlight while debuffed."
 	--[[Translation missing --]]
+	L["Hold CTRL to create multiple auras at once"] = "Hold CTRL to create multiple auras at once"
+	--[[Translation missing --]]
 	L["Keeps existing triggers intact"] = "Keeps existing triggers intact"
+	--[[Translation missing --]]
+	L["Next"] = "Next"
 	--[[Translation missing --]]
 	L["On Procc Trinkets (Buff)"] = "On Procc Trinkets (Buff)"
 	--[[Translation missing --]]
@@ -177,8 +183,6 @@ local L = WeakAuras.L
 	L["Specific Azerite Traits"] = "Specific Azerite Traits"
 	--[[Translation missing --]]
 	L["Stagger"] = "Stagger"
-	--[[Translation missing --]]
-	L["Totems"] = "Totems"
 	--[[Translation missing --]]
 	L["Track the charge and proc, highlight while proc is active, turns red when out of range, blue on insufficient resources."] = "Track the charge and proc, highlight while proc is active, turns red when out of range, blue on insufficient resources."
 	--[[Translation missing --]]

@@ -6,7 +6,7 @@ if GetLocale()=="deDE" or GetLocale()=="ruRU" or GetLocale()=="zhTW" or GetLocal
 end
 
 
-	raversion=8.002
+	raversion=8.005
 	local raverstiptext="alpha"
 	if string.len(raversion)==6 then
 		raverstiptext="beta"
@@ -191,7 +191,7 @@ end
 
 
 function PhoenixStyleEA_OnEvent(self,event,...)
-local arg1, arg2, arg3,arg4,arg5,arg6 = CombatLogGetCurrentEventInfo()
+local arg1, arg2, arg3,arg4,arg5,arg6 = ...
 
 
 if event == "PLAYER_ALIVE" then
@@ -2531,4 +2531,22 @@ else
 end
 return false
 
+end
+function checkBuff(unit,spellName)
+for i=1,40 do
+    local name, icon, _, _, _, etime = UnitBuff(unit,i)
+    if name and name == spellName then
+		return true
+    end
+end
+return false
+end
+function checkDeBuff(unit,spellName)
+for i=1,40 do
+    local name, icon, _, _, _, etime = UnitDebuff(unit,i)
+    if name and name == spellName then
+		return true
+    end
+end
+return false
 end

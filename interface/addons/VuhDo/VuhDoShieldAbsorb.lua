@@ -15,6 +15,7 @@ local VUHDO_SHIELDS = {
 	[114893] = 10, -- Stone Bulwark Totem (shaman talent)
 	[152118] = 15, -- VUHDO_SPELL_ID.CLARITY_OF_WILL
 	[187805] = 15, -- VUHDO_SPELL_ID.BUFF_ETHERALUS
+	[271466] = 10, -- VUHDO_SPELL_ID.LUMINOUS_BARRIER
 }
 
 
@@ -23,7 +24,7 @@ local VUHDO_PUMP_SHIELDS = {
 }
 
 
--- HoTs which we want to explicitl update on SPELL_AURA_APPLIED 
+-- HoTs which we want to explicitly update on SPELL_AURA_APPLIED 
 -- This avoids any display delays on contingent auras (eg. Atonement)
 local VUHDO_IMMEDIATE_HOTS = {
 	[VUHDO_SPELL_ID.ATONEMENT] = true,
@@ -62,6 +63,12 @@ local VUHDO_ABSORB_DEBUFFS = {
 
 	-- Patch 7.3 - Legion - Antorus, The Burning Throne
 	[245586] = function(aUnit) return select(16, VUHDO_unitAura(aUnit, VUHDO_SPELL_ID.DEBUFF_CHILLED_BLOOD)), 10; end, -- Coven Chilled Blood
+
+	-- Patch 8.0 - Battle for Azeroth - Uldir
+	[265206] = function(aUnit) return select(16, VUHDO_unitAura(aUnit, VUHDO_SPELL_ID.DEBUFF_IMMUNOSUPPRESSION)), 10 * 60; end, -- Vectis Immunosuppression
+
+	-- Patch 8.0 - Battle for Azeroth - The Underrot
+	[278961] = function(aUnit) return select(16, VUHDO_unitAura(aUnit, VUHDO_SPELL_ID.DEBUFF_DECAYING_MIND)), 30; end, -- Diseased Lasher Decaying Mind
 
 	--[79105] = function(aUnit) return 280000, 60 * 60; end, -- @TESTING PW:F
 };

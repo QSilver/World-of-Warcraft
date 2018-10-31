@@ -102,6 +102,12 @@ function MDTDungeonEnemyMixin:OnClick(button, down)
 
     if button == "LeftButton" then
         local isCTRLKeyDown = IsControlKeyDown()
+        --create new pull and select it with shift held down
+        if IsShiftKeyDown() then
+            MethodDungeonTools:PresetsAddPull(MethodDungeonTools:GetCurrentPull() + 1)
+            MethodDungeonTools:ReloadPullButtons()
+            MethodDungeonTools:SetSelectionToPull(MethodDungeonTools:GetCurrentPull() + 1)
+        end
         MethodDungeonTools:DungeonEnemies_AddOrRemoveBlipToCurrentPull(self,not self.selected,isCTRLKeyDown)
         MethodDungeonTools:DungeonEnemies_UpdateSelected(MethodDungeonTools:GetCurrentPull())
         MethodDungeonTools:UpdateProgressbar()
@@ -219,13 +225,8 @@ function MethodDungeonTools:DisplayBlipTooltip(blip,shown)
         return
     end
 
-    local fortified = false
-    local boss = false
-    if MethodDungeonTools:GetCurrentPreset().value.currentAffix then
-        if MethodDungeonTools:GetCurrentPreset().value.currentAffix == "fortified" then fortified = true end
-    end
-    local tyrannical = not fortified
-    local health = MethodDungeonTools:CalculateEnemyHealth(boss,fortified,tyrannical,data.health,db.currentDifficulty)
+    local boss = blip.data.isBoss or false
+    local health = MethodDungeonTools:CalculateEnemyHealth(boss,data.health,db.currentDifficulty)
     local group = blip.clone.g and " (G "..blip.clone.g..")" or ""
     local upstairs = blip.clone.upstairs and CreateTextureMarkup("Interface\\MINIMAP\\MiniMap-PositionArrows", 16, 32, 16, 16, 0, 1, 0, 0.5,0,-50) or ""
     --[[
@@ -234,7 +235,8 @@ function MethodDungeonTools:DisplayBlipTooltip(blip,shown)
     local occurence = (blip.data.isBoss and "") or blip.cloneIdx
 
     local text = upstairs..data.name.." "..occurence..group.."\nLevel "..data.level.." "..data.creatureType.."\n"..MethodDungeonTools:FormatEnemyHealth(health).." HP\n"
-    text = text .."Enemy Forces: "..MethodDungeonTools:FormatEnemyForces(data.count)
+    text = text .."Forces: "..MethodDungeonTools:FormatEnemyForces(data.count)
+    text = text .."\n\n[Right click for more info]"
     tooltip.String:SetText(text)
 
     if db.tooltipInCorner then
@@ -413,7 +415,6 @@ end
 
 ---DungeonEnemies_UpdateSelected
 ---Updates the selected Enemies on the map and marks them green
----TODO: Enemies of the current pull get specially marked
 function MethodDungeonTools:DungeonEnemies_UpdateSelected(pull)
     preset = MethodDungeonTools:GetCurrentPreset()
     --deselect all
@@ -497,6 +498,20 @@ function MethodDungeonTools:DungeonEnemies_UpdateBlacktoothEvent()
     end
 end
 
+function MethodDungeonTools:DungeonEnemies_UpdateBoralusFaction(faction)
+    preset = MethodDungeonTools:GetCurrentPreset()
+    local teeming = MethodDungeonTools:IsPresetTeeming(preset)
+    for _,blip in pairs(blips) do
+        if blip.clone.faction then
+            if blip.clone.faction == faction and ((teeming and blip.clone.teeming) or (not blip.clone.teeming)) then
+                blip:Show()
+            else
+                blip:Hide()
+            end
+        end
+    end
+end
+
 
 
 ---DungeonEnemies_UpdateInfested
@@ -521,13 +536,13 @@ MethodDungeonTools.freeholdCrews = {
         [129547] = true,
         [126847] = true,
     },
-    [2] = {
+    [3] = {
         [129559] = true,
         [129599] = true,
         [126845] = true,
         [129601] = true,
     },
-    [3] = {
+    [2] = {
         [129550] = true,
         [129527] = true,
         [129600] = true,

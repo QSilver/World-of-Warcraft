@@ -1,6 +1,6 @@
 --[[
 Questionably Epic Mythic+ Dungeon Tips
-Version: 4.6 (Battle for Azeroth)
+Version: 4.8 (Battle for Azeroth)
 Developed by: Voulk
 Contact: 
 	Discord: Voulk#1858
@@ -190,7 +190,8 @@ local tipsMap = {
 	[127757] = {{"PriorityTargets", "Priority Target"}, {"Important", "MUST kill the reanimation totem first."}, {"Important", "Will pulse HEAVY AoE to the party after totem is dead. Kill quickly."}}, -- Reanimated Honor Guard
 	[122973] = {{"Interrupts", "Interrupt(!): Bwonsamdi's Mantle (big CC immunity bubble)"}, {"Interrupts", "Interrupt: Mending Word (medium heal)"}, 
 				{"TANK", "If they get a bubble off then you'll need to drag all of the mobs out of it."}}, -- Dazar'ai Confessor
-	[122972] = {{"Interrupts", "Interrupt(!!): Fiery Enchant (buffs a nearby Juggernaut to throw fire)"}, {"Important", "Will also cast Wild Fire (dmg + DoT) on random players but this is a less important interrupt"}}, -- Dazar'ai Augur
+	[122972] = {{"Interrupts", "Interrupt(!!): Fiery Enchant (buffs a nearby Juggernaut to throw fire)"}, 
+				{"Important", "Will also cast Wild Fire (dmg + DoT) on random players but this is a less important interrupt"}}, -- Dazar'ai Augur
 	[122984] = {{"PriorityTargets", "Priority Target: will heal and gain damage every time a nearby mob dies"}, {"Defensives", "Defensive: Soul Burn (Heavy DoT on one player)"}}, -- Dazar'ai Colossus
 	[132126] = {{"Important", "Not dangerous. Stand in blood pools before transfusion to kill them more quickly"}}, -- Gilded Priestess
 	
@@ -506,7 +507,7 @@ local tipsMap = {
 				{"HUNTER", "Tranq Shot: Inhale Vapors"}}, -- Addled Thug
 	
 	-- Path to the... rock dude
-	[130653] = {{"Important", "When sappers get low they'll cast Final Blast. Kill or stun / knock them to prevent the cast."},
+	[130653] = {{"Important", "When sappers get low they'll cast Final Blast. Kill or CC them to prevent the cast or move away from it."},
 				{"Important", "The big red swirls hurt. You have five seconds to move from them."}}, -- Wanton Sapper
 	[130437] = {{"Important", "Pelt random allies with rocks. Annoying but not dangerous."}}, -- Mine Rat
 	[130661] = {{"Interrupts", "Interrupt or Purge(!): Earth Shield (DR + healing when hit)"}}, -- Venture Co. Earthshaper
@@ -572,7 +573,7 @@ local tipsMap = {
 	[138187] = {{"Interrupts", "Interrupt(!!): Death Bolt (AoE dmg + DoT)"}, {"Important", "You really need to interrupt every Death Bolt here."}}, -- Grotesque Horror
 	[134284] = {{"Interrupts", "Interrupt: Raise Dead (summons a Guardian)"}, {"Interrupts", "Interrupt or Soothe: Wicked Frenzy (+100% haste)"}}, -- Fallen Deathspeaker
 	[133912] = {{"Interrupts", "Interrupt(!!): Withering Curse (+dmg taken, -dmg done)"}, {"Interrupts", "Interrupt(!): Shadowbolt Volley (Medium AoE)"},
-				{"Important", "Will also summon a totem that MUST be killed within 6 seconds."}}, -- Bloodsworn Defiler
+				{"Important", "Summons a totem that MUST be killed or run away from within 6 seconds (6yd AoE)."}}, -- Bloodsworn Defiler
 	
 	-- Path to the Abomination
 	[138281] = {{"Important", "Dodge: Maddening Gaze (Long fear, targeted in random players direction)"}, {"Important", "Move away from tentacles when they spawn. They're easy to dodge."}}, -- Faceless Corruptor
@@ -1636,7 +1637,7 @@ GameTooltip:HookScript("OnTooltipSetUnit", function(self)
   if C_PetBattles.IsInBattle() then return end -- Tiny Snippet to disable the mod while pet battling.
   if QEConfig.ShowFrame == "Show in separate frame" and QEConfig.TargetTrigger == "Show targeted mob" then return end -- Tiny Snippet to disable the tooltip hook if targeting is selected instead.
   if QEConfig.ShowFrame == "Show in separate frame" and QEConfig.TargetTrigger == "Show mouseover" and QE_onBoss then return end -- Disable tooltip hook if player is using frame + Mouseover but is on boss
-  
+  if not addon:checkInstance() then return end -- We won't be adding anything to tooltips if the addon is disabled in the current instance.
   
   local unit = select(2, self:GetUnit()) -- This grabs information about the unit we have targeted.
   local role = UnitGroupRolesAssigned("player")

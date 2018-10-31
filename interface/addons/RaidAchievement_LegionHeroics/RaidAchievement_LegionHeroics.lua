@@ -90,19 +90,19 @@ if rastarttrackingCrdana and GetTime()>rastarttrackingCrdana then
 	if legionhraspisokon[12]==1 and legionhraachdone1 then
 		rastarttrackingCrdana=GetTime()+1
 		local spbuf=GetSpellInfo(197941)
-		if UnitBuff("player", spbuf) or UnitDebuff("player", spbuf) then
+		if checkBuff("player", spbuf) or checkDeBuff("player", spbuf) then
 			legionhrafailnoreason(12, UnitName("player"))
 		end
-		if UnitBuff("party1", spbuf) or UnitDebuff("party1", spbuf) then
+		if checkBuff("party1", spbuf) or checkDeBuff("party1", spbuf) then
 			legionhrafailnoreason(12, UnitName("party1"))
 		end
-		if UnitBuff("party2", spbuf) or UnitDebuff("party2", spbuf) then
+		if checkBuff("party2", spbuf) or checkDeBuff("party2", spbuf) then
 			legionhrafailnoreason(12, UnitName("party2"))
 		end
-		if UnitBuff("party3", spbuf) or UnitDebuff("party3", spbuf) then
+		if checkBuff("party3", spbuf) or checkDeBuff("party3", spbuf) then
 			legionhrafailnoreason(12, UnitName("party3"))
 		end
-		if UnitBuff("party4", spbuf) or UnitDebuff("party4", spbuf) then
+		if checkBuff("party4", spbuf) or checkDeBuff("party4", spbuf) then
 			legionhrafailnoreason(12, UnitName("party4"))
 		end
 	else
@@ -118,7 +118,7 @@ end
 
 
 function legionhraonevent(self,event,...)
-local arg1, arg2, arg3,arg4,arg5,arg6 = CombatLogGetCurrentEventInfo()
+local arg1, arg2, arg3,arg4,arg5,arg6 = ...
 
 if event == "PLAYER_ALIVE" then
 ralldelaycombatrezet=GetTime()+4
@@ -368,19 +368,19 @@ if arg2=="SPELL_AURA_APPLIED" and arg10==197422 then
 	if legionhraspisokon[13]==1 and legionhraachdone1 then
 		rastarttrackingCrdana=GetTime()+1
 		local spbuf=GetSpellInfo(197941)
-		if UnitBuff("player", spbuf) or UnitDebuff("player", spbuf) then
+		if checkBuff("player", spbuf) or checkDeBuff("player", spbuf) then
 			legionhrafailnoreason(13, UnitName("player"))
 		end
-		if UnitBuff("party1", spbuf) or UnitDebuff("party1", spbuf) then
+		if checkBuff("party1", spbuf) or checkDeBuff("party1", spbuf) then
 			legionhrafailnoreason(13, UnitName("party1"))
 		end
-		if UnitBuff("party2", spbuf) or UnitDebuff("party2", spbuf) then
+		if checkBuff("party2", spbuf) or checkDeBuff("party2", spbuf) then
 			legionhrafailnoreason(13, UnitName("party2"))
 		end
-		if UnitBuff("party3", spbuf) or UnitDebuff("party3", spbuf) then
+		if checkBuff("party3", spbuf) or checkDeBuff("party3", spbuf) then
 			legionhrafailnoreason(13, UnitName("party3"))
 		end
-		if UnitBuff("party4", spbuf) or UnitDebuff("party4", spbuf) then
+		if checkBuff("party4", spbuf) or checkDeBuff("party4", spbuf) then
 			legionhrafailnoreason(13, UnitName("party4"))
 		end
 	end

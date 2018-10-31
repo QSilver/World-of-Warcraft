@@ -1,12 +1,12 @@
 
 Overachiever_CharVars = {
-	["Version"] = "1.0.3",
+	["Version"] = "1.0.4",
 }
 Overachiever_CharVars_Consumed = {
 	["Drink"] = {
 		[33030] = 0,
 		[37899] = true,
-		[37907] = 0,
+		[37907] = true,
 		[32668] = 0,
 		[23492] = 0,
 		[24006] = 0,
@@ -197,7 +197,7 @@ Overachiever_CharVars_Consumed = {
 		[44617] = 0,
 		[2595] = 0,
 	},
-	["LastBuilt"] = "1.0.3|27366",
+	["LastBuilt"] = "1.0.4|27602",
 	["Food"] = {
 		[5525] = 0,
 		[6038] = 0,

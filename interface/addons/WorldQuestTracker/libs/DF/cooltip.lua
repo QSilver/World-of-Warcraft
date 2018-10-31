@@ -80,6 +80,7 @@ function DF:CreateCoolTip()
 			["FixedWidthSub"] = true,
 			["FixedHeightSub"] = true,
 			["AlignAsBlizzTooltip"] = true,
+			["AlignAsBlizzTooltipFrameHeightOffset"] = true,
 			["IgnoreSubMenu"] = true,
 			["IgnoreButtonAutoHeight"] = true,
 			["TextHeightMod"] = true,
@@ -875,7 +876,7 @@ function DF:CreateCoolTip()
 				local func = CoolTip.FunctionsTableMain [self.index]
 				--> passing nil as the first parameter was a design mistake
 				--CoolTip.FunctionsTableMain [self.index] (_, CoolTip.FixedValue, parameterTable [1], parameterTable [2], parameterTable [3], button)
-				local okay, errortext = pcall (func, nil, CoolTip.FixedValue, parameterTable [1], parameterTable [2], parameterTable [3], button)
+				local okay, errortext = pcall (func, CoolTip.Host, CoolTip.FixedValue, parameterTable [1], parameterTable [2], parameterTable [3], button)
 				if (not okay) then
 					print ("Cooltip OnClick Error:", errortext)
 				end
@@ -891,7 +892,7 @@ function DF:CreateCoolTip()
 				local parameterTable = CoolTip.ParametersTableSub [self.mainIndex] [self.index]
 				local func = CoolTip.FunctionsTableSub [self.mainIndex] [self.index]
 				--CoolTip.FunctionsTableSub [self.mainIndex] [self.index] (_, CoolTip.FixedValue, parameterTable [1], parameterTable [2], parameterTable [3], button)
-				local okay, errortext = pcall (func, nil, CoolTip.FixedValue, parameterTable [1], parameterTable [2], parameterTable [3], button)
+				local okay, errortext = pcall (func, CoolTip.Host, CoolTip.FixedValue, parameterTable [1], parameterTable [2], parameterTable [3], button)
 				if (not okay) then
 					print ("Cooltip OnClick Error:", errortext)
 				end
@@ -1609,6 +1610,11 @@ function DF:CreateCoolTip()
 			menuButton:SetPoint ("left", frame1, "left", -4, 0)
 			menuButton:SetPoint ("right", frame1, "right", 4, 0)
 			
+			if (menuButton.divbar) then
+				menuButton.divbar:Hide()
+				menuButton.isDiv = false
+			end
+			
 			--> height
 			if (CoolTip.OptionsTable.AlignAsBlizzTooltip) then
 				local height = _math_max (8, menuButton.leftText:GetStringHeight(), menuButton.rightText:GetStringHeight(), menuButton.leftIcon:GetHeight(), menuButton.rightIcon:GetHeight())
@@ -1667,7 +1673,7 @@ function DF:CreateCoolTip()
 			frame1:SetHeight (CoolTip.OptionsTable.FixedHeight)
 		else
 			if (CoolTip.OptionsTable.AlignAsBlizzTooltip) then
-				frame1:SetHeight ( (temp-10) * -1)
+				frame1:SetHeight ( ((temp-10) * -1) + (CoolTip.OptionsTable.AlignAsBlizzTooltipFrameHeightOffset or 0))
 			elseif (CoolTip.OptionsTable.IgnoreButtonAutoHeight) then
 				frame1:SetHeight ( (temp+spacing) * -1)
 			else
@@ -2430,7 +2436,7 @@ function DF:CreateCoolTip()
 					
 					if (CoolTip.SubIndexes == 0) then
 						if (not indexUp or not leftText) then
-							print ("not indexUp or not leftText")
+							print ("GameCooltip Error: Attempt to add a submenu with a parent")
 							return --> error
 						end
 					end
@@ -2438,8 +2444,9 @@ function DF:CreateCoolTip()
 					if (indexUp and leftText) then
 						CoolTip.SubIndexes = CoolTip.SubIndexes + 1
 						CoolTip.IndexesSub [CoolTip.Indexes] = CoolTip.IndexesSub [CoolTip.Indexes] + 1
+						
 					elseif (indexUp and not leftText) then
-						print ("indexUp and not leftText")
+						print ("GameCooltip Error: Attempt to add a submenu with a parent")
 						return --> error [leftText can't be nil if indexUp are true]
 					end
 					

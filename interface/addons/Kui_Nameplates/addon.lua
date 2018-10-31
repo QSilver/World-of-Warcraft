@@ -17,15 +17,22 @@ addon.debug = true
 --addon.debug_events = true
 --addon.debug_callbacks = true
 --addon.draw_frames = true
+--@end-debug@]===]
 addon.DEBUG_IGNORE = {
     ['m:Create'] = true,
     ['m:Show'] = true,
     ['m:Hide'] = true,
+    ['m:HealthUpdate'] = true,
+    ['m:HealthColourChange'] = true,
+    ['e:UNIT_POWER_UPDATE'] = true,
     ['e:UNIT_POWER_FREQUENT'] = true,
     ['e:UNIT_HEALTH_FREQUENT'] = true,
+    ['e:UNIT_AURA'] = true,
+    ['e:UNIT_ABSORB_AMOUNT_CHANGED'] = true,
     ['c:Auras:DisplayAura'] = true,
+    ['c:Auras:PostDisplayAuraButton'] = true,
+    ['c:Auras:PostUpdateAuraFrame'] = true,
 }
---@end-debug@]===]
 
 -- updated by UI_SCALE_CHANGED:
 addon.uiscale = .71

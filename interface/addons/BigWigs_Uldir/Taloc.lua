@@ -7,7 +7,7 @@ local mod, CL = BigWigs:NewBoss("Taloc", 1861, 2168)
 if not mod then return end
 mod:RegisterEnableMob(137119)
 mod.engageId = 2144
-mod.respawnTime = 16
+mod.respawnTime = 30
 
 --------------------------------------------------------------------------------
 -- Locals
@@ -88,7 +88,7 @@ end
 function mod:UNIT_HEALTH_FREQUENT(event, unit)
 	local hp = UnitHealth(unit) / UnitHealthMax(unit) * 100
 	if hp < 38 then -- Intermission at 35%
-		self:Message("stages", "green", nil, CL.soon:format(CL.intermission), false)
+		self:Message2("stages", "green", CL.soon:format(CL.intermission), false)
 		self:UnregisterUnitEvent(event, unit)
 	end
 end
@@ -96,7 +96,7 @@ end
 do
 	local prev = 0
 	function mod:PlasmaDischarge(args)
-		local t = GetTime()
+		local t = args.time
 		if t-prev > 2 then
 			prev = t
 			plasmaCount = plasmaCount + 1
@@ -119,14 +119,15 @@ do
 
 	function mod:PlasmaDischargeRemoved(args)
 		if self:Me(args.destGUID) then
-			self:CancelSayCountdown(args.spellId)
+			self:CancelSayCountdown(271224)
 		end
 	end
 end
 
 function mod:CudgelofGore(args)
 	self:PlaySound(args.spellId, "warning")
-	self:Message(args.spellId, "red", nil, CL.count:format(args.spellName, cudgelCount))
+	self:Message2(args.spellId, "red", CL.count:format(args.spellName, cudgelCount))
+	self:StopBar(CL.count:format(args.spellName, cudgelCount))
 	self:CastBar(args.spellId, 4.5, CL.count:format(args.spellName, cudgelCount))
 	cudgelCount = cudgelCount + 1
 	self:CDBar(args.spellId, 59, CL.count:format(args.spellName, cudgelCount))
@@ -134,13 +135,13 @@ end
 
 function mod:RetrieveCudgel(args)
 	self:PlaySound(args.spellId, "alarm")
-	self:Message(args.spellId, "orange")
+	self:Message2(args.spellId, "orange")
 	self:CDBar(args.spellId, 59)
 end
 
 do
 	local function printTarget(self, name, guid)
-		self:PlaySound(271895, "alert")
+		self:PlaySound(271895, "alert", nil, name)
 		self:TargetMessage2(271895, "yellow", name)
 		if self:Me(guid) then
 			self:Say(271895)
@@ -158,7 +159,7 @@ end
 
 function mod:PoweredDown(args)
 	self:PlaySound("stages", "long")
-	self:Message("stages", "green", nil, CL.intermission, false)
+	self:Message2("stages", "green", CL.intermission, false)
 	self:StopBar(271224) -- Plasma Discharge
 	self:StopBar(271895) -- Sanguine Static
 	self:StopBar(CL.count:format(self:SpellName(271296), cudgelCount)) -- Cudgel of Gore
@@ -187,7 +188,7 @@ end
 function mod:PoweredDownRemoved(args)
 	stage = 2
 	self:PlaySound("stages", "long")
-	self:Message("stages", "green", nil, CL.stage:format(stage), false)
+	self:Message2("stages", "green", CL.stage:format(stage), false)
 
 	arteriesCount = 1
 	cudgelCount = 1
@@ -205,17 +206,17 @@ end
 function mod:Fixate(args)
 	if self:Me(args.destGUID) then
 		self:PlaySound(args.spellId, "warning")
-		self:TargetMessage2(args.spellId, "blue", args.destName)
+		self:PersonalMessage(args.spellId)
 	end
 end
 
 do
 	local prev = 0
 	function mod:HardenedArteriesApplied(args)
-		local t = GetTime()
+		local t = args.time
 		if t-prev > 2 then
 			prev = t
-			self:Message(args.spellId, "yellow", nil, CL.count:format(args.spellName, arteriesCount))
+			self:Message2(args.spellId, "yellow", CL.count:format(args.spellName, arteriesCount))
 			self:PlaySound(args.spellId, "alert")
 			arteriesCount = arteriesCount + 1
 			self:CDBar(args.spellId, 60.5, CL.count:format(args.spellName, arteriesCount))
@@ -258,11 +259,11 @@ do
 	local prev = 0
 	function mod:GroundDamage(args)
 		if self:Me(args.destGUID) then
-			local t = GetTime()
+			local t = args.time
 			if t-prev > 2 then
 				prev = t
 				self:PlaySound(args.spellId, "alarm")
-				self:TargetMessage2(args.spellId, "blue", args.destName, true)
+				self:PersonalMessage(args.spellId, "underyou")
 			end
 		end
 	end

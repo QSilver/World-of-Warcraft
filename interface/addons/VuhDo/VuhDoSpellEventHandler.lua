@@ -96,6 +96,9 @@ function VUHDO_spellcastSucceeded(aUnit, aSpellId)
 
 	if tSpellName == VUHDO_SPELL_ID.ACTIVATING_SPECIALIZATION then
 		VUHDO_activateSpecc(tostring(GetSpecialization()) or "1");
+		VUHDO_resetTalentScan(aUnit);
+		VUHDO_initDebuffs(); -- Talentabh�ngige Debuff-F�higkeiten neu initialisieren.
+		VUHDO_timeReloadUI(1);
 	end
 
 	VUHDO_aoeUpdateAll();

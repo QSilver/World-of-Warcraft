@@ -204,6 +204,42 @@ local function POI_SetOptions(frame,type,poi)
             GameTooltip:Hide()
         end)
     end
+    if type == "tuMatronNote" then
+        frame:SetSize(10,10)
+        frame.Texture:SetSize(10,10)
+        frame.HighlightTexture:SetSize(10,10)
+        frame.HighlightTexture:SetAtlas("QuestNormal")
+        frame.Texture:SetAtlas("QuestNormal")
+        frame:SetScript("OnClick",function()
+
+        end)
+        frame:SetScript("OnEnter",function()
+            GameTooltip:SetOwner(UIParent, "ANCHOR_CURSOR")
+            GameTooltip:AddLine("Matron 4+5 can spawn on either left or right platform.", 1, 1, 1, 1)
+            GameTooltip:Show()
+        end)
+        frame:SetScript("OnLeave",function()
+            GameTooltip:Hide()
+        end)
+    end
+    if type == "shrineSkip" then
+        frame:SetSize(12,12)
+        frame.Texture:SetSize(12,12)
+        frame.HighlightTexture:SetSize(12,12)
+        frame.HighlightTexture:SetAtlas("TaxiNode_Continent_Horde")
+        frame.Texture:SetAtlas("TaxiNode_Continent_Horde")
+        frame:SetScript("OnClick",function()
+
+        end)
+        frame:SetScript("OnEnter",function()
+            GameTooltip:SetOwner(UIParent, "ANCHOR_CURSOR")
+            GameTooltip:AddLine("Shortcut", 1, 1, 1, 1)
+            GameTooltip:Show()
+        end)
+        frame:SetScript("OnLeave",function()
+            GameTooltip:Hide()
+        end)
+    end
     if type == "templeEye" then
         frame:SetSize(20,20)
         frame.Texture:SetSize(20,20)
@@ -240,6 +276,43 @@ local function POI_SetOptions(frame,type,poi)
             GameTooltip:Hide()
         end)
     end
+    if type =="adTeemingNote" then
+        frame:SetSize(10,10)
+        frame.Texture:SetSize(10,10)
+        frame.HighlightTexture:SetSize(10,10)
+        frame.HighlightTexture:SetAtlas("QuestNormal")
+        frame.Texture:SetAtlas("QuestNormal")
+        frame:SetScript("OnClick",function()
+
+        end)
+        frame:SetScript("OnEnter",function()
+            GameTooltip:SetOwner(UIParent, "ANCHOR_CURSOR")
+            GameTooltip:AddLine("Note on Teeming:\n\nG29 is not always present.\nTeeming enemies of G2 are not always present.\nG27 is not always present.", 1, 1, 1, 1)
+            GameTooltip:Show()
+        end)
+        frame:SetScript("OnLeave",function()
+            GameTooltip:Hide()
+        end)
+        frame.teeming = true
+    end
+    if type =="sobGutters" then
+        frame:SetSize(10,10)
+        frame.Texture:SetSize(10,10)
+        frame.HighlightTexture:SetSize(10,10)
+        frame.HighlightTexture:SetAtlas("QuestNormal")
+        frame.Texture:SetAtlas("QuestNormal")
+        frame:SetScript("OnClick",function()
+
+        end)
+        frame:SetScript("OnEnter",function()
+            GameTooltip:SetOwner(UIParent, "ANCHOR_CURSOR")
+            GameTooltip:AddLine("Note on Gutters:\nFootmen will insta-kill Gutters when a player comes near them. If they die without taking damage from the group they will not give any enemy forces.", 1, 1, 1, 1)
+            GameTooltip:Show()
+        end)
+        frame:SetScript("OnLeave",function()
+            GameTooltip:Hide()
+        end)
+    end
     if db.devMode then POI_SetDevOptions(frame,poi) end
 end
 
@@ -247,22 +320,24 @@ end
 
 
 
----UpdateMapLinks
----Draws all map links on the current sublevel
+---POI_UpdateAll
 function MethodDungeonTools:POI_UpdateAll()
     db = MethodDungeonTools:GetDB()
-    MethodDungeonTools:ToggleFreeholdSelector(db.currentDungeonIdx == 16)
     local framePools = MethodDungeonTools.poi_framePools
     framePools:ReleaseAll()
     if not MethodDungeonTools.mapPOIs[db.currentDungeonIdx] then return end
     local pois = MethodDungeonTools.mapPOIs[db.currentDungeonIdx][MethodDungeonTools:GetCurrentSubLevel()]
     if not pois then return end
+    local preset = MethodDungeonTools:GetCurrentPreset()
+    local teeming = MethodDungeonTools:IsPresetTeeming(preset)
     for poiIdx,poi in pairs(pois) do
         local poiFrame = framePools:Acquire(poi.template)
         poiFrame.poiIdx = poiIdx
         POI_SetOptions(poiFrame,poi.type,poi)
         poiFrame:SetPoint("CENTER",MethodDungeonTools.main_frame.mapPanelTile1,"TOPLEFT",poi.x,poi.y)
         poiFrame:Show()
+        if not teeming and poiFrame.teeming then
+            poiFrame:Hide()
+        end
     end
-
 end

@@ -249,6 +249,7 @@ GTFO.SpellID["274904"] = {
 
 GTFO.SpellID["277632"] = {
   --desc = "Demolisher Cannon (Doom's Howl Turret)";
+  applicationOnly = true;
   sound = 3;
 };
 
@@ -275,6 +276,17 @@ GTFO.SpellID["278120"] = {
 
 GTFO.SpellID["269680"] = {
   --desc = "Entanglement (Branchlord Aldrus)";
+  applicationOnly = true;
+  sound = 3;
+};
+
+GTFO.SpellID["274829"] = {
+  --desc = "Gale Force (Azurethos)";
+  sound = 3;
+};
+
+GTFO.SpellID["274840"] = {
+  --desc = "Azurethos' Fury (Azurethos)";
   applicationOnly = true;
   sound = 3;
 };
@@ -697,11 +709,39 @@ GTFO.SpellID["258986"] = {
 -- * King's Rest *
 -- ***************
 
--- TODO: Serpentine Gust (The Golden Serpent) -- Is this avoidable?
--- TODO: Whirling Axes (Kula the Butcher) -- Is this avoidable?
--- TODO: Torrent Totem (Zanazal the Wise) -- Is this avoidable?
--- TODO: Gale Slash (Dazar, The First King) -- Is this avoidable?
--- TODO: Impaling Spear (Dazar, The First King) -- Is this avoidable?
+-- TODO: Gale Slash (Dazar, The First King)
+-- TODO: Impaling Spear (Dazar, The First King)
+
+GTFO.SpellID["270003"] = {
+  --desc = "Suppression Slam (Animated Guardian)";
+  sound = 3;
+};
+
+GTFO.SpellID["265781"] = {
+  --desc = "Serpentine Gust (The Golden Serpent)";
+  sound = 3;
+};
+
+GTFO.SpellID["270872"] = {
+  --desc = "Shadow Whirl (Bloodsworn Agent)";
+  sound = 3;
+};
+
+GTFO.SpellID["275212"] = {
+  --desc = "Bisecting Strike (Weaponmaster Halu)";
+  sound = 3;
+};
+
+GTFO.SpellID["270289"] = {
+  --desc = "Purification Beam";
+  applicationOnly = true;
+  sound = 3;
+};
+
+GTFO.SpellID["267105"] = {
+  --desc = "Torrent (Torrent Totem)";
+  sound = 3;
+};
 
 -- ********************
 -- * Siege of Boralus *
@@ -800,22 +840,14 @@ GTFO.SpellID["277794"] = {
 };
 
 -- TODO: Spreading Epidemic (MOTHER) -- What does this do?
--- TODO: Sanitizing Strike (MOTHER) -- For tanks only, stack tracking
--- TODO: Rotting Regurgitation (Fetid Devourer) -- Avoidable?
 -- TODO: Surging Darkness (Zek'voz) -- Avoidable for big pools? Different spell IDs for pool damage vs. incidental
 -- TODO: Void Lash (Zek'voz) -- For tanks only, stack tracking, fail at 100% reduction
 -- TODO: Ominous Cloud (Zek'voz) -- Touching the cloud failure
 -- TODO: Void Wall (Zek'voz) -- Mythic only - Avoidable?
 -- TODO: Blood Geyser (Vectis) -- What is this?
 -- TODO: Pit of Despair (Zul) -- Avoidable? 
--- TODO: Bloody Cleave (Nazmani Crusher) -- For tanks only, cleave
--- TODO: Essence Shear (Mythrax the Unraveler) -- For tanks only?
--- TODO: Obliteration Blast (Mythrax the Unraveler) 
--- TODO: Virulent Corruption (G'huun)
--- TODO: Dark Bargain (G'huun)
 -- TODO: Tendrils of Corruption (G'huun) -- Mythic only
 -- TODO: Wave of Corruption (G'huun)
--- TODO: Gaze of G'huun (G'huun)
 -- TODO: Explosive Corruption (G'huun) -- If standing too close to a player that's infected, not for the infected
 
 GTFO.SpellID["277545"] = {
@@ -850,3 +882,49 @@ GTFO.SpellID["274358"] = {
   sound = 3;
   tankSound = 0;
 };
+
+GTFO.SpellID["273316"] = {
+  --desc = "Bloody Cleave (Nazmani Crusher)";
+  sound = 3;
+  tankSound = 0;
+};
+
+GTFO.SpellID["273554"] = {
+  --desc = "Obliteration Blast (Mythrax the Unraveler)";
+  sound = 3;
+  negatingDebuffSpellID = 272407;  -- Oblivion Sphere
+};
+
+GTFO.SpellID["273282"] = {
+  --desc = "Essence Shear (Mythrax the Unraveler)";
+  sound = 3;
+  tankSound = 0;
+};
+
+GTFO.SpellID["262292"] = {
+  --desc = "Rotting Regurgitation (Fetid Devourer)";
+  sound = 3;
+};
+
+GTFO.SpellID["278988"] = {
+  --desc = "Wild Leap (Nazmani Dominator)";
+  sound = 3;
+};
+
+GTFO.SpellID["273486"] = {
+  --desc = "Virulent Corruption (G'huun)";
+  sound = 3;
+};
+
+GTFO.SpellID["273401"] = {
+  --desc = "Mind Thrall (G'huun)";
+  applicationOnly = true;
+  sound = 1;
+};
+
+GTFO.SpellID["267700"] = {
+  --desc = "Gaze of G'huun (G'huun)";
+  applicationOnly = true;
+  sound = 3;
+};
+

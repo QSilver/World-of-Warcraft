@@ -109,7 +109,7 @@ if rsciccinportal and icracurtime>rsciccportalopen+13 and icracurtime<rsciccport
 
 for i=1,#thisraidtableea do
 	if thisraidtableea[i] then
-		if UnitDebuff(thisraidtableea[i], rsciccbuffvalitria) then
+		if checkDeBuff(thisraidtableea[i], rsciccbuffvalitria) then
 			table.insert(rsciccinportal,thisraidtableea[i])
 			table.remove(thisraidtableea,i)
 		end
@@ -123,7 +123,7 @@ if rsciccinportal and icracurtime>rsciccportalopen+13 and icracurtime<rsciccport
 
 for i=1,#rsciccinportal do
 	if rsciccinportal[i] then
-		if UnitInRaid(rsciccinportal[i]) and UnitDebuff(rsciccinportal[i], rsciccbuffvalitria)==nil then
+		if UnitInRaid(rsciccinportal[i]) and checkDeBuff(rsciccinportal[i], rsciccbuffvalitria)==false then
 			table.insert(thisraidtableea,rsciccinportal[i])
 			rsciccinportal[i]="qqqqqqtest"
 		end
@@ -193,7 +193,7 @@ if icratracktargets then
 			if icraspisokon[9]=="yes" and raachdone2 then
 			local name, _, subgroup, _, _, _, _, online, isDead = GetRaidRosterInfo(i)
 			if (subgroup <= psgropcheck and online and isDead==nil and UnitIsDeadOrGhost(name)==false) then
-				local _, _, _, stack = UnitDebuff(name, spelllook)
+				local _, _, _, stack = checkDeBuff(name, spelllook)
 				if stack and stack==30 then
 					if icraspisokon[9]=="yes" and raachdone2 then
 						icraachcompl(9)
@@ -225,7 +225,7 @@ end
 
 function icraonevent(self,event,...)
 
-local arg1, arg2, arg3,arg4,arg5,arg6 = CombatLogGetCurrentEventInfo()
+local arg1, arg2, arg3,arg4,arg5,arg6 = ...
 
 
 

@@ -926,7 +926,7 @@ end
 -- Return the current value of a condition, nil if not found
 function MOD:CheckCondition(name)
 	local ct = MOD.db.profile.Conditions[MOD.myClass]
-	if ct then
+	if ct and name then
 		local c = ct[name]
 		if IsOn(c) and c.name then return c.result end
 	end

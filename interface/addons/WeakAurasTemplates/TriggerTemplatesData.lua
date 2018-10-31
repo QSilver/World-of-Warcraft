@@ -99,6 +99,8 @@ local generalAzeriteTraits = {
   { spell = 273842, type = "buff", unit = "player"}, --Secrets of the Deep
   { spell = 280286, type = "debuff", unit = "target"}, --Dagger in the Back
   { spell = 281843, type = "buff", unit = "player"}, --Tradewinds
+  { spell = 280709, type = "buff", unit = "player"}, --Archive of the Titans
+  { spell = 280573, type = "buff", unit = "player"}, --Reorigination Array
 }
 
 local pvpAzeriteTraits = {
@@ -196,7 +198,7 @@ templates.class.WARRIOR = {
         { spell = 280212, type = "buff", unit = "player"}, --Bury the Hatchet
         { spell = 280210, type = "buff", unit = "group"}, --Moment of Glory
         { spell = 278826, type = "buff", unit = "player"}, --Crushing Assault
-        { spell = 272870, type = "buff", unit = "player"}, --Executioner's Precision
+        { spell = 272870, type = "debuff", unit = "target"}, --Executioner's Precision
         { spell = 273415, type = "buff", unit = "player"}, --Gathering Storm
         { spell = 275540, type = "buff", unit = "player"}, --Test of Might
       },
@@ -519,6 +521,7 @@ templates.class.PALADIN = {
         { spell = 221883, type = "buff", unit = "player"}, -- Divine Steed
         { spell = 204335, type = "buff", unit = "player"}, -- Aegis of Light
         { spell = 642, type = "buff", unit = "player"}, -- Divine Shield
+        { spell = 280375, type = "buff", unit = "player"}, -- Redoubt
       },
       icon = 236265
     },
@@ -617,6 +620,7 @@ templates.class.PALADIN = {
         { spell = 281178, type = "buff", unit = "player", talent = 5}, -- Blade of Wrath
         { spell = 1044, type = "buff", unit = "group"}, -- Blessing of Freedom
         { spell = 209785, type = "buff", unit = "player", talent = 4}, -- Fires of Justice
+        { spell = 223819, type = "buff", unit = "player", talent = 19}, -- Divine Purpose
       },
       icon = 135993
     },
@@ -765,6 +769,10 @@ templates.class.HUNTER = {
         { spell = 201430, type = "ability", talent = 18}, -- Stampede
         { spell = 217200, type = "ability", charges = true, requiresTarget = true, overlayGlow = true}, -- Barbed Shot
         { spell = 264667, type = "ability", buff = true}, -- Primal Rage
+        { spell = 264735, type = "ability", unit = "pet", buff = true}, -- Survival of the Fittest
+        { spell = 90361, type = "ability",  unit = "pet", buff = true}, -- Spirit Mend
+        { spell = 58875, type = "ability",  unit = "pet", buff = true}, -- Spirit Walk
+        { spell = 264265, type = "ability"}, -- Spirit Shock
       },
       icon = 132176
     },
@@ -780,7 +788,6 @@ templates.class.HUNTER = {
         { spell = 263821, type = "buff", unit = "player"}, --Ride the Lightning
         { spell = 264195, type = "buff", unit = "player"}, --Rotting Jaws
         { spell = 274357, type = "buff", unit = "player"}, --Shellshock
-        { spell = 274598, type = "buff", unit = "player"}, --PH
       },
       icon = 135349
     },
@@ -822,7 +829,7 @@ templates.class.HUNTER = {
         { spell = 199483, type = "buff", unit = "player", talent = 9}, -- Camouflage
         { spell = 24450, type = "buff", unit = "pet"}, -- Prowl
         { spell = 136, type = "buff", unit = "pet"}, -- Mend Pet
-
+        { spell = 264735, type = "ability", unit = "pet", buff = true}, -- Survival of the Fittest
       },
       icon = 461846
     },
@@ -868,8 +875,7 @@ templates.class.HUNTER = {
         { spell = 257620, type = "ability", requiresTarget = true}, -- Multi-Shot
         { spell = 260402, type = "ability", buff = true, talent = 18}, -- Double Tap
         { spell = 264667, type = "ability", buff = true}, -- Primal Rage
-        { spell = 281195, type = "ability", buff = true}, -- Survival of the Fittest
-
+        { spell = 264735, type = "ability", unit = "pet", buff = true}, -- Survival of the Fittest
       },
       icon = 132329
     },
@@ -882,7 +888,7 @@ templates.class.HUNTER = {
         { spell = 272733, type = "buff", unit = "player"}, --In The Rhythm
         { spell = 263821, type = "buff", unit = "player"}, --Ride the Lightning
         { spell = 274357, type = "buff", unit = "player"}, --Shellshock
-        { spell = 277959, type = "buff", unit = "player"}, --Steady Aim
+        { spell = 277959, type = "debuff", unit = "target"}, --Steady Aim
         { spell = 274447, type = "buff", unit = "player"}, --Unerring Vision
       },
       icon = 135349
@@ -2900,39 +2906,42 @@ templates.class.DRUID = {
         { spell = 1850, type = "ability", buff = true}, -- Dash
         { spell = 2782, type = "ability"}, -- Remove Corruption
         { spell = 2908, type = "ability", requiresTarget = true}, -- Soothe
-        { spell = 5211, type = "ability", talent = 6 }, -- Mighty Bash
-        { spell = 5215, type = "ability"}, -- Prowl
+        { spell = 5211, type = "ability", requiresTarget = true, talent = 6 }, -- Mighty Bash
+        { spell = 5215, type = "ability", buff = true}, -- Prowl
         { spell = 5487, type = "ability"}, -- Bear Form
         { spell = 6795, type = "ability", debuff = true, requiresTarget = true}, -- Growl
-        { spell = 16979, type = "ability", talent = 6 }, -- Wild Charge
+        { spell = 8921, type = "ability", requiresTarget = true, debuff = true}, -- Moonfire
+        { spell = 16979, type = "ability", requiresTarget = true, talent = 6 }, -- Wild Charge
         { spell = 18562, type = "ability", talent = 9 }, -- Swiftmend
-        { spell = 20484, type = "ability", requiresTarget = true}, -- Rebirth
+        { spell = 20484, type = "ability"}, -- Rebirth
         { spell = 22812, type = "ability", buff = true}, -- Barkskin
         { spell = 22842, type = "ability", buff = true, talent = 8 }, -- Frenzied Regeneration
         { spell = 24858, type = "ability"}, -- Moonkin Form
-        { spell = 29166, type = "ability"}, -- Innervate
+        { spell = 29166, type = "ability", buff = true}, -- Innervate
         { spell = 33917, type = "ability", requiresTarget = true}, -- Mangle
         { spell = 48438, type = "ability", talent = 9 }, -- Wild Growth
-        { spell = 49376, type = "ability", talent = 6 }, -- Wild Charge
+        { spell = 49376, type = "ability", requiresTarget = true, talent = 6 }, -- Wild Charge
         { spell = 77758, type = "ability", talent = 8 }, -- Thrash
+        { spell = 78674, type = "ability", requiresTarget = true}, -- Starsurge
         { spell = 78675, type = "ability", requiresTarget = true}, -- Solar Beam
-        { spell = 102359, type = "ability", talent = 11 }, -- Mass Entanglement
+        { spell = 93402, type = "ability", requiresTarget = true, debuff = true}, -- Sunfire
+        { spell = 102359, type = "ability", requiresTarget = true, talent = 11 }, -- Mass Entanglement
         { spell = 102383, type = "ability", talent = 6 }, -- Wild Charge
         { spell = 102401, type = "ability", talent = 6 }, -- Wild Charge
         { spell = 102560, type = "ability", buff = true, talent = 15 }, -- Incarnation: Chosen of Elune
         { spell = 108238, type = "ability", talent = 9 }, -- Renewal
         { spell = 132469, type = "ability", talent = 12 }, -- Typhoon
-        { spell = 192081, type = "ability", buff = true, talent = 8 }, -- Ironfur
         { spell = 190984, type = "ability", requiresTarget = true, overlayGlow = true}, -- Solar Wrath
+        { spell = 191034, type = "ability", buff = true}, -- Starfall
+        { spell = 192081, type = "ability", buff = true, talent = 8 }, -- Ironfur
         { spell = 194153, type = "ability", requiresTarget = true, overlayGlow = true}, -- Lunar Strike
         { spell = 194223, type = "ability"}, -- Celestial Alignment
+        { spell = 202347, type = "ability", requiresTarget = true, debuff = true}, -- Stellar Flare
         { spell = 202425, type = "ability", buff = true, talent = 2 }, -- Warrior of Elune
         { spell = 202770, type = "ability", buff = true, talent = 20 }, -- Fury of Elune
         { spell = 205636, type = "ability", talent = 3 }, -- Force of Nature
         { spell = 252216, type = "ability", buff = true, talent = 4 }, -- Tiger Dash
-        { spell = 274281, type = "ability", charges = true, target = true, talent = 21 }, -- New Moon
-        { spell = 274282, type = "ability", charges = true, target = true, talent = 21 }, -- Half Moon
-        { spell = 274283, type = "ability", charges = true, target = true, talent = 21 }, -- Full Moon
+        { spell = 274281, type = "ability", requiresTarget = true, charges = true, target = true, talent = 21 }, -- New Moon
       },
       icon = 136060
     },
@@ -3020,26 +3029,29 @@ templates.class.DRUID = {
         { spell = 339, type = "ability", requiresTarget = true, overlayGlow = true}, -- Entangling Roots
         { spell = 768, type = "ability"}, -- Cat Form
         { spell = 783, type = "ability"}, -- Travel Form
+        { spell = 1822, type = "ability", debuff = true, requiresTarget = true}, -- Rake
         { spell = 1850, type = "ability", buff = true}, -- Dash
         { spell = 2782, type = "ability"}, -- Remove Corruption
         { spell = 2908, type = "ability", requiresTarget = true}, -- Soothe
-        { spell = 5211, type = "ability", talent = 10 }, -- Mighty Bash
-        { spell = 5215, type = "ability"}, -- Prowl
+        { spell = 5211, type = "ability", requiresTarget = true, talent = 10 }, -- Mighty Bash
+        { spell = 5215, type = "ability", buff = true}, -- Prowl
         { spell = 5217, type = "ability", buff = true}, -- Tiger's Fury
         { spell = 5221, type = "ability", requiresTarget = true, overlayGlow = true}, -- Shred
         { spell = 5487, type = "ability"}, -- Bear Form
         { spell = 6795, type = "ability", debuff = true, requiresTarget = true}, -- Growl
+        { spell = 8921, type = "ability", debuff = true, requiresTarget = true}, -- Moonfire
         { spell = 8936, type = "ability", overlayGlow = true}, -- Regrowth
-        { spell = 16979, type = "ability", talent = 6 }, -- Wild Charge
+        { spell = 1079, type = "ability", debuff = true, requiresTarget = true}, -- Rip
+        { spell = 16979, type = "ability", requiresTarget = true, talent = 6 }, -- Wild Charge
         { spell = 18562, type = "ability", talent = 9 }, -- Swiftmend
         { spell = 20484, type = "ability"}, -- Rebirth
-        { spell = 22570, type = "ability", requiresTarget = true}, -- Maim
+        { spell = 22568, type = "ability", requiresTarget = true}, -- Ferocious Bite
+        { spell = 22570, type = "ability", requiresTarget = true, debuff = true}, -- Maim
         { spell = 22842, type = "ability", buff = true, talent = 8 }, -- Frenzied Regeneration
         { spell = 33917, type = "ability", requiresTarget = true}, -- Mangle
         { spell = 48438, type = "ability", talent = 9 }, -- Wild Growth
-        { spell = 49376, type = "ability", talent = 6 }, -- Wild Charge
+        { spell = 49376, type = "ability", requiresTarget = true, talent = 6 }, -- Wild Charge
         { spell = 61336, type = "ability", charges = true, buff = true}, -- Survival Instincts
-        -- { spell = 77758, type = "ability"}, -- Thrash
         { spell = 102359, type = "ability", requiresTarget = true, talent = 11 }, -- Mass Entanglement
         { spell = 102401, type = "ability", talent = 6 }, -- Wild Charge
         { spell = 102543, type = "ability", buff = true, talent = 15 }, -- Incarnation: King of the Jungle
@@ -3142,19 +3154,24 @@ templates.class.DRUID = {
         { spell = 1850, type = "ability", buff = true}, -- Dash
         { spell = 2782, type = "ability"}, -- Remove Corruption
         { spell = 5211, type = "ability", requiresTarget = true, talent = 10 }, -- Mighty Bash
-        { spell = 5215, type = "ability"}, -- Prowl
+        { spell = 5215, type = "ability", buff = true}, -- Prowl
         { spell = 5487, type = "ability"}, -- Bear Form
         { spell = 6795, type = "ability", debuff = true, requiresTarget = true}, -- Growl
-        { spell = 16979, type = "ability", talent = 6 }, -- Wild Charge
+        { spell = 6807, type = "ability", requiresTarget = true}, -- Maul
+        { spell = 8921, type = "ability", debuff = true, requiresTarget = true, overlayGlow = true}, -- Moonfire
+        { spell = 16979, type = "ability", requiresTarget = true, talent = 6 }, -- Wild Charge
         { spell = 18562, type = "ability", talent = 9 }, -- Swiftmend
-        { spell = 20484, type = "ability", requiresTarget = true}, -- Rebirth
+        { spell = 18576, type = "ability", requiresTarget = true, talent = 11}, -- Mass Entanglement
+        { spell = 20484, type = "ability"}, -- Rebirth
         { spell = 22812, type = "ability", buff = true}, -- Barkskin
         { spell = 22842, type = "ability", charges = true, buff = true}, -- Frenzied Regeneration
         { spell = 33917, type = "ability", requiresTarget = true, overlayGlow = true}, -- Mangle
         { spell = 48438, type = "ability", talent = 9 }, -- Wild Growth
-        { spell = 49376, type = "ability", talent = 6 }, -- Wild Charge
+        { spell = 49376, type = "ability", requiresTarget = true, talent = 6 }, -- Wild Charge
         { spell = 61336, type = "ability", charges = true, buff = true}, -- Survival Instincts
         { spell = 77758, type = "ability"}, -- Thrash
+        { spell = 77761, type = "ability", buff = true}, -- Stampeding Roar
+        { spell = 80313, type = "ability", buff = true, requiresTarget = true}, -- Pulverize
         { spell = 102359, type = "ability", requiresTarget = true, talent = 11 }, -- Mass Entanglement
         { spell = 102383, type = "ability", talent = 6 }, -- Wild Charge
         { spell = 102401, type = "ability", talent = 6 }, -- Wild Charge
@@ -3165,7 +3182,7 @@ templates.class.DRUID = {
         { spell = 155835, type = "ability", buff = true, talent = 3 }, -- Bristling Fur
         { spell = 192081, type = "ability", buff = true}, -- Ironfur
         { spell = 197625, type = "ability", talent = 7 }, -- Moonkin Form
-        { spell = 197626, type = "ability", talent = 7 }, -- Starsurge
+        { spell = 197626, type = "ability", requiresTarget = true, talent = 7 }, -- Starsurge
         { spell = 204066, type = "ability", talent = 20 }, -- Lunar Beam
         { spell = 236748, type = "ability", talent = 5 }, -- Intimidating Roar
         { spell = 252216, type = "ability", buff = true, talent = 4 }, -- Tiger Dash
@@ -3264,8 +3281,8 @@ templates.class.DRUID = {
         { spell = 783, type = "ability"}, -- Travel Form
         { spell = 1850, type = "ability", buff = true}, -- Dash
         { spell = 2908, type = "ability", requiresTarget = true}, -- Soothe
-        { spell = 5211, type = "ability", talent = 10 }, -- Mighty Bash
-        { spell = 5215, type = "ability"}, -- Prowl
+        { spell = 5211, type = "ability", requiresTarget = true, talent = 10 }, -- Mighty Bash
+        { spell = 5215, type = "ability", buff = true}, -- Prowl
         { spell = 5487, type = "ability"}, -- Bear Form
         { spell = 6795, type = "ability", debuff = true, requiresTarget = true}, -- Growl
         { spell = 18562, type = "ability"}, -- Swiftmend
@@ -3286,7 +3303,7 @@ templates.class.DRUID = {
         { spell = 132469, type = "ability", talent = 12 }, -- Typhoon
         { spell = 192081, type = "ability", buff = true, talent = 9 }, -- Ironfur
         { spell = 197625, type = "ability", talent = 7 }, -- Moonkin Form
-        { spell = 197626, type = "ability", talent = 7 }, -- Starsurge
+        { spell = 197626, type = "ability", requiresTarget = true, talent = 7 }, -- Starsurge
         { spell = 197721, type = "ability", talent = 21 }, -- Flourish
         { spell = 252216, type = "ability", buff = true, talent = 4 }, -- Tiger Dash
       },
@@ -3462,7 +3479,7 @@ templates.class.DEMONHUNTER = {
         { spell = 217832, type = "ability", requiresTarget = true}, -- Imprison
         { spell = 228477, type = "ability", requiresTarget = true}, -- Soul Cleave
         { spell = 232893, type = "ability", requiresTarget = true, overlayGlow = true, talent = 9 }, -- Felblade
-        { spell = 247454, type = "ability", talent = 17 }, -- Spirit Bomb
+        { spell = 247454, type = "ability", usable = true, talent = 17 }, -- Spirit Bomb
         { spell = 263642, type = "ability", charges = true, talent = 12 }, -- Fracture
         { spell = 263648, type = "ability", buff = true, talent = 21 }, -- Soul Barrier
         { spell = 278326, type = "ability", requiresTarget = true}, -- Consume Magic
@@ -3542,7 +3559,7 @@ templates.class.DEATHKNIGHT = {
       title = L["Abilities"],
       args = {
         { spell = 3714, type = "ability", buff = true}, -- Path of Frost
-        { spell = 43265, type = "ability", overlayGlow = true}, -- Death and Decay
+        { spell = 43265, type = "ability", buff = true, buffId = 188290, overlayGlow = true}, -- Death and Decay
         { spell = 47528, type = "ability", requiresTarget = true}, -- Mind Freeze
         { spell = 48265, type = "ability", buff = true}, -- Death's Advance
         { spell = 48707, type = "ability", buff = true}, -- Anti-Magic Shell
@@ -3555,10 +3572,10 @@ templates.class.DEATHKNIGHT = {
         { spell = 56222, type = "ability", requiresTarget = true, debuff = true}, -- Dark Command
         { spell = 61999, type = "ability"}, -- Raise Ally
         { spell = 108199, type = "ability", requiresTarget = true}, -- Gorefiend's Grasp
-        { spell = 111673, type = "ability", requiresTarget = true}, -- Control Undead
+        { spell = 111673, type = "ability", requiresTarget = true, debuff = true, unit = "pet"}, -- Control Undead
         { spell = 194679, type = "ability", charges = true, buff = true, talent = 12}, -- Rune Tap
-        { spell = 194844, type = "ability", talent = 21}, -- Bonestorm
-        { spell = 195182, type = "ability", requiresTarget = true, charges = true}, -- Marrowrend
+        { spell = 194844, type = "ability", buff = true, talent = 21}, -- Bonestorm
+        { spell = 195182, type = "ability", buff = true, buffId = 195181, requiresTarget = true}, -- Marrowrend
         { spell = 195292, type = "ability", requiresTarget = true}, -- Death's Caress
         { spell = 206930, type = "ability", requiresTarget = true}, -- Heart Strike
         { spell = 206931, type = "ability", requiresTarget = true, debuff = true, talent = 2}, -- Blooddrinker
@@ -3627,6 +3644,7 @@ templates.class.DEATHKNIGHT = {
         { spell = 56222, type = "debuff", unit = "target"}, -- Dark Command
         { spell = 211793, type = "debuff", unit = "target"}, -- Remorseless Winter
         { spell = 55095, type = "debuff", unit = "target"}, -- Frost Fever
+        { spell = 48743, type = "debuff", unit = "player"}, -- Death Pact
 
       },
       icon = 237522
@@ -3638,18 +3656,17 @@ templates.class.DEATHKNIGHT = {
         { spell = 45524, type = "ability", requiresTarget = true, debuff = true}, -- Chains of Ice
         { spell = 47528, type = "ability", requiresTarget = true}, -- Mind Freeze
         { spell = 47568, type = "ability", buff = true}, -- Empower Rune Weapon
-        { spell = 48265, type = "ability", buff = true, talent = 15}, -- Death's Advance
         { spell = 48707, type = "ability", buff = true}, -- Anti-Magic Shell
-        { spell = 48743, type = "ability"}, -- Death Pact
+        { spell = 48743, type = "ability", debuff = true, unit = "player", talent = 15}, -- Death Pact
         { spell = 48792, type = "ability", buff = true}, -- Icebound Fortitude
         { spell = 49020, type = "ability", requiresTarget = true, overlayGlow = true}, -- Obliterate
-        { spell = 49184, type = "ability", requiresTarget = true}, -- Howling Blast
+        { spell = 49184, type = "ability", requiresTarget = true, overlayGlow = true}, -- Howling Blast
         { spell = 50977, type = "ability"}, -- Death Gate
         { spell = 51271, type = "ability", buff = true}, -- Pillar of Frost
         { spell = 56222, type = "ability", requiresTarget = true, debuff = true}, -- Dark Command
         { spell = 57330, type = "ability", talent = 6}, -- Horn of Winter
         { spell = 61999, type = "ability"}, -- Raise Ally
-        { spell = 111673, type = "ability", requiresTarget = true}, -- Control Undead
+        { spell = 111673, type = "ability", requiresTarget = true, debuff = true, unit = "pet"}, -- Control Undead
         { spell = 152279, type = "ability", buff = true, talent = 21}, -- Breath of Sindragosa
         { spell = 194913, type = "ability"}, -- Glacial Advance
         { spell = 196770, type = "ability", buff = true}, -- Remorseless Winter
@@ -3722,34 +3739,34 @@ templates.class.DEATHKNIGHT = {
       title = L["Abilities"],
       args = {
         { spell = 3714, type = "ability", buff = true}, -- Path of Frost
-        { spell = 42650, type = "ability"}, -- Army of the Dead
-        { spell = 43265, type = "ability", buff = true}, -- Death and Decay
+        { spell = 42650, type = "ability", buff = true}, -- Army of the Dead
+        { spell = 43265, type = "ability", buff = true, buffId = 188290}, -- Death and Decay
         { spell = 45524, type = "ability", requiresTarget = true, debuff = true}, -- Chains of Ice
         { spell = 46584, type = "ability"}, -- Raise Dead
         { spell = 47468, type = "ability", requiresTarget = true}, -- Claw
-        { spell = 47481, type = "ability", requiresTarget = true}, -- Gnaw
+        { spell = 47481, type = "ability", requiresTarget = true, debuff = true}, -- Gnaw
         { spell = 47484, type = "ability", requiresTarget = true}, -- Huddle
         { spell = 47528, type = "ability", requiresTarget = true}, -- Mind Freeze
         { spell = 47541, type = "ability", requiresTarget = true, usable = true, overlayGlow = true}, -- Death Coil
         { spell = 48265, type = "ability", buff = true}, -- Death's Advance
         { spell = 48707, type = "ability", buff = true}, -- Anti-Magic Shell
-        { spell = 48743, type = "ability"}, -- Death Pact
+        { spell = 48743, type = "ability", debuff = true, unit = "player", talent = 15}, -- Death Pact
         { spell = 48792, type = "ability", buff = true}, -- Icebound Fortitude
         { spell = 49206, type = "ability", requiresTarget = true, talent = 21}, -- Summon Gargoyle
         { spell = 50977, type = "ability"}, -- Death Gate
-        { spell = 55090, type = "ability", requiresTarget = true}, -- Scourge Strike
+        { spell = 55090, type = "ability", requiresTarget = true, talent = {1, 2}}, -- Scourge Strike
         { spell = 56222, type = "ability", requiresTarget = true, debuff = true}, -- Dark Command
         { spell = 61999, type = "ability"}, -- Raise Ally
-        { spell = 63560, type = "ability"}, -- Dark Transformation
-        { spell = 77575, type = "ability", requiresTarget = true}, -- Outbreak
-        { spell = 85948, type = "ability", requiresTarget = true}, -- Festering Strike
+        { spell = 63560, type = "ability", buff = true, unit = "pet"}, -- Dark Transformation
+        { spell = 77575, type = "ability", requiresTarget = true, debuff = true, buffId = 191587}, -- Outbreak
+        { spell = 85948, type = "ability", requiresTarget = true, debuff = true, buffId = 194310}, -- Festering Strike
         { spell = 108194, type = "ability", requiresTarget = true, debuff = true, talent = 9}, -- Asphyxiate
-        { spell = 111673, type = "ability"}, -- Control Undead
+        { spell = 111673, type = "ability", requiresTarget = true, debuff = true, unit = "pet"}, -- Control Undead
         { spell = 115989, type = "ability", buff = true, talent = 6}, -- Unholy Blight
-        { spell = 130736, type = "ability", requiresTarget = true, buff = true, talent = 12}, -- Soul Reaper
-        { spell = 152280, type = "ability", talent = 17}, -- Defile
+        { spell = 130736, type = "ability", requiresTarget = true, debuff = true, talent = 12}, -- Soul Reaper
+        { spell = 152280, type = "ability", buff = true, buffId = 188290, talent = 17}, -- Defile
         { spell = 207289, type = "ability", buff = true, talent = 20}, -- Unholy Frenzy
-        { spell = 207311, type = "ability", requiresTarget = true}, -- Clawing Shadows
+        { spell = 207311, type = "ability", requiresTarget = true, talent = 3}, -- Clawing Shadows
         { spell = 212552, type = "ability", buff = true, talent = 14}, -- Wraith Walk
         { spell = 275699, type = "ability", usable = true, requiresTarget = true}, -- Apocalypse
       },
@@ -3783,29 +3800,29 @@ templates.class.DEATHKNIGHT = {
 tinsert(templates.general.args, {
   title = L["Health"],
   icon = "Interface\\Icons\\inv_alchemy_70_red",
-  triggers = { [0] = { trigger = { type = "status", event = "Health", unit = "player", use_unit = true, unevent = "auto" }}}
+  type = "health"
 });
 tinsert(templates.general.args, {
   title = L["Cast"],
   icon = 136209,
-  triggers = {[0] = { trigger = { type = "status", event = "Cast", unevent = "auto", use_unit = true, unit = "player" }}}
+  type = "cast"
 });
 tinsert(templates.general.args, {
   title = L["Always Active"],
   icon = "Interface\\Addons\\WeakAuras\\PowerAurasMedia\\Auras\\Aura78",
-  triggers = {[0] = { trigger = { type = "status", event = "Conditions", unevent = "auto", use_alwaystrue = true}}}
+  triggers = {[1] = { trigger = { type = "status", event = "Conditions", unevent = "auto", use_alwaystrue = true}}}
 });
 
 tinsert(templates.general.args, {
   title = L["Pet alive"],
   icon = "Interface\\Icons\\ability_hunter_pet_raptor",
-  triggers = {[0] = { trigger = { type = "status", event = "Conditions", unevent = "auto", use_HasPet = true}}}
+  triggers = {[1] = { trigger = { type = "status", event = "Conditions", unevent = "auto", use_HasPet = true}}}
 });
 
 tinsert(templates.general.args, {
   title = L["Pet Behavior"],
   icon = "Interface\\Icons\\Ability_hunter_pet_assist",
-  triggers = {[0] = { trigger = { type = "status", event = "Pet Behavior", unevent = "auto", use_behavior = true, behavior = "assist"}}}
+  triggers = {[1] = { trigger = { type = "status", event = "Pet Behavior", unevent = "auto", use_behavior = true, behavior = "assist"}}}
 });
 
 tinsert(templates.general.args, {
@@ -3958,19 +3975,8 @@ local function createSimplePowerTemplate(powertype)
   local power = {
     title = powerTypes[powertype].name,
     icon = powerTypes[powertype].icon,
-    triggers = {
-      [0] = {
-        ["trigger"] = {
-          type = "status",
-          event = "Power",
-          unevent = "auto",
-          use_unit = true,
-          unit = "player",
-          use_powertype = true,
-          powertype = powertype
-        },
-      }
-    }
+    type = "power",
+    powertype = powertype,
   }
   return power;
 end
@@ -4037,15 +4043,7 @@ tinsert(templates.class.PRIEST[3][8].args, createSimplePowerTemplate(13));
 -- Shaman
 for i = 1, 3 do
   tinsert(templates.class.SHAMAN[i][8].args, createSimplePowerTemplate(0));
-
-  templates.class.SHAMAN[i][7] = {
-    title = L["Totems"],
-    args = {
-    },
-    icon = 538575,
-  };
 end
-
 for i = 1, 2 do
   tinsert(templates.class.SHAMAN[i][8].args, createSimplePowerTemplate(11));
 end
@@ -4096,7 +4094,7 @@ for i = 1, 4 do
   tinsert(templates.class.DRUID[i][8].args, {
     title = L["Shapeshift Form"],
     icon = 132276,
-    triggers = {[0] = { trigger = { type = "status", event = "Stance/Form/Aura", unevent = "auto"}}}
+    triggers = {[1] = { trigger = { type = "status", event = "Stance/Form/Aura", unevent = "auto"}}}
   });
 end
 
@@ -4124,7 +4122,7 @@ for i = 1, 3 do
   tinsert(templates.class.DEATHKNIGHT[i][8].args, {
     title = L["Runes"],
     icon = "Interface\\Icons\\spell_deathknight_frozenruneweapon",
-    triggers = {[0] = { trigger = { type = "status", event = "Death Knight Rune", unevent = "auto"}}}
+    triggers = {[1] = { trigger = { type = "status", event = "Death Knight Rune", unevent = "auto"}}}
   });
 end
 

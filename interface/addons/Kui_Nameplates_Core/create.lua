@@ -50,15 +50,14 @@ local plugin_fading
 local plugin_classpowers
 
 -- common globals
-local UnitIsPlayer,UnitCanAttack,UnitShouldDisplayName,
+local UnitIsPlayer,UnitShouldDisplayName,
       strlen,format,pairs,ipairs,floor,ceil,unpack =
-      UnitIsPlayer,UnitCanAttack,UnitShouldDisplayName,
+      UnitIsPlayer,UnitShouldDisplayName,
       strlen,format,pairs,ipairs,floor,ceil,unpack
 
 -- config locals
 local KUI_MEDIA = 'interface/addons/kui_media/'
 local MEDIA = 'interface/addons/kui_nameplates_core/media/'
-local TEXT_SCALE_OFFSET = 2.5
 
 local FRAME_WIDTH,FRAME_HEIGHT,FRAME_WIDTH_MINUS,FRAME_HEIGHT_MINUS,
       FRAME_WIDTH_PERSONAL,FRAME_HEIGHT_PERSONAL,POWER_BAR_HEIGHT,
@@ -184,13 +183,12 @@ local function CreateFontString(parent,small)
 
     return f
 end
-local function Scale(v,offset)
+local function Scale(v)
     if not GLOBAL_SCALE or GLOBAL_SCALE == 1 then return v end
-    if offset then
-        return ceil((v*GLOBAL_SCALE)-((GLOBAL_SCALE-1)*offset))
-    else
-        return floor((v*GLOBAL_SCALE)+.5)
-    end
+    return floor((v*GLOBAL_SCALE)+.5)
+end
+local function ScaleTextOffset(v)
+    return floor(Scale(v)) - .5
 end
 -- config functions ############################################################
 do
@@ -239,8 +237,8 @@ do
         FRAME_GLOW_THREAT = self.profile.frame_glow_threat
 
         TEXT_VERTICAL_OFFSET = self.profile.text_vertical_offset
-        NAME_VERTICAL_OFFSET = Scale(TEXT_VERTICAL_OFFSET + self.profile.name_vertical_offset,TEXT_SCALE_OFFSET)
-        BOT_VERTICAL_OFFSET = Scale(TEXT_VERTICAL_OFFSET + self.profile.bot_vertical_offset,TEXT_SCALE_OFFSET)
+        NAME_VERTICAL_OFFSET = ScaleTextOffset(TEXT_VERTICAL_OFFSET+self.profile.name_vertical_offset)
+        BOT_VERTICAL_OFFSET = ScaleTextOffset(TEXT_VERTICAL_OFFSET+self.profile.bot_vertical_offset)
 
         FONT_STYLE = FONT_STYLE_ASSOC[self.profile.font_style]
         FONT_SHADOW = self.profile.font_style == 3 or self.profile.font_style == 4
@@ -640,9 +638,7 @@ do
             return
         else
             -- NPCs; reaction colour
-            if not UnitCanAttack('player',f.unit) and
-               f.state.reaction >= 4
-            then
+            if not f.state.attackable and f.state.reaction >= 4 then
                 -- friendly
                 f.NameText:SetTextColor(unpack(NAME_COLOUR_NPC_FRIENDLY))
             else
@@ -718,9 +714,9 @@ do
             f.LevelText:ClearAllPoints()
 
             if f.state.no_name then
-                f.LevelText:SetPoint('LEFT',3,TEXT_VERTICAL_OFFSET)
+                f.LevelText:SetPoint('LEFT',2,TEXT_VERTICAL_OFFSET)
             else
-                f.LevelText:SetPoint('BOTTOMLEFT',3,BOT_VERTICAL_OFFSET)
+                f.LevelText:SetPoint('BOTTOMLEFT',2,BOT_VERTICAL_OFFSET)
             end
 
             f.LevelText:Show()
@@ -785,9 +781,9 @@ do
             f.HealthText:ClearAllPoints()
 
             if f.state.no_name then
-                f.HealthText:SetPoint('RIGHT',-3,TEXT_VERTICAL_OFFSET)
+                f.HealthText:SetPoint('RIGHT',-2,TEXT_VERTICAL_OFFSET)
             else
-                f.HealthText:SetPoint('BOTTOMRIGHT',-3,BOT_VERTICAL_OFFSET)
+                f.HealthText:SetPoint('BOTTOMRIGHT',-2,BOT_VERTICAL_OFFSET)
             end
 
             f.HealthText:Show()
@@ -900,7 +896,7 @@ do
                 else
                     if GLOW_AS_SHADOW then
                         -- shadow
-                        f.ThreatGlow:SetVertexColor(0,0,0,.15)
+                        f.ThreatGlow:SetVertexColor(0,0,0,.2)
                     else
                         f.ThreatGlow:SetVertexColor(0,0,0,0)
                     end
@@ -1027,7 +1023,7 @@ end
 do
     local CASTBAR_ENABLED,CASTBAR_HEIGHT,CASTBAR_COLOUR,CASTBAR_UNIN_COLOUR,
           CASTBAR_SHOW_ICON,CASTBAR_SHOW_NAME,CASTBAR_SHOW_SHIELD,
-          CASTBAR_NAME_VERTICAL_OFFSET,CASTBAR_ANIMATE,
+          CASTBAR_NAME_VERTICAL_OFFSET,CASTBAR_ANIMATE,CASTBAR_SPACING,
           CASTBAR_ANIMATE_CHANGE_COLOUR,SHIELD_H,SHIELD_W
 
     local function AnimGroup_Stop(self)
@@ -1038,7 +1034,7 @@ do
         -- set spell icon width (as it's based on height)
         if not f.SpellIcon then return end
         if f.SpellIcon.bg:IsShown() then
-            f.SpellIcon.bg:SetWidth(ceil(f.CastBar.bg:GetHeight() + f.bg:GetHeight() + 1))
+            f.SpellIcon.bg:SetWidth(ceil(f.CastBar.bg:GetHeight() + f.bg:GetHeight() + CASTBAR_SPACING))
         end
     end
     local function ShowCastBar(f)
@@ -1187,16 +1183,23 @@ do
         f.SpellName:SetPoint('TOP',f.CastBar,'BOTTOM',0,CASTBAR_NAME_VERTICAL_OFFSET+TEXT_VERTICAL_OFFSET)
     end
     local function UpdateCastbarSize(f)
+        -- called by CreateCastBar, SetCastBarConfig
         f.CastBar.bg:SetHeight(CASTBAR_HEIGHT)
         f.CastBar:SetHeight(CASTBAR_HEIGHT-2)
+
+        f.CastBar.bg:SetPoint('TOPLEFT',f.bg,'BOTTOMLEFT',0,-CASTBAR_SPACING)
+
+        if CASTBAR_SHOW_ICON and f.SpellIcon then
+            f.SpellIcon.bg:SetPoint('TOPRIGHT',f.bg,'TOPLEFT',-CASTBAR_SPACING,0)
+        end
     end
 
     local function CreateSpellIcon(f)
         local bg = f.CastBar:CreateTexture(nil, 'BACKGROUND', nil, 1)
         bg:SetTexture(kui.m.t.solid)
         bg:SetVertexColor(0,0,0,.8)
-        bg:SetPoint('BOTTOMRIGHT', f.CastBar.bg, 'BOTTOMLEFT', -1, 0)
-        bg:SetPoint('TOPRIGHT', f.bg, 'TOPLEFT', -1, 0)
+        bg:SetPoint('BOTTOMRIGHT',f.CastBar.bg,'BOTTOMLEFT')
+        -- TOPRIGHT set by UpdateCastbarSize
         bg:Hide()
 
         local icon = f.CastBar:CreateTexture(nil, 'ARTWORK', nil, 2)
@@ -1272,8 +1275,8 @@ do
         local bg = castbar:CreateTexture(nil,'BACKGROUND',nil,1)
         bg:SetTexture(kui.m.t.solid)
         bg:SetVertexColor(0,0,0,.8)
-        bg:SetPoint('TOPLEFT', f.bg, 'BOTTOMLEFT', 0, -1)
         bg:SetPoint('TOPRIGHT', f.bg, 'BOTTOMRIGHT')
+        -- TOPLEFT set by UpdateCastbarSize
         bg:Hide()
 
         castbar:SetPoint('TOPLEFT', bg, 1, -1)
@@ -1316,9 +1319,10 @@ do
         CASTBAR_SHOW_ICON = self.profile.castbar_icon
         CASTBAR_SHOW_NAME = self.profile.castbar_name
         CASTBAR_SHOW_SHIELD = self.profile.castbar_shield
-        CASTBAR_NAME_VERTICAL_OFFSET = Scale(self.profile.castbar_name_vertical_offset,TEXT_SCALE_OFFSET)
+        CASTBAR_NAME_VERTICAL_OFFSET = ScaleTextOffset(self.profile.castbar_name_vertical_offset)
         CASTBAR_ANIMATE = self.profile.castbar_animate
         CASTBAR_ANIMATE_CHANGE_COLOUR = self.profile.castbar_animate_change_colour
+        CASTBAR_SPACING = self.profile.castbar_spacing
         SHIELD_H = Scale(16)
         SHIELD_W = SHIELD_H * .84375
 
@@ -1917,25 +1921,34 @@ function core:ShowNameUpdate(f)
 end
 -- nameonly ####################################################################
 do
-    local NAMEONLY_NO_FONT_STYLE,NAMEONLY_ENEMIES,NAMEONLY_DAMAGED_FRIENDS,
-    NAMEONLY_ALL_ENEMIES,NAMEONLY_TARGET,NAMEONLY_HEALTH_COLOUR,
-    NAMEONLY_ON_NEUTRAL,NAMEONLY_IN_COMBAT
+    local NAMEONLY_ENABLED,NAMEONLY_NO_FONT_STYLE,NAMEONLY_HEALTH_COLOUR
+    local NAMEONLY_TARGET,NAMEONLY_ALL_ENEMIES,NAMEONLY_ON_NEUTRAL,
+          NAMEONLY_HOSTILE_NPCS,NAMEONLY_DAMAGED_ENEMIES,NAMEONLY_FRIENDLY_NPCS,
+          NAMEONLY_DAMAGED_FRIENDS,NAMEONLY_COMBAT_HOSTILE,
+          NAMEONLY_COMBAT_FRIENDLY,NAMEONLY_HOSTILE_PLAYERS,
+          NAMEONLY_FRIENDLY_PLAYERS,NAMEONLY_COMBAT_HOSTILE_PLAYER
 
     function core:configChangedNameOnly()
+        NAMEONLY_ENABLED = self.profile.nameonly
         NAMEONLY_NO_FONT_STYLE = self.profile.nameonly_no_font_style
-        NAMEONLY_DAMAGED_FRIENDS = self.profile.nameonly_damaged_friends
-        NAMEONLY_ALL_ENEMIES = self.profile.nameonly_all_enemies
-        NAMEONLY_ENEMIES = NAMEONLY_ALL_ENEMIES or self.profile.nameonly_enemies
-        NAMEONLY_TARGET = self.profile.nameonly_target
         NAMEONLY_HEALTH_COLOUR = self.profile.nameonly_health_colour
-        NAMEONLY_ON_NEUTRAL = self.profile.nameonly_neutral
-        NAMEONLY_IN_COMBAT = self.profile.nameonly_in_combat
 
-        if NAMEONLY_ALL_ENEMIES or NAMEONLY_TARGET then
-            -- create target/threat glow
-            for k,f in addon:Frames() do
-                core:CreateNameOnlyGlow(f)
-            end
+        NAMEONLY_TARGET = self.profile.nameonly_target
+        NAMEONLY_ALL_ENEMIES = self.profile.nameonly_all_enemies
+        NAMEONLY_ON_NEUTRAL = self.profile.nameonly_neutral
+        NAMEONLY_HOSTILE_NPCS = self.profile.nameonly_enemies
+        NAMEONLY_HOSTILE_PLAYERS = self.profile.nameonly_hostile_players
+        NAMEONLY_DAMAGED_ENEMIES = self.profile.nameonly_damaged_enemies
+        NAMEONLY_FRIENDLY_NPCS = self.profile.nameonly_friends
+        NAMEONLY_FRIENDLY_PLAYERS = self.profile.nameonly_friendly_players
+        NAMEONLY_DAMAGED_FRIENDS = self.profile.nameonly_damaged_friends
+        NAMEONLY_COMBAT_HOSTILE = self.profile.nameonly_combat_hostile
+        NAMEONLY_COMBAT_HOSTILE_PLAYER = self.profile.nameonly_combat_hostile_player
+        NAMEONLY_COMBAT_FRIENDLY = self.profile.nameonly_combat_friends
+
+        -- create target/threat glow
+        for k,f in addon:Frames() do
+            self:CreateNameOnlyGlow(f)
         end
     end
 
@@ -1948,7 +1961,6 @@ do
                  6+FRAME_GLOW_SIZE, -FRAME_GLOW_SIZE)
         end
         function core:CreateNameOnlyGlow(f)
-            if not NAMEONLY_ALL_ENEMIES and not NAMEONLY_TARGET then return end
             if f.NameOnlyGlow then return end
 
             local g = f:CreateTexture(nil,'BACKGROUND',nil,-5)
@@ -1973,8 +1985,10 @@ do
         f:UpdateGuildText()
 
         if f.TargetArrows then
-            -- show/hide arrows
             f:UpdateTargetArrows()
+        end
+        if f.ThreatBrackets then
+            f:UpdateThreatBrackets()
         end
 
         if f.NameOnlyGlow and addon.ClassPowersFrame and plugin_classpowers.enabled then
@@ -2066,81 +2080,89 @@ do
         end
     end
 
-    local function UnattackableEnemyPlayer(f)
-        -- don't show on enemy players
-        return not NAMEONLY_ALL_ENEMIES and
-               UnitIsPlayer(f.unit) and
-               f.state.reaction <= 4
-    end
-    local function EnemyAndDisabled(f)
-        -- don't show on enemies
-        if (not NAMEONLY_ENEMIES and not NAMEONLY_ALL_ENEMIES) and
-           f.state.reaction <= 4
-        then
-            -- if NAMEONLY_{ALL_,}ENEMIES is disabled and
-            -- this frame is an enemy;
-            return true
-            -- return we're disabled on this frame
-        end
-    end
-    local function FriendAndDisabled(f)
-        if not NAMEONLY_DAMAGED_FRIENDS and f.state.friend then
-            if f.state.health_deficit > 0 then
-                -- don't show on damaged friends
-                return true
+    local function NameOnlyFilterFrame(f)
+        if not NAMEONLY_ENABLED then return end
+        -- disable on personal frame
+        if f.state.personal then return end
+        -- disable on target
+        if not NAMEONLY_TARGET and f.state.target then return end
+
+        if not f.state.attackable and f.state.reaction >= 4 then
+            -- friendly;
+            -- disable on friends in combat
+            if not NAMEONLY_COMBAT_FRIENDLY and f.state.combat then
+                return
+            end
+            if f.state.player then
+                -- disable on friendly players
+                if not NAMEONLY_FRIENDLY_PLAYERS then
+                    return
+                end
+            else
+                -- disable on friendly NPCs
+                if not NAMEONLY_FRIENDLY_NPCS then
+                    return
+                end
+            end
+            -- disable on damaged friends
+            if not NAMEONLY_DAMAGED_FRIENDS and f.state.health_deficit > 0 then
+                return
+            end
+        else
+            if f.state.reaction == 4 then
+                -- neutral;
+                -- disable on neutral
+                if not NAMEONLY_ON_NEUTRAL then
+                    return
+                end
+            else
+                -- hostile;
+                if f.state.player then
+                    -- disable on hostile players
+                    if not NAMEONLY_HOSTILE_PLAYERS then
+                        return
+                    end
+                else
+                    -- disable on hostile NPCS
+                    if not NAMEONLY_HOSTILE_NPCS then
+                        return
+                    end
+                end
+                -- disable on attackable units
+                if not NAMEONLY_ALL_ENEMIES and f.state.attackable then
+                    return
+                end
+            end
+            -- neutral & hostile;
+            -- disable on damaged enemies
+            if not NAMEONLY_DAMAGED_ENEMIES and f.state.health_deficit > 0 then
+                return
+            end
+            if f.state.combat then
+                -- disable on enemies in combat
+                if not NAMEONLY_COMBAT_HOSTILE then
+                    return
+                end
+                -- disable on enemies the player has threat with
+                -- (and hostile players in any combat, since we can't check
+                -- if they're in combat with the player)
+                if not NAMEONLY_COMBAT_HOSTILE_PLAYER and
+                   (f.state.threat or f.state.player)
+                then
+                    return
+                end
             end
         end
-    end
-    local function EnemyAffectingCombat(f)
-        if (NAMEONLY_ALL_ENEMIES or NAMEONLY_ON_NEUTRAL) and
-           not NAMEONLY_IN_COMBAT and
-           f.state.reaction <= 4 and
-           (f.state.threat or UnitIsPlayer(f.unit))
-        then
-            -- if NAMEONLY_ALL_ENEMIES or NAMEONLY_ON_NEUTRAL is enabled and
-            -- NAMEONLY_IN_COMBAT is disabled and
-            -- this is an enemy frame and
-            -- we are in the unit's threat table or
-            -- the unit is a player;
-            return true
-            -- disable on this frame
-        end
-    end
-    local function AttackableUnitAndEnabled(f)
-        -- don't show on attackable units
-        if (NAMEONLY_ALL_ENEMIES or not UnitCanAttack('player',f.unit)) or
-           (NAMEONLY_ON_NEUTRAL and f.state.reaction == 4)
-        then
-            -- NAMEONLY_ALL_ENEMIES is enabled or
-            -- unit cannot be attacked or
-            -- ( NAMEONLY_ON_NEUTRAL is enabled and
-            --   unit is neutral )
-            return true
-            -- return we're enabled on this frame
-        end
+        -- enable
+        return true
     end
 
     function core:NameOnlyCombatUpdate(f)
-        if  (NAMEONLY_ALL_ENEMIES or NAMEONLY_ON_NEUTRAL) and
-            not NAMEONLY_IN_COMBAT
-        then
-            self:NameOnlyUpdate(f)
-            self:NameOnlyUpdateFunctions(f)
-        end
+        self:NameOnlyUpdate(f)
+        self:NameOnlyUpdateFunctions(f)
     end
     function core:NameOnlyUpdate(f,hide)
-        if  not hide and self.profile.nameonly and
-            -- don't show on player frame
-            not f.state.personal and
-            -- don't show on target
-            (NAMEONLY_TARGET or not f.state.target) and
-            -- more complex filters;
-            AttackableUnitAndEnabled(f) and
-            not EnemyAffectingCombat(f) and
-            not UnattackableEnemyPlayer(f) and
-            not EnemyAndDisabled(f) and
-            not FriendAndDisabled(f)
-        then
+        if not hide and NameOnlyFilterFrame(f) then
             NameOnlyEnable(f)
         else
             NameOnlyDisable(f)

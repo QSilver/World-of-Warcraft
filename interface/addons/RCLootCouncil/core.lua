@@ -4,6 +4,8 @@
 --[[ TODOs/Notes
 	Things marked with "todo"
 		- IDEA Change popups so they only hide on award/probably add the error message to it.
+		- Trade status in TradeUI
+		- Changeable chatwindow output.
 
 	Backwards compability breaks:
 		- Remove equipLoc, subType, texture from lootTable. They can all be created with GetItemInfoInstant()
@@ -111,6 +113,7 @@ function RCLootCouncil:OnInitialize()
 	self.lootSlotInfo = {}  -- Items' data currently in the loot slot. Need this because inside LOOT_SLOT_CLEARED handler, GetLootSlotLink() returns invalid link.
 	self.nonTradeables = {} -- List of non tradeable items received since the last ENCOUNTER_END
 
+	self.lootStatus = {}
 	self.verCheckDisplayed = false -- Have we shown a "out-of-date"?
 	self.moduleVerCheckDisplayed = {} -- Have we shown a "out-of-date" for a module? The key of the table is the baseName of the module.
 
@@ -435,7 +438,8 @@ function RCLootCouncil:OnEnable()
 	self:RegisterEvent("LOOT_OPENED",		"OnEvent")
 	self:RegisterEvent("LOOT_SLOT_CLEARED", "OnEvent")
 	self:RegisterEvent("LOOT_CLOSED",		"OnEvent")
-	self:RegisterEvent("ENCOUNTER_LOOT_RECEIVED", "OnEvent") -- REVIEW Check if boss loot is obtainable through this
+	self:RegisterEvent("LOOT_READY", "OnEvent")
+	self:RegisterEvent("ENCOUNTER_LOOT_RECEIVED", "OnEvent")
 
 	--self:RegisterEvent("GROUP_ROSTER_UPDATE", "Debug", "event")
 
@@ -553,7 +557,7 @@ function RCLootCouncil:ChatCommand(msg)
 		self:Debug("- log - display the debug log")
 		self:Debug("- clearLog - clear the debug log")
 
-	elseif input == 'config' or input == L["config"] or input == "c" then
+	elseif input == 'config' or input == L["config"] or input == "c" or input == "opt" or input == "options" then
 		-- Call it twice, because reasons..
 		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
 		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
@@ -606,13 +610,7 @@ function RCLootCouncil:ChatCommand(msg)
 	elseif input == "add" or input == string.lower(_G.ADD) then
 		if not args[1] or args[1] == "" then return self:ChatCommand("help") end
 		if self.isMasterLooter then
-			local links = args
-			if args[1]:find("|h") then -- Only split links if we have at least one
-			 	links = self:SplitItemLinks(args) -- Split item links to allow user to enter links without space
-			end
-			for _,v in ipairs(links) do
-			self:GetActiveModule("masterlooter"):AddUserItem(v, self.playerName)
-			end
+			self:ChatCmdAdd(args)
 		else
 			self:Print(L["You cannot use this command without being the Master Looter"])
 		end
@@ -711,7 +709,7 @@ end
 
 -- Update the recentTradableItem by link, if it is in bag and tradable.
 function RCLootCouncil:UpdateAndSendRecentTradableItem(info, count)
-	for i = 0, NUM_BAG_SLOTS do
+	for i = 0, _G.NUM_BAG_SLOTS do
 		for j = 1, GetContainerNumSlots(i) do
 			local _, _, _, _, _, _, link2 = GetContainerItemInfo(i, j)
 			if link2 and self:ItemIsItem(info.link, link2) then
@@ -731,9 +729,9 @@ function RCLootCouncil:UpdateAndSendRecentTradableItem(info, count)
 		end
 	end
 	-- We haven't found it, maybe we just haven't received it yet, so try again in one second
-	if not count or (count and count < 3) then -- Only try a few times
+	if not count or (count and count <= 3) then -- Only try a few times
 		self:Debug("UpdateAndSendRecentTradableItem: Didn't find item on try ", count or 1)
-		return self:ScheduleTimer("UpdateAndSendRecentTradableItem",1,info, count and count + 1 or 1)
+		return self:ScheduleTimer("UpdateAndSendRecentTradableItem",1,info, count and count + 1 or 2)
 	end
 	self:Debug("Error - UpdateAndSendRecentTradableItem",info.link, "not found in bags")
 end
@@ -744,10 +742,12 @@ function RCLootCouncil:SendAnnouncement(msg, channel)
 	if self.testMode then
 		msg = "("..L["Test"]..") "..msg
 	end
-	if not IsInGroup() and (channel == "group" or channel == "RAID" or channel == "PARTY" or channel == "INSTANCE_CHAT") then
+	if (not IsInGroup() and (channel == "group" or channel == "RAID" or channel == "RAID_WARNING" or channel == "PARTY" or channel == "INSTANCE_CHAT"))
+		or channel == "chat"
+		or (not IsInGuild() and (channel == "GUILD" or channel == "OFFICER")) then
 		self:Print(msg)
-	elseif not IsInGuild() and (channel == "GUILD" or channel == "OFFICER") then
-		self:Print(msg)
+	elseif (not IsInRaid() and (channel == "RAID" or channel == "RAID_WARNING")) then
+		SendChatMessage(msg, "party")
 	else
 		SendChatMessage(msg, self:GetAnnounceChannel(channel))
 	end
@@ -1062,6 +1062,26 @@ function RCLootCouncil:OnCommReceived(prefix, serializedMsg, distri, sender)
 				self.Sync:SyncNackReceived(unpack(data))
 			elseif command == "not_tradeable" or command == "rejected_trade" then
 				tinsert(self.nonTradeables, {link = (unpack(data)), reason = command, owner = self:UnitName(sender)})
+
+			elseif command == "looted" then
+				local guid = unpack(data)
+				if not guid then return self:Debug("no guid in looted comm", guid, sender) end
+				if not self.lootStatus[guid] then self.lootStatus[guid] = {candidates = {}, fake = {}, num = 0} end
+				self.lootStatus[guid].num = self.lootStatus[guid].num + 1
+				self.lootStatus[guid].candidates[self:UnitName(sender)] = true
+				if self:IsCouncil(self.playerName) then -- Only councilmen has the voting frame
+					self:GetActiveModule("votingframe"):UpdateLootStatus()
+				end
+
+			elseif command == "fakeLoot" then
+				local link, guid = unpack(data)
+				if not guid then return self:Debug("no guid in fakeLoot comm", guid, sender) end
+				if not self.lootStatus[guid] then self.lootStatus[guid] = {candidates = {}, fake = {}, num = 0} end
+				self.lootStatus[guid].num = self.lootStatus[guid].num + 1
+				self.lootStatus[guid].fake[self:UnitName(sender)] = link
+				if self:IsCouncil(self.playerName) then
+					self:GetActiveModule("votingframe"):UpdateLootStatus()
+				end
 			end
 		else
 			-- Most likely pre 2.0 command
@@ -1147,6 +1167,29 @@ function RCLootCouncil:OnMLDBReceived(mldb)
 	if not self.mldb.buttons.default then self.mldb.buttons.default = {} end
 	setmetatable(self.mldb.buttons.default, { __index = self.defaults.profile.buttons.default,})
 	-- self.mldb = mldb
+end
+
+function RCLootCouncil:ChatCmdAdd(args)
+	if not args[1] or args[1] == "" then return end -- We need at least 1 arg
+	local owner
+	-- See if one of the args is a owner
+	if not args[1]:find("|") and type(args[1]) ~= "number" then
+		-- First arg is neither an item or a item id, see if it's someone in our group
+		owner = self:UnitName(args[1])
+		if not (owner and owner ~= "" and self.candidates[owner]) then
+			self:Print(format(L["chat_cmd_add_invalid_owner"], owner))
+			return
+		end
+		tremove(args, 1)
+	end
+	-- Now handle the links
+	local links = args
+	if args[1]:find("|h") then -- Only split links if we have at least one
+		links = self:SplitItemLinks(args) -- Split item links to allow user to enter links without space
+	end
+	for _,v in ipairs(links) do
+		self:GetActiveModule("masterlooter"):AddUserItem(v, owner or self.playerName)
+	end
 end
 
 -- if fullTest, add items in the encounterJournal to the test items.
@@ -1311,9 +1354,9 @@ RCLootCouncil.INVTYPE_Slots = {
 		INVTYPE_WEAPONMAINHAND	= "MainHandSlot",
 		INVTYPE_WEAPONOFFHAND	= {"SecondaryHandSlot",["or"] = "MainHandSlot"},
 		INVTYPE_WEAPON		    = {"MainHandSlot","SecondaryHandSlot"},
-		INVTYPE_THROWN		    = {"SecondaryHandSlot", ["or"] = "MainHandSlot"},
-		INVTYPE_RANGED		    = {"SecondaryHandSlot", ["or"] = "MainHandSlot"},
-		INVTYPE_RANGEDRIGHT 	= {"SecondaryHandSlot", ["or"] = "MainHandSlot"},
+		INVTYPE_THROWN		    = {"MainHandSlot", ["or"] = "SecondaryHandSlot"},
+		INVTYPE_RANGED		    = {"MainHandSlot", ["or"] = "SecondaryHandSlot"},
+		INVTYPE_RANGEDRIGHT 	 = {"MainHandSlot", ["or"] = "SecondaryHandSlot"},
 		INVTYPE_FINGER		    = {"Finger0Slot","Finger1Slot"},
 		INVTYPE_HOLDABLE	    = {"SecondaryHandSlot", ["or"] = "MainHandSlot"},
 		INVTYPE_TRINKET		    = {"TRINKET0SLOT", "TRINKET1SLOT"}
@@ -1810,7 +1853,7 @@ function RCLootCouncil:GetPlayersGuildRank()
 end
 
 --- Returns specific info about the player
--- @return "Name", "Class", "Role", "guildRank", bool isEnchanter, num enchanting_lvl, num ilvl
+-- @return "Name", "Class", "Role", "guildRank", bool isEnchanter, num enchanting_lvl, num ilvl, num specID
 function RCLootCouncil:GetPlayerInfo()
 	-- Check if the player has enchanting
 	local enchant, lvl = nil, 0
@@ -1829,14 +1872,6 @@ function RCLootCouncil:GetPlayerInfo()
 	return self.playerName, self.playerClass, self:GetPlayerRole(), self.guildRank, enchant, lvl, ilvl, playersData.specID
 end
 
-function RCLootCouncil:GetPlayerRole()
-	return UnitGroupRolesAssigned("player")
-end
-
-function RCLootCouncil:TranslateRole(role)
-	return (role and role ~= "") and _G[role] or ""
-end
-
 --- Returns a lookup table containing GuildRankNames and their index.
 -- @return table ["GuildRankName"] = rankIndex
 function RCLootCouncil:GetGuildRanks()
@@ -1851,29 +1886,13 @@ function RCLootCouncil:GetGuildRanks()
 	return t;
 end
 
---- Calculates how long ago a given date was.
--- Assumes the date is of year 2000+.
--- @param oldDate A string specifying the date, formatted as "dd/mm/yy".
--- @return day, month, year.
+
 function RCLootCouncil:GetNumberOfDaysFromNow(oldDate)
-	local d, m, y = strsplit("/", oldDate, 3)
-	local sinceEpoch = time({year = "20"..y, month = m, day = d, hour = 0}) -- convert from string to seconds since epoch
-	local diff = date("*t", time() - sinceEpoch) -- get the difference as a table
-	-- Convert to number of d/m/y
-	return diff.day - 1, diff.month - 1, diff.year - 1970
+	return self.Utils:GetNumberOfDaysFromNow(oldDate)
 end
 
---- Takes the return value from :GetNumberOfDaysFromNow() and converts it to text.
--- @see RCLootCouncil:GetNumberOfDaysFromNow
--- @return A formatted string.
 function RCLootCouncil:ConvertDateToString(day, month, year)
-	local text = format(L["x days"], day)
-	if year > 0 then
-		text = format(L["days, x months, y years"], text, month, year)
-	elseif month > 0 then
-		text = format(L["days and x months"], text, month)
-	end
-	return text;
+	return self.Utils:ConvertDateToString(day, month, year)
 end
 
 function RCLootCouncil:OnEvent(event, ...)
@@ -1912,6 +1931,7 @@ function RCLootCouncil:OnEvent(event, ...)
 		end
 	elseif event == "ENCOUNTER_START" then
 			self:DebugLog("Event:", event, ...)
+			wipe(self.lootStatus)
 			self:UpdatePlayersData()
 	elseif event == "GUILD_ROSTER_UPDATE" then
 		self.guildRank = self:GetPlayersGuildRank();
@@ -1927,56 +1947,60 @@ function RCLootCouncil:OnEvent(event, ...)
 
 	elseif event == "LOOT_OPENED" then
 		self:Debug("Event:", event, ...)
-		if not IsInInstance() then return end -- Don't do anything out of instances
-		-- self:Debug("GetUnitName:", GetUnitName("target"))
-		-- self:Debug("UnitGUID:", UnitGUID("target"))
-		if select(1, ...) ~= "scheduled" and self.LootOpenScheduled then return end -- When this function is scheduled to run again, but LOOT_OPENDED event fires, return.
-		self.LootOpenScheduled = false
-		wipe(self.lootSlotInfo)
-		if GetNumLootItems() <= 0 then return end-- In case when function rerun, loot window is closed.
-
-		self.lootOpen = true
-		for i = 1,  GetNumLootItems() do
-			if LootSlotHasItem(i) then
-				local texture, name, quantity, _, quality, _, isQuestItem = GetLootSlotInfo(i)
-				if texture then
-					local link = GetLootSlotLink(i)
-					local isCraftingReagent
-					if link then  -- Link is not present on coins
-						 isCraftingReagent = select(17, GetItemInfo(link))
-					end
-					if not (isQuestItem or isCraftingReagent) then -- Ignore quest and crafting items
-						self:Debug("Adding to self.lootSlotInfo",i,link, quality)
-						self.lootSlotInfo[i] = {
-							name = name,
-							link = link, -- This could be nil, if the item is money.
-							quantity = quantity,
-							quality = quality,
-							guid = self.Utils:ExtractCreatureID((GetLootSourceInfo(i))), -- Boss GUID
-							boss = (GetUnitName("target")),
-						}
-					end
-				else -- It's possible that item in the loot window is uncached. Retry in the next frame.
-					self:Debug("Loot uncached when the loot window is opened. Retry in the next frame.", link)
-					self.LootOpenScheduled = true
-					-- Must offer special argument as 2nd argument to indicate this is run from scheduler.
-					return self:ScheduleTimer("OnEvent", 0, "LOOT_OPENED", "scheduled")
-				end
-			end
-		end
-		if self.isMasterLooter then
-			self:GetActiveModule("masterlooter"):OnLootOpen()
-		end
+		-- if not IsInInstance() then return end -- Don't do anything out of instances
+		-- -- self:Debug("GetUnitName:", GetUnitName("target"))
+		-- -- self:Debug("UnitGUID:", UnitGUID("target"))
+		-- if select(1, ...) ~= "scheduled" and self.LootOpenScheduled then return end -- When this function is scheduled to run again, but LOOT_OPENDED event fires, return.
+		-- self.LootOpenScheduled = false
+		-- wipe(self.lootSlotInfo)
+		-- if GetNumLootItems() <= 0 then return end-- In case when function rerun, loot window is closed.
+		--
+		-- self.lootOpen = true
+		-- for i = 1,  GetNumLootItems() do
+		-- 	if LootSlotHasItem(i) then
+		-- 		local texture, name, quantity, _, quality, _, isQuestItem = GetLootSlotInfo(i)
+		-- 		if texture then
+		-- 			local link = GetLootSlotLink(i)
+		-- 			local isCraftingReagent
+		-- 			if link then  -- Link is not present on coins
+		-- 				 isCraftingReagent = select(17, GetItemInfo(link))
+		-- 			end
+		-- 			if not (isQuestItem or isCraftingReagent) then -- Ignore quest and crafting items
+		-- 				self:Debug("Adding to self.lootSlotInfo",i,link, quality)
+		-- 				self.lootSlotInfo[i] = {
+		-- 					name = name,
+		-- 					link = link, -- This could be nil, if the item is money.
+		-- 					quantity = quantity,
+		-- 					quality = quality,
+		-- 					guid = self.Utils:ExtractCreatureID((GetLootSourceInfo(i))), -- Boss GUID
+		-- 					boss = (GetUnitName("target")),
+		-- 				}
+		-- 			end
+		-- 		else -- It's possible that item in the loot window is uncached. Retry in the next frame.
+		-- 			self:Debug("Loot uncached when the loot window is opened. Retry in the next frame.", link)
+		-- 			self.LootOpenScheduled = true
+		-- 			-- Must offer special argument as 2nd argument to indicate this is run from scheduler.
+		-- 			return self:ScheduleTimer("OnEvent", 0, "LOOT_OPENED", "scheduled")
+		-- 		end
+		-- 	end
+		-- end
+		-- if self.isMasterLooter then
+		-- 	self:GetActiveModule("masterlooter"):OnLootOpen()
+		-- end
 	elseif event == "LOOT_CLOSED" then
 		if not IsInInstance() then return end -- Don't do anything out of instances
 		self:Debug("Event:", event, ...)
 		local i = 0
 		for k, info in pairs(self.lootSlotInfo) do
-			if not info.isLooted then
+			if not info.isLooted and info.guid and info.link then
+				if info.autoloot then -- We've looted the item without getting LOOT_SLOT_CLEARED, properly due to FastLoot addons
+					return self:OnEvent("LOOT_SLOT_CLEARED", k), self:OnEvent("LOOT_CLOSED")
+				end
 				self:SendCommand("group", "fakeLoot", info.link, info.guid)
+
 				return
 			end
-			i = k
+			i = k -- Only update if we have items
 		end
 		-- Otherwise they've looted everything, so send ack
 		if i ~= 0 then -- We're not guaranteed to have something stored
@@ -2005,6 +2029,41 @@ function RCLootCouncil:OnEvent(event, ...)
 		-- 	self:ScheduleTimer("UpdateAndSendRecentTradableItem", 2, select(3,...))
 		-- end
 
+	elseif event == "LOOT_READY" then
+		self:Debug("Event:", event, ...)
+		if not IsInInstance() then return end -- Don't do anything out of instances
+		if GetNumLootItems() <= 0 then return end-- In case when function rerun, loot window is closed.
+		wipe(self.lootSlotInfo)
+		self.lootOpen = true
+		for i = 1,  GetNumLootItems() do
+			if LootSlotHasItem(i) then
+				local texture, name, quantity, _, quality, _, isQuestItem = GetLootSlotInfo(i)
+				if texture then
+					local link = GetLootSlotLink(i)
+					local isCraftingReagent
+					if link then  -- Link is not present on coins
+						 isCraftingReagent = select(17, GetItemInfo(link))
+					end
+					if not (isQuestItem or isCraftingReagent) then -- Ignore quest and crafting items
+						self:Debug("Adding to self.lootSlotInfo",i,link, quality, GetLootSourceInfo(i))
+						self.lootSlotInfo[i] = {
+							name = name,
+							link = link, -- This could be nil, if the item is money.
+							quantity = quantity,
+							quality = quality,
+							guid = self.Utils:ExtractCreatureID((GetLootSourceInfo(i))), -- Boss GUID
+							boss = (GetUnitName("target")),
+							autoloot = select(1,...),
+						}
+					end
+				else -- It's possible that item in the loot window is uncached. Retry in the next frame.
+					self:Debug("Loot uncached when the loot window is opened. Retry in the next frame.", name)
+					self.LootOpenScheduled = true
+					-- Must offer special argument as 2nd argument to indicate this is run from scheduler.
+					return self:ScheduleTimer("OnEvent", 0, "LOOT_OPENED", "scheduled")
+				end
+			end
+		end
 	else
 		self:Debug("NonHandled Event:", event, ...)
 	end
@@ -2015,6 +2074,8 @@ function RCLootCouncil:NewMLCheck()
 	local old_lm = self.lootMethod
 	self.isMasterLooter, self.masterLooter = self:GetML()
 	self.lootMethod = GetLootMethod()
+	local instance_type = select(2, IsInInstance())
+	if instance_type == "pvp" or instance_type == "arena" then return end -- Don't do anything here
 	if self.masterLooter and self.masterLooter ~= "" and (strfind(self.masterLooter, "Unknown") or strfind(self.masterLooter:lower(), _G.UNKNOWNOBJECT:lower())) then
 		-- ML might be unknown for some reason
 		self:Debug("Unknown ML")
@@ -2279,36 +2340,19 @@ function RCLootCouncil:UpdateHistoryDB()
 	historyDB = self:GetHistoryDB()
 end
 
-function RCLootCouncil:GetAnnounceChannel(channel)
-	return channel == "group" and (IsInRaid() and "RAID" or "PARTY") or channel
-end
-
-function RCLootCouncil:GetItemIDFromLink(link)
-	return tonumber(strmatch(link or "", "item:(%d+):"))
-end
-
-function RCLootCouncil:GetItemStringFromLink(link)
-	return strmatch(link or "", "(item:.-):*|h") -- trim trailing colons
-end
-
-function RCLootCouncil:GetItemNameFromLink(link)
-	return strmatch(link or "", "%[(.+)%]")
-end
-
-function RCLootCouncil:GetItemStringClean(link)
-	return gsub(self:GetItemStringFromLink(link), "item:", "")
-end
-
 -- The link of same item generated from different players, or if two links are generated between player spec switch, are NOT the same
--- This function compares link with link level and spec ID removed.
+-- This function compares the raw item strings with link level and spec ID removed.
 -- Also compare with unique id removed, because wowpedia says that:
 -- "In-game testing indicates that the UniqueId can change from the first loot to successive loots on the same item."
 -- Although log shows item in the loot actually has no uniqueId in Legion, but just in case Blizzard changes it in the future.
 -- @return true if two items are the same item
 function RCLootCouncil:ItemIsItem(item1, item2)
 	if type(item1) ~= "string" or type(item2) ~= "string" then return item1 == item2 end
-	local pattern = "|Hitem:(%d*):(%d*):(%d*):(%d*):(%d*):(%d*):(%d*):%d*:%d*:%d*"
-	local replacement = "|Hitem:%1:%2:%3:%4:%5:%6:%7:::" -- Compare link with uniqueId, linkLevel and SpecID removed
+	item1 = self.Utils:GetItemStringFromLink(item1)
+	item2 = self.Utils:GetItemStringFromLink(item2)
+	if not (item1 and item2) then return false end -- KeyStones will fail the GetItemStringFromLink
+	local pattern = "item:(%d*):(%d*):(%d*):(%d*):(%d*):(%d*):(%d*):%d*:%d*:%d*"
+	local replacement = "item:%1:%2:%3:%4:%5:%6:%7:::" -- Compare link with uniqueId, linkLevel and SpecID removed
 	return item1:gsub(pattern, replacement) == item2:gsub(pattern, replacement)
 end
 
@@ -2559,10 +2603,6 @@ function RCLootCouncil:GetUnitClassColoredName(name)
 	end
 end
 
-function RCLootCouncil:RGBToHex(r,g,b)
-	return string.format("%02x%02x%02x",255*r, 255*g, 255*b)
-end
-
 --- Creates a standard frame for RCLootCouncil with title, minimizing, positioning and scaling supported.
 --		Adds Minimize(), Maximize() and IsMinimized() functions on the frame, and registers it for hide on combat.
 --		SetWidth/SetHeight called on frame will also be called on frame.content.
@@ -2588,7 +2628,7 @@ function RCLootCouncil:CreateFrame(name, cName, title, width, height)
 	f:MakeDraggable()
 	f:SetScript("OnMouseWheel", function(f,delta) if IsControlKeyDown() then lwin.OnMouseWheel(f,delta) end end)
 
-	local tf = CreateFrame("Frame", nil, f)
+	local tf = CreateFrame("Frame", "RC_UI_"..cName.."_Title", f)
 	--tf:SetFrameStrata("DIALOG")
 	tf:SetToplevel(true)
 	tf:SetBackdrop({
@@ -2628,7 +2668,7 @@ function RCLootCouncil:CreateFrame(name, cName, title, width, height)
 	tf.text = text
 	f.title = tf
 
-	local c = CreateFrame("Frame", nil, f) -- frame that contains the actual content
+	local c = CreateFrame("Frame", "RC_UI_"..cName.."_Content", f) -- frame that contains the actual content
 	c:SetBackdrop({
 	     --bgFile = "Interface\\DialogFrame\\UI-DialogBox-Gold-Background",
 		  --   bgFile = AceGUIWidgetLSMlists.background[db.UI.default.background],
@@ -2790,19 +2830,6 @@ function RCLootCouncil:HideTooltip()
 		self.tooltip.showing = false
 	end
 	GameTooltip:Hide()
-end
-
-function RCLootCouncil:GetItemTextWithCount(link, count)
-	return link..(count and count > 1 and (" x"..count) or "")
-end
-
-function RCLootCouncil:GetItemLevelText(ilvl, token)
-	if not ilvl then return "" end
-	if token and ilvl > 600 then -- Armor token warforged is introduced since WoD
-		return ilvl.."+"
-	else
-		return ilvl
-	end
 end
 
 local itemStatsRet = {}
@@ -3080,4 +3107,48 @@ function RCLootCouncil:UpdateLootHistory()
 		end
 	end
 	self:Print("Done")
+end
+
+----------------------------------
+-- The following functions have been moved to RCLootCouncil.Utils
+-- and are now deprecated.
+---------------------------------
+function RCLootCouncil:RGBToHex(r,g,b)
+	return self.Utils:RGBToHex(r,g,b)
+end
+
+function RCLootCouncil:GetAnnounceChannel(channel)
+	return self.Utils:GetAnnounceChannel(channel)
+end
+
+function RCLootCouncil:GetItemIDFromLink(link)
+	return self.Utils:GetItemIDFromLink(link)
+end
+
+function RCLootCouncil:GetItemStringFromLink(link)
+	return self.Utils:GetItemStringFromLink(link)
+end
+
+function RCLootCouncil:GetItemNameFromLink(link)
+	return self.Utils:GetItemNameFromLink(link)
+end
+
+function RCLootCouncil:GetItemStringClean(link)
+	return self.Utils:GetItemStringClean(link)
+end
+
+function RCLootCouncil:GetItemTextWithCount(link, count)
+	return self.Utils:GetItemTextWithCount(link, count)
+end
+
+function RCLootCouncil:GetItemLevelText(ilvl, token)
+	return self.Utils:GetItemLevelText(ilvl, token)
+end
+
+function RCLootCouncil:GetPlayerRole()
+	return self.Utils:GetPlayerRole()
+end
+
+function RCLootCouncil:TranslateRole(role)
+	return self.Utils:TranslateRole(role)
 end

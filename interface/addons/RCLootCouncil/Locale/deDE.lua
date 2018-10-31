@@ -29,8 +29,7 @@ Klicke auf die Ränge auf der linken Seite, um einzelne Spieler dem Rat hinzuzuf
 
 Klicke auf den Reiter Aktueller Rat, um deine Auswahl zu sehen.]=]
 L["add_rolls_desc"] = "Allen Sessions automatisch einen Zufallswurf von 1 bis 100 hinzufügen."
---[[Translation missing --]]
---[[ L["Additional Buttons"] = ""--]] 
+L["Additional Buttons"] = "Zusätzliche Buttons"
 L["All items"] = "Alle Gegenstände"
 --[[Translation missing --]]
 --[[ L["All items have been awarded and the loot session concluded"] = ""--]] 
@@ -142,8 +141,12 @@ L["Change Response"] = "Antwort ändern"
 L["Changing loot threshold to enable Auto Awarding"] = "Die Plünderschwelle verändert sich, um automatische Vergabe zu aktivieren"
 L["Changing LootMethod to Master Looting"] = "Die Plündermethode wird auf Plündermeister geändert"
 L["channel_desc"] = "Der Kanal, in den die Nachricht gesendet wird."
+--[[Translation missing --]]
+--[[ L["Chat print"] = ""--]] 
 L["chat tVersion string"] = "|cFF87CEFARCLootCouncil |cFFFFFFFFVersion |cFFFFA500 %s - %s"
 L["chat version String"] = "|cFF87CEFARCLootCouncil |cFFFFFFFFVersion |cFFFFA500 %s"
+--[[Translation missing --]]
+--[[ L["chat_cmd_add_invalid_owner"] = ""--]] 
 L["chat_commands_add"] = "Gegenstand zur Sitzung hinzufügen"
 L["chat_commands_award"] = [=[Sitzung mit geplünderten Gegenständen aus dem Inventar starten
 ]=]
@@ -235,8 +238,7 @@ L["ignore_input_usage"] = "Diese Funktion akzeptiert nur Gegenstands-IDs (Nummer
 L["ignore_list_desc"] = "Gegenstände, die RCLootCouncil ignoriert. Klicke auf einen Gegenstand, um ihn zu entfernen."
 L["ignore_options_desc"] = "Steuere, welche Gegenstände RCLootCouncil ignorieren soll. Wenn du einen Gegenstand hinzufügst, der nicht zwischengespeichert ist, musst du in einen anderen Reiter wechseln und zurück, bevor du ihn in der Liste siehst. "
 L["import_desc"] = "Daten hier einfügen. Es werden nur die ersten 2500 Zeichen angezeigt, damit das Spiel stabil bleibt."
---[[Translation missing --]]
---[[ L["Invalid selection"] = ""--]] 
+L["Invalid selection"] = "Ungültige Auswahl"
 L["Item"] = "Gegenstand"
 L["'Item' is added to the award later list."] = "%s wurde der \"Später vergeben\"-Liste hinzugefügt."
 L["Item quality is below the loot threshold"] = "Die Gegenstandsqualität liegt unterhalb der Plünderschwelle"
@@ -260,15 +262,13 @@ Die Rohdaten werden in ".../SavedVariables/RCLootCouncil.lua" gespeichert.
 
 Hinweis: Nicht-Plündermeister können nur Daten speichern, die vom Plündermeister gesendet wurden.
 ]=]
---[[Translation missing --]]
---[[ L["Looted by:"] = ""--]] 
+L["Looted by:"] = "Geplündert von:"
 L["Looting options"] = "Plünderoptionen"
 L["Lower Quality Limit"] = "Untere Qualitätsgrenze"
 L["lower_quality_limit_desc"] = [=[Wähle die untere Qualitätsgrenze der Gegenstände, die automatisch vergeben werden (Diese Qualität inbegriffen!).
 Hinweis: Dies überschreibt die normale Plünderschwelle.]=]
 L["Mainspec/Need"] = "Hauptspezialisierung/Bedarf"
---[[Translation missing --]]
---[[ L["Mass deletion of history entries."] = ""--]] 
+L["Mass deletion of history entries."] = "Massenlöschung von Historieneinträgen."
 L["Master Looter"] = "Plündermeister"
 L["master_looter_desc"] = "Hinweis: Diese Einstellungen werden nur genutzt, wenn du der Plündermeister bist."
 L["Message"] = "Nachricht"
@@ -295,12 +295,9 @@ L["No items to award later registered"] = "Keine Gegenstände wurden zur später
 L["No recipients available"] = "Kein Empfänger verfügbar."
 L["No session running"] = "Es läuft keine Sitzung."
 L["No winners registered"] = "Keine Gewinner wurden registriert"
---[[Translation missing --]]
---[[ L["non_tradeable_reason_nil"] = ""--]] 
---[[Translation missing --]]
---[[ L["non_tradeable_reason_not_tradeable"] = ""--]] 
---[[Translation missing --]]
---[[ L["non_tradeable_reason_rejected_trade"] = ""--]] 
+L["non_tradeable_reason_nil"] = "Unbekannt"
+L["non_tradeable_reason_not_tradeable"] = "Nicht handelbar"
+L["non_tradeable_reason_rejected_trade"] = "Wollte den Gegenstand behalten"
 --[[Translation missing --]]
 --[[ L["Non-tradeable reason:"] = ""--]] 
 L["Not announced"] = [=[Nicht angekündigt
@@ -332,14 +329,13 @@ L["Opens the synchronizer"] = "Öffnet den Synchronisierer"
 --[[ L["opt_addButton_desc"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["opt_buttonsGroup_desc"] = ""--]] 
---[[Translation missing --]]
---[[ L["opt_deleteDate_confirm"] = ""--]] 
+L["opt_deleteDate_confirm"] = [=[Bist du sicher, dass du alles, das älter als das gewählte ist, löschen möchtest?
+Dies kann nicht rückgängig gemacht werden.]=]
 --[[Translation missing --]]
 --[[ L["opt_deleteDate_desc"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["opt_deleteName_confirm"] = ""--]] 
---[[Translation missing --]]
---[[ L["opt_deleteName_desc"] = ""--]] 
+L["opt_deleteName_desc"] = "Löscht alle Einträge des gewählten Kandidaten."
 --[[Translation missing --]]
 --[[ L["opt_deletePatch_confirm"] = ""--]] 
 --[[Translation missing --]]
@@ -367,7 +363,7 @@ L["'player' has asked you to reroll"] = "%s bittet dich erneut zu würfeln"
 L["'player' has ended the session"] = "%s hat die Sitzung beendet."
 L["'player' has rolled 'roll' for: 'item'"] = "%s hat %d für %s gewürfelt."
 L["'player' hasn't opened the sync window"] = "%s hat das Synchronisierungsfenster nicht geöffnet (/rc sync)"
-L["Player is ineligible for this item"] = "Spieler ist für diesen Gegenstand nicht geegnet"
+L["Player is ineligible for this item"] = "Spieler ist für diesen Gegenstand nicht geeignet"
 L["Player is not in the group"] = "Spieler ist nicht in der Gruppe."
 L["Player is not in this instance"] = "Spieler befindet sich nicht in dieser Instanz"
 L["Player is offline"] = "Spieler ist offline."
@@ -442,8 +438,7 @@ L["sort_items_desc"] = "Sortiere Session nach Gegenstandstyp und -stufe."
 L["Standard .csv output."] = "Standard"
 L["Status texts"] = "Statustexte"
 L["Store in bag and award later"] = "In der Tasche lagern und später verteilen"
---[[Translation missing --]]
---[[ L["Succesfully deleted %d entries"] = ""--]] 
+L["Succesfully deleted %d entries"] = "%d Einträge erfolgreich gelöscht"
 --[[Translation missing --]]
 --[[ L["Succesfully deleted %d entries from %s"] = ""--]] 
 L["Successfully imported 'number' entries."] = "%d Einträge wurden erfolgreich importiert."
@@ -500,6 +495,8 @@ L["Total items received:"] = "Insgesamt erhaltene Gegenstände:"
 L["Total items won:"] = "Insgesamt gewonnene Gegenstände:"
 --[[Translation missing --]]
 --[[ L["trade_complete_message"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["trade_item_to_trade_not_found"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["trade_wrongwinner_message"] = ""--]] 
 L["tVersion_outdated_msg"] = "Die neueste RCLootCouncil-Testversion ist: %s"

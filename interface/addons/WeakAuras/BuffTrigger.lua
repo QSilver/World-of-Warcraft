@@ -6,11 +6,11 @@ It registers the BuffTrigger table for the trigger type "aura" and has the follo
 Add(data)
 Adds an aura, setting up internal data structures for all buff triggers.
 
-LoadDisplay(id)
-Loads the aura id, enabling all buff triggers in the aura.
+LoadDisplays(id)
+Loads the aura ids, enabling all buff triggers in the aura.
 
-UnloadDisplay(id)
-Unloads the aura id, disabling all buff triggers in the aura.
+UnloadDisplays(id)
+Unloads the aura ids, disabling all buff triggers in the aura.
 
 UnloadAll()
 Unloads all auras, disabling all buff triggers.
@@ -30,10 +30,6 @@ Updates all buff triggers in data.
 #####################################################
 # Helper functions mainly for the WeakAuras Options #
 #####################################################
-
-CanGroupShowWithZero(data, triggernum)
-Returns whether the first trigger could be shown without any affected group members.
-If that is the case no automatic icon can be determined. Only used by the options dialog.
 
 CanHaveDuration(data, triggernum)
 Returns whether the trigger can have a duration.
@@ -627,7 +623,6 @@ function WeakAuras.ScanAuras(unit)
 
             for index, checkname in pairs(data.names) do
               -- Fetch aura data
-              -- TODO 8.0: Check if there is a better way than iterating all auras
               local detected
               for i = 1, BUFF_MAX_DISPLAY do
                 name, icon, count, _, duration, expirationTime, unitCaster, isStealable, _, spellId = UnitAura(unit, i, filter);
@@ -1053,8 +1048,6 @@ do
       local updateTriggerState = false;
       for triggernum, data in pairs(triggers) do
         local filter = data.debuffType..(data.ownOnly and "|PLAYER" or "");
-
-        -- TODO 8.0: Check if there is a better way than iterating all auras
         local detected
         local name, icon, count, duration, expirationTime, unitCaster, spellId, _
         for i = 1, BUFF_MAX_DISPLAY do
@@ -1234,7 +1227,6 @@ do
             for triggernum, data in pairs(triggers) do
               local filter = data.debuffType..(data.ownOnly and "|PLAYER" or "");
 
-              -- TODO 8.0: Check if there is a better way than iterating all auras
               local detected
               local name, icon, count, duration, expirationTime, unitCaster, _
               for i = 1, BUFF_MAX_DISPLAY do
@@ -1371,17 +1363,23 @@ end
 
 local frame = CreateFrame("FRAME");
 WeakAuras.frames["WeakAuras Buff Frame"] = frame;
+frame:RegisterEvent("PLAYER_ENTERING_WORLD");
 frame:RegisterEvent("PLAYER_FOCUS_CHANGED");
 frame:RegisterEvent("PLAYER_TARGET_CHANGED");
 frame:RegisterEvent("INSTANCE_ENCOUNTER_ENGAGE_UNIT");
 frame:RegisterEvent("UNIT_AURA");
+frame:RegisterUnitEvent("UNIT_PET", "player")
 frame:SetScript("OnEvent", function (frame, event, arg1, arg2, ...)
   WeakAuras.StartProfileSystem("bufftrigger");
   if (WeakAuras.IsPaused()) then return end;
-  if(event == "PLAYER_TARGET_CHANGED") then
+  if (event == "PLAYER_ENTERING_WORLD") then
+    BuffTrigger.ScanAll();
+  elseif(event == "PLAYER_TARGET_CHANGED") then
     WeakAuras.ScanAuras("target");
   elseif(event == "PLAYER_FOCUS_CHANGED") then
     WeakAuras.ScanAuras("focus");
+  elseif(event == "UNIT_PET") then
+    WeakAuras.ScanAuras("pet");
   elseif(event == "INSTANCE_ENCOUNTER_ENGAGE_UNIT") then
     for unit,_ in pairs(specificBosses) do
       WeakAuras.ScanAuras(unit);
@@ -1423,20 +1421,28 @@ function BuffTrigger.UnloadAll()
   wipe(loaded_auras);
 end
 
-function BuffTrigger.LoadDisplay(id)
-  if(auras[id]) then
-    for triggernum, data in pairs(auras[id]) do
-      if(auras[id] and auras[id][triggernum]) then
-        LoadAura(id, triggernum, data);
+function BuffTrigger.LoadDisplays(toLoad)
+  for id in pairs(toLoad) do
+    if(auras[id]) then
+      for triggernum, data in pairs(auras[id]) do
+        if(auras[id] and auras[id][triggernum]) then
+          LoadAura(id, triggernum, data);
+        end
       end
     end
   end
 end
 
-function BuffTrigger.UnloadDisplay(id)
-  for unitname, auras in pairs(loaded_auras) do
-    auras[id] = nil;
+function BuffTrigger.UnloadDisplays(toUnload)
+  for id in pairs(toUnload) do
+    for unitname, auras in pairs(loaded_auras) do
+      auras[id] = nil;
+    end
   end
+end
+
+function BuffTrigger.FinishLoadUnload()
+  BuffTrigger.ScanAll();
 end
 
 --- Removes all data for an aura id
@@ -1630,7 +1636,7 @@ end
 -- @param data
 -- @param triggernum
 -- @return boolean
-function BuffTrigger.CanGroupShowWithZero(data, triggernum)
+local function CanGroupShowWithZero(data, triggernum)
   local trigger = data.triggers[triggernum].trigger
   local group_countFunc, group_countFuncStr;
   if(trigger.unit == "group") then
@@ -1804,7 +1810,7 @@ function BuffTrigger.GetNameAndIcon(data, triggernum)
   else
     if (trigger.spellIds and trigger.spellIds[1]) then
       name, _, icon = GetSpellInfo(trigger.spellIds[1])
-    elseif(not (trigger.buffShowOn == "showOnMissing" or BuffTrigger.CanGroupShowWithZero(data, triggernum)) and trigger.names) then
+    elseif(not (trigger.buffShowOn == "showOnMissing" or CanGroupShowWithZero(data, triggernum)) and trigger.names) then
       -- Try to get an icon from the icon cache
       for index, checkname in pairs(trigger.names) do
         local iconFromSpellCache = WeakAuras.spellCache.GetIcon(checkname);
@@ -1859,14 +1865,16 @@ function BuffTrigger.GetTriggerConditions(data, triggernum)
     type = "string"
   }
 
-  if (trigger.type == "aura" and not(trigger.unit ~= "group" and trigger.autoclone) and trigger.unit ~= "multi" and not(trigger.unit == "group" and not trigger.groupclone)) then
-    result["buffed"] = {
-      display = L["Buffed/Debuffed"],
-      type = "bool",
-      test = function(state, needle)
-        return state and state.show and ((state.active and true or false) == (needle == 1));
-      end
-    }
+  if (trigger.type == "aura" and not(trigger.unit ~= "group" and trigger.fullscan and trigger.autoclone) and trigger.unit ~= "multi" and not(trigger.unit == "group" and not trigger.groupclone)) then
+    if (trigger.buffShowOn == "showAlways") then
+      result["buffed"] = {
+        display = L["Buffed/Debuffed"],
+        type = "bool",
+        test = function(state, needle)
+          return state and state.show and ((state.active and true or false) == (needle == 1));
+        end
+      }
+    end
   end
 
   return result;
@@ -1878,6 +1886,34 @@ function BuffTrigger.CreateFallbackState(data, triggernum, state)
   state.progressType = "timed";
   state.duration = 0;
   state.expirationTime = math.huge;
+end
+
+function BuffTrigger.GetName(triggerType)
+  if (triggerType == "aura") then
+    return L["Legacy Aura"];
+  end
+end
+
+function BuffTrigger.GetTriggerDescription(data, triggernum, namestable)
+  local trigger = data.triggers[triggernum].trigger;
+  if(trigger.fullscan) then
+    tinsert(namestable, {L["Aura:"], L["Full Scan"]});
+  else
+    for index, name in pairs(trigger.names) do
+      local left = " ";
+      if(index == 1) then
+        if(#trigger.names > 0) then
+          if(#trigger.names > 1) then
+            left = L["Auras:"];
+          else
+            left = L["Aura:"];
+          end
+        end
+      end
+      local icon = WeakAuras.spellCache.GetIcon(name) or "Interface\\Icons\\INV_Misc_QuestionMark";
+      tinsert(namestable, {left, name, icon});
+    end
+  end
 end
 
 WeakAuras.RegisterTriggerSystem({"aura"}, BuffTrigger);

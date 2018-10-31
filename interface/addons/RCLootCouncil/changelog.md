@@ -1,3 +1,44 @@
+### v2.9.3
+---
+* **Loot Status**  
+* Added a display of whom have looted the boss to the voting frame.
+
+
+* **Add command**
+* The "/rc add" command have been extended to optionally include a player name.
+* Simply type the name of a group member before any items you add.
+* Unless invalid, that player will be added as the owner of the item, which will allow the TradeUI to do it's thing.
+* Note: You must add a space after the player name.
+
+
+* **Moveable buttons options**
+* Buttons and responses can now be moved up/down in the options menu to easily change their order.
+* This can also be done on the "Award Reasons".
+
+
+
+### v2.9.2
+---
+###### Bugfixes
+* *Fixed issue with dropdown menus that had sneaked in at the last minute.*
+
+
+### v2.9.1
+---
+
+* Added local chat print option to all announcements.
+* Added a custom number of days input to loot history mass deletion.
+
+
+###### Bugfixes
+* *BoE items are now no longer added to sessions when the option is turned off.*
+* *Disabled all ML registrations in pvp (#354).*
+* *Added a patch and fix for Blizzards and others taint of dropdown menus (#358, #361, #366).*
+* *Wands and other weapons are now correctly identified as MainHand weapons (#368).*
+* *The TradeUI will now be shown if using a different locale than the ML (#370).*
+
+
+
 ### v2.9.0
 ---
 * **Appearance**

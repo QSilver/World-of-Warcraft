@@ -16,11 +16,15 @@ mod.respawnTime = 30
 local omegaList = {}
 local omegaMarker = {false, false, false, false}
 local omegaIconMax = mod:Mythic() and 4 or 3
+local omegaCountMythic = 0
+local omegaMythicPreventIconsByGroup = false
+local omegaMythicIconTracker = {}
 local pathogenBombCount = 1
 local contagionCount = 1
 local immunosuppressionCount = 1
 local nextLiquify = 0
 local lingeringInfectionList = {}
+local lingeringInfectionStacks = 0
 local omegaVectorDuration = nil
 
 local nameList = {}
@@ -43,7 +47,7 @@ function mod:GetOptions()
 		265217, -- Liquefy
 		266459, -- Plague Bomb
 		-- Mythic
-		{274990, "FLASH"}, -- Bursting Lesions
+		{274990, "FLASH", "PROXIMITY"}, -- Bursting Lesions
 	},{
 		[265143] = "general",
 		[274990] = CL.mythic,
@@ -69,15 +73,20 @@ function mod:OnBossEnable()
 
 	-- Mythic
 	self:Log("SPELL_AURA_APPLIED", "BurstingLesionsApplied", 274990)
+	self:Log("SPELL_AURA_REMOVED", "BurstingLesionsRemoved", 274990)
 end
 
 function mod:OnEngage()
 	omegaList = {}
 	lingeringInfectionList = {}
+	lingeringInfectionStacks = 0
 	omegaMarker = {false, false, false, false}
 	contagionCount = 1
 	omegaVectorDuration = nil
 	omegaIconMax = self:Mythic() and 4 or 3
+	omegaCountMythic = 0
+	omegaMythicIconTracker = {}
+	omegaMythicPreventIconsByGroup = false
 
 	self:Bar(267242, 20.5, CL.count:format(self:SpellName(267242), contagionCount)) -- Contagion
 	self:Bar(265212, 10) -- Gestate
@@ -148,7 +157,7 @@ do
 						local elap = t - vector
 						local duration = omegaVectorDuration or 10
 						local remaining = duration - elap
-						if IsItemInRange(63427, n) then -- Worgsaw, 8yd
+						if IsItemInRange(37727, n) then -- Ruby Acorn, 5yd
 							mod:SetInfoBar(265127, i, remaining/duration, 0, 0, 1)
 						else
 							mod:SetInfoBar(265127, i, remaining/duration)
@@ -207,14 +216,62 @@ function mod:OmegaVectorApplied(args)
 		end
 	end
 
+	if self:Mythic() and not omegaMythicPreventIconsByGroup then -- We *try* to restrict markers to specific groups on mythic
+		omegaCountMythic = omegaCountMythic + 1
+		if omegaCountMythic > 4 then -- First 4 random applications
+			local index = UnitInRaid(args.destName)
+			if omegaCountMythic < 9 then -- Between application 5-8 is when we scan what icon will be assigned to what group
+				if not index then -- Something went wrong
+					omegaMythicPreventIconsByGroup = true
+				elseif index < 6 then -- Group 1
+					if omegaMythicIconTracker[1] then -- Something went wrong or not using group tactic
+						omegaMythicPreventIconsByGroup = true
+					else
+						omegaMythicIconTracker[1] = icon
+					end
+				elseif index < 11 then -- Group 2
+					if omegaMythicIconTracker[2] then -- Something went wrong or not using group tactic
+						omegaMythicPreventIconsByGroup = true
+					else
+						omegaMythicIconTracker[2] = icon
+					end
+				elseif index < 16 then -- Group 3
+					if omegaMythicIconTracker[3] then -- Something went wrong or not using group tactic
+						omegaMythicPreventIconsByGroup = true
+					else
+						omegaMythicIconTracker[3] = icon
+					end
+				else -- Group 4
+					if omegaMythicIconTracker[4] then -- Something went wrong or not using group tactic
+						omegaMythicPreventIconsByGroup = true
+					else
+						omegaMythicIconTracker[4] = icon
+					end
+				end
+			else -- Application 9 or above, we can now set icon by group
+				if not index then
+					-- Fall back to normal icon setting
+				elseif index < 6 then -- Group 1
+					icon = omegaMythicIconTracker[1]
+				elseif index < 11 then -- Group 2
+					icon = omegaMythicIconTracker[2]
+				elseif index < 16 then -- Group 3
+					icon = omegaMythicIconTracker[3]
+				else -- Group 4
+					icon = omegaMythicIconTracker[4]
+				end
+			end
+		end
+	end
+
 	if self:GetOption(omegaVectorMarker) and icon then
 		SetRaidTarget(args.destName, icon)
 	end
 
 	if self:Me(args.destGUID) then
-		self:TargetMessage2(265143, "blue", args.destName)
+		self:PersonalMessage(265143, nil, icon and CL.count_icon:format(args.spellName, icon, icon) or nil)
 		self:PlaySound(265143, "alarm")
-		self:SayCountdown(265143, omegaVectorDuration or 10) -- duration based on raid size
+		self:SayCountdown(265143, omegaVectorDuration or 10, icon) -- duration based on raid size
 	end
 end
 
@@ -236,7 +293,7 @@ function mod:OmegaVectorRemoved(args)
 
 	if self:GetOption(omegaVectorMarker) then
 		-- Either remove the mark or update it to the next debuff
-		SetRaidTarget(args.destName, icon)
+		SetRaidTarget(args.destName, self:Mythic() and 0 or icon)
 	end
 
 	if self:Me(args.destGUID) and icon == 0 then
@@ -245,8 +302,16 @@ function mod:OmegaVectorRemoved(args)
 end
 
 function mod:LingeringInfection(args)
-	lingeringInfectionList[args.destName] = args.amount or 1
+	local amount = args.amount or 1
+	lingeringInfectionList[args.destName] = amount
 	self:SetInfoByTable(args.spellId, lingeringInfectionList)
+	if self:Mythic() and self:Me(args.destGUID) then -- Check if we have to warn for high stacks in Mythic
+		lingeringInfectionStacks = amount
+		if amount >= 6 then
+			self:StackMessage(args.spellId, args.destName, amount, "blue")
+			self:PlaySound(args.spellId, "warning")
+		end
+	end
 end
 
 function mod:EvolvingAffliction(args)
@@ -261,12 +326,15 @@ function mod:EvolvingAfflictionApplied(args)
 end
 
 function mod:Contagion(args)
-	self:Message(args.spellId, "orange", nil, CL.count:format(args.spellName, contagionCount))
+	self:Message2(args.spellId, "orange", CL.count:format(args.spellName, contagionCount))
 	self:PlaySound(args.spellId, "alarm")
 	contagionCount = contagionCount + 1
-	local timer = 23.1
+	local timer = 23.1 -- up to 24.6s
 	if nextLiquify > GetTime() + timer then
-		self:Bar(args.spellId, timer, CL.count:format(args.spellName, contagionCount))
+		self:CDBar(args.spellId, timer, CL.count:format(args.spellName, contagionCount))
+	end
+	if self:Mythic() and lingeringInfectionStacks >= 6 then -- No special effects under 6 stacks and below Mythic difficulty
+		self:OpenProximity(274990, 5) -- Bursting Lesions
 	end
 end
 
@@ -276,10 +344,10 @@ function mod:Gestate(args)
 		self:CDBar(265212, timer)
 	end
 	if self:Me(args.destGUID) then
-		self:PlaySound(265212, "alert")
 		self:Say(265212)
 	end
 	self:TargetMessage2(265212, "orange", args.destName)
+	self:PlaySound(265212, "alert", nil, args.destName)
 	self:PrimaryIcon(265212, args.destName)
 	immunosuppressionCount = 1
 	self:CDBar(265206, 6, CL.count:format(self:SpellName(265206), immunosuppressionCount)) -- Immunosuppression
@@ -290,7 +358,7 @@ function mod:GestateRemoved(args)
 end
 
 function mod:Immunosuppression(args)
-	self:Message(args.spellId, "orange", nil, CL.count:format(args.spellName, immunosuppressionCount))
+	self:Message2(args.spellId, "orange", CL.count:format(args.spellName, immunosuppressionCount))
 	self:PlaySound(args.spellId, "alarm")
 	immunosuppressionCount = immunosuppressionCount + 1
 	self:Bar(args.spellId, 9.7, CL.count:format(args.spellName, immunosuppressionCount))
@@ -301,7 +369,7 @@ function mod:PlagueAmalgamDeath()
 end
 
 function mod:Liquefy(args)
-	self:Message(args.spellId, "cyan", nil, CL.intermission)
+	self:Message2(args.spellId, "cyan", CL.intermission)
 	self:PlaySound(args.spellId, "long")
 	self:CastBar(args.spellId, 33)
 
@@ -314,19 +382,19 @@ function mod:Liquefy(args)
 end
 
 function mod:LiquefyRemoved(args)
-	self:Message(args.spellId, "cyan", nil, CL.over:format(CL.intermission))
+	self:Message2(args.spellId, "cyan", CL.over:format(CL.intermission))
 	self:PlaySound(args.spellId, "info")
 
-	self:Bar(265178, 5.5) -- Evolving Affliction
-	self:Bar(267242, 15.5) -- Contagion
-	self:Bar(265212, 19) -- Gestate
+	self:CDBar(265178, 8.5) -- Evolving Affliction, up to 10s
+	self:Bar(267242, 24.3, CL.count:format(self:SpellName(267242), contagionCount)) -- Contagion
+	self:Bar(265212, 15) -- Gestate
 
 	nextLiquify = GetTime() + 93
 	self:Bar(args.spellId, 93)
 end
 
 function mod:PlagueBomb(args)
-	self:Message(args.spellId, "red")
+	self:Message2(args.spellId, "red")
 	self:PlaySound(args.spellId, "warning")
 	pathogenBombCount = pathogenBombCount + 1
 	if pathogenBombCount < 3 then
@@ -336,8 +404,15 @@ end
 
 function mod:BurstingLesionsApplied(args)
 	if self:Me(args.destGUID) then
-		self:TargetMessage2(args.spellId, "blue", args.destName)
+		self:PersonalMessage(args.spellId)
 		self:PlaySound(args.spellId, "warning")
+		self:OpenProximity(args.spellId, 5)
 		self:Flash(args.spellId)
+	end
+end
+
+function mod:BurstingLesionsRemoved(args)
+	if self:Me(args.destGUID) then
+		self:CloseProximity(args.spellId)
 	end
 end

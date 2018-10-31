@@ -11,7 +11,7 @@ OmniCC4Config = {
 		}, -- [1]
 	},
 	["engine"] = "ScriptUpdater",
-	["version"] = "8.0.1",
+	["version"] = "8.0.9",
 	["groupSettings"] = {
 		["base"] = {
 			["enabled"] = true,
@@ -24,11 +24,11 @@ OmniCC4Config = {
 			["spiralOpacity"] = 1.00999997742474,
 			["scaleText"] = true,
 			["xOff"] = 0,
-			["tenthsDuration"] = 5.00000007450581,
+			["tenthsDuration"] = 5,
 			["fontOutline"] = "THICKOUTLINE",
 			["anchor"] = "CENTER",
-			["mmSSDuration"] = 900.000012516975,
-			["minDuration"] = 2.00000002980232,
+			["mmSSDuration"] = 900,
+			["minDuration"] = 2,
 			["styles"] = {
 				["soon"] = {
 					["a"] = 1,

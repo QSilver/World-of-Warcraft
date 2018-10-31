@@ -52,9 +52,11 @@ MOD.chargeSpells = {} -- table of spell ids with max charges
 MOD.petSpells = {} -- table of pet spell ids with a cooldown to track
 MOD.professionSpells = {} -- table of profession spell ids with a cooldown to track
 MOD.bookSpells = {} -- table of spells currently available in the spell book
+MOD.suppress = true -- this is set when certain special effects are to be disabled (e.g., at start up)
 
 local doUpdate = true -- set by any event that can change bars (used to throttle major updates)
 local forceUpdate = false -- set to cause immediate update (reserved for critical changes like to player's target or focus)
+local suppressTime = nil -- set when addon code is loaded
 local updateCooldowns = false -- set when actionbar or inventory slot cooldown starts or stops
 local units = {} -- list of units to track
 local mainUnits = { "player", "pet", "target", "focus", "targettarget", "focustarget", "pettarget", "mouseover" } -- ordered list of main units
@@ -144,6 +146,7 @@ function MOD:OnInitialize()
 	LoadAddOn("LibBossIDs-1.0", true)
 	MOD.MSQ = LibStub("Masque", true)
 	now = GetTime() -- start tracking time
+	suppressTime = now -- start suppression period for certain special effects
 end
 
 -- Print debug messages with variable number of arguments in a useful format
@@ -844,10 +847,15 @@ function MOD:Update(elapsed)
 	if elapsedTime < 0 then elapsedTime = elapsed else elapsedTime = elapsedTime + elapsed end -- timer for update cycles
 	if refreshTime < 0 then refreshTime = elapsed else refreshTime = refreshTime + elapsed end -- timer for refresh cycles
 	throttleTime = throttleTime + elapsed -- timer for things that need to happen about once per second
-	if throttleTime >= 1.0 then throttleTime = 0; doUpdate = true end -- equal to zero once per second
+	if throttleTime >= 1.0 then -- equal to zero once per second
+		throttleTime = 0; doUpdate = true
+		if not suppressTime or ((now - suppressTime) > 3) then MOD.suppress = false end -- suppress special effects for several seconds at start
+	end
+	
 	if MOD.db.profile.enabled then
 		if forceUpdate or (elapsedTime >= elapsedTarget) then -- limit update rate
-			forceUpdate = false; updateCounter = updateCounter + 1; refreshCounter = refreshCounter + 1
+			if forceUpdate then doUpdate = true; forceUpdate = false end
+			updateCounter = updateCounter + 1; refreshCounter = refreshCounter + 1
 			if not talentsInitialized then InitializeTalents() end -- retry until talents initialized
 			CheckTotemUpdates() -- check if totems have changed since last update
 			CheckMiscellaneousUpdates() -- check for update requirements that don't have events
@@ -949,16 +957,18 @@ end
 -- The returned table is only valid until the next call to MOD:CheckAura since it is reused each time
 function MOD:CheckAura(unit, name, isBuff)
 	table.wipe(matchTable)
-	unit = MOD:UnitStatusUpdate(unit)
-	if unit then
-		local auraTable = isBuff and activeBuffs[unit] or activeDebuffs[unit]
-		local auraCache = isBuff and cacheBuffs[unit] or cacheDebuffs[unit]
-		if auraTable then
-			if auraCache and auraCache[name] then
-				for _, b in pairs(auraTable) do if b[13] == name then SetAuraTimeLeft(b); matchTable[#matchTable + 1] = b end end
-			elseif string.find(name, "^#%d+") then -- check if name is in special format for specific spell id (i.e., #12345)
-				local id = tonumber(string.sub(name, 2)) -- extract the spell id
-				if id then for _, b in pairs(auraTable) do if b[14] == id then SetAuraTimeLeft(b); matchTable[#matchTable + 1] = b end end end			
+	if unit and name then 
+		unit = MOD:UnitStatusUpdate(unit)
+		if unit then
+			local auraTable = isBuff and activeBuffs[unit] or activeDebuffs[unit]
+			local auraCache = isBuff and cacheBuffs[unit] or cacheDebuffs[unit]
+			if auraTable then
+				if auraCache and auraCache[name] then
+					for _, b in pairs(auraTable) do if b[13] == name then SetAuraTimeLeft(b); matchTable[#matchTable + 1] = b end end
+				elseif string .find(name, "^#%d+") then -- check if name is in special format for specific spell id (i.e., #12345)
+					local id = tonumber(string.sub(name, 2)) -- extract the spell id
+					if id then for _, b in pairs(auraTable) do if b[14] == id then SetAuraTimeLeft(b); matchTable[#matchTable + 1] = b end end end			
+				end
 			end
 		end
 	end
@@ -974,7 +984,7 @@ function MOD:IterateAuras(unit, func, isBuff, p1, p2, p3)
 		for _, tracker in pairs(auraTable) do
 			for _, t in pairs(tracker) do
 				SetAuraTimeLeft(t) -- update timeLeft from current time
-				func(unit, t[13], t, isBuff, p1, p2, p3)
+				if t[13] then func(unit, t[13], t, isBuff, p1, p2, p3) end
 			end
 		end
 	else
@@ -984,7 +994,7 @@ function MOD:IterateAuras(unit, func, isBuff, p1, p2, p3)
 			if auraTable then
 				for _, b in pairs(auraTable) do
 					SetAuraTimeLeft(b) -- update timeLeft from current time
-					func(unit, b[13], b, isBuff, p1, p2, p3)
+					if b[13] then func(unit, b[13], b, isBuff, p1, p2, p3) end
 				end
 			end
 		end

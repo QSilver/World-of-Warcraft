@@ -294,7 +294,7 @@ end
 
 function crraonevent(self,event,...)
 
-local arg1, arg2, arg3,arg4,arg5,arg6 = CombatLogGetCurrentEventInfo()
+local arg1, arg2, arg3,arg4,arg5,arg6 = ...
 
 
 

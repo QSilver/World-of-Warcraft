@@ -30,9 +30,11 @@ local usedBars = {} -- cache of recycled bars
 local update = false -- set whenever a global change has occured
 local buttonName = 0 -- incremented for each button created
 local callbacks = {} -- registered callback functions
-local barAnimationPool = {} -- pool of available bar animations
-local barAnimations = {} -- active bar animations
+local splashAnimationPool = {} -- pool of available bar animations
+local splashAnimations = {} -- active bar animations
 local shineEffectPool = {} -- pool of available shine animations
+local sparkleEffectPool = {} -- pool of available sparkle animations
+local pulseEffectPool = {} -- pool of available pulse animations
 local glowEffectPool = {} -- pool of available glow animations
 local displayWidth, displayHeight = UIParent:GetWidth(), UIParent:GetHeight()
 local defaultBackdropColor = { r = 1, g = 1, b = 1, a = 1 }
@@ -85,7 +87,7 @@ local bgTemplate = { -- these fields are cleared when a bar group is deleted
 local barTemplate = { -- these fields are cleared with a bar is deleted
 	startTime = 0, offsetTime = 0, timeLeft = 0, duration = 0, maxTime = 0, alpha = 0, flash = 0, label = 0, iconCount = 0, tooltipAnchor = 0,
 	soundDone = 0, expireDone = 0, cr = 0, cg = 0, cb = 0, ca = 0, br = 0, bg = 0, bb = 0, ba = 0, ibr = 0, ibg = 0, ibb = 0, iba = 0,
-	value = 0, maxValue = 0, valueText = 0,
+	label_r = 0, label_g = 0, label_b = 0, time_r = 0, time_g = 0, time_b = 0, value = 0, maxValue = 0, valueText = 0,
 }
 
 -- Check if using Tukui skin for icon and bar borders (which may require a reloadui)
@@ -121,12 +123,32 @@ local function PSetPoint(frame, point, relativeFrame, relativePoint, x, y)
 	frame:SetPoint(point, relativeFrame, relativePoint, x or 0, y or 0)
 end
 
+-- Trim and scale icon, including for optional rectangular dimensions
+local function IconTextureTrim(tex, icon, trim, w, h)
+	local left, right, top, bottom = 0, 1, 0, 1 -- default without trim
+	if trim then left = 0.07; right = 0.93; top = 0.07; bottom = 0.93 end -- trim removes 7% of edges
+	if zoomIcons then -- only true if both rectangular and zoom icons enabled
+		if w > h then -- rectangular with width greater than height
+			local crop = (bottom - top) * (w - h)/ w / 2 -- aspect ratio to reduce height by
+			top = top + crop; bottom = bottom - crop
+		elseif h > w then -- rectangular with height greater than width
+			local crop = (right - left) * (h - w)/ h / 2 -- aspect ratio to reduce height by
+			left = left + crop; right = right - crop
+		end
+	end
+	tex:SetTexCoord(left, right, top, bottom) -- set the corner coordinates
+	PSetSize(tex, w, h)
+	PSetPoint(tex, "CENTER", icon, "CENTER") -- texture is always positioned in center of icon's frame
+end
+
 -- Calculate alpha for flashing bars, period is how long the total flash time should last
-function MOD.Nest_FlashAlpha(maxAlpha, period)
+function MOD.Nest_FlashAlpha(maxAlpha, minAlpha, period)
 	local frac = GetTime() / period
 	frac = frac - math.floor(frac) -- get fractional part of current period
 	if frac >= 0.5 then frac = 1 - frac end -- now goes from 0 to 0.5 then back to 0
-	return (maxAlpha / 2) + (maxAlpha * frac) -- drops to half of maxAlpha
+	frac = frac * 2 -- adjust frac to range from 0 to 1
+	local alpha = minAlpha + (frac * (maxAlpha - minAlpha)) -- adjust alpha within range from minAlpha to maxAlpha
+	return alpha
 end
 
 -- Set and confirm frame level, working around potential bug when raising frame level above internal limits
@@ -144,11 +166,12 @@ local function ValidFont(name)
 	return result
 end
 
--- Initialize and return a bar splash-style animation based on a bar's icon image
-local function BarAnimation(bar, anchor1, frame, anchor2, xoffset, yoffset)
+-- Initialize and return a bar splash-style animation based on the icon texture
+-- If anchor info is not passed in then splash will be centered over the bar's icon
+local function SplashEffect(bar, anchor1, frame, anchor2, xoffset, yoffset)
 	local tex = bar.iconTexture:GetTexture(); if not tex then return end
-	local b = next(barAnimationPool)
-	if b then barAnimationPool[b] = nil else
+	local b = next(splashAnimationPool)
+	if b then splashAnimationPool[b] = nil else
 		b = {} -- initialize a new animation
 		b.frame = CreateFrame("Frame", nil, UIParent)
 		b.frame:SetFrameLevel(bar.frame:GetFrameLevel() + 10)
@@ -156,35 +179,156 @@ local function BarAnimation(bar, anchor1, frame, anchor2, xoffset, yoffset)
 		b.anim = b.frame:CreateAnimationGroup()
 		b.anim:SetLooping("NONE")
 		local scale = b.anim:CreateAnimation("Scale")
-		scale:SetScale(3, 3); scale:SetOrigin('CENTER', 0, 0); scale:SetDuration(0.65); scale:SetOrder(1)
+		scale:SetScale(3, 3); scale:SetOrigin("CENTER", 0, 0); scale:SetDuration(0.65); scale:SetOrder(1)
 		local alpha = b.anim:CreateAnimation("Alpha")
 		alpha:SetFromAlpha(1); alpha:SetToAlpha(0) -- LEGION change
 		alpha:SetDuration(0.65); alpha:SetSmoothing("IN"); alpha:SetEndDelay(5); alpha:SetOrder(1)
 	end
 	local w, h = bar.icon:GetSize()
 	PSetSize(b.frame, w, h)
-	PCSetPoint(b.frame, anchor1, frame, anchor2, xoffset, yoffset)
+	if frame then
+		PCSetPoint(b.frame, anchor1 or "CENTER", frame, anchor2 or "CENTER", xoffset or 0, yoffset or 0)
+	else -- not provided a reference point so use position of bar's icon
+		PCSetPoint(b.frame, "BOTTOMLEFT", nil, "BOTTOMLEFT", bar.icon:GetLeft(), bar.icon:GetBottom())
+	end
 	b.frame:Show()
-	b.texture:SetTexture(tex); b.texture:ClearAllPoints(); b.texture:SetAllPoints(b.frame); b.texture:Show()
+	b.texture:SetTexture(tex)
+	IconTextureTrim(b.texture, bar.icon, true, w - 2, h - 2)
+	b.texture:ClearAllPoints(); b.texture:SetAllPoints(b.frame); b.texture:Show()
 	b.anim:Stop(); b.anim:Play()
 	b.endTime = GetTime() + 1 -- stop after one second
-	table.insert(barAnimations, b)
+	table.insert(splashAnimations, b)
 end
 
 -- Update active bar animations, recycling when they are complete
-local function UpdateBarAnimations()
+local function UpdateSplashAnimations()
 	local now = GetTime()
-	for k, b in pairs(barAnimations) do
+	for k, b in pairs(splashAnimations) do
 		if now > b.endTime then
-			b.anim:Pause(); barAnimations[k] = nil; barAnimationPool[b] = true
+			b.anim:Pause(); splashAnimations[k] = nil; splashAnimationPool[b] = true
 			b.frame:ClearAllPoints(); b.texture:ClearAllPoints(); b.frame:Hide(); b.texture:Hide()
 		end
 	end
 end
 
--- Initialize and return a shine effect over a bar's icon
--- If r, g and b are set then apply color to the animation
-local function ShineEffect(bar, r, g, b)
+-- Show splash effect for a bar
+function MOD.Nest_SplashEffect(bg, bar)
+	SplashEffect(bar)
+end
+
+-- Pulse animation on the bar icon
+local function PulseEffect(bar)
+	local a = bar.pulseEffect -- get an animation if one has already been allocated for this bar
+	if not a then -- allocate an animation if necessary
+		a = next(pulseEffectPool) -- get one from the recycling pool if available
+		if a then pulseEffectPool[a] = nil else
+			a = {} -- initialize a new animation for this pulse effect
+			a.frame = CreateFrame("Frame", nil, UIParent)
+			a.frame:SetFrameStrata("HIGH")
+			a.texture = a.frame:CreateTexture(nil, "ARTWORK") -- texture to be animated	
+			a.anim = a.frame:CreateAnimationGroup()
+			a.anim:SetLooping("NONE")
+			local alpha1 = a.anim:CreateAnimation("Alpha")
+			alpha1:SetFromAlpha(0); alpha1:SetToAlpha(1); alpha1:SetDuration(0.05); alpha1:SetOrder(1)
+			local grow = a.anim:CreateAnimation("Scale")
+			grow:SetScale(3, 3); grow:SetOrigin('CENTER', 0, 0); grow:SetDuration(0.25); grow:SetOrder(1)
+			local shrink = a.anim:CreateAnimation("Scale")
+			shrink:SetScale(-3, -3); shrink:SetOrigin('CENTER', 0, 0); shrink:SetDuration(0.25); shrink:SetOrder(2)
+			local alpha2 = a.anim:CreateAnimation("Alpha")
+			alpha2:SetFromAlpha(1); alpha2:SetToAlpha(0); alpha2:SetDuration(0.05); alpha2:SetOrder(3)
+		end
+		a.frame:ClearAllPoints()
+		a.frame:SetFrameLevel(bar.frame:GetFrameLevel() + 10)
+		local w, h = bar.icon:GetSize()
+		PSetSize(a.frame, w, h)
+		PCSetPoint(a.frame, "CENTER", bar.icon, "CENTER", 0, 0)
+		a.texture:SetAllPoints(a.frame)
+		a.frame:SetAlpha(0)
+		a.frame:Show(); a.texture:Show()
+		bar.pulseEffect = a
+	end
+	if not a.anim:IsPlaying() then
+		a.texture:SetTexture(bar.iconTexture:GetTexture())
+		IconTextureTrim(a.texture, bar.icon, true, bar.icon:GetWidth() - 2, bar.icon:GetHeight() - 2)
+		a.anim:Stop(); a.anim:Play()
+	end
+end
+
+local function ReleasePulseEffect(bar)
+	local a = bar.pulseEffect -- get the pulse animation, if any, that is allocated for this bar
+	if a then
+		a.anim:Stop(); a.frame:ClearAllPoints(); a.texture:Hide(); a.frame:Hide()
+		pulseEffectPool[a] = true
+		bar.pulseEffect = nil
+	end
+end
+
+-- Fader to change from current to a new alpha
+local function FaderEffect(bar, toAlpha, fade)
+	local anim = bar.frame.fader
+	if not anim then
+		anim = bar.frame:CreateAnimationGroup()
+		anim:SetLooping("NONE")
+		local alpha = anim:CreateAnimation("Alpha")
+		alpha:SetFromAlpha(1); alpha:SetToAlpha(1); alpha:SetDuration(0.1); alpha:SetOrder(1)
+		anim.alpha = alpha
+		anim:SetToFinalAlpha(true)
+		bar.frame.fader = anim
+	end
+	
+	local isPlaying = anim:IsPlaying()
+	local alpha = anim.alpha
+	local current = bar.frame:GetAlpha() -- actual current alpha for the bar
+	local fromAlpha = isPlaying and alpha:GetToAlpha() or current -- for comparison, check target alpha if animation is playing otherwise use current
+	local delta = math.floor(math.abs(fromAlpha - toAlpha) * 100) -- zero if comparison is within 1% of same value
+	
+	if not fade then -- just go straight to the target alpha if fade is disabled
+		if isPlaying then anim:Stop() end
+		bar.frame:SetAlpha(toAlpha)
+	else
+		if delta > 0 then -- use fader animation to get to target alpha
+			if isPlaying then anim:Stop() end -- need to restart the animation with new values if it is playing
+			alpha:SetFromAlpha(current); alpha:SetToAlpha(toAlpha)
+			anim:Play()
+		elseif not isPlaying then
+			bar.frame:SetAlpha(toAlpha) -- pretty close so just go straight there to finish up
+		end
+	end
+end
+
+local function ReleaseFaderEffect(bar)
+	local anim = bar.frame.fader
+	if anim then anim:Stop() end
+end
+
+-- Flash effect to change bar alpha in a noticeable way
+local function FlashEffect(bar, maxAlpha, minAlpha, period)
+	local anim = bar.frame.flasher
+	if not anim then
+		anim = bar.frame:CreateAnimationGroup()
+		anim:SetLooping("REPEAT")
+		local a = anim:CreateAnimation("Animation") -- use animation to trigger associated OnUpdate script
+		a:SetDuration(1); a:SetOrder(1) -- this is done so that flashing bars can be synchronized
+		bar.frame.flasher = anim
+	end
+
+	if anim.maxAlpha ~= maxAlpha or anim.minAlpha ~= minAlpha or anim.flashPeriod ~= period then
+		local FlashAlpha = MOD.Nest_FlashAlpha -- function to get current alpha for all flashing bars
+		anim:SetScript("OnUpdate", function() bar.frame:SetAlpha(FlashAlpha(maxAlpha, minAlpha, period)) end)
+		anim.maxAlpha = maxAlpha; anim.minAlpha = minAlpha; anim.flashPeriod = period
+	end
+	
+	if not anim:IsPlaying() then anim:Stop(); anim:Play() end
+end
+
+local function ReleaseFlashEffect(bar)
+	local anim = bar.frame.flasher
+	if anim then anim:Stop() end
+end
+
+-- Add a shine effect over a bar's icon
+-- If color is set then apply it to the animation
+local function ShineEffect(bar, color)
 	local a = bar.shineEffect -- get an animation if one has already been allocated for this bar
 	if not a then -- allocate an animation if necessary
 		a = next(shineEffectPool) -- get one from the recycling pool if available
@@ -198,15 +342,15 @@ local function ShineEffect(bar, r, g, b)
 			a.anim = a.frame:CreateAnimationGroup()
 			a.anim:SetLooping("NONE")
 			local alpha1 = a.anim:CreateAnimation("Alpha")
-			alpha1:SetFromAlpha(0); alpha1:SetToAlpha(1); alpha1:SetDuration(0.125); alpha1:SetOrder(1)
+			alpha1:SetFromAlpha(0); alpha1:SetToAlpha(1); alpha1:SetDuration(0.05); alpha1:SetOrder(1)
 			local scale1 = a.anim:CreateAnimation("Scale")
-			scale1:SetScale(2, 2); scale1:SetDuration(0.125); scale1:SetOrder(1)
+			scale1:SetScale(2, 2); scale1:SetDuration(0.05); scale1:SetOrder(1)
 			local scale2 = a.anim:CreateAnimation("Scale")
-			scale2:SetScale(0.1, 0.1); scale2:SetDuration(0.875); scale2:SetOrder(2)
+			scale2:SetScale(0.1, 0.1); scale2:SetDuration(0.5); scale2:SetOrder(2)
 			local rotation = a.anim:CreateAnimation("Rotation")
-			rotation:SetDegrees(135); rotation:SetDuration(0.875); rotation:SetOrder(2)
+			rotation:SetDegrees(135); rotation:SetDuration(0.5); rotation:SetOrder(2)
 			local alpha2 = a.anim:CreateAnimation("Alpha")
-			alpha2:SetFromAlpha(1); alpha2:SetToAlpha(0); alpha2:SetDuration(0.125); alpha2:SetOrder(3)
+			alpha2:SetFromAlpha(1); alpha2:SetToAlpha(0); alpha2:SetDuration(0.05); alpha2:SetOrder(3)
 		end
 		a.frame:ClearAllPoints()
 		a.frame:SetFrameLevel(bar.frame:GetFrameLevel() + 10)
@@ -219,7 +363,9 @@ local function ShineEffect(bar, r, g, b)
 		bar.shineEffect = a
 	end
 	if not a.anim:IsPlaying() then
-		a.texture:SetVertexColor(r or 1, g or 1, b or 1) -- add color to the texture
+		local r, g, b = 1, 1, 1
+		if color then r = color.r; g = color.g; b = color.b end
+		a.texture:SetVertexColor(r, g, b, 1) -- add color to the texture
 		a.anim:Stop(); a.anim:Play()
 	end
 end
@@ -234,9 +380,119 @@ local function ReleaseShineEffect(bar)
 	end
 end
 
+-- Configuration table for sparklers used in sparkle effect
+local sparkleCount = 0
+local sparkles = {
+	[1] = { x = 0.9, y = 0.9, scale = 1, delay = 0, duration = 0.5 },
+	[2] = { x = -0.9, y = -0.9, scale = 1, delay = 0, duration = 0.5 },
+	[3] = { x = 1, y = -1, scale = 0.5, delay = 0.1, duration = 0.5 },
+	[4] = { x = -1, y = 1, scale = 0.5, delay = 0.1, duration = 0.5 },
+	[5] = { x = 0, y = 1.5, scale = 0.5, delay = 0.2, duration = 0.4 },
+	[6] = { x = 0, y = -1.5, scale = 0.5, delay = 0.2, duration = 0.4 },
+	[7] = { x = -1, y = 0, scale = 1, delay = 0.2, duration = 0.4 },
+	[8] = { x = 1, y = 0, scale = 1, delay = 0.2, duration = 0.4 },
+}
+
+-- Add a sparkle effect over a bar's icon
+-- If color is set then apply it to the animation
+local function SparkleEffect(bar, color)
+	local a = bar.sparkleEffect -- get an animation if one has already been allocated for this bar
+	if not a then -- allocate an animation if necessary
+		a = next(sparkleEffectPool) -- get one from the recycling pool if available
+		if a then sparkleEffectPool[a] = nil else
+			sparkleCount = sparkleCount + 1
+			a = {} -- initialize a new animation for this sparkle effect
+			a.frame = CreateFrame("Frame", nil, UIParent)
+			a.frame:SetFrameStrata("HIGH")
+			a.texture = a.frame:CreateTexture(nil, "ARTWORK") -- texture to be animated	
+			a.texture:SetTexture("Interface\\Cooldown\\starburst")
+			a.texture:SetBlendMode("ADD")
+			a.sparkleTextures = {}
+			a.sparkleTranslators = {}
+			a.anim = a.frame:CreateAnimationGroup()
+			a.anim:SetLooping("NONE")
+			a.anim:SetToFinalAlpha(true)
+
+			local x = a.anim:CreateAnimation("Alpha")
+			x:SetFromAlpha(0); x:SetToAlpha(1); x:SetDuration(0.15); x:SetOrder(1)
+			x = a.anim:CreateAnimation("Scale")
+			x:SetScale(1, 1); x:SetDuration(0.33); x:SetOrder(1)
+			x = a.anim:CreateAnimation("Alpha")
+			x:SetFromAlpha(1); x:SetToAlpha(0); x:SetStartDelay(0.45); x:SetDuration(0.15); x:SetOrder(1)
+			
+			for i = 1, 8 do -- create sparklers
+				local name = "Raven_Animation" .. tostring(sparkleCount) .. "_Spark" .. tostring(i)
+				local tex = a.frame:CreateTexture(name, "ARTWORK") -- texture to be animated	
+				tex:SetTexture("Interface\\Cooldown\\star4")
+				tex:SetBlendMode("ADD")
+				a.sparkleTextures[i] = tex
+				local s = sparkles[i]
+				
+				x = a.anim:CreateAnimation("Alpha")
+				x:SetTarget(name); x:SetFromAlpha(0); x:SetToAlpha(1); x:SetSmoothing("IN")
+				x:SetStartDelay(s.delay); x:SetDuration(0.15); x:SetOrder(1)
+
+				x = a.anim:CreateAnimation("Alpha")
+				x:SetTarget(name); x:SetFromAlpha(1); x:SetToAlpha(0.25); x:SetSmoothing("OUT")
+				x:SetStartDelay(s.delay + s.duration - 0.15); x:SetDuration(0.15); x:SetOrder(1)
+
+				x = a.anim:CreateAnimation("Rotation")
+				x:SetTarget(name); x:SetDegrees(60); x:SetStartDelay(s.delay); x:SetDuration(s.duration); x:SetOrder(1)
+
+				x = a.anim:CreateAnimation("Scale")
+				x:SetTarget(name); x:SetScale(s.scale, s.scale); x:SetStartDelay(s.delay); x:SetDuration(0.25); x:SetOrder(1); x:SetSmoothing("IN")
+
+				x = a.anim:CreateAnimation("Scale")
+				x:SetTarget(name); x:SetScale(0.1, 0.1); x:SetStartDelay(s.delay + s.duration - 0.25); x:SetDuration(0.25); x:SetOrder(1); x:SetSmoothing("OUT")
+
+				x = a.anim:CreateAnimation("Translation")
+				x:SetTarget(name); x:SetOffset(s.x, s.y)
+				x:SetStartDelay(s.delay); x:SetDuration(0.5); x:SetOrder(1)
+				a.sparkleTranslators[i] = x -- save to set size
+			end
+		end
+		a.frame:ClearAllPoints()
+		a.frame:SetFrameLevel(bar.frame:GetFrameLevel() + 10)
+		local w, h = bar.icon:GetSize()
+		PSetSize(a.frame, w, h)
+		PCSetPoint(a.frame, "CENTER", bar.icon, "CENTER", 0, 0)
+		a.texture:SetAllPoints(a.frame)
+		a.frame:SetAlpha(0)
+		a.frame:Show(); a.texture:Show()
+		for i = 1, 8 do
+			local x = a.sparkleTranslators[i]
+			local s = sparkles[i]
+			x:SetOffset(w * s.x * 0.75, h * s.y * 0.75)
+			tex = a.sparkleTextures[i]; tex:SetAllPoints(a.frame); tex:Show()
+		end
+		bar.sparkleEffect = a
+	end
+	if not a.anim:IsPlaying() then
+		local r, g, b = 1, 1, 1
+		if color then r = color.r; g = color.g; b = color.b end
+		a.texture:SetVertexColor(r, g, b, 1) -- add color to the starburst texture
+		for i = 1, 8 do
+			tex = a.sparkleTextures[i]
+			tex:SetVertexColor(r, g, b, 1) -- add color to each of the sparkle textures
+		end
+		a.anim:Stop(); a.anim:Play()
+	end
+end
+
+-- When a bar is deleted then release allocated sparkle animation, if any
+local function ReleaseSparkleEffect(bar)
+	local a = bar.sparkleEffect -- get the sparkle animation, if any, that is allocated for this bar
+	if a then
+		a.anim:Stop(); a.frame:ClearAllPoints(); a.texture:Hide(); a.frame:Hide()
+		for i = 1, 8 do a.sparkleTextures[i]:Hide() end
+		sparkleEffectPool[a] = true
+		bar.sparkleEffect = nil
+	end
+end
+
 -- Initialize and return a glow effect behind a bar's icon
--- If r, g and b are set then apply color to the animation
-local function GlowEffect(bar, r, g, b)
+-- If color is set then apply it to the animation
+local function GlowEffect(bar, color)
 	local a = bar.glowEffect -- get a glow effect if one has already been allocated for this bar
 	if not a then -- allocate an animation if necessary
 		a = next(glowEffectPool) -- get one from the recycling pool if available
@@ -256,11 +512,13 @@ local function GlowEffect(bar, r, g, b)
 		PCSetPoint(a.frame, "CENTER", bar.icon, "CENTER", 0, 0)
 		PSetSize(a.texture, (w - 2) * 2, (h - 2) * 2)
 		PCSetPoint(a.texture, "CENTER", a.frame, "CENTER", -1, 0)
-		a.texture:SetVertexColor(r or 1, g or 1, b or 1) -- add color to the texture
-		a.frame:SetAlpha(0.35)
+		a.frame:SetAlpha(0.5)
 		a.frame:Show(); a.texture:Show()
 		bar.glowEffect = a
 	end
+	local r, g, b = 1, 1, 1
+	if color then r = color.r; g = color.g; b = color.b end
+	a.texture:SetVertexColor(r, g, b, 1) -- add color to the texture
 end
 
 -- When a bar is deleted then release allocated glow animation, if any
@@ -318,7 +576,7 @@ local function BarGroup_TimelineAnimation(bg, bar, config)
 	end
 	local delta = Timeline_Offset(bg, 0)
 	local x1 = isVertical and 0 or ((delta - w) * dir); local y1 = isVertical and ((delta - h) * dir) or 0
-	BarAnimation(bar, edge, bg.background, edge, x1 + (bg.tlSplashX or 0), y1 + (bg.tlSplashY or 0))
+	SplashEffect(bar, edge, bg.background, edge, x1 + (bg.tlSplashX or 0), y1 + (bg.tlSplashY or 0))
 end
 
 -- Bar sorting functions: alphabetic, time left, duration, bar's start time
@@ -765,7 +1023,7 @@ function MOD.Nest_CreateBar(bg, name)
 		bar.timeText = bar.textFrame:CreateFontString(nil, "OVERLAY")
 		bar.icon = CreateFrame("Button", bname, bar.frame)
 		bar.iconTexture = bar.icon:CreateTexture(bname .. "IconTexture", "ARTWORK") -- texture for the bar's icon
-		bar.cooldown = CreateFrame("Cooldown", bname .. "Cooldown", bar.frame, "CooldownFrameTemplate") -- cooldown overlay to animate timer
+		bar.cooldown = CreateFrame("Cooldown", bname .. "Cooldown", bar.icon, "CooldownFrameTemplate") -- cooldown overlay to animate timer
 		bar.cooldown.noCooldownCount = Raven.db.global.HideOmniCC
 		bar.cooldown.noOCC = Raven.db.global.HideOmniCC -- added for Tukui
 		bar.cooldown:SetHideCountdownNumbers(true); bar.cooldown:SetDrawBling(false); bar.cooldown:SetDrawEdge(Raven.db.global.IconClockEdge) -- added in WoD
@@ -777,22 +1035,16 @@ function MOD.Nest_CreateBar(bg, name)
 			bar.tukbar:CreateBackdrop("Transparent")
 			local bdrop = bar.tukbar.backdrop or bar.tukbar.Backdrop
 			if bdrop then bdrop:SetOutside(bar.tukbar) end
-			bar.icon:CreateBackdrop("Transparent")
-			bdrop = bar.icon.backdrop or bar.icon.Backdrop
-			if bdrop then
-				bdrop:SetFrameLevel(bar.icon:GetFrameLevel() - 2) -- drop backdrop frame level by one due to "hazy overlay" interaction with Masque
-				bdrop:SetOutside(bar.icon)
-				bar.tukcolor_r, bar.tukcolor_g, bar.tukcolor_b, bar.tukcolor_a = bdrop:GetBackdropBorderColor() -- save default icon border color
+			if MOD.db.global.TukuiIcon then -- see if also skinning the icon
+				bar.icon:CreateBackdrop("Transparent")
+				bdrop = bar.icon.backdrop or bar.icon.Backdrop
+				if bdrop then
+					bdrop:SetFrameLevel(bar.icon:GetFrameLevel() - 2) -- drop backdrop frame level by one due to "hazy overlay" interaction with Masque
+					bdrop:SetOutside(bar.icon)
+					bar.tukcolor_r, bar.tukcolor_g, bar.tukcolor_b, bar.tukcolor_a = bdrop:GetBackdropBorderColor() -- save default icon border color
+				end
 			end
 		end
-		
-		local anim = bar.icon:CreateAnimationGroup()
-		anim:SetLooping("NONE")
-		local grow = anim:CreateAnimation("Scale")
-		grow:SetScale(3, 3); grow:SetOrigin('CENTER', 0, 0); grow:SetDuration(0.25); grow:SetOrder(1)
-		local shrink = anim:CreateAnimation("Scale")
-		shrink:SetScale(-3, -3); shrink:SetOrigin('CENTER', 0, 0); shrink:SetDuration(0.25); shrink:SetOrder(2)
-		bar.icon.anim = anim
 		
 		if MSQ then -- if using ButtonFacade, create and initialize a button data table
 			bar.buttonData = {} -- only initialize once so no garbage collection issues
@@ -837,12 +1089,18 @@ function MOD.Nest_DeleteBar(bg, bar)
 	if MOD.tooltipBar == bar then MOD.tooltipBar = nil; GameTooltip:Hide() end -- disable tooltip update when bar is deleted
 	local config = MOD.Nest_SupportedConfigurations[bg.configuration]
 	if config.bars == "timeline" and bg.tlSplash then BarGroup_TimelineAnimation(bg, bar, config) end
-	if bar.attributes.soundEnd then PlaySoundFile(bar.attributes.soundEnd, Raven.db.global.SoundChannel) end
-	ReleaseShineEffect(bar) -- release shine effect, if one has been allocated for this bar
-	ReleaseGlowEffect(bar) -- release glow effect, if one has been allocated for this bar
-	for n in pairs(bar.attributes) do bar.attributes[n] = nil end
+	
+	ReleaseShineEffect(bar) -- stop animations for special effects and release any allocated resources
+	ReleaseSparkleEffect(bar)
+	ReleaseGlowEffect(bar)
+	ReleasePulseEffect(bar)
+	ReleaseFaderEffect(bar)
+	ReleaseFlashEffect(bar)
+	
+	for n in pairs(bar.attributes) do bar.attributes[n] = nil end -- reset current bar settings
 	for n in pairs(bar.callbacks) do bar.callbacks[n] = nil end
-	for n in pairs(barTemplate) do bar[n] = nil end -- reset current bar settings
+	for n in pairs(barTemplate) do bar[n] = nil end
+	
 	bar.icon:EnableMouse(false); bar.frame:EnableMouse(false)
 	bar.frame:SetScript("OnMouseUp", nil)
 	bar.frame:SetScript("OnEnter", nil)
@@ -854,7 +1112,6 @@ function MOD.Nest_DeleteBar(bg, bar)
 	bar.icon:SetScript("OnLeave", nil)
 	bar.icon.name = nil
 	bar.icon.bgName = nil
-	bar.icon.anim:Stop()
 	bar.cooldown:SetCooldown(0, 0)
 	bar.iconPath = nil
 	bar.update = false
@@ -902,11 +1159,36 @@ function MOD.Nest_IsTimer(bar) return bar.timeLeft ~= nil end
 -- Get the time parameters for a bar, including adjusted timeLeft amount
 function MOD.Nest_GetTimes(bar) return bar.timeLeft, bar.duration, bar.maxTime, bar.startTime, bar.offsetTime end
 
--- Set bar colors, includes foreground, background and icon border codes
+-- Set all bar colors, includes foreground, background and icon border codes
 function MOD.Nest_SetColors(bar, cr, cg, cb, ca, br, bg, bb, ba, ibr, ibg, ibb, iba)
 	bar.cr = cr; bar.cg = cg; bar.cb = cb; bar.ca = ca
 	bar.br = br; bar.bg = bg; bar.bb = bb; bar.ba = ba
 	bar.ibr = ibr; bar.ibg = ibg; bar.ibb = ibb; bar.iba = iba
+end
+
+-- Set bar foreground color
+function MOD.Nest_SetForegroundColor(bar, cr, cg, cb)
+	bar.cr = cr; bar.cg = cg; bar.cb = cb
+end
+
+-- Override bar background color
+function MOD.Nest_SetBackgroundColor(bar, cr, cg, cb)
+	bar.br = cr; bar.bg = cg; bar.bb = cb
+end
+
+-- Override label text color
+function MOD.Nest_SetLabelColor(bar, cr, cg, cb)
+	bar.label_r = cr; bar.label_g = cg; bar.label_b = cb
+end
+
+-- Override time text color
+function MOD.Nest_SetTimeColor(bar, cr, cg, cb)
+	bar.time_r = cr; bar.time_g = cg; bar.time_b = cb
+end
+
+-- Set tick offset (nil to hide tick, otherwise seconds after bar started to show tick) and color
+function MOD.Nest_SetTick(bar, enable, offset, cr, cg, cb, ca)
+	bar.tickEnable = enable; bar.tickOffset = offset; bar.tr = cr; bar.tg = cg; bar.tb = cb; bar.ta = ca
 end
 
 -- Set the overall alpha for a bar, this is last alpha adjustment made before bar is displayed
@@ -914,6 +1196,18 @@ function MOD.Nest_SetAlpha(bar, alpha) bar.alpha = alpha end
 
 -- Set whether the bar should flash or not
 function MOD.Nest_SetFlash(bar, flash) bar.flash = flash end
+
+-- Set whether the bar should have glow effect or not
+function MOD.Nest_SetGlow(bar, glow) bar.glow = glow end
+
+-- Set whether the bar should trigger a shine effect
+function MOD.Nest_SetShine(bar, shine) bar.shine = shine end
+
+-- Set whether the bar should trigger a sparkle effect
+function MOD.Nest_SetSparkle(bar, sparkle) bar.sparkle = sparkle end
+
+-- Set whether the bar should trigger a pulse effect
+function MOD.Nest_SetPulse(bar, pulse) bar.pulse = pulse end
 
 -- Set the label text for a bar
 function MOD.Nest_SetLabel(bar, label) bar.label = label end
@@ -1126,24 +1420,6 @@ local function SetBarFrameLevel(bar, level, isIcon)
 	end
 end
 
--- Trim and scale icon, including for optional rectangular dimensions
-local function IconTextureTrim(tex, icon, trim, w, h)
-	local left, right, top, bottom = 0, 1, 0, 1 -- default without trim
-	if trim then left = 0.07; right = 0.93; top = 0.07; bottom = 0.93 end -- trim removes 7% of edges
-	if zoomIcons then -- only true if both rectangular and zoom icons enabled
-		if w > h then -- rectangular with width greater than height
-			local crop = (bottom - top) * (w - h)/ w / 2 -- aspect ratio to reduce height by
-			top = top + crop; bottom = bottom - crop
-		elseif h > w then -- rectangular with height greater than width
-			local crop = (right - left) * (h - w)/ h / 2 -- aspect ratio to reduce height by
-			left = left + crop; right = right - crop
-		end
-	end
-	tex:SetTexCoord(left, right, top, bottom) -- set the corner coordinates
-	PSetSize(tex, w, h)
-	PSetPoint(tex, "CENTER", icon, "CENTER") -- texture is always positioned in center of icon's frame
-end
-
 -- Update a bar's layout based on the bar group configuration and dimension settings
 -- Layout includes relative position of components plus mouse click rectangle and tooltip position
 local function Bar_UpdateLayout(bg, bar, config)
@@ -1258,7 +1534,7 @@ local function Bar_UpdateLayout(bg, bar, config)
 		bar.labelText:SetTextColor(bar.ibr, bar.ibg, bar.ibb, bg.labelAlpha)
 	else
 		local t = bg.labelColor
-		bar.labelText:SetTextColor(t.r, t.g, t.b, bg.labelAlpha)
+		bar.labelText:SetTextColor(bar.label_r or t.r, bar.label_g or t.g, bar.label_b or t.b, bg.labelAlpha)
 	end
 	bar.labelText:SetShadowColor(0, 0, 0, bg.labelShadow and 1 or 0)
 	
@@ -1266,7 +1542,7 @@ local function Bar_UpdateLayout(bg, bar, config)
 		bar.timeText:SetTextColor(bar.ibr, bar.ibg, bar.ibb, bg.timeAlpha)
 	else
 		local t = bg.timeColor
-		bar.timeText:SetTextColor(t.r, t.g, t.b, bg.timeAlpha)
+		bar.timeText:SetTextColor(bar.time_r or t.r, bar.time_g or t.g, bar.time_b or t.b, bg.timeAlpha)
 	end
 	bar.timeText:SetShadowColor(0, 0, 0, bg.timeShadow and 1 or 0)
 
@@ -1300,7 +1576,7 @@ local function Bar_UpdateLayout(bg, bar, config)
 			end
 		else -- if not then use a default button arrangment
 			if bg.MSQ_Group then bg.MSQ_Group:RemoveButton(bar.icon) end -- remove skin, if any
-			if not (UseTukui() or Raven.db.global.HideBorder) then
+			if not ((UseTukui() and MOD.db.global.TukuiIcon) or Raven.db.global.HideBorder) then
 				local sliceWidth, sliceHeight = 0.88 * iconWidth, 0.88 * bg.iconSize
 				PSetSize(bar.cooldown, sliceWidth, sliceHeight)
 				PSetPoint(bar.cooldown, "CENTER", bar.icon, "CENTER")
@@ -1511,7 +1787,7 @@ end
 local function Bar_UpdateSettings(bg, bar, config)
 	local bat, bag = bar.attributes, bg.attributes
 	local fill, sparky, ticky, offsetX, showBorder = 1, false, false, 0, false -- fill is fraction of the bar to display, default to full bar
-	local timeText, bt, bl, bi, bf, bb, ba, bx = "", bar.timeText, bar.labelText, bar.iconText, bar.fgTexture, bar.bgTexture, bar.icon.anim, bar.iconBorder
+	local timeText, bt, bl, bi, bf, bb, bx = "", bar.timeText, bar.labelText, bar.iconText, bar.fgTexture, bar.bgTexture, bar.iconBorder
 	local isHeader = bat.header
 	if bar.timeLeft and bar.duration and bar.maxTime and bar.offsetTime then -- only update if key parameters are set
 		local remaining = bar.duration - (GetTime() - bar.startTime + bar.offsetTime) -- remaining time in seconds
@@ -1531,11 +1807,11 @@ local function Bar_UpdateSettings(bg, bar, config)
 		offsetX = bg.iconSize
 		if bar.iconPath then bar.icon:Show(); bar.iconTexture:SetTexture(bar.iconPath) else bar.icon:Hide() end
 		bar.iconTexture:SetDesaturated(bat.desaturate) -- optionally desaturate the bar's icon
-		if bar.timeLeft and ((bar.duration - bar.timeLeft) <= 0.25) then
-			if (bag.shineStart or bat.shineStart) then ShineEffect(bar) end -- shine animation at start
-			if (bag.pulseStart or bat.pulseStart) and not ba:IsPlaying() then ba:Play() end -- pulse at start
-		end
-		if (bag.pulseEnd or bat.pulseEnd) and bar.timeLeft and (bar.timeLeft < 0.45) and (bar.timeLeft > 0.1) and not ba:IsPlaying() then ba:Play() end
+		
+		if bar.shine then ShineEffect(bar, bat.shineColor) end -- trigger shine animation
+		if bar.sparkle then SparkleEffect(bar, bat.sparkleColor) end -- trigger sparkle animation
+		if bar.pulse then PulseEffect(bar) end -- trigger pulse animation
+
 		if MSQ and Raven.db.global.ButtonFacadeIcons then -- icon border coloring
 			if Raven.db.global.ButtonFacadeIcons and Raven.db.global.ButtonFacadeBorder and bx and bx.SetVertexColor then
 				bx:SetVertexColor(bar.ibr, bar.ibg, bar.ibb, bar.iba); showBorder = true
@@ -1543,7 +1819,7 @@ local function Bar_UpdateSettings(bg, bar, config)
 			local nx = MSQ:GetNormal(bar.icon)
 			if Raven.db.global.ButtonFacadeNormal and nx and nx.SetVertexColor then nx:SetVertexColor(bar.ibr, bar.ibg, bar.ibb, bar.iba) end
 		else
-			if UseTukui() then
+			if UseTukui() and MOD.db.global.TukuiIcon then
 				local bdrop = bar.icon.backdrop or bar.icon.Backdrop
 				if bdrop then
 					if bat.iconColors == "None" then
@@ -1564,72 +1840,73 @@ local function Bar_UpdateSettings(bg, bar, config)
 	else
 		bar.icon:Hide()
 	end
+	
 	if showBorder and bar.iconPath then bx:Show() else bx:Hide() end
 	if bg.showIcon and not bg.iconHide and not isHeader and bar.iconCount then bi:SetText(tostring(bar.iconCount)); bi:Show() else bi:Hide() end
-	if bg.showIcon and not isHeader and bg.showCooldown and config.bars ~= "timeline" and bar.timeLeft and (bar.timeLeft >= 0) and not ba:IsPlaying() then
+	if bg.showIcon and not isHeader and bg.showCooldown and config.bars ~= "timeline" and bar.timeLeft and (bar.timeLeft >= 0) then
 		bar.cooldown:SetReverse(bag.clockReverse)
 		bar.cooldown:SetCooldown(bar.startTime - bar.offsetTime, bar.duration); bar.cooldown:Show()
 	else
 		bar.cooldown:Hide()
 	end
-	local ct, cm, expiring, ea, ec = bat.colorTime, bat.colorMinimum, false, bg.bgAlpha, nil
-	if bar.timeLeft and bar.duration and ct and cm and ct >= bar.timeLeft and bar.duration >= cm then
-		expiring = true
-		ec = bat.expireLabelColor; if ec and ec.a > 0 then bl:SetTextColor(ec.r, ec.g, ec.b, ec.a) end
-		ec = bat.expireTimeColor; if ec and ec.a > 0 then bt:SetTextColor(ec.r, ec.g, ec.b, ec.a) end
-		local c = bat.shineColor or bag.shineColor -- prefer bar assigned shine color
-		if c and ((ct - bar.timeLeft) <= 0.25) then
-			if (c.a > 0) then ShineEffect(bar, c.r, c.g, c.b) end -- shine animation at expire time
-		end
-	end
-	if expiring and config.iconOnly and ea == 0 then ea = 1 end -- make icon-only bar visible as expire reminder
+
 	if bg.showTimeText then bt:SetText(timeText); bt:Show() else bt:Hide() end
 	if (bg.showLabelText or isHeader) and bar.label then bl:SetText(bar.label); bl:Show() else bl:Hide() end
+	
 	local w, h = bg.width - offsetX, bg.height; if config.iconOnly then w = bg.barWidth; h = bg.barHeight end
 	if bg.showBar and config.bars ~= "timeline" and (w > 0) and (h > 0) and bar.includeBar then -- non-zero dimensions to fix the zombie bar bug
 		local ar, ag, ab = MOD.Nest_AdjustColor(bar.br, bar.bg, bar.bb, bg.bgSaturation or 0, bg.bgBrightness or 0)
-		if expiring then -- apply expiration color to bars when they are expiring
-			if not bat.customBackground then ec = bat.expireColor; if ec and ec.a > 0 then ar = ec.r; ag = ec.g; ab = ec.b end end
-		elseif ct and cm and bar.duration and bar.maxTime and bar.duration >= cm then -- show tick mark if not expiring and bar duration is greater than minimum
-			ec = bat.tickColor
-			if ec and ec.a > 0 then
-				local tickOffset = w * (ct / bar.maxTime) -- bar width times the fraction of visible bar that represents the expire time
-				if tickOffset > 1 and tickOffset < w then
-					bar.tick:SetColorTexture(ec.r, ec.g, ec.b, ec.a)
-					if config.bars == "r2l" then
-						PSetPoint(bar.tick, "TOP", bar.fgTexture, "TOPLEFT", PS(tickOffset), -PS(2))
-						PSetPoint(bar.tick, "BOTTOM", bar.fgTexture, "BOTTOMLEFT", PS(tickOffset), PS(2))
-					elseif config.bars == "l2r" then
-						PSetPoint(bar.tick, "TOP", bar.fgTexture, "TOPRIGHT", -PS(tickOffset), -PS(2))
-						PSetPoint(bar.tick, "BOTTOM", bar.fgTexture, "BOTTOMRIGHT", -PS(tickOffset), PS(2))
-					end
-					ticky = true
-				end
-			end
-		end
 		bb:SetVertexColor(ar, ag, ab, 1); bb:SetTexture(bg.bgTexture); bb:SetAlpha(bg.bgAlpha)
 		PSetWidth(bb, w); bb:SetTexCoord(0, 1, 0, 1); bb:Show()
 		if bar.tukbar then bar.tukbar:SetAllPoints(bb); bar.tukbar:Show() end -- elvui backdrop is under the background texture
+
 		local fillw = w * fill
 		local showfg = bg.fgNotTimer
 		if bat.fullReverse then showfg = not showfg end
 		if (fillw > 0) and (showfg or bar.timeLeft) then
 			ar, ag, ab = MOD.Nest_AdjustColor(bar.cr, bar.cg, bar.cb, bg.fgSaturation or 0, bg.fgBrightness or 0)
-			if expiring then ec = bat.expireColor; if ec and ec.a > 0 then ar = ec.r; ag = ec.g; ab = ec.b end end
 			bf:SetVertexColor(ar, ag, ab, 1); bf:SetTexture(bg.fgTexture); bf:SetAlpha(bg.fgAlpha)
 			if fillw > 0 then bf:SetWidth(fillw) end -- doesn't get pixel perfect treatment
 			if bg.showSpark and fill < 1 and fillw > 1 then sparky = true end
 			if config.bars == "r2l" or config.bars == "stripe" then bf:SetTexCoord(0, 0, 0, 1, fill, 0, fill, 1) else bf:SetTexCoord(fill, 0, fill, 1, 0, 0, 0, 1) end
-			bf:Show()
+			bf:Show()		
+			if bar.tickEnable and bar.tickOffset and bar.tickOffset > 0 and bar.duration and bar.duration > 0 and bar.maxTime then -- show tick mark if enabled
+				local tickFill = bar.tickOffset / bar.maxTime -- fraction of visible bar that represents the expire time
+				if bg.fillBars then tickFill = 1 - tickFill end -- reverse if filling instead of emptying bars
+				local offset = w * tickFill -- calculate where the tick mark should be, avoiding the very ends of the bar
+				if (offset > 1) and (offset < (w - 1)) then
+					bar.tick:SetColorTexture(bar.tr, bar.tg, bar.tb, bar.ta)
+					if config.bars == "r2l" then
+						PSetPoint(bar.tick, "TOP", bar.fgTexture, "TOPLEFT", PS(offset), -PS(2))
+						PSetPoint(bar.tick, "BOTTOM", bar.fgTexture, "BOTTOMLEFT", PS(offset), PS(2))
+					elseif config.bars == "l2r" then
+						PSetPoint(bar.tick, "TOP", bar.fgTexture, "TOPRIGHT", -PS(offset), -PS(2))
+						PSetPoint(bar.tick, "BOTTOM", bar.fgTexture, "BOTTOMRIGHT", -PS(offset), PS(2))
+					end
+					ticky = true
+				end
+			end
 		else bf:Hide() end
 	else bf:Hide(); bb:Hide(); if bar.tukbar then bar.tukbar:Hide() end end
+
 	if sparky then bar.spark:Show() else bar.spark:Hide() end
 	if ticky then bar.tick:Show() else bar.tick:Hide() end
+	if bar.glow then GlowEffect(bar, bat.glowColor) else ReleaseGlowEffect(bar) end -- enable or disable glow effect
+	
 	local alpha = bar.alpha or 1 -- adjust by bar alpha
-	if bar.flash then alpha = MOD.Nest_FlashAlpha(alpha, 1) end -- adjust alpha if flashing
-	if bat.header and bag.headerGaps then alpha = 0 end
-	bar.frame:SetAlpha(alpha) -- final alpha adjustment
-	-- bar.cooldown:SetSwipeColor(0, 0, 0, 0.8 * bar.icon:GetEffectiveAlpha()) -- hack to fix cooldown alpha not tracking rest of bar (removed for BfA)
+	local fade = true
+	if bat.header and bag.headerGaps then alpha = 0; fade = false end -- header bars can be made to disappear to create gaps
+	
+	if bar.flash then -- apply alpha adjustments, including flash and fade effects
+		local minAlpha
+		local pct = bat.flashPercent
+		if pct and (pct >= 0) and (pct <= 100) then minAlpha = alpha * pct / 100 else minAlpha = alpha / 2 end
+		FlashEffect(bar, alpha, minAlpha, bat.flashPeriod or 1.2)
+	else
+		ReleaseFlashEffect(bar)
+		FaderEffect(bar, alpha, fade)
+	end
+	
 	if not isHeader and (bag.noMouse or (bag.iconMouse and not bg.showIcon)) then -- non-interactive or "only icon" but icon disabled
 		bar.icon:EnableMouse(false); bar.frame:EnableMouse(false); if callbacks.deactivate then callbacks.deactivate(bar.overlay) end
 	elseif not isHeader and bag.iconMouse then -- only icon is interactive
@@ -1650,7 +1927,12 @@ end
 -- Update the lengths of timer bars, spark positions, and alphas of flashing bars
 local function Bar_RefreshAnimations(bg, bar, config)
 	local bat, bag = bar.attributes, bg.attributes
-	local fill, sparky, offsetX, now = 1, false, 0, GetTime()
+	local fill, sparky, offsetX, now, forced = 1, false, 0, GetTime(), false
+	if bar.timers then -- check special effect timers and force updates so that they happen on time
+		for k, t in pairs(bar.timers) do if t <= now then MOD:ForceUpdate(); forced = true break end end
+		if forced then for k, t in pairs(bar.timers) do if t <= (now + 0.01) then bar.timers[k] = nil end end end
+	end
+	
 	if bar.timeLeft and bar.duration and bar.maxTime and bar.offsetTime then -- only update if key parameters are set
 		local remaining = bar.duration - (now - bar.startTime + bar.offsetTime) -- remaining time in seconds
 		if (remaining < 0) or bat.ghostTime then remaining = 0 end -- make sure no rounding funnies and make sure ghost bars show 0 time
@@ -1660,43 +1942,13 @@ local function Bar_RefreshAnimations(bg, bar, config)
 		if bg.fillBars then fill = 1 - fill end -- optionally fill instead of empty bars
 		local timeText = MOD.Nest_FormatTime(remaining, bg.timeFormat, bg.timeSpaces, bg.timeCase) -- get formatted timer text
 		if bg.showTimeText then bar.timeText:SetText(timeText) end
-		local expireTime, expireMinimum = bat.expireTime, bat.expireMinimum
-		if expireTime and not bar.expireDone and expireTime >= remaining and (expireTime - remaining) < 1 then
-			if expireMinimum and bar.duration >= bat.expireMinimum then
-				PlaySoundFile(bat.soundExpire, Raven.db.global.SoundChannel); bar.expireDone = true
-			end
-		end
-		local colorTime = bat.colorTime -- if need to change color then force update to re-color the bar
-		if colorTime and colorTime >= remaining and (colorTime - remaining) < 0.25 then
-			if not bar.colorDone then Raven:ForceUpdate(); bar.colorDone = true end
-		else
-			bar.colorDone = false
-		end
-		if bat.expireMSBT and bat.minimumMSBT and not bar.warningDone and bar.duration >= bat.minimumMSBT
-			and bat.expireMSBT >= remaining and (bat.expireMSBT - remaining) < 1 then
-			local ec, crit, icon = bat.colorMSBT, bat.criticalMSBT, bar.iconTexture:GetTexture()
-			local t = string.format("%s [%s] %s", bar.label, bg.name, L["expiring"])
-			-- pass string to either MSBT or Blizzard's built-in combat text display
-			-- support for Parrot and SCT removed since these no longer work in BfA
-			if MikSBT then
-				MikSBT.DisplayMessage(t, MikSBT.DISPLAYTYPE_NOTIFICATION, crit, ec.r * 255, ec.g * 255, ec.b * 255, nil, nil, nil, icon)
-			elseif _G.SHOW_COMBAT_TEXT == "1" then
-				CombatText_AddMessage(t, COMBAT_TEXT_SCROLL_FUNCTION, ec.r, ec.g, ec.b, crit and "crit")
-			end
-			bar.warningDone = true
-		end
 	elseif bar.value and bar.maxValue then
 		if bar.value < 0 then bar.value = 0 end -- no negative values
 		if bar.value < bar.maxValue then fill = bar.value / bar.maxValue end -- adjust foreground bar width based on values
 		if bg.fillBars then fill = 1 - fill end -- optionally fill instead of empty bars
 		if bar.valueText then timeText = bar.valueText end -- set time text if a value text is provided
 	end
-	if bg.showIcon and not bat.header then
-		offsetX = bg.iconSize
-		local pulseEnd = (bag.pulseEnd or bat.pulseEnd)
-		local ba = bar.icon.anim
-		if ba:IsPlaying() then bar.cooldown:Hide() elseif pulseEnd and bar.timeLeft and (bar.timeLeft < 0.45) and (bar.timeLeft > 0.1) then ba:Play() end
-	end
+	if bg.showIcon and not bat.header then offsetX = bg.iconSize end
 	local showfg = bg.fgNotTimer
 	if bat.fullReverse then showfg = not showfg end
 	if bg.showBar and config.bars ~= "timeline" and (fill > 0) and (showfg or bar.timeLeft) and bar.includeBar then
@@ -1710,14 +1962,6 @@ local function Bar_RefreshAnimations(bg, bar, config)
 		else bf:Hide() end
 	end
 	if sparky then bar.spark:Show() else bar.spark:Hide() end
-	local alpha = bar.alpha or 1 -- adjust by bar alpha
-	if bar.flash then alpha = MOD.Nest_FlashAlpha(alpha, 1) end -- adjust alpha if flashing
-	if bat.header and bag.headerGaps then alpha = 0 end
-	bar.frame:SetAlpha(alpha) -- final alpha adjustment
-	-- bar.cooldown:SetSwipeColor(0, 0, 0, 0.8 * bar.icon:GetEffectiveAlpha()) -- hack to fix cooldown alpha not tracking rest of bar (removed for BfA)
-	if bat.soundStart and (not bar.soundDone or (bat.replay and (now > (bar.soundDone + bat.replayTime)))) then
-		PlaySoundFile(bat.soundStart, Raven.db.global.SoundChannel); bar.soundDone = now
-	end
 end
 
 -- Update icon positions on timeline after animation refresh
@@ -1792,13 +2036,13 @@ local function BarGroup_RefreshStripe(bg)
 		end
 		if tw > 0 then -- restructure the icon's parts depending on what is being shown
 			if iw > 0 then -- anchor text and bar on right side of the icon with appropriate inset/offset
-				PSetPoint(bar.labelText, "LEFT", bar.icon, "RIGHT", inset, bg.offset)
-				PSetPoint(bar.labelText, "RIGHT", bar.icon, "RIGHT", inset + tw, bg.offset)
+				PSetPoint(bl, "LEFT", bar.icon, "RIGHT", inset, bg.offset)
+				PSetPoint(bl, "RIGHT", bar.icon, "RIGHT", inset + tw, bg.offset)
 			else -- anchor text and bar on left side of the icon (which is not being shown) with appropriate inset/offset
-				PSetPoint(bar.labelText, "LEFT", bar.icon, "LEFT", inset, bg.offset)
-				PSetPoint(bar.labelText, "RIGHT", bar.icon, "LEFT", inset + tw, bg.offset)
+				PSetPoint(bl, "LEFT", bar.icon, "LEFT", inset, bg.offset)
+				PSetPoint(bl, "RIGHT", bar.icon, "LEFT", inset + tw, bg.offset)
 			end
-			bar.labelText:SetJustifyH("LEFT")
+			bl:SetJustifyH("LEFT")
 		end
 		tw = tw + (inset > 0 and inset or 0)
 		hw = tw; if iw == 0 and bw < tw then hw = hw - bw end -- compute interactive area width
@@ -2149,7 +2393,7 @@ function MOD.Nest_Update()
 		end
 	end
 	UpdateRelativePositions() -- has to be done every time to support relative positioning to last bar
-	UpdateBarAnimations() -- check for completed bar animations
+	UpdateSplashAnimations() -- check for completed bar animations
 	update = false
 end
 
@@ -2164,5 +2408,5 @@ function MOD.Nest_Refresh()
 			if not bg.disableAlpha then BarGroup_Alpha(bg) end
 		end
 	end
-	UpdateBarAnimations() -- check for completed bar animations
+	UpdateSplashAnimations() -- check for completed bar animations
 end

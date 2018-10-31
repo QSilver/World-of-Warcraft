@@ -308,7 +308,7 @@ function MOD:UpdateInCombatBarOverlays()
 					local timeLeft = expires - GetTime()
 					if g.opt.pulseEnd and (timeLeft < 0.45) and not v.anim:IsPlaying() then v.anim:Play() end
 					local flashing = g.opt.flashExpiring and g.opt.flashTime and (timeLeft < g.opt.flashTime)
-					if flashing then alpha = MOD.Nest_FlashAlpha(1, 1) end
+					if flashing then alpha = MOD.Nest_FlashAlpha(1, 0.5, 1.2) end
 				end
 				if g.opt.mouseoverDetect and not g.mask:IsMouseOver(2, -2, -2, 2) then alpha = alpha * (g.opt.mouseoverAlpha or 0.5) end
 				v.container:SetAlpha(alpha)
@@ -335,7 +335,7 @@ function MOD:RefreshInCombatBar()
 					local timeLeft = expires - GetTime()
 					if g.opt.pulseEnd and (timeLeft < 0.45) and not v.anim:IsPlaying() then v.anim:Play() end
 					local flashing = g.opt.flashExpiring and g.opt.flashTime and (timeLeft < g.opt.flashTime)
-					if flashing then alpha = MOD.Nest_FlashAlpha(1, 1) end
+					if flashing then alpha = MOD.Nest_FlashAlpha(1, 0.5, 1.2) end
 				end
 				if g.opt.mouseoverDetect and not g.mask:IsMouseOver(2, -2, -2, 2) then alpha = alpha * (g.opt.mouseoverAlpha or 0.5) end
 				v.container:SetAlpha(alpha)

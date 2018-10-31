@@ -2,7 +2,7 @@
 Questionably Epic Mythic+ Dungeon Tips
 Configuration Page
 
-Version: 4.6
+Version: 4.8
 Developed by: Voulk
 Contact: 
 	Discord: Voulk#1858
@@ -27,7 +27,14 @@ QEConfig = {
 	["RoleChoice"] = "Show my role only",
 	["ClassChoice"] = "Show my class only",
 	["ShowFrame"] = "Show in separate frame",
-	["TargetTrigger"] = "Show targeted mob"
+	["TargetTrigger"] = "Show targeted mob",
+	
+	["RaidToggle"] = true,
+	["MythicPlusToggle"] = true,
+	["FrameWidth"] = 450,
+	["FrameHeight"] = 175,
+	["FontSize"] = 12,
+	["FrameOpacity"] = 0.55
 }
 
 -- Create Checkboxes
@@ -135,7 +142,7 @@ local function createConfigMenu()
 	
 	-- Tip Location Selector --
 	local locFS = createString(addon.configPanel, "Tip Location", headerFont, headerSize)
-	locFS:SetPoint("TOPLEFT", chkAdvanced, "BOTTOMLEFT", 0, -18)
+	locFS:SetPoint("TOPLEFT", chkAdvanced, "BOTTOMLEFT", 0, -30)
 	
 	--locDD = createDropdown(addon.configPanel, "TipLocation", "Show in separate frame", "Show in mob tooltips", "ShowFrame")
 	--locDD:SetPoint("TOPLEFT", locFS, "BOTTOMLEFT", 0, -8)
@@ -203,16 +210,45 @@ local function createConfigMenu()
 			end)	
 	chkClass:SetPoint("TOPLEFT", classFS, "BOTTOMLEFT", 0, -8)
 	
+	-- Activate in
+	-- Tip Location Selector --
+	local showinFS = createString(addon.configPanel, "Content", headerFont, headerSize)
+	showinFS:SetPoint("TOPLEFT", roleFS, "BOTTOMLEFT", 0, -54)
+	
+	local chkRegDungeons = createCheck("RegDungeons", "Show Tips in Dungeons", addon.configPanel, function(self, value) end)
+	chkRegDungeons:SetPoint("TOPLEFT", showinFS, "BOTTOMLEFT", 0, -8)
+	chkRegDungeons:SetEnabled(false)
+	chkRegDungeons:SetChecked(true)
+	
+	--[[local chkMythicPlus = createCheck("MythicPlus", "Show Tips in Mythic+", addon.configPanel, function(self, value) 
+		QEConfig.MythicPlusToggle = self:GetChecked() 
+		addon:setEnabled()
+		end)
+	chkMythicPlus:SetPoint("TOPLEFT", chkRegDungeons, "BOTTOMLEFT", 0, -8)]]--
+	
+	local chkRaid = createCheck("Raid", "Show Tips in Raid", addon.configPanel, function(self, value) 
+		QEConfig.RaidToggle = self:GetChecked() 
+		addon:setEnabled()
+	end)
+	chkRaid:SetPoint("TOPLEFT", chkRegDungeons, "BOTTOMLEFT", 0, -8)
+	
 	
 	
 	-- Load in SavedVariables on ADDON_LOADED
 	addon.configPanel:RegisterEvent("ADDON_LOADED")
 	addon.configPanel:SetScript("OnEvent", function(self, event, arg1)
 		if event == "ADDON_LOADED" then
-		
 			-- Check for new variables added in a later release
 			QEConfig.ShowFrame = QEConfig.ShowFrame or "Show in separate frame"
 			QEConfig.TargetTrigger = QEConfig.TargetTrigger or "Show targeted mob"
+			
+			-- More variables added in a later release
+			if QEConfig.RaidToggle == nil then QEConfig.RaidToggle = true end
+			if QEConfig.MythicPlusToggle == nil then QEConfig.MythicPlusToggle = true end
+			QEConfig.FrameOpacity = QEConfig.FrameOpacity or 0.55
+			QEConfig.FrameWidth = QEConfig.FrameWidth or 450
+			QEConfig.FrameHeight = QEConfig.FrameHeight or 175
+			QEConfig.FontSize = QEConfig.FontSize or 12
 			
 			-- Set default checkbox behaviour
 			chkPriority:SetChecked(QEConfig.PriorityTargets)
@@ -220,6 +256,9 @@ local function createConfigMenu()
 			chkDefensives:SetChecked(QEConfig.Defensives)
 			chkFluff:SetChecked(QEConfig.Fluff)
 			chkAdvanced:SetChecked(QEConfig.Advanced)
+			--chkMythicPlus:SetChecked(QEConfig.MythicPlusToggle)
+			
+			chkRaid:SetChecked(QEConfig.RaidToggle)
 			
 			-- Set default Drop Down text
 			--UIDropDownMenu_SetText(locDD, QEConfig.ShowFrame)

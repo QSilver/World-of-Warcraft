@@ -105,6 +105,8 @@ Squantoon
 Larkin
 Trellsky (Youtube)
 Offbeatdk
+Qazan
+Ammler
 
 Siege of Boralus
 Taykee-Azralon
@@ -153,10 +155,14 @@ Matrox
 Caldalt
 George
 Naowh
+Ryvean-Gorgonnash
+Noonzy
+
 
 The Motherlode
 Canexx
 Reloe
+Benjo-Kazzak
 
 
 Waycrest Manor
@@ -166,6 +172,7 @@ Ponti
 Keryl
 Zix
 Jade
+Gräpe
 
 Special Thanks to Shakib and Reloe
 

@@ -1,10 +1,15 @@
-lightweight tag 6733347fec1c4bb65eb2e3720cb82c715eda992f v1.10.6
+lightweight tag 8b382d1d1f12db70999867fc36ba3187a767af97 v1.10.7
 Author:	Dave Hendler <sollaires@gmail.com>
-Date:	Sun Aug 26 17:47:31 2018 -0700
+Date:	Sun Sep 16 11:08:34 2018 -0700
 
-commit 6733347fec1c4bb65eb2e3720cb82c715eda992f
+commit 8b382d1d1f12db70999867fc36ba3187a767af97
 Author: Dave Hendler <sollaires@gmail.com>
-Date:   Sun Aug 26 17:47:31 2018 -0700
+Date:   Sun Sep 16 11:08:34 2018 -0700
 
-    1.10.6 - Support for Maghar Orcs and Dark Iron Dwarves
+    Release 1.10.7
+    
+    * Output Uldir Reorigination Array stacks as a comment (detected from
+    hidden quests)
+    * Fix support for nolib builds
+    * More robust race handling
 

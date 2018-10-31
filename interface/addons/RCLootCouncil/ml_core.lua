@@ -146,8 +146,8 @@ function RCLootCouncilML:RemoveItem(session)
 	tremove(self.lootTable, session)
 end
 
-function RCLootCouncilML:AddCandidate(name, class, role, rank, enchant, lvl, specID)
-	addon:DebugLog("ML:AddCandidate",name, class, role, rank, enchant, lvl, specID)
+function RCLootCouncilML:AddCandidate(name, class, role, rank, enchant, lvl, ilvl, specID)
+	addon:DebugLog("ML:AddCandidate",name, class, role, rank, enchant, lvl, ilvl, specID)
 	self.candidates[name] = {
 		["class"]		= class,
 		["role"]			= role,
@@ -309,7 +309,7 @@ function RCLootCouncilML:PrintItemsInBags()
 	end
 	addon:Print(L["Following items were registered in the award later list:"])
 	for i, v in ipairs(Items) do
-		addon:Print(i..". "..v.link, format(GUILD_BANK_LOG_TIME, SecondsToTime(time(date("!*t"))-v.addedTime, true)) )
+		addon:Print(i..". "..v.link, format(GUILD_BANK_LOG_TIME, SecondsToTime(time(date("!*t"))-v.time_added, true)) )
 		-- GUILD_BANK_LOG_TIME == "( %s ago )", although the constant name does not make sense here, this constant expresses we intend to do.
 		-- SecondsToTime is defined in SharedXML/util.lua
 	end
@@ -594,8 +594,8 @@ function RCLootCouncilML:HandleReceivedTradeable (item, sender)
 	-- For ML loot method, ourselve must be excluded because it should be handled in self:LootOpen()
 	if not addon:UnitIsUnit(sender, "player") or addon.lootMethod ~= "master" then
 		local quality = select(3, GetItemInfo(item))
-
-		if	(db.autolootOthersBoE and addon:IsItemBoE(item)) or -- BoE
+		local boe = addon:IsItemBoE(item)
+		if	(not boe or (db.autolootOthersBoE and boe)) and -- BoE
 		 	(IsEquippableItem(item) or db.autolootEverything) and -- Safetee: I don't want to check db.autoloot here, because this is actually not a loot.
 			not self:IsItemIgnored(item) and -- Item mustn't be ignored
 			(quality and quality >= (GetLootThreshold() or 1))  then

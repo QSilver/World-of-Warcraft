@@ -1,8 +1,8 @@
 VER 3 0100000000000001 "VuhDoDCShieldData" "Ability_Repair"
-R5DH1DT1NT1WM1WT1PM2DR2EM2HR2HM2LR3MR3RM3LR3LR3MR4SH4DR4PT4HR4HR5SH5PM5DH5DH6DR6MR[x]6HR6LR[x][x][x][x][x][x][x][x][x][x]6HR[x][x][x][x][x][x][x][x]0__0__0__[x][x]0__0__0__[x][x][x]0__0__[x][x][x][x][x]0__[x]0__0__[x][x][x][x][x][x][x][x][x][x]0__
+P[x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x]1HR[x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x]0__
 END
 VER 3 0100000000000002 "VuhDoDCShieldNames" "Ability_Repair"
-NTroAbbDuiImbCårInsSonXpiRosKeiZapAleSarSumWobGulBeeAbbHelAxxZahTjaFesCajIamCätLaa[x]PudDra[x][x][x][x][x][x][x][x][x][x]Qsi[x][x][x][x][x][x][x][x]UnkUnkUnk[x][x]FzuUnkUnk[x][x][x]UnkUnk[x][x][x][x][x]Unk[x]UnkUnk[x][x][x][x][x][x][x][x][x][x]Gar
+N[x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x]Qsi[x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x]Gar
 END
 VER 3 01000000000000BD "ZGVMacro2" "0"
 /target Inspector Snip Snagglebolt

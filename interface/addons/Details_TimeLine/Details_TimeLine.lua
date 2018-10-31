@@ -1104,9 +1104,11 @@ local function CreatePluginFrames()
 				local time_used = spell_table [1]
 				local target = spell_table [2]
 				local spellid = spell_table [3]
+
+				local spellInfo = DetailsFrameWork.CooldownsInfo [spellid]
+				local cooldown, effectTime = spellInfo.cooldown, spellInfo.duration
 				
-				local spell_info = TimeLine.DefensiveCooldownSpells [ spellid ] or TimeLine.DefensiveCooldownSpellsNoBuff [ spellid ]
-				local cooldown, effect_time = unpack (spell_info)
+				effectTime = effectTime or 6
 				
 				local block = row.blocks [spell_index]
 				if (not block) then
@@ -1114,7 +1116,7 @@ local function CreatePluginFrames()
 					block = row.blocks [spell_index]
 				end
 				
-				SetSpellBlock (row, block, time_used, spellid, effect_time, target, total_time, pixel_per_sec, player_name, player_table, green)
+				SetSpellBlock (row, block, time_used, spellid, effectTime, target, total_time, pixel_per_sec, player_name, player_table, green)
 			
 			end
 		
@@ -1495,16 +1497,21 @@ function TimeLine:RefreshScale()
 	end
 end
 
+local CombatLogGetCurrentEventInfo = CombatLogGetCurrentEventInfo
+
 function TimeLine:OnEvent (_, event, ...)
 
 	if (event == "COMBAT_LOG_EVENT_UNFILTERED" and _combat_object) then
-		local ev = select (2, ...)
+	
+		local time, token, hidding, sourceGUID, sourceName, sourceFlag, sourceFlag2, targetGUID, targetName, targetFlag, targetFlag2, spellID, spellName, spellType, amount, overKill, school, resisted, blocked, absorbed, isCritical = CombatLogGetCurrentEventInfo()
+	
+		local ev = token
 
 		if (ev == "SPELL_AURA_APPLIED" or ev == "SPELL_AURA_REFRESH") then
-			TimeLine:AuraOn (...)
+			TimeLine:AuraOn (time, token, hidding, sourceGUID, sourceName, sourceFlag, sourceFlag2, targetGUID, targetName, targetFlag, targetFlag2, spellID, spellName, spellType, amount, overKill, school, resisted, blocked, absorbed, isCritical)
 			
 		elseif (ev == "SPELL_AURA_REMOVED") then
-			TimeLine:AuraOff (...)
+			TimeLine:AuraOff (time, token, hidding, sourceGUID, sourceName, sourceFlag, sourceFlag2, targetGUID, targetName, targetFlag, targetFlag2, spellID, spellName, spellType, amount, overKill, school, resisted, blocked, absorbed, isCritical)
 		end
 
 	elseif (event == "ADDON_LOADED") then

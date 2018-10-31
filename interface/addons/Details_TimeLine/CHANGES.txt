@@ -1,7 +1,7 @@
-changeset:   87:d5f4a961182f
-tag:         v8.0.1.087
+changeset:   91:16fd057846af
+tag:         v8.0.1.091
 user:        Tercio
-date:        Sat Jul 28 11:36:45 2018 -0300
-summary:     - Fixed missing file error.
+date:        Tue Oct 09 17:59:04 2018 -0300
+summary:     - Fix for broken combatlog parser from wow 8.0 patch.
 
 

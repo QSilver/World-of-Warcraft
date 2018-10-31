@@ -112,13 +112,10 @@ AzeritePowerWeightsDB = {
 			}, -- [4]
 		}, -- [2]
 	},
-	["dbVersion"] = 1,
+	["dbVersion"] = 2,
 	["char"] = {
 		["Silvermoon"] = {
 			["Qsilver"] = {
-				["rolePowersNoOffRolePowers"] = true,
-				["importingCanUpdate"] = true,
-				["debug"] = false,
 				["specScales"] = {
 					[255] = {
 						["scaleName"] = "Default",
@@ -133,19 +130,27 @@ AzeritePowerWeightsDB = {
 						["scaleID"] = "C/3/253/HeroDamage Stacks ST T22 10-09-2018",
 					},
 				},
-				["rolePowers"] = true,
-				["defensivePowers"] = true,
-				["onlyOwnClassDefaults"] = true,
+				["addPrimaryStatToScore"] = false,
+				["showTooltipLegend"] = true,
+				["zonePowers"] = true,
+				["pvpPowers"] = false,
+				["addILvlToScore"] = true,
+				["relativeScore"] = false,
+				["rolePowersNoOffRolePowers"] = false,
+				["professionPowers"] = true,
 				["tooltipScales"] = {
 					{
 						["scaleName"] = "HeroDamage Stacks ST T22 10-09-2018",
 						["scaleID"] = "C/3/253/HeroDamage Stacks ST T22 10-09-2018",
 					}, -- [1]
 				},
-				["zonePowers"] = true,
-				["pvpPowers"] = false,
-				["addILvlToScore"] = true,
-				["professionPowers"] = true,
+				["rolePowers"] = true,
+				["defensivePowers"] = true,
+				["scaleByAzeriteEmpowered"] = false,
+				["onlyOwnClassDefaults"] = true,
+				["showOnlyUpgrades"] = false,
+				["debug"] = false,
+				["importingCanUpdate"] = true,
 			},
 		},
 	},

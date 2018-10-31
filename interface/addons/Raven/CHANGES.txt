@@ -1,8 +1,27 @@
 ------------------------------------------------------------------------
-r456 | Tomber | 2018-09-11 02:00:26 +0000 (Tue, 11 Sep 2018) | 1 line
+r471 | Tomber | 2018-10-05 18:12:50 +0000 (Fri, 05 Oct 2018) | 20 lines
 Changed paths:
-   M /trunk/Nest.lua
+   M /trunk/Localizations/enUS.lua
 
-Fixes for two issues with the ElvUI support in r460. The first fix addresses the mysterious black bar that showed up even in icon-only configurations. The second fix addresses the hazy dark overlay on icons when using Masque, ElvUI and Raven together.
+Special effects settings have been reorganized and expanded. They are now grouped by event (start effects, expire effects, finish effects, ready bar effects, conditional effects) which makes the presentation more consistent. There are new shine, sparkle, glow and splash effects. Animation customization options have been added that allow you to adjust colors, timing, etc. You can select between using bar group and custom bar-specific effects for each bar in a custom bar group.
+
+For the most part, the new special effects options should be backward compatible with previous profiles. Some delay and effect time settings have changed (they were used for too many different effects in the previous design). Anyone making much use of special effects will want to review their settings (and perhaps take advantage of new options).
+
+Suppress sounds and combat text for first several seconds after start or /reload.
+
+Add customized spell expire colors on the Spells tab.
+
+Improved responsiveness of forced updates.
+
+Update condition test for level to a maximum of 120.
+
+Change cooldown "clock" animation to use bar's icon as parent instead of bar's frame. This addresses a compatibility issue with recent versions of OmniCC.
+
+ElvUI/Tukui support now allows you to disable skinning of icons and just skin bars.
+
+More validation checks have been added to avoid certain Lua errors that may result from a corrupted SavedVariables file.
+
+Tooltips have been added for test bars. This should help when trying out different tooltip options.
+
 ------------------------------------------------------------------------
 

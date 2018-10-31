@@ -559,3 +559,4 @@ RaiderIO_DB_KR_A: disabled
 AllTheThings: disabled
 RaiderIO: disabled
 QE-DungeonTips: disabled
+BigWigs_Azeroth: enabled

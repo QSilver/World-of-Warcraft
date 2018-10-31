@@ -1,10 +1,10 @@
 local pairs, ipairs, tonumber, match, tinsert, tremove
     = pairs, ipairs, tonumber, match, tinsert, tremove
 
-local GetSavedInstanceInfo, GetNumSavedInstances, GetSavedInstanceEncounterInfo, GetSavedInstanceChatLink, UnitFactionGroup, RequestRaidInfo, GetQuestTagInfo, GetQuestTimeLeftMinutes, IsQuestFlaggedCompleted, EJ_GetInstanceInfo, EJ_GetEncounterInfo
-    = GetSavedInstanceInfo, GetNumSavedInstances, GetSavedInstanceEncounterInfo, GetSavedInstanceChatLink, UnitFactionGroup, RequestRaidInfo, GetQuestTagInfo, C_TaskQuest.GetQuestTimeLeftMinutes, IsQuestFlaggedCompleted, EJ_GetInstanceInfo, EJ_GetEncounterInfo
+local GetSavedInstanceInfo, GetNumSavedInstances, GetSavedInstanceEncounterInfo, GetSavedInstanceChatLink, UnitFactionGroup, RequestRaidInfo,                         GetState,             GetQuestTimeLeftMinutes, IsQuestFlaggedCompleted, EJ_GetInstanceInfo, EJ_GetEncounterInfo
+    = GetSavedInstanceInfo, GetNumSavedInstances, GetSavedInstanceEncounterInfo, GetSavedInstanceChatLink, UnitFactionGroup, RequestRaidInfo, C_ContributionCollector.GetState, C_TaskQuest.GetQuestTimeLeftMinutes, IsQuestFlaggedCompleted, EJ_GetInstanceInfo, EJ_GetEncounterInfo
 
-local BOSS_DEAD, BOSS_ALIVE, BOSS_UNAVAILABLE, WORLD_BOSS, REDFONT, GREENFONT, WHITEFONT, GRAYFONT
+local BOSS_DEAD, BOSS_ALIVE,       BOSS_UNAVAILABLE,           WORLD_BOSS, RED_FONT,       GREEN_FONT,           WHITE_FONT,       GRAY_FONT
     = BOSS_DEAD, BOSS_ALIVE, QUEUE_TIME_UNAVAILABLE, RAID_INFO_WORLD_BOSS, RED_FONT_COLOR, GREEN_FONT_COLOR, HIGHLIGHT_FONT_COLOR, GRAY_FONT_COLOR
 
 local locale = GetLocale()
@@ -71,6 +71,7 @@ local instancesData = {
 	[624] = 753,	-- Vault of Archavon
 	[533] = 754,	-- Naxxramas
 	[615] = 755,	-- The Obsidian Sanctum
+	[616] = 756,	-- The Eye of Eternity
 	[603] = 759,	-- Ulduar
 	[649] = 757,	-- Trial of the Crusader
 	[249] = 760,	-- Onyxia's Lair
@@ -161,7 +162,7 @@ local worldBossesData = {
 			{encounter = 725, quest = 32098},	-- Salyis's Warband
 			{encounter = 814, quest = 32518},	-- Nalak, The Storm Lord
 			{encounter = 826, quest = 32519},	-- Oondasta
-			    {name = L[1], quest = 33117},  	-- August Celestials
+			{name = L[1], quest = 33117},  		-- August Celestials
 			{encounter = 861, quest = 33118}	-- Ordos, Fire-God of the Yaungol
 		}
 	},
@@ -215,7 +216,7 @@ local worldBossesData = {
 			{encounter = 2139, quest = 52181},	-- T'zane
 			{encounter = 2141, quest = 52169},	-- Ji'arak
 			{encounter = 2197, quest = 52157},	-- Hailstone Construct
-										   {},	-- The Lion's Roar/Doom's Howl
+			{encounter = 0, quest = 0},  		-- The Lion's Roar/Doom's Howl
 			{encounter = 2199, quest = 52163},	-- Azurethos, The Winged Typhoon
 			{encounter = 2198, quest = 52166},	-- Warbringer Yenajz
 			{encounter = 2210, quest = 52196}	-- Dunegorger Kraulok
@@ -240,11 +241,7 @@ local function UpdateSavedInstances()
 		local instanceLink = GetSavedInstanceChatLink(i) or ""
 		local instanceID = tonumber(instanceLink:match(":(%d+)"))
 
-		for k, v in pairs(instancesData) do
-			if instanceID == k then
-				instanceID = v
-			end
-		end
+		instanceID = instancesData[instanceID]
 
 		if instanceID == 777 then
 			maxBosses = 3
@@ -294,20 +291,26 @@ local function UpdateSavedInstances()
 		end
 	end
 
+	local isBossAvailable = false
+	local state = GetState(11)
 	if UnitFactionGroup("player") == "Horde" then
 		worldBossesData[1028].bosses[4].encounter = 2212
 		worldBossesData[1028].bosses[4].quest = 52848
+
+		if state == 3 or state == 4 then
+			isBossAvailable = true
+			worldBossesData[1028].maxBosses = 2
+		end
 	else
 		worldBossesData[1028].bosses[4].encounter = 2213    
 		worldBossesData[1028].bosses[4].quest = 52847
-	end
-	local warfrontBoss = worldBossesData[1028].bosses[4].quest
-	local timeLeft = GetQuestTimeLeftMinutes(warfrontBoss)
-	local tagInfo = GetQuestTagInfo(warfrontBoss)
-	if tagInfo and timeLeft > 0 or IsQuestFlaggedCompleted(warfrontBoss) then
-		worldBossesData[1028].maxBosses = 2
-	end
 
+		if state == 1 or state == 2 then
+			isBossAvailable = true
+			worldBossesData[1028].maxBosses = 2
+		end
+	end
+	
 	local worldBosses = {}
 	for instanceID, data in pairs(worldBossesData) do
 		worldBosses[instanceID] = worldBosses[instanceID] or {}
@@ -322,11 +325,12 @@ local function UpdateSavedInstances()
 				name = boss.name,
 				isKilled = IsQuestFlaggedCompleted(boss.quest)
 			})
-			if worldBosses[1028] then
-				if tagInfo and timeLeft > 0 or worldBosses[1028][i].isKilled then
-					worldBosses[1028][i].isAvailable = true
+			if instanceID == 1028 then
+				if i == 4 then
+					worldBosses[1028][i].isAvailable = isBossAvailable
+					worldBosses[1028][i].isKilled = worldBosses[1028][i].isKilled and isBossAvailable
 				else
-					worldBosses[1028][i].isAvailable = false
+					worldBosses[1028][i].isAvailable = GetQuestTimeLeftMinutes(boss.quest) > 0
 				end
 			end
 		end
@@ -408,11 +412,11 @@ local function ShowTooltip(frame)
 		GameTooltip:SetText(info.instanceName.." ("..info.difficultyName..")")
 		for i, boss in ipairs(info.bosses) do
 			if boss.isKilled then
-				GameTooltip:AddDoubleLine(boss.name, BOSS_DEAD, WHITEFONT.r, WHITEFONT.g, WHITEFONT.b, REDFONT.r, REDFONT.g, REDFONT.b)
+				GameTooltip:AddDoubleLine(boss.name, BOSS_DEAD, WHITE_FONT.r, WHITE_FONT.g, WHITE_FONT.b, RED_FONT.r, RED_FONT.g, RED_FONT.b)
 			elseif boss.isAvailable ~= nil and not boss.isAvailable then
-				GameTooltip:AddDoubleLine(boss.name, BOSS_UNAVAILABLE, WHITEFONT.r, WHITEFONT.g, WHITEFONT.b, GRAYFONT.r, GRAYFONT.g, GRAYFONT.b)
+				GameTooltip:AddDoubleLine(boss.name, BOSS_UNAVAILABLE, WHITE_FONT.r, WHITE_FONT.g, WHITE_FONT.b, GRAY_FONT.r, GRAY_FONT.g, GRAY_FONT.b)
 			else
-				GameTooltip:AddDoubleLine(boss.name, BOSS_ALIVE, WHITEFONT.r, WHITEFONT.g, WHITEFONT.b, GREENFONT.r, GREENFONT.g, GREENFONT.b)
+				GameTooltip:AddDoubleLine(boss.name, BOSS_ALIVE, WHITE_FONT.r, WHITE_FONT.g, WHITE_FONT.b, GREEN_FONT.r, GREEN_FONT.g, GREEN_FONT.b)
 			end
 		end
 	end

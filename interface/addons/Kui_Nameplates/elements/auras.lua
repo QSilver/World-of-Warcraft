@@ -110,7 +110,7 @@
 ]]
 local addon = KuiNameplates
 local kui = LibStub('Kui-1.0')
-local ele = addon:NewElement('Auras')
+local ele = addon:NewElement('Auras',1)
 
 local strlower,tinsert,tsort,     pairs,ipairs =
       strlower,tinsert,table.sort,pairs,ipairs
@@ -340,6 +340,7 @@ local function AuraFrame_Enable(self,force_update)
     self.__DISABLED = nil
 
     if force_update or self.parent:IsShown() then
+        self:FactionUpdate()
         self:Update()
     end
 end
@@ -352,7 +353,6 @@ end
 local function AuraFrame_Update(self)
     if self.__DISABLED then return end
 
-    self:FactionUpdate() -- XXX workaround for #1
     self:GetAuras()
 
     for _,button in ipairs(self.buttons) do
@@ -374,18 +374,9 @@ local function AuraFrame_Update(self)
 end
 local function AuraFrame_FactionUpdate(self)
     if self.__DISABLED then return end
-
     if self.dynamic and self.parent.unit then
-        -- update filter on faction change if dynamic
-        if UnitCanAttack('player',self.parent.unit) then
-            self.filter = 'HARMFUL'
-        else
-            self.filter = 'HELPFUL'
-        end
-    end
-
-    if addon.debug then
-        assert(self.filter ~= nil)
+        -- update filter on faction change
+        self.filter = self.parent.state.attackable and 'HARMFUL' or 'HELPFUL'
     end
 end
 local function AuraFrame_GetAuras(self)
@@ -806,7 +797,7 @@ function ele:UpdateConfig()
 end
 -- messages ####################################################################
 function ele:Show(f)
-    self:UNIT_FACTION(nil,f)
+    self:FactionUpdate(f)
 end
 function ele:Hide(f)
     if not f.Auras then return end
@@ -814,14 +805,15 @@ function ele:Hide(f)
         frame:Hide()
     end
 end
--- events ######################################################################
-function ele:UNIT_FACTION(event,f)
+function ele:FactionUpdate(f)
     -- update each aura frame on this nameplate
     if not f.Auras then return end
     for _,auras_frame in pairs(f.Auras.frames) do
+        auras_frame:FactionUpdate()
         auras_frame:Update()
     end
 end
+-- events ######################################################################
 function ele:UNIT_AURA(event,f)
     -- update each aura frame on this nameplate
     if not f.Auras then return end
@@ -833,9 +825,8 @@ end
 function ele:OnEnable()
     self:RegisterMessage('Show')
     self:RegisterMessage('Hide')
-
+    self:RegisterMessage('FactionUpdate')
     self:RegisterUnitEvent('UNIT_AURA')
-    self:RegisterUnitEvent('UNIT_FACTION')
 end
 function ele:Initialised()
     if type(addon.layout.Auras) ~= 'table' then 
