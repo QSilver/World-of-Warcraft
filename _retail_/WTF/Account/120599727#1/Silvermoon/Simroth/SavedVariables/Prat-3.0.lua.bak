@@ -1,0 +1,86 @@
+
+Prat3CharDB = {
+	["history"] = {
+		["cmdhistory"] = {
+			["ChatFrame10EditBox"] = {
+			},
+			["ChatFrame7EditBox"] = {
+			},
+			["ChatFrame5EditBox"] = {
+			},
+			["ChatFrame8EditBox"] = {
+			},
+			["ChatFrame4EditBox"] = {
+			},
+			["ChatFrame6EditBox"] = {
+			},
+			["ChatFrame9EditBox"] = {
+			},
+			["ChatFrame2EditBox"] = {
+			},
+			["ChatFrame3EditBox"] = {
+			},
+			["ChatFrame1EditBox"] = {
+			},
+		},
+	},
+}
+Prat3HighCPUPerCharDB = {
+	["time"] = 1519425958,
+	["scrollback"] = {
+		["ChatFrame3"] = {
+			{
+				"|cff979797[22:45:45]|r|c00000000|r |Hchannel:channel:2|h[2] |h|cffd8d8d8[|r|Hplayer:Twinkdruid:217:CHANNEL:2|h|cffff7c0aTwinkdruid|r|h|cffd8d8d8]|r: WTS Twink Boost 100 110 2k last 1 spot", -- [1]
+				1, -- [2]
+				0.752941250801086, -- [3]
+				0.752941250801086, -- [4]
+				67, -- [5]
+				false, -- [6]
+				4, -- [7]
+				5, -- [8]
+			}, -- [1]
+			{
+				"|cff979797[22:45:51]|r|c00000000|r |Hchannel:channel:2|h[2] |h|cffd8d8d8[|r|Hplayer:Glovina:218:CHANNEL:2|h|cff8787edGlovina|r|h|cffd8d8d8]|r: WTS <<>>HC ARGUS ONLY<<>>, GET YOUR CURVE+ MOUNT IN 15 MINS, PERSONAL LOOT /w me ", -- [1]
+				1, -- [2]
+				0.752941250801086, -- [3]
+				0.752941250801086, -- [4]
+				67, -- [5]
+				false, -- [6]
+				4, -- [7]
+				7, -- [8]
+			}, -- [2]
+			{
+				"|cff979797[22:45:56]|r|c00000000|r |Hchannel:channel:2|h[2] |h|cffd8d8d8[|r|Hplayer:Veronet:219:CHANNEL:2|h|cffc41e3aVeronet|r|h|cffd8d8d8]|r: WTS Argus HC boost!! Get your mount and achiev now!! Chance to get one of bis trinkiets! Already 30+ runs made !PM for more info GOING RIGHT NOW", -- [1]
+				1, -- [2]
+				0.752941250801086, -- [3]
+				0.752941250801086, -- [4]
+				67, -- [5]
+				false, -- [6]
+				4, -- [7]
+				9, -- [8]
+			}, -- [3]
+			{
+				"|cff979797[22:45:58]|r|c00000000|r |Hchannel:channel:2|h[2] |h|cffd8d8d8[|r|Hplayer:Luppo:221:CHANNEL:2|h|cffa330c9Luppo|r|h|cffd8d8d8]|r: WTB|cffa335ee|Hitem:124442::::::::110:577::::::|h[Chaos Crystal]|h|r 180g/each |cffffffff|Hitem:124113::::::::110:577::::::|h[Stonehide Leather]|h|r 500g/stack -Unlimited amount C.O.D me", -- [1]
+				1, -- [2]
+				0.752941250801086, -- [3]
+				0.752941250801086, -- [4]
+				67, -- [5]
+				false, -- [6]
+				4, -- [7]
+				11, -- [8]
+			}, -- [4]
+		},
+		["ChatFrame1"] = {
+			{
+				"|cff979797[22:45:43]|r|c00000000|r |Hchannel:channel:4|h[4] |h Changed Channel: |Hchannel:4|h[4. phwarriors]|h", -- [1]
+				1, -- [2]
+				0.752941250801086, -- [3]
+				0.752941250801086, -- [4]
+				69, -- [5]
+				false, -- [6]
+				1, -- [7]
+				2, -- [8]
+			}, -- [1]
+		},
+	},
+}

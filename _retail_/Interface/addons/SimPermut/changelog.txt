@@ -1,0 +1,234 @@
+v1.15.0 16/08/2018
+[UI]Remove tier list
+[UI]Remove legendaries
+[UI]Adding Main hand & off hand
+[UI]Add new enchantments
+[UI]Add new gems
+[Fix]Set minimum ilvl to 300 (was 200) & maximum to 500 (was 1000)
+[Code]Cleanup (legion features)
+
+v1.14.15 02/01/2018
+[Fix]LUA error in some cases
+
+v1.14.14 01/17/2018
+[Fix]Fix artifact string export issue caused by 7.3.5 changes
+
+v1.14.13 01/04/2018
+[UI]Show T20 and T21 on main screen. T19 still accessible in the option panel
+[Fix]Fix Amanthul detection for legendaries 
+
+v1.14.12 12/12/2017
+[Fix]Fix NC issue with off hand
+
+v1.14.11 11/29/2017
+[UI]updtate ilvl max threshold to 1k
+[UI]Set ilvl max to 1k if it was at 999
+
+v1.14.10 11/08/2017
+[UI]Auto-simc format change
+[Fix]Exclude amanthul from leg count
+
+v1.14.9 11/03/2017
+[UI]Auto-simc format change
+[Fix]Shadow priest relic fix
+
+v1.14.8 09/20/2017
+[UI]New crucible export choice : export all combination of the current shown tree
+[UI]Keep window position when changing module
+[Code]Implement new crucible export format
+[Fix]Reset crucible string when switching between one tree / full weapon
+
+v1.14.7 09/13/2017
+[Fix]Fix Crucible export
+
+v1.14.6 09/13/2017
+[Fix]Fix Crucible export
+[Code]Cleanup
+
+v1.14.5 09/04/2017
+[UI]Added an option for 1 main stat gem
+[Fix]Fix NC T2 icon
+
+v1.14.4 09/04/2017
+[UI]added more crucible options
+[UI]added 7.3 gems
+[Fix]added t21 to autosimc export
+
+v1.14.3 08/31/2017
+[UI]Added an option for small UI (option panel)
+[UI]Added a way to add simc parameters (option panel)
+[Fix]Fix crucible stuff
+[FIX]Added some debug text for T21
+[Code]cleanup
+
+v1.14.1 08/30/2017
+[UI]Netherlight Crucible generator
+[UI]Add T21 (only in the option frame)
+[Fix]Fixed a number of wrongly labelled relics
+[Code]toc update
+
+v1.13.3 08/08/2017
+[Fix]Fixed size of an otpion that would sometimes cut itself
+[Fix]Fixed timewalking items
+
+v1.13.2 07/06/2017
+[Fix]Fix autosimc export
+
+v1.13.1 07/06/2017
+[UI]Added an option to add gear from a link to permut
+[FIX]Fix copy names with weird caracters
+[FIX]Fix items with multiple gem slots
+[FIX]Fix ilvl threshold for equiped items
+[Code]Added security to some places where you get lua error in some rare cases
+
+v1.12.5 06/28/2017
+[FIX]Corrected artifact in off-hand
+[UI]Added TOS relics
+
+v1.12.4 06/07/2017
+[UI]Added T20 selection
+[UI]Added tier print for autosimc export
+[FIX]Option pannel error with replace checkbox
+
+v1.12.3 05/31/2017
+[UI]Added an artifact generator/comparison
+[UI]Added more classes to relic comparison
+[UI]Added report type selection near generate button
+[UI]Added default report types for relics and talents in option pannel
+[CODE]Update artifact lib
+[CODE]Added some more security check for atifact
+[CODE]Added some more security check when 3rd relic slot is not unlocked
+[FIX]Show an error when no profiles printed
+
+v1.11.1 05/13/2017
+[FIX]Fix generation
+
+v1.11 05/12/2017
+[UI]Added command line support to pre-select an entire slot
+[UI]Added an option panel to personalize default parameters
+[FIX]Fixed Heirloom not listing
+
+v1.10.1 05/06/2017
+[FIX]Fixed talent permutation
+[UI]don't print current talents with the talent permut
+
+v1.10 05/05/2017
+[UI]Minor UI adjustment
+[UI]Added an option to make a talent permutation
+
+v1.9.2 04/22/2017
+[UI]Minor UI adjustment
+[UI]Auto set min leg with equiped legendaries
+[FIX]Fix lua error in some rare cases
+
+
+v1.9.1 04/19/2017
+[UI]Added 0s in front of copie names so they are in the right order in simc
+
+v1.9 04/18/2017
+[UI]Added some UI option for leg min/max and T19
+
+v1.8.3 04/07/2017
+[UI]Small update to generate equiped gear directly after launch
+
+v1.8.2 04/03/2017
+[FIX]Fixed a bug with ring/trinket profile duplication detection
+
+v1.8.1 03/29/2017
+[FIX]Fix for 7.2 when you have unlocked new traits
+
+v1.8 03/28/2017
+[CODE]7.2 bump
+[FIX]fix 7.2 api change
+[Lib]updated LibArtifactData
+[FIX]Fix artifact export for 7.2
+
+v1.7.7-beta 03/28/2017
+[FIX]Attempt to fix ring/trinket permutation
+
+v1.7.6-beta 03/24/2017
+[FIX]Fix lua error in debug mode
+
+v1.7.5-beta 03/23/2017
+[FIX]Follow yesterday's fix for ring/trinkets
+[CODE]Added debugging stuff
+
+v1.7.4 03/22/2017
+[FIX]Fix useless lines printing even if not needed that was remvoed in last patch
+
+v1.7.3 03/20/2017
+[UI]Added focus to resultbox after generating
+
+v1.7.2 03/17/2017
+[FIX]Fixed inversion checker if only 2 rings/trinkets selected
+
+v1.7.1 02/22/2017
+[FIX]Corrected a small typo that broke inversion checker...
+[CODE]Added some debug print
+
+v1.7 02/21/2017
+[UI]Put back inversion checker
+
+v1.6.4 02/16/2017
+[FIX]Fixed ring and trinket print if not selected
+
+v1.6.3 02/15/2017
+[FIX]Reduced Window size overall
+
+v1.6.2 01/30/2017
+[FIX]Fixed AutoSimc Export's artifact writing
+[UI]Add an information when no copy are generated because there is no other valid combination
+[UI]Integrated result window into main window for easier use
+
+v1.6.1 01/23/2017
+[FIX]Removed ring/trinket inversion check as it was causing too much problem that it solved. I'm working on a better solution
+[FIX]Fixed a bug where ring/trinket would be added in generated chain even if they didn't change
+
+v1.6-beta 01/19/2017
+[UI]Added an AutoSimcExport button that generates a string of all item selected to export and do a permutation with AutoSimc
+[UI]Added a var to select copy name type (number or item changed) in core.lua (ln 20). I will add a config panel later.
+	report_type		= 1  -> list of item changed
+	report_type		= 2  -> number (copyX)
+
+v1.5.1 01/17/2017
+[FIX]Fixed a bug when no ring/trinket where selected no generating the copy properly
+
+v1.5 01/17/2017
+[FIX]Removed a significant amount of copy due to ring/trinket inversion
+
+v1.4 01/10/2017
+[FIX]Removed the pieces that are from the base string from copy chain
+[FIX]Removed impossible copy (2 leg max)
+
+v1.3.1 12/16/2016
+[FIX]Fixed copy name being written incorrectly
+[FIX]Fixed Artifact update event incorrectly managed
+
+v1.3 12/14/2016
+[UI]Simplified the UI by deleting the dropdown and listing every items directly. Pre-select equiped items. If no item is selected in a slot, it will permut with equiped item.
+[FIX]Improved socket detection for crafted items and legendary
+
+v1.2.2 12/13/2016
+[FIX]Fixed a bug where artifact relics where not properly added to base string
+
+v1.2.1 12/09/2016
+[FIX]Fixed a bug where weapon were not correctly added in base string
+
+v1.2 12/08/2016
+[UI]Close string frame if you close main frame
+[UI]Split the item list in two columns to scroll less
+[UI]Added a warning if there is too much copies (fextframe can't handle more than 137 copies)
+[CODE]Code cleanup, removed unused functions
+[FIX]Removed some duplicated copies (same ring, same trinket, same as base)
+[FIX]Fixed warning label size
+
+v1.1 12/07/2016
+[UI]Added a toggle visibility with /simpermut
+[UI]Added a warning if too many items are selected
+[FIX]Fixed frame setppoint so they are not on each other anymore
+[FIX]Fixed an issue with ring and trinket permutations
+
+v1.0 12/06/2016
+[UI]Added multi-slot comparison support
+[CODE]Created a file for a personnal library
+[GH]Bump version

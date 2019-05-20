@@ -1,0 +1,49 @@
+
+ReputationBarsDB = {
+	["namespaces"] = {
+		["AutoBars"] = {
+			["profiles"] = {
+				["Default"] = {
+					["autoHide"] = false,
+					["locked"] = true,
+					["posx"] = 0.9999171927649863,
+					["barLength"] = 250,
+					["posy"] = -136.9999394160114,
+					["removeFactionSeconds"] = 5,
+					["barTexture"] = "Healbot",
+				},
+			},
+		},
+		["StaticBars"] = {
+			["profiles"] = {
+				["Default"] = {
+					["posx"] = 448.0000962779413,
+					["posy"] = -51.99996116060322,
+				},
+			},
+		},
+		["WatchBar"] = {
+			["profiles"] = {
+				["Default"] = {
+					["posx"] = -0,
+					["posy"] = 0,
+					["barTexture"] = "Healbot",
+					["autoTrack"] = false,
+					["barThickness"] = 12,
+					["replaceBlizzard"] = false,
+					["barLength"] = 1366,
+					["barFontOutline"] = "OUTLINE",
+					["locked"] = true,
+					["barFontSize"] = 12,
+				},
+			},
+		},
+	},
+	["profileKeys"] = {
+		["Qsilver - Silvermoon"] = "Default",
+	},
+	["profiles"] = {
+		["Default"] = {
+		},
+	},
+}

@@ -1,0 +1,9 @@
+if GetLocale() ~= "itIT" then return end
+GNF_EDIT_FILTER_RANKS	= "Ignorare"
+GNF_FILTER_RANKS		= "Rango"
+GNF_IGNORED_RANKS       = "Clicca per ignorare"
+GNF_MIN_ITEM_LEVEL      = "Min item Level"
+GNF_IGNORED_WORDS       = "Parole ignorate"
+GNF_IGNORED_WORD_INFO   = "Separare le parole con una virgola \",\""
+GNF_ENFORCED_WORDS      = "Parole forzate"
+GNF_GUILD_MEMBER        = "Membro della gilda"

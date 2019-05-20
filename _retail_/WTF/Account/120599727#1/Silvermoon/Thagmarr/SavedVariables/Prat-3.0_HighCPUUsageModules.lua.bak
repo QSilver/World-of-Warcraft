@@ -1,0 +1,85 @@
+
+Prat3HighCPUPerCharDB = {
+	["time"] = 1438123194,
+	["scrollback"] = {
+		["ChatFrame1"] = {
+			{
+				"|cff979797[23:38:16]|r|c00000000|r Quest accepted: The Dark Portal", -- [1]
+				1, -- [2]
+				1, -- [3]
+				0, -- [4]
+				1, -- [5]
+			}, -- [1]
+			{
+				"|cff979797[23:38:28]|r|c00000000|r |Hchannel:GUILD|h[G] |h|cffd8d8d8[|r|Hplayer:Thagmarr:3631:GUILD|h|cffd8bc3f90|r:|cffc69b6dThagmarr|r|h|cffd8d8d8]|r: I'm rerolling too", -- [1]
+				0.250980406999588, -- [2]
+				1, -- [3]
+				0.250980406999588, -- [4]
+				5, -- [5]
+			}, -- [2]
+			{
+				"|cff979797[23:38:37]|r|c00000000|r |Hchannel:GUILD|h[G] |h|cffd8d8d8[|r|Hplayer:Troopcsd:3632:GUILD|h|cffd84e4e100|r:|cff68ccefTroopcsd|r|h|cffd8d8d8]|r: No you're not.", -- [1]
+				0.250980406999588, -- [2]
+				1, -- [3]
+				0.250980406999588, -- [4]
+				5, -- [5]
+			}, -- [3]
+			{
+				"|cff979797[23:38:45]|r|c00000000|r |Hchannel:GUILD|h[G] |h|cffd8d8d8[|r|Hplayer:Lyxi:3633:GUILD|h|cffd84e4e100|r:|cffc69b6dLyxi|r|h|cffd8d8d8]|r: You know warriors cant read reddit while playing right?", -- [1]
+				0.250980406999588, -- [2]
+				1, -- [3]
+				0.250980406999588, -- [4]
+				5, -- [5]
+			}, -- [4]
+			{
+				"|cff979797[23:38:45]|r|c00000000|r |Hchannel:GUILD|h[G] |h|cffd8d8d8[|r|Hplayer:Ragenerves:3634:GUILD|h|cff8b8b8b32|r:|cffc69b6dRagenerves|r|h|cffd8d8d8]|r: You need 8 arms warriors for Velhari no?", -- [1]
+				0.250980406999588, -- [2]
+				1, -- [3]
+				0.250980406999588, -- [4]
+				5, -- [5]
+			}, -- [5]
+			{
+				"|cff979797[23:38:50]|r|c00000000|r |Hchannel:GUILD|h[G] |h|cffd8d8d8[|r|Hplayer:Lyxi:3635:GUILD|h|cffd84e4e100|r:|cffc69b6dLyxi|r|h|cffd8d8d8]|r: Have to do more than spam 1 button", -- [1]
+				0.250980406999588, -- [2]
+				1, -- [3]
+				0.250980406999588, -- [4]
+				5, -- [5]
+			}, -- [6]
+			{
+				"|cff979797[23:39:01]|r|c00000000|r |Hchannel:GUILD|h[G] |h|cffd8d8d8[|r|Hplayer:Lyxi:3636:GUILD|h|cffd84e4e100|r:|cffc69b6dLyxi|r|h|cffd8d8d8]|r: and run out of range", -- [1]
+				0.250980406999588, -- [2]
+				1, -- [3]
+				0.250980406999588, -- [4]
+				5, -- [5]
+			}, -- [7]
+			{
+				"|cff979797[23:39:15]|r|c00000000|r |Hchannel:GUILD|h[G] |h|cffd8d8d8[|r|Hplayer:Troopcsd:3637:GUILD|h|cffd84e4e100|r:|cff68ccefTroopcsd|r|h|cffd8d8d8]|r: Max Range > Melee Range", -- [1]
+				0.250980406999588, -- [2]
+				1, -- [3]
+				0.250980406999588, -- [4]
+				5, -- [5]
+			}, -- [8]
+			{
+				"|cff979797[23:39:31]|r|c00000000|r |Hchannel:GUILD|h[G] |h|cffd8d8d8[|r|Hplayer:Pàts:3638:GUILD|h|cffd84e4e100|r:|cffc69b6dPàts|r|h|cffd8d8d8]|r: What is this Max Range you are talking about?", -- [1]
+				0.250980406999588, -- [2]
+				1, -- [3]
+				0.250980406999588, -- [4]
+				5, -- [5]
+			}, -- [9]
+			{
+				"|cff979797[23:39:33]|r|c00000000|r |Hchannel:GUILD|h[G] |h|cffd8d8d8[|r|Hplayer:Pàts:3639:GUILD|h|cffd84e4e100|r:|cffc69b6dPàts|r|h|cffd8d8d8]|r: 8 yards?", -- [1]
+				0.250980406999588, -- [2]
+				1, -- [3]
+				0.250980406999588, -- [4]
+				5, -- [5]
+			}, -- [10]
+			{
+				"|cff979797[23:39:54]|r|c00000000|r |Hchannel:GUILD|h[G] |h|cffd8d8d8[|r|Hplayer:Thagmarr:3640:GUILD|h|cffd8bc3f90|r:|cffc69b6dThagmarr|r|h|cffd8d8d8]|r: I will hold you to that Troop, I print screened this moment", -- [1]
+				0.250980406999588, -- [2]
+				1, -- [3]
+				0.250980406999588, -- [4]
+				5, -- [5]
+			}, -- [11]
+		},
+	},
+}

@@ -1,0 +1,9 @@
+if GetLocale() ~= "ruRU" then return end
+GNF_EDIT_FILTER_RANKS	= "игнорировать"
+GNF_FILTER_RANKS		= "Звания"
+GNF_IGNORED_RANKS       = "Нажмите, чтобы игнорировать"
+GNF_MIN_ITEM_LEVEL      = "Min item Level"
+GNF_IGNORED_WORDS       = "Игнорируемые слова"
+GNF_IGNORED_WORD_INFO   = "Отдельные слова с запятой \",\""
+GNF_ENFORCED_WORDS      = "Принудительные слова"
+GNF_GUILD_MEMBER        = "Guild member"

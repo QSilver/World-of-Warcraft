@@ -1,0 +1,10 @@
+VER 3 0100000000000001 "VuhDoDCShieldData" "Ability_Repair"
+R2MR1OT1ET1DT1RM1WM2MR2DR2LR2LR3HR3HR[x]3DR3NM4IH4DH4PH4OH4IH[x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x]3HR[x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x]
+END
+VER 3 0100000000000002 "VuhDoDCShieldNames" "Ability_Repair"
+NTroDuiXpiSonEkuGarGulAbbZapWobRukRos[x]TacIsiVorTerFesSanIol[x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x]Qsi[x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x]
+END
+VER 3 01000000000000BD "ZGVMacro2" "0"
+/target Inspector Snip Snagglebolt
+/run ZGV:MRM()
+END

@@ -1,0 +1,224 @@
+------------------------------------------------------------------------
+r64 | elkano | 2017-11-05 08:01:58 -0600 (Sun, 05 Nov 2017) | 1 line
+Changed paths:
+   M /trunk/FramesResized.lua
+   M /trunk/FramesResized.toc
+
+- don't try to apply old TradeskillUI code if it loaded before us
+------------------------------------------------------------------------
+r63 | elkano | 2016-07-24 09:18:50 -0500 (Sun, 24 Jul 2016) | 2 lines
+Changed paths:
+   M /trunk/FramesResized.lua
+   M /trunk/FramesResized.toc
+   M /trunk/FramesResizedOptions.lua
+
+- updated for WoW 7.0.3
+- TradeSkillUI resizing disabled for now (frame is larger anyways)
+------------------------------------------------------------------------
+r62 | elkano | 2015-11-30 15:50:57 -0600 (Mon, 30 Nov 2015) | 1 line
+Changed paths:
+   M /trunk/FramesResized.toc
+
+... also why do I keep setting a 60300 toc?
+------------------------------------------------------------------------
+r61 | elkano | 2015-11-30 15:50:04 -0600 (Mon, 30 Nov 2015) | 1 line
+Changed paths:
+   M /trunk/FramesResized.lua
+   M /trunk/FramesResized.toc
+
+pushing some changes I still had around local for months... :/
+------------------------------------------------------------------------
+r60 | nevcairiel | 2015-11-29 05:14:29 -0600 (Sun, 29 Nov 2015) | 1 line
+Changed paths:
+   M /trunk/FramesResized.lua
+
+Fix leaked "frame" global
+------------------------------------------------------------------------
+r59 | elkano | 2014-10-15 08:35:24 -0500 (Wed, 15 Oct 2014) | 2 lines
+Changed paths:
+   M /trunk/FramesResized.lua
+   M /trunk/FramesResized.toc
+
+- TOC to 60000
+- fixed GuildUI (including Blizzard's mess for the perk frame...)
+------------------------------------------------------------------------
+r58 | elkano | 2013-10-31 12:05:14 -0500 (Thu, 31 Oct 2013) | 2 lines
+Changed paths:
+   M /trunk/FramesResized.lua
+   M /trunk/FramesResized.toc
+
+- updated TOC for 5.4.x
+- "optimized" taint hack a bit
+------------------------------------------------------------------------
+r57 | nevcairiel | 2013-10-30 10:49:14 -0500 (Wed, 30 Oct 2013) | 1 line
+Changed paths:
+   M /trunk/FramesResized.lua
+
+Avoid taint when opening the trainer UI
+------------------------------------------------------------------------
+r56 | elkano | 2012-08-20 05:14:20 -0500 (Mon, 20 Aug 2012) | 1 line
+Changed paths:
+   M /trunk/FramesResized.lua
+
+fixed nil error in line 107
+------------------------------------------------------------------------
+r55 | elkano | 2012-07-05 06:20:30 -0500 (Thu, 05 Jul 2012) | 1 line
+Changed paths:
+   M /trunk/FramesResized.lua
+   M /trunk/FramesResized.toc
+   D /trunk/FramesResized.xml
+   D /trunk/UI-LootPanel-Mid.blp
+
+- applied initial changes for WoW 5.x
+------------------------------------------------------------------------
+r54 | elkano | 2012-07-05 06:13:23 -0500 (Thu, 05 Jul 2012) | 1 line
+Changed paths:
+   M /trunk/FramesResized.lua
+   M /trunk/FramesResized.toc
+
+small fix for changes to the guild MOTD frame
+------------------------------------------------------------------------
+r53 | elkano | 2011-04-28 05:08:16 -0500 (Thu, 28 Apr 2011) | 1 line
+Changed paths:
+   M /trunk/FramesResized.lua
+   M /trunk/FramesResized.toc
+
+updated GuildUI for 4.1
+------------------------------------------------------------------------
+r52 | elkano | 2010-12-09 06:27:05 -0600 (Thu, 09 Dec 2010) | 1 line
+Changed paths:
+   M /trunk/FramesResized.lua
+   M /trunk/FramesResized.toc
+
+some fixes for the GuildFrame (stuff activated with Cataclysm)
+------------------------------------------------------------------------
+r51 | elkano | 2010-10-19 11:23:34 -0500 (Tue, 19 Oct 2010) | 1 line
+Changed paths:
+   M /trunk/FramesResized.lua
+
+set GuildFrame as movable
+------------------------------------------------------------------------
+r50 | elkano | 2010-10-18 02:50:19 -0500 (Mon, 18 Oct 2010) | 2 lines
+Changed paths:
+   M /trunk/FramesResized.lua
+   M /trunk/FramesResized.toc
+   M /trunk/FramesResized.xml
+   M /trunk/FramesResizedOptions.lua
+   D /trunk/UI-ClassTrainer-MidLeft.blp
+   D /trunk/UI-ClassTrainer-MidRight.blp
+
+- updated for 4.x
+- now also resizes GuildUI (not tested on Cataclysm client though)
+------------------------------------------------------------------------
+r49 | elkano | 2010-10-18 01:32:36 -0500 (Mon, 18 Oct 2010) | 1 line
+Changed paths:
+   M /trunk/FramesResized.lua
+   M /trunk/FramesResized.toc
+   M /trunk/FramesResized.xml
+   M /trunk/FramesResizedOptions.lua
+   A /trunk/UI-ClassTrainer-MidLeft.blp (from /trunk/UI-ClassTrainer-MidLeft.blp:47)
+   A /trunk/UI-ClassTrainer-MidRight.blp (from /trunk/UI-ClassTrainer-MidRight.blp:47)
+
+reverting unauthorized changes
+------------------------------------------------------------------------
+r48 | whuz | 2010-10-17 02:19:36 -0500 (Sun, 17 Oct 2010) | 4 lines
+Changed paths:
+   M /trunk/FramesResized.lua
+   M /trunk/FramesResized.toc
+   M /trunk/FramesResized.xml
+   M /trunk/FramesResizedOptions.lua
+   D /trunk/UI-ClassTrainer-MidLeft.blp
+   D /trunk/UI-ClassTrainer-MidRight.blp
+
+- fix drag and drop for trainer and tradeskill windows
+- fix tradeskill window resize
+- remove trainer window resize as you cannot access any of the components inside ClassTrainerFrame
+
+------------------------------------------------------------------------
+r47 | elkano | 2009-08-26 04:38:16 -0500 (Wed, 26 Aug 2009) | 1 line
+Changed paths:
+   M /trunk/FramesResized.toc
+
+version bump to 2.3.2
+------------------------------------------------------------------------
+r46 | elkano | 2009-08-26 04:36:48 -0500 (Wed, 26 Aug 2009) | 1 line
+Changed paths:
+   M /trunk/FramesResized.lua
+
+RaidInfo should now use all available space in the scrollframe
+------------------------------------------------------------------------
+r45 | elkano | 2009-08-06 04:33:37 -0500 (Thu, 06 Aug 2009) | 1 line
+Changed paths:
+   M /trunk/FramesResized.lua
+   M /trunk/FramesResized.toc
+   M /trunk/FramesResized.xml
+   M /trunk/FramesResizedOptions.lua
+   D /trunk/UI-QuestLog-MidLeft.blp
+   D /trunk/UI-QuestLog-MidRight.blp
+
+fixes for 3.2 -> removed QuestLog code
+------------------------------------------------------------------------
+r44 | elkano | 2009-04-15 02:02:57 -0500 (Wed, 15 Apr 2009) | 1 line
+Changed paths:
+   M /trunk/FramesResized.toc
+
+fixed the TOC... it's 30100... well, still over nine thousand...
+------------------------------------------------------------------------
+r43 | nevcairiel | 2009-04-11 03:15:06 -0500 (Sat, 11 Apr 2009) | 1 line
+Changed paths:
+   M /trunk/FramesResized.toc
+
+Add the SV actually to the .toc, so settings do get saved.
+------------------------------------------------------------------------
+r42 | elkano | 2009-03-09 03:14:03 -0500 (Mon, 09 Mar 2009) | 3 lines
+Changed paths:
+   M /trunk/FramesResized.lua
+   M /trunk/FramesResized.toc
+   A /trunk/FramesResizedOptions.lua
+
+version 2.3.0
+- fixes for 3.1 PTR
+- added ingame configuration: /fr
+------------------------------------------------------------------------
+r41 | elkano | 2009-03-05 01:25:56 -0600 (Thu, 05 Mar 2009) | 1 line
+Changed paths:
+   M /trunk/FramesResized.lua
+
+will now also resize RaidInfo panel to 8 visible entries
+------------------------------------------------------------------------
+r40 | elkano | 2009-01-12 08:00:21 -0600 (Mon, 12 Jan 2009) | 1 line
+Changed paths:
+   M /trunk/FramesResized.toc
+
+pushed version to 2.2.1 for release
+------------------------------------------------------------------------
+r39 | elkano | 2008-11-19 07:16:27 -0600 (Wed, 19 Nov 2008) | 1 line
+Changed paths:
+   M /trunk
+   M /trunk/FramesResized.lua
+
+trying to fix the QuestLog frame top texture sometimes coming in front of the mid texture
+------------------------------------------------------------------------
+r38 | elkano | 2008-10-13 02:55:10 -0500 (Mon, 13 Oct 2008) | 3 lines
+Changed paths:
+   M /trunk/FramesResized.lua
+   M /trunk/FramesResized.toc
+
+FramesResized
+- changes for new svn/packager
+- updated for WotLK - TOC 30000
+------------------------------------------------------------------------
+r37 | root | 2008-09-29 16:55:48 -0500 (Mon, 29 Sep 2008) | 1 line
+Changed paths:
+   A /trunk/.pkgmeta
+
+Facilitate WowAce-on-CurseForge transition
+------------------------------------------------------------------------
+r35 | root | 2008-09-29 15:57:54 -0500 (Mon, 29 Sep 2008) | 1 line
+Changed paths:
+   D /tmp/trunk/FramesResized
+   A /trunk (from /tmp/trunk/FramesResized:34)
+
+Importing old repo data under /trunk
+------------------------------------------------------------------------
+

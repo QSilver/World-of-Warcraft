@@ -1,0 +1,12 @@
+
+AltoholicDB = {
+	["profileKeys"] = {
+		["Qsilver - Silvermoon"] = "Qsilver - Silvermoon",
+		["Linela - Silvermoon"] = "Linela - Silvermoon",
+	},
+	["global"] = {
+		["options"] = {
+			["TabSummaryMode"] = 4,
+		},
+	},
+}

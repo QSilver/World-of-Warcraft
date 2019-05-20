@@ -1,0 +1,12 @@
+## Interface: 80100
+## Title: Advanced Tooltips
+## Author: lcs
+## Version: v1.0.0
+## OptionalDeps: Ace3, AceGUI-3.0-SharedMediaWidgets, LibCompress, LibWindow-1.1
+## SavedVariablesPerCharacter: AdvancedTooltips_Config
+embeds.xml
+Core.lua
+Data.lua
+Data2.lua
+ScalingData.lua
+

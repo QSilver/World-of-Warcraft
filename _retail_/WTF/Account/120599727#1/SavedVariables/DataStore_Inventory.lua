@@ -1,0 +1,88 @@
+
+DataStore_InventoryDB = {
+	["profileKeys"] = {
+		["Linela - Silvermoon"] = "Linela - Silvermoon",
+		["Qsilver - Silvermoon"] = "Qsilver - Silvermoon",
+	},
+	["global"] = {
+		["Characters"] = {
+			["Default.Silvermoon.Linela"] = {
+				["Inventory"] = {
+					9492, -- [1]
+					44374, -- [2]
+					13374, -- [3]
+					nil, -- [4]
+					6324, -- [5]
+					"|cff1eff00|Hitem:24621:0:0:0:0:0:-36:1969750049:70:0:0|h[Slavehandler Belt of the Sorcerer]|h|r", -- [6]
+					64592, -- [7]
+					18102, -- [8]
+					39676, -- [9]
+					28304, -- [10]
+					"|cff1eff00|Hitem:36417:0:0:0:0:0:-38:1560084517:70:0:0|h[Oval Ring of the Prophet]|h|r", -- [11]
+					13345, -- [12]
+					nil, -- [13]
+					nil, -- [14]
+					12968, -- [15]
+					27791, -- [16]
+				},
+				["averageItemLvl"] = 72.53334045410156,
+				["overallAIL"] = 72.53334045410156,
+				["lastUpdate"] = 1353632351,
+			},
+			["Default.Silvermoon.Qsilver"] = {
+				["Inventory"] = {
+					"|cffa335ee|Hitem:89975:0:4656:4631:0:0:0:1553270912:90:137:0|h[Dreadeye Gaze]|h|r", -- [1]
+					89827, -- [2]
+					"|cffa335ee|Hitem:89344:4804:4609:0:0:0:0:0:90:137:0|h[Windwalker Spaulders]|h|r", -- [3]
+					89194, -- [4]
+					"|cffa335ee|Hitem:85787:4419:4643:4631:0:0:0:992926976:90:168:0|h[Chestguard of Earthen Harmony]|h|r", -- [5]
+					"|cffa335ee|Hitem:85993:0:4643:4631:4643:0:0:1032923392:90:139:0|h[Fetters of Death]|h|r", -- [6]
+					"|cffa335ee|Hitem:85295:4880:4643:0:0:0:0:1257263872:90:137:0|h[Yaungol Slayer's Legguards]|h|r", -- [7]
+					"|cffa335ee|Hitem:85980:4428:4609:0:0:0:0:740937504:90:160:0|h[Wildfire Worldwalkers]|h|r", -- [8]
+					88882, -- [9]
+					88745, -- [10]
+					89070, -- [11]
+					84827, -- [12]
+					79328, -- [13]
+					86890, -- [14]
+					"|cffa335ee|Hitem:86782:4424:0:0:0:0:0:1805777152:90:151:0|h[Arrow Breaking Windcloak]|h|r", -- [15]
+					"|cffa335ee|Hitem:86801:4699:0:0:0:0:0:976943104:90:0:0|h[Fang Kung, Spark of Titans]|h|r", -- [16]
+					[19] = 40643,
+				},
+				["averageItemLvl"] = 484.8000183105469,
+				["overallAIL"] = 484.8000183105469,
+				["lastUpdate"] = 1353685972,
+			},
+		},
+		["Guilds"] = {
+			["Default.Silvermoon.Vote To Kick"] = {
+				["Members"] = {
+					["Ivrin"] = {
+						["averageItemLvl"] = 479,
+					},
+					["Avalie"] = {
+						["averageItemLvl"] = 380,
+					},
+					["Linela"] = {
+						["averageItemLvl"] = 38,
+					},
+					["Setay"] = {
+						["averageItemLvl"] = 150,
+					},
+					["Teonora"] = {
+						["averageItemLvl"] = 43,
+					},
+					["Sakana"] = {
+						["averageItemLvl"] = 382,
+					},
+					["Qsilver"] = {
+						["averageItemLvl"] = 484,
+					},
+					["Frou"] = {
+						["averageItemLvl"] = 372,
+					},
+				},
+			},
+		},
+	},
+}

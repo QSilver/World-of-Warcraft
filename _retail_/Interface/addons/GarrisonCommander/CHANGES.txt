@@ -1,0 +1,18 @@
+tag aece9977a1c25380a72100cbfbd63aa32273ac94 3.1.1
+Author:	Alar of Runetotem <alar@aspide.it>
+Date:	Tue May 14 22:33:00 2019 +0200
+
+Harvest nodes fix
+
+commit 16d16d4ac7f75bd4d480cf5d7c01a84663684321
+Author: Alar of Runetotem <alar@aspide.it>
+Date:   Tue May 14 22:32:24 2019 +0200
+
+    3.1.1
+
+commit 3e1efedce67bd8e6c37eedd5f92da796a60a543f
+Author: Alar of Runetotem <alar@aspide.it>
+Date:   Tue May 14 22:21:40 2019 +0200
+
+    fixed herbs/mine
+

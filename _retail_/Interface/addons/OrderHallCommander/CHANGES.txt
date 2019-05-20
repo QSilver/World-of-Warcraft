@@ -1,0 +1,22 @@
+tag 9ce782735962a6299c29470d24816bb8eec47a80 1.7.4
+Author:	Alar of Runetotem <alar@aspide.it>
+Date:	Tue Mar 19 22:31:49 2019 +0100
+
+Fix: null error for tooltips on Followers
+
+commit 936ea781dd2982a94b55f00f8537a187ee3ad185
+Author: Alar of Runetotem <alar@aspide.it>
+Date:   Tue Mar 19 22:31:06 2019 +0100
+
+    1: Null error for tooltips on Followers
+    
+    Task-Url: http://github.com/alarofrunetotem/OrderHallCommander/issues/1
+
+commit b014d14a4494cc6e7bc69c004977ddb341706870
+Author: Alar of Runetotem <alar@aspide.it>
+Date:   Tue Mar 19 22:29:13 2019 +0100
+
+    1: Null error for tooltips on Followers
+    
+    Task-Url: http://github.com/alarofrunetotem/OrderHallCommander/issues/1
+

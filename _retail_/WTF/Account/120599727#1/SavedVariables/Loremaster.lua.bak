@@ -1,0 +1,12 @@
+
+LoremasterVars = {
+	["profileKeys"] = {
+		["Qsilver - Silvermoon"] = "profile",
+	},
+	["profiles"] = {
+		["profile"] = {
+			["hideach"] = true,
+			["version"] = "v5.0.0.5",
+		},
+	},
+}

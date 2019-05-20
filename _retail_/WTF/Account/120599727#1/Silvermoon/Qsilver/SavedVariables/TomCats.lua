@@ -1,0 +1,5 @@
+
+TomCats_Character = {
+	["preferences"] = {
+	},
+}

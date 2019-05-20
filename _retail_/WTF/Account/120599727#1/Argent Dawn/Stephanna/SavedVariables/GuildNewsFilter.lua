@@ -1,0 +1,2 @@
+
+GNFP_DB = nil

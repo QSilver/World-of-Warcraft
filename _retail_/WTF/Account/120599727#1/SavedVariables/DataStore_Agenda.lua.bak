@@ -1,0 +1,42 @@
+
+DataStore_AgendaDB = {
+	["profileKeys"] = {
+		["Qsilver - Silvermoon"] = "Qsilver - Silvermoon",
+		["Linela - Silvermoon"] = "Linela - Silvermoon",
+	},
+	["global"] = {
+		["Characters"] = {
+			["Default.Silvermoon.Qsilver"] = {
+				["DungeonIDs"] = {
+					["Molten Core 40 Player|204078365"] = "400016|1353685973|0|1",
+				},
+				["Calendar"] = {
+					"2012-11-25|18:30|Räd(Raid)|1|2", -- [1]
+					"2012-11-26|19:30|Räd(Raid)|1|2", -- [2]
+				},
+				["lastUpdate"] = 1353685972,
+				["Contacts"] = {
+					["Incube"] = {
+						["note"] = "",
+					},
+					["Shiryn"] = {
+						["note"] = "",
+					},
+					["Halffus"] = {
+						["note"] = "",
+					},
+				},
+			},
+			["Default.Silvermoon.Linela"] = {
+				["lastUpdate"] = 1353632363,
+				["Contacts"] = {
+					["Kissiecake"] = {
+						["note"] = "",
+						["level"] = 70,
+						["class"] = "Warlock",
+					},
+				},
+			},
+		},
+	},
+}

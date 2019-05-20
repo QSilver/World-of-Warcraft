@@ -1,0 +1,8 @@
+Version: 1
+Frame: ClassModsMinimapButton
+FrameLevel: 9997
+Anchor: TOPRIGHT
+X: -85
+Y: -137
+W: 26
+H: 26

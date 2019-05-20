@@ -1,0 +1,9 @@
+if GetLocale() ~= "esES" then return end
+GNF_EDIT_FILTER_RANKS	= "Ignorar"
+GNF_FILTER_RANKS		= "Rangos"
+GNF_IGNORED_RANKS       = "Haga clic para ignorar"
+GNF_MIN_ITEM_LEVEL      = "Min item Level"
+GNF_IGNORED_WORDS       = "Palabras ignoradas"
+GNF_IGNORED_WORD_INFO   = "Separar palabras con una coma \",\""
+GNF_ENFORCED_WORDS      = "Palabras forzadas"
+GNF_GUILD_MEMBER        = "Miembro del gremio"

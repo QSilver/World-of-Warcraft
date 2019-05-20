@@ -1,0 +1,7 @@
+changeset:   62:57356e2769b6
+tag:         v8.1.5.062
+user:        Tercioo
+date:        Tue Apr 09 14:10:51 2019 -0300
+summary:     - Show all segments on the segment list instead of showing only boss segments.
+
+

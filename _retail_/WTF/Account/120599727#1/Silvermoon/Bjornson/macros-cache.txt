@@ -1,0 +1,6 @@
+MACRO 16777568 "ZGVMacro3" "INV_MISC_QUESTIONMARK"
+#showtooltip Blacksmithing
+/run CloseTradeSkill()
+/cast Blacksmithing
+/run ZGV:PerformTradeSkillGoal(42,3)
+END

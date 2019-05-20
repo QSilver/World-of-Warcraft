@@ -1,0 +1,11 @@
+
+LightHeadedDB = {
+	["profileKeys"] = {
+		["Qsilver - Silvermoon"] = "Qsilver - Silvermoon",
+	},
+	["profiles"] = {
+		["Qsilver - Silvermoon"] = {
+			["singlepage"] = true,
+		},
+	},
+}

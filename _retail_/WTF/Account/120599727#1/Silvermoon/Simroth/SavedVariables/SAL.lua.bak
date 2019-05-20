@@ -1,0 +1,14 @@
+
+SAL_Visible = false
+SAL_Options = {
+	["AutoShow"] = true,
+	["TrackFragments"] = true,
+	["ShowArc"] = true,
+	["Sounds"] = true,
+	["CombatHide"] = false,
+	["drawScale"] = 5,
+	["ShowFragments"] = true,
+	["AutoClear"] = true,
+	["ShowBorders"] = true,
+	["ArcOpac"] = 0.2199999988079071,
+}

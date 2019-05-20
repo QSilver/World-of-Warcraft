@@ -1,0 +1,22 @@
+
+Prat3HighCPUPerCharDB = {
+	["time"] = 1429568351,
+	["scrollback"] = {
+		["ChatFrame1"] = {
+			{
+				"|cff979797[23:19:11]|r|c00000000|r |Hchannel:channel:1|h[1] |h Changed Channel: |Hchannel:1|h[1. General - The Wandering Isle]|h", -- [1]
+				1, -- [2]
+				0.752941250801086, -- [3]
+				0.752941250801086, -- [4]
+				69, -- [5]
+			}, -- [1]
+			{
+				"|cff979797[23:19:11]|r|c00000000|r |Hchannel:channel:3|h[3] |h Changed Channel: |Hchannel:3|h[3. LocalDefense - The Wandering Isle]|h", -- [1]
+				1, -- [2]
+				0.752941250801086, -- [3]
+				0.752941250801086, -- [4]
+				71, -- [5]
+			}, -- [2]
+		},
+	},
+}

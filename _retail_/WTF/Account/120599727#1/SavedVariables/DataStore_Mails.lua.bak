@@ -1,0 +1,19 @@
+
+DataStore_MailsDB = {
+	["profileKeys"] = {
+		["Qsilver - Silvermoon"] = "Qsilver - Silvermoon",
+		["Linela - Silvermoon"] = "Linela - Silvermoon",
+	},
+	["global"] = {
+		["Characters"] = {
+			["Default.Silvermoon.Linela"] = {
+				["lastUpdate"] = 1353620688,
+				["lastVisitDate"] = "2012/11/22 21:44",
+			},
+			["Default.Silvermoon.Qsilver"] = {
+				["lastUpdate"] = 1353620614,
+				["lastVisitDate"] = "2012/11/22 21:43",
+			},
+		},
+	},
+}

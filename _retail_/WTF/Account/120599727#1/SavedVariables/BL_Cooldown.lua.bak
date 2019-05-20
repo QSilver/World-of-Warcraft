@@ -1,0 +1,20 @@
+
+BLCDDB = {
+	["profileKeys"] = {
+		["Qsilver - Silvermoon"] = "Default",
+		["Simroth - Silvermoon"] = "Default",
+		["Myvanna - Silvermoon"] = "Default",
+	},
+	["profiles"] = {
+		["Default"] = {
+			["yOffset"] = -218.680908203125,
+			["relativePoint"] = "TOPRIGHT",
+			["minimapPos"] = 263.262995455757,
+			["framePoint"] = "TOPRIGHT",
+			["growth"] = "left",
+			["classcolorbars"] = true,
+			["xOffset"] = -58.018741607666,
+			["minimap"] = false,
+		},
+	},
+}

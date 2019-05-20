@@ -1,0 +1,3296 @@
+
+_detalhes_database = {
+	["savedbuffs"] = {
+	},
+	["last_instance_time"] = 0,
+	["active_profile"] = "Qsilver-Silvermoon",
+	["last_realversion"] = 124,
+	["benchmark_db"] = {
+		["frame"] = {
+		},
+	},
+	["tabela_historico"] = {
+		["tabelas"] = {
+			{
+				{
+					["combatId"] = 44,
+					["tipo"] = 2,
+					["_ActorTable"] = {
+						{
+							["flag_original"] = 1297,
+							["totalabsorbed"] = 0.002577,
+							["damage_from"] = {
+								["Savage Felstalker"] = true,
+							},
+							["targets"] = {
+								["Savage Felstalker"] = 70905,
+							},
+							["total"] = 70905.002577,
+							["pets"] = {
+							},
+							["on_hold"] = false,
+							["classe"] = "DEMONHUNTER",
+							["raid_targets"] = {
+							},
+							["total_without_pet"] = 70905.002577,
+							["colocacao"] = 1,
+							["friendlyfire"] = {
+							},
+							["dps_started"] = false,
+							["end_time"] = 1504439904,
+							["friendlyfire_total"] = 0,
+							["spec"] = 581,
+							["nome"] = "Flaville",
+							["spells"] = {
+								["tipo"] = 2,
+								["_ActorTable"] = {
+									{
+										["c_amt"] = 4,
+										["b_amt"] = 0,
+										["c_dmg"] = 29379,
+										["g_amt"] = 0,
+										["n_max"] = 4332,
+										["targets"] = {
+											["Savage Felstalker"] = 44644,
+										},
+										["m_dmg"] = 0,
+										["n_dmg"] = 15265,
+										["n_min"] = 2361,
+										["g_dmg"] = 0,
+										["counter"] = 9,
+										["total"] = 44644,
+										["c_max"] = 11640,
+										["MISS"] = 1,
+										["id"] = 1,
+										["r_dmg"] = 0,
+										["spellschool"] = 1,
+										["a_dmg"] = 0,
+										["m_crit"] = 0,
+										["a_amt"] = 0,
+										["m_amt"] = 0,
+										["successful_casted"] = 0,
+										["b_dmg"] = 0,
+										["n_amt"] = 4,
+										["r_amt"] = 0,
+										["c_min"] = 4563,
+									}, -- [1]
+									[203782] = {
+										["c_amt"] = 1,
+										["b_amt"] = 0,
+										["c_dmg"] = 26261,
+										["g_amt"] = 0,
+										["n_max"] = 0,
+										["targets"] = {
+											["Savage Felstalker"] = 26261,
+										},
+										["m_dmg"] = 0,
+										["n_dmg"] = 0,
+										["n_min"] = 0,
+										["g_dmg"] = 0,
+										["counter"] = 1,
+										["total"] = 26261,
+										["c_max"] = 26261,
+										["id"] = 203782,
+										["r_dmg"] = 0,
+										["spellschool"] = 1,
+										["a_dmg"] = 0,
+										["m_crit"] = 0,
+										["a_amt"] = 0,
+										["m_amt"] = 0,
+										["successful_casted"] = 0,
+										["b_dmg"] = 0,
+										["n_amt"] = 0,
+										["r_amt"] = 0,
+										["c_min"] = 26261,
+									},
+								},
+							},
+							["grupo"] = true,
+							["serial"] = "Player-3391-093D39D8",
+							["last_dps"] = 7115.40417232634,
+							["custom"] = 0,
+							["last_event"] = 1504439903,
+							["damage_taken"] = 11050.002577,
+							["start_time"] = 1504439894,
+							["delay"] = 0,
+							["tipo"] = 1,
+						}, -- [1]
+					},
+				}, -- [1]
+				{
+					["combatId"] = 44,
+					["tipo"] = 3,
+					["_ActorTable"] = {
+					},
+				}, -- [2]
+				{
+					["combatId"] = 44,
+					["tipo"] = 7,
+					["_ActorTable"] = {
+						{
+							["received"] = 0.005776,
+							["resource"] = 0.005776,
+							["targets"] = {
+								["Flaville"] = 0,
+							},
+							["pets"] = {
+							},
+							["powertype"] = 0,
+							["classe"] = "DEMONHUNTER",
+							["total"] = 0.005776,
+							["nome"] = "Flaville",
+							["spec"] = 581,
+							["grupo"] = true,
+							["flag_original"] = 1297,
+							["last_event"] = 1504439897,
+							["alternatepower"] = 0.005776,
+							["spells"] = {
+								["tipo"] = 7,
+								["_ActorTable"] = {
+									[207014] = {
+										["id"] = 207014,
+										["total"] = 0,
+										["targets"] = {
+											["Flaville"] = 0,
+										},
+										["counter"] = 2,
+									},
+								},
+							},
+							["serial"] = "Player-3391-093D39D8",
+							["tipo"] = 3,
+						}, -- [1]
+					},
+				}, -- [3]
+				{
+					["combatId"] = 44,
+					["tipo"] = 9,
+					["_ActorTable"] = {
+						{
+							["flag_original"] = 1047,
+							["nome"] = "Flaville",
+							["spec"] = 581,
+							["grupo"] = true,
+							["spell_cast"] = {
+								[204255] = 1,
+								[203720] = 1,
+							},
+							["pets"] = {
+							},
+							["buff_uptime_targets"] = {
+							},
+							["buff_uptime"] = 19,
+							["tipo"] = 4,
+							["last_event"] = 1504439904,
+							["buff_uptime_spells"] = {
+								["tipo"] = 9,
+								["_ActorTable"] = {
+									[226991] = {
+										["activedamt"] = 1,
+										["id"] = 226991,
+										["targets"] = {
+										},
+										["uptime"] = 2,
+										["appliedamt"] = 1,
+										["refreshamt"] = 0,
+										["actived"] = false,
+										["counter"] = 0,
+									},
+									[203819] = {
+										["activedamt"] = 2,
+										["id"] = 203819,
+										["targets"] = {
+										},
+										["uptime"] = 7,
+										["appliedamt"] = 2,
+										["refreshamt"] = 0,
+										["actived"] = false,
+										["counter"] = 0,
+									},
+									[203981] = {
+										["activedamt"] = 1,
+										["id"] = 203981,
+										["targets"] = {
+										},
+										["uptime"] = 10,
+										["appliedamt"] = 1,
+										["refreshamt"] = 1,
+										["actived"] = false,
+										["counter"] = 0,
+									},
+								},
+							},
+							["serial"] = "Player-3391-093D39D8",
+							["classe"] = "DEMONHUNTER",
+						}, -- [1]
+					},
+				}, -- [4]
+				{
+					["combatId"] = 44,
+					["tipo"] = 2,
+					["_ActorTable"] = {
+					},
+				}, -- [5]
+				["raid_roster"] = {
+					["Flaville"] = true,
+				},
+				["last_events_tables"] = {
+				},
+				["alternate_power"] = {
+				},
+				["enemy"] = "Savage Felstalker",
+				["combat_counter"] = 70,
+				["playing_solo"] = true,
+				["totals"] = {
+					70904.9679720001, -- [1]
+					-0.00178599999981088, -- [2]
+					{
+						0, -- [1]
+						[0] = -0.0112660000000062,
+						["alternatepower"] = 0,
+						[3] = 0,
+						[6] = 0,
+					}, -- [3]
+					{
+						["buff_uptime"] = 0,
+						["ress"] = 0,
+						["debuff_uptime"] = 0,
+						["cooldowns_defensive"] = 0,
+						["interrupt"] = 0,
+						["dispell"] = 0,
+						["cc_break"] = 0,
+						["dead"] = 0,
+					}, -- [4]
+					["frags_total"] = 0,
+					["voidzone_damage"] = 0,
+				},
+				["player_last_events"] = {
+				},
+				["frags_need_refresh"] = true,
+				["__call"] = {
+				},
+				["PhaseData"] = {
+					{
+						1, -- [1]
+						1, -- [2]
+					}, -- [1]
+					["heal_section"] = {
+					},
+					["heal"] = {
+						{
+							["Flaville"] = 7215.001939,
+						}, -- [1]
+					},
+					["damage_section"] = {
+					},
+					["damage"] = {
+						{
+							["Flaville"] = 103416.011026,
+						}, -- [1]
+					},
+				},
+				["end_time"] = 694814.263,
+				["combat_id"] = 44,
+				["instance_type"] = "none",
+				["resincked"] = true,
+				["frags"] = {
+					["Fel Shocktrooper"] = 1,
+					["Savage Felstalker"] = 3,
+				},
+				["data_fim"] = "12:58:24",
+				["data_inicio"] = "12:58:14",
+				["CombatSkillCache"] = {
+				},
+				["totals_grupo"] = {
+					70905, -- [1]
+					0, -- [2]
+					{
+						0, -- [1]
+						[0] = 0,
+						["alternatepower"] = 0,
+						[3] = 0,
+						[6] = 0,
+					}, -- [3]
+					{
+						["buff_uptime"] = 0,
+						["ress"] = 0,
+						["debuff_uptime"] = 0,
+						["cooldowns_defensive"] = 0,
+						["interrupt"] = 0,
+						["dispell"] = 0,
+						["cc_break"] = 0,
+						["dead"] = 0,
+					}, -- [4]
+				},
+				["start_time"] = 694804.298,
+				["contra"] = "Savage Felstalker",
+				["TimeData"] = {
+				},
+			}, -- [1]
+			{
+				{
+					["combatId"] = 43,
+					["tipo"] = 2,
+					["_ActorTable"] = {
+						{
+							["flag_original"] = 1297,
+							["totalabsorbed"] = 0.003077,
+							["spec"] = 581,
+							["damage_from"] = {
+							},
+							["targets"] = {
+								["Savage Felstalker"] = 114843,
+							},
+							["pets"] = {
+							},
+							["colocacao"] = 1,
+							["end_time"] = 1504439893,
+							["classe"] = "DEMONHUNTER",
+							["raid_targets"] = {
+							},
+							["total_without_pet"] = 114843.003077,
+							["friendlyfire"] = {
+							},
+							["dps_started"] = false,
+							["total"] = 114843.003077,
+							["friendlyfire_total"] = 0,
+							["on_hold"] = false,
+							["nome"] = "Flaville",
+							["spells"] = {
+								["tipo"] = 2,
+								["_ActorTable"] = {
+									{
+										["c_amt"] = 2,
+										["b_amt"] = 0,
+										["c_dmg"] = 12403,
+										["g_amt"] = 0,
+										["n_max"] = 3024,
+										["targets"] = {
+											["Savage Felstalker"] = 20568,
+										},
+										["m_dmg"] = 0,
+										["n_dmg"] = 8165,
+										["n_min"] = 1681,
+										["g_dmg"] = 0,
+										["counter"] = 7,
+										["total"] = 20568,
+										["c_max"] = 6212,
+										["MISS"] = 1,
+										["id"] = 1,
+										["r_dmg"] = 0,
+										["spellschool"] = 1,
+										["a_dmg"] = 0,
+										["m_crit"] = 0,
+										["a_amt"] = 0,
+										["m_amt"] = 0,
+										["successful_casted"] = 0,
+										["b_dmg"] = 0,
+										["n_amt"] = 4,
+										["r_amt"] = 0,
+										["c_min"] = 6191,
+									}, -- [1]
+									[189112] = {
+										["c_amt"] = 0,
+										["b_amt"] = 0,
+										["c_dmg"] = 0,
+										["g_amt"] = 0,
+										["n_max"] = 14213,
+										["targets"] = {
+											["Savage Felstalker"] = 28426,
+										},
+										["m_dmg"] = 0,
+										["n_dmg"] = 28426,
+										["n_min"] = 14213,
+										["g_dmg"] = 0,
+										["counter"] = 2,
+										["total"] = 28426,
+										["c_max"] = 0,
+										["id"] = 189112,
+										["r_dmg"] = 0,
+										["spellschool"] = 4,
+										["a_dmg"] = 0,
+										["m_crit"] = 0,
+										["a_amt"] = 0,
+										["m_amt"] = 0,
+										["successful_casted"] = 0,
+										["b_dmg"] = 0,
+										["n_amt"] = 2,
+										["r_amt"] = 0,
+										["c_min"] = 0,
+									},
+									[203782] = {
+										["c_amt"] = 2,
+										["b_amt"] = 0,
+										["c_dmg"] = 37126,
+										["g_amt"] = 0,
+										["n_max"] = 9908,
+										["targets"] = {
+											["Savage Felstalker"] = 65849,
+										},
+										["m_dmg"] = 0,
+										["n_dmg"] = 28723,
+										["n_min"] = 8995,
+										["g_dmg"] = 0,
+										["counter"] = 5,
+										["total"] = 65849,
+										["c_max"] = 18901,
+										["id"] = 203782,
+										["r_dmg"] = 0,
+										["spellschool"] = 1,
+										["a_dmg"] = 0,
+										["m_crit"] = 0,
+										["a_amt"] = 0,
+										["m_amt"] = 0,
+										["successful_casted"] = 0,
+										["b_dmg"] = 0,
+										["n_amt"] = 3,
+										["r_amt"] = 0,
+										["c_min"] = 18225,
+									},
+								},
+							},
+							["grupo"] = true,
+							["serial"] = "Player-3391-093D39D8",
+							["last_dps"] = 13829.8414110005,
+							["custom"] = 0,
+							["last_event"] = 1504439893,
+							["damage_taken"] = 0.003077,
+							["start_time"] = 1504439885,
+							["delay"] = 0,
+							["tipo"] = 1,
+						}, -- [1]
+					},
+				}, -- [1]
+				{
+					["combatId"] = 43,
+					["tipo"] = 3,
+					["_ActorTable"] = {
+						{
+							["flag_original"] = 1297,
+							["totalabsorb"] = 0.005534,
+							["last_hps"] = 0,
+							["healing_from"] = {
+							},
+							["targets"] = {
+							},
+							["spells"] = {
+								["tipo"] = 3,
+								["_ActorTable"] = {
+									[203794] = {
+										["c_amt"] = 0,
+										["totalabsorb"] = 0,
+										["targets_overheal"] = {
+											["Flaville"] = 10297,
+										},
+										["n_max"] = 0,
+										["targets"] = {
+											["Flaville"] = 0,
+										},
+										["n_min"] = 0,
+										["counter"] = 1,
+										["overheal"] = 10297,
+										["total"] = 0,
+										["c_max"] = 0,
+										["id"] = 203794,
+										["targets_absorbs"] = {
+										},
+										["c_curado"] = 0,
+										["m_crit"] = 0,
+										["c_min"] = 0,
+										["m_amt"] = 0,
+										["n_curado"] = 0,
+										["n_amt"] = 1,
+										["totaldenied"] = 0,
+										["m_healed"] = 0,
+										["absorbed"] = 0,
+									},
+								},
+							},
+							["pets"] = {
+							},
+							["iniciar_hps"] = false,
+							["targets_overheal"] = {
+								["Flaville"] = 10297,
+							},
+							["healing_taken"] = 0.005534,
+							["totalover"] = 10297.005534,
+							["total_without_pet"] = 0.005534,
+							["totalover_without_pet"] = 0.005534,
+							["heal_enemy_amt"] = 0,
+							["end_time"] = 1504439893,
+							["total"] = 0.005534,
+							["classe"] = "DEMONHUNTER",
+							["start_time"] = 1504439892,
+							["nome"] = "Flaville",
+							["targets_absorbs"] = {
+							},
+							["grupo"] = true,
+							["spec"] = 581,
+							["heal_enemy"] = {
+							},
+							["serial"] = "Player-3391-093D39D8",
+							["custom"] = 0,
+							["tipo"] = 2,
+							["on_hold"] = false,
+							["totaldenied"] = 0.005534,
+							["delay"] = 0,
+							["last_event"] = 1504439892,
+						}, -- [1]
+					},
+				}, -- [2]
+				{
+					["combatId"] = 43,
+					["tipo"] = 7,
+					["_ActorTable"] = {
+						{
+							["received"] = 60.006168,
+							["resource"] = 0.006168,
+							["targets"] = {
+								["Flaville"] = 60,
+							},
+							["pets"] = {
+							},
+							["powertype"] = 0,
+							["classe"] = "DEMONHUNTER",
+							["total"] = 60.006168,
+							["nome"] = "Flaville",
+							["spec"] = 581,
+							["grupo"] = true,
+							["flag_original"] = 1297,
+							["last_event"] = 1504439894,
+							["alternatepower"] = 0.006168,
+							["spells"] = {
+								["tipo"] = 7,
+								["_ActorTable"] = {
+									[203782] = {
+										["id"] = 203782,
+										["total"] = 60,
+										["targets"] = {
+											["Flaville"] = 60,
+										},
+										["counter"] = 6,
+									},
+								},
+							},
+							["serial"] = "Player-3391-093D39D8",
+							["tipo"] = 3,
+						}, -- [1]
+					},
+				}, -- [3]
+				{
+					["combatId"] = 43,
+					["tipo"] = 9,
+					["_ActorTable"] = {
+						{
+							["flag_original"] = 1297,
+							["nome"] = "Flaville",
+							["spec"] = 581,
+							["grupo"] = true,
+							["buff_uptime_targets"] = {
+							},
+							["buff_uptime"] = 8,
+							["spell_cast"] = {
+								[203782] = 5,
+								[204255] = 2,
+								[203720] = 1,
+							},
+							["pets"] = {
+							},
+							["tipo"] = 4,
+							["classe"] = "DEMONHUNTER",
+							["buff_uptime_spells"] = {
+								["tipo"] = 9,
+								["_ActorTable"] = {
+									[203981] = {
+										["activedamt"] = 1,
+										["id"] = 203981,
+										["targets"] = {
+										},
+										["uptime"] = 4,
+										["appliedamt"] = 1,
+										["refreshamt"] = 1,
+										["actived"] = false,
+										["counter"] = 0,
+									},
+									[203819] = {
+										["activedamt"] = 1,
+										["id"] = 203819,
+										["targets"] = {
+										},
+										["uptime"] = 4,
+										["appliedamt"] = 1,
+										["refreshamt"] = 0,
+										["actived"] = false,
+										["counter"] = 0,
+									},
+								},
+							},
+							["serial"] = "Player-3391-093D39D8",
+							["last_event"] = 1504439893,
+						}, -- [1]
+					},
+				}, -- [4]
+				{
+					["combatId"] = 43,
+					["tipo"] = 2,
+					["_ActorTable"] = {
+					},
+				}, -- [5]
+				["raid_roster"] = {
+					["Flaville"] = true,
+				},
+				["last_events_tables"] = {
+				},
+				["alternate_power"] = {
+				},
+				["enemy"] = "Savage Felstalker",
+				["combat_counter"] = 69,
+				["playing_solo"] = true,
+				["totals"] = {
+					114842.988086, -- [1]
+					0, -- [2]
+					{
+						0, -- [1]
+						[0] = 59.992218,
+						["alternatepower"] = 0,
+						[3] = 0,
+						[6] = 0,
+					}, -- [3]
+					{
+						["buff_uptime"] = 0,
+						["ress"] = 0,
+						["debuff_uptime"] = 0,
+						["cooldowns_defensive"] = 0,
+						["interrupt"] = 0,
+						["dispell"] = 0,
+						["cc_break"] = 0,
+						["dead"] = 0,
+					}, -- [4]
+					["frags_total"] = 0,
+					["voidzone_damage"] = 0,
+				},
+				["player_last_events"] = {
+				},
+				["frags_need_refresh"] = true,
+				["__call"] = {
+				},
+				["PhaseData"] = {
+					{
+						1, -- [1]
+						1, -- [2]
+					}, -- [1]
+					["heal_section"] = {
+					},
+					["heal"] = {
+						{
+							["Flaville"] = 0.005534,
+						}, -- [1]
+					},
+					["damage_section"] = {
+					},
+					["damage"] = {
+						{
+							["Flaville"] = 114843.003077,
+						}, -- [1]
+					},
+				},
+				["end_time"] = 694803.81,
+				["combat_id"] = 43,
+				["instance_type"] = "none",
+				["frags"] = {
+					["Savage Felstalker"] = 2,
+				},
+				["data_fim"] = "12:58:14",
+				["data_inicio"] = "12:58:05",
+				["CombatSkillCache"] = {
+				},
+				["totals_grupo"] = {
+					114843, -- [1]
+					0, -- [2]
+					{
+						0, -- [1]
+						[0] = 60,
+						["alternatepower"] = 0,
+						[3] = 0,
+						[6] = 0,
+					}, -- [3]
+					{
+						["buff_uptime"] = 0,
+						["ress"] = 0,
+						["debuff_uptime"] = 0,
+						["cooldowns_defensive"] = 0,
+						["interrupt"] = 0,
+						["dispell"] = 0,
+						["cc_break"] = 0,
+						["dead"] = 0,
+					}, -- [4]
+				},
+				["start_time"] = 694795.506,
+				["contra"] = "Savage Felstalker",
+				["TimeData"] = {
+				},
+			}, -- [2]
+			{
+				{
+					["combatId"] = 42,
+					["tipo"] = 2,
+					["_ActorTable"] = {
+						{
+							["flag_original"] = 1297,
+							["totalabsorbed"] = 0.003879,
+							["total"] = 266307.003879,
+							["damage_from"] = {
+								["Crusher"] = true,
+								["Fel Shocktrooper"] = true,
+							},
+							["targets"] = {
+								["Crusher"] = 266307,
+							},
+							["pets"] = {
+							},
+							["friendlyfire"] = {
+							},
+							["colocacao"] = 1,
+							["classe"] = "DEMONHUNTER",
+							["raid_targets"] = {
+							},
+							["total_without_pet"] = 266307.003879,
+							["friendlyfire_total"] = 0,
+							["dps_started"] = false,
+							["end_time"] = 1504439816,
+							["on_hold"] = false,
+							["spec"] = 581,
+							["nome"] = "Flaville",
+							["spells"] = {
+								["tipo"] = 2,
+								["_ActorTable"] = {
+									{
+										["c_amt"] = 3,
+										["b_amt"] = 0,
+										["c_dmg"] = 14157,
+										["g_amt"] = 0,
+										["n_max"] = 4506,
+										["targets"] = {
+											["Crusher"] = 38195,
+										},
+										["m_dmg"] = 0,
+										["n_dmg"] = 24038,
+										["n_min"] = 1763,
+										["g_dmg"] = 0,
+										["counter"] = 12,
+										["total"] = 38195,
+										["c_max"] = 6039,
+										["MISS"] = 1,
+										["id"] = 1,
+										["r_dmg"] = 0,
+										["spellschool"] = 1,
+										["a_dmg"] = 0,
+										["m_crit"] = 0,
+										["a_amt"] = 0,
+										["m_amt"] = 0,
+										["successful_casted"] = 0,
+										["b_dmg"] = 0,
+										["n_amt"] = 8,
+										["r_amt"] = 0,
+										["c_min"] = 3439,
+									}, -- [1]
+									[189112] = {
+										["c_amt"] = 0,
+										["b_amt"] = 0,
+										["c_dmg"] = 0,
+										["g_amt"] = 0,
+										["n_max"] = 22418,
+										["targets"] = {
+											["Crusher"] = 22418,
+										},
+										["m_dmg"] = 0,
+										["n_dmg"] = 22418,
+										["n_min"] = 22418,
+										["g_dmg"] = 0,
+										["counter"] = 1,
+										["total"] = 22418,
+										["c_max"] = 0,
+										["id"] = 189112,
+										["r_dmg"] = 0,
+										["spellschool"] = 4,
+										["a_dmg"] = 0,
+										["m_crit"] = 0,
+										["a_amt"] = 0,
+										["m_amt"] = 0,
+										["successful_casted"] = 0,
+										["b_dmg"] = 0,
+										["n_amt"] = 1,
+										["r_amt"] = 0,
+										["c_min"] = 0,
+									},
+									[228478] = {
+										["c_amt"] = 1,
+										["b_amt"] = 0,
+										["c_dmg"] = 30824,
+										["g_amt"] = 0,
+										["n_max"] = 23703,
+										["targets"] = {
+											["Crusher"] = 54527,
+										},
+										["m_dmg"] = 0,
+										["n_dmg"] = 23703,
+										["n_min"] = 23703,
+										["g_dmg"] = 0,
+										["counter"] = 2,
+										["total"] = 54527,
+										["c_max"] = 30824,
+										["id"] = 228478,
+										["r_dmg"] = 0,
+										["spellschool"] = 1,
+										["a_dmg"] = 0,
+										["m_crit"] = 0,
+										["a_amt"] = 0,
+										["m_amt"] = 0,
+										["successful_casted"] = 0,
+										["b_dmg"] = 0,
+										["n_amt"] = 1,
+										["r_amt"] = 0,
+										["c_min"] = 30824,
+									},
+									[203782] = {
+										["c_amt"] = 3,
+										["b_amt"] = 0,
+										["c_dmg"] = 82121,
+										["g_amt"] = 0,
+										["n_max"] = 13780,
+										["targets"] = {
+											["Crusher"] = 151167,
+										},
+										["m_dmg"] = 0,
+										["n_dmg"] = 69046,
+										["n_min"] = 9188,
+										["g_dmg"] = 0,
+										["counter"] = 9,
+										["total"] = 151167,
+										["c_max"] = 28176,
+										["id"] = 203782,
+										["r_dmg"] = 0,
+										["spellschool"] = 1,
+										["a_dmg"] = 0,
+										["m_crit"] = 0,
+										["a_amt"] = 0,
+										["m_amt"] = 0,
+										["successful_casted"] = 0,
+										["b_dmg"] = 0,
+										["n_amt"] = 6,
+										["r_amt"] = 0,
+										["c_min"] = 26721,
+									},
+								},
+							},
+							["grupo"] = true,
+							["serial"] = "Player-3391-093D39D8",
+							["last_dps"] = 15625.594313091,
+							["custom"] = 0,
+							["last_event"] = 1504439815,
+							["damage_taken"] = 36600.003879,
+							["start_time"] = 1504439799,
+							["delay"] = 0,
+							["tipo"] = 1,
+						}, -- [1]
+					},
+				}, -- [1]
+				{
+					["combatId"] = 42,
+					["tipo"] = 3,
+					["_ActorTable"] = {
+						{
+							["flag_original"] = 1297,
+							["targets_overheal"] = {
+								["Flaville"] = 241995,
+							},
+							["pets"] = {
+							},
+							["iniciar_hps"] = false,
+							["classe"] = "DEMONHUNTER",
+							["totalover"] = 241995.00179,
+							["total_without_pet"] = 31623.00179,
+							["total"] = 31623.00179,
+							["targets_absorbs"] = {
+							},
+							["heal_enemy"] = {
+							},
+							["colocacao"] = 1,
+							["on_hold"] = false,
+							["serial"] = "Player-3391-093D39D8",
+							["totalabsorb"] = 0.00179,
+							["last_hps"] = 1855.48329460086,
+							["targets"] = {
+								["Flaville"] = 85359,
+							},
+							["totalover_without_pet"] = 0.00179,
+							["healing_taken"] = 31623.00179,
+							["fight_component"] = true,
+							["end_time"] = 1504439816,
+							["healing_from"] = {
+								["Flaville"] = true,
+							},
+							["nome"] = "Flaville",
+							["spells"] = {
+								["tipo"] = 3,
+								["_ActorTable"] = {
+									[228477] = {
+										["c_amt"] = 1,
+										["totalabsorb"] = 0,
+										["targets_overheal"] = {
+											["Flaville"] = 149421,
+										},
+										["n_max"] = 31623,
+										["targets"] = {
+											["Flaville"] = 31623,
+										},
+										["n_min"] = 31623,
+										["counter"] = 2,
+										["overheal"] = 149421,
+										["total"] = 31623,
+										["c_max"] = 0,
+										["id"] = 228477,
+										["targets_absorbs"] = {
+										},
+										["c_curado"] = 0,
+										["m_crit"] = 0,
+										["c_min"] = 0,
+										["m_amt"] = 0,
+										["n_curado"] = 31623,
+										["n_amt"] = 1,
+										["totaldenied"] = 0,
+										["m_healed"] = 0,
+										["absorbed"] = 0,
+									},
+									[203794] = {
+										["c_amt"] = 2,
+										["totalabsorb"] = 0,
+										["targets_overheal"] = {
+											["Flaville"] = 92574,
+										},
+										["n_max"] = 0,
+										["targets"] = {
+											["Flaville"] = 0,
+										},
+										["n_min"] = 0,
+										["counter"] = 5,
+										["overheal"] = 92574,
+										["total"] = 0,
+										["c_max"] = 0,
+										["id"] = 203794,
+										["targets_absorbs"] = {
+										},
+										["c_curado"] = 0,
+										["m_crit"] = 0,
+										["c_min"] = 0,
+										["m_amt"] = 0,
+										["n_curado"] = 0,
+										["n_amt"] = 3,
+										["totaldenied"] = 0,
+										["m_healed"] = 0,
+										["absorbed"] = 0,
+									},
+								},
+							},
+							["grupo"] = true,
+							["heal_enemy_amt"] = 0,
+							["start_time"] = 1504439807,
+							["custom"] = 0,
+							["tipo"] = 2,
+							["spec"] = 581,
+							["totaldenied"] = 0.00179,
+							["delay"] = 0,
+							["last_event"] = 1504439816,
+						}, -- [1]
+					},
+				}, -- [2]
+				{
+					["combatId"] = 42,
+					["tipo"] = 7,
+					["_ActorTable"] = {
+						{
+							["received"] = 92.008701,
+							["resource"] = 0.008701,
+							["targets"] = {
+								["Flaville"] = 92,
+							},
+							["pets"] = {
+							},
+							["powertype"] = 0,
+							["classe"] = "DEMONHUNTER",
+							["fight_component"] = true,
+							["total"] = 92.008701,
+							["nome"] = "Flaville",
+							["spec"] = 581,
+							["grupo"] = true,
+							["flag_original"] = 1297,
+							["last_event"] = 1504439815,
+							["alternatepower"] = 0.008701,
+							["spells"] = {
+								["tipo"] = 7,
+								["_ActorTable"] = {
+									[203782] = {
+										["id"] = 203782,
+										["total"] = 90,
+										["targets"] = {
+											["Flaville"] = 90,
+										},
+										["counter"] = 9,
+									},
+									[207014] = {
+										["id"] = 207014,
+										["total"] = 2,
+										["targets"] = {
+											["Flaville"] = 2,
+										},
+										["counter"] = 1,
+									},
+								},
+							},
+							["serial"] = "Player-3391-093D39D8",
+							["tipo"] = 3,
+						}, -- [1]
+					},
+				}, -- [3]
+				{
+					["combatId"] = 42,
+					["tipo"] = 9,
+					["_ActorTable"] = {
+						{
+							["fight_component"] = true,
+							["flag_original"] = 1297,
+							["buff_uptime_targets"] = {
+							},
+							["spec"] = 581,
+							["grupo"] = true,
+							["nome"] = "Flaville",
+							["pets"] = {
+							},
+							["buff_uptime"] = 20,
+							["spell_cast"] = {
+								[203782] = 9,
+								[204255] = 5,
+								[228477] = 2,
+							},
+							["last_event"] = 1504439814,
+							["tipo"] = 4,
+							["buff_uptime_spells"] = {
+								["tipo"] = 9,
+								["_ActorTable"] = {
+									[226991] = {
+										["activedamt"] = 1,
+										["id"] = 226991,
+										["targets"] = {
+										},
+										["uptime"] = 12,
+										["appliedamt"] = 1,
+										["refreshamt"] = 0,
+										["actived"] = false,
+										["counter"] = 0,
+									},
+									[203981] = {
+										["activedamt"] = 2,
+										["id"] = 203981,
+										["targets"] = {
+										},
+										["uptime"] = 8,
+										["appliedamt"] = 2,
+										["refreshamt"] = 2,
+										["actived"] = false,
+										["counter"] = 0,
+									},
+								},
+							},
+							["serial"] = "Player-3391-093D39D8",
+							["classe"] = "DEMONHUNTER",
+						}, -- [1]
+					},
+				}, -- [4]
+				{
+					["combatId"] = 42,
+					["tipo"] = 2,
+					["_ActorTable"] = {
+					},
+				}, -- [5]
+				["raid_roster"] = {
+					["Flaville"] = true,
+				},
+				["last_events_tables"] = {
+				},
+				["alternate_power"] = {
+				},
+				["enemy"] = "Crusher",
+				["combat_counter"] = 68,
+				["playing_solo"] = true,
+				["totals"] = {
+					266306.938526, -- [1]
+					31623, -- [2]
+					{
+						0, -- [1]
+						[0] = 91.993285,
+						["alternatepower"] = 0,
+						[3] = 0,
+						[6] = 0,
+					}, -- [3]
+					{
+						["buff_uptime"] = 0,
+						["ress"] = 0,
+						["debuff_uptime"] = 0,
+						["cooldowns_defensive"] = 0,
+						["interrupt"] = 0,
+						["dispell"] = 0,
+						["cc_break"] = 0,
+						["dead"] = 0,
+					}, -- [4]
+					["frags_total"] = 0,
+					["voidzone_damage"] = 0,
+				},
+				["player_last_events"] = {
+					["Flaville"] = {
+						{
+							true, -- [1]
+							200388, -- [2]
+							4977, -- [3]
+							1504439859.502, -- [4]
+							450063, -- [5]
+							"Fel Shocktrooper", -- [6]
+							nil, -- [7]
+							1, -- [8]
+							false, -- [9]
+							-1, -- [10]
+						}, -- [1]
+						{
+						}, -- [2]
+						{
+						}, -- [3]
+						{
+						}, -- [4]
+						{
+						}, -- [5]
+						{
+						}, -- [6]
+						{
+						}, -- [7]
+						{
+						}, -- [8]
+						{
+						}, -- [9]
+						{
+						}, -- [10]
+						{
+						}, -- [11]
+						{
+						}, -- [12]
+						{
+						}, -- [13]
+						{
+						}, -- [14]
+						{
+						}, -- [15]
+						{
+						}, -- [16]
+						["n"] = 2,
+					},
+				},
+				["frags_need_refresh"] = true,
+				["__call"] = {
+				},
+				["PhaseData"] = {
+					{
+						1, -- [1]
+						1, -- [2]
+					}, -- [1]
+					["heal_section"] = {
+					},
+					["heal"] = {
+						{
+							["Flaville"] = 31623.00179,
+						}, -- [1]
+					},
+					["damage_section"] = {
+					},
+					["damage"] = {
+						{
+							["Flaville"] = 266307.003879,
+						}, -- [1]
+					},
+				},
+				["end_time"] = 694726.886,
+				["combat_id"] = 42,
+				["instance_type"] = "none",
+				["frags"] = {
+					["Crusher"] = 1,
+					["Sledge"] = 1,
+				},
+				["data_fim"] = "12:56:57",
+				["data_inicio"] = "12:56:40",
+				["CombatSkillCache"] = {
+				},
+				["totals_grupo"] = {
+					266307, -- [1]
+					31623, -- [2]
+					{
+						0, -- [1]
+						[0] = 92,
+						["alternatepower"] = 0,
+						[3] = 0,
+						[6] = 0,
+					}, -- [3]
+					{
+						["buff_uptime"] = 0,
+						["ress"] = 0,
+						["debuff_uptime"] = 0,
+						["cooldowns_defensive"] = 0,
+						["interrupt"] = 0,
+						["dispell"] = 0,
+						["cc_break"] = 0,
+						["dead"] = 0,
+					}, -- [4]
+				},
+				["start_time"] = 694709.843,
+				["contra"] = "Crusher",
+				["TimeData"] = {
+				},
+			}, -- [3]
+			{
+				{
+					["combatId"] = 41,
+					["tipo"] = 2,
+					["_ActorTable"] = {
+						{
+							["flag_original"] = 1297,
+							["totalabsorbed"] = 0.00235,
+							["damage_from"] = {
+								["Fel Shocktrooper"] = true,
+								["Explosive Inquisitor Eye"] = true,
+								["Kethrazor"] = true,
+							},
+							["targets"] = {
+								["Kethrazor"] = 810571,
+								["Explosive Inquisitor Eye"] = 17238,
+								["Fel Shocktrooper"] = 114136,
+							},
+							["pets"] = {
+								"Void Tendril <Flaville>", -- [1]
+							},
+							["friendlyfire"] = {
+							},
+							["friendlyfire_total"] = 0,
+							["raid_targets"] = {
+							},
+							["total_without_pet"] = 878904.00235,
+							["end_time"] = 1504439341,
+							["colocacao"] = 1,
+							["dps_started"] = false,
+							["total"] = 941945.00235,
+							["classe"] = "DEMONHUNTER",
+							["on_hold"] = false,
+							["nome"] = "Flaville",
+							["spells"] = {
+								["tipo"] = 2,
+								["_ActorTable"] = {
+									{
+										["c_amt"] = 7,
+										["b_amt"] = 0,
+										["c_dmg"] = 39808,
+										["g_amt"] = 0,
+										["n_max"] = 5578,
+										["targets"] = {
+											["Kethrazor"] = 113485,
+										},
+										["m_dmg"] = 0,
+										["n_dmg"] = 73677,
+										["n_min"] = 1646,
+										["g_dmg"] = 0,
+										["counter"] = 31,
+										["total"] = 113485,
+										["c_max"] = 9142,
+										["MISS"] = 2,
+										["id"] = 1,
+										["r_dmg"] = 0,
+										["spellschool"] = 1,
+										["a_dmg"] = 0,
+										["m_crit"] = 0,
+										["a_amt"] = 0,
+										["m_amt"] = 0,
+										["successful_casted"] = 0,
+										["b_dmg"] = 0,
+										["n_amt"] = 22,
+										["r_amt"] = 0,
+										["c_min"] = 3376,
+									}, -- [1]
+									[189112] = {
+										["c_amt"] = 1,
+										["b_amt"] = 0,
+										["c_dmg"] = 28426,
+										["g_amt"] = 0,
+										["n_max"] = 22418,
+										["targets"] = {
+											["Fel Shocktrooper"] = 50844,
+											["Kethrazor"] = 22418,
+										},
+										["m_dmg"] = 0,
+										["n_dmg"] = 44836,
+										["n_min"] = 22418,
+										["g_dmg"] = 0,
+										["counter"] = 3,
+										["total"] = 73262,
+										["c_max"] = 28426,
+										["id"] = 189112,
+										["r_dmg"] = 0,
+										["spellschool"] = 4,
+										["a_dmg"] = 0,
+										["m_crit"] = 0,
+										["a_amt"] = 0,
+										["m_amt"] = 0,
+										["successful_casted"] = 0,
+										["b_dmg"] = 0,
+										["n_amt"] = 2,
+										["r_amt"] = 0,
+										["c_min"] = 28426,
+									},
+									[178741] = {
+										["c_amt"] = 3,
+										["b_amt"] = 0,
+										["c_dmg"] = 31613,
+										["g_amt"] = 0,
+										["n_max"] = 17238,
+										["targets"] = {
+											["Kethrazor"] = 64630,
+											["Explosive Inquisitor Eye"] = 17238,
+										},
+										["m_dmg"] = 0,
+										["n_dmg"] = 50255,
+										["n_min"] = 4555,
+										["g_dmg"] = 0,
+										["counter"] = 8,
+										["total"] = 81868,
+										["c_max"] = 11579,
+										["id"] = 178741,
+										["r_dmg"] = 0,
+										["spellschool"] = 4,
+										["a_dmg"] = 0,
+										["m_crit"] = 0,
+										["a_amt"] = 0,
+										["m_amt"] = 0,
+										["successful_casted"] = 0,
+										["b_dmg"] = 0,
+										["n_amt"] = 5,
+										["r_amt"] = 0,
+										["c_min"] = 10003,
+									},
+									[228478] = {
+										["c_amt"] = 4,
+										["b_amt"] = 0,
+										["c_dmg"] = 202310,
+										["g_amt"] = 0,
+										["n_max"] = 27406,
+										["targets"] = {
+											["Kethrazor"] = 204352,
+											["Fel Shocktrooper"] = 49323,
+										},
+										["m_dmg"] = 0,
+										["n_dmg"] = 51365,
+										["n_min"] = 23959,
+										["g_dmg"] = 0,
+										["counter"] = 6,
+										["total"] = 253675,
+										["c_max"] = 64481,
+										["id"] = 228478,
+										["r_dmg"] = 0,
+										["spellschool"] = 1,
+										["a_dmg"] = 0,
+										["m_crit"] = 0,
+										["a_amt"] = 0,
+										["m_amt"] = 0,
+										["successful_casted"] = 0,
+										["b_dmg"] = 0,
+										["n_amt"] = 2,
+										["r_amt"] = 0,
+										["c_min"] = 34782,
+									},
+									[203782] = {
+										["c_amt"] = 9,
+										["b_amt"] = 0,
+										["c_dmg"] = 196010,
+										["g_amt"] = 0,
+										["n_max"] = 17005,
+										["targets"] = {
+											["Kethrazor"] = 342645,
+											["Fel Shocktrooper"] = 13969,
+										},
+										["m_dmg"] = 0,
+										["n_dmg"] = 160604,
+										["n_min"] = 9176,
+										["g_dmg"] = 0,
+										["counter"] = 21,
+										["total"] = 356614,
+										["c_max"] = 28537,
+										["id"] = 203782,
+										["r_dmg"] = 0,
+										["spellschool"] = 1,
+										["a_dmg"] = 0,
+										["m_crit"] = 0,
+										["a_amt"] = 0,
+										["m_amt"] = 0,
+										["successful_casted"] = 0,
+										["b_dmg"] = 0,
+										["n_amt"] = 12,
+										["r_amt"] = 0,
+										["c_min"] = 18140,
+									},
+								},
+							},
+							["grupo"] = true,
+							["spec"] = 581,
+							["serial"] = "Player-3391-093D39D8",
+							["last_dps"] = 22654.8896616111,
+							["custom"] = 0,
+							["tipo"] = 1,
+							["damage_taken"] = 112910.00235,
+							["start_time"] = 1504439299,
+							["delay"] = 0,
+							["last_event"] = 1504439341,
+						}, -- [1]
+						{
+							["flag_original"] = 8465,
+							["totalabsorbed"] = 0.001642,
+							["serial"] = "Creature-0-3061-1468-22255-95577-00002BEC12",
+							["damage_from"] = {
+								["Fel Shocktrooper"] = true,
+								["Explosive Inquisitor Eye"] = true,
+							},
+							["targets"] = {
+								["Kethrazor"] = 63041,
+							},
+							["pets"] = {
+							},
+							["on_hold"] = false,
+							["friendlyfire_total"] = 0,
+							["raid_targets"] = {
+							},
+							["total_without_pet"] = 63041.001642,
+							["dps_started"] = false,
+							["total"] = 63041.001642,
+							["classe"] = "PET",
+							["ownerName"] = "Flaville",
+							["nome"] = "Void Tendril <Flaville>",
+							["spells"] = {
+								["tipo"] = 2,
+								["_ActorTable"] = {
+									{
+										["c_amt"] = 1,
+										["b_amt"] = 0,
+										["c_dmg"] = 2958,
+										["g_amt"] = 0,
+										["n_max"] = 1674,
+										["targets"] = {
+											["Kethrazor"] = 63041,
+										},
+										["m_dmg"] = 0,
+										["n_dmg"] = 60083,
+										["n_min"] = 1129,
+										["g_dmg"] = 0,
+										["counter"] = 44,
+										["total"] = 63041,
+										["c_max"] = 2958,
+										["id"] = 1,
+										["r_dmg"] = 0,
+										["spellschool"] = 1,
+										["a_dmg"] = 0,
+										["m_crit"] = 0,
+										["a_amt"] = 0,
+										["m_amt"] = 0,
+										["successful_casted"] = 0,
+										["b_dmg"] = 0,
+										["n_amt"] = 43,
+										["r_amt"] = 0,
+										["c_min"] = 2958,
+									}, -- [1]
+								},
+							},
+							["friendlyfire"] = {
+							},
+							["end_time"] = 1504439341,
+							["last_dps"] = 0,
+							["custom"] = 0,
+							["tipo"] = 1,
+							["damage_taken"] = 59946.001642,
+							["start_time"] = 1504439315,
+							["delay"] = 0,
+							["last_event"] = 1504439338,
+						}, -- [2]
+					},
+				}, -- [1]
+				{
+					["combatId"] = 41,
+					["tipo"] = 3,
+					["_ActorTable"] = {
+						{
+							["flag_original"] = 1297,
+							["targets_overheal"] = {
+								["Flaville"] = 1122179,
+							},
+							["pets"] = {
+							},
+							["iniciar_hps"] = false,
+							["classe"] = "DEMONHUNTER",
+							["totalover"] = 1122179.008693,
+							["total_without_pet"] = 112910.008693,
+							["total"] = 112910.008693,
+							["targets_absorbs"] = {
+							},
+							["heal_enemy"] = {
+							},
+							["colocacao"] = 1,
+							["on_hold"] = false,
+							["serial"] = "Player-3391-093D39D8",
+							["totalabsorb"] = 0.008693,
+							["last_hps"] = 2715.61904596315,
+							["targets"] = {
+								["Flaville"] = 493262,
+							},
+							["totalover_without_pet"] = 0.008693,
+							["healing_taken"] = 112910.008693,
+							["fight_component"] = true,
+							["end_time"] = 1504439341,
+							["healing_from"] = {
+								["Flaville"] = true,
+							},
+							["nome"] = "Flaville",
+							["spells"] = {
+								["tipo"] = 3,
+								["_ActorTable"] = {
+									[203794] = {
+										["c_amt"] = 4,
+										["totalabsorb"] = 0,
+										["targets_overheal"] = {
+											["Flaville"] = 218790,
+										},
+										["n_max"] = 3888,
+										["targets"] = {
+											["Flaville"] = 3888,
+										},
+										["n_min"] = 3888,
+										["counter"] = 9,
+										["overheal"] = 218790,
+										["total"] = 3888,
+										["c_max"] = 0,
+										["id"] = 203794,
+										["targets_absorbs"] = {
+										},
+										["c_curado"] = 0,
+										["m_crit"] = 0,
+										["c_min"] = 0,
+										["m_amt"] = 0,
+										["n_curado"] = 3888,
+										["n_amt"] = 5,
+										["totaldenied"] = 0,
+										["m_healed"] = 0,
+										["absorbed"] = 0,
+									},
+									[228477] = {
+										["c_amt"] = 2,
+										["totalabsorb"] = 0,
+										["targets_overheal"] = {
+											["Flaville"] = 466597,
+										},
+										["n_max"] = 13522,
+										["targets"] = {
+											["Flaville"] = 109022,
+										},
+										["n_min"] = 13522,
+										["counter"] = 5,
+										["overheal"] = 466597,
+										["total"] = 109022,
+										["c_max"] = 68265,
+										["id"] = 228477,
+										["targets_absorbs"] = {
+										},
+										["c_curado"] = 85531,
+										["m_crit"] = 0,
+										["c_min"] = 17266,
+										["m_amt"] = 0,
+										["n_curado"] = 23491,
+										["n_amt"] = 3,
+										["totaldenied"] = 0,
+										["m_healed"] = 0,
+										["absorbed"] = 0,
+									},
+									[210042] = {
+										["c_amt"] = 1,
+										["totalabsorb"] = 0,
+										["targets_overheal"] = {
+											["Flaville"] = 436792,
+										},
+										["n_max"] = 0,
+										["targets"] = {
+											["Flaville"] = 0,
+										},
+										["n_min"] = 0,
+										["counter"] = 2,
+										["overheal"] = 436792,
+										["total"] = 0,
+										["c_max"] = 0,
+										["id"] = 210042,
+										["targets_absorbs"] = {
+										},
+										["c_curado"] = 0,
+										["m_crit"] = 0,
+										["c_min"] = 0,
+										["m_amt"] = 0,
+										["n_curado"] = 0,
+										["n_amt"] = 1,
+										["totaldenied"] = 0,
+										["m_healed"] = 0,
+										["absorbed"] = 0,
+									},
+								},
+							},
+							["grupo"] = true,
+							["heal_enemy_amt"] = 0,
+							["start_time"] = 1504439323,
+							["custom"] = 0,
+							["tipo"] = 2,
+							["spec"] = 581,
+							["totaldenied"] = 0.008693,
+							["delay"] = 1504439320,
+							["last_event"] = 1504439340,
+						}, -- [1]
+					},
+				}, -- [2]
+				{
+					["combatId"] = 41,
+					["tipo"] = 7,
+					["_ActorTable"] = {
+						{
+							["received"] = 234.008174,
+							["resource"] = 0.008174,
+							["targets"] = {
+								["Flaville"] = 234,
+							},
+							["pets"] = {
+							},
+							["powertype"] = 0,
+							["classe"] = "DEMONHUNTER",
+							["fight_component"] = true,
+							["total"] = 234.008174,
+							["nome"] = "Flaville",
+							["spec"] = 581,
+							["grupo"] = true,
+							["flag_original"] = 1297,
+							["last_event"] = 1504439341,
+							["alternatepower"] = 0.008174,
+							["spells"] = {
+								["tipo"] = 7,
+								["_ActorTable"] = {
+									[203782] = {
+										["id"] = 203782,
+										["total"] = 210,
+										["targets"] = {
+											["Flaville"] = 210,
+										},
+										["counter"] = 21,
+									},
+									[178740] = {
+										["id"] = 178740,
+										["total"] = 8,
+										["targets"] = {
+											["Flaville"] = 8,
+										},
+										["counter"] = 1,
+									},
+									[207014] = {
+										["id"] = 207014,
+										["total"] = 4,
+										["targets"] = {
+											["Flaville"] = 4,
+										},
+										["counter"] = 13,
+									},
+									[178741] = {
+										["id"] = 178741,
+										["total"] = 12,
+										["targets"] = {
+											["Flaville"] = 12,
+										},
+										["counter"] = 6,
+									},
+								},
+							},
+							["serial"] = "Player-3391-093D39D8",
+							["tipo"] = 3,
+						}, -- [1]
+					},
+				}, -- [3]
+				{
+					["combatId"] = 41,
+					["tipo"] = 9,
+					["_ActorTable"] = {
+						{
+							["fight_component"] = true,
+							["flag_original"] = 1297,
+							["buff_uptime_targets"] = {
+							},
+							["spec"] = 581,
+							["grupo"] = true,
+							["nome"] = "Flaville",
+							["pets"] = {
+							},
+							["buff_uptime"] = 58,
+							["spell_cast"] = {
+								[204255] = 9,
+								[228477] = 5,
+								[204062] = 3,
+								[178740] = 1,
+								[203782] = 21,
+							},
+							["last_event"] = 1504439341,
+							["tipo"] = 4,
+							["buff_uptime_spells"] = {
+								["tipo"] = 9,
+								["_ActorTable"] = {
+									[163073] = {
+										["activedamt"] = 1,
+										["id"] = 163073,
+										["targets"] = {
+										},
+										["uptime"] = 9,
+										["appliedamt"] = 1,
+										["refreshamt"] = 1,
+										["actived"] = false,
+										["counter"] = 0,
+									},
+									[178740] = {
+										["activedamt"] = 1,
+										["id"] = 178740,
+										["targets"] = {
+										},
+										["uptime"] = 6,
+										["appliedamt"] = 1,
+										["refreshamt"] = 0,
+										["actived"] = false,
+										["counter"] = 0,
+									},
+									[226991] = {
+										["activedamt"] = 2,
+										["id"] = 226991,
+										["targets"] = {
+										},
+										["uptime"] = 24,
+										["appliedamt"] = 2,
+										["refreshamt"] = 0,
+										["actived"] = false,
+										["counter"] = 0,
+									},
+									[203981] = {
+										["activedamt"] = 4,
+										["id"] = 203981,
+										["targets"] = {
+										},
+										["uptime"] = 19,
+										["appliedamt"] = 4,
+										["refreshamt"] = 5,
+										["actived"] = false,
+										["counter"] = 0,
+									},
+								},
+							},
+							["serial"] = "Player-3391-093D39D8",
+							["classe"] = "DEMONHUNTER",
+						}, -- [1]
+					},
+				}, -- [4]
+				{
+					["combatId"] = 41,
+					["tipo"] = 2,
+					["_ActorTable"] = {
+					},
+				}, -- [5]
+				["raid_roster"] = {
+					["Flaville"] = true,
+				},
+				["last_events_tables"] = {
+				},
+				["alternate_power"] = {
+				},
+				["enemy"] = "Fel Shocktrooper",
+				["combat_counter"] = 66,
+				["playing_solo"] = true,
+				["totals"] = {
+					941944.938918, -- [1]
+					112910, -- [2]
+					{
+						0, -- [1]
+						[0] = 233.996621,
+						["alternatepower"] = 0,
+						[3] = 0,
+						[6] = 0,
+					}, -- [3]
+					{
+						["buff_uptime"] = 0,
+						["ress"] = 0,
+						["debuff_uptime"] = 0,
+						["cooldowns_defensive"] = 0,
+						["interrupt"] = 0,
+						["dispell"] = 0,
+						["cc_break"] = 0,
+						["dead"] = 0,
+					}, -- [4]
+					["frags_total"] = 0,
+					["voidzone_damage"] = 0,
+				},
+				["player_last_events"] = {
+				},
+				["frags_need_refresh"] = true,
+				["__call"] = {
+				},
+				["PhaseData"] = {
+					{
+						1, -- [1]
+						1, -- [2]
+					}, -- [1]
+					["heal_section"] = {
+					},
+					["heal"] = {
+						{
+							["Flaville"] = 112910.008693,
+						}, -- [1]
+					},
+					["damage_section"] = {
+					},
+					["damage"] = {
+						{
+							["Flaville"] = 966675.008763,
+						}, -- [1]
+					},
+				},
+				["end_time"] = 694251.316,
+				["combat_id"] = 41,
+				["instance_type"] = "none",
+				["resincked"] = true,
+				["frags"] = {
+					["Fel Shocktrooper"] = 1,
+					["Explosive Inquisitor Eye"] = 3,
+					["Kethrazor"] = 1,
+				},
+				["data_fim"] = "12:49:01",
+				["data_inicio"] = "12:48:20",
+				["CombatSkillCache"] = {
+				},
+				["totals_grupo"] = {
+					878904, -- [1]
+					112910, -- [2]
+					{
+						0, -- [1]
+						[0] = 234,
+						["alternatepower"] = 0,
+						[3] = 0,
+						[6] = 0,
+					}, -- [3]
+					{
+						["buff_uptime"] = 0,
+						["ress"] = 0,
+						["debuff_uptime"] = 0,
+						["cooldowns_defensive"] = 0,
+						["interrupt"] = 0,
+						["dispell"] = 0,
+						["cc_break"] = 0,
+						["dead"] = 0,
+					}, -- [4]
+				},
+				["start_time"] = 694209.738,
+				["contra"] = "Fel Shocktrooper",
+				["TimeData"] = {
+				},
+			}, -- [4]
+			{
+				{
+					["combatId"] = 40,
+					["tipo"] = 2,
+					["_ActorTable"] = {
+						{
+							["flag_original"] = 1297,
+							["totalabsorbed"] = 0.002955,
+							["total"] = 86334.002955,
+							["damage_from"] = {
+								["Savage Felstalker"] = true,
+							},
+							["targets"] = {
+								["Savage Felstalker"] = 86334,
+							},
+							["pets"] = {
+							},
+							["friendlyfire"] = {
+							},
+							["colocacao"] = 1,
+							["classe"] = "DEMONHUNTER",
+							["raid_targets"] = {
+							},
+							["total_without_pet"] = 86334.002955,
+							["friendlyfire_total"] = 0,
+							["dps_started"] = false,
+							["end_time"] = 1504439225,
+							["on_hold"] = false,
+							["spec"] = 581,
+							["nome"] = "Flaville",
+							["spells"] = {
+								["tipo"] = 2,
+								["_ActorTable"] = {
+									{
+										["c_amt"] = 1,
+										["b_amt"] = 0,
+										["c_dmg"] = 9271,
+										["g_amt"] = 0,
+										["n_max"] = 3074,
+										["targets"] = {
+											["Savage Felstalker"] = 12345,
+										},
+										["m_dmg"] = 0,
+										["n_dmg"] = 3074,
+										["n_min"] = 3074,
+										["g_dmg"] = 0,
+										["counter"] = 3,
+										["total"] = 12345,
+										["c_max"] = 9271,
+										["MISS"] = 1,
+										["id"] = 1,
+										["r_dmg"] = 0,
+										["spellschool"] = 1,
+										["a_dmg"] = 0,
+										["m_crit"] = 0,
+										["a_amt"] = 0,
+										["m_amt"] = 0,
+										["successful_casted"] = 0,
+										["b_dmg"] = 0,
+										["n_amt"] = 1,
+										["r_amt"] = 0,
+										["c_min"] = 9271,
+									}, -- [1]
+									[203782] = {
+										["c_amt"] = 1,
+										["b_amt"] = 0,
+										["c_dmg"] = 28216,
+										["g_amt"] = 0,
+										["n_max"] = 9293,
+										["targets"] = {
+											["Savage Felstalker"] = 37509,
+										},
+										["m_dmg"] = 0,
+										["n_dmg"] = 9293,
+										["n_min"] = 9293,
+										["g_dmg"] = 0,
+										["counter"] = 2,
+										["total"] = 37509,
+										["c_max"] = 28216,
+										["id"] = 203782,
+										["r_dmg"] = 0,
+										["spellschool"] = 1,
+										["a_dmg"] = 0,
+										["m_crit"] = 0,
+										["a_amt"] = 0,
+										["m_amt"] = 0,
+										["successful_casted"] = 0,
+										["b_dmg"] = 0,
+										["n_amt"] = 1,
+										["r_amt"] = 0,
+										["c_min"] = 28216,
+									},
+									[228478] = {
+										["c_amt"] = 1,
+										["b_amt"] = 0,
+										["c_dmg"] = 36480,
+										["g_amt"] = 0,
+										["n_max"] = 0,
+										["targets"] = {
+											["Savage Felstalker"] = 36480,
+										},
+										["m_dmg"] = 0,
+										["n_dmg"] = 0,
+										["n_min"] = 0,
+										["g_dmg"] = 0,
+										["counter"] = 1,
+										["total"] = 36480,
+										["c_max"] = 36480,
+										["id"] = 228478,
+										["r_dmg"] = 0,
+										["spellschool"] = 1,
+										["a_dmg"] = 0,
+										["m_crit"] = 0,
+										["a_amt"] = 0,
+										["m_amt"] = 0,
+										["successful_casted"] = 0,
+										["b_dmg"] = 0,
+										["n_amt"] = 0,
+										["r_amt"] = 0,
+										["c_min"] = 36480,
+									},
+								},
+							},
+							["grupo"] = true,
+							["serial"] = "Player-3391-093D39D8",
+							["last_dps"] = 7085.85053799578,
+							["custom"] = 0,
+							["last_event"] = 1504439224,
+							["damage_taken"] = 38954.002955,
+							["start_time"] = 1504439220,
+							["delay"] = 0,
+							["tipo"] = 1,
+						}, -- [1]
+					},
+				}, -- [1]
+				{
+					["combatId"] = 40,
+					["tipo"] = 3,
+					["_ActorTable"] = {
+						{
+							["flag_original"] = 1297,
+							["targets_overheal"] = {
+								["Flaville"] = 47490,
+							},
+							["pets"] = {
+							},
+							["iniciar_hps"] = false,
+							["classe"] = "DEMONHUNTER",
+							["totalover"] = 47490.00377,
+							["total_without_pet"] = 36692.00377,
+							["total"] = 36692.00377,
+							["targets_absorbs"] = {
+							},
+							["heal_enemy"] = {
+							},
+							["colocacao"] = 1,
+							["on_hold"] = false,
+							["serial"] = "Player-3391-093D39D8",
+							["totalabsorb"] = 0.00377,
+							["last_hps"] = 3011.49078873726,
+							["targets"] = {
+								["Flaville"] = 84182,
+							},
+							["totalover_without_pet"] = 0.00377,
+							["healing_taken"] = 36692.00377,
+							["fight_component"] = true,
+							["end_time"] = 1504439225,
+							["healing_from"] = {
+								["Flaville"] = true,
+							},
+							["nome"] = "Flaville",
+							["spells"] = {
+								["tipo"] = 3,
+								["_ActorTable"] = {
+									[203794] = {
+										["c_amt"] = 0,
+										["totalabsorb"] = 0,
+										["targets_overheal"] = {
+										},
+										["n_max"] = 17129,
+										["targets"] = {
+											["Flaville"] = 17129,
+										},
+										["n_min"] = 17129,
+										["counter"] = 1,
+										["overheal"] = 0,
+										["total"] = 17129,
+										["c_max"] = 0,
+										["id"] = 203794,
+										["targets_absorbs"] = {
+										},
+										["c_curado"] = 0,
+										["m_crit"] = 0,
+										["c_min"] = 0,
+										["m_amt"] = 0,
+										["n_curado"] = 17129,
+										["n_amt"] = 1,
+										["totaldenied"] = 0,
+										["m_healed"] = 0,
+										["absorbed"] = 0,
+									},
+									[228477] = {
+										["c_amt"] = 0,
+										["totalabsorb"] = 0,
+										["targets_overheal"] = {
+											["Flaville"] = 47490,
+										},
+										["n_max"] = 19563,
+										["targets"] = {
+											["Flaville"] = 19563,
+										},
+										["n_min"] = 19563,
+										["counter"] = 1,
+										["overheal"] = 47490,
+										["total"] = 19563,
+										["c_max"] = 0,
+										["id"] = 228477,
+										["targets_absorbs"] = {
+										},
+										["c_curado"] = 0,
+										["m_crit"] = 0,
+										["c_min"] = 0,
+										["m_amt"] = 0,
+										["n_curado"] = 19563,
+										["n_amt"] = 1,
+										["totaldenied"] = 0,
+										["m_healed"] = 0,
+										["absorbed"] = 0,
+									},
+								},
+							},
+							["grupo"] = true,
+							["heal_enemy_amt"] = 0,
+							["start_time"] = 1504439223,
+							["custom"] = 0,
+							["tipo"] = 2,
+							["spec"] = 581,
+							["totaldenied"] = 0.00377,
+							["delay"] = 0,
+							["last_event"] = 1504439224,
+						}, -- [1]
+					},
+				}, -- [2]
+				{
+					["combatId"] = 40,
+					["tipo"] = 7,
+					["_ActorTable"] = {
+						{
+							["received"] = 23.002947,
+							["resource"] = 0.002947,
+							["targets"] = {
+								["Flaville"] = 23,
+							},
+							["pets"] = {
+							},
+							["powertype"] = 0,
+							["classe"] = "DEMONHUNTER",
+							["fight_component"] = true,
+							["total"] = 23.002947,
+							["nome"] = "Flaville",
+							["spec"] = 581,
+							["grupo"] = true,
+							["flag_original"] = 1297,
+							["last_event"] = 1504439222,
+							["alternatepower"] = 0.002947,
+							["spells"] = {
+								["tipo"] = 7,
+								["_ActorTable"] = {
+									[207014] = {
+										["id"] = 207014,
+										["total"] = 3,
+										["targets"] = {
+											["Flaville"] = 3,
+										},
+										["counter"] = 3,
+									},
+									[203782] = {
+										["id"] = 203782,
+										["total"] = 20,
+										["targets"] = {
+											["Flaville"] = 20,
+										},
+										["counter"] = 2,
+									},
+								},
+							},
+							["serial"] = "Player-3391-093D39D8",
+							["tipo"] = 3,
+						}, -- [1]
+					},
+				}, -- [3]
+				{
+					["combatId"] = 40,
+					["tipo"] = 9,
+					["_ActorTable"] = {
+						{
+							["fight_component"] = true,
+							["flag_original"] = 1297,
+							["buff_uptime_targets"] = {
+							},
+							["spec"] = 581,
+							["grupo"] = true,
+							["nome"] = "Flaville",
+							["pets"] = {
+							},
+							["buff_uptime"] = 5,
+							["spell_cast"] = {
+								[203782] = 2,
+								[204255] = 1,
+								[204062] = 1,
+								[228477] = 1,
+							},
+							["last_event"] = 1504439225,
+							["tipo"] = 4,
+							["buff_uptime_spells"] = {
+								["tipo"] = 9,
+								["_ActorTable"] = {
+									[226991] = {
+										["activedamt"] = 1,
+										["id"] = 226991,
+										["targets"] = {
+										},
+										["uptime"] = 5,
+										["appliedamt"] = 1,
+										["refreshamt"] = 1,
+										["actived"] = false,
+										["counter"] = 0,
+									},
+								},
+							},
+							["serial"] = "Player-3391-093D39D8",
+							["classe"] = "DEMONHUNTER",
+						}, -- [1]
+					},
+				}, -- [4]
+				{
+					["combatId"] = 40,
+					["tipo"] = 2,
+					["_ActorTable"] = {
+					},
+				}, -- [5]
+				["raid_roster"] = {
+					["Flaville"] = true,
+				},
+				["last_events_tables"] = {
+				},
+				["alternate_power"] = {
+					["Ilumidarai"] = {
+						["total"] = 52,
+						["last"] = 52,
+					},
+				},
+				["enemy"] = "Savage Felstalker",
+				["combat_counter"] = 65,
+				["playing_solo"] = true,
+				["totals"] = {
+					86333.954731, -- [1]
+					36691.989099, -- [2]
+					{
+						1, -- [1]
+						[0] = -2.015665,
+						["alternatepower"] = 0,
+						[3] = 0,
+						[6] = 24,
+					}, -- [3]
+					{
+						["buff_uptime"] = 0,
+						["ress"] = 0,
+						["debuff_uptime"] = 0,
+						["cooldowns_defensive"] = 0,
+						["interrupt"] = 0,
+						["dispell"] = 0,
+						["cc_break"] = 0,
+						["dead"] = 0,
+					}, -- [4]
+					["frags_total"] = 0,
+					["voidzone_damage"] = 0,
+				},
+				["player_last_events"] = {
+				},
+				["frags_need_refresh"] = true,
+				["__call"] = {
+				},
+				["PhaseData"] = {
+					{
+						1, -- [1]
+						1, -- [2]
+					}, -- [1]
+					["heal_section"] = {
+					},
+					["heal"] = {
+						{
+							["Flaville"] = 36692.00377,
+						}, -- [1]
+					},
+					["damage_section"] = {
+					},
+					["damage"] = {
+						{
+							["Flaville"] = 86334.002955,
+						}, -- [1]
+					},
+				},
+				["end_time"] = 694135.355,
+				["combat_id"] = 40,
+				["instance_type"] = "none",
+				["frags"] = {
+					["Savage Felstalker"] = 3,
+				},
+				["data_fim"] = "12:47:05",
+				["data_inicio"] = "12:46:53",
+				["CombatSkillCache"] = {
+				},
+				["totals_grupo"] = {
+					86334, -- [1]
+					36692, -- [2]
+					{
+						0, -- [1]
+						[0] = 23,
+						["alternatepower"] = 0,
+						[3] = 0,
+						[6] = 0,
+					}, -- [3]
+					{
+						["buff_uptime"] = 0,
+						["ress"] = 0,
+						["debuff_uptime"] = 0,
+						["cooldowns_defensive"] = 0,
+						["interrupt"] = 0,
+						["dispell"] = 0,
+						["cc_break"] = 0,
+						["dead"] = 0,
+					}, -- [4]
+				},
+				["start_time"] = 694123.171,
+				["contra"] = "Savage Felstalker",
+				["TimeData"] = {
+				},
+			}, -- [5]
+		},
+	},
+	["combat_counter"] = 71,
+	["announce_interrupts"] = {
+		["enabled"] = false,
+		["whisper"] = "",
+		["channel"] = "SAY",
+		["custom"] = "",
+		["next"] = "",
+	},
+	["plugin_database"] = {
+		["DETAILS_PLUGIN_DAMAGE_RANK"] = {
+			["lasttry"] = {
+			},
+			["annouce"] = true,
+			["dpshistory"] = {
+			},
+			["enabled"] = true,
+			["author"] = "Details! Team",
+			["level"] = 1,
+			["dps"] = 0,
+		},
+		["DETAILS_PLUGIN_DEATH_GRAPHICS"] = {
+			["last_boss"] = false,
+			["v1"] = true,
+			["captures"] = {
+				false, -- [1]
+				true, -- [2]
+				true, -- [3]
+				true, -- [4]
+			},
+			["first_run"] = false,
+			["endurance_threshold"] = 3,
+			["max_deaths_for_timeline"] = 5,
+			["deaths_threshold"] = 10,
+			["show_icon"] = 1,
+			["max_segments_for_current"] = 2,
+			["max_deaths_for_current"] = 15,
+			["last_player"] = false,
+			["author"] = "Details! Team",
+			["last_encounter_hash"] = false,
+			["enabled"] = true,
+			["timeline_cutoff_time"] = 3,
+			["last_segment"] = false,
+			["last_combat_id"] = 0,
+			["timeline_cutoff_delete_time"] = 3,
+			["showing_type"] = 4,
+			["InstalledAt"] = 1504397873,
+		},
+		["DETAILS_PLUGIN_ENCOUNTER_DETAILS"] = {
+			["enabled"] = true,
+			["encounter_timers_bw"] = {
+			},
+			["max_emote_segments"] = 3,
+			["author"] = "Details! Team",
+			["window_scale"] = 1,
+			["encounter_timers_dbm"] = {
+			},
+			["show_icon"] = 5,
+			["opened"] = 0,
+			["hide_on_combat"] = false,
+		},
+		["DETAILS_PLUGIN_CHART_VIEWER"] = {
+			["enabled"] = true,
+			["author"] = "Details! Team",
+			["tabs"] = {
+				{
+					["name"] = "Your Damage",
+					["segment_type"] = 2,
+					["version"] = "v2.0",
+					["data"] = "Player Damage Done",
+					["texture"] = "line",
+				}, -- [1]
+				{
+					["name"] = "Class Damage",
+					["iType"] = "raid-DAMAGER",
+					["segment_type"] = 1,
+					["version"] = "v2.0",
+					["data"] = "PRESET_DAMAGE_SAME_CLASS",
+					["texture"] = "line",
+				}, -- [2]
+				{
+					["name"] = "Raid Damage",
+					["segment_type"] = 2,
+					["version"] = "v2.0",
+					["data"] = "Raid Damage Done",
+					["texture"] = "line",
+				}, -- [3]
+				["last_selected"] = 1,
+			},
+			["options"] = {
+				["show_method"] = 4,
+				["auto_create"] = true,
+				["window_scale"] = 1,
+			},
+		},
+		["DETAILS_PLUGIN_TINY_THREAT"] = {
+			["updatespeed"] = 1,
+			["enabled"] = true,
+			["showamount"] = false,
+			["useplayercolor"] = false,
+			["author"] = "Details! Team",
+			["useclasscolors"] = false,
+			["playercolor"] = {
+				1, -- [1]
+				1, -- [2]
+				1, -- [3]
+			},
+			["animate"] = false,
+		},
+		["DETAILS_PLUGIN_TIME_LINE"] = {
+			["enabled"] = true,
+			["author"] = "Details! Team",
+		},
+		["DETAILS_PLUGIN_DPS_TUNING"] = {
+			["enabled"] = true,
+			["author"] = "Details! Team",
+			["SpellBarsShowType"] = 1,
+		},
+		["DETAILS_PLUGIN_VANGUARD"] = {
+			["enabled"] = true,
+			["tank_block_color"] = {
+				0.24705882, -- [1]
+				0.0039215, -- [2]
+				0, -- [3]
+				0.8, -- [4]
+			},
+			["tank_block_texture"] = "Details Serenity",
+			["show_inc_bars"] = false,
+			["author"] = "Details! Team",
+			["first_run"] = false,
+			["tank_block_size"] = 150,
+		},
+		["DETAILS_PLUGIN_RAID_POWER_BARS"] = {
+			["enabled"] = true,
+			["author"] = "Details! Team",
+		},
+		["DETAILS_PLUGIN_STREAM_OVERLAY"] = {
+			["font_color"] = {
+				1, -- [1]
+				1, -- [2]
+				1, -- [3]
+				1, -- [4]
+			},
+			["is_first_run"] = false,
+			["arrow_color"] = {
+				1, -- [1]
+				1, -- [2]
+				1, -- [3]
+				0.5, -- [4]
+			},
+			["main_frame_size"] = {
+				300.000091552734, -- [1]
+				500.000030517578, -- [2]
+			},
+			["minimap"] = {
+				["minimapPos"] = 160,
+				["radius"] = 160,
+				["hide"] = true,
+			},
+			["arrow_anchor_x"] = 0,
+			["row_texture"] = "Details Serenity",
+			["use_spark"] = true,
+			["main_frame_locked"] = false,
+			["arrow_anchor_y"] = 0,
+			["enabled"] = false,
+			["arrow_size"] = 10,
+			["row_color"] = {
+				0.1, -- [1]
+				0.1, -- [2]
+				0.1, -- [3]
+				0.4, -- [4]
+			},
+			["row_spacement"] = 21,
+			["main_frame_color"] = {
+				0, -- [1]
+				0, -- [2]
+				0, -- [3]
+				0.2, -- [4]
+			},
+			["main_frame_strata"] = "LOW",
+			["arrow_texture"] = "Interface\\CHATFRAME\\ChatFrameExpandArrow",
+			["y"] = 1.525878906250e-005,
+			["per_second"] = {
+				["enabled"] = false,
+				["point"] = "CENTER",
+				["scale"] = 1.5,
+				["font_shadow"] = true,
+				["y"] = 1.525878906250e-005,
+				["x"] = 6.1035156250e-005,
+				["attribute_type"] = 1,
+				["update_speed"] = 0.05,
+				["size"] = 32,
+			},
+			["x"] = 3.05175781250e-005,
+			["font_face"] = "Friz Quadrata TT",
+			["font_size"] = 10,
+			["author"] = "Details! Team",
+			["point"] = "CENTER",
+			["row_height"] = 20,
+			["scale"] = 1,
+		},
+		["DETAILS_PLUGIN_TIME_ATTACK"] = {
+			["enabled"] = true,
+			["realm_last_shown"] = 40,
+			["saved_as_anonymous"] = true,
+			["recently_as_anonymous"] = true,
+			["dps"] = 0,
+			["disable_sharing"] = false,
+			["history"] = {
+			},
+			["time"] = 40,
+			["history_lastindex"] = 0,
+			["author"] = "Details! Team",
+			["realm_history"] = {
+			},
+			["realm_lastamt"] = 0,
+		},
+		["DETAILS_PLUGIN_RAIDCHECK"] = {
+			["enabled"] = true,
+			["food_tier1"] = true,
+			["mythic_1_4"] = true,
+			["food_tier2"] = true,
+			["author"] = "Details! Team",
+			["use_report_panel"] = true,
+			["pre_pot_healers"] = false,
+			["pre_pot_tanks"] = false,
+			["food_tier3"] = true,
+		},
+	},
+	["announce_prepots"] = {
+		["enabled"] = true,
+		["channel"] = "SELF",
+		["reverse"] = false,
+	},
+	["last_day"] = "03",
+	["character_data"] = {
+		["logons"] = 4,
+	},
+	["ignore_nicktag"] = false,
+	["last_version"] = "v7.3.0.4467",
+	["announce_damagerecord"] = {
+		["enabled"] = true,
+		["channel"] = "SELF",
+	},
+	["tabela_instancias"] = {
+	},
+	["combat_id"] = 44,
+	["savedStyles"] = {
+	},
+	["announce_firsthit"] = {
+		["enabled"] = true,
+		["channel"] = "SELF",
+	},
+	["force_font_outline"] = "",
+	["announce_deaths"] = {
+		["enabled"] = false,
+		["last_hits"] = 1,
+		["only_first"] = 5,
+		["where"] = 1,
+	},
+	["tabela_overall"] = {
+		{
+			["tipo"] = 2,
+			["_ActorTable"] = {
+				{
+					["flag_original"] = 1297,
+					["totalabsorbed"] = 0.007552,
+					["damage_from"] = {
+					},
+					["targets"] = {
+						["Red Broodling"] = 0,
+						["Foul Felstalker"] = 0,
+						["Anguish Jailer"] = 0,
+						["Inquisitor Baleful"] = 0,
+						["Felguard Sentry"] = 0,
+					},
+					["pets"] = {
+					},
+					["last_dps"] = 0,
+					["tipo"] = 1,
+					["classe"] = "DEMONHUNTER",
+					["raid_targets"] = {
+					},
+					["total_without_pet"] = 0.007552,
+					["delay"] = 0,
+					["dps_started"] = false,
+					["end_time"] = 1504398781,
+					["spells"] = {
+						["_ActorTable"] = {
+							{
+								["c_amt"] = 0,
+								["b_amt"] = 0,
+								["c_dmg"] = 0,
+								["g_amt"] = 0,
+								["n_max"] = 0,
+								["targets"] = {
+									["Inquisitor Baleful"] = 0,
+									["Foul Felstalker"] = 0,
+									["Anguish Jailer"] = 0,
+									["Felguard Sentry"] = 0,
+								},
+								["m_dmg"] = 0,
+								["n_dmg"] = 0,
+								["n_min"] = 0,
+								["g_dmg"] = 0,
+								["counter"] = 0,
+								["total"] = 0,
+								["c_max"] = 0,
+								["id"] = 1,
+								["r_dmg"] = 0,
+								["a_dmg"] = 0,
+								["m_crit"] = 0,
+								["a_amt"] = 0,
+								["m_amt"] = 0,
+								["successful_casted"] = 0,
+								["b_dmg"] = 0,
+								["n_amt"] = 0,
+								["r_amt"] = 0,
+								["c_min"] = 0,
+							}, -- [1]
+							[193545] = {
+								["c_amt"] = 0,
+								["b_amt"] = 0,
+								["c_dmg"] = 0,
+								["g_amt"] = 0,
+								["n_max"] = 0,
+								["targets"] = {
+									["Inquisitor Baleful"] = 0,
+									["Foul Felstalker"] = 0,
+									["Anguish Jailer"] = 0,
+									["Felguard Sentry"] = 0,
+								},
+								["m_dmg"] = 0,
+								["n_dmg"] = 0,
+								["n_min"] = 0,
+								["g_dmg"] = 0,
+								["counter"] = 0,
+								["total"] = 0,
+								["c_max"] = 0,
+								["id"] = 193545,
+								["r_dmg"] = 0,
+								["a_dmg"] = 0,
+								["m_crit"] = 0,
+								["a_amt"] = 0,
+								["m_amt"] = 0,
+								["successful_casted"] = 0,
+								["b_dmg"] = 0,
+								["n_amt"] = 0,
+								["r_amt"] = 0,
+								["c_min"] = 0,
+							},
+							[162243] = {
+								["c_amt"] = 0,
+								["b_amt"] = 0,
+								["c_dmg"] = 0,
+								["g_amt"] = 0,
+								["n_max"] = 0,
+								["targets"] = {
+									["Inquisitor Baleful"] = 0,
+									["Anguish Jailer"] = 0,
+									["Felguard Sentry"] = 0,
+								},
+								["m_dmg"] = 0,
+								["n_dmg"] = 0,
+								["n_min"] = 0,
+								["g_dmg"] = 0,
+								["counter"] = 0,
+								["total"] = 0,
+								["c_max"] = 0,
+								["id"] = 162243,
+								["r_dmg"] = 0,
+								["a_dmg"] = 0,
+								["m_crit"] = 0,
+								["a_amt"] = 0,
+								["m_amt"] = 0,
+								["successful_casted"] = 0,
+								["b_dmg"] = 0,
+								["n_amt"] = 0,
+								["r_amt"] = 0,
+								["c_min"] = 0,
+							},
+							[199547] = {
+								["c_amt"] = 0,
+								["b_amt"] = 0,
+								["c_dmg"] = 0,
+								["g_amt"] = 0,
+								["n_max"] = 0,
+								["targets"] = {
+									["Inquisitor Baleful"] = 0,
+								},
+								["m_dmg"] = 0,
+								["n_dmg"] = 0,
+								["n_min"] = 0,
+								["g_dmg"] = 0,
+								["counter"] = 0,
+								["total"] = 0,
+								["c_max"] = 0,
+								["id"] = 199547,
+								["r_dmg"] = 0,
+								["a_dmg"] = 0,
+								["m_crit"] = 0,
+								["a_amt"] = 0,
+								["m_amt"] = 0,
+								["successful_casted"] = 0,
+								["b_dmg"] = 0,
+								["n_amt"] = 0,
+								["r_amt"] = 0,
+								["c_min"] = 0,
+							},
+							[198030] = {
+								["c_amt"] = 0,
+								["b_amt"] = 0,
+								["c_dmg"] = 0,
+								["g_amt"] = 0,
+								["n_max"] = 0,
+								["targets"] = {
+									["Red Broodling"] = 0,
+									["Foul Felstalker"] = 0,
+									["Anguish Jailer"] = 0,
+									["Felguard Sentry"] = 0,
+								},
+								["m_dmg"] = 0,
+								["n_dmg"] = 0,
+								["n_min"] = 0,
+								["g_dmg"] = 0,
+								["counter"] = 0,
+								["total"] = 0,
+								["c_max"] = 0,
+								["id"] = 198030,
+								["r_dmg"] = 0,
+								["a_dmg"] = 0,
+								["m_crit"] = 0,
+								["a_amt"] = 0,
+								["m_amt"] = 0,
+								["successful_casted"] = 0,
+								["b_dmg"] = 0,
+								["n_amt"] = 0,
+								["r_amt"] = 0,
+								["c_min"] = 0,
+							},
+							[162794] = {
+								["c_amt"] = 0,
+								["b_amt"] = 0,
+								["c_dmg"] = 0,
+								["g_amt"] = 0,
+								["n_max"] = 0,
+								["targets"] = {
+									["Inquisitor Baleful"] = 0,
+								},
+								["m_dmg"] = 0,
+								["n_dmg"] = 0,
+								["n_min"] = 0,
+								["g_dmg"] = 0,
+								["counter"] = 0,
+								["total"] = 0,
+								["c_max"] = 0,
+								["id"] = 162794,
+								["r_dmg"] = 0,
+								["a_dmg"] = 0,
+								["m_crit"] = 0,
+								["a_amt"] = 0,
+								["m_amt"] = 0,
+								["successful_casted"] = 0,
+								["b_dmg"] = 0,
+								["n_amt"] = 0,
+								["r_amt"] = 0,
+								["c_min"] = 0,
+							},
+						},
+						["tipo"] = 2,
+					},
+					["damage_taken"] = 0.007552,
+					["nome"] = "Flaville",
+					["spec"] = 577,
+					["grupo"] = true,
+					["total"] = 0.007552,
+					["friendlyfire_total"] = 0,
+					["custom"] = 0,
+					["last_event"] = 0,
+					["on_hold"] = false,
+					["start_time"] = 1504398778,
+					["serial"] = "Player-3391-093D39D8",
+					["friendlyfire"] = {
+					},
+				}, -- [1]
+			},
+		}, -- [1]
+		{
+			["tipo"] = 3,
+			["_ActorTable"] = {
+				{
+					["flag_original"] = 1297,
+					["totalabsorb"] = 0.007002,
+					["last_hps"] = 0,
+					["healing_from"] = {
+					},
+					["targets_overheal"] = {
+						["Flaville"] = 0,
+					},
+					["targets"] = {
+						["Flaville"] = 0,
+					},
+					["spells"] = {
+						["tipo"] = 3,
+						["_ActorTable"] = {
+							[202644] = {
+								["c_amt"] = 0,
+								["totalabsorb"] = 0,
+								["targets_overheal"] = {
+									["Flaville"] = 0,
+								},
+								["n_max"] = 0,
+								["targets"] = {
+									["Flaville"] = 0,
+								},
+								["n_min"] = 0,
+								["counter"] = 0,
+								["overheal"] = 0,
+								["total"] = 0,
+								["c_max"] = 0,
+								["id"] = 202644,
+								["targets_absorbs"] = {
+								},
+								["c_curado"] = 0,
+								["m_crit"] = 0,
+								["c_min"] = 0,
+								["m_amt"] = 0,
+								["n_curado"] = 0,
+								["n_amt"] = 0,
+								["totaldenied"] = 0,
+								["m_healed"] = 0,
+								["absorbed"] = 0,
+							},
+						},
+					},
+					["pets"] = {
+					},
+					["iniciar_hps"] = false,
+					["totalover_without_pet"] = 0.007002,
+					["healing_taken"] = 0.007002,
+					["totalover"] = 0.007002,
+					["total_without_pet"] = 0.007002,
+					["spec"] = 577,
+					["classe"] = "DEMONHUNTER",
+					["fight_component"] = true,
+					["end_time"] = 1504434624,
+					["heal_enemy_amt"] = 0,
+					["total"] = 0.007002,
+					["nome"] = "Flaville",
+					["targets_absorbs"] = {
+					},
+					["grupo"] = true,
+					["start_time"] = 1504434621,
+					["heal_enemy"] = {
+					},
+					["serial"] = "Player-3391-093D39D8",
+					["custom"] = 0,
+					["last_event"] = 0,
+					["on_hold"] = false,
+					["totaldenied"] = 0.007002,
+					["delay"] = 0,
+					["tipo"] = 2,
+				}, -- [1]
+			},
+		}, -- [2]
+		{
+			["tipo"] = 7,
+			["_ActorTable"] = {
+				{
+					["received"] = 0.005568,
+					["resource"] = 0.028643,
+					["targets"] = {
+						["Flaville"] = 0,
+					},
+					["pets"] = {
+					},
+					["powertype"] = 0,
+					["classe"] = "DEMONHUNTER",
+					["total"] = 0.005568,
+					["nome"] = "Flaville",
+					["spec"] = 577,
+					["grupo"] = true,
+					["spells"] = {
+						["tipo"] = 7,
+						["_ActorTable"] = {
+							[162243] = {
+								["id"] = 162243,
+								["total"] = 0,
+								["targets"] = {
+									["Flaville"] = 0,
+								},
+								["counter"] = 0,
+							},
+							[193840] = {
+								["id"] = 193840,
+								["total"] = 0,
+								["targets"] = {
+									["Flaville"] = 0,
+								},
+								["counter"] = 0,
+							},
+						},
+					},
+					["tipo"] = 3,
+					["flag_original"] = 1297,
+					["last_event"] = 0,
+					["alternatepower"] = 0.005568,
+					["serial"] = "Player-3391-093D39D8",
+				}, -- [1]
+			},
+		}, -- [3]
+		{
+			["tipo"] = 9,
+			["_ActorTable"] = {
+				{
+					["flag_original"] = 1047,
+					["buff_uptime_targets"] = {
+					},
+					["spec"] = 577,
+					["grupo"] = true,
+					["tipo"] = 4,
+					["spell_cast"] = {
+						[198013] = 0,
+						[162243] = 0,
+						[162794] = 0,
+					},
+					["nome"] = "Flaville",
+					["pets"] = {
+					},
+					["last_event"] = 0,
+					["buff_uptime"] = 0,
+					["buff_uptime_spells"] = {
+						["tipo"] = 9,
+						["_ActorTable"] = {
+							[191466] = {
+								["id"] = 191466,
+								["targets"] = {
+								},
+								["counter"] = 0,
+							},
+							[198013] = {
+								["id"] = 198013,
+								["targets"] = {
+								},
+								["counter"] = 0,
+							},
+							[203925] = {
+								["id"] = 203925,
+								["targets"] = {
+								},
+								["counter"] = 0,
+							},
+							[193456] = {
+								["id"] = 193456,
+								["targets"] = {
+								},
+								["counter"] = 0,
+							},
+							[163073] = {
+								["id"] = 163073,
+								["targets"] = {
+								},
+								["counter"] = 0,
+							},
+							[193547] = {
+								["id"] = 193547,
+								["targets"] = {
+								},
+								["counter"] = 0,
+							},
+						},
+					},
+					["serial"] = "Player-3391-093D39D8",
+					["classe"] = "DEMONHUNTER",
+				}, -- [1]
+			},
+		}, -- [4]
+		{
+			["tipo"] = 2,
+			["_ActorTable"] = {
+			},
+		}, -- [5]
+		["raid_roster"] = {
+		},
+		["last_events_tables"] = {
+		},
+		["alternate_power"] = {
+		},
+		["combat_counter"] = 1,
+		["totals"] = {
+			-0.006398, -- [1]
+			0, -- [2]
+			{
+				0, -- [1]
+				[0] = 0,
+				["alternatepower"] = 0,
+				[6] = 0,
+				[3] = 0,
+			}, -- [3]
+			{
+				["buff_uptime"] = 0,
+				["ress"] = 0,
+				["dead"] = 0,
+				["cc_break"] = 0,
+				["interrupt"] = 0,
+				["debuff_uptime"] = 0,
+				["dispell"] = 0,
+				["cooldowns_defensive"] = 0,
+			}, -- [4]
+			["voidzone_damage"] = 0,
+			["frags_total"] = 0,
+		},
+		["totals_grupo"] = {
+			0, -- [1]
+			0, -- [2]
+			{
+				0, -- [1]
+				[0] = 0,
+				["alternatepower"] = 0,
+				[6] = 0,
+				[3] = 0,
+			}, -- [3]
+			{
+				["buff_uptime"] = 0,
+				["ress"] = 0,
+				["dead"] = 0,
+				["cc_break"] = 0,
+				["interrupt"] = 0,
+				["debuff_uptime"] = 0,
+				["dispell"] = 0,
+				["cooldowns_defensive"] = 0,
+			}, -- [4]
+		},
+		["frags_need_refresh"] = false,
+		["__call"] = {
+		},
+		["PhaseData"] = {
+			{
+				1, -- [1]
+				1, -- [2]
+			}, -- [1]
+			["damage"] = {
+			},
+			["heal_section"] = {
+			},
+			["heal"] = {
+			},
+			["damage_section"] = {
+			},
+		},
+		["hasSaved"] = true,
+		["frags"] = {
+		},
+		["data_fim"] = 0,
+		["overall_refreshed"] = true,
+		["CombatSkillCache"] = {
+		},
+		["player_last_events"] = {
+		},
+		["start_time"] = 0,
+		["TimeData"] = {
+			["Player Damage Done"] = {
+			},
+		},
+		["data_inicio"] = 0,
+	},
+	["SoloTablesSaved"] = {
+		["LastSelected"] = "DETAILS_PLUGIN_DAMAGE_RANK",
+		["Mode"] = 1,
+	},
+	["local_instances_config"] = {
+		{
+			["segment"] = 0,
+			["sub_attribute"] = 1,
+			["horizontalSnap"] = false,
+			["verticalSnap"] = false,
+			["is_open"] = true,
+			["isLocked"] = true,
+			["sub_atributo_last"] = {
+				1, -- [1]
+				1, -- [2]
+				1, -- [3]
+				1, -- [4]
+				1, -- [5]
+			},
+			["snap"] = {
+			},
+			["mode"] = 2,
+			["attribute"] = 1,
+			["pos"] = {
+				["normal"] = {
+					["y"] = -491.854698181152,
+					["x"] = 936.204833984375,
+					["w"] = 228.1025390625,
+					["h"] = 197.829055786133,
+				},
+				["solo"] = {
+					["y"] = 2.0001220703125,
+					["x"] = 1,
+					["w"] = 300.000091552734,
+					["h"] = 300.000030517578,
+				},
+			},
+		}, -- [1]
+		{
+			["segment"] = 0,
+			["sub_attribute"] = 1,
+			["horizontalSnap"] = false,
+			["verticalSnap"] = false,
+			["is_open"] = false,
+			["isLocked"] = false,
+			["sub_atributo_last"] = {
+				1, -- [1]
+				1, -- [2]
+				1, -- [3]
+				1, -- [4]
+				1, -- [5]
+			},
+			["snap"] = {
+			},
+			["mode"] = 2,
+			["attribute"] = 1,
+			["pos"] = {
+				["normal"] = {
+					["y"] = -121.435882568359,
+					["x"] = -495.589660644531,
+					["w"] = 319.999969482422,
+					["h"] = 129.999938964844,
+				},
+				["solo"] = {
+					["y"] = -251.265014648438,
+					["x"] = 688.590576171875,
+					["w"] = 263.897552490234,
+					["h"] = 233.265045166016,
+				},
+			},
+		}, -- [2]
+		{
+			["segment"] = 0,
+			["sub_attribute"] = 1,
+			["horizontalSnap"] = false,
+			["verticalSnap"] = false,
+			["is_open"] = true,
+			["isLocked"] = true,
+			["sub_atributo_last"] = {
+				1, -- [1]
+				1, -- [2]
+				1, -- [3]
+				1, -- [4]
+				1, -- [5]
+			},
+			["snap"] = {
+			},
+			["mode"] = 2,
+			["attribute"] = 2,
+			["pos"] = {
+				["normal"] = {
+					["y"] = -326.018035888672,
+					["x"] = 935.658447265625,
+					["w"] = 229.195999145508,
+					["h"] = 90.6152954101563,
+				},
+				["solo"] = {
+					["y"] = 2,
+					["x"] = 1,
+					["w"] = 300,
+					["h"] = 200,
+				},
+			},
+		}, -- [3]
+	},
+	["cached_talents"] = {
+		["Player-3391-093D39D8"] = {
+			22502, -- [1]
+			22766, -- [2]
+		},
+	},
+	["announce_cooldowns"] = {
+		["ignored_cooldowns"] = {
+		},
+		["enabled"] = false,
+		["custom"] = "",
+		["channel"] = "RAID",
+	},
+	["nick_tag_cache"] = {
+		["nextreset"] = 1505693873,
+		[119235440] = {
+			"Cårolus", -- [1]
+			"Interface\\EncounterJournal\\UI-EJ-BOSS-Armsmaster Harlan", -- [2]
+			{
+				0, -- [1]
+				1, -- [2]
+				0, -- [3]
+				1, -- [4]
+			}, -- [3]
+			"Interface\\PetBattles\\Weather-BurntEarth", -- [4]
+			{
+				0.087890625, -- [1]
+				0.916015625, -- [2]
+				1, -- [3]
+				0, -- [4]
+			}, -- [5]
+			{
+				1, -- [1]
+				1, -- [2]
+				1, -- [3]
+			}, -- [6]
+			2, -- [7]
+		},
+		[141482229] = {
+			"Wobbers", -- [1]
+			false, -- [2]
+			false, -- [3]
+			false, -- [4]
+			false, -- [5]
+			false, -- [6]
+			3, -- [7]
+		},
+		[155007448] = {
+			"Flaville", -- [1]
+			"Interface\\EncounterJournal\\UI-EJ-BOSS-TyrandeWhisperwind", -- [2]
+			{
+				0, -- [1]
+				1, -- [2]
+				0, -- [3]
+				1, -- [4]
+			}, -- [3]
+			"Interface\\PetBattles\\Weather-ArcaneStorm", -- [4]
+			{
+				0.129609375, -- [1]
+				1, -- [2]
+				1, -- [3]
+				0, -- [4]
+			}, -- [5]
+			{
+				1, -- [1]
+				1, -- [2]
+				1, -- [3]
+			}, -- [6]
+			2, -- [7]
+		},
+		["last_version"] = 9,
+	},
+	["last_instance_id"] = 0,
+	["cached_specs"] = {
+		["Player-1313-093BE8C3"] = 577,
+		["Player-3391-093C1652"] = 577,
+		["Player-3391-093D39D8"] = 581,
+	},
+}

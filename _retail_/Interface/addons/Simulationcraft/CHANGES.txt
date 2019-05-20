@@ -1,0 +1,10 @@
+lightweight tag 1ef4666371626fbab8b5697a27a9f0c855ebc10b v1.11.1
+Author:	Dave Hendler <sollaires@gmail.com>
+Date:	Wed Apr 3 15:08:29 2019 -0700
+
+commit 1ef4666371626fbab8b5697a27a9f0c855ebc10b
+Author: Dave Hendler <sollaires@gmail.com>
+Date:   Wed Apr 3 15:08:29 2019 -0700
+
+    Mistweaver Monk use role=attack to default to DPS sims since hybrid sims are disabled in SimC
+

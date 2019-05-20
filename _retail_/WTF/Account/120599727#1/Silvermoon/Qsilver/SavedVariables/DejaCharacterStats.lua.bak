@@ -1,0 +1,146 @@
+
+DejaCharacterStatsDBPC = {
+	["dejacharacterstatsShowAverageRepairChecked"] = {
+		["ShowAverageRepairSetChecked"] = true,
+	},
+	["dejacharacterstatsDurabilityStatChecked"] = {
+		["DurabilityStatSetChecked"] = true,
+	},
+	["optpanelDefaults"] = {
+	},
+	["dejacharacterstatsItemLevelChecked"] = {
+		["ItemLevelSetChecked"] = true,
+	},
+	["dejacharacterstatsShowDecimalsChecked"] = {
+		["SetChecked"] = true,
+	},
+	["dejacharacterstatsShowDuraRepairChecked"] = {
+		["ShowDuraRepairSetChecked"] = true,
+	},
+	["dcsdefaults"] = {
+		["dejacharacterstatsShowAverageRepairChecked"] = {
+			["ShowAverageRepairSetChecked"] = false,
+		},
+		["dejacharacterstatsDurabilityStatChecked"] = {
+			["DurabilityStatSetChecked"] = false,
+		},
+		["dejacharacterstatsShowAllStatsChecked"] = {
+			["ShowAllStatsSetChecked"] = false,
+		},
+		["dejacharacterstatsItemLevelChecked"] = {
+			["ItemLevelSetChecked"] = true,
+		},
+		["dejacharacterstatsExpandButtonChecked"] = {
+			["ExpandButtonSetChecked"] = false,
+		},
+		["dejacharacterstatsShowItemRepairChecked"] = {
+			["ShowItemRepairSetChecked"] = false,
+		},
+		["dejacharacterstatsShowDecimalsChecked"] = {
+			["SetChecked"] = true,
+		},
+		["dejacharacterstatsShowDuraRepairChecked"] = {
+			["ShowDuraRepairSetChecked"] = false,
+		},
+		["dejacharacterstatsShowDuraChecked"] = {
+			["ShowDuraSetChecked"] = false,
+		},
+		["dejacharacterstatsShowDuraTextureChecked"] = {
+			["ShowDuraTextureSetChecked"] = false,
+		},
+		["dejacharacterstatsScrollbarMax"] = {
+			["DCS_ScrollbarMax"] = 142,
+		},
+		["dejacharacterstatsSelectedStats"] = {
+			["DODGE"] = false,
+			["DURABILITY"] = false,
+			["SPELLPOWER"] = false,
+			["MASTERY"] = true,
+			["CRITCHANCE"] = true,
+			["MOVESPEED"] = true,
+			["ATTACK_ATTACKSPEED"] = true,
+			["VERSATILITY"] = true,
+			["ENERGY_REGEN"] = false,
+			["AVOIDANCE"] = false,
+			["LIFESTEAL"] = false,
+			["ATTACK_AP"] = true,
+			["BLOCK"] = false,
+			["HEALTH"] = true,
+			["RUNE_REGEN"] = false,
+			["ALTERNATEMANA"] = false,
+			["STAMINA"] = true,
+			["AGILITY"] = true,
+			["STRENGTH"] = false,
+			["ATTACK_DAMAGE"] = true,
+			["REPAIRTOTAL"] = false,
+			["PARRY"] = false,
+			["ARMOR"] = true,
+			["HASTE"] = true,
+			["INTELLECT"] = false,
+			["POWER"] = true,
+			["MANAREGEN"] = false,
+			["FOCUS_REGEN"] = true,
+		},
+		["dejacharacterstatsSelectStatsChecked"] = {
+			["SelectStatsSetChecked"] = true,
+		},
+		["dejacharacterstatsExpandChecked"] = {
+			["ExpandSetChecked"] = true,
+		},
+		["dejacharacterstatsRepairTotalStatChecked"] = {
+			["RepairTotalStatSetChecked"] = false,
+		},
+		["dejacharacterstatsScrollbarChecked"] = {
+			["ScrollbarSetChecked"] = false,
+		},
+	},
+	["dejacharacterstatsShowDuraTextureChecked"] = {
+		["ShowDuraTextureSetChecked"] = true,
+	},
+	["dejacharacterstatsSelectStatsChecked"] = {
+		["SelectStatsSetChecked"] = true,
+	},
+	["dejacharacterstatsSelectedStats"] = {
+		["DODGE"] = true,
+		["DURABILITY"] = true,
+		["SPELLPOWER"] = false,
+		["FOCUS_REGEN"] = true,
+		["BLOCK"] = true,
+		["POWER"] = true,
+		["MOVESPEED"] = true,
+		["ATTACK_ATTACKSPEED"] = true,
+		["VERSATILITY"] = true,
+		["INTELLECT"] = false,
+		["CRITCHANCE"] = true,
+		["ARMOR"] = true,
+		["ATTACK_AP"] = true,
+		["LIFESTEAL"] = true,
+		["HEALTH"] = true,
+		["STAMINA"] = true,
+		["ALTERNATEMANA"] = false,
+		["RUNE_REGEN"] = false,
+		["AGILITY"] = true,
+		["STRENGTH"] = false,
+		["ATTACK_DAMAGE"] = true,
+		["REPAIRTOTAL"] = true,
+		["PARRY"] = true,
+		["MANAREGEN"] = false,
+		["HASTE"] = true,
+		["AVOIDANCE"] = true,
+		["ENERGY_REGEN"] = false,
+		["ITEMLEVEL"] = false,
+		["MASTERY"] = true,
+	},
+	["dejacharacterstatsShowAllStatsChecked"] = {
+		["ShowAllStatsSetChecked"] = false,
+	},
+	["dejacharacterstatsExpandChecked"] = {
+		["ExpandSetChecked"] = true,
+	},
+	["dejacharacterstatsRepairTotalStatChecked"] = {
+		["RepairTotalStatSetChecked"] = true,
+	},
+	["dejacharacterstatsScrollbarChecked"] = {
+		["ScrollbarSetChecked"] = true,
+	},
+}
