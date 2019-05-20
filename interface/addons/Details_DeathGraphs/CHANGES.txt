@@ -1,7 +1,0 @@
-changeset:   85:c07dff28cefc
-tag:         v7.3.5.085
-user:        Tercio
-date:        Wed Oct 03 08:31:17 2018 -0300
-summary:     - Hardcoded min heal to show in the death log reduced to 100. It should now show healing in the death log.
-
-

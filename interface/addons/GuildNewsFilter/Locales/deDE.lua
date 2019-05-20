@@ -1,9 +1,0 @@
-if GetLocale() ~= "deDE" then return end
-GNF_EDIT_FILTER_RANKS   = "Ignorieren"
-GNF_FILTER_RANKS        = "Ränge"
-GNF_IGNORED_RANKS       = "Wähle zu ignorierende Ränge"
-GNF_MIN_ITEM_LEVEL      = "Min. Itemlevel"
-GNF_IGNORED_WORDS       = "Wörter ignoriert"
-GNF_IGNORED_WORD_INFO   = "Worttrennung per Komma \",\""
-GNF_ENFORCED_WORDS      = "Wörter aufgelistet"
-GNF_GUILD_MEMBER        = "Gildenmitglied"

@@ -1,9 +1,0 @@
-
-DeathGraphsDBDeaths = {
-}
-DeathGraphsDBEndurance = {
-}
-DeathGraphsDBCurrent = {
-}
-DeathGraphsDBGraph = {
-}

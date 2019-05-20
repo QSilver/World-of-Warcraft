@@ -1,7 +1,0 @@
-changeset:   1192:ccc5bbf88626
-tag:         3.7.19
-user:        sylvanaar <sylvanaar@mindspring.com>
-date:        Fri Sep 21 13:05:37 2018 -0700
-summary:     Tweak name
-
-

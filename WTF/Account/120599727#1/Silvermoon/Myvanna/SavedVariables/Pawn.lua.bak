@@ -1,9 +1,0 @@
-
-PawnOptions = {
-	["LastPlayerFullName"] = "Myvanna-Silvermoon",
-	["LastKeybindingsSet"] = 1,
-}
-PawnStarterScaleProviderOptions = {
-	["LastClass"] = "DRUID",
-	["LastAdded"] = 1,
-}

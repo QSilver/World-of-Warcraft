@@ -1,8 +1,0 @@
-GNF_EDIT_FILTER_RANKS	= "Ignore"
-GNF_FILTER_RANKS		= "Ranks"
-GNF_IGNORED_RANKS       = "Click to ignore"
-GNF_MIN_ITEM_LEVEL      = "Min item Level"
-GNF_IGNORED_WORDS       = "Ignored Words"
-GNF_IGNORED_WORD_INFO   = "Separate words with a comma \",\""
-GNF_ENFORCED_WORDS      = "Enforced words"
-GNF_GUILD_MEMBER        = "Guild member"

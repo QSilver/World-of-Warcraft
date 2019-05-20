@@ -1,3 +1,0 @@
-
-DBMBurningCrusade_SavedModOptions = {
-}

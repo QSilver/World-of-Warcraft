@@ -1,5 +1,0 @@
-
-DejaCharacterStatsDBPC = {
-	["dcsdefaults"] = {
-	},
-}

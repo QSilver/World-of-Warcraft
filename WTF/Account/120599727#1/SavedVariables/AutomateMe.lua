@@ -1,2 +1,0 @@
-
-AMe_DB = nil

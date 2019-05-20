@@ -1,9 +1,0 @@
-
-PawnOptions = {
-	["LastPlayerFullName"] = "Qsilver-Silvermoon",
-	["LastKeybindingsSet"] = 1,
-}
-PawnStarterScaleProviderOptions = {
-	["LastClass"] = "HUNTER",
-	["LastAdded"] = 1,
-}
