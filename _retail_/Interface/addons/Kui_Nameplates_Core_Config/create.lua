@@ -1,15 +1,6 @@
-local folder,ns = ...
 local opt = KuiNameplatesCoreConfig
 local LSM = LibStub('LibSharedMedia-3.0')
 local L = opt:GetLocale()
-
-local version = opt:CreateFontString(nil, 'ARTWORK', 'GameFontHighlight')
-version:SetTextColor(.5,.5,.5)
-version:SetPoint('TOPRIGHT',-12,-10)
-version:SetText(string.format(
-    L.titles.version,
-    'KuiNameplates','Kesava','2.22.1'
-))
 
 opt:Initialise()
 -- create pages ################################################################
@@ -26,8 +17,7 @@ local classpowers = opt:CreateConfigPage('classpowers')
 local bossmod     = opt:CreateConfigPage('bossmod')
 local cvars       = opt:CreateConfigPage('cvars')
 
--- show inital page
-opt.pages[1]:ShowPage()
+opt:ShowPage(1)
 
 -- create elements #############################################################
 -- general #####################################################################
@@ -217,7 +207,7 @@ function healthbars:Initialise()
 
     function bar_texture:initialize()
         local list = {}
-        for k,f in ipairs(LSM:List(LSM.MediaType.STATUSBAR)) do
+        for _,f in ipairs(LSM:List(LSM.MediaType.STATUSBAR)) do
             tinsert(list,{
                 text = f,
                 value = f,
@@ -345,7 +335,7 @@ function text:Initialise()
 
     function font_face:initialize()
         local list = {}
-        for k,f in ipairs(LSM:List(LSM.MediaType.FONT)) do
+        for _,f in ipairs(LSM:List(LSM.MediaType.FONT)) do
             tinsert(list,{
                 text = f,
                 value = f,
@@ -899,5 +889,4 @@ function cvars:Initialise()
     cb:SetPoint('TOPLEFT',ov,'BOTTOMLEFT',0,-35)
     self_clamp_top:SetPoint('TOPLEFT',ct,'BOTTOMLEFT',0,-35)
     self_clamp_bottom:SetPoint('TOPLEFT',cb,'BOTTOMLEFT',0,-35)
-
 end

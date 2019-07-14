@@ -1,4 +1,4 @@
-local internalVersion = 15;
+local internalVersion = 16;
 
 -- WoW APIs
 local GetTalentInfo, IsAddOnLoaded, InCombatLockdown = GetTalentInfo, IsAddOnLoaded, InCombatLockdown
@@ -12,7 +12,7 @@ local SendChatMessage, GetChannelName, UnitInBattleground, UnitInRaid, UnitInPar
   = SendChatMessage, GetChannelName, UnitInBattleground, UnitInRaid, UnitInParty, GetTime, GetSpellLink, GetItemInfo
 local CreateFrame, IsShiftKeyDown, GetScreenWidth, GetScreenHeight, GetCursorPosition, UpdateAddOnCPUUsage, GetFrameCPUUsage, debugprofilestop
   = CreateFrame, IsShiftKeyDown, GetScreenWidth, GetScreenHeight, GetCursorPosition, UpdateAddOnCPUUsage, GetFrameCPUUsage, debugprofilestop
-local debugstack, IsSpellKnown = debugstack, IsSpellKnown
+local debugstack, IsSpellKnown, GetFileIDFromPath = debugstack, IsSpellKnown, GetFileIDFromPath
 
 local ADDON_NAME = "WeakAuras"
 local WeakAuras = WeakAuras
@@ -43,6 +43,8 @@ local queueshowooc;
 function WeakAuras.InternalVersion()
   return internalVersion;
 end
+
+WeakAuras.BuildInfo = select(4, GetBuildInfo())
 
 function WeakAuras.LoadOptions(msg)
   if not(IsAddOnLoaded("WeakAurasOptions")) then
@@ -454,7 +456,9 @@ function WeakAuras.ConstructFunction(prototype, trigger, skipOptional)
         end
         if (arg.optional and skipOptional) then
         -- Do nothing
-        elseif(arg.hidden or arg.type == "tristate" or arg.type == "toggle" or (arg.type == "multiselect" and trigger["use_"..name] ~= nil) or ((trigger["use_"..name] or arg.required) and trigger[name])) then
+        elseif(arg.hidden or arg.type == "tristate" or arg.type == "toggle" or arg.type == "tristatestring"
+               or (arg.type == "multiselect" and trigger["use_"..name] ~= nil)
+               or ((trigger["use_"..name] or arg.required) and trigger[name])) then
           if(arg.init and arg.init ~= "arg") then
             init = init.."local "..name.." = "..arg.init.."\n";
           end
@@ -469,6 +473,12 @@ function WeakAuras.ConstructFunction(prototype, trigger, skipOptional)
               else
                 test = name;
               end
+            end
+          elseif(arg.type == "tristatestring") then
+            if(trigger["use_"..name] == false) then
+              test = "("..name.. "~=".. (number or string.format("%q", trigger[name] or "")) .. ")"
+            elseif(trigger["use_"..name]) then
+              test = "("..name.. "==".. (number or string.format("%q", trigger[name] or "")) .. ")"
             end
           elseif(arg.type == "multiselect") then
             if(trigger["use_"..name] == false) then -- multi selection
@@ -680,7 +690,10 @@ local function CreateTestForCondition(input, allConditionsTemplate, usedStates)
         check = "state and WeakAuras.customConditionTestFunctions[" .. testFunctionNumber .. "](state[" .. trigger .. "], " .. valueString .. ", " .. (opString or "nil") .. ")";
       end
     elseif (ctype == "number" and op) then
-      check = stateCheck .. stateVariableCheck .. "state[" .. trigger .. "]." .. variable .. op .. value;
+      local v = tonumber(value)
+      if (v) then
+        check = stateCheck .. stateVariableCheck .. "state[" .. trigger .. "]." .. variable .. op .. v;
+      end
     elseif (ctype == "timer" and op) then
       if (op == "==") then
         check = stateCheck .. stateVariableCheck .. "abs(state[" .. trigger .. "]." ..variable .. "- now -" .. value .. ") < 0.05";
@@ -713,6 +726,7 @@ local function CreateTestForCondition(input, allConditionsTemplate, usedStates)
       recheckCode = recheckCode .. "  end\n"
     end
   end
+
   return check, recheckCode;
 end
 
@@ -1200,8 +1214,12 @@ function WeakAuras.CountWagoUpdates()
         version = 1
       end
       if slug and version then
-        local wago = WeakAurasCompanion[slug]
-        if wago and wago.wagoVersion and tonumber(wago.wagoVersion) > tonumber(version) then
+        local wago = WeakAurasCompanion.slugs[slug]
+        if wago and wago.wagoVersion
+        and tonumber(wago.wagoVersion) > (
+          aura.skipWagoUpdate and tonumber(aura.skipWagoUpdate) or tonumber(version)
+        )
+        then
           if not updatedSlugs[slug] then
             updatedSlugs[slug] = true
             updatedSlugsCount = updatedSlugsCount + 1
@@ -1744,6 +1762,7 @@ local function scanForLoadsImpl(self, event, arg1, ...)
 
   local affixes = C_ChallengeMode.IsChallengeModeActive() and select(2, C_ChallengeMode.GetActiveKeystoneInfo())
   local warmodeActive = C_PvP.IsWarModeDesired();
+  local effectiveLevel = UnitEffectiveLevel("player")
 
   local changed = 0;
   local shouldBeLoaded, couldBeLoaded;
@@ -1753,8 +1772,8 @@ local function scanForLoadsImpl(self, event, arg1, ...)
     if (data and not data.controlledChildren) then
       local loadFunc = loadFuncs[id];
       local loadOpt = loadFuncsForOptions[id];
-      shouldBeLoaded = loadFunc and loadFunc("ScanForLoads_Auras", incombat, inencounter, warmodeActive, inpetbattle, vehicle, vehicleUi, group, player, realm, class, spec, race, faction, playerLevel, zone, zoneId, zonegroupId, encounter_id, size, difficulty, role, affixes);
-      couldBeLoaded =  loadOpt and loadOpt("ScanForLoads_Auras",   incombat, inencounter, warmodeActive, inpetbattle, vehicle, vehicleUi, group, player, realm, class, spec, race, faction, playerLevel, zone, zoneId, zonegroupId, encounter_id, size, difficulty, role, affixes);
+      shouldBeLoaded = loadFunc and loadFunc("ScanForLoads_Auras", incombat, inencounter, warmodeActive, inpetbattle, vehicle, vehicleUi, group, player, realm, class, spec, race, faction, playerLevel, effectiveLevel, zone, zoneId, zonegroupId, encounter_id, size, difficulty, role, affixes);
+      couldBeLoaded =  loadOpt and loadOpt("ScanForLoads_Auras",   incombat, inencounter, warmodeActive, inpetbattle, vehicle, vehicleUi, group, player, realm, class, spec, race, faction, playerLevel, effectiveLevel, zone, zoneId, zonegroupId, encounter_id, size, difficulty, role, affixes);
 
       if(shouldBeLoaded and not loaded[id]) then
         changed = changed + 1;
@@ -1846,9 +1865,9 @@ local unitLoadFrame = CreateFrame("FRAME");
 WeakAuras.loadFrame = unitLoadFrame;
 WeakAuras.frames["Display Load Handling 2"] = unitLoadFrame;
 
-unitLoadFrame:RegisterEvent("UNIT_FLAGS");
-unitLoadFrame:RegisterEvent("UNIT_ENTERED_VEHICLE");
-unitLoadFrame:RegisterEvent("UNIT_EXITED_VEHICLE");
+unitLoadFrame:RegisterUnitEvent("UNIT_FLAGS", "player");
+unitLoadFrame:RegisterUnitEvent("UNIT_ENTERED_VEHICLE", "player");
+unitLoadFrame:RegisterUnitEvent("UNIT_EXITED_VEHICLE", "player");
 
 function WeakAuras.RegisterLoadEvents()
   loadFrame:SetScript("OnEvent", function(...)
@@ -1979,6 +1998,7 @@ function WeakAuras.Delete(data)
       if parentData.sortHybridTable then
         parentData.sortHybridTable[id] = nil
       end
+      WeakAuras.ClearAuraEnvironment(data.parent);
     end
   end
 
@@ -2177,6 +2197,11 @@ function WeakAuras.Convert(data, newType)
   data.regionType = newType;
   WeakAuras.Add(data);
   WeakAuras.ResetCollapsed(id)
+
+  local parentRegion = WeakAuras.GetRegion(data.parent)
+  if parentRegion and parentRegion.ReloadControlledChildren then
+    parentRegion:ReloadControlledChildren()
+  end
 end
 
 function WeakAuras.DeepCopy(source, dest)
@@ -2367,6 +2392,8 @@ local function ModernizeAnimations(animations)
   animations.rotateFunc    = ModernizeAnimation(animations.rotateFunc);
   animations.colorFunc     = ModernizeAnimation(animations.colorFunc);
 end
+
+local modelMigration = CreateFrame("PlayerModel")
 
 -- Takes as input a table of display data and attempts to update it to be compatible with the current version
 function WeakAuras.Modernize(data)
@@ -2627,7 +2654,7 @@ function WeakAuras.Modernize(data)
     ModernizeAnimations(data.animation and data.animation.start);
     ModernizeAnimations(data.animation and data.animation.main);
     ModernizeAnimations(data.animation and data.animation.finish);
-  end -- ENd of V1 => V2
+  end -- End of V1 => V2
 
   -- Version 3 was introduced April 2018 in Legion
   if (data.internalVersion < 3) then
@@ -2761,7 +2788,9 @@ function WeakAuras.Modernize(data)
     end
   end
 
-  -- Version 11 was introduced in January 2018
+  -- Version 10 is skipped, due to a bad migration script (see https://github.com/WeakAuras/WeakAuras2/pull/1091)
+
+  -- Version 11 was introduced in January 2019
   if data.internalVersion < 11 then
     if data.url and data.url ~= "" then
       local slug, version = data.url:match("wago.io/([^/]+)/([0-9]+)")
@@ -2774,7 +2803,7 @@ function WeakAuras.Modernize(data)
     end
   end
 
-  -- Version 12 was introduced Februar 2019 in BfA
+  -- Version 12 was introduced February 2019 in BfA
   if (data.internalVersion < 12) then
     if data.cooldownTextEnabled ~= nil then
       data.cooldownTextDisabled = not data.cooldownTextEnabled
@@ -2869,14 +2898,66 @@ function WeakAuras.Modernize(data)
     end
   end
 
-  -- Version 14 was introduced April 2019 in BFA
+  -- Version 15 was introduced April 2019 in BFA
   if data.internalVersion < 15 then
     if data.triggers then
       for triggerId, triggerData in ipairs(data.triggers) do
-          if triggerData.trigger.type == "status" and triggerData.trigger.event == "Spell Known" then
-            triggerData.trigger.use_exact_spellName = true
-          end
+        if triggerData.trigger.type == "status" and triggerData.trigger.event == "Spell Known" then
+          triggerData.trigger.use_exact_spellName = true
+        end
       end
+    end
+  end
+
+  -- Version 16 was introduced May 2019 in BFA
+  if data.internalVersion < 16 then
+    if data.regionType == "texture" and type(data.texture) == "string" then
+      local textureId = GetFileIDFromPath(data.texture:gsub("\\\\", "\\"))
+      if textureId and textureId > 0 then
+        data.texture = tostring(textureId)
+      end
+    end
+    if data.regionType == "progresstexture" then
+      if type(data.foregroundTexture) == "string" then
+        local textureId = GetFileIDFromPath(data.foregroundTexture:gsub("\\\\", "\\"))
+        if textureId and textureId > 0 then
+          data.foregroundTexture = tostring(textureId)
+        end
+      end
+      if type(data.backgroundTexture) == "string" then
+        local textureId = GetFileIDFromPath(data.backgroundTexture:gsub("\\\\", "\\"))
+        if textureId and textureId > 0 then
+          data.backgroundTexture = tostring(textureId)
+        end
+      end
+    end
+  end
+
+  if data.regionType == "model" and WeakAuras.BuildInfo <= 80100 then -- prepare for migration at 8.2
+    data.modelDisplayInfo = false
+    if data.modelIsUnit then
+      data.model_fileId = data.model_path
+    else
+      if tonumber(data.model_path) then
+        data.modelDisplayInfo = true
+        data.model_fileId = data.model_path
+      else
+        WeakAuras.SetModel(modelMigration, data.model_path, data.model_fileId)
+        local modelId = modelMigration:GetModelFileID()
+        if modelId then
+          data.model_fileId = tostring(modelId)
+        end
+      end
+    end
+  end
+
+  -- Version 15 was introduced in May 2019 in BFA
+  if data.internalVersion < 16 then
+    if data.load.use_name == false then
+      data.load.use_name = nil
+    end
+    if data.load.use_realm == false then
+      data.load.use_realm = nil
     end
   end
 
@@ -2985,49 +3066,122 @@ function WeakAuras.AddMany(table)
   end
 end
 
-local function validateUserConfig(data)
-  local authorOptionKeys = {}
-  for index, option in ipairs(data.authorOptions) do
-    if option.key then
-      authorOptionKeys[option.key] = index
-      if data.config[option.key] == nil then
-        if type(option.default) ~= "table" then
-          data.config[option.key] = option.default
+local function customOptionIsValid(option)
+  if not option.type then
+    return false
+  elseif WeakAuras.author_option_classes[option.type] == "simple" then
+    if not option.key
+    or not option.name
+    or not option.default == nil then
+      return false
+    end
+  elseif WeakAuras.author_option_classes[option.type] == "group" then
+    if not option.key
+    or not option.name
+    or not option.default == nil
+    or not option.subOptions then
+      return false
+    end
+  end
+  return true
+end
+
+local function validateUserConfig(data, options, config)
+  local authorOptionKeys, corruptOptions = {}, {}
+  for index, option in ipairs(options) do
+    if not customOptionIsValid(option) then
+      prettyPrint(data.id .. " Custom Option #" .. index .. " in " .. data.id .. " has been detected as corrupt, and has been deleted.")
+      corruptOptions[index] = true
+    else
+      local optionClass = WeakAuras.author_option_classes[option.type]
+      if optionClass == "simple" then
+        if not option.key then
+          option.key = WeakAuras.GenerateUniqeID()
+        end
+        authorOptionKeys[option.key] = index
+        if config[option.key] == nil then
+          if type(option.default) ~= "table" then
+            config[option.key] = option.default
+          else
+            config[option.key] = CopyTable(option.default)
+          end
+        end
+      elseif optionClass == "group" then
+        authorOptionKeys[option.key] = "group"
+        local subOptions = option.subOptions
+        if type(config[option.key]) ~= "table" then
+          config[option.key] = {}
+        end
+        local subConfig = config[option.key]
+        if option.groupType == "array" then
+          for k, v in pairs(subConfig) do
+            if type(k) ~= "number" or type(v) ~= "table" then
+              -- if k was not a number, then this was a simple group before
+              -- if v is not a table, then this was likely a color option
+              wipe(subConfig) -- second iteration will fill table with defaults
+              break
+            end
+          end
+          if option.limitType == "fixed" then
+            for i = #subConfig + 1, option.size do
+              -- add missing entries
+              subConfig[i] = {}
+            end
+          end
+          if option.limitType ~= "none" then
+            for i = option.size + 1, #subConfig do
+              -- remove excess entries
+              subConfig[i] = nil
+            end
+          end
+          for _, toValidate in pairs(subConfig) do
+            validateUserConfig(data, subOptions, toValidate)
+          end
         else
-          data.config[option.key] = CopyTable(option.default)
+          if type(next(subConfig)) ~= "string" then
+            -- either there are no sub options, in which case this is a noop
+            -- or this group was previously an array, in which case we need to wipe
+            wipe(subConfig)
+          end
+          validateUserConfig(data, subOptions, subConfig)
         end
       end
     end
   end
-  for key, value in pairs(data.config) do
+  for i = #options, 1, -1 do
+    if corruptOptions[i] then
+      tremove(options, i)
+    end
+  end
+  for key, value in pairs(config) do
     if not authorOptionKeys[key] then
-      data.config[key] = nil
-    else
-      local option = data.authorOptions[authorOptionKeys[key]]
+      config[key] = nil
+    elseif authorOptionKeys[key] ~= "group" then
+      local option = options[authorOptionKeys[key]]
       if type(value) ~= type(option.default) then
         -- if type mismatch then we know that it can't be right
         if type(option.default) ~= "table" then
-          data.config[key] = option.default
+          config[key] = option.default
         else
-          data.config[key] = CopyTable(option.default)
+          config[key] = CopyTable(option.default)
         end
       elseif option.type == "input" and option.useLength then
-        data.config[key] = data.config[key]:sub(1, option.length)
+        config[key] = config[key]:sub(1, option.length)
       elseif option.type == "number" or option.type == "range" then
         if (option.max and option.max < value) or (option.min and option.min > value) then
-          data.config[key] = option.default
+          config[key] = option.default
         else
           if option.type == "number" and option.step then
             local min = option.min or 0
-            data.config[key] = option.step * Round((value - min)/option.step) + min
+            config[key] = option.step * Round((value - min)/option.step) + min
           end
         end
       elseif option.type == "select" then
         if value < 1 or value > #option.values then
-          data.config[key] = option.default
+          config[key] = option.default
         end
       elseif option.type == "multiselect" then
-        local multiselect = data.config[key]
+        local multiselect = config[key]
         for i, v in ipairs(multiselect) do
           if option.default[i] ~= nil then
             if type(v) ~= "boolean" then
@@ -3039,9 +3193,9 @@ local function validateUserConfig(data)
         end
       elseif option.type == "color" then
         for i = 1, 4 do
-          local c = data.config[key][i]
+          local c = config[key][i]
           if type(c) ~= "number" or c < 0 or c > 1 then
-            data.config[key] = option.default
+            config[key] = option.default
             break
           end
         end
@@ -3186,7 +3340,7 @@ function WeakAuras.PreAdd(data)
   end
   WeakAuras.Modernize(data);
   WeakAuras.validate(data, WeakAuras.data_stub);
-  validateUserConfig(data)
+  validateUserConfig(data, data.authorOptions, data.config)
   removeSpellNames(data)
   data.init_started = nil
   data.init_completed = nil
@@ -3195,7 +3349,6 @@ end
 
 local function pAdd(data)
   local id = data.id;
-
   if not(id) then
     error("Improper arguments to WeakAuras.Add - id not defined");
     return;
@@ -3203,7 +3356,9 @@ local function pAdd(data)
 
   db.displays[id] = data;
   WeakAuras.ClearAuraEnvironment(id);
-
+  if data.parent then
+    WeakAuras.ClearAuraEnvironment(data.parent);
+  end
   if (data.controlledChildren) then
     WeakAuras.SetRegion(data);
   else
@@ -3764,7 +3919,9 @@ function WeakAuras.Animate(namespace, data, type, anim, region, inverse, onFinis
     else
       anim.x = anim.x or 0;
       anim.y = anim.y or 0;
-      selfPoint, anchor, anchorPoint, startX, startY = region:GetPoint(1);
+      if not region.SetOffsetAnim then
+        selfPoint, anchor, anchorPoint, startX, startY = region:GetPoint(1);
+      end
       anim.alpha = anim.alpha or 0;
       startAlpha = region:GetAlpha();
       anim.scalex = anim.scalex or 1;
@@ -4554,7 +4711,7 @@ local function startStopTimers(id, cloneId, triggernum, state)
         state.expirationTime = GetTime() + state.duration;
         state.resort = true;
       end
-      if (record.expirationTime ~= state.expirationTime) then
+      if (record.expirationTime ~= state.expirationTime or record.state ~= state) then
         if (record.handle ~= nil) then
           timer:CancelTimer(record.handle);
         end
@@ -4569,6 +4726,7 @@ local function startStopTimers(id, cloneId, triggernum, state)
           end,
           state.expirationTime - GetTime());
         record.expirationTime = state.expirationTime;
+        record.state = state
       end
     else -- no auto hide, delete timer
       if (timers[id] and timers[id][triggernum] and timers[id][triggernum][cloneId]) then
@@ -4578,6 +4736,7 @@ local function startStopTimers(id, cloneId, triggernum, state)
         end
         record.handle = nil;
         record.expirationTime = nil;
+        record.state = nil
     end
     end
   else -- not shown
@@ -4588,6 +4747,7 @@ local function startStopTimers(id, cloneId, triggernum, state)
       end
       record.handle = nil;
       record.expirationTime = nil;
+      record.state = nil
   end
   end
 end
@@ -5292,15 +5452,12 @@ local function ensurePRDFrame()
     self:ClearAllPoints();
     self:SetPoint("TOPLEFT", frameTL, "TOPLEFT");
     self:SetPoint("BOTTOMRIGHT", frameBR, "BOTTOMRIGHT");
+    self:Show()
   end
 
   personalRessourceDisplayFrame.Detach = function(self, frame)
-    local top, width, height = self:GetTop(), self:GetWidth(), self:GetHeight();
     self:ClearAllPoints();
-    self:SetParent(UIParent);
-    self:SetPoint("TOPLEFT", UIParent, "BOTTOM", -width / 2, top);
-    self:SetWidth(width);
-    self:SetHeight(height);
+    self:Hide()
   end
 
   personalRessourceDisplayFrame.OptionsOpened = function()
@@ -5569,4 +5726,43 @@ function WeakAuras.FindUnusedId(prefix)
     num = num + 1;
   end
   return id
+end
+
+function WeakAuras.SetModel(frame, model_path, model_fileId, isUnit, isDisplayInfo)
+  local WoW82 = WeakAuras.BuildInfo > 80100
+  local data = WoW82 and model_fileId or model_path
+  if isDisplayInfo then
+    pcall(function() frame:SetDisplayInfo(tonumber(data)) end)
+  elseif isUnit then
+    pcall(function() frame:SetUnit(data) end)
+  else
+    if WoW82 then
+      pcall(function() frame:SetModel(tonumber(data)) end)
+    else
+      pcall(function() frame:SetModel(data) end)
+    end
+  end
+end
+
+function WeakAuras.IsCLEUSubevent(subevent)
+  if WeakAuras.subevent_prefix_types[subevent] then
+     return true
+  else
+    for prefix in pairs(WeakAuras.subevent_prefix_types) do
+      if subevent:match(prefix) then
+        local suffix = subevent:sub(#prefix + 1)
+        if WeakAuras.subevent_suffix_types[suffix] then
+          return true
+        end
+      end
+    end
+  end
+  return false
+end
+
+-- SafeToNumber converts a string to number, but only if it fits into a unsigned 32bit integer
+-- The C api often takes only 32bit values, and complains if passed a value outside
+function WeakAuras.SafeToNumber(input)
+  local nr = tonumber(input)
+  return nr and (nr < 2147483648 and nr > -2147483649) and nr or nil
 end

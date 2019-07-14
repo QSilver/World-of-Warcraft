@@ -769,6 +769,22 @@ local ACHID_ZONE_MISC = {
 			11861, -- The Throne of Zuldazar
 		},
 	},
+	["Nazjatar"] = {
+		13638, -- Undersea Usurper
+		13568, -- For Nazjatar!
+		13715, -- From The Belly Of The Jelly
+		13692, -- Give Me The Biggest Bag You've Got
+		13720, -- Supplying the Assassins
+		13569, -- Tour of Duty: Nazjatar
+	},
+	["Mechagon Island"] = {
+		13541, -- Mecha-Done
+		13555, -- Junkyard Tinkmaster
+		13472, -- Diversed Investments
+		13708, -- Most Minis Wins
+		13570, -- Tour of Duty: Mechagon
+		13489, -- Secret Fish of Mechagon
+	},
 -- !! TODO: add reputation-related achievements for factions tied to BFA zones
 }
 ACHID_ZONE_MISC["Thunder Totem"] = ACHID_ZONE_MISC["Highmountain"] -- Make this quasi-subzone show suggestions from the main zone
@@ -1155,6 +1171,14 @@ local ACHID_INSTANCES = {
 	["The Underrot"] = 12500, -- The Underrot (series)
 	["Temple of Sethraliss"] = 12504, -- The Temple of Sethraliss (series)
 	["Kings' Rest"] = 12848, -- Kings' Rest
+-- Battle for Azeroth Raids
+	["The Eternal Palace"] = { -- !! double check zone name
+		13687, -- Glory of the Eternal Raider
+		13719, -- Depths of the Devoted
+		13725, -- The Circle of Stars
+		13718, -- The Grand Reception
+		13571, -- Under the Seams
+	},
 
 -- Battle for Azeroth Warfronts
 	["Battle for Stromgarde"] = {
@@ -1620,6 +1644,25 @@ local ACHID_INSTANCES_MYTHIC = {
 		12721, -- Wrap God
 		12722, -- It Belongs in a Mausoleum!
 	},
+	["Operation: Mechagon"] = { -- !! double check zone name
+		13698, -- Clean Up On Aisle Mechagon
+		13545, -- Go Ahead, Make My Daisy
+		13723, -- M.C., Hammered
+		13706, -- Stay Positive
+		13789, -- Hertz Locker (unused? going to be a Feat of Strength later? it doesn't show in UI)
+		13624, -- Keep DPS-ing and Nobody Explodes
+	},
+-- Battle for Azeroth Raids
+	["The Eternal Palace"] = { -- !! double check zone name
+		13726, -- Mythic: Abyssal Commander Sivara
+		13728, -- Mythic: Blackwater Behemoth
+		13729, -- Mythic: Lady Ashvane
+		13730, -- Mythic: Orgozoa
+		13733, -- Mythic: Queen Azshara
+		13727, -- Mythic: Radiance of Azshara
+		13731, -- Mythic: The Queen's Court
+		13732, -- Mythic: Za'qul
+	},
 }
 
 
@@ -1754,7 +1797,9 @@ local ACHID_TRADESKILL_ZONE = {
 		["Crystalsong Forest"] = 306,
 		["Icecrown"] = 306,
 		["Zul'Drak"] = 306,
-        }
+
+		["Mechagon Island"] = 13489, -- "Secret Fish of Mechagon"
+	}
 }
 if (IsAlliance) then
   tinsert(ACHID_TRADESKILL_ZONE["Fishing"]["Stormwind City"], 5476)	-- "Fish or Cut Bait: Stormwind"

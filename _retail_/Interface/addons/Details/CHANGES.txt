@@ -1,52 +1,14 @@
-lightweight tag 24dde5130cd36eaf555f5471e71025f5bc43bf4d v8.1.5.7129.139
+lightweight tag 04f621d78e8200bb45db0656f39f53384c1e6df1 v8.2.0-v1.13.2-7150.140
 Author:	Tercioo <terciob19@hotmail.com>
-Date:	Sun May 12 11:27:59 2019 -0300
+Date:	Tue Jul 2 18:50:14 2019 -0300
 
-commit 62c2cad90745779f908df4582eab6156e089825d
+commit 04f621d78e8200bb45db0656f39f53384c1e6df1
 Author: Tercioo <terciob19@hotmail.com>
-Date:   Sun May 12 11:27:56 2019 -0300
+Date:   Tue Jul 2 18:50:14 2019 -0300
 
-    Framework update and few bug fixes
-
-commit 62c2cad90745779f908df4582eab6156e089825d
-Author: Tercioo <terciob19@hotmail.com>
-Date:   Sun May 12 11:27:56 2019 -0300
-
-    Framework update and few bug fixes
-
-commit 2a0d8fa25321222b59c8223c929c1c82bdea78f7
-Author: Scotsoo <jackscotson@gmail.com>
-Date:   Mon May 6 17:12:40 2019 +0100
-
-    Ignoring translations :)
-
-commit 2a0d8fa25321222b59c8223c929c1c82bdea78f7
-Author: Scotsoo <jackscotson@gmail.com>
-Date:   Mon May 6 17:12:40 2019 +0100
-
-    Ignoring translations :)
-
-commit f1b188038c6a6bf68192f2702266e3a7b38d90c8
-Author: Scotsoo <jackscotson@gmail.com>
-Date:   Sun May 5 13:15:35 2019 +0100
-
-    Functionality to ctrl+click minimap icon to hide/show windows
+    Added Click Through and 8.2 Bug Fixes
     
-    Translations pending
-
-commit cc57155d71479f30d399bd5c434c372ce0466c3d
-Author: Tercioo <terciob19@hotmail.com>
-Date:   Sat May 4 11:35:38 2019 -0300
-
-    Energy and Resources Revamp
-    
-    - Energy overflow when using spells are now tracked (using a spell which gives energy and the energy gained passses the max amount of energy).
-    - Energy overflow with classses with auto energy restoration like rogues are also tracked.
-    - Resources now are shown as resource per second instead of per minute.
-
-commit 5e5fd97e5553c0014a6f2efac5fdcde7d55ae40c
-Author: Tercioo <terciob19@hotmail.com>
-Date:   Wed May 1 14:54:56 2019 -0300
-
-    Added API: SegmentInfo(), SegmentTotalDamage(), SegmentTotalHealing(), see '/details api' for more information
+    - Added click through option in options > display section.
+    - Fixed code editor for bar texts not opening.
+    - General small bug fixes.
 

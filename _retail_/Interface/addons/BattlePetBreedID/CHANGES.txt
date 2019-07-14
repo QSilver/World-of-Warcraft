@@ -1,0 +1,7 @@
+changeset:   198:9d3972f4f67d
+tag:         v1.14.2
+user:        Caleb Atherton <atcaleb@twitch.tv>
+date:        Wed Jul 10 19:17:56 2019 -0400
+summary:     Added a substantial amount of new breed data for Patch 8.2.0. This should cover almost everything remaining.
+
+

@@ -419,12 +419,12 @@ local RaceClassAch = {
   BunnyMaker = { "BunnyMaker_eared", L.ACH_BUNNYMAKER_COMPLETE, L.ACH_BUNNYMAKER_INCOMPLETE,
     { "BloodElf", "Draenei", "Dwarf", "Gnome", "Goblin", "Human", "NightElf", "Orc", "Tauren", "Troll", "Scourge", "Worgen" }, true,
     function(unit)
-      if (UnitSex(unit) == 3) then
+      --if (UnitSex(unit) == 3) then
         local level = UnitLevel(unit)
         if (level >= 18 or level == -1) then  return true;  end
         -- Assumes that players 10 or more levels higher than you are at least level 18. (Though that's not necessarily
         -- the case, they generally would be.)
-      end
+      --end
     end
   },
 };
@@ -1472,7 +1472,59 @@ end)
 ----------------------------------
 
 if (SharedMedia) then
+  -- File ID lookup: https://wow.tools/files/
   local soundtab = {
+  [566564] = L.SOUND_BELL_ALLIANCE,
+  [565853] = L.SOUND_BELL_HORDE,
+  [566558] = L.SOUND_BELL_NIGHTELF,
+  [566027] = L.SOUND_DRUMHIT,
+  [566652] = L.SOUND_BELL_BOATARRIVED,
+  [565564] = L.SOUND_GONG_TROLL,
+  [568154] = L.SOUND_BELL_MELLOW,
+
+  [568587] = L.SOUND_ENTERQUEUE,
+  [568924] = L.SOUND_HEARTHBIND,
+  [566254] = L.SOUND_BELL_KARA,
+
+  [567482] = L.SOUND_DING_AUCTION,
+  [567499] = L.SOUND_BELL_AUCTION,
+  [567436] = L.SOUND_ALARM1,
+  [567399] = L.SOUND_ALARM2,
+  [567458] = L.SOUND_ALARM3,
+  [567416] = L.SOUND_MAP_PING,
+
+  [568232] = L.SOUND_SIMON_DING,
+  [569664] = L.SOUND_SIMON_STARTGAME,
+  [569518] = L.SOUND_SIMON_STARTLEVEL,
+  [568975] = L.SOUND_SIMON_BADPRESS,
+  [568156] = L.SOUND_SIMON_FAIL_LARGE,
+  [569335] = L.SOUND_SIMON_FAIL_SMALL,
+
+  [568382] = L.SOUND_YAR,
+
+  [567401] = L.SOUND_AGGRO_WARNING,
+  [567471] = L.SOUND_AGGRO_PULLED,
+  [567404] = L.SOUND_GLYPH_CREATE_MAJOR,
+  [567487] = L.SOUND_GLYPH_CREATE_MINOR,
+  [567410] = L.SOUND_GLYPH_DESTROY_MAJOR,
+  [567447] = L.SOUND_GLYPH_DESTROY_MINOR,
+  [1074321] = L.SOUND_GARRISON_INVASION,
+
+  [567474] = L.SOUND_BGTIMER,
+  [567438] = L.SOUND_BGTIMER_END,
+  [648409] = L.SOUND_MEDAL_EXPIRES,
+  [667359] = L.SOUND_MEDAL_GOLDTOSILVER,
+  [667361] = L.SOUND_MEDAL_SILVERTOBRONZE,
+
+  [569593] = L.SOUND_LEVELUP,
+  [1053670] = L.SOUND_BONUSEVENT,
+  [899283] = L.SOUND_DIGSITE_COMPLETE,
+  [959042] = L.SOUND_STORE_CONFIRM,
+  [567522] = L.SOUND_CHAR_CREATE,
+  [567439] = L.SOUND_QUEST_COMPLETE,
+
+  --[[
+  -- Old, pre WoW 8.2:
   ["Sound\\Doodad\\BellTollAlliance.ogg"] = L.SOUND_BELL_ALLIANCE,
   ["Sound\\Doodad\\BellTollHorde.ogg"] = L.SOUND_BELL_HORDE,
   ["Sound\\Doodad\\BellTollNightElf.ogg"] = L.SOUND_BELL_NIGHTELF,
@@ -1497,7 +1549,7 @@ if (SharedMedia) then
   ["Sound\\Spells\\SimonGame_Visual_GameStart.ogg"] = L.SOUND_SIMON_STARTLEVEL,
 
   ["Sound\\Spells\\YarrrrImpact.ogg"] = L.SOUND_YAR,
-  
+
   ["Sound\\Interface\\Aggro_Enter_Warning_State.ogg"] = L.SOUND_AGGRO_WARNING,
   ["Sound\\Interface\\Aggro_Pulled_Aggro.ogg"] = L.SOUND_AGGRO_PULLED,
   ["Sound\\Interface\\Glyph_MajorCreate.ogg"] = L.SOUND_GLYPH_CREATE_MAJOR,
@@ -1507,25 +1559,31 @@ if (SharedMedia) then
   ["Sound\\Interface\\UI_BattlegroundCountdown_Timer.ogg"] = L.SOUND_BGTIMER,
   ["Sound\\Interface\\UI_Challenges_MedalExpires.ogg"] = L.SOUND_MEDAL_EXPIRES,
   ["Sound\\Interface\\UI_Garrison_Toast_InvasionAlert.ogg"] = L.SOUND_GARRISON_INVASION,
+  --]]
   --[[ don't work for some reason
+  
+  ["Sound\\Interface\\GLUECREATECHARACTERBUTTON.mp3"] = "Create Character",
+  ["Sound\\Interface\\UI_igStore_PurchaseDelivered_Toast_01.ogg"] = "Store Delivered",
   ["Sound\\Interface\\Deathbind Sound.ogg"] = "Deathbind",
   ["Sound\\Interface\\FX_Shimmer_Whoosh_Generic.ogg"] = "Shimmer Whoosh",
-  ["Sound\\Interface\\GLUECREATECHARACTERBUTTON.mp3"] = "Create Character",
-  ["Sound\\Interface\\gsCharacterCreationCreateChar.ogg"] = "Create Character",
-  ["Sound\\Interface\\UI_AutoQuestComplete.ogg"] = "Auto Quest Complete",
+
   ["Sound\\Interface\\UI_BattlegroundCountdown_Finished.ogg"] = "Battleground Countdown Finished",
-  ["Sound\\Interface\\UI_BonusEventSystemVignettes.ogg"] = "Bonus Event",
-  ["Sound\\Interface\\UI_Challenges_MedalExpires_GoldtoSilver.ogg"] = "Medal Gold to Silver",
-  ["Sound\\Interface\\UI_Challenges_MedalExpires_SilvertoBronze.ogg"] = "Medal Silver to Bronze",
+
+  -- Found these or something apparently similar. Now using File IDs.
   ["Sound\\Interface\\UI_DigsiteCompletion_Toast.ogg"] = "Digsite Complete",
   ["Sound\\Interface\\UI_Garrison_Invasion_AlertPing.ogg"] = "Garrison Invasion Alert",
   ["Sound\\Interface\\UI_igStore_ConfirmPurchase_Button.ogg"] = "Store Confirmation",
-  ["Sound\\Interface\\UI_igStore_PurchaseDelivered_Toast_01.ogg"] = "Store Delivered",
+  ["Sound\\Interface\\UI_Challenges_MedalExpires_GoldtoSilver.ogg"] = "Medal Gold to Silver",
+  ["Sound\\Interface\\UI_Challenges_MedalExpires_SilvertoBronze.ogg"] = "Medal Silver to Bronze",
+  ["Sound\\Interface\\gsCharacterCreationCreateChar.ogg"] = "Create Character",
+  ["Sound\\Interface\\UI_AutoQuestComplete.ogg"] = "Auto Quest Complete",
+  ["Sound\\Interface\\UI_BonusEventSystemVignettes.ogg"] = "Bonus Event",
   --]]
   }
   for data,name in pairs(soundtab) do
     if (not SharedMedia:Register("sound", "Blizzard: "..name, data)) then
 	  chatprint('Error: Failed to register Blizzard sound "' .. name .. '"')
+	--else chatprint('Registered ' .. name .. ' with ' ..data)
 	end
   end
   soundtab = nil

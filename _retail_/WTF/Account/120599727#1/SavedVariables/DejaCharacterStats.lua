@@ -57,8 +57,8 @@ DejaCharacterStatsDB = {
 			["ItemLevelEQ_AV_SetChecked"] = true,
 			["ItemLevelSetChecked"] = true,
 			["ItemLevelTwoDecimalsSetChecked"] = true,
-			["ItemLevelDecimalsSetChecked"] = false,
 			["ItemLevelClassColorSetChecked"] = true,
+			["ItemLevelDecimalsSetChecked"] = false,
 		},
 		["dejacharacterstatsExpandChecked"] = {
 			["ExpandSetChecked"] = true,
@@ -1477,11 +1477,11 @@ DCS_ClassSpecDB = {
 		}, -- [47]
 		{
 			["statKey"] = "STAGGER",
-			["hideAt"] = 0,
-			["hidden"] = true,
 			["roles"] = {
 				"TANK", -- [1]
 			},
+			["hideAt"] = 0,
+			["hidden"] = true,
 		}, -- [48]
 		{
 			["statKey"] = "SPEED_RATING",
@@ -2053,11 +2053,11 @@ DCS_ClassSpecDB = {
 		}, -- [47]
 		{
 			["statKey"] = "STAGGER",
+			["hidden"] = true,
+			["hideAt"] = 0,
 			["roles"] = {
 				"TANK", -- [1]
 			},
-			["hideAt"] = 0,
-			["hidden"] = true,
 		}, -- [48]
 		{
 			["statKey"] = "SPEED_RATING",

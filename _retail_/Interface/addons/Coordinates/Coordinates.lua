@@ -1,7 +1,8 @@
+local addon = select(2, ...)
+
 -- Coordinates
 -- Updated for 8.x by TomCat
 -- Previous versions by Szandos
-
 --Variables
 local Coordinates_UpdateInterval = 0.2
 local timeSinceLastUpdate = 0
@@ -10,7 +11,7 @@ local color = "|cff00ffff"
 local WOWVERSION = select(4, GetBuildInfo())
 
 local function GetMapTitleText()
-	if (WOWVERSION >= 80100) then
+	if (WOWVERSION >= 80200) then
 		return WorldMapFrame.BorderFrame.TitleText
 	else
 		local regions = {WorldMapFrame.BorderFrame:GetRegions()}
@@ -23,7 +24,7 @@ local function GetMapTitleText()
 end
 
 local function GetDefaultMapTitleText()
-	if (WOWVERSION >= 80100)then
+	if (WOWVERSION >= 80200)then
 		return MAP_AND_QUEST_LOG
 	else
 		return WORLD_MAP
@@ -34,53 +35,41 @@ end
 
 -- Need a frame for events
 local Coordinates_eventFrame = CreateFrame("Frame")
-Coordinates_eventFrame:RegisterEvent("VARIABLES_LOADED")
-Coordinates_eventFrame:RegisterEvent("ZONE_CHANGED_NEW_AREA")
-Coordinates_eventFrame:RegisterEvent("ZONE_CHANGED_INDOORS")
-Coordinates_eventFrame:RegisterEvent("ZONE_CHANGED")
+Coordinates_eventFrame:RegisterEvent("ADDON_LOADED")
 Coordinates_eventFrame:SetScript("OnEvent",function(self,event,...) self[event](self,event,...);end)
 
--- Create slash command
-SLASH_COORDINATES1 = "/coordinates"
-SLASH_COORDINATES2 = "/coord"
-
--- Handle slash commands
-function SlashCmdList.COORDINATES(msg)
-	msg = string.lower(msg)
-	local command, rest = msg:match("^(%S*)%s*(.-)$")
-	if (command == "worldmap" or command =="w") then
-		if CoordinatesDB["worldmap"] == true then 
-			CoordinatesDB["worldmap"] = false
-			DEFAULT_CHAT_FRAME:AddMessage(color.."Coordinates: World map coordinates disabled")
-		else
-			CoordinatesDB["worldmap"] = true
-			DEFAULT_CHAT_FRAME:AddMessage(color.."Coordinates: World map coordinates enabled")
-		end
-	elseif (command == "minimap" or command =="m") then
-		if CoordinatesDB["minimap"] == true then 
-			CoordinatesDB["minimap"] = false
-			MinimapZoneText:SetText( GetMinimapZoneText() )
-			DEFAULT_CHAT_FRAME:AddMessage(color.."Coordinates: Mini map coordinates disabled")
-		else
-			CoordinatesDB["minimap"] = true
-			DEFAULT_CHAT_FRAME:AddMessage(color.."Coordinates: Mini map coordinates enabled")
-		end
+function addon.toggleWorldMap()
+	if CoordinatesDB["worldmap"] == true then
+		CoordinatesDB["worldmap"] = false
+		DEFAULT_CHAT_FRAME:AddMessage(color.."Coordinates: World map coordinates disabled")
 	else
-		DEFAULT_CHAT_FRAME:AddMessage(color.."Coordinates by Szandos")
-		DEFAULT_CHAT_FRAME:AddMessage(color.."Version: "..GetAddOnMetadata("Coordinates", "Version"))
-		DEFAULT_CHAT_FRAME:AddMessage(color.."Usage:")
-		DEFAULT_CHAT_FRAME:AddMessage(color.."/coordinates worldmap - Enable/disable coordinates on the world map")
-		DEFAULT_CHAT_FRAME:AddMessage(color.."/coordinates minimap - Enable/disable coordinates on the mini map")
+		CoordinatesDB["worldmap"] = true
+		DEFAULT_CHAT_FRAME:AddMessage(color.."Coordinates: World map coordinates enabled")
+	end
+end
+
+function addon.toggleMiniMap()
+	if CoordinatesDB["minimap"] == true then
+		CoordinatesDB["minimap"] = false
+		MinimapZoneText:SetText( GetMinimapZoneText() )
+		DEFAULT_CHAT_FRAME:AddMessage(color.."Coordinates: Mini map coordinates disabled")
+	else
+		CoordinatesDB["minimap"] = true
+		DEFAULT_CHAT_FRAME:AddMessage(color.."Coordinates: Mini map coordinates enabled")
 	end
 end
 
 --Event handler
-function Coordinates_eventFrame:VARIABLES_LOADED()
+function Coordinates_eventFrame:ADDON_LOADED()
 	if (not CoordinatesDB) then
 		CoordinatesDB = {}
 		CoordinatesDB["worldmap"] = true
 		CoordinatesDB["minimap"] = true
 	end
+	Coordinates_eventFrame:UnregisterEvent("ADDON_LOADED")
+	Coordinates_eventFrame:RegisterEvent("ZONE_CHANGED_NEW_AREA")
+	Coordinates_eventFrame:RegisterEvent("ZONE_CHANGED_INDOORS")
+	Coordinates_eventFrame:RegisterEvent("ZONE_CHANGED")
 	Coordinates_eventFrame:SetScript("OnUpdate", function(self, elapsed) Coordinates_OnUpdate(self, elapsed) end)
 end
 
@@ -165,8 +154,20 @@ end
 if (TomCats and TomCats.Register) then
     TomCats:Register(
         {
+			slashCommands = {
+				{
+					command = "COORDINATES WORLDMAP TOGGLE",
+					desc = "Toggle Coordinates visibility on the world map",
+					func = addon.toggleWorldMap
+				},
+				{
+					command = "COORDINATES MINIMAP TOGGLE",
+					desc = "Toggle Coordinates visibility on the minimap",
+					func = addon.toggleMiniMap
+				}
+			},
             name = "Coordinates",
-            version = "2.06"
+            version = "2.1.0"
         }
     )
 end

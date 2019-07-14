@@ -1,8 +1,8 @@
-## Interface: 80100
+## Interface: 80200
 ## Title: TomCat's Tours
 ## Author: TomCat
 ## X-Website: https://www.tomcatstours.com
-## Version: 1.0.11
+## Version: 1.0.12
 ## DefaultState: enabled
 ## SavedVariablesPerCharacter: TomCats_Character
 ## SavedVariables: TomCats_Account

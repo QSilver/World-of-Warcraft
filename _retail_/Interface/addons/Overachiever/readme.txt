@@ -1,5 +1,5 @@
 
-Overachiever v1.0.5
+Overachiever v1.0.7
 ==============================
 
 Author: Tuhljin
@@ -109,6 +109,17 @@ Change log
 ==========
 
 The change log lists changes of particular note to users, not every change made.
+
+v1.0.7
+- Corrected references to Blizzard sound files.
+- Reminder sound selection dropdown:
+-- Now divides sounds from other addons into alphabetical groups to better handle large numbers of sounds.
+-- Added a few more Blizzard sounds.
+
+v1.0.6
+- Updated TOC for WoW patch 8.2.
+- Suggestions Tab: New suggestions added for the zones Mechagon Island and Nazjatar, the dungeon Operation: Mechagon, and the raid The Eternal Palace.
+- "Shake Your Bunny-Maker": Updated tooltip check to match its new requirements.
 
 v1.0.5
 - Updated for WoW patch 8.1.

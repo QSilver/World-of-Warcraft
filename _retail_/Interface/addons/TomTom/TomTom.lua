@@ -13,6 +13,7 @@ local addonName, addon = ...
 local TomTom = addon
 
 addon.hbd = hbd
+addon.CLASSIC = math.floor(select(4, GetBuildInfo() ) / 100) == 113
 
 -- Local definitions
 local GetCurrentCursorPosition
@@ -151,8 +152,10 @@ function TomTom:Initialize(event, addon)
     C_ChatInfo.RegisterAddonMessagePrefix("TOMTOM4")
 
 	-- Watch for pet battle start/end so we can hide/show the arrow
-	self:RegisterEvent("PET_BATTLE_OPENING_START", "ShowHideCrazyArrow")
-	self:RegisterEvent("PET_BATTLE_CLOSE", "ShowHideCrazyArrow")
+	if not self.CLASSIC then
+	    self:RegisterEvent("PET_BATTLE_OPENING_START", "ShowHideCrazyArrow")
+	    self:RegisterEvent("PET_BATTLE_CLOSE", "ShowHideCrazyArrow")
+	end
 
     self:ReloadOptions()
     self:ReloadWaypoints()
@@ -938,6 +941,9 @@ do
     local coord_fmt = "%%.%df, %%.%df"
     function RoundCoords(x,y,prec)
         local fmt = coord_fmt:format(prec, prec)
+        if not x or not y then
+            return "---"
+        end
         return fmt:format(x*100, y*100)
     end
 
@@ -1055,29 +1061,64 @@ local function usage()
     ChatFrame1:AddMessage(L["|cffffff78/way list|r - Lists all active waypoints"])
 end
 
+TomTom.CZWFromMapID = {}
+local overrides = {
+    [101] = {mapType = Enum.UIMapType.World}, -- Outland
+    [125] = {mapType = Enum.UIMapType.Zone}, -- Dalaran
+    [126] = {mapType = Enum.UIMapType.Micro},
+    [195] = {suffix = "1"}, -- Kaja'mine
+    [196] = {suffix = "2"}, -- Kaja'mine
+    [197] = {suffix = "3"}, -- Kaja'mine
+    [501] = {mapType = Enum.UIMapType.Zone}, -- Dalaran
+    [502] = {mapType = Enum.UIMapType.Micro},
+    [572] = {mapType = Enum.UIMapType.World}, -- Draenor
+    [579] = {suffix = "1"}, -- Lunarfall Excavation
+    [580] = {suffix = "2"}, -- Lunarfall Excavation
+    [581] = {suffix = "3"}, -- Lunarfall Excavation
+    [585] = {suffix = "1"}, -- Frostwall Mine
+    [586] = {suffix = "2"}, -- Frostwall Mine
+    [587] = {suffix = "3"}, -- Frostwall Mine
+    [625] = {mapType = Enum.UIMapType.Orphan}, -- Dalaran
+    [626] = {mapType = Enum.UIMapType.Micro}, -- Dalaran
+    [627] = {mapType = Enum.UIMapType.Zone},
+    [628] = {mapType = Enum.UIMapType.Micro},
+    [629] = {mapType = Enum.UIMapType.Micro},
+    [943] = {suffix = FACTION_HORDE}, -- Arathi Highlands
+    [1044] = {suffix = FACTION_ALLIANCE},
+}
 
 function TomTom:GetCZWFromMapID(m)
-    local zone, continent, world
+    local zone, continent, world, map
     local mapInfo = nil
 
     if not m then return nil, nil, nil; end
 
+    -- Return the cached CZW
+    if TomTom.CZWFromMapID[m] then
+        return unpack(TomTom.CZWFromMapID[m])
+    end
+
+    map = m -- Save the original map
     repeat
         mapInfo = C_Map.GetMapInfo(m)
         if not mapInfo then
             -- No more parents, return what we have
+            TomTom.CZWFromMapID[map] = {continent, zone, world}
             return continent, zone, world
         end
-        if mapInfo.mapType == Enum.UIMapType.Zone then
+        local mapType = (overrides[m] and overrides[m].mapType) or mapInfo.mapType
+        if mapType == Enum.UIMapType.Zone then
             -- Its a zone map
             zone = m
-        elseif mapInfo.mapType == Enum.UIMapType.Continent then
+        elseif mapType == Enum.UIMapType.Continent then
             continent = m
-        elseif mapInfo.mapType == Enum.UIMapType.World then
+        elseif mapType == Enum.UIMapType.World then
             world = m
+            continent = continent or m -- Hack for one continent worlds
         end
         m = mapInfo.parentMapID
     until (m == 0)
+    TomTom.CZWFromMapID[map] = {continent, zone, world}
     return continent, zone, world
 end
 
@@ -1129,8 +1170,10 @@ function TomTom:SetClosestWaypoint()
         local ctxt = RoundCoords(x, y, 2)
         local desc = data.title and data.title or ""
         local sep = data.title and " - " or ""
-        local msg = string.format(L["|cffffff78TomTom:|r Selected waypoint (%s%s%s) in %s"], desc, sep, ctxt, zoneName)
-        ChatFrame1:AddMessage(msg)
+        if self.profile.general.announce then
+            local msg = string.format(L["|cffffff78TomTom:|r Selected waypoint (%s%s%s) in %s"], desc, sep, ctxt, zoneName)
+            ChatFrame1:AddMessage(msg)
+        end
     else
         local msg
         if not self.profile.arrow.closestusecontinent then
@@ -1138,8 +1181,11 @@ function TomTom:SetClosestWaypoint()
         else
            msg = L["|cffffff78TomTom:|r Could not find a closest waypoint in this continent."]
         end
-        ChatFrame1:AddMessage(msg)
+        if self.profile.general.announce then
+            ChatFrame1:AddMessage(msg)
+        end
     end
+    return uid
 end
 
 SLASH_TOMTOM_CLOSEST_WAYPOINT1 = "/cway"
@@ -1169,49 +1215,33 @@ SLASH_TOMTOM_WAY3 = "/tomtomway"
 TomTom.NameToMapId = {}
 local NameToMapId = TomTom.NameToMapId
 
-local overrides = {
-    [125] = {mapType = Enum.UIMapType.Zone}, -- Dalaran
-    [126] = {mapType = Enum.UIMapType.Micro},
-    [195] = {suffix = "1"}, -- Kaja'mine
-    [196] = {suffix = "2"}, -- Kaja'mine
-    [197] = {suffix = "3"}, -- Kaja'mine
-    [501] = {mapType = Enum.UIMapType.Zone}, -- Dalaran
-    [502] = {mapType = Enum.UIMapType.Micro},
-    [579] = {suffix = "1"}, -- Lunarfall Excavation
-    [580] = {suffix = "2"}, -- Lunarfall Excavation
-    [581] = {suffix = "3"}, -- Lunarfall Excavation
-    [585] = {suffix = "1"}, -- Frostwall Mine
-    [586] = {suffix = "2"}, -- Frostwall Mine
-    [587] = {suffix = "3"}, -- Frostwall Mine
-    [625] = {mapType = Enum.UIMapType.Orphan}, -- Dalaran
-    [626] = {mapType = Enum.UIMapType.Micro}, -- Dalaran
-    [627] = {mapType = Enum.UIMapType.Zone},
-    [628] = {mapType = Enum.UIMapType.Micro},
-    [629] = {mapType = Enum.UIMapType.Micro},
-    [943] = {suffix = FACTION_HORDE}, -- Arathi Highlands
-    [1044] = {suffix = FACTION_ALLIANCE},
-}
 
 do
     -- Fetch the names of the zones
     for id in pairs(hbd.mapData) do
+        local c,z,w = TomTom:GetCZWFromMapID(id)
         local mapType = (overrides[id] and overrides[id].mapType) or hbd.mapData[id].mapType
         if (mapType == Enum.UIMapType.Zone) or
+           (mapType == Enum.UIMapType.Continent) or
            (mapType == Enum.UIMapType.Micro) then
-            -- Record only Zone or Micro maps
+            -- Record only Zone or Continent or Micro maps
             local name = hbd.mapData[id].name
             if (overrides[id] and overrides[id].suffix) then
                 name = name .. " " .. overrides[id].suffix
             end
-            if name and NameToMapId[name] then
-                if type(NameToMapId[name]) ~= "table" then
-                    -- convert to table
-                    NameToMapId[name] = {NameToMapId[name]}
+            -- What about some instances?  Do they have coords?  How to test for that case?
+            if w then -- It must be in some world to be named and have coords
+                if name and NameToMapId[name] then
+                    if type(NameToMapId[name]) ~= "table" then
+                        -- convert to table
+                        NameToMapId[name] = {NameToMapId[name]}
+                    end
+                    table.insert(NameToMapId[name], id)
+                else
+                    NameToMapId[name] = id
                 end
-                table.insert(NameToMapId[name], id)
-            else
-                NameToMapId[name] = id
             end
+            -- Record just the raw map # as a possible override.
             NameToMapId["#" .. id] = id
         end
     end
@@ -1243,8 +1273,8 @@ end
 local wrongseparator = "(%d)" .. (tonumber("1.1") and "," or ".") .. "(%d)"
 local rightseparator =   "%1" .. (tonumber("1.1") and "." or ",") .. "%2"
 
--- Make comparison only lowercase letters and numbers
-local function lowergsub(s) return s:lower():gsub("[^%a%d]", "") end
+-- Make comparison only using lowercase letters and no spaces
+local function lowergsub(s) return s:lower():gsub("[%s]", "") end
 
 SlashCmdList["TOMTOM_WAY"] = function(msg)
     msg = msg:gsub("(%d)[%.,] (%d)", "%1 %2"):gsub(wrongseparator, rightseparator)

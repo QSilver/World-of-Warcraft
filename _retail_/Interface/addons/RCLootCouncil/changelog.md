@@ -1,3 +1,50 @@
+### v2.12.1
+---
+###### Bugfixes  
+* *Fixed library issue causing scrolling tables to unstick and break the UI in 8.2.*
+
+
+
+### v2.12.0 (patch 8.2)
+---
+* Added patch 8.2 and Azshara's Eternal Palace as history mass delete options.
+
+
+* **Autopass**  
+* Added autopass data for trinkets in Crucible of Storms (a bit late, I know).
+* Added autopass data for trinkets in Eternal Palace.
+
+
+###### Bugfixes  
+* *Added a compatibility fix very old loot histories (#388).*
+* *Removed any Breath of Bwonsamdi that have been recorded to the history during alpha releases.*
+
+
+### v2.11.0
+---
+* **Loot Status**  
+* The loot status now registers all items dropped by a boss, even if the response indicating if it's tradeable isn't received from the candidate.
+* Implemented code to ignore certain loot sources and types (particularly Opulence trash piles), which should overall make the loot status more reliable.
+
+
+###### Bugfixes  
+* *The TradeUI is now able to handle multiple instances of the same item.*
+* *More error correcting code for corrupted loot history*
+* *No longer logs `non_tradeable` loots when the addon isn't being used, i.e. in dungeons.*
+* *Mostly fixed the worst texture stretching throughout the UI.*
+
+
+###### Dev
+* Added `addon.Compat` namespace for handling backwards compatibility.
+* Added `addon.lootGUIDToIgnore` table indicating guid's that won't have their loot registered.
+
+
+### v2.10.3
+---
+###### Bugfixes
+* *Added error correcting code for corrupted settings and loot history.*
+
+
 ### v2.10.2
 ---
 * **Loot History**

@@ -3,7 +3,6 @@
 -- By Kesava at curse.com
 -- All rights reserved
 --------------------------------------------------------------------------------
-local folder,ns=...
 local kui = LibStub('Kui-1.0')
 local kc = LibStub('KuiConfig-1.0')
 local LSM = LibStub('LibSharedMedia-3.0')
@@ -368,7 +367,7 @@ end
 configChanged.combat_hostile = configChangedCombatAction
 configChanged.combat_friendly = configChangedCombatAction
 
-local function configChangedFadeRule(v,on_load)
+local function configChangedFadeRule(_,on_load)
     local plugin = addon:GetPlugin('Fading')
     if not on_load then
         -- don't reset on the configLoaded call
@@ -640,7 +639,7 @@ end
 function configChanged.execute_colour(v)
     addon:GetPlugin('Execute').colour = v
 end
-function configChanged.execute_percent(v)
+function configChanged.execute_percent()
     if core.profile.execute_auto then
         -- revert to automatic
         addon:GetPlugin('Execute'):SetExecuteRange()
@@ -650,8 +649,8 @@ function configChanged.execute_percent(v)
 end
 configChanged.execute_auto = configChanged.execute_percent
 
-function configChanged.frame_glow_size(v)
-    for k,f in addon:Frames() do
+function configChanged.frame_glow_size()
+    for _,f in addon:Frames() do
         f:UpdateFrameGlowSize()
 
         if type(f.UpdateNameOnlyGlowSize) == 'function' then
@@ -792,7 +791,7 @@ configChanged.cvar_disable_alpha = configChangedCVar
 configChanged.cvar_self_alpha = configChangedCVar
 configChanged.cvar_occluded_mult = configChangedCVar
 
-function configChanged.global_scale(v)
+function configChanged.global_scale()
     configChanged.frame_glow_size(core.profile.frame_glow_size)
     configChanged.state_icons()
     configChangedCastBar()
@@ -875,10 +874,10 @@ function core:ConfigChanged(config,k,v)
         -- profile changed;
         -- run all configChanged functions, skipping duplicates
         local called = {}
-        for k,f in pairs(configChanged) do
-            if not called[f] then
-                called[f] = true
-                f(core.profile[k])
+        for func_name,func in pairs(configChanged) do
+            if not called[func] then
+                called[func] = true
+                func(core.profile[func_name])
             end
         end
     end
@@ -887,7 +886,7 @@ function core:ConfigChanged(config,k,v)
         kui.print(self:GetActiveProfile())
     end
 
-    for i,f in addon:Frames() do
+    for _,f in addon:Frames() do
         -- hide and re-show frames
         if f:IsShown() then
             local unit = f.unit
@@ -907,7 +906,7 @@ function core:InitialiseConfig()
                 if not v then return end
                 KuiNameplatesCoreSaved.profiles[n][k] = v == 5 and 1 or v + 1
             end
-            for n,p in pairs(KuiNameplatesCoreSaved.profiles) do
+            for n,_ in pairs(KuiNameplatesCoreSaved.profiles) do
                 for _,k in next,{
                     'health_text_friend_max',
                     'health_text_friend_dmg',
@@ -988,7 +987,7 @@ function cc:QueueConfigChanged(name)
 end
 function cc:PLAYER_REGEN_ENABLED()
     -- pop queued functions
-    for i,f_tbl in ipairs(self.queue) do
+    for _,f_tbl in ipairs(self.queue) do
         if type(f_tbl[1]) == 'function' then
             f_tbl[1](unpack(f_tbl[2]))
         end

@@ -34,12 +34,20 @@ Details_StreamerDB = {
 			},
 			["arrow_anchor_x"] = 0,
 			["row_texture"] = "Details Serenity",
-			["scale"] = 1,
-			["row_height"] = 20,
-			["point"] = "CENTER",
+			["main_frame_size"] = {
+				300.000091552734, -- [1]
+				500.000030517578, -- [2]
+			},
+			["main_frame_locked"] = false,
+			["row_color"] = {
+				0.1, -- [1]
+				0.1, -- [2]
+				0.1, -- [3]
+				0.4, -- [4]
+			},
 			["enabled"] = false,
 			["arrow_size"] = 10,
-			["use_spark"] = true,
+			["author"] = "Details! Team",
 			["row_spacement"] = 21,
 			["main_frame_color"] = {
 				0, -- [1]
@@ -49,33 +57,25 @@ Details_StreamerDB = {
 			},
 			["main_frame_strata"] = "LOW",
 			["arrow_texture"] = "Interface\\CHATFRAME\\ChatFrameExpandArrow",
-			["y"] = 1.525878906250e-05,
+			["y"] = 1.52587890625e-05,
 			["font_size"] = 10,
-			["x"] = 3.05175781250e-05,
+			["x"] = 3.0517578125e-05,
 			["font_face"] = "Friz Quadrata TT",
+			["use_spark"] = true,
 			["per_second"] = {
 				["enabled"] = false,
 				["point"] = "CENTER",
 				["scale"] = 1.5,
 				["font_shadow"] = true,
-				["y"] = 1.525878906250e-05,
+				["y"] = 1.52587890625e-05,
 				["update_speed"] = 0.05,
-				["size"] = 32,
-				["x"] = 6.1035156250e-05,
 				["attribute_type"] = 1,
+				["x"] = 6.103515625e-05,
+				["size"] = 32,
 			},
-			["author"] = "Details! Team",
-			["row_color"] = {
-				0.1, -- [1]
-				0.1, -- [2]
-				0.1, -- [3]
-				0.4, -- [4]
-			},
-			["main_frame_locked"] = false,
-			["main_frame_size"] = {
-				300.000091552734, -- [1]
-				500.000030517578, -- [2]
-			},
+			["point"] = "CENTER",
+			["row_height"] = 20,
+			["scale"] = 1,
 		},
 	},
 }

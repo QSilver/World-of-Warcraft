@@ -37,8 +37,7 @@ VER 3 000000000000001F "Feign" "132293"
 END
 VER 3 000000000000002E "Health" "136030"
 #showtooltip
-/use Healthstone
-/use Coastal Healing Potion
+/castsequence reset=60/alt Healthstone, Abyssal Healing Potion
 END
 VER 3 000000000000002C "KC" "132176"
 #showtooltip
@@ -71,12 +70,12 @@ VER 3 0000000000000037 "Suicide" "1376046"
 /cancelaura Resounding Protection
 /cancelaura Essence Font
 END
+VER 3 0000000000000033 "Turtle" "1002600"
+/cancelaura Aspect of the Turtle
+END
 VER 3 0000000000000035 "Turtle" "1002597"
 /stopcasting
 /cast Aspect of the Turtle
-END
-VER 3 0000000000000033 "Turtle" "1002600"
-/cancelaura Aspect of the Turtle
 END
 VER 3 0000000000000036 "XHero" "135900"
 /cancelaura time warp

@@ -1,3 +1,4 @@
+-- luacheck: globals SLASH_KUINAMEPLATESCORE1 SLASH_KUINAMEPLATESCORE2
 --------------------------------------------------------------------------------
 -- Kui Nameplates
 -- By Kesava at curse.com
@@ -5,10 +6,9 @@
 --------------------------------------------------------------------------------
 -- configuration interface for the core layout
 --------------------------------------------------------------------------------
-local folder,ns = ...
+local folder = ...
 local knp = KuiNameplates
 local kui = LibStub('Kui-1.0')
-local kc = LibStub('KuiConfig-1.0')
 
 -- reuse container created by core:Initialise
 local opt = KuiNameplatesCoreConfig
@@ -38,7 +38,7 @@ function SlashCmdList.KUINAMEPLATESCORE(msg)
             if knp.draw_frames then
                 KuiNameplatesPlayerAnchor:SetBackdrop({edgeFile=kui.m.t.solid,edgeSize=1})
                 KuiNameplatesPlayerAnchor:SetBackdropBorderColor(0,0,1)
-                for k,f in knp:Frames() do
+                for _,f in knp:Frames() do
                     f:SetBackdrop({edgeFile=kui.m.t.solid,edgeSize=1})
                     f:SetBackdropBorderColor(1,1,1)
                     f.parent:SetBackdrop({bgFile=kui.m.t.solid})
@@ -46,7 +46,7 @@ function SlashCmdList.KUINAMEPLATESCORE(msg)
                 end
             else
                 KuiNameplatesPlayerAnchor:SetBackdrop(nil)
-                for k,f in knp:Frames() do
+                for _,f in knp:Frames() do
                     f:SetBackdrop(nil)
                     f.parent:SetBackdrop(nil)
                 end
@@ -95,7 +95,7 @@ function SlashCmdList.KUINAMEPLATESCORE(msg)
         local class = select(2,UnitClass('player'))
 
         local plugins_str
-        for i,plugin_tbl in ipairs(knp.plugins) do
+        for _,plugin_tbl in ipairs(knp.plugins) do
             if plugin_tbl.name then
                 local this_str
                 if plugin_tbl.enabled then
@@ -108,7 +108,7 @@ function SlashCmdList.KUINAMEPLATESCORE(msg)
         end
 
         d:AddText(format('%s %d.%d%s%s%s%s',
-            '2.22.1',knp.MAJOR,knp.MINOR,
+            '2.24',knp.MAJOR,knp.MINOR,
             debug,custom,barauras,extras))
         d:AddText(format('%s %s',locale,class))
 
@@ -220,19 +220,19 @@ function SlashCmdList.KUINAMEPLATESCORE(msg)
 
                 if msg == name or msg == locale then
                     -- exact match
-                    found = f
+                    found = i
                     break
                 elseif not found and
                     (name:match('^'..msg) or locale:match('^'..msg))
                 then
                     -- starts-with match, continue searching for exact matches
-                    found = f
+                    found = i
                 end
             end
         end
 
         if found then
-            found:ShowPage()
+            opt:ShowPage(found)
         end
     end
 
@@ -294,7 +294,7 @@ function opt:ConfigChanged(config,k)
         end
 
         -- re-run enabled of other options on the current page
-        for name,ele in pairs(self.active_page.elements) do
+        for _,ele in pairs(self.active_page.elements) do
             if ele.enabled then
                 if ele.enabled(self.profile) then
                     ele:Enable()
@@ -317,7 +317,7 @@ function opt:LayoutLoaded()
     self.profile = self.config:GetConfig()
 end
 
-opt:SetScript('OnEvent',function(self,event,addon)
+opt:SetScript('OnEvent',function(self,_,addon)
     if addon ~= folder then return end
     self:UnregisterEvent('ADDON_LOADED')
 

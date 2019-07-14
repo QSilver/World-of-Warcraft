@@ -72,7 +72,7 @@
 ]]
 local addon = KuiNameplates
 local ele = addon:NewElement('ClassPowers')
-local _,class,power_type,power_type_tag,highlight_at,cpf,initialised
+local class,power_type,power_type_tag,highlight_at,cpf,initialised
 local power_mod,power_display_partial
 local on_target
 local orig_SetVertexColor
@@ -321,7 +321,7 @@ local function UpdateIcons()
 
             if ICON_SPRITE then
                 -- reset icons to filled
-                for i,icon in ipairs(cpf.icons) do
+                for _,icon in ipairs(cpf.icons) do
                     icon:GraduateFill(1)
                 end
             end
@@ -420,20 +420,18 @@ local function PositionFrame()
     end
 
     local frame
-
     if on_target then
         if UnitIsPlayer('target') or UnitCanAttack('player','target') then
-            frame = C_NamePlate.GetNamePlateForUnit('target')
-
-            if frame and frame.kui.state.reaction <= 4 then
-                frame = frame.kui
-            else
+            frame = addon:GetActiveNameplateForUnit('target')
+            if  not frame or
+                not frame.state.reaction or
+                frame.state.reaction > 4
+            then
                 frame = nil
             end
         end
     else
-        frame = C_NamePlate.GetNamePlateForUnit('player')
-        frame = frame and frame.kui or nil
+        frame = addon:GetActiveNameplateForUnit('player')
     end
 
     if not FRAME_POINT or not frame then
@@ -467,7 +465,7 @@ local function RuneDaemon_OnUpdate(self,elap)
         self.active = nil
         self.elap = 0
 
-        for k,icon in ipairs(cpf.icons) do
+        for _,icon in ipairs(cpf.icons) do
             if icon.startTime and icon.duration then
                 self.active = true
                 icon:GraduateFill((GetTime() - icon.startTime) / icon.duration)
@@ -527,7 +525,7 @@ function ele:UpdateConfig()
 
         if cpf.icons then
             -- update icons
-            for k,i in ipairs(cpf.icons) do
+            for _,i in ipairs(cpf.icons) do
                 i:SetSize(ICON_SIZE,ICON_SIZE)
 
                 if ICON_SPRITE then
@@ -557,7 +555,7 @@ function ele:UpdateConfig()
     end
 end
 -- messages ####################################################################
-function ele:TargetUpdate(f)
+function ele:TargetUpdate()
     PositionFrame()
 end
 -- events ######################################################################
@@ -665,7 +663,7 @@ function ele:PowerInit()
         cpf:Hide()
     end
 end
-function ele:RuneUpdate(event)
+function ele:RuneUpdate()
     -- set/clear cooldown on rune icons
     for i=1,6 do
         local startTime, duration, charged = GetRuneCooldown(i)
@@ -724,7 +722,7 @@ function ele:StaggerUpdate()
         cpf.bar:Show()
     end
 end
-function ele:PowerEvent(event,unit,power_type_rcv)
+function ele:PowerEvent(event,_,power_type_rcv)
     -- validate power events + passthrough to PowerUpdate
     if power_type_rcv ~= power_type_tag then return end
 
@@ -800,11 +798,12 @@ function ele:Initialised()
     end
 
     -- create icon frame container
+    -- (which also serves as an event frame for non-KNP unit events)
     cpf = CreateFrame('Frame')
     cpf:SetSize(2,2)
     cpf:SetPoint('CENTER')
     cpf:Hide()
-    cpf:SetScript('OnEvent',function(self,event,...)
+    cpf:SetScript('OnEvent',function(_,event,...)
         ele[event](ele,event,...)
     end)
 

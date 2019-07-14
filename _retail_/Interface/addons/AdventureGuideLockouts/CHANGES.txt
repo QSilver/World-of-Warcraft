@@ -1,0 +1,10 @@
+lightweight tag 93ee163516d9612488b10ba56e8390657a5b9f4a v1.3.1
+Author:	Meivyn <meivyn@live.ca>
+Date:	Wed Jul 10 14:10:45 2019 -0400
+
+commit 93ee163516d9612488b10ba56e8390657a5b9f4a
+Author: Meivyn <meivyn@live.ca>
+Date:   Wed Jul 10 14:10:45 2019 -0400
+
+    update: Azeroth's world bosses numEncounters
+

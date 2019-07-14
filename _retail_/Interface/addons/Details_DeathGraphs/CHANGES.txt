@@ -1,7 +1,7 @@
-changeset:   93:29003b0aedd1
-tag:         v8.1.0.093
+changeset:   95:8d0a26f0db22
+tag:         v8.2.0.095
 user:        Tercioo
-date:        Fri Mar 08 14:18:47 2019 -0300
-summary:     - Code cleanup and Localization updates.
+date:        Fri Jun 28 19:52:11 2019 -0300
+summary:     - Toc Update for Patch 8.2
 
 

@@ -191,6 +191,7 @@ Prat:AddModuleToLoad(function()
         spell = true,
         quest = true,
         achievement = true,
+        currency = true
     }
 
     function module:OnEnable()
@@ -224,7 +225,7 @@ Prat:AddModuleToLoad(function()
     function module:OnHyperlinkLeave(f, link)
         if showingTooltip then
             showingTooltip = false
-            HideUIPanel(GameTooltip)
+            GameTooltip:Hide()
         end
     end
 

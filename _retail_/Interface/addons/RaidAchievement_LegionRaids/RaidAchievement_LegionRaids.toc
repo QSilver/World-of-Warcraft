@@ -1,4 +1,4 @@
-﻿## Interface: 80100
+﻿## Interface: 80200
 ## Title: Raid|cff7fff7fAchievement|r - Legion raids
 ## Title-ruRU: Raid|cff7fff7fAchievement|r - Рейды Legion
 ## Author: Shurshik

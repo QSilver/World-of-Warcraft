@@ -28,6 +28,8 @@
 	
 	--templates
 	
+	local UnitGroupRolesAssigned = DetailsFramework.UnitGroupRolesAssigned
+	
 	_detalhes:GetFramework():InstallTemplate ("button", "DETAILS_FORGE_TEXTENTRY_TEMPLATE", {
 		backdrop = {bgFile = [[Interface\Tooltips\UI-Tooltip-Background]], tileSize = 64, tile = true}, --edgeFile = [[Interface\Buttons\WHITE8X8]], edgeSize = 1, 
 		backdropcolor = {0, 0, 0, .1},
@@ -2111,6 +2113,8 @@
 			local iconsize = {14, 14}
 			
 			local game_sounds = {
+			--8.2 broke file paths, removing them until a way of converting to soundIds is possible
+				--[=[
 				["Horde Banner Down"] = [[Sound\event\EVENT_VashjirIntro_HordeBannerDown_01.ogg]],
 				["Mast Crack"] = [[Sound\event\EVENT_VashjirIntro_MastCrack_01.ogg]],
 				["Orc Attack "] = [[Sound\event\EVENT_VashjirIntro_OrcAttackVox_03.ogg]],
@@ -2136,6 +2140,7 @@
 				["Beat 02"] = [[Sound\DOODAD\GO_PA_Kungfugear_bag_Left04.OGG]],
 				["Water Drop"] = [[Sound\DOODAD\Hellfire_DW_Pipe_Type4_01.ogg]],
 				["Frog"] = [[Sound\EMITTERS\Emitter_Dalaran_Petstore_Frog_01.ogg]],
+				--]=]
 			}
 			
 			local sound_options = function()
@@ -3690,7 +3695,7 @@
 					if (data [7]) then
 						local spellid = data[7]:gsub ("ej", "")
 						spellid = tonumber (spellid)
-						local title, description, depth, abilityIcon, displayInfo, siblingID, nextSectionID, filteredByDifficulty, link, startsOpen, flag1, flag2, flag3, flag4 = EJ_GetSectionInfo (spellid)
+						local title, description, depth, abilityIcon, displayInfo, siblingID, nextSectionID, filteredByDifficulty, link, startsOpen, flag1, flag2, flag3, flag4 = DetailsFramework.EncounterJournal.EJ_GetSectionInfo (spellid)
 						spellname, spellicon = title, abilityIcon
 					else
 						return
@@ -3818,7 +3823,7 @@
 				
 				if (type (spellid) == "number") then
 					if (spellid < 0) then
-						local title, description, depth, abilityIcon, displayInfo, siblingID, nextSectionID, filteredByDifficulty, link, startsOpen, flag1, flag2, flag3, flag4 = EJ_GetSectionInfo (abs (spellid))
+						local title, description, depth, abilityIcon, displayInfo, siblingID, nextSectionID, filteredByDifficulty, link, startsOpen, flag1, flag2, flag3, flag4 = DetailsFramework.EncounterJournal.EJ_GetSectionInfo (abs (spellid))
 						spellname, spellicon = title, abilityIcon
 					else
 						spellname, _, spellicon = GetSpellInfo (spellid)

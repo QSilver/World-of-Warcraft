@@ -1,26 +1,24 @@
-tag d185ac67713b836ad7865969198fd2073309e331 1.1.2
+tag b076712672a8210d2de57d5b2f4097baa8eb2bd4 1.2.0
 Author:	Alar of Runetotem <alar@aspide.it>
-Date:	Sun Dec 16 18:21:31 2018 +0100
+Date:	Mon Jul 1 09:28:44 2019 +0200
 
-TOC BUMP
+Updated to 8.2.0
 
-commit afd6913e64a496be33e266533650e660559c9342
+commit 46dcc9f98e0e1d7c2380e0fd69eb48bbec477ad1
 Author: Alar of Runetotem <alar@aspide.it>
-Date:   Sun Dec 16 18:21:06 2018 +0100
+Date:   Mon Jul 1 09:28:07 2019 +0200
 
-    TOC BUMP
+    TOC Bump
 
-commit c9b698479456f717bda3b180dc51888bd3934282
+commit 770094636e14f3d60f0d2140215d8d83fe5e6f13
 Author: Alar of Runetotem <alar@aspide.it>
-Date:   Sun Dec 16 18:12:28 2018 +0100
+Date:   Mon Jul 1 09:27:16 2019 +0200
 
-    8: Champions don't receive XP at epic
-    
-    Task-Url: http://github.com/alarofrunetotem/ChampionCommander/issues/8
+    Defends from no status follower
 
-commit 7303467931f2bbcc9a9d63e52f92a567f0b19f05
+commit e430f1b4aa5875622bf583295b784e2bc2b5d071
 Author: Alar of Runetotem <alar@aspide.it>
-Date:   Sat Oct 20 13:11:40 2018 +0200
+Date:   Tue May 14 22:34:48 2019 +0200
 
-    Rel Notes
+    #24 fixed MAX_LEVEL
 

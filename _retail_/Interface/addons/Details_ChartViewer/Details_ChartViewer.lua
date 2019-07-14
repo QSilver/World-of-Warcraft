@@ -15,7 +15,7 @@ local CVF = ChartViewer.Frame
 --> desc
 ChartViewer:SetPluginDescription (Loc ["STRING_PLUGIN_DESC"])
 
-local plugin_version = "v2.81" 
+local plugin_version = "v2.90" 
 
 local function CreatePluginFrames (data)
 

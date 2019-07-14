@@ -12,6 +12,13 @@ L.common = {
     height = 'Height',
     offset = 'Offset',
     layout = 'Layout',
+    page = 'Page',
+    profile = 'Profile',
+    copy = 'Copy',
+    paste = 'Paste',
+    reset = 'Reset',
+    rename = 'Rename',
+    delete = 'Delete',
 }
 L.page_names = {
     general     = 'General',
@@ -39,7 +46,9 @@ L.titles = {
     rename_profile_label = 'Enter new name for |cffffffff%s',
     copy_profile_title = 'Copy profile',
     copy_profile_label = 'Enter name for new profile',
-    version = '%s by %s @ Curse, version %s',
+    reset_page_label = 'Reset all options in |cffffffff%s|r?',
+    paste_page_label = 'Copy |cffffffff%s|r settings from |cffffffff%s|r to |cffffffff%s|r?',
+    version = '%s by %s @ Curse|nVersion %s',
 
     bar_texture = 'Bar texture',
     bar_animation = 'Bar animation',

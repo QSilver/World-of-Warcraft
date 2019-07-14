@@ -186,12 +186,14 @@ local function UpdateMatchData(time, matchDataChanged, resetMatchDataByTrigger, 
   if not matchData[unit][filter] then
     matchData[unit][filter] = {}
   end
+  local debuffClassIcon = WeakAuras.EJIcons[debuffClass]
   if not matchData[unit][filter][index] then
     matchData[unit][filter][index] = {
       name = name,
       icon = icon,
       stacks = stacks,
       debuffClass = debuffClass,
+      debuffClassIcon = debuffClassIcon,
       duration = duration,
       expirationTime = expirationTime,
       unitCaster = unitCaster,
@@ -230,6 +232,11 @@ local function UpdateMatchData(time, matchDataChanged, resetMatchDataByTrigger, 
 
   if data.debuffClass ~= debuffClass then
     data.debuffClass = debuffClass
+    changed = true
+  end
+
+  if data.debuffClassIcon ~= debuffClassIcon then
+    data.debuffClassIcon = debuffClassIcon
     changed = true
   end
 
@@ -376,6 +383,7 @@ local function FindBestMatchDataForUnit(time, id, triggernum, triggerInfo, unit)
 end
 
 local function UpdateStateWithMatch(time, bestMatch, triggerStates, cloneId, matchCount, unitCount, maxUnitCount, matchCountPerUnit, affected, unaffected)
+  local debuffClassIcon = WeakAuras.EJIcons[bestMatch.debuffClass]
   if not triggerStates[cloneId] then
     triggerStates[cloneId] = {
       show = true,
@@ -384,6 +392,7 @@ local function UpdateStateWithMatch(time, bestMatch, triggerStates, cloneId, mat
       icon = bestMatch.icon,
       stacks = bestMatch.stacks,
       debuffClass = bestMatch.debuffClass,
+      debuffClassIcon = debuffClassIcon,
       progressType = "timed",
       duration = bestMatch.duration,
       expirationTime = bestMatch.expirationTime,
@@ -451,6 +460,11 @@ local function UpdateStateWithMatch(time, bestMatch, triggerStates, cloneId, mat
 
     if state.debuffClass ~= bestMatch.debuffClass then
       state.debuffClass = bestMatch.debuffClass
+      changed = true
+    end
+
+    if state.debuffClassIcon ~= debuffClassIcon then
+      state.debuffClassIcon = debuffClassIcon
       changed = true
     end
 
@@ -602,8 +616,8 @@ local function UpdateStateWithNoMatch(time, triggerStates, triggerInfo, cloneId,
       changed = true
     end
 
-    if state.expirationTime then
-      state.expirationTime = nil
+    if state.expirationTime ~= math.huge then
+      state.expirationTime = math.huge
       state.resort = true
       changed = true
     end
@@ -727,7 +741,7 @@ local function GetAllUnits(unit)
         i = 0
       end
     end
-  elseif unit == "boss" or unit == "arena" or "nameplate" then
+  elseif unit == "boss" or unit == "arena" or unit == "nameplate" then
     local i = 1
     local max
     if unit == "boss" then
@@ -2049,7 +2063,7 @@ function BuffTrigger.Add(data)
       if trigger.useName and trigger.auranames then
         names = {}
         for index, spellName in ipairs(trigger.auranames) do
-          local spellId = tonumber(spellName)
+          local spellId = WeakAuras.SafeToNumber(spellName)
           names[index] = GetSpellInfo(spellId) or spellName
         end
       end
@@ -2212,13 +2226,13 @@ function BuffTrigger.GetNameAndIconSimple(data, triggernum)
 
   if trigger.useName and trigger.auranames then
     for index, spellName in ipairs(trigger.auranames) do
-      local spellId = tonumber(spellName)
+      local spellId = WeakAuras.SafeToNumber(spellName)
       if spellId then
         name, _, icon = GetSpellInfo(spellName)
         if name and icon then
           return name, icon
         end
-      else
+      elseif not tonumber(spellName) then
         name, _, icon = GetSpellInfo(spellName)
         if (name and icon) then
           return name, icon
@@ -2269,6 +2283,8 @@ function BuffTrigger.GetAdditionalProperties(data, triggernum)
 
   local ret = "\n\n" .. L["Additional Trigger Replacements"] .. "\n"
   ret = ret .. "|cFFFF0000%spellId|r - " .. L["Spell ID"] .. "\n"
+  ret = ret .. "|cFFFF0000%debuffClass|r - " .. L["Debuff Class"] .. "\n"
+  ret = ret .. "|cFFFF0000%debuffClassIcon|r - " .. L["Debuff Class Icon"] .. "\n"
   ret = ret .. "|cFFFF0000%unitCaster|r - " .. L["Caster Unit"] .. "\n"
   ret = ret .. "|cFFFF0000%casterName|r - " .. L["Caster Name"] .. "\n"
   ret = ret .. "|cFFFF0000%unitName|r - " .. L["Unit Name"] .. "\n"
@@ -2752,6 +2768,12 @@ local function AugmentMatchDataMultiWith(matchData, unit, name, icon, stacks, de
     changed = true
   end
 
+  local debuffClassIcon = WeakAuras.EJIcons[debuffClass]
+  if matchData.debuffClassIcon ~= debuffClassIcon then
+    matchData.debuffClassIcon = debuffClassIcon
+    changed = true
+  end
+
   if matchData.duration ~= duration then
     matchData.duration = duration
     changed = true
@@ -2993,7 +3015,7 @@ function BuffTrigger.GetTriggerDescription(data, triggernum, namestable)
         end
       end
       local icon
-      local spellId = tonumber(name)
+      local spellId = WeakAuras.SafeToNumber(name)
       if spellId then
         icon = select(3, GetSpellInfo(spellId))
       else

@@ -1,13 +1,10 @@
-lightweight tag 7abce7fd0ecefe9569fd1de0164efa2d56ac566e v8.1.5.370
+lightweight tag c0260ff821dbc31f3d6f9561239d48899b0f1cdd v8.2.0.376
 Author:	Tercioo <terciob19@hotmail.com>
-Date:	Wed May 1 12:40:16 2019 -0300
+Date:	Thu Jul 4 14:55:57 2019 -0300
 
-commit 7abce7fd0ecefe9569fd1de0164efa2d56ac566e
+commit c0260ff821dbc31f3d6f9561239d48899b0f1cdd
 Author: Tercioo <terciob19@hotmail.com>
-Date:   Wed May 1 12:40:16 2019 -0300
+Date:   Thu Jul 4 14:55:57 2019 -0300
 
-    Summary Button Removed
-    
-    Since its content is covered by the Statistics button, there's no reason to still have it.
-    All localization for that button also got removed.
+    Machagon added to zone list
 

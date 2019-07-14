@@ -5,11 +5,11 @@ AzeriteTooltipDB = {
 		["Qsilver - Silvermoon"] = "Default",
 	},
 	["Compact"] = false,
-	["RemoveBlizzard"] = true,
-	["Bags"] = true,
-	["Flyout"] = true,
 	["profiles"] = {
 		["Default"] = {
 		},
 	},
+	["Bags"] = true,
+	["Flyout"] = true,
+	["RemoveBlizzard"] = true,
 }

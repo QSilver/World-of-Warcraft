@@ -110,14 +110,15 @@ function RCLootCouncil:OnInitialize()
 	self.lootOpen = false 	-- is the ML lootWindow open or closed?
 	self.lootSlotInfo = {}  -- Items' data currently in the loot slot. Need this because inside LOOT_SLOT_CLEARED handler, GetLootSlotLink() returns invalid link.
 	self.nonTradeables = {} -- List of non tradeable items received since the last ENCOUNTER_END
+	self.lastEncounterID = nil
 
 	self.lootStatus = {}
 	self.verCheckDisplayed = false -- Have we shown a "out-of-date"?
 	self.moduleVerCheckDisplayed = {} -- Have we shown a "out-of-date" for a module? The key of the table is the baseName of the module.
 
-	self.EJLastestInstanceID = 1176 -- UPDATE this whenever we change test data.
+	self.EJLastestInstanceID = 1179 -- UPDATE this whenever we change test data.
 									-- The lastest raid instance Enouncter Journal id.
-									-- Battle of Dazar'alor
+									-- The Eternal Palace
 									-- HOWTO get this number: Open the instance we want in the Adventure Journal. Use command '/dump EJ_GetInstanceInfo()'
 									-- The 8th return value is sth like "|cff66bbff|Hjournal:0:946:14|h[Antorus, the Burning Throne]|h|r"
 									-- The number at the position of the above 946 is what we want.
@@ -164,6 +165,30 @@ function RCLootCouncil:OnInitialize()
 		{cmd = "award", desc = L["chat_commands_award"]},
 		{cmd = "winners", desc = L["chat_commands_winners"]},
 		{cmd = "sync", desc = L["chat_commands_sync"]},
+	}
+
+	self.lootGUIDToIgnore = { -- List of GUIDs we shouldn't register loot from
+		["317400"] = true, -- Opulence BoD (trash piles)
+	}
+
+	-- List of item classes all auto looting should ignore
+	-- see https://wow.gamepedia.com/ItemType
+	self.blacklistedItemClasses = {
+		[0] = { -- Consumables
+			all = true
+		},
+		[5] = { -- Reagents
+			all = true
+		},
+		[7] = { -- Tradeskills
+			all = true
+		},
+		[12] = { -- Quest
+			all = true
+		},
+		[15] = { -- Misc
+			[1] = true, -- Reagent
+		}
 	}
 
 
@@ -448,9 +473,10 @@ function RCLootCouncil:OnEnable()
 	-- in the :CreateFrame() all :Prints as expected :o
 	self:ActivateSkin(db.currentSkin)
 
-	if self.db.global.version and self:VersionCompare(self.db.global.version, "2.10.0") then --self.version) then -- We've upgraded
-		self.db.global.verTestCandidates = {} -- Reset due to new structure
+	if self.db.global.version then
+		self.Compat:Run() -- Do compatibility changes
 	end
+
 	self.db.global.oldVersion = self.db.global.version
 	self.db.global.version = self.version
 
@@ -686,23 +712,18 @@ end
 -- Update the recentTradableItem by link, if it is in bag and tradable.
 function RCLootCouncil:UpdateAndSendRecentTradableItem(info, count)
 	local found = false
-	for i = 0, _G.NUM_BAG_SLOTS do
-		for j = 1, GetContainerNumSlots(i) do
-			local _, _, _, _, _, _, link2 = GetContainerItemInfo(i, j)
-			if link2 and self:ItemIsItem(info.link, link2) then
-				found = true -- We found something, might be an old copy of the item, continue searching.
-				if self:GetContainerItemTradeTimeRemaining(i, j) > 0 then
-					if self.mldb.rejectTrade then
-						LibDialog:Spawn("RCLOOTCOUNCIL_KEEP_ITEM", info.link)
-						return
-					end
-					self:SendCommand("group", "tradable", info.link, info.guid)
-					return
-				end
+	local Item = self.ItemStorage:New(info.link, "temp")
+	if Item.inBags then
+		Item:Store()
+		found = true
+		if Item.time_remaining > 0 then
+			if self.mldb.rejectTrade then
+				LibDialog:Spawn("RCLOOTCOUNCIL_KEEP_ITEM", info.link)
+				return
 			end
+			self:SendCommand("group", "tradable", info.link, info.guid)
+			return
 		end
-	end
-	if found then
 		-- We've searched every single bag space, and found at least 1 item that wasn't tradeable,
 		-- and none that was. We can now safely assume the item can't be traded.
 		return self:SendCommand("group", "not_tradeable", info.link, info.guid)
@@ -712,6 +733,7 @@ function RCLootCouncil:UpdateAndSendRecentTradableItem(info, count)
 		self:Debug("UpdateAndSendRecentTradableItem: Didn't find item on try ", count or 1)
 		return self:ScheduleTimer("UpdateAndSendRecentTradableItem",1,info, count and count + 1 or 2)
 	end
+	Item:Unstore()
 	self:Debug("Error - UpdateAndSendRecentTradableItem",info.link, "not found in bags")
 end
 
@@ -1046,6 +1068,7 @@ function RCLootCouncil:OnCommReceived(prefix, serializedMsg, distri, sender)
 			elseif command == "looted" then
 				local guid = unpack(data)
 				if not guid then return self:Debug("no guid in looted comm", guid, sender) end
+				if self.lootGUIDToIgnore[guid] then return end
 				if not self.lootStatus[guid] then self.lootStatus[guid] = {candidates = {}, num = 0} end
 				self.lootStatus[guid].num = self.lootStatus[guid].num + 1
 				self.lootStatus[guid].candidates[self:UnitName(sender)] = {status = "looted"}
@@ -1054,6 +1077,7 @@ function RCLootCouncil:OnCommReceived(prefix, serializedMsg, distri, sender)
 			elseif command == "fakeLoot" or command == "fullbags" then
 				local link, guid = unpack(data)
 				if not guid then return self:Debug(format("no guid in %s comm", command), guid, sender) end
+				if self.lootGUIDToIgnore[guid] then return end
 				if not self.lootStatus[guid] then self.lootStatus[guid] = {candidates = {}, num = 0} end
 				self.lootStatus[guid].num = self.lootStatus[guid].num + 1
 				self.lootStatus[guid].candidates[self:UnitName(sender)] = {status = command, item = link}
@@ -1522,11 +1546,11 @@ function RCLootCouncil:GetIlvlDifference(item, g1, g2)
 	if equipLoc == "INVTYPE_TRINKET" or equipLoc == "INVTYPE_FINGER" then
 		local id = self.Utils:GetItemIDFromLink(link)
 		if id == self.Utils:GetItemIDFromLink(g1) then -- compare with it
-			ilvl2 = select(4, GetItemInfo(g1))
+			local ilvl2 = select(4, GetItemInfo(g1))
 			return ilvl - ilvl2
 
 		elseif g2 and id == self.Utils:GetItemIDFromLink(g2) then
-			ilvl2 = select(4, GetItemInfo(g2))
+			local ilvl2 = select(4, GetItemInfo(g2))
 			return ilvl - ilvl2
 		end
 		-- We haven't equipped this item, do it normally
@@ -1909,7 +1933,7 @@ function RCLootCouncil:GetLootStatusData ()
 	-- Find out which guid we're working with
 	local id, max = 0, 0
 	for k,v in pairs(self.lootStatus) do
-		if v.num > max then
+		if v.num and v.num > max then
 			id = k
 			max = v.num
 		end
@@ -1920,7 +1944,12 @@ function RCLootCouncil:GetLootStatusData ()
 	for name in pairs(self.candidates) do
 		i = i + 1
 		if not self.lootStatus[id].candidates[name] then -- Unlooted
-			list[i] = {name = name, text = "|cffffff00"..L["Unlooted"]}
+			-- Check if they got loot, but just haven't responded yet
+			if self.lastEncounterID and self.lootStatus[self.lastEncounterID] and self.lootStatus[self.lastEncounterID][name] then
+				list[i] = {name = name, text = self.lootStatus[self.lastEncounterID][name] .. "|cffffff00"..L["Not Found"]}
+			else
+				list[i] = {name = name, text = "|cffffff00"..L["Unlooted"]}
+			end
 			unlooted = unlooted + 1
 		elseif self.lootStatus[id].candidates[name].status == "looted" then -- They have looted
 			list[i] = {name = name, text = "|cff00ff00 " .. L["Looted"]}
@@ -1987,7 +2016,7 @@ function RCLootCouncil:OnEvent(event, ...)
 		end
 	elseif event == "ENCOUNTER_END" then
 		self:DebugLog("Event:", event, ...)
-		self.bossName = select(2, ...) -- Extract encounter name
+		self.lastEncounterID, self.bossName = ... -- Extract encounter name and ID
 		wipe(self.nonTradeables)
 
 	elseif event == "LOOT_CLOSED" then
@@ -2032,9 +2061,12 @@ function RCLootCouncil:OnEvent(event, ...)
 		end
 	elseif event == "ENCOUNTER_LOOT_RECEIVED" then
 		self:Debug("Event:", event, ...)
-		-- if self:UnitIsUnit("player", select(5, ...)) then
-		-- 	self:ScheduleTimer("UpdateAndSendRecentTradableItem", 2, select(3,...))
-		-- end
+		local encounterID, itemID, itemLink, quantity, playerName, className = ...
+		if not self.lootStatus[encounterID] then self.lootStatus[encounterID] = {} end
+		local name = self:UnitName(playerName)
+		playerName = name or playerName -- Expect us to get something back from UnitName
+		self.lootStatus[encounterID][playerName] = itemLink
+
 
 	elseif event == "LOOT_READY" then
 		self:Debug("Event:", event, ...)
@@ -2044,21 +2076,21 @@ function RCLootCouncil:OnEvent(event, ...)
 		self.lootOpen = true
 		for i = 1,  GetNumLootItems() do
 			if LootSlotHasItem(i) then
-				local texture, name, quantity, _, quality, _, isQuestItem = GetLootSlotInfo(i)
+				local texture, name, quantity, currencyID, quality, _, isQuestItem = GetLootSlotInfo(i)
+				local guid = self.Utils:ExtractCreatureID((GetLootSourceInfo(i)))
+				if guid and self.lootGUIDToIgnore[guid] then return self:Debug("Ignoring loot from ignored source", guid) end
 				if texture then
 					local link = GetLootSlotLink(i)
-					local isCraftingReagent
-					if link then  -- Link is not present on coins
-						 isCraftingReagent = select(17, GetItemInfo(link))
-					end
-					if not (isQuestItem or isCraftingReagent) then -- Ignore quest and crafting items
-						self:Debug("Adding to self.lootSlotInfo",i,link, quality, GetLootSourceInfo(i))
+					if currencyID then
+						self:DebugLog("Ignoring", link, "as it's a currency")
+					elseif not self.Utils:IsItemBlacklisted(link) then
+						self:Debug("Adding to self.lootSlotInfo",i,link, quality,quantity, GetLootSourceInfo(i))
 						self.lootSlotInfo[i] = {
 							name = name,
 							link = link, -- This could be nil, if the item is money.
 							quantity = quantity,
 							quality = quality,
-							guid = self.Utils:ExtractCreatureID((GetLootSourceInfo(i))), -- Boss GUID
+							guid = guid, -- Boss GUID
 							boss = (GetUnitName("target")),
 							autoloot = select(1,...),
 						}
@@ -2095,7 +2127,12 @@ function RCLootCouncil:NewMLCheck()
 	if IsPartyLFG() then return end	-- We can't use in lfg/lfd so don't bother
 	if not self.masterLooter then return end -- Didn't find a leader or ML.
 	if self:UnitIsUnit(old_ml, self.masterLooter) then
-		if old_lm == self.lootMethod then return end -- Both ML and loot method have not changed
+		if old_lm == self.lootMethod then
+			if self.isMasterLooter and not IsInRaid() and db.onlyUseInRaids then -- We might have switched to party
+				if self.handleLoot then self:StopHandleLoot() end
+			end
+			return -- Both ML and loot method have not changed
+		end
 	else
 		-- At this point we know the ML has changed, so we can wipe the council
 		self:Debug("Resetting council as we have a new ML!")
@@ -2360,6 +2397,9 @@ function RCLootCouncil:ItemIsItem(item1, item2)
 	if not (item1 and item2) then return false end -- KeyStones will fail the GetItemStringFromLink
 	local pattern = "item:(%d*):(%d*):(%d*):(%d*):(%d*):(%d*):(%d*):%d*:%d*:%d*"
 	local replacement = "item:%1:%2:%3:%4:%5:%6:%7:::" -- Compare link with uniqueId, linkLevel and SpecID removed
+	--[[ REVIEW The above doesn't take upgradeValues into account.
+		Doing that would require a parsing of the bonusIDs to check the correct positionings.
+	]]
 	return item1:gsub(pattern, replacement) == item2:gsub(pattern, replacement)
 end
 
@@ -2645,7 +2685,7 @@ function RCLootCouncil:CreateFrame(name, cName, title, width, height)
 	   --   edgeFile = AceGUIWidgetLSMlists.border[db.UI.default.border],
 		bgFile = AceGUIWidgetLSMlists.background[db.skins[db.currentSkin].background],
 		edgeFile = AceGUIWidgetLSMlists.border[db.skins[db.currentSkin].border],
-	     tile = true, tileSize = 64, edgeSize = 12,
+	     tile = true, tileSize = 16, edgeSize = 12,
 	     insets = { left = 2, right = 2, top = 2, bottom = 2 }
 	})
 	tf:SetBackdropColor(unpack(db.skins[db.currentSkin].bgColor))
@@ -2684,7 +2724,7 @@ function RCLootCouncil:CreateFrame(name, cName, title, width, height)
   	   --   edgeFile = AceGUIWidgetLSMlists.border[db.UI.default.border],
 		bgFile = AceGUIWidgetLSMlists.background[db.skins[db.currentSkin].background],
 		edgeFile = AceGUIWidgetLSMlists.border[db.skins[db.currentSkin].border],
-	   tile = true, tileSize = 64, edgeSize = 12,
+	   tile = true, tileSize = 255, edgeSize = 16,
 	   insets = { left = 2, right = 2, top = 2, bottom = 2 }
 	})
 	c:EnableMouse(true)

@@ -3,4 +3,5 @@
     <Include file="Libraries.xml" />
     <Include file="Config.xml" />
     <Script file="Main.lua" />
+    <!-- <Include file="ui\RareMapFrame.xml" /> -->
 </Ui>

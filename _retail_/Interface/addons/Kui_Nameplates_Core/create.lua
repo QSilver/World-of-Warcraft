@@ -37,7 +37,6 @@
 -- target glow = -5
 --
 --------------------------------------------------------------------------------
-local folder,ns=...
 local addon = KuiNameplates
 local kui = LibStub('Kui-1.0')
 local LSM = LibStub('LibSharedMedia-3.0')
@@ -142,7 +141,7 @@ do
 
         if spark then
             local texture = bar:GetStatusBarTexture()
-            local spark = bar:CreateTexture(nil,'ARTWORK',nil,spark_level or 7)
+            spark = bar:CreateTexture(nil,'ARTWORK',nil,spark_level or 7)
             spark:SetTexture(KUI_MEDIA..'t/spark')
             spark:SetWidth(12)
 
@@ -292,7 +291,7 @@ do
 
         CASTBAR_DETACH = self.profile.castbar_detach
     end
-    function core:LSMMediaRegistered(msg,mediatype,key)
+    function core:LSMMediaRegistered(_,mediatype,key)
         -- callback registered in config.lua:InitialiseConfig
         if mediatype == LSM.MediaType.STATUSBAR and key == self.profile.bar_texture or
            mediatype == LSM.MediaType.FONT and key == self.profile.font_face
@@ -303,14 +302,14 @@ do
 end
 function core:configChangedTargetArrows()
     if not TARGET_ARROWS then return end
-    for k,f in addon:Frames() do
+    for _,f in addon:Frames() do
         if not f.TargetArrows then
             self:CreateTargetArrows(f)
         end
     end
 end
 function core:configChangedFrameSize()
-    for k,f in addon:Frames() do
+    for _,f in addon:Frames() do
         if f.Auras and f.Auras.frames then
             -- force auras frame size + position update
             if f.Auras.frames.core_dynamic then
@@ -323,7 +322,7 @@ function core:configChangedFrameSize()
     end
 end
 function core:configChangedTextOffset()
-    for k,f in addon:Frames() do
+    for _,f in addon:Frames() do
         f:UpdateNameTextPosition()
         f:UpdateSpellNamePosition()
 
@@ -339,7 +338,7 @@ function core:configChangedTextOffset()
 end
 function core:configChangedFontOption()
     -- update font objects
-    for i,f in addon:Frames() do
+    for _,f in addon:Frames() do
         UpdateFontObject(f.NameText)
         UpdateFontObject(f.GuildText)
         UpdateFontObject(f.SpellName)
@@ -366,7 +365,7 @@ do
         end
     end
     function core:configChangedBarTexture()
-        for i,f in addon:Frames() do
+        for _,f in addon:Frames() do
             UpdateStatusBar(f.CastBar)
             UpdateStatusBar(f.Highlight)
             UpdateStatusBar(f.HealthBar)
@@ -384,7 +383,7 @@ do
     end
 end
 function core:SetBarAnimation()
-    for i,f in addon:Frames() do
+    for _,f in addon:Frames() do
         f.handler:SetBarAnimation(f.HealthBar,BAR_ANIMATION)
         f.handler:SetBarAnimation(f.PowerBar,BAR_ANIMATION)
 
@@ -538,7 +537,7 @@ do
         ABSORB_COLOUR = self.profile.colour_absorb
 
         if ABSORB_ENABLE then
-            for k,f in addon:Frames() do
+            for _,f in addon:Frames() do
                 if not f.AbsorbBar then
                     self:CreateAbsorbBar(f)
                 else
@@ -900,7 +899,7 @@ do
     end
     function glow_prototype:SetSize(size)
         if not tonumber(size) then return end
-        for i,side in ipairs(self.sides) do
+        for _,side in ipairs(self.sides) do
             side:SetSize(size,size)
         end
     end
@@ -1326,8 +1325,7 @@ do
             f.CastBar:SetPoint('TOPLEFT',f.CastBar.bg,1,-1)
             f.CastBar:SetPoint('BOTTOMRIGHT',f.CastBar.bg,-1,1)
 
-            if f.SpellIcon then
-                -- (spell icon must have a .bg when detach is disabled)
+            if CASTBAR_SHOW_ICON and f.SpellIcon then
                 f.SpellIcon:ClearAllPoints()
                 f.SpellIcon.bg:ClearAllPoints()
 
@@ -1508,7 +1506,7 @@ do
         CASTBAR_RATIO = (1-(CASTBAR_DETACH_HEIGHT/CASTBAR_DETACH_WIDTH))/2
         CASTBAR_ICON_SIDE = self.profile.castbar_icon_side
 
-        for k,f in addon:Frames() do
+        for _,f in addon:Frames() do
             CreateOptionalElementsMaybe(f)
 
             if f.SpellShield then
@@ -1521,9 +1519,11 @@ do
             end
 
             if f.SpellIcon then
+                -- determine spell icon visibility...
                 if CASTBAR_SHOW_ICON then
                     f.SpellIcon:Show()
 
+                    -- determine icon background visibility...
                     if f.SpellIcon.bg then
                         if CASTBAR_DETACH then
                             f.SpellIcon.bg:Hide()
@@ -1532,6 +1532,7 @@ do
                         end
                     end
                 else
+                    -- hide icon and background
                     f.SpellIcon:Hide()
 
                     if f.SpellIcon.bg then
@@ -1555,7 +1556,7 @@ do
         SHOW_STATE_ICONS = self.profile.state_icons
         ICON_SIZE = Scale(20)
 
-        for k,f in addon:Frames() do
+        for _,f in addon:Frames() do
             f:UpdateStateIconSize()
         end
     end
@@ -1628,7 +1629,7 @@ do
           AURAS_ENABLED,AURAS_SHOW_ALL_SELF,AURAS_HIDE_ALL_OTHER,
           AURAS_PURGE_SIZE,AURAS_SHOW_PURGE,AURAS_SIDE,AURAS_OFFSET,
           AURAS_POINT_S,AURAS_POINT_R,PURGE_POINT_S,PURGE_POINT_R,
-          PURGE_OFFSET,AURAS_Y_SPACING,AURAS_TIMER_THRESHOLD,
+          PURGE_OFFSET,AURAS_TIMER_THRESHOLD,
           AURAS_PURGE_OPPOSITE,AURAS_HIGHLIGHT_OTHER,
           AURAS_CD_SIZE,AURAS_COUNT_SIZE,AURAS_PER_ROW,
           AURAS_PULSATE,AURAS_ICON_SQUARENESS,AURAS_SORT
@@ -1831,7 +1832,7 @@ do
             )
         end
     end
-    function core.Auras_DisplayAura(frame,spellid,name,duration,caster,own,can_purge,nps_own,nps_all)
+    function core.Auras_DisplayAura(frame,spellid,name,duration,_,own,_,nps_own,nps_all)
         if not frame.__core then return end
         if frame.purge then
             -- force hide if excluded by spell list
@@ -1956,7 +1957,7 @@ do
         end
 
         -- update config values within aura frames;
-        for k,f in addon:Frames() do
+        for _,f in addon:Frames() do
             if f.Auras and f.Auras.frames then
                 local cd = f.Auras.frames.core_dynamic
                 local cp = f.Auras.frames.core_purge
@@ -2053,29 +2054,29 @@ do
     local tb_prototype = {}
     tb_prototype.__index = tb_prototype
     function tb_prototype:SetVertexColor(...)
-        for k,v in ipairs(self.textures) do
+        for _,v in ipairs(self.textures) do
             v:SetVertexColor(...)
             v:SetAlpha(.8)
         end
     end
     function tb_prototype:Show(...)
-        for k,v in ipairs(self.textures) do
+        for _,v in ipairs(self.textures) do
             v:Show(...)
         end
     end
     function tb_prototype:Hide(...)
-        for k,v in ipairs(self.textures) do
+        for _,v in ipairs(self.textures) do
             v:Hide(...)
         end
     end
     function tb_prototype:SetSize(size)
-        for k,v in ipairs(self.textures) do
+        for _,v in ipairs(self.textures) do
             v:SetSize(size,size)
         end
     end
     -- update
     local function UpdateThreatBrackets(f)
-        if not core.profile.threat_brackets or f.IN_NAMEONLY then
+        if not THREAT_BRACKETS or f.IN_NAMEONLY then
             f.ThreatBrackets:Hide()
             return
         end
@@ -2175,7 +2176,7 @@ do
         NAMEONLY_COMBAT_FRIENDLY = self.profile.nameonly_combat_friends
 
         -- create target/threat glow
-        for k,f in addon:Frames() do
+        for _,f in addon:Frames() do
             self:CreateNameOnlyGlow(f)
         end
     end

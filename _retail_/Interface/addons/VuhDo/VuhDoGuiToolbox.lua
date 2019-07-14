@@ -290,9 +290,8 @@ end
 
 
 -- Liefert sicheren Fontnamen. Falls in LSM nicht (mehr) vorhanden oder
--- in asiatischem Land den Standard-Font zur�ckliefern. Genauso wenn als Argument nil geliefert wurde
 function VUHDO_getFont(aFont)
-	if (aFont or "") ~= "" and sIsNotInChina then
+	if (aFont or "") ~= "" then
 		for _, tFontInfo in pairs(VUHDO_FONTS) do
 			if aFont == tFontInfo[1] then return aFont; end
 		end
@@ -324,6 +323,7 @@ local VUHDO_BLIZZ_EVENTS = {
 	"PLAYER_FOCUS_CHANGED",
 	"PLAYER_LOGIN",
 	"PLAYER_ROLES_ASSIGNED",
+	"PLAYER_SPECIALIZATION_CHANGED", 
 	"PLAYER_TARGET_CHANGED",
 	"PLAYER_UPDATE_RESTING",
 	"PLAYTIME_CHANGED",

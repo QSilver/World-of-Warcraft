@@ -1,3 +1,4 @@
+-- luacheck: globals SLASH_KUINAMEPLATES_LOD1 SLASH_KUINAMEPLATES_LOD2
 --------------------------------------------------------------------------------
 -- Kui Nameplates
 -- By Kesava at curse.com
@@ -5,9 +6,7 @@
 --------------------------------------------------------------------------------
 -- handle messages, events, initialise
 --------------------------------------------------------------------------------
-local folder,ns=...
 local addon = KuiNameplates
-local kui = LibStub('Kui-1.0')
 
 KuiNameplatesCore = addon:Layout()
 local core = KuiNameplatesCore
@@ -167,7 +166,7 @@ function core:QUEST_POI_UPDATE()
         end
     end
 end
-function core:UNIT_NAME_UPDATE(event,f)
+function core:UNIT_NAME_UPDATE(_,f)
     -- update name text colour
     f:UpdateNameText()
 end

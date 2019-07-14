@@ -562,3 +562,5 @@ QE-DungeonTips: disabled
 BigWigs_Azeroth: enabled
 BigWigs_BattleOfDazaralor: enabled
 BigWigs_CrucibleOfStorms: enabled
+WeakAurasCompanion: enabled
+BigWigs_EternalPalace: enabled

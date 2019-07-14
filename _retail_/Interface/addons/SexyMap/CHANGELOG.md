@@ -1,6 +1,7 @@
 # SexyMap
 
-## [v8.1.1](https://github.com/funkydude/SexyMap/tree/v8.1.1) (2019-03-24)
-[Full Changelog](https://github.com/funkydude/SexyMap/compare/v8.1.0...v8.1.1)
+## [v8.2.0](https://github.com/funkydude/SexyMap/tree/v8.2.0) (2019-06-26)
+[Full Changelog](https://github.com/funkydude/SexyMap/compare/v8.1.5...v8.2.0)
 
-- Just delete the bindings file, closes #51  
+- Remove temporary chat print, should no longer be needed thanks to all the upgrade code. Closes #58  
+- bump toc  

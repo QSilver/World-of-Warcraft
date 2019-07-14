@@ -46,6 +46,8 @@ Quartz3DB = {
 				},
 			},
 		},
+		["EnemyCasts"] = {
+		},
 		["Player"] = {
 			["profiles"] = {
 				["Default"] = {
@@ -65,8 +67,6 @@ Quartz3DB = {
 					["x"] = 843.889221191406,
 				},
 			},
-		},
-		["EnemyCasts"] = {
 		},
 		["GCD"] = {
 		},
@@ -95,9 +95,9 @@ Quartz3DB = {
 				},
 			},
 		},
-		["Mirror"] = {
-		},
 		["Range"] = {
+		},
+		["Mirror"] = {
 		},
 		["Latency"] = {
 			["profiles"] = {
@@ -111,19 +111,19 @@ Quartz3DB = {
 		},
 	},
 	["profileKeys"] = {
-		["Alyara - Silvermoon"] = "Default",
 		["Linela - Silvermoon"] = "Default",
+		["Alyara - Silvermoon"] = "Default",
+		["Simroth - Silvermoon"] = "Default",
 		["Flaville - Silvermoon"] = "Default",
-		["Erdanii - Silvermoon"] = "Default",
-		["Tenderbreeze - Silvermoon"] = "Default",
+		["Siluna - Silvermoon"] = "Myvanna - Silvermoon",
 		["Stephanna - Argent Dawn"] = "Default",
 		["Thagmarr - Silvermoon"] = "Default",
-		["Kjerstina - Silvermoon"] = "Default",
-		["Lachrymas - Silvermoon"] = "Default",
-		["Myvanna - Silvermoon"] = "Myvanna - Silvermoon",
 		["Spinhoof - Ragnaros"] = "Default",
-		["Siluna - Silvermoon"] = "Myvanna - Silvermoon",
-		["Simroth - Silvermoon"] = "Default",
+		["Lachrymas - Silvermoon"] = "Default",
+		["Tenderbreeze - Silvermoon"] = "Default",
+		["Kjerstina - Silvermoon"] = "Default",
+		["Myvanna - Silvermoon"] = "Myvanna - Silvermoon",
+		["Erdanii - Silvermoon"] = "Default",
 		["Qsilver - Silvermoon"] = "Default",
 	},
 	["profiles"] = {
@@ -135,8 +135,8 @@ Quartz3DB = {
 				["GCD"] = false,
 				["Focus"] = false,
 				["Timer"] = false,
-				["Mirror"] = false,
 				["Target"] = false,
+				["Mirror"] = false,
 				["Latency"] = false,
 			},
 		},
@@ -148,8 +148,8 @@ Quartz3DB = {
 				["GCD"] = false,
 				["Focus"] = false,
 				["Target"] = false,
-				["Timer"] = false,
 				["Mirror"] = false,
+				["Timer"] = false,
 				["Latency"] = false,
 			},
 		},

@@ -32,18 +32,49 @@ local default = {
   columnSpace = 1
 }
 
+local controlPointFunctions = {
+  ["SetAnchorPoint"] = function(self, point, relativeFrame, relativePoint, offsetX, offsetY)
+    self.point, self.relativeFrame, self.relativePoint, self.offsetX, self.offsetY = point, relativeFrame, relativePoint, offsetX, offsetY
+    self.totalOffsetX = (self.animOffsetX or 0) + (self.offsetX or 0)
+    self.totalOffsetY = (self.animOffsetY or 0) + (self.offsetY or 0)
+    if self.relativeFrame and self.relativePoint then
+      self:SetPoint(self.point, self.relativeFrame, self.relativePoint, self.totalOffsetX, self.totalOffsetY)
+    else
+      self:SetPoint(self.point, self.totalOffsetX, self.totalOffsetY)
+    end
+  end,
+  ["ClearAnchorPoint"] = function(self)
+    self.point, self.relativeFrame, self.relativePoint, self.offsetX, self.offsetY = nil, nil, nil, nil, nil
+    self:ClearAllPoints();
+  end,
+  ["SetOffsetAnim"] = function(self, x, y)
+    self.animOffsetX, self.animOffsetY = x, y
+    self.totalOffsetX = (self.animOffsetX or 0) + (self.offsetX or 0)
+    self.totalOffsetY = (self.animOffsetY or 0) + (self.offsetY or 0)
+    if not self.point then
+      -- Nothing to do
+    elseif self.relativeFrame and self.relativePoint then
+      self:SetPoint(self.point, self.relativeFrame, self.relativePoint, self.totalOffsetX, self.totalOffsetY)
+    else
+      self:SetPoint(self.point, self.totalOffsetX, self.totalOffsetY)
+    end
+  end
+}
+
 local function createControlPoint(self)
   local controlPoint = CreateFrame("FRAME", nil, self.parent)
+  Mixin(controlPoint, controlPointFunctions)
+
   controlPoint:SetWidth(16)
   controlPoint:SetHeight(16)
   controlPoint:Show()
-  controlPoint:SetPoint(self.parent.selfPoint)
+  controlPoint:SetAnchorPoint(self.parent.selfPoint)
   return controlPoint
 end
 
 local function releaseControlPoint(self, controlPoint)
   controlPoint:Hide()
-  controlPoint:ClearAllPoints()
+  controlPoint:ClearAnchorPoint()
   local regionData = controlPoint.regionData
   if regionData then
     controlPoint.regionData = nil
@@ -86,6 +117,7 @@ local function expirationTime(regionData)
   end
   return nil
 end
+WeakAuras.ExpirationTime = expirationTime
 
 local function compareExpirationTimes(regionDataA, regionDataB)
   local aExpires = expirationTime(regionDataA)
@@ -105,6 +137,7 @@ local function compareExpirationTimes(regionDataA, regionDataB)
   end
 
 end
+WeakAuras.CompareExpirationTimes = compareExpirationTimes
 
 local function noop() end
 
@@ -192,7 +225,7 @@ local sorters = {
     end
   end,
   custom = function(data)
-    local sortStr = data.sort or ""
+    local sortStr = data.customSort or ""
     local sortFunc = WeakAuras.LoadFunction("return " .. sortStr, data.id, "custom sort") or noop
     return function(a, b)
       WeakAuras.ActivateAuraEnvironment(data.id)
@@ -204,6 +237,7 @@ local sorters = {
     end
   end
 }
+WeakAuras.SortFunctions = sorters
 
 local function createSortFunc(data)
   local sorter = sorters[data.sort] or sorters.none
@@ -500,10 +534,21 @@ local growers = {
     end
   end
 }
+WeakAuras.GrowFunctions = growers
 
 local function createGrowFunc(data)
   local grower = growers[data.grow] or growers.DOWN
   return grower(data)
+end
+
+local nullErrorHandler = function()
+end
+
+local function SafeGetPos(region, func)
+  local ok, value1, value2 = xpcall(func, nullErrorHandler, region)
+  if ok then
+    return value1, value2
+  end
 end
 
 local function modify(parent, region, data)
@@ -750,10 +795,14 @@ local function modify(parent, region, data)
     -- Positioning is based on grow information from the data
     if not self:IsSuspended() then
       self.needToPosition = false
-      if animate then
-        WeakAuras.RegisterGroupForPositioning(data.id, self)
+      if #self.sortedChildren > 0 then
+        if animate then
+          WeakAuras.RegisterGroupForPositioning(data.id, self)
+        else
+          self:DoPositionChildren()
+        end
       else
-        self:DoPositionChildren()
+        self:Resize()
       end
     else
       self.needToPosition = true
@@ -778,13 +827,13 @@ local function modify(parent, region, data)
                       false
       end
       local controlPoint = regionData.controlPoint
-      controlPoint:ClearAllPoints()
-      controlPoint:SetPoint(data.selfPoint, self, data.selfPoint, x, y)
+      controlPoint:ClearAnchorPoint()
+      controlPoint:SetAnchorPoint(data.selfPoint, self, data.selfPoint, x, y)
       controlPoint:SetShown(show)
       controlPoint:SetWidth(regionData.data.width or regionData.region.width)
       controlPoint:SetHeight(regionData.data.height or regionData.region.height)
       if animate then
-        WeakAuras.CancelAnimation(regionData.controlPoint)
+        WeakAuras.CancelAnimation(regionData.controlPoint, true)
         local xPrev = regionData.xOffset or x
         local yPrev = regionData.yOffset or y
         local xDelta = xPrev - x
@@ -801,9 +850,10 @@ local function modify(parent, region, data)
               local translateFunc = [[
                                 function(progress, _, _, previousAngle, dAngle)
                                     local previousRadius, dRadius = %f, %f;
+                                    local targetX, targetY = %f, %f
                                     local radius = previousRadius + (1 - progress) * dRadius;
                                     local angle = previousAngle + (1 - progress) * dAngle;
-                                    return cos(angle) * radius, sin(angle) * radius;
+                                    return cos(angle) * radius - targetX, sin(angle) * radius - targetY;
                                 end
                             ]]
               anim = {
@@ -811,7 +861,7 @@ local function modify(parent, region, data)
                 duration = 0.2,
                 use_translate = true,
                 translateType = "custom",
-                translateFunc = translateFunc:format(radius1, radius2 - radius1),
+                translateFunc = translateFunc:format(radius1, radius2 - radius1, x, y),
                 x = previousAngle,
                 y = dAngle,
                 selfPoint = data.selfPoint,
@@ -822,8 +872,9 @@ local function modify(parent, region, data)
               local translateFunc = [[
                                 function(progress, _, _, previousAngle, dAngle)
                                     local radius = %f;
+                                    local targetX, targetY = %f, %f
                                     local angle = previousAngle + (1 - progress) * dAngle;
-                                    return cos(angle) * radius, sin(angle) * radius;
+                                    return cos(angle) * radius - targetX, sin(angle) * radius - targetY;
                                 end
                             ]]
               anim = {
@@ -831,7 +882,7 @@ local function modify(parent, region, data)
                 duration = 0.2,
                 use_translate = true,
                 translateType = "custom",
-                translateFunc = translateFunc:format(radius1),
+                translateFunc = translateFunc:format(radius1, x, y),
                 x = previousAngle,
                 y = dAngle,
                 selfPoint = data.selfPoint,
@@ -865,6 +916,7 @@ local function modify(parent, region, data)
     self:Resize()
   end
 
+
   function region:Resize()
     -- Resizes the dynamic group, for background and border purposes
     if not self:IsSuspended() then
@@ -876,7 +928,10 @@ local function modify(parent, region, data)
         if regionData.shown then
           numVisible = numVisible + 1
           local childRegion = regionData.region
-          local regionLeft, regionRight, regionTop, regionBottom = childRegion:GetLeft(), childRegion:GetRight(), childRegion:GetTop(), childRegion:GetBottom()
+          local regionLeft, regionRight, regionTop, regionBottom
+             = SafeGetPos(childRegion, childRegion.GetLeft), SafeGetPos(childRegion, childRegion.GetRight),
+               SafeGetPos(childRegion, childRegion.GetTop), SafeGetPos(childRegion, childRegion.GetBottom)
+
           if(regionLeft and regionRight and regionTop and regionBottom) then
             minX = minX and min(regionLeft, minX) or regionLeft
             maxX = maxX and max(regionRight, maxX) or regionRight
@@ -890,7 +945,7 @@ local function modify(parent, region, data)
         self:Show()
         minX, maxX, minY, maxY = (minX or 0), (maxX or 0), (minY or 0), (maxY or 0)
         if(data.grow == "CIRCLE" or data.grow == "COUNTERCIRCLE") then
-          local originX, originY = region:GetCenter()
+          local originX, originY = SafeGetPos(region, region.GetCenter)
           originX = originX or 0
           originY = originY or 0
           if(originX - minX > maxX - originX) then

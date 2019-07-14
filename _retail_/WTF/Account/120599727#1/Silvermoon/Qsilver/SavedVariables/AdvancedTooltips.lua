@@ -1,7 +1,7 @@
 
 AdvancedTooltips_Config = {
-	["B"] = 0.7,
+	["R"] = 0,
 	["stats"] = true,
 	["G"] = 0.7,
-	["R"] = 0,
+	["B"] = 0.7,
 }
