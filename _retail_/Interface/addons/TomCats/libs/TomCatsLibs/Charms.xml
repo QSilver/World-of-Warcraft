@@ -107,6 +107,12 @@
                     </Anchors>
                     <Color r="1" g="1" b="1" a="0.6" />
                 </Texture>
+                <Texture parentKey="shadow" file="Interface\Addons\TomCats\images\SidePanelButtonShadow" hidden="true" alpha="0.6">
+                    <Size x="56" y="56" />
+                    <Anchors>
+                        <Anchor point="RIGHT" x="3" y="-2"/>
+                    </Anchors>
+                </Texture>
             </Layer>
             <Layer level="ARTWORK">
                 <Texture parentKey="LoopingGlow" hidden="true" alpha="0" alphaMode="ADD" atlas="GarrLanding-CircleGlow" useAtlasSize="true">
@@ -168,22 +174,22 @@
         </Layers>
         <Scripts>
             <OnLoad>
-                    self:RegisterForDrag("LeftButton")
+<!--                    self:RegisterForDrag("LeftButton")-->
                     local name = self:GetName()
-                    local isDragging = false
-                    local tooltipIsShowing = false
-                    local Ax, Ay, scale, top, right
-                    local r = 80
+<!--                    local isDragging = false-->
+<!--                    local tooltipIsShowing = false-->
+<!--                    local Ax, Ay, scale, top, right-->
+<!--                    local r = 80-->
                     local preferences = {}
                     local handlers = {}
-                    local shape = GetMinimapShape and GetMinimapShape() or "ROUND"
+<!--                    local shape = GetMinimapShape and GetMinimapShape() or "ROUND"-->
 
-                    local function RefreshMeasurements()
-                        Ax, Ay = Minimap:GetCenter()
-                        scale = self:GetEffectiveScale()
-                        right = UIParent:GetRight()
-                        top = UIParent:GetTop()
-                    end
+<!--                    local function RefreshMeasurements()-->
+<!--                        Ax, Ay = Minimap:GetCenter()-->
+<!--                        scale = self:GetEffectiveScale()-->
+<!--                        right = UIParent:GetRight()-->
+<!--                        top = UIParent:GetTop()-->
+<!--                    end-->
 
                     local function ButtonDown()
                         _G[name .. "Icon"]:SetPoint("TOPLEFT", self, "TOPLEFT", 8, -8);
@@ -205,71 +211,71 @@
 
                     local function OnClick()
                         if (handlers.OnClick) then
-                            handlers.OnClick()
+                            handlers.OnClick(self)
                         end
                     end
 
-                    local function UpdatePosition()
-                        local rad = preferences.position
-                        if (GetMinimapShape and GetMinimapShape() == "SQUARE") then
-                            local x, y = math.cos(rad), math.sin(rad)
-                            local h = 113.14
-                            x = math.max(-80, math.min(x * h, 80))
-                            y = math.max(-80, math.min(y * h, 80))
-                            self:SetPoint("CENTER", Minimap, "CENTER", x, y)
-                        else
-                            local Cx = r * math.cos(rad)
-                            local Cy = r * math.sin(rad)
-                            self:SetPoint("CENTER", Minimap, "CENTER", Cx, Cy)
-                        end
-                        local buttonRight = self:GetRight()
-                        if (buttonRight > right) then
-                            local point = { self:GetPoint() }
-                            local adj = (buttonRight - right) * scale
-                            point[4] = point[4] - adj
-                            self:SetPoint(unpack(point))
-                        end
-                        local buttonTop = self:GetTop()
-                        if (buttonTop > top) then
-                            local point = { self:GetPoint() }
-                            local adj = (buttonTop - top) * scale
-                            point[5] = point[5] - adj
-                            self:SetPoint(unpack(point))
-                        end
-                    end
+<!--                    local function UpdatePosition()-->
+<!--                        local rad = preferences.position-->
+<!--                        if (GetMinimapShape and GetMinimapShape() == "SQUARE") then-->
+<!--                            local x, y = math.cos(rad), math.sin(rad)-->
+<!--                            local h = 113.14-->
+<!--                            x = math.max(-80, math.min(x * h, 80))-->
+<!--                            y = math.max(-80, math.min(y * h, 80))-->
+<!--                            self:SetPoint("CENTER", Minimap, "CENTER", x, y)-->
+<!--                        else-->
+<!--                            local Cx = r * math.cos(rad)-->
+<!--                            local Cy = r * math.sin(rad)-->
+<!--                            self:SetPoint("CENTER", Minimap, "CENTER", Cx, Cy)-->
+<!--                        end-->
+<!--                        local buttonRight = self:GetRight()-->
+<!--                        if (buttonRight > right) then-->
+<!--                            local point = { self:GetPoint() }-->
+<!--                            local adj = (buttonRight - right) * scale-->
+<!--                            point[4] = point[4] - adj-->
+<!--                            self:SetPoint(unpack(point))-->
+<!--                        end-->
+<!--                        local buttonTop = self:GetTop()-->
+<!--                        if (buttonTop > top) then-->
+<!--                            local point = { self:GetPoint() }-->
+<!--                            local adj = (buttonTop - top) * scale-->
+<!--                            point[5] = point[5] - adj-->
+<!--                            self:SetPoint(unpack(point))-->
+<!--                        end-->
+<!--                    end-->
 
-                    local function UpdatePositionByCursor()
-                        local Bx, By = GetCursorPosition()
-                        preferences.position = math.atan2((By / scale) - Ay, (Bx / scale) - Ax)
-                        UpdatePosition()
-                    end
+<!--                    local function UpdatePositionByCursor()-->
+<!--                        local Bx, By = GetCursorPosition()-->
+<!--                        preferences.position = math.atan2((By / scale) - Ay, (Bx / scale) - Ax)-->
+<!--                        UpdatePosition()-->
+<!--                    end-->
 
-                    local function OnUpdate()
-                        if (isDragging) then
-                            UpdatePositionByCursor()
-                        else
-                            local newShape = GetMinimapShape and GetMinimapShape() or "ROUND"
-                            if (shape ~= newShape) then
-                                shape = newShape
-                                UpdatePosition()
-                            end
-                        end
-                    end
+<!--                    local function OnUpdate()-->
+<!--                        if (isDragging) then-->
+<!--                            UpdatePositionByCursor()-->
+<!--                        else-->
+<!--                            local newShape = GetMinimapShape and GetMinimapShape() or "ROUND"-->
+<!--                            if (shape ~= newShape) then-->
+<!--                                shape = newShape-->
+<!--                                UpdatePosition()-->
+<!--                            end-->
+<!--                        end-->
+<!--                    end-->
 
-                    local function OnDragStart()
-                        if (tooltipIsShowing) then
-                            self.tooltip:Hide()
-                            tooltipIsShowing = false
-                        end
-                        RefreshMeasurements()
-                        self:ClearAllPoints()
-                        isDragging = true
-                    end
+<!--                    local function OnDragStart()-->
+<!--                        if (tooltipIsShowing) then-->
+<!--                            self.tooltip:Hide()-->
+<!--                            tooltipIsShowing = false-->
+<!--                        end-->
+<!--                        RefreshMeasurements()-->
+<!--                        self:ClearAllPoints()-->
+<!--                        isDragging = true-->
+<!--                    end-->
 
-                    local function OnDragStop()
-                        ButtonUp()
-                        isDragging = false
-                    end
+<!--                    local function OnDragStop()-->
+<!--                        ButtonUp()-->
+<!--                        isDragging = false-->
+<!--                    end-->
 
                     local function OnEnter()
                         if (self.tooltip and (not isDragging)) then
@@ -299,23 +305,23 @@
                             if (savedPreferences.position and type(savedPreferences.position) == "number") then
                                 preferences = savedPreferences
                             end
-                            RefreshMeasurements()
-                            UpdatePosition()
+<!--                            RefreshMeasurements()-->
+<!--                            UpdatePosition()-->
                             if (savedPreferences.hidden) then
                                 self:Hide()
                             end
                         end
                     end
 
-                    function self:SetEnabled(enabled)
-                        if (enabled) then
-                            self:Show()
-                            preferences.hidden = false
-                        else
-                            self:Hide()
-                            preferences.hidden = true
-                        end
-                    end
+<!--                    function self:SetEnabled(enabled)-->
+<!--                        if (enabled) then-->
+<!--                            self:Show()-->
+<!--                            preferences.hidden = false-->
+<!--                        else-->
+<!--                            self:Hide()-->
+<!--                            preferences.hidden = true-->
+<!--                        end-->
+<!--                    end-->
 
                     function self:SetHandler(handlerType, handler)
                         handlers[handlerType] = handler
@@ -324,9 +330,9 @@
                     self:SetScript("OnMouseDown", OnMouseDown)
                     self:SetScript("OnMouseUp", OnMouseUp)
                     self:SetScript("OnClick", OnClick)
-                    self:SetScript("OnDragStart", OnDragStart)
-                    self:SetScript("OnDragStop", OnDragStop)
-                    self:SetScript("OnUpdate", OnUpdate)
+<!--                    self:SetScript("OnDragStart", OnDragStart)-->
+<!--                    self:SetScript("OnDragStop", OnDragStop)-->
+<!--                    self:SetScript("OnUpdate", OnUpdate)-->
                     self:SetScript("OnEnter", OnEnter)
                     self:SetScript("OnLeave", OnLeave)
             </OnLoad>

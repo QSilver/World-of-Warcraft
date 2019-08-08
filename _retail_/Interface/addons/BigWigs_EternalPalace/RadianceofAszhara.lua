@@ -6,7 +6,7 @@ local mod, CL = BigWigs:NewBoss("Radiance of Azshara", 2164, 2353)
 if not mod then return end
 mod:RegisterEnableMob(152364) -- Radiance of Azshara
 mod.engageId = 2305
---mod.respawnTime = 31
+mod.respawnTime = 30
 
 --------------------------------------------------------------------------------
 -- Locals
@@ -14,7 +14,6 @@ mod.engageId = 2305
 
 local stage = 1
 local nextAncientTempest = nil
-local unshackledPowerCount = 1
 
 --------------------------------------------------------------------------------
 -- Initialization
@@ -23,7 +22,8 @@ local unshackledPowerCount = 1
 local arcaneBombMarker = mod:AddMarkerOption(false, "player", 1, 296737, 1, 2, 3, 4) -- Arcane Bomb
 function mod:GetOptions()
 	return {
-		{296546, "TANK"}, -- Tide Fist
+		"berserk",
+		{296566, "TANK"}, -- Tide Fist
 		296428, -- Arcanado Burst
 		296459, -- Squall Trap
 		{296737, "SAY", "SAY_COUNTDOWN"}, -- Arcane Bomb
@@ -38,7 +38,7 @@ function mod:GetOptions()
 end
 
 function mod:OnBossEnable()
-	self:Log("SPELL_CAST_START", "TideFistStart", 296546)
+	self:Log("SPELL_CAST_START", "TideFistStart", 296566)
 	self:Log("SPELL_AURA_APPLIED", "TideFistApplied", 296566)
 	self:RegisterUnitEvent("UNIT_SPELLCAST_SUCCEEDED", nil, "boss1") -- Arcanado Burst, Power Gain (Ancient Tempest Over)
 	self:Log("SPELL_CAST_START", "SquallTrap", 296459)
@@ -51,15 +51,15 @@ end
 
 function mod:OnEngage()
 	stage = 1
-	unshackledPowerCount = 1
-	nextAncientTempest = GetTime() + 96
+	nextAncientTempest = GetTime() + 95.5
 
 	self:CDBar(296428, 6) -- Arcanado Burst
 	self:CDBar(296737, 7) -- Arcane Bomb
 	self:CDBar(296894, 10) -- Unshackled Power
-	self:CDBar(296546, 15) -- Tide Fist
+	self:CDBar(296566, 15) -- Tide Fist
 	self:CDBar(296459, 85) -- Squall Trap
-	self:CDBar(295916, 96) -- Ancient Tempest
+	self:CDBar(295916, 95.5) -- Ancient Tempest
+	self:Berserk(self:Mythic() and 540 or 720)
 end
 
 --------------------------------------------------------------------------------
@@ -69,7 +69,7 @@ end
 function mod:TideFistStart(args)
 	self:Message2(args.spellId, "purple")
 	self:PlaySound(args.spellId, "alarm")
-	local cd = 18
+	local cd = 20
 	local nextAncientTempestCD = nextAncientTempest - GetTime()
 	if nextAncientTempestCD > cd then
 		self:CDBar(args.spellId, cd)
@@ -77,8 +77,8 @@ function mod:TideFistStart(args)
 end
 
 function mod:TideFistApplied(args)
-	self:TargetMessage2(296546, "purple", args.destName)
-	self:PlaySound(296546, "alert", args.destName)
+	self:TargetMessage2(args.spellId, "purple", args.destName)
+	self:PlaySound(args.spellId, "alert", args.destName)
 end
 
 function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
@@ -97,13 +97,12 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 		self:StopBar(296701) -- Gale Buffet
 
 		stage = 1
-		unshackledPowerCount = 1
 		nextAncientTempest = GetTime() + 96
 
 		self:CDBar(296428, 6) -- Arcanado Burst
 		self:CDBar(296737, 7) -- Arcane Bomb
 		self:CDBar(296894, 10) -- Unshackled Power
-		self:CDBar(296546, 15.2) -- Tide Fist
+		self:CDBar(296566, 15.2) -- Tide Fist
 		self:CDBar(296459, 85) -- Squall Trap
 		self:CDBar(295916, 96) -- Ancient Tempest
 	end
@@ -152,8 +151,7 @@ end
 function mod:UnshackledPower(args)
 	self:Message2(args.spellId, "yellow")
 	self:PlaySound(args.spellId, "alert")
-	unshackledPowerCount = unshackledPowerCount + 1
-	local cd = unshackledPowerCount == 3 and 9 or 17
+	local cd = 18
 	local nextAncientTempestCD = nextAncientTempest - GetTime()
 	if nextAncientTempestCD > cd then
 		self:CDBar(args.spellId, cd)
@@ -169,7 +167,7 @@ function mod:AncientTempest(args)
 	self:StopBar(296428) -- Arcanado Burst
 	self:StopBar(296737) -- Arcane Bomb
 	self:StopBar(296894) -- Unshackled Power
-	self:StopBar(296546) -- Tide Fist
+	self:StopBar(296566) -- Tide Fist
 
 	self:CDBar(296737, 7) -- Arcane Bomb
 	self:CDBar(296701, 26) -- Gale Buffet
@@ -178,5 +176,5 @@ end
 function mod:GaleBuffet(args)
 	self:Message2(args.spellId, "orange")
 	self:PlaySound(args.spellId, "warning")
-	self:CDBar(args.spellId, 23)
+	self:CDBar(args.spellId, self:Mythic() and 22.2 or 23)
 end

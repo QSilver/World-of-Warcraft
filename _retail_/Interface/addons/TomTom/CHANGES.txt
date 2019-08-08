@@ -1,10 +1,16 @@
-lightweight tag aab66857d4a7d355631f8252bbcf0ab0ae8dc7b9 v80200-1.0.3
+lightweight tag 4d7570c47bd5515b052ef4ab5b985541c9262d67 v80200-1.0.5
 Author:	Ludovicus <ludovicus.maior@gmail.com>
-Date:	Wed Jul 3 17:36:29 2019 -0400
+Date:	Thu Aug 1 15:23:51 2019 -0400
 
-commit aab66857d4a7d355631f8252bbcf0ab0ae8dc7b9
+commit 4d7570c47bd5515b052ef4ab5b985541c9262d67
 Author: Ludovicus <ludovicus.maior@gmail.com>
-Date:   Wed Jul 3 17:36:29 2019 -0400
+Date:   Thu Aug 1 15:23:51 2019 -0400
 
-    Update to compensate for Outland and Draenor being demoted from Worlds.
+    Update to ACE3 Release r1224
+
+commit c1b2500f756080971750921781a55c973489e511
+Author: Ludovicus <ludovicus.maior@gmail.com>
+Date:   Wed Jul 31 07:06:31 2019 -0400
+
+    Save window positions in profile and do not use layout-local.txt
 

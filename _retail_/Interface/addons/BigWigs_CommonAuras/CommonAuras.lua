@@ -565,11 +565,12 @@ function mod:OnRegister()
 		-- Reaves (Pylon doesn't have a _SUCCESS, so we'll just use _SUMMON for all of them)
 		[200205] = "AutoHammer", -- Auto-Hammer Mode
 		[200211] = "Pylon", -- Failure Detection Mode
-		[200216] = "ReavesFeast", -- Snack Distribution Mode (+225 versatility)
 	}
 	combatLogMap.SPELL_CAST_START = {
-		[201351] = "Feasts", -- Hearty Feast (+400 primary stat)
-		[201352] = "Feasts", -- Lavish Suramar Feast (+500 primary stat)
+		[259409] = "Feasts", -- Galley Banquet (+75 primary stat)
+		[259410] = "Feasts", -- Bountiful Captain's Feast (+100 primary stat)
+		[286050] = "Feasts", -- Sanguinated Feast (+100 primary stat)
+		[297048] = "Feasts", -- Famine Evaluator And Snack Table (+131 primary stat)
 	}
 	combatLogMap.SPELL_CAST_SUCCESS = {
 		-- OOC
@@ -600,6 +601,7 @@ function mod:OnRegister()
 		[264667] = "Bloodlust", -- Hunter pet: Primal Rage
 		[178207] = "Bloodlust", -- Leatherworking: Drums of Fury
 		[230935] = "Bloodlust", -- Leatherworking: Drums of the Mountain
+		[292686] = "Bloodlust", -- Leatherworking: Mallet of Thunderous Skins
 		-- Tank
 		[871] = "ShieldWall",
 		[12975] = "LastStand",
@@ -674,9 +676,7 @@ function mod:OnRegister()
 		[20484] = "Rebirth", -- Rebirth
 		[95750] = "Rebirth", -- Soulstone Resurrection
 		[61999] = "Rebirth", -- Raise Ally
-		[126393] = "Rebirth", -- Eternal Guardian (Hunter pet)
-		[159931] = "Rebirth", -- Gift of Chi-Ji (Hunter pet)
-		[159956] = "Rebirth", -- Dust of Life (Hunter pet)
+		[265116] = "Rebirth", -- Unstable Temporal Time Shifter (Engineer)
 	}
 end
 
@@ -831,11 +831,6 @@ do
 	local feast = GetSpellInfo(66477)
 	function mod:Feasts(_, spellId, nick, spellName)
 		message("feast", L.feast_cast:format(nick, spellName), nil, spellId)
-		bar("feast", 180, nick, feast, spellId)
-	end
-
-	function mod:ReavesFeast(_, spellId, nick, spellName)
-		message("feast", L.used_cast:format(nick, spellName), nil, spellId)
 		bar("feast", 180, nick, feast, spellId)
 	end
 end

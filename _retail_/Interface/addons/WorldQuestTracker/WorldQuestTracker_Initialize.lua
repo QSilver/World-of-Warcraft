@@ -138,6 +138,8 @@ do
 			
 			disable_world_map_widgets = false,
 			
+			show_emissary_info = true,
+			
 			worldmap_widgets = {
 				textsize = 9,
 				scale = 1,
@@ -155,7 +157,7 @@ do
 			anchor_options = {}, --store the anchor options of each anchor
 			
 			filter_always_show_faction_objectives = true,
-			filter_force_show_brokenshore = false, --deprecated at this point, but won't be removed since further expantion might need this back
+			filter_force_show_brokenshore = true, --deprecated at this point, but won't be removed since further expantion might need this back
 			sort_time_priority = 0,
 			force_sort_by_timeleft = false,
 			alpha_time_priority = false,

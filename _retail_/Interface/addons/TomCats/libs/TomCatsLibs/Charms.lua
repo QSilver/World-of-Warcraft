@@ -1,7 +1,5 @@
 local addon = select(2,...)
---noinspection UnusedDef
 local TCL = addon.TomCatsLibs
-local cursorStartX, cursorStartY
 local seqNum = 1;
 local handleSlideBar, handleSexyMap
 

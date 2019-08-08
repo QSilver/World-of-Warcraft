@@ -1,13 +1,7 @@
-changeset:   65:a71fe28a29e3
-tag:         v8.2.0.065
+changeset:   67:11f105be09e2
+tag:         v8.2.0.067
 user:        Tercioo
-date:        Fri Jun 28 19:51:15 2019 -0300
-summary:     - ToC Update for Patch 8.2
-
-
-changeset:   64:6f6c7ebda5f7
-user:        Tercioo
-date:        Thu Apr 11 12:46:43 2019 -0300
-summary:     - Version update.
+date:        Mon Jul 22 15:48:17 2019 -0300
+summary:     - fixed an issue where all segments was shown in the segment list, new behavior is to show only segments the has a chart to show will be shown as option.
 
 

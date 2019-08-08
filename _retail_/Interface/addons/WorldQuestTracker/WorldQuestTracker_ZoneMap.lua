@@ -522,7 +522,6 @@ function WorldQuestTracker.UpdateZoneWidgets (forceUpdate)
 	
 	WorldQuestTracker.UpdateRareIcons (mapID)
 	
-	-- or (mapID ~= WorldQuestTracker.LastMapID and not WorldQuestTracker.IsArgusZone (mapID)) -- 8.0 removed
 	if (WorldQuestTracker.IsWorldQuestHub (mapID)) then
 		return WorldQuestTracker.HideZoneWidgets()
 	
@@ -649,7 +648,7 @@ function WorldQuestTracker.UpdateZoneWidgets (forceUpdate)
 						end
 
 						--todo: broken shore is outdated, as well as argus
-						if (passFilter or (forceShowBrokenShore and WorldQuestTracker.IsArgusZone (mapID))) then
+						if (passFilter or (forceShowBrokenShore and WorldQuestTracker.IsNewEXPZone (mapID))) then
 							local widget = WorldQuestTracker.GetOrCreateZoneWidget (index)
 							
 							if (widget.questID ~= questID or forceUpdate or not widget.Texture:GetTexture()) then
@@ -1668,21 +1667,27 @@ if (bountyBoard) then
 			
 			local numCompleted, numTotal = self:CalculateBountySubObjectives (bounty)
 			
-			if (numCompleted) then
-				bountyButton.objectiveCompletedText:SetText (numCompleted .. "/" .. numTotal)
-				bountyButton.objectiveCompletedText:SetAlpha (.92)
-				bountyButton.objectiveCompletedBackground:SetAlpha (.4)
-				
-				if (not bountyButton.objectiveCompletedText:IsShown()) then
-					bountyButton.objectiveCompletedAnimation:Play()
+			if (WorldQuestTracker.db.profile.show_emissary_info) then
+				if (numCompleted) then
+					bountyButton.objectiveCompletedText:SetText (numCompleted .. "/" .. numTotal)
+					bountyButton.objectiveCompletedText:SetAlpha (.92)
+					bountyButton.objectiveCompletedBackground:SetAlpha (.4)
+					
+					if (not bountyButton.objectiveCompletedText:IsShown()) then
+						bountyButton.objectiveCompletedAnimation:Play()
+					end
+				else
+					bountyButton.objectiveCompletedText:SetText ("")
+					bountyButton.objectiveCompletedBackground:SetAlpha (0)
 				end
 			else
 				bountyButton.objectiveCompletedText:SetText ("")
 				bountyButton.objectiveCompletedBackground:SetAlpha (0)
 			end
 			
+			
 			local bountyQuestID = bounty.questID
-			if (bountyQuestID and HaveQuestData (bountyQuestID)) then
+			if (bountyQuestID and HaveQuestData (bountyQuestID) and WorldQuestTracker.db.profile.show_emissary_info) then
 				local questIndex = GetQuestLogIndexByID (bountyQuestID)
 				local title, level, suggestedGroup, isHeader, isCollapsed, isComplete, frequency, questID, startEvent, displayQuestID, isOnMap, hasLocalPOI, isTask, isStory = GetQuestLogTitle (questIndex)
 			
@@ -1741,6 +1746,9 @@ if (bountyBoard) then
 					end
 
 				end
+			else
+				bountyButton.timeLeftText:SetText ("")
+				--bountyButton.Icon:SetTexture (nil)
 			end
 			
 			bountyButton.lastUpdateByWQT = GetTime()

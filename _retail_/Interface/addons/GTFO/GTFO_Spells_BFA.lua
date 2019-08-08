@@ -951,6 +951,7 @@ GTFO.SpellID["295920"] = {
   --desc = "Ancient Tempest (Radiance of Azshara)";
   applicationOnly = true;
   sound = 1;
+  test = true;
 };
 
 GTFO.SpellID["299152"] = {
@@ -961,6 +962,11 @@ GTFO.SpellID["299152"] = {
 
 GTFO.SpellID["296752"] = {
   --desc = "Cutting Coral (Lady Ashvane)";
+  sound = 1;
+};
+
+GTFO.SpellID["300244"] = {
+  --desc = "Raging Rapids (Orgozoa)";
   sound = 1;
 };
 
@@ -985,29 +991,36 @@ GTFO.SpellID["303306"] = {
 GTFO.SpellID["300545"] = {
   --desc = "Mighty Rupture (The Queen's Court)";
   sound = 1;
-  test = true;
+};
+
+GTFO.SpellID["303913"] = {
+  --desc = "Lingering Soul (Shirakess Voidreaper)";
+  sound = 1;
+};
+
+GTFO.SpellID["303958"] = {
+  --desc = "Nightmare Pool";
+  sound = 1;
 };
 
 GTFO.SpellID["298192"] = {
   --desc = "Dark Beyond (Za'qul)";
   sound = 1;
+  minimumDamage = 1;
   test = true;
 };
 
 GTFO.SpellID["303819"] = {
   --desc = "Nightmare Pool (Za'qul)";
   sound = 1;
-  test = true;
 };
 
 GTFO.SpellID["297907"] = {
   --desc = "Cursed Heart (Queen Azshara)";
   sound = 1;
-  test = true;
 };
 
 GTFO.SpellID["303981"] = {
   --desc = "Nether Portal (Queen Azshara)";
   sound = 1;
-  test = true;
 };

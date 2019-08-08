@@ -1,7 +1,7 @@
-changeset:   104:18e969ea640a
-tag:         v8.2.0.104
+changeset:   106:695c1d0551a3
+tag:         v8.2.0.106
 user:        Tercioo
-date:        Fri Jun 28 19:56:52 2019 -0300
-summary:     - ToC Update for Patch 8.2
+date:        Mon Jul 22 17:56:36 2019 -0300
+summary:     - Minor bug fixes and 8.2 issues fix.
 
 

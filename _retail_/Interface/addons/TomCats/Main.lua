@@ -1,4 +1,59 @@
 local _, addon = ...
+
+--todo: Internationalize
+addon.supportedMaps = {
+    [14] = {
+        name = "TomCats-ArathiHighlandsRares",
+        title = "TomCat's Tours: Rares of Arathi Highlands",
+        zone = "Arathi Highlands",
+        iconTexture = "Interface\\AddOns\\TomCats\\images\\stromgarde-icon",
+        backgroundColor = {118/255,18/255,20/255,0.80 }
+    },
+    [62] = {
+        name = "TomCats-DarkshoreRares",
+        title = "TomCat's Tours: Rares of Darkshore",
+        zone = "Darkshore",
+        iconTexture = "Interface\\AddOns\\TomCats\\images\\darnassus-icon",
+        backgroundColor = {68/255,34/255,68/255,0.80 }
+    },
+    [1355] = {
+        name = "TomCats-Nazjatar",
+        title = "TomCat's Tours: Nazjatar",
+        zone = "Nazjatar",
+        iconTexture = "Interface\\AddOns\\TomCats\\images\\nazjatar-icon",
+        backgroundColor = { 0.0,0.0,0.0,1.0 }
+    },
+    [1462] = {
+        name = "TomCats-Mechagon",
+        title = "TomCat's Tours: Mechagon",
+        zone = "Mechagon",
+        iconTexture = "Interface\\AddOns\\TomCats\\images\\mechagon-icon",
+        backgroundColor = { 0.0,0.0,0.0,1.0 },
+    },
+}
+
+-- Begin interim restart checking code
+local function split(inputstr)
+    local t={}
+    for str in string.gmatch(inputstr, "([^.]+)") do
+        table.insert(t, str)
+    end
+    return t
+end
+
+local function convertVersionToNumber(version)
+    local parts = split(version)
+    return tonumber(parts[1]) * 1000000 + tonumber(parts[2]) * 1000 + tonumber(parts[3])
+end
+
+local addonTOCVersion = convertVersionToNumber(GetAddOnMetadata("TomCats", "version"))
+local newFilesSinceVersion = convertVersionToNumber("1.3.3")
+
+if (newFilesSinceVersion > addonTOCVersion) then
+    DEFAULT_CHAT_FRAME:AddMessage("|cffff0000Warning: TomCat's Tours requires that you restart WoW in order for the recent update to function properly|r")
+end
+-- End interim restart checking code
+
 TomCatsToursConfig.name = "TomCat's Tours"
 InterfaceOptions_AddCategory(TomCatsToursConfig)
 TomCatsToursConfig_SlashCommands.name = "Slash Commands"
@@ -38,6 +93,8 @@ local slashCommandsHtmlFoot = "</body>\n</html>"
 
 TomCats = {}
 
+TomCats.version = "1.3.4"
+
 local function refreshInterfaceControlPanels()
     local slashCommandsHtml = slashCommandsHtmlHead
     local infoText = "Installed Components:\n|cffffffff"
@@ -64,6 +121,13 @@ function TomCats:Register(componentInfo)
         if (componentInfo.slashCommands) then
             for _, slashCommand in ipairs(componentInfo.slashCommands) do
                 slashCommandHandlers[string.upper(slashCommand.command)] = slashCommand.func
+            end
+        end
+        if (componentInfo.raresLogHandlers) then
+            for k, v in pairs(componentInfo.raresLogHandlers) do
+                if addon.supportedMaps[k] then
+                    addon.supportedMaps[k].handlers = v
+                end
             end
         end
         table.insert(components, componentInfo)
@@ -164,11 +228,26 @@ local function getRegion()
     return region
 end
 
+
+local function ChangeMap(self)
+    WorldMapFrame:SetMapID(self.mapID)
+    if WorldMapFrame:IsMaximized() then
+        WorldMapFrame.BorderFrame.MaximizeMinimizeFrame:Minimize()
+    end
+    if not TomCatsRareMapFrame:IsShown() then
+        TomCatsRarePanelToggle:OnClick()
+    elseif not TomCatsRareMapFrame.RaresFrame:IsShown() then
+        TomCatsRareMapFrame.DetailsFrame:Hide()
+        TomCatsRareMapFrame.RaresFrame:Show()
+    end
+end
+
 local function ADDON_LOADED(_, event, arg1)
     if (arg1 == addon.name) then
         TCL.Events.UnregisterEvent("ADDON_LOADED", ADDON_LOADED)
         addon.savedVariables.account.preferences.TomCatsMinimapButton = { position = 3 }
         addon.savedVariables.account.notifications = addon.savedVariables.account.notifications or { }
+        addon.savedVariables.account.tutorials = addon.savedVariables.account.tutorials or { }
         local now = GetServerTime()
         --if ((not addon.savedVariables.account.notifications["CHILDRENSWEEK2019"]) and now < eventEnds[getRegion()]) then
         --    local _, _, _, _, reason = GetAddOnInfo("TomCats-ChildrensWeek")
@@ -194,6 +273,80 @@ local function ADDON_LOADED(_, event, arg1)
         --        addon.charm.MinimapLoopPulseAnim:Play()
         --    end
         --end
+        local tomcatsShortcut = TCL.Charms.Create({
+            name = "TomCatsWorldmapRaresButton",
+            iconTexture = "Interface\\AddOns\\TomCats\\images\\tomcat-icon",
+            backgroundColor = { 0.0,0.0,0.0,1.0 },
+            handler_onclick = function() handleSlashCommand("") end
+        })
+        tomcatsShortcut:SetParent(TomCatsRareMapFrame.RaresFrame.Contents)
+        tomcatsShortcut:SetFrameStrata("HIGH")
+        tomcatsShortcut:ClearAllPoints()
+        tomcatsShortcut:SetPoint("TOPRIGHT", TomCatsRareMapFrame.RaresFrame.Contents, "TOPRIGHT", -4, -60)
+        tomcatsShortcut.shadow:Show()
+        tomcatsShortcut.tooltip = {
+            Show = function(this)
+                GameTooltip:ClearLines()
+                GameTooltip:SetOwner(this, "ANCHOR_LEFT")
+                GameTooltip:SetText("TomCat's Tours", 1, 1, 1)
+                GameTooltip:Show()
+            end,
+            Hide = function()
+                GameTooltip:Hide()
+            end
+        }
+        tomcatsShortcut:RegisterForDrag()
+
+        local offset = -36
+        local buttonSpacing = -34
+        local count = 0
+
+        for k, v in pairs(addon.supportedMaps) do
+            local enabled = GetAddOnEnableState(UnitName("player"),v.name)
+            if (enabled ~= 0) then
+                local rareMapShortcut = TCL.Charms.Create({
+                    name = "TomCatsWorldmapRaresButton" .. k,
+                    iconTexture = v.iconTexture,
+                    backgroundColor = v.backgroundColor,
+                    handler_onclick = ChangeMap
+                })
+                rareMapShortcut:SetParent(WorldMapFrame)
+                rareMapShortcut:SetFrameStrata("MEDIUM")
+                rareMapShortcut:SetFrameLevel(9999)
+                rareMapShortcut:ClearAllPoints()
+                rareMapShortcut:SetPoint("TOPRIGHT", WorldMapFrame:GetCanvasContainer(), "TOPRIGHT", -4, offset + buttonSpacing * count)
+                rareMapShortcut.shadow:Show()
+                rareMapShortcut.tooltip = {
+                    Show = function(this)
+                        GameTooltip:ClearLines()
+                        GameTooltip:SetOwner(this, "ANCHOR_LEFT")
+                        GameTooltip:SetText(v.zone, 1, 1, 1)
+                        GameTooltip:Show()
+                    end,
+                    Hide = function()
+                        GameTooltip:Hide()
+                    end
+                }
+                rareMapShortcut:RegisterForDrag()
+                rareMapShortcut.mapID = k
+                count = count + 1
+            else
+                addon.supportedMaps[k] = nil
+            end
+        end
+    end
+end
+
+VignettePinMixin.OnAcquired_Orig = VignettePinMixin.OnAcquired
+
+function VignettePinMixin:OnAcquired(vignetteGUID, vignetteInfo)
+    self:OnAcquired_Orig(vignetteGUID, vignetteInfo)
+    if vignetteInfo and vignetteInfo.atlasName and (vignetteInfo.atlasName == "VignetteKill" or vignetteInfo.atlasName == "Capacitance-General-WorkOrderCheckmark" or vignetteInfo.atlasName == "VignetteEventElite") then
+        self.Texture:SetAtlas(vignetteInfo.atlasName, false);
+        self.HighlightTexture:SetAtlas(vignetteInfo.atlasName, false);
+        local x, y = self.Texture:GetSize()
+        self.Texture:SetSize(x * 0.8, y * 0.8)
+        self.HighlightTexture:SetSize(x * 0.8, y * 0.8)
     end
 end
 

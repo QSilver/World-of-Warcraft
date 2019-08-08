@@ -416,7 +416,7 @@ function addon:OnInitialized()
 		dbGAC.namespaces=nil
 	end
 	self:AddLabel(L["Garrison Appearance"])
-	self:AddToggle("MOVEPANEL",true,L["Unlock Panel"],L["Makes main mission panel movable"])
+	--self:AddToggle("MOVEPANEL",true,L["Unlock Panel"],L["Makes main mission panel movable"])
 	self:AddToggle("BIGSCREEN",true,L["Big screen"],L["Disabling this will give you the interface from 1.1.8, given or taken. Need to reload interface"])
 	self:AddToggle("PIN",true,L["Show Garrison Commander menu"],L["Disable if you dont want the full Garrison Commander Header."])
 	self:AddLabel(L["Mission Panel"])
@@ -461,29 +461,6 @@ function addon:OnInitialized()
 	self:AddOpenCmd("show","showdata","Prints a mission score")
 --@end-debug@]===]
 	self:Trigger("MSORT")
-	if (not IsAddOnLoaded("GarrisonCommander-Broker")) then
-		GarrisonLandingPageMinimapButton:HookScript("OnEnter",function(this)
-				if this.description==MINIMAP_ORDER_HALL_LANDING_PAGE_TOOLTIP then
-					GameTooltip:AddLine(WARDROBE_NEXT_VISUAL_KEY .. " " .. MINIMAP_GARRISON_LANDING_PAGE_TOOLTIP)
-				end
-				GameTooltip:Show()
-		end
-		)
-		GarrisonLandingPageMinimapButton:RegisterForClicks("LEFTBUTTONUP","RIGHTBUTTONUP")
-		GarrisonLandingPageMinimapButton:SetScript("OnClick",
-			function (this,button)
-					if (_G.GarrisonLandingPage and GarrisonLandingPage:IsShown()) then
-						HideUIPanel(GarrisonLandingPage);
-					else
-						if button=="RightButton" then
-								ShowGarrisonLandingPage(2)
-						else
-								ShowGarrisonLandingPage(C_Garrison.GetLandingPageGarrisonType());
-						end
-					end
-			end
-		)
-	end
 --[===[@debug@
 --	assert(self:GetAgeColor(1/0))
 --	assert(self:GetAgeColor(0/0))
@@ -1238,7 +1215,7 @@ function addon:CreateHeader(module,MOVEPANEL,PIN)
 	end
 	GCF:EnableMouse(true)
 	GCF:SetMovable(true)
-	GCF:RegisterForDrag("LeftButton")
+	--GCF:RegisterForDrag("LeftButton")
 --@non-debug@
 	GCF:SetScript("OnDragStart",function(frame) print(MOVEPANEL,self:GetBoolean(MOVEPANEL)) if self:GetBoolean(MOVEPANEL) then frame:StartMoving() end end)
 --@end-non-debug@

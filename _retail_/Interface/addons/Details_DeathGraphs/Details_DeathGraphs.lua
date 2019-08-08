@@ -10,7 +10,7 @@ local SharedMedia = LibStub:GetLibrary("LibSharedMedia-3.0")
 --> main frame (shortcut)
 	local DeathGraphsFrame = DeathGraphs.Frame
 
-DeathGraphs.version_string = "v3.6"
+DeathGraphs.version_string = "v3.8"
 
 local CONST_DBTYPE_DEATH = "deaths"
 local CONST_DBTYPE_ENDURANCE = "endurance"
@@ -226,10 +226,13 @@ local function CreatePluginFunctions()
 	function DeathGraphs:GetEncounterDiffString (diffInteger)
 		if (diffInteger == 17) then
 			return "Raid Finder"
+			
 		elseif (diffInteger == 16) then
 			return "Mythic"
+			
 		elseif (diffInteger == 15) then
 			return "Heroic"
+			
 		elseif (diffInteger == 14) then
 			return "Normal"
 		end
@@ -545,7 +548,8 @@ function DeathGraphs:GetLastHit (deathlog)
 	for i = #deathlog, 1, -1 do
 		local hit = deathlog[i]
 		--[1] boolean (true)
-		if (type (hit [1]) == "boolean" and hit [1]) then
+		--added a check for index 6 which stores info about the source, it won't pass if there's no source of the damage
+		if (type (hit [1]) == "boolean" and hit [1] and hit [6]) then
 			local spellname = DeathGraphs.getspellinfo (hit [2]) or ""
 			return spellname .. " |cFFFF3333" .. DeathGraphs:comma_value (hit [3]) .. "|r"
 		end

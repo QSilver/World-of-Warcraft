@@ -132,6 +132,7 @@ local function _activeSpec() -- Get current active spec for scoreData population
 	end
 end
 
+local traitStack, essenceStack = {}, {}
 local function _populateWeights() -- Populate scoreData with active spec's scale
 	if not playerSpecID then return end -- No playerSpecID yet, return
 	local scaleKey = cfg.specScales[playerSpecID].scaleID
@@ -142,14 +143,20 @@ local function _populateWeights() -- Populate scoreData with active spec's scale
 		for _, dataSet in ipairs(groupSet == "C" and customScales or n.defaultScalesData) do
 			if (dataSet) and dataSet[1] == scaleName and dataSet[2] == classID and dataSet[3] == specNum then
 				wipe(scoreData)
+				local scoreCount = 0
 				for k, v in pairs(dataSet[4]) do
 					scoreData[k] = v
+					scoreCount = scoreCount + 1
 				end
+				traitStack.loading = scoreCount
 				-- 8.2 Azerite Essences
 				wipe(essenceScoreData)
+				local essenceCount = 0
 				for k, v in pairs(dataSet[5]) do
 					essenceScoreData[k] = v
+					essenceCount = essenceCount + 1
 				end
+				essenceStack.loading = essenceCount
 				if n.guiContainer then
 					--n.guiContainer:SetStatusText(format(L.WeightEditor_CurrentScale, scaleName))
 					n.guiContainer:SetStatusText(format(L.WeightEditor_CurrentScale, groupSet == "D" and (n.defaultNameTable[scaleName] or cfg.specScales[playerSpecID].scaleName) or cfg.specScales[playerSpecID].scaleName))
@@ -436,14 +443,20 @@ end
 local function _enableScale(powerWeights, essenceWeights, scaleKey)
 	Debug("Enable Scale:", scaleKey)
 	wipe(scoreData)
+	local scoreCount = 0
 	for k, v in pairs(powerWeights) do
 		scoreData[k] = v
+		scoreCount = scoreCount + 1
 	end
+	traitStack.loading = scoreCount
 	-- 8.2 Azerite Essences
 	wipe(essenceScoreData)
+	local essenceCount = 0
 	for k, v in pairs(essenceWeights) do
 		essenceScoreData[k] = v
+		essenceCount = essenceCount + 1
 	end
+	essenceStack.loading = essenceCount
 
 	local groupSet, _, _, scaleName = strsplit("/", scaleKey)
 	--n.guiContainer:SetStatusText(format(L.WeightEditor_CurrentScale, scaleName))
@@ -509,15 +522,24 @@ local function _exportScale(powerWeights, essenceWeights, scaleName, classID, sp
 	n.CreatePopUp("Export", L.ExportPopup_Title, format(L.ExportPopup_Desc, NORMAL_FONT_COLOR_CODE .. scaleName .. FONT_COLOR_CODE_CLOSE, NORMAL_FONT_COLOR_CODE, FONT_COLOR_CODE_CLOSE, NORMAL_FONT_COLOR_CODE, FONT_COLOR_CODE_CLOSE), exportString)
 end
 
+local importStack = {}
 local function _importScale(importMode) -- Show import popup and parse input
 	local template = "^%s*%(%s*" .. ADDON_NAME .. "%s*:%s*(%d+)%s*:%s*\"([^\"]+)\"%s*:%s*(%d+)%s*:%s*(%d+)%s*:%s*(.+)%s*:%s*(.+)%s*%)%s*$"
+	wipe(importStack)
 
 	local callbackFunction = function(widget, callback, ...)
 		local function _saveString(importString, version)
+			importStack[#importStack + 1] = ("Version: %s"):format(tostring(version))
+			importStack[#importStack + 1] = importString
+
 			if version and version == 1 then
 				template = "^%s*%(%s*" .. ADDON_NAME .. "%s*:%s*(%d+)%s*:%s*\"([^\"]+)\"%s*:%s*(%d+)%s*:%s*(%d+)%s*:%s*(.+)%s*%)%s*$"
 			end
 			local startPos, endPos, stringVersion, scaleName, classID, specID, powerWeights, essenceWeights = strfind(importString, template)
+
+			importStack[#importStack + 1] = ("startPos: %s, endPos: %s, stringVersion: %s, scaleName: %s, classID: %s, specID: %s"):format(tostring(startPos), tostring(endPos), tostring(stringVersion), tostring(scaleName), tostring(classID), tostring(specID))
+			importStack[#importStack + 1] = ("powerWeights: %s"):format(tostring(powerWeights))
+			importStack[#importStack + 1] = ("essenceWeights: %s"):format(tostring(essenceWeights))
 
 			stringVersion = tonumber(stringVersion) or 0
 			scaleName = scaleName or L.ScaleName_Unnamed
@@ -526,23 +548,37 @@ local function _importScale(importMode) -- Show import popup and parse input
 			classID = tonumber(classID) or nil
 			specID = tonumber(specID) or nil
 
+			if stringVersion == 0 then -- Try to find string version if we didn't find it previously
+				startPos, endPos, stringVersion = strfind(importString, "^%s*%(%s*" .. ADDON_NAME .. "%s*:%s*(%d+)%s*:.*%)%s*$")
+				stringVersion = tonumber(stringVersion) or 0
+
+				importStack[#importStack + 1] = ("Fixed stringVersion: %s"):format(tostring(stringVersion))
+			end
+
 			if (not cfg.importingCanUpdate) or (version and version > 0) then -- No updating for you, get collision free name
 				scaleName = _checkForNameCollisions(scaleName, false, classID, specID)
 			end
 
 			if (version and stringVersion < version) or (not version and stringVersion < importVersion) then -- String version is old and not supported
 				Debug("Version:", tostring(stringVersion), tostring(importVersion), tostring(version))
+
+				importStack[#importStack + 1] = ("String version is old: %s / %s / %s"):format(tostring(stringVersion), tostring(importVersion), tostring(version))
 				if not version then
+					importStack[#importStack + 1] = "-> First retry...\n"
 					Print(L.ImportPopup_Error_OldStringRetry)
 					_saveString(importString, (importVersion - 1))
 				elseif version > 1 then
+					importStack[#importStack + 1] = "-> Still retrying...\n"
 					_saveString(importString, (version - 1))
 				else
+					importStack[#importStack + 1] = "-> Too old or malformed, can't figure this out...\n> END"
 					Print(L.ImportPopup_Error_OldStringVersion)
 				end
 			elseif type(classID) ~= "number" or classID < 1 or type(specID) ~= "number" or specID < 1 then -- No class or no spec, this really shouldn't happen ever
+				importStack[#importStack + 1] = ("Problem with classID %s or specID %s, bailing out...\n> END"):format(tostring(classID), tostring(specID))
 				Print(L.ImportPopup_Error_MalformedString)
 			else -- Everything seems to be OK
+				importStack[#importStack + 1] = "Everything seems to be OK"
 				local result = insertCustomScalesData(scaleName, classID, specID, powerWeights, essenceWeights, 2) -- Set scaleMode 2 for Imported
 
 				-- Rebuild Tree
@@ -551,11 +587,13 @@ local function _importScale(importMode) -- Show import popup and parse input
 				n.treeGroup:RefreshTree(true)
 
 				if result then -- Updated old scale
+					importStack[#importStack + 1] = "- Updated old scale.\n> END"
 					Print(L.ImportPopup_UpdatedScale, scaleName)
 					-- Update the scores just incase if it is the scale actively in use
 					_populateWeights()
 					delayedUpdate()
 				else -- Created new
+					importStack[#importStack + 1] = "- Created new scale\n> END"
 					Print(L.ImportPopup_CreatedNewScale, scaleName)
 				end
 			end
@@ -590,8 +628,10 @@ local function _importScale(importMode) -- Show import popup and parse input
 
 	--CreatePopUp(mode, titleText, descriptionText, editboxText, callbackFunction)
 	if importMode then -- Mass Import
+		importStack[#importStack + 1] = "=== MassImport"
 		n.CreatePopUp("MassImport", L.MassImportPopup_Title, format(L.MassImportPopup_Desc, NORMAL_FONT_COLOR_CODE, FONT_COLOR_CODE_CLOSE, NORMAL_FONT_COLOR_CODE .. _G.ACCEPT .. FONT_COLOR_CODE_CLOSE), "", callbackFunction)
 	else -- Import
+		importStack[#importStack + 1] = "=== Import"
 		n.CreatePopUp("Import", L.ImportPopup_Title, format(L.ImportPopup_Desc, NORMAL_FONT_COLOR_CODE, FONT_COLOR_CODE_CLOSE, NORMAL_FONT_COLOR_CODE .. _G.ACCEPT .. FONT_COLOR_CODE_CLOSE), "", callbackFunction)
 	end
 	Debug("Import", importMode)
@@ -1255,6 +1295,23 @@ function n:CreateWeightEditorGroup(isCustomScale, container, dataSet, scaleKey, 
 				container:AddChild(e[c])
 				c = c + 1
 			end
+			-- 8.2 ->
+			for i = 20, #n.sourceData.zone do
+				local powerData = n.sourceData.zone[i]
+				local name = GetSpellInfo(C_AzeriteEmpoweredItem.GetPowerInfo(powerData.azeritePowerID).spellID)
+				e[c] = AceGUI:Create("EditBox")
+				e[c]:SetLabel(format("  |T%d:18|t %s", powerData.icon, name or powerData.name))
+				e[c]:SetText(powerWeights[powerData.azeritePowerID] or "")
+				e[c]:SetRelativeWidth(.5)
+				if isCustomScale then
+					e[c]:SetUserData("dataPointer", n.sourceData.zone[i].azeritePowerID)
+					e[c]:SetCallback("OnEnterPressed", _saveValue)
+				else
+					e[c]:SetDisabled(true)
+				end
+				container:AddChild(e[c])
+				c = c + 1
+			end
 		end
 
 		if cfg.professionPowers then
@@ -1326,6 +1383,7 @@ function n:CreateWeightEditorGroup(isCustomScale, container, dataSet, scaleKey, 
 				c = c + 1
 			end
 		end
+		traitStack.editor = #e or 0
 	elseif _G.AzeriteEssenceUI and _G.AzeriteEssenceUI:IsShown() then
 		local topLine = AceGUI:Create("Heading")
 		topLine:SetFullWidth(true)
@@ -1481,6 +1539,7 @@ function n:CreateWeightEditorGroup(isCustomScale, container, dataSet, scaleKey, 
 				c = c + 1
 			end
 		end
+		essenceStack.editor = #e or 0
 	end
 
 	Debug("C-Elements:", #e)
@@ -1687,6 +1746,9 @@ function f:UpdateValues() -- Update scores
 			ReleaseString(s)
 		end
 
+		traitStack.scoreData = traitStack.scoreData or {}
+		wipe(traitStack.scoreData)
+
 		local container = _G.AzeriteEmpoweredItemUI.ClipFrame.PowerContainerFrame
 		local children = { container:GetChildren() }
 		local frameTmp = "> Frames:"
@@ -1710,6 +1772,10 @@ function f:UpdateValues() -- Update scores
 					end
 				end
 
+				if currentLevel < frame.unlockLevel then
+					score = GRAY_FONT_COLOR_CODE .. score .. FONT_COLOR_CODE_CLOSE
+				end
+
 				if not C_AzeriteEmpoweredItem.IsPowerAvailableForSpec(frame.azeritePowerID, playerSpecID) then -- Recolor unusable powers
 					score = RED_FONT_COLOR_CODE .. score .. FONT_COLOR_CODE_CLOSE
 				end
@@ -1717,6 +1783,10 @@ function f:UpdateValues() -- Update scores
 				--Debug("> Frame:", frame.azeritePowerID, frame.spellID, frame.unlockLevel, frame.isSelected, score)
 				local s = AcquireString(frame, score)
 				activeStrings[#activeStrings + 1] = s
+
+				if powerInfo then
+					traitStack.scoreData[#traitStack.scoreData + 1] = ("%s = %s"):format(tostring(powerInfo.azeritePowerID), tostring(score))
+				end
 			end
 		end
 		Debug(frameTmp)
@@ -1836,6 +1906,10 @@ function f:UpdateValues() -- Update scores
 		--n.string:SetText(format("%s\n%s", NORMAL_FONT_COLOR_CODE .. (cfg.specScales[playerSpecID].scaleName or L.ScaleName_Unknown) .. FONT_COLOR_CODE_CLOSE, baseScore))
 		n.string:SetText(format("%s\n%s", NORMAL_FONT_COLOR_CODE .. ((groupSet == "D" and (n.defaultNameTable[scaleName] or cfg.specScales[playerSpecID].scaleName) or cfg.specScales[playerSpecID].scaleName) or L.ScaleName_Unknown) .. FONT_COLOR_CODE_CLOSE, baseScore))
 
+		traitStack.scoreData.current = cS
+		traitStack.scoreData.potential = cP
+		traitStack.scoreData.maximum = mS
+
 		--Debug("Score:", currentScore, maxScore, currentLevel, #activeStrings, itemID)
 	elseif _G.AzeriteEssenceUI and _G.AzeriteEssenceUI:IsShown() then -- 8.2 Azerite Essences
 		local currentScore, currentPotential, maxScore = 0, 0, 0
@@ -1845,6 +1919,9 @@ function f:UpdateValues() -- Update scores
 			local s = tremove(activeStrings)
 			ReleaseString(s)
 		end
+
+		essenceStack.scoreData = essenceStack.scoreData or {}
+		wipe(essenceStack.scoreData)
 
 		--[[
 			AzeriteEssenceInfo
@@ -1861,8 +1938,6 @@ function f:UpdateValues() -- Update scores
 		-- Draw scores on the Essences inside the scroll-frame
 		local container = _G.AzeriteEssenceUI.EssenceList.ScrollChild
 		local children = { container:GetChildren() }
-		local tempMaxMajors, tempMaxMinors = {}, {}
-		local tempPotMajors, tempPotMinors = {}, {}
 		for _, frame in ipairs(children) do
 			if frame and frame:IsShown() then -- There are 13 buttons, but you can fit only 12 on the screen at any given time or you end up with numbers hovering under or over the frame
 				Debug(">", frame.essenceID, frame.rank)
@@ -1877,16 +1952,6 @@ function f:UpdateValues() -- Update scores
 						if essenceScoreData[essenceInfo.ID] then
 							majorScore = essenceScoreData[essenceInfo.ID][1] or 0
 							minorScore = essenceScoreData[essenceInfo.ID][2] or 0
-						end
-
-						if essenceInfo.valid then
-							tempMaxMajors[essenceInfo.ID] = majorScore
-							tempMaxMinors[essenceInfo.ID] = minorScore
-
-							if essenceInfo.unlocked then
-								tempPotMajors[essenceInfo.ID] = majorScore
-								tempPotMinors[essenceInfo.ID] = minorScore
-							end
 						end
 					end
 
@@ -1955,6 +2020,42 @@ function f:UpdateValues() -- Update scores
 			isMajorSlot		false
 			unlocked		false
 		]]--
+		local essences = C_AzeriteEssence.GetEssences()
+		local tempMaxMajors, tempMaxMinors = {}, {}
+		local tempPotMajors, tempPotMinors = {}, {}
+		for i = 1, #essences do
+			--[[
+				[8]={
+					valid=true,
+					name="Nullification Dynamo",
+					ID=13,
+					icon=3015741,
+					unlocked=false,
+					rank=0
+				},
+			]]--
+			local essence = essences[i]
+			if essenceScoreData[essence.ID] then
+				if essence.valid then
+					tempMaxMajors[essence.ID] = essenceScoreData[essence.ID][1] or 0
+					tempMaxMinors[essence.ID] = essenceScoreData[essence.ID][1] or 0
+
+					if essence.unlocked then
+						tempPotMajors[essence.ID] = essenceScoreData[essence.ID][1] or 0
+						tempPotMinors[essence.ID] = essenceScoreData[essence.ID][1] or 0
+					end
+				end
+
+				local majorS = essenceScoreData[essence.ID][1] or 0
+				local minorS = essenceScoreData[essence.ID][2] or 0
+				if not essence.unlocked then
+					majorS = GRAY_FONT_COLOR_CODE .. majorS .. FONT_COLOR_CODE_CLOSE
+					minorS = GRAY_FONT_COLOR_CODE .. minorS .. FONT_COLOR_CODE_CLOSE
+				end
+
+				essenceStack.scoreData[#essenceStack.scoreData + 1] = ("%s = %s/%s"):format(tostring(essence.ID), tostring(majorS), tostring(minorS))
+			end
+		end
 
 		local milestones = C_AzeriteEssence.GetMilestones()
 		local slots = 0
@@ -2036,6 +2137,7 @@ function f:UpdateValues() -- Update scores
 
 		-- Draw scores for the Essences in the main view of the UI
 		local frameTmp = "> Frames:"
+		essenceStack.scoreData[#essenceStack.scoreData + 1] = "---"
 		for _, slotFrame in ipairs(_G.AzeriteEssenceUI.Slots) do
 			local score = 0
 
@@ -2051,6 +2153,8 @@ function f:UpdateValues() -- Update scores
 
 				currentScore = currentScore + score
 				Debug("currentScore:", currentScore, score)
+
+				essenceStack.scoreData[#essenceStack.scoreData + 1] = ("%s = %s/%s"):format(tostring(essenceID), tostring(score), tostring(slotFrame.isMajorSlot))
 			end
 
 			frameTmp = frameTmp .. " " .. (slotFrame.milestoneID or "?") .. " " .. (slotFrame.requiredLevel or "?") .. " " .. (slotFrame.slot or "?") .. " " .. (slotFrame.swirlScale or "?") .. " " .. tostring(slotFrame.canUnlock) .. " " .. tostring(slotFrame.isDraggable) .. " " .. tostring(slotFrame.isMajorSlot) .. " " .. tostring(slotFrame.unlocked)
@@ -2062,7 +2166,7 @@ function f:UpdateValues() -- Update scores
 		end
 		Debug(frameTmp)
 
-		n.string:SetText("Cool")
+		--n.string:SetText("Cool")
 		local currentLevel = _G.AzeriteEssenceUI.powerLevel or 0
 		Debug("milestones:", type(milestones), #milestones, milestones[#milestones].requiredLevel)
 		local maxLevel = milestones[#milestones].requiredLevel or 0
@@ -2082,6 +2186,11 @@ function f:UpdateValues() -- Update scores
 		local groupSet, _, _, scaleName = strsplit("/", cfg.specScales[playerSpecID].scaleID)
 
 		n.string:SetText(format("%s\n%s", NORMAL_FONT_COLOR_CODE .. ((groupSet == "D" and (n.defaultNameTable[scaleName] or cfg.specScales[playerSpecID].scaleName) or cfg.specScales[playerSpecID].scaleName) or L.ScaleName_Unknown) .. FONT_COLOR_CODE_CLOSE, baseScore))
+
+		essenceStack.scoreData.current = cS
+		essenceStack.scoreData.potential = cP
+		essenceStack.scoreData.maximum = mS
+		essenceStack.scoreData.slots = slots
 	end
 
 	Debug("Active Strings:", #activeStrings, f:GetFrameStrata())
@@ -3009,8 +3118,96 @@ local SlashHandlers = {
 		end
 		--ReloadUI()
 	end,
-	["scale"] = function()
-		Print("> Ver. %s: '%s' - '%s'", GetAddOnMetadata(ADDON_NAME, "Version"), cfg.specScales[playerSpecID].scaleName or L.ScaleName_Unknown, cfg.specScales[playerSpecID].scaleID)
+	["ticket"] = function()
+		local text = ("%s %s/%d/%s (%s)\nSettings: "):format(ADDON_NAME, GetAddOnMetadata(ADDON_NAME, "Version"), GetCVar("scriptErrors"), cfg.specScales[playerSpecID].scaleName or L.ScaleName_Unknown, cfg.specScales[playerSpecID].scaleID)
+		local first = true
+		local skip = {
+			["debug"] = true,
+			["onlyOwnClassDefaults"] = false,
+			["onlyOwnClassCustoms"] = false,
+			["importingCanUpdate"] = true,
+			["defensivePowers"] = false,
+			["rolePowers"] = false,
+			["rolePowersNoOffRolePowers"] = false,
+			["zonePowers"] = false,
+			["professionPowers"] = false,
+			["pvpPowers"] = false,
+			["addILvlToScore"] = true,
+			["scaleByAzeriteEmpowered"] = true,
+			["addPrimaryStatToScore"] = true,
+			["relativeScore"] = true,
+			["showOnlyUpgrades"] = true,
+			["showTooltipLegend"] = true,
+			["outlineScores"] = true,
+			["specScales"] = true,
+			["tooltipScales"] = true
+		}
+		for key, _ in pairs(charDefaults) do
+			if not skip[key] then
+				if first then
+					first = false
+					text = text .. ("%s: %s"):format(key, tostring(cfg[key]))
+				else
+					text = text .. (", %s: %s"):format(key, tostring(cfg[key]))
+				end
+			end
+		end
+		if n.frame then
+			text = text .. ("\nFrame: %s, %s, %s/%s, %s/%s"):format(tostring(n.frame:GetParent():GetName()), tostring(n.frame:IsShown()), tostring(n.frame:GetFrameStrata()), tostring(n.frame:GetParent():GetFrameStrata()), tostring(n.frame:GetFrameLevel()), tostring(n.frame:GetParent():GetFrameLevel()))
+			text = text .. ("\nString: %s, %s"):format(tostring(n.string:GetParent():GetParent():GetName()), tostring(n.string:IsShown()))
+			text = text .. ("\nButton: %s, %s, %s/%s, %s/%s"):format(tostring(n.enableButton.frame:GetParent():GetParent():GetName() or n.enableButton.frame:GetParent():GetParent():GetParent():GetName()), tostring(n.enableButton.frame:IsShown()), tostring(n.enableButton.frame:GetFrameStrata()), tostring(n.enableButton.frame:GetParent():GetFrameStrata()), tostring(n.enableButton.frame:GetFrameLevel()), tostring(n.enableButton.frame:GetParent():GetFrameLevel()))
+		end
+		text = text .. ("\nTrait Scores:\nLoaded: %s, Editor: %s"):format(tostring(traitStack.loading), tostring(traitStack.editor))
+		if traitStack.scoreData then
+			first = true
+			text = text .. ("\nC/P/M: %s / %s / %s"):format(tostring(traitStack.scoreData.current), tostring(traitStack.scoreData.potential), tostring(traitStack.scoreData.maximum))
+			for _, v in ipairs(traitStack.scoreData) do
+				if string.find(v, RED_FONT_COLOR_CODE) then
+					v = v .. "R"
+				elseif string.find(v, GRAY_FONT_COLOR_CODE) then
+					v = v .. "G"
+				end
+				if first then
+					first = false
+					text = text .. ("\nNumbers: %s"):format(tostring(v))
+				else
+					text = text .. (", %s"):format(tostring(v))
+				end
+			end
+		end
+		text = text .. ("\nEssence Scores:\nLoaded: %s, Editor: %s"):format(tostring(essenceStack.loading), tostring(essenceStack.editor))
+		if essenceStack.scoreData then
+			first = true
+			text = text .. ("\nC/P/M/Slots: %s / %s / %s / %s"):format(tostring(essenceStack.scoreData.current), tostring(essenceStack.scoreData.potential), tostring(essenceStack.scoreData.maximum), tostring(essenceStack.scoreData.slots))
+			for _, v in ipairs(essenceStack.scoreData) do
+				if string.find(v, RED_FONT_COLOR_CODE) then
+					v = v .. "R"
+				elseif string.find(v, GRAY_FONT_COLOR_CODE) then
+					v = v .. "G"
+				end
+				if first then
+					first = false
+					text = text .. ("\nNumbers: %s"):format(tostring(v))
+				else
+					text = text .. (", %s"):format(tostring(v))
+				end
+			end
+		end
+
+		local frame = AceGUI:Create("Frame")
+		frame:SetTitle(ADDON_NAME)
+		frame:SetStatusText(L.Debug_CopyToBugReport)
+		frame:SetCallback("OnClose", function(widget) AceGUI:Release(widget) end)
+		frame:SetLayout("Fill")
+
+		local editbox = AceGUI:Create("MultiLineEditBox")
+		editbox:SetLabel("")
+		editbox:DisableButton(true)
+		editbox:SetText(text)
+		editbox:SetFocus()
+		editbox:HighlightText(0, strlen(text))
+
+		frame:AddChild(editbox)
 	end,
 	["tt"] = function(...) -- Get tooltip stuff
 		local text = string.format("> START\n- - - - - - - - - -\nVer. %s\nClass/Spec: %s / %s\nScale: %s (%s)\n- - - - - - - - - -\n", GetAddOnMetadata(ADDON_NAME, "Version"), playerClassID, playerSpecID, cfg.specScales[playerSpecID].scaleName or L.ScaleName_Unknown, cfg.specScales[playerSpecID].scaleID)
@@ -3101,6 +3298,24 @@ local SlashHandlers = {
 
 		frame:AddChild(editbox)
 	end,
+	["is"] = function()
+		local text = string.join("\n", ("> START\nVer. %s"):format(GetAddOnMetadata(ADDON_NAME, "Version")), unpack(importStack))
+
+		local frame = AceGUI:Create("Frame")
+		frame:SetTitle(ADDON_NAME)
+		frame:SetStatusText(L.Debug_CopyToBugReport)
+		frame:SetCallback("OnClose", function(widget) AceGUI:Release(widget) end)
+		frame:SetLayout("Fill")
+
+		local editbox = AceGUI:Create("MultiLineEditBox")
+		editbox:SetLabel("")
+		editbox:DisableButton(true)
+		editbox:SetText(text)
+		editbox:SetFocus()
+		editbox:HighlightText(0, strlen(text))
+
+		frame:AddChild(editbox)
+	end,
 	["bang"] = function(...)
 		local number = tonumber(...)
 		Print("Bang:", number)
@@ -3137,33 +3352,28 @@ local SlashHandlers = {
 }
 
 local shouldKnowAboutConfig
-local _scanPowers -- Debug
 SlashCmdList["AZERITEPOWERWEIGHTS"] = function(text)
 	local command, params = strsplit(" ", text, 2)
 
 	if SlashHandlers[command] then
 		SlashHandlers[command](params)
 	else
-		if _scanPowers then
-			_scanPowers()
-		else
-			if not shouldKnowAboutConfig then
-				Print(L.Slash_RemindConfig, ADDON_NAME)
-				shouldKnowAboutConfig = true
-			end
-			if not n.guiContainer then
-				if not _G.AzeriteEmpoweredItemUI then
-					local loaded, reason = LoadAddOn("Blizzard_AzeriteUI")
-					if loaded then
-						_toggleEditorUI()
-					else
-						Print(L.Slash_Error_Unkown)
-						Debug(reason)
-					end
+		if not shouldKnowAboutConfig then
+			Print(L.Slash_RemindConfig, ADDON_NAME)
+			shouldKnowAboutConfig = true
+		end
+		if not n.guiContainer then
+			if not _G.AzeriteEmpoweredItemUI then
+				local loaded, reason = LoadAddOn("Blizzard_AzeriteUI")
+				if loaded then
+					_toggleEditorUI()
+				else
+					Print(L.Slash_Error_Unkown)
+					Debug(reason)
 				end
-			else
-				_toggleEditorUI()
 			end
+		else
+			_toggleEditorUI()
 		end
 	end
 end

@@ -1,6 +1,28 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
 ..\FrameXML\UI.xsd">
     <Script file="RareMapFrame.lua"/>
+
+    <Font name="TomCatsRareIncomplete" inherits="GameFontNormalLeft">
+        <Color r="0.8" g="0.8" b="0.8" />
+    </Font>
+
+    <Font name="TomCatsRareIncompleteHighlight" inherits="GameFontNormalLeft">
+        <Color r="1" g="1" b="1" />
+    </Font>
+
+    <Font name="TomCatsRareComplete" inherits="GameFontNormalLeft">
+        <Color r="0" g="0.8" b="0" />
+    </Font>
+
+    <Font name="TomCatsRareCompleteHighlight" inherits="GameFontNormalLeft">
+        <Color r="0" g="1" b="0" />
+    </Font>
+
+    <Font name="TomCatsRareUnavailable" inherits="GameFontNormalLeft">
+        <Color r="1" g="0" b="0" />
+    </Font>
+
+
     <Button name="TomCatsRareLogHeaderTemplate" virtual="true">
         <Size x="16" y="16"/>
         <KeyValues>
@@ -39,61 +61,115 @@
         <NormalFont style="GameFontNormalMed3"/>
         <HighlightFont style="GameFontHighlightMedium"/>
     </Button>
-    <Button name="TomCatsRareLogTitleTemplate" virtual="true">
-        <Size x="255" y="16"/>
-        <Layers>
-            <Layer level="ARTWORK">
-                <FontString parentKey="Text" inherits="GameFontNormalLeft">
-                    <Size x="175" y="0"/>
-                    <Anchors>
-                        <Anchor point="TOPLEFT" x="31" y="-8"/>
-                    </Anchors>
-                    <Color r="0.75" g="0.61" b="0"/>
-                </FontString>
-                <Texture parentKey="TaskIcon" atlas="TaskPOI-Icon" useAtlasSize="true" hidden="true">
-                    <Anchors>
-                        <Anchor point="TOPRIGHT" relativeKey="$parent.Text" relativePoint="TOPLEFT" x="-5" y="4"/>
-                    </Anchors>
-                </Texture>
-                <Texture parentKey="Check" file="Interface\Buttons\UI-CheckBox-Check" hidden="true">
-                    <Size x="16" y="16"/>
-                    <Anchors>
-                        <Anchor point="TOP" relativeKey="$parent.Text" x="0" y="2"/>
-                    </Anchors>
-                </Texture>
-                <Texture parentKey="TagTexture" file="Interface\QuestFrame\QuestTypeIcons" hidden="true">
-                    <Size x="18" y="18"/>
-                    <Anchors>
-                        <Anchor point="TOP" relativeKey="$parent.Text" x="0" y="3"/>
-                        <Anchor point="RIGHT" x="0" y="0"/>
-                    </Anchors>
-                </Texture>
-            </Layer>
-        </Layers>
-        <!--
+    <Button name="TomCatsRareLogIconTemplate" virtual="true" hidden="true">
+        <Size x="16" y="16" />
+        <Anchors>
+            <Anchor point="LEFT" x="0" y="0" />
+        </Anchors>
         <Scripts>
             <OnLoad>
                 self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
             </OnLoad>
-            <OnEvent>
-            </OnEvent>
-            <OnClick function="QuestMapLogTitleButton_OnClick"/>
-            <OnEnter function="QuestMapLogTitleButton_OnEnter"/>
-            <OnLeave function="QuestMapLogTitleButton_OnLeave"/>
-            <OnMouseDown function="QuestMapLogTitleButton_OnMouseDown"/>
-            <OnMouseUp function="QuestMapLogTitleButton_OnMouseUp"/>
+            <OnMouseDown>
+                self:ClearAllPoints()
+                self:SetPoint("LEFT",2,-2)
+            </OnMouseDown>
+            <OnMouseUp>
+                self:ClearAllPoints()
+                self:SetPoint("LEFT",0,0)
+            </OnMouseUp>
+            <OnClick function="TomCatsRareLogEntryIcon_OnClick" />
+            <OnEnter function="TomCats_ShowRareTooltip" />
+            <OnLeave function="TomCats_HideRareTooltip" />
         </Scripts>
--->
-        <ButtonText nonspacewrap="true" parentKey="ButtonText">
-            <Size x="0" y="10"/>
-            <Anchors>
-                <Anchor point="LEFT" x="20" y="0"/>
-            </Anchors>
-        </ButtonText>
-        <NormalFont style="GameFontNormalLeft"/>
-        <HighlightFont style="GameFontHighlightLeft"/>
-        <DisabledFont style="GameFontHighlightLeft"/>
     </Button>
+    <Frame name="TomCatsRareLogTitleTemplate" virtual="true">
+        <Size x="255" y="16"/>
+        <Frames>
+            <Button parentKey="Incomplete" inherits="TomCatsRareLogIconTemplate">
+                <Layers>
+                    <Layer level="ARTWORK">
+                        <Texture parentKey="Texture" atlas="VignetteKill" useAtlasSize="true" scale="0.8" texelSnappingBias="1">
+                            <Anchors>
+                                <Anchor point="LEFT" x="0" y="0"/>
+                            </Anchors>
+                        </Texture>
+                    </Layer>
+                    <Layer level="HIGHLIGHT">
+                        <Texture parentKey="HighlightTexture" alphaMode="ADD" atlas="VignetteKill" useAtlasSize="true" scale="0.8" texelSnappingBias="1">
+                            <Anchors>
+                                <Anchor point="TOPLEFT" relativeKey="$parent.Texture"/>
+                                <Anchor point="BOTTOMRIGHT" relativeKey="$parent.Texture"/>
+                            </Anchors>
+                            <Color r="1.0" g="1.0" b="1.0" a="0.4"/>
+                        </Texture>
+                    </Layer>
+                </Layers>
+            </Button>
+            <Button parentKey="Complete" inherits="TomCatsRareLogIconTemplate">
+                <Layers>
+                    <Layer level="ARTWORK">
+                        <Texture parentKey="Texture" atlas="Capacitance-General-WorkOrderCheckmark" useAtlasSize="true" scale="0.7">
+                            <Anchors>
+                                <Anchor point="LEFT" x="0" y="0"/>
+                            </Anchors>
+                        </Texture>
+                    </Layer>
+                    <Layer level="HIGHLIGHT">
+                        <Texture parentKey="HighlightTexture" alphaMode="ADD" atlas="Capacitance-General-WorkOrderCheckmark" useAtlasSize="true" scale="0.7">
+                            <Anchors>
+                                <Anchor point="TOPLEFT" relativeKey="$parent.Texture"/>
+                                <Anchor point="BOTTOMRIGHT" relativeKey="$parent.Texture"/>
+                            </Anchors>
+                            <Color r="1.0" g="1.0" b="1.0" a="0.4"/>
+                        </Texture>
+                    </Layer>
+                </Layers>
+            </Button>
+            <Button parentKey="Unavailable" inherits="TomCatsRareLogIconTemplate">
+                <Layers>
+                    <Layer level="ARTWORK">
+                        <Texture file="Interface/AddOns/TomCats/images/Unavailable">
+                            <Size x="16" y="16" />
+                            <Anchors>
+                                <Anchor point="LEFT" x="5" y="-1" />
+                            </Anchors>
+                        </Texture>
+                    </Layer>
+                </Layers>
+                <Scripts>
+                    <OnLoad />
+                    <OnClick />
+                    <OnMouseDown />
+                    <OnMouseUp />
+                    <OnEnter function="TomCats_ShowRareTooltip" />
+                    <OnLeave function="TomCats_HideRareTooltip" />
+                </Scripts>
+            </Button>
+            <Button parentKey="label">
+                <Size x="239" y="16" />
+                <Anchors>
+                    <Anchor point="LEFT" x="16" y="0"/>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+                    </OnLoad>
+                    <OnClick function="TomCatsRareLogEntryIcon_OnClick" />
+                    <OnEnter function="TomCats_ShowRareTooltip" />
+                    <OnLeave function="TomCats_HideRareTooltip" />
+                </Scripts>
+                <ButtonText nonspacewrap="true" parentKey="ButtonText" justifyH="LEFT">
+                    <Anchors>
+                        <Anchor point="LEFT" x="10" y="0" />
+                    </Anchors>
+                </ButtonText>
+                <NormalFont style="TomCatsRareIncomplete"/>
+                <HighlightFont style="TomCatsRareIncompleteHighlight"/>
+                <DisabledFont style="TomCatsRareUnavailable"/>
+            </Button>
+        </Frames>
+    </Frame>
     <Frame name="TomCatsRareLogObjectiveTemplate" virtual="true">
         <Size x="220" y="16"/>
         <Layers>
@@ -289,6 +365,31 @@
         -->
     </Frame>
 
+    <Frame name="TomCatsRareMapFrameTutorialBox" inherits="GlowBoxTemplate" enableMouse="true" frameStrata="DIALOG" hidden="true">
+        <Size x="220" y="100"/>
+        <Layers>
+            <Layer level="OVERLAY">
+                <FontString parentKey="Text" inherits="GameFontHighlightLeft" justifyV="TOP">
+                    <Size x="188" y="0"/>
+                    <Anchors>
+                        <Anchor point="LEFT" x="16" y="0"/>
+                    </Anchors>
+                </FontString>
+            </Layer>
+        </Layers>
+        <Frames>
+            <Button parentKey="CloseButton" inherits="UIPanelCloseButton">
+                <Anchors>
+                    <Anchor point="TOPRIGHT" x="6" y="6"/>
+                </Anchors>
+                <Scripts>
+                    <OnClick function="TomCatsRareMapFrameTutorial_Closed" />
+                </Scripts>
+            </Button>
+            <Frame parentKey="Arrow" inherits="GlowBoxArrowTemplate" />
+        </Frames>
+    </Frame>
+
     <Frame name="TomCatsRareMapFrame" enableMouse="true" mixin="TomCatsRareLogMixin" hidden="true">
         <Size x="287" y="462"/>
         <Layers>
@@ -303,18 +404,28 @@
         </Layers>
         <Frames>
             <Frame name="TomCatsRareMapQuestOptionsDropDown" inherits="UIDropDownMenuTemplate" hidden="true"/>
-            <ScrollFrame parentKey="QuestsFrame" name="TomCatsRareScrollFrame" inherits="UIPanelScrollFrameCodeTemplate">
+            <ScrollFrame parentKey="RaresFrame" name="TomCatsRareScrollFrame" inherits="UIPanelScrollFrameCodeTemplate">
                 <Size x="259" y="502"/>
                 <Anchors>
                     <Anchor point="TOPRIGHT" x="-26" y="-5"/>
                 </Anchors>
                 <Layers>
                     <Layer level="BACKGROUND">
-                        <Texture parentKey="Background" atlas="NoQuestsBackground" useAtlasSize="true">
+                        <Texture parentKey="Background" file="Interface/ACHIEVEMENTFRAME/UI-ACHIEVEMENT-PARCHMENT" desaturated="true">
+                            <Anchors>
+                                <Anchor point="TOPLEFT" x="0" y="3" />
+                                <Anchor point="BOTTOMRIGHT" x="24" y="0" />
+                            </Anchors>
+                            <TexCoords top="0" bottom="1" left="0" right="0.5" />
+                            <Color r="0.337" g="0.227" b="0.094" a="1.0" />
+                        </Texture>
+                        <!--
+                        <Texture parentKey="Background" atlas="QuestLogBackground" useAtlasSize="true">
                             <Anchors>
                                 <Anchor point="TOPLEFT" x="0" y="3"/>
                             </Anchors>
                         </Texture>
+                        -->
                     </Layer>
                 </Layers>
                 <ScrollChild>
@@ -385,7 +496,7 @@
                                         <FontString parentKey="Text" inherits="GameFontNormal" justifyH="LEFT">
                                             <Size x="220" y="0"/>
                                             <Anchors>
-                                                <Anchor point="TOPLEFT" x="18" y="-12"/>
+                                                <Anchor point="TOPLEFT" x="18" y="0"/>
                                             </Anchors>
                                         </FontString>
                                     </Layer>
@@ -611,14 +722,12 @@
                         <Anchors>
                             <Anchor point="TOPLEFT" x="10" y="30"/>
                         </Anchors>
-                        <!--
                         <Scripts>
                             <OnClick>
                                 PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON);
-                                QuestMapFrame_ReturnFromQuestDetails();
+                                TomCatsRareMapFrame_ReturnFromRareDetails();
                             </OnClick>
                         </Scripts>
-                        -->
                     </Button>
                     <Frame parentKey="RewardsFrame">
                         <Size x="287" y="275"/>
@@ -834,57 +943,65 @@
 
     <Frame name="TomCatsWorldMapRareSidePanelToggleTemplate" mixin="TomCatsWorldMapRareSidePanelToggleMixin" virtual="true" hidden="true" frameLevel="4" frameStrata="HIGH">
         <Size x="32" y="32"/>
+        <Layers>
+            <Layer level="BACKGROUND">
+                <Texture file="Interface\Addons\TomCats\images\SidePanelButtonShadow">
+                    <Size x="64" y="64" />
+                    <Anchors>
+                        <Anchor point="RIGHT" x="2" y="0"/>
+                    </Anchors>
+                </Texture>
+            </Layer>
+        </Layers>
         <Frames>
-            <Button parentKey="OpenButton" hidden="true">
+            <Button parentKey="OpenButton">
                 <Size x="32" y="32"/>
                 <Anchors>
                     <Anchor point="CENTER"/>
                 </Anchors>
-                <Layers>
-                    <Layer level="OVERLAY">
-                        <Texture atlas="VignetteKill" />
-                    </Layer>
-                </Layers>
-                <NormalTexture file="Interface\Addons\TomCats\images\SidePanelButton-Up"/>
-                <PushedTexture file="Interface\Addons\TomCats\images\SidePanelButton-Down" />
-                <HighlightTexture file="Interface\Buttons\UI-Common-MouseHilight" alphaMode="ADD" setAllPoints="true">
-                    <Size x="48" y="48"/>
-                    <Anchors>
-                        <Anchor point="CENTER"/>
-                    </Anchors>
-                </HighlightTexture>
                 <Scripts>
                     <OnClick>
                         PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON);
                         self:GetParent():OnClick();
                     </OnClick>
                 </Scripts>
+                <NormalTexture file="Interface\Addons\TomCats\images\SidePanelStarButtons">
+                    <TexCoords top="0" bottom="1" left="0.75" right="1"/>
+                </NormalTexture>
+                <PushedTexture file="Interface\Addons\TomCats\images\SidePanelStarButtons">
+                    <TexCoords top="0" bottom="1" left="0.5" right="0.75"/>
+                </PushedTexture>
+                <HighlightTexture file="Interface\Buttons\UI-Common-MouseHilight" alphaMode="ADD" setAllPoints="true">
+                    <Size x="48" y="48"/>
+                    <Anchors>
+                        <Anchor point="CENTER"/>
+                    </Anchors>
+                </HighlightTexture>
             </Button>
             <Button parentKey="CloseButton" hidden="true">
                 <Size x="32" y="32"/>
                 <Anchors>
                     <Anchor point="CENTER"/>
                 </Anchors>
-                <Layers>
-                    <Layer level="OVERLAY">
-                        <Texture atlas="VignetteKill" />
-                    </Layer>
-                </Layers>
-                <NormalTexture file="Interface\Addons\TomCats\images\SidePanelButton-Up"/>
-                <PushedTexture file="Interface\Addons\TomCats\images\SidePanelButton-Down"/>
-                <HighlightTexture file="Interface\Buttons\UI-Common-MouseHilight" alphaMode="ADD" setAllPoints="true">
-                    <Size x="48" y="48"/>
-                    <Anchors>
-                        <Anchor point="CENTER"/>
-                    </Anchors>
-                </HighlightTexture>
                 <Scripts>
                     <OnClick>
                         PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON);
                         self:GetParent():OnClick();
                     </OnClick>
                 </Scripts>
+                <NormalTexture file="Interface\Addons\TomCats\images\SidePanelStarButtons">
+                    <TexCoords top="0" bottom="1" left="0.25" right="0.5"/>
+                </NormalTexture>
+                <PushedTexture file="Interface\Addons\TomCats\images\SidePanelStarButtons">
+                    <TexCoords top="0" bottom="1" left="0" right="0.25"/>
+                </PushedTexture>
+                <HighlightTexture file="Interface\Buttons\UI-Common-MouseHilight" alphaMode="ADD" setAllPoints="true">
+                    <Size x="48" y="48"/>
+                    <Anchors>
+                        <Anchor point="CENTER"/>
+                    </Anchors>
+                </HighlightTexture>
             </Button>
         </Frames>
-    </Frame>
+   </Frame>
 </Ui>

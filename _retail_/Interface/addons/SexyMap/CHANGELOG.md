@@ -1,7 +1,6 @@
 # SexyMap
 
-## [v8.2.0](https://github.com/funkydude/SexyMap/tree/v8.2.0) (2019-06-26)
-[Full Changelog](https://github.com/funkydude/SexyMap/compare/v8.1.5...v8.2.0)
+## [v8.2.2](https://github.com/funkydude/SexyMap/tree/v8.2.2) (2019-08-01)
+[Full Changelog](https://github.com/funkydude/SexyMap/compare/v8.2.1...v8.2.2)
 
-- Remove temporary chat print, should no longer be needed thanks to all the upgrade code. Closes #58  
-- bump toc  
+- Tweaks  

@@ -32,7 +32,7 @@ local _is_in_combat = false
 
 TimeLine:SetPluginDescription (Loc ["STRING_PLUGIN_DESC"])
 
-TimeLine.version_string = "v3.21"
+TimeLine.version_string = "v3.3"
 
 local menu_wallpaper_tex = {.6, 0.1, 0, 0.64453125}
 local menu_wallpaper_color = {1, 1, 1, 0.15}
@@ -461,10 +461,10 @@ local function CreatePluginFrames()
 	TimeLineFrame:SetFrameStrata ("HIGH")
 	TimeLineFrame:SetToplevel (true)
 	
-	TimeLineFrame:SetPoint ("center", UIParent, "center")
+	TimeLineFrame:SetPoint ("center", UIParent, "center", 0, 0)
 	
-	TimeLineFrame.Width = 925 --925 --718 old value
-	TimeLineFrame.Height = 575 --498
+	TimeLineFrame.Width = 925
+	TimeLineFrame.Height = 575
 	
 	local CONST_TOTAL_TIMELINES = 21 --timers shown in the top of the window
 	local CONST_ROW_HEIGHT = 16
@@ -491,6 +491,7 @@ local function CreatePluginFrames()
 							end
 							self:StartMoving()
 							self.isMoving = true
+							
 						elseif (botao == "RightButton") then
 							if (self.isMoving) then
 								return
@@ -560,7 +561,7 @@ local function CreatePluginFrames()
 		
 		local time_div = total_time / (CONST_TOTAL_TIMELINES-1) --786 -- 49.125
 		
-		for i = 2, CONST_TOTAL_TIMELINES-1 do
+		for i = 2, CONST_TOTAL_TIMELINES -1 do
 		
 			local linha = TimeLine.Times [i]
 			
@@ -625,7 +626,7 @@ local function CreatePluginFrames()
 		end
 		local select_segment_dropdown = DetailsFrameWork:NewDropDown (TimeLineFrame, nil, "$parentSegmentDropdown", nil, 120, 20, buildCombatMenu, nil, options_dropdown_template)
 
-	--> change mode endd
+	--> change mode end
 		local change_mode = function (_, _, mode)
 			current_type = mode
 			TimeLine:Refresh()
@@ -658,7 +659,7 @@ local function CreatePluginFrames()
 		local set_button_as_pressed = function (button)
 			button:SetTemplate (TimeLine:GetFramework():GetTemplate ("button", "DETAILS_PLUGIN_BUTTONSELECTED_TEMPLATE"))
 		end
-		
+
 		function TimeLine:RefreshButtons()
 			for _, button in ipairs (all_buttons) do
 				button:SetTemplate (TimeLine:GetFramework():GetTemplate ("button", "DETAILS_PLUGIN_BUTTON_TEMPLATE"))
@@ -725,7 +726,7 @@ local function CreatePluginFrames()
 		
 	--> search field ~search
 		local onPressEnter = function (_, _, text)
-			if (text) then
+			if (type (text) == "string") then
 				search = string.lower (text)
 				TimeLine:Refresh()
 			end

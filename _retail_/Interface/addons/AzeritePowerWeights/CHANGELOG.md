@@ -1,3 +1,29 @@
+### 8.2.7
+
+- Update Default-scales (SimulationCraft 820-02)
+
+### 8.2.6
+
+- Moved misplaced `Person-Computer Interface` from `Professions Powers` to `Zone Powers`. [Ticket #35](https://www.curseforge.com/wow/addons/azeritepowerweights/issues/35)
+   - While fixing this, found and fixed bug where `Clockwork Heart` wasn't showing up in the Weight Editor at all (you can find it now also under `Zone Powers`).
+
+### 8.2.5
+
+- Removed two mispalced commas that sabotaged the previous release. [Ticket #34](https://www.curseforge.com/wow/addons/azeritepowerweights/issues/34)
+
+### 8.2.4
+
+- Fixed the missing Azerite Traits (When you automate stuff, remember to update your automation tools also when updating data!) [Ticket #33](https://www.curseforge.com/wow/addons/azeritepowerweights/issues/33)
+
+### 8.2.3
+
+- Fixed Azerite Essences current potential score and maximum score calculations resulting in wrong scores if you scroll the Essence-list down.
+- Even more Debug-stuff added.
+
+### 8.2.2
+
+- Added more Debug-stuff to help me to solve tickets in the future.
+
 ### 8.2.1
 
 - Update Default-scales (SimulationCraft 820-01)

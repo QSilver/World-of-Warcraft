@@ -208,16 +208,12 @@ Die Schlachtzugskraft ist im Waagen-Editor mit einem Stern (*) neben ihrem Namen
 --[[ L["CreatePopup_Error_UnknownError"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["CreatePopup_Title"] = ""--]] 
---[[Translation missing --]]
---[[ L["Debug_CopyToBugReport"] = ""--]] 
+L["Debug_CopyToBugReport"] = "Kopiere den obrigen Text in deine Fehlermeldung, wenn du denkst es ist relevant."
 L["DefaultScaleName_Default"] = "Standard"
---[[Translation missing --]]
---[[ L["DefaultScaleName_Defensive"] = ""--]] 
---[[Translation missing --]]
---[[ L["DefaultScaleName_Offensive"] = ""--]] 
+L["DefaultScaleName_Defensive"] = "Defensive"
+L["DefaultScaleName_Offensive"] = "Offensive"
 L["DeletePopup_DeletedDefaultScale"] = "Die gelöschte Skala wurde verwendet, sodass Sie für Ihre Klasse und Ihre Spezialisierung wieder auf die Default-Option zurückgreifen können!"
---[[Translation missing --]]
---[[ L["DeletePopup_DeletedScale"] = ""--]] 
+L["DeletePopup_DeletedScale"] = "Gelöschte Skala \"%s\""
 --[[Translation missing --]]
 --[[ L["DeletePopup_Desc"] = ""--]] 
 L["DeletePopup_Title"] = "Skala löschen"
@@ -273,8 +269,7 @@ L["WeightEditor_ImportText"] = "Importieren"
 --[[ L["WeightEditor_Major"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["WeightEditor_MassImportText"] = ""--]] 
---[[Translation missing --]]
---[[ L["WeightEditor_Minor"] = ""--]] 
+L["WeightEditor_Minor"] = "Geringer"
 L["WeightEditor_RenameText"] = "Umbenennen"
 --[[Translation missing --]]
 --[[ L["WeightEditor_TimestampText_Created"] = ""--]] 
@@ -1403,10 +1398,8 @@ L["Config_Score_AddItemLevelToScore"] = "Добавить уровень пре�
 L["Config_Score_AddItemLevelToScore_Desc"] = "Добавить уровень азеритового предмета к текущему, потенциальному и максимальному рейтингам."
 L["Config_Score_AddPrimaryStatToScore"] = "Добавить основную характеристику ко всем рейтингам"
 L["Config_Score_AddPrimaryStatToScore_Desc"] = "Добавить количество основных характеристик (%s/%s/%s) азеритового предмета к текущему, потенциальному и максимальному рейтингам."
---[[Translation missing --]]
---[[ L["Config_Score_OutlineScores"] = ""--]] 
---[[Translation missing --]]
---[[ L["Config_Score_OutlineScores_Desc"] = ""--]] 
+L["Config_Score_OutlineScores"] = "Контур рейтингов"
+L["Config_Score_OutlineScores_Desc"] = "Обвести числовые рейтинги азеритовых талантов/сущностей небольшим контуром, чтобы они читались проще на фоне светлых значков."
 L["Config_Score_RelativeScore"] = "Показывать в подсказке относительные значения вместо абсолютных"
 L["Config_Score_RelativeScore_Desc"] = "Вместо абсолютных значений вычислять относительные (по сравнению с надетыми предметами) значения и показывать их в процентах."
 L["Config_Score_ScaleByAzeriteEmpowered"] = "Масштабировать прибавляемый уровень предмета с помощью ценности %s"
@@ -1462,8 +1455,7 @@ L["ImportPopup_CreatedNewScale"] = "Импортирован новый набо
 L["ImportPopup_Desc"] = [=[Импорт набора из строки
 Нажмите %1$sCtrl+V%2$s, чтобы вставить строку в поле ввода, а затем нажмите %3$s]=]
 L["ImportPopup_Error_MalformedString"] = "ОШИБКА: импортируемая строка некорректна!"
---[[Translation missing --]]
---[[ L["ImportPopup_Error_OldStringRetry"] = ""--]] 
+L["ImportPopup_Error_OldStringRetry"] = "ОШИБКА: импортируемая строка некорректна или импортируется из старой версии, пытаюсь импортировать её в качестве нового набора!"
 L["ImportPopup_Error_OldStringVersion"] = "ОШИБКА: импортируемая строка некорректна или импортируется из старой версии!"
 L["ImportPopup_Title"] = "Импортировать набор"
 L["ImportPopup_UpdatedScale"] = "Обновлён существующий набор \"%s\""
@@ -1500,11 +1492,9 @@ L["WeightEditor_DeleteText"] = "Удалить"
 L["WeightEditor_EnableScaleText"] = "Использовать этот"
 L["WeightEditor_ExportText"] = "Экспортировать"
 L["WeightEditor_ImportText"] = "Импортировать"
---[[Translation missing --]]
---[[ L["WeightEditor_Major"] = ""--]] 
+L["WeightEditor_Major"] = "Макс."
 L["WeightEditor_MassImportText"] = "Импортировать несколько"
---[[Translation missing --]]
---[[ L["WeightEditor_Minor"] = ""--]] 
+L["WeightEditor_Minor"] = "Мин."
 L["WeightEditor_RenameText"] = "Переименовать"
 L["WeightEditor_TimestampText_Created"] = "Создан %s"
 L["WeightEditor_TimestampText_Imported"] = "Импортирован %s"

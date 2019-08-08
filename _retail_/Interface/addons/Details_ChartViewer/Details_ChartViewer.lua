@@ -899,13 +899,16 @@ local create_segment_dropdown = function()
 		local segments = ChartViewer:GetCombatSegments()
 		local return_table = {}
 		
-		for index, combat in ipairs (segments) do 
-			if (combat.is_boss and combat.is_boss.index) then
-				local l, r, t, b, icon = ChartViewer:GetBossIcon (combat.is_boss.mapid, combat.is_boss.index)
-				return_table [#return_table+1] = {value = index, label = "#" .. index .. " " .. combat.is_boss.name, icon = icon, texcoord = {l, r, t, b}, onclick = on_segment_chosen}
-				
-			else
-				return_table [#return_table+1] = {value = index, label = "#" .. index .. " " .. (combat.enemy or "unknown"), icon = [[Interface\Buttons\UI-GuildButton-PublicNote-Up]], onclick = on_segment_chosen}
+		for index, combat in ipairs (segments) do
+			--verify if the combat has a valid chart to display
+			if (next (combat.TimeData)) then
+				if (combat.is_boss and combat.is_boss.index) then
+					local l, r, t, b, icon = ChartViewer:GetBossIcon (combat.is_boss.mapid, combat.is_boss.index)
+					return_table [#return_table+1] = {value = index, label = "#" .. index .. " " .. combat.is_boss.name, icon = icon, texcoord = {l, r, t, b}, onclick = on_segment_chosen}
+					
+				else
+					return_table [#return_table+1] = {value = index, label = "#" .. index .. " " .. (combat.enemy or "unknown"), icon = [[Interface\Buttons\UI-GuildButton-PublicNote-Up]], onclick = on_segment_chosen}
+				end
 			end
 		end
 		

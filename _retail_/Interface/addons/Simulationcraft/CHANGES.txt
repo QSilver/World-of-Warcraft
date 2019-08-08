@@ -1,16 +1,10 @@
-lightweight tag 89ec3942832866dfa0e03e0fb8e8e1b5bda0fc29 v1.12.1
+lightweight tag b09e4f2a0adec43d58ebf6573811e86fc79c6ebc v1.12.2
 Author:	Dave Hendler <sollaires@gmail.com>
-Date:	Mon Jul 1 10:13:20 2019 -0700
+Date:	Tue Jul 16 18:21:53 2019 -0700
 
-commit 89ec3942832866dfa0e03e0fb8e8e1b5bda0fc29
+commit b09e4f2a0adec43d58ebf6573811e86fc79c6ebc
 Author: Dave Hendler <sollaires@gmail.com>
-Date:   Mon Jul 1 10:13:20 2019 -0700
+Date:   Tue Jul 16 18:21:53 2019 -0700
 
-    Add support for gem_bonus_id, update required version of SimC
-
-commit 8c9803cfdf8f07d2a58a33091e3aa552f02ba93e
-Author: Dave Hendler <sollaires@gmail.com>
-Date:   Wed Jun 26 17:50:55 2019 -0700
-
-    Properly handle gems with no bonuses that are socketed before gems with bonuses
+    Update version to release
 

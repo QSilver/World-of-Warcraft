@@ -1,10 +1,10 @@
-lightweight tag c0260ff821dbc31f3d6f9561239d48899b0f1cdd v8.2.0.376
+lightweight tag b5c9d0741b50afa50b4c6db1fd2e97ea4dac8ea7 v8.2.0.379
 Author:	Tercioo <terciob19@hotmail.com>
-Date:	Thu Jul 4 14:55:57 2019 -0300
+Date:	Sat Aug 3 17:15:53 2019 -0300
 
-commit c0260ff821dbc31f3d6f9561239d48899b0f1cdd
+commit b5c9d0741b50afa50b4c6db1fd2e97ea4dac8ea7
 Author: Tercioo <terciob19@hotmail.com>
-Date:   Thu Jul 4 14:55:57 2019 -0300
+Date:   Sat Aug 3 17:15:53 2019 -0300
 
-    Machagon added to zone list
+    Added an option to ignore filters on new zones
 
