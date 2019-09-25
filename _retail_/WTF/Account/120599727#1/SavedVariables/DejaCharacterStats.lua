@@ -1480,14 +1480,17 @@ DCS_ClassSpecDB = {
 			["roles"] = {
 				"TANK", -- [1]
 			},
-			["hideAt"] = 0,
 			["hidden"] = true,
+			["hideAt"] = 0,
 		}, -- [48]
 		{
 			["statKey"] = "SPEED_RATING",
 			["hideAt"] = 0,
 			["hidden"] = true,
 		}, -- [49]
+		{
+			["statKey"] = "DCS_MOVESPEED",
+		}, -- [50]
 		["uniqueKey"] = "Qsilver:Silvermoon:2",
 	},
 	["Alyara:Silvermoon:2"] = {
@@ -2053,8 +2056,8 @@ DCS_ClassSpecDB = {
 		}, -- [47]
 		{
 			["statKey"] = "STAGGER",
-			["hidden"] = true,
 			["hideAt"] = 0,
+			["hidden"] = true,
 			["roles"] = {
 				"TANK", -- [1]
 			},
@@ -2064,6 +2067,10 @@ DCS_ClassSpecDB = {
 			["hideAt"] = 0,
 			["hidden"] = true,
 		}, -- [49]
+		{
+			["statKey"] = "DCS_MOVESPEED",
+			["hidden"] = true,
+		}, -- [50]
 		["uniqueKey"] = "Qsilver:Silvermoon:1",
 	},
 	["Simroth:Silvermoon:1"] = {

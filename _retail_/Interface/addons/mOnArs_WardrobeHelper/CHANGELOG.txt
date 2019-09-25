@@ -1,14 +1,18 @@
-﻿== 1.18.2 ==
+﻿== 1.18.3 ==
+ * bumped TOC to 8.2.0
+ * categorize new instances
+
+== 1.18.2 ==
  * attempt to remove additional items that shouldn't be showing for your class (eg. trash mail items on plate character)
 
 == 1.18.1 ==
  * hide completed categories
 
-﻿== 1.18 ==
+== 1.18 ==
  * bumped TOC to 8.0
  * fixes for 8.0
 
-﻿== 1.17.1 ==
+== 1.17.1 ==
  * bumped TOC to 7.3
  * fixes for 7.3 (PlaySound) (thanks Petraca)
  * categorized "Cathedral of Eternal Night", "Tomb of Sargeras", "Invasion Points", "Seat of the Triumvirate" and "Antorus, the Burning Throne"
@@ -16,7 +20,7 @@
 == 1.17 ==
  * replaced favorite instances stars with 8 possible raid markings (huge thanks to HgD)
 
-﻿== 1.16.3 ==
+== 1.16.3 ==
  * bumped TOC to 7.1
  * categorized "Return to Karazhan" and "Trial of Valor"
 

@@ -1,3 +1,30 @@
+### v2.14.0
+---
+* **Voting Frame**  
+* The ML can now right click candidates after a session has ended.
+* This basically allows for an entire redo of the session, particularly changing awards later than usual.
+* As a reminder you can always reopen the voting frame with "/rc open".
+
+###### Bugfixes
+* *Reawarding an item to the original owner will now remove the old trade entry from the TradeUI.*
+
+
+### v2.13.1
+---
+###### Bugfixes
+* *Fixed issues when upgrading from a pre 2.7 version to 2.13 (#391-394).*
+
+### v2.13.0
+---
+* **Loot History**  
+* Added an option to delete loot history entries by instance name.
+* This allows you to target a specific instance, in particular Mythic+ loot that got added unintentionally.
+
+###### Dev
+* Changed various structures for easier editing. All changes are backwards compatible. #Classic.
+
+
+
 ### v2.12.2
 ---
 ###### Bugfixes

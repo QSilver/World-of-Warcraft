@@ -1,9 +1,3 @@
---------------------------------------------------------------------------------
--- Todo:
--- Adds in stage 2
--- Improve stage 3
--- All of Stage 4
--- Would we need Proximity for some spells? Static Shock/Lone Decree?
 
 --------------------------------------------------------------------------------
 -- Module Declaration
@@ -13,7 +7,7 @@ local mod, CL = BigWigs:NewBoss("Queen Azshara", 2164, 2361)
 if not mod then return end
 mod:RegisterEnableMob(152910, 153059, 153060) -- Queen Azshara, Aethanel, Cyranus
 mod.engageId = 2299
-mod.respawnTime = 30
+mod.respawnTime = 20
 
 --------------------------------------------------------------------------------
 -- Local
@@ -24,6 +18,8 @@ local detonationCount = 1
 local portalCount = 1
 local hulkCollection = {}
 local drainedSoulList = {}
+local hiddenDrainedSoulList = {}
+local soulDuration = 110
 local fails = 0
 local hulkKillTime = 0
 local burstCount = 1
@@ -31,6 +27,7 @@ local piercingCount = 1
 local myrmidonCount = 1
 local portalTimersMythic = {26.6, 50.3, 43, 56}
 local piercingTimersMythic = {51.6, 56, 49}
+local overloadCount = 1
 
 --------------------------------------------------------------------------------
 -- Localization
@@ -38,16 +35,27 @@ local piercingTimersMythic = {51.6, 56, 49}
 
 local L = mod:GetLocale()
 if L then
-	L[299249] = "%s (Soak Orbs)"
-	L[299251] = "%s (Avoid Orbs)"
-	L[299254] = "%s (Hug Others)"
-	L[299255] = "%s (Avoid Everyone)"
-	L[299252] = "%s (Keep Moving)"
-	L[299253] = "%s (Stand Still)"
+	L[299249] = "SOAK Orbs"
+	L[299251] = "AVOID Orbs"
+	L[299254] = "HUG Others"
+	L[299255] = "Stand ALONE"
+	L[299252] = "Keep MOVING"
+	L[299253] = "Stand STILL"
+	L.hugSay = "HUG %s"
+	L.hugNoMoveSay = "HUG %s, I can't move"
+	L.avoidSay = "AVOID %s"
+	L.yourDecree = "Decree: %s"
+	L.yourDecree2 = "Decree: %s & %s"
 	L.hulk_killed = "%s killed - %.1f sec"
 	L.fails_message = "%s (%d Sanction stack fails)"
 	L.reversal = "Reversal"
 	L.greater_reversal = "Reversal (Greater)"
+	L.you_die = "You die"
+	L.you_die_message = "You will die in %s sec"
+
+	L.custom_off_repeating_decree_chat = "Repeating Decree Chat"
+	L.custom_off_repeating_decree_chat_desc = "Spam the words 'HUG me' in yell chat, or 'AVOID me' in say chat, while you have |cff71d5ff[Queen's Decree]|r. Maybe they'll help you if they see the chat bubble."
+	L.custom_off_repeating_decree_chat_icon = 299250
 end
 
 --------------------------------------------------------------------------------
@@ -77,6 +85,7 @@ function mod:GetOptions()
 		298787, -- Arcane Orbs
 		{299094, "SAY", "FLASH", "PULSE"}, -- Beckon
 		{299250, "SAY"}, -- Queen's Decree
+		"custom_off_repeating_decree_chat",
 		302999, -- Arcane Vulnerability
 		-20408, -- Azshara's Devoted
 		-20410, -- Azshara's Indomitable
@@ -93,6 +102,8 @@ function mod:GetOptions()
 		{300743, "TANK"}, -- Void Touched
 		303982, -- Nether Portal
 		301431, -- Overload
+		{300866, "ME_ONLY", "FLASH", "COUNTDOWN"}, -- Essence of Azeroth
+		300877, -- System Shock
 		300478, -- Divide and Conquer
 	},{
 		["stages"] = "general",
@@ -107,106 +118,130 @@ function mod:GetOptions()
 		[300768] = -20361, -- Stage Four: My Palace Is a Prison
 		[300478] = "mythic",
 	},{
-		[297371] = L.reversal, -- Reversal of Fortune
-		[297372] = L.greater_reversal, -- Greater Reversal of Fortune
+		[297371] = L.reversal, -- Reversal of Fortune (Reversal)
+		[297372] = L.greater_reversal, -- Greater Reversal of Fortune (Reversal (Greater))
+		[300866] = L.you_die, -- Essence of Azeroth (You die)
 	}
 end
 
-function mod:OnBossEnable()
-	self:RegisterEvent("RAID_BOSS_WHISPER")
-	self:RegisterEvent("CHAT_MSG_RAID_BOSS_EMOTE")
-	self:RegisterUnitEvent("UNIT_SPELLCAST_SUCCEEDED", nil, "boss1", "boss2", "boss3", "boss4", "boss5")
-	self:Log("SPELL_DAMAGE", "PressureSurge", 300074)
-	self:Log("SPELL_AURA_APPLIED", "DrainedSoulApplied", 298569)
-	self:Log("SPELL_AURA_APPLIED_DOSE", "DrainedSoulApplied", 298569)
-	self:Log("SPELL_AURA_REMOVED", "DrainedSoulRemoved", 298569)
-
-	-- Stage 1
-	self:Log("SPELL_CAST_START", "PainfulMemories", 297937)
-	self:Log("SPELL_CAST_START", "Longing", 297934)
-	self:Log("SPELL_AURA_APPLIED", "Torment", 297912)
-
-	-- Aethane
-	self:Log("SPELL_CAST_START", "LightningOrbs", 298121)
-	self:Log("SPELL_CAST_START", "ChainLightning", 297972)
-	self:Log("SPELL_CAST_START", "ColdBlast", 298014)
-	self:Log("SPELL_AURA_APPLIED", "ColdBlastApplied", 298014)
-	self:Log("SPELL_AURA_APPLIED_DOSE", "ColdBlastApplied", 298014)
-	self:Log("SPELL_CAST_START", "IceShard", 298021)
-
-	-- Cyranus
-	self:Log("SPELL_AURA_APPLIED", "SerratedEdgeApplied", 298756)
-	self:Log("SPELL_AURA_APPLIED_DOSE", "SerratedEdgeApplied", 298756)
-	self:Log("SPELL_CAST_SUCCESS", "ChargedSpear", 301078)
-	self:Log("SPELL_AURA_APPLIED", "ChargedSpearApplied", 301078)
-
-	-- Overzealous Hulk
-	self:Log("SPELL_CAST_SUCCESS", "GroundPound", 298531)
-	self:Log("SPELL_AURA_APPLIED", "Infuriated", 300428)
-	self:Death("HulkDeath", 153064)
-
-	-- Queen Azshara
-	self:Log("SPELL_CAST_SUCCESS", "Beckon", 299094, 302141, 303797, 303799) -- Stage 1, Stage 2, Stage 3, Stage 4
-
-	-- Intermission
-	self:Log("SPELL_CAST_START", "QueensDecree", 299250)
-	self:Log("SPELL_AURA_APPLIED", "PersonalDecrees", 299249, 299251, 299254, 299255, 299252, 299253) -- Suffer!, Obey!, Stand Together!, Stand Alone!, March!, Stay!
-	self:Log("SPELL_AURA_APPLIED", "Sanction", 299276) -- Sanction
-	self:Log("SPELL_AURA_APPLIED_DOSE", "Sanction", 299276) -- Sanction
-
-	-- Stage 2
-	self:Log("SPELL_AURA_APPLIED", "ArcaneMasteryApplied", 300502)
-	self:Log("SPELL_AURA_APPLIED", "ArcaneVulnerabilityApplied", 302999)
-	self:Log("SPELL_AURA_APPLIED_DOSE", "ArcaneVulnerabilityApplied", 302999)
-	self:Log("SPELL_CAST_SUCCESS", "ArcaneJolt", 304475)
-
-	self:Log("SPELL_CAST_START", "ArcaneDetonation", 300519)
-	self:Log("SPELL_AURA_APPLIED", "ArcaneBurstApplied", 303657)
-	self:Log("SPELL_AURA_REMOVED", "ArcaneBurstRemoved", 303657)
-
-	-- Stage 3
-	self:Log("SPELL_AURA_APPLIED", "StaticShock", 300492)
-	self:Log("SPELL_AURA_APPLIED", "CrystallineShield", 300620)
-
-	-- Stage 4
-	self:Log("SPELL_CAST_SUCCESS", "PiercingGaze", 300768)
-	self:Log("SPELL_CAST_SUCCESS", "VoidTouchedSuccess", 300743)
-	self:Log("SPELL_AURA_APPLIED", "VoidTouchedApplied", 300743)
-	self:Log("SPELL_AURA_APPLIED_DOSE", "VoidTouchedApplied", 300743)
-	self:Log("SPELL_CAST_START", "Overload", 301431)
-
-	-- Ground Effects
-	self:Log("SPELL_AURA_APPLIED", "GroundDamage", 297907) -- Cursed Heart
-	self:Log("SPELL_PERIODIC_DAMAGE", "GroundDamage", 297907)
-	self:Log("SPELL_PERIODIC_MISSED", "GroundDamage", 297907)
-end
-
-function mod:OnEngage()
-	stage = 1
-	portalCount = 1
-	detonationCount = 1
-	hulkCollection = {}
-	drainedSoulList = {}
-	self:RegisterEvent("INSTANCE_ENCOUNTER_ENGAGE_UNIT")
-
-	self:CDBar(297937, 14.2) -- Painful Memories
-	self:CDBar(298121, 18.5) -- Lightning Orbs
-	self:Bar(299094, 49.5) -- Beckon
-	self:Bar(298787, self:Mythic() and 57.5 or 65) -- Arcane Orbs
-	self:CDBar(-20480, self:Mythic() and 27.5 or 35, nil, "achievement_boss_nagabruteboss") -- Overzealous Hulk
-	self:Berserk(840)
-	self:OpenInfo(298569, self:SpellName(298569)) -- Drained Soul
-	for unit in self:IterateGroup() do
-		local _, _, _, tarInstanceId = UnitPosition(unit)
-		local name = self:UnitName(unit)
-		if name and tarInstanceId == 2164 and not self:Tank(unit) then
-			drainedSoulList[name] = {0, 0, 110}
+do
+	local function initInfoBox(self)
+		soulDuration = self:LFR() and 60 or 110
+		for unit in self:IterateGroup() do
+			local _, _, _, tarInstanceId = UnitPosition(unit)
+			local name = self:UnitName(unit)
+			if name and tarInstanceId == 2164 and not self:Tank(unit) then
+				drainedSoulList[name] = {0, 0, soulDuration}
+			end
 		end
 	end
-	self:SetInfoBarsByTable(298569, drainedSoulList, true) -- Drained Soul
 
-	if self:Mythic() then
-		self:Bar(300478, 32.5) -- Divide and Conquer
+	function mod:OnBossEnable()
+		self:Log("SPELL_CAST_SUCCESS", "AddsSpawn", 181113) -- Encounter Spawn
+		self:RegisterEvent("RAID_BOSS_WHISPER")
+		self:RegisterEvent("CHAT_MSG_RAID_BOSS_EMOTE")
+		self:RegisterUnitEvent("UNIT_SPELLCAST_SUCCEEDED", nil, "boss1", "boss2", "boss3", "boss4", "boss5")
+		self:Log("SPELL_DAMAGE", "PressureSurge", 300074)
+		self:Log("SPELL_AURA_APPLIED", "DrainedSoulApplied", 298569)
+		self:Log("SPELL_AURA_APPLIED_DOSE", "DrainedSoulApplied", 298569)
+		self:Log("SPELL_AURA_REMOVED", "DrainedSoulRemoved", 298569)
+
+		-- Stage 1
+		self:Log("SPELL_CAST_START", "PainfulMemories", 297937)
+		self:Log("SPELL_CAST_START", "Longing", 297934)
+		self:Log("SPELL_AURA_APPLIED", "Torment", 297912)
+
+		-- Aethane
+		self:Log("SPELL_CAST_START", "LightningOrbs", 298121)
+		self:Log("SPELL_CAST_START", "ChainLightning", 297972)
+		self:Log("SPELL_CAST_START", "ColdBlast", 298014)
+		self:Log("SPELL_AURA_APPLIED", "ColdBlastApplied", 298014)
+		self:Log("SPELL_AURA_APPLIED_DOSE", "ColdBlastApplied", 298014)
+		self:Log("SPELL_CAST_START", "IceShard", 298021)
+
+		-- Cyranus
+		self:Log("SPELL_AURA_APPLIED", "SerratedEdgeApplied", 298756)
+		self:Log("SPELL_AURA_APPLIED_DOSE", "SerratedEdgeApplied", 298756)
+		self:Log("SPELL_CAST_SUCCESS", "ChargedSpear", 301078)
+		self:Log("SPELL_AURA_APPLIED", "ChargedSpearApplied", 301078)
+
+		-- Overzealous Hulk
+		self:Log("SPELL_CAST_SUCCESS", "GroundPound", 298531)
+		self:Log("SPELL_AURA_APPLIED", "Infuriated", 300428)
+		self:Death("HulkDeath", 153064)
+
+		-- Queen Azshara
+		self:Log("SPELL_CAST_SUCCESS", "Beckon", 299094, 302141, 303797, 303799) -- Stage 1, Stage 2, Stage 3, Stage 4
+
+		-- Intermission
+		self:Log("SPELL_CAST_START", "QueensDecree", 299250)
+		self:Log("SPELL_AURA_APPLIED", "PersonalDecrees", 299249, 299251, 299254, 299255, 299252, 299253) -- Suffer!, Obey!, Stand Together!, Stand Alone!, March!, Stay!
+		self:Log("SPELL_AURA_REMOVED", "PersonalDecreesRemoved", 299254, 299255) -- Stand Together!, Stand Alone!
+		self:Log("SPELL_AURA_APPLIED", "Sanction", 299276) -- Sanction
+		self:Log("SPELL_AURA_APPLIED_DOSE", "Sanction", 299276) -- Sanction
+
+		-- Stage 2
+		self:Log("SPELL_AURA_APPLIED", "ArcaneMasteryApplied", 300502)
+		self:Log("SPELL_AURA_APPLIED", "ArcaneVulnerabilityApplied", 302999)
+		self:Log("SPELL_AURA_APPLIED_DOSE", "ArcaneVulnerabilityApplied", 302999)
+		self:Log("SPELL_CAST_SUCCESS", "ArcaneJolt", 304475)
+
+		self:Log("SPELL_CAST_START", "ArcaneDetonation", 300519)
+		self:Log("SPELL_AURA_APPLIED", "ArcaneBurstApplied", 303657)
+		self:Log("SPELL_AURA_REMOVED", "ArcaneBurstRemoved", 303657)
+
+		-- Stage 3
+		self:Log("SPELL_AURA_APPLIED", "StaticShock", 300492)
+		self:Log("SPELL_AURA_APPLIED", "CrystallineShield", 300620)
+
+		-- Stage 4
+		self:Log("SPELL_CAST_SUCCESS", "PiercingGaze", 300768)
+		self:Log("SPELL_CAST_SUCCESS", "VoidTouchedSuccess", 300743)
+		self:Log("SPELL_AURA_APPLIED", "VoidTouchedApplied", 300743)
+		self:Log("SPELL_AURA_APPLIED_DOSE", "VoidTouchedApplied", 300743)
+		self:Log("SPELL_CAST_START", "Overload", 301431)
+		self:Log("SPELL_AURA_APPLIED", "EssenceofAzerothApplied", 300866)
+		self:Log("SPELL_AURA_REMOVED", "EssenceofAzerothRemoved", 300866)
+		self:Log("SPELL_AURA_APPLIED", "SystemShockApplied", 300877)
+
+		-- Ground Effects
+		self:Log("SPELL_AURA_APPLIED", "NetherPortalDamage", 303981) -- Nether Portal
+		self:Log("SPELL_PERIODIC_DAMAGE", "NetherPortalDamage", 303981)
+		self:Log("SPELL_PERIODIC_MISSED", "NetherPortalDamage", 303981)
+
+		self:Log("SPELL_AURA_APPLIED", "GroundDamage", 297907) -- Cursed Heart
+		self:Log("SPELL_PERIODIC_DAMAGE", "GroundDamage", 297907)
+		self:Log("SPELL_PERIODIC_MISSED", "GroundDamage", 297907)
+
+		initInfoBox(self)
+	end
+
+	function mod:OnEngage()
+		stage = 1
+		portalCount = 1
+		detonationCount = 1
+		hulkCollection = {}
+		drainedSoulList = {}
+		hiddenDrainedSoulList = {}
+		self:RegisterEvent("INSTANCE_ENCOUNTER_ENGAGE_UNIT")
+		self:RegisterEvent("UNIT_FLAGS")
+
+		self:CDBar(297937, 14.2) -- Painful Memories
+		self:CDBar(298121, 18.5) -- Lightning Orbs
+		self:Bar(299094, 49.5) -- Beckon
+		self:Berserk(840)
+		if self:Mythic() then
+			self:Bar(300478, 32.5) -- Divide and Conquer
+			self:Bar(298787, 57.5) -- Arcane Orbs
+			self:CDBar(-20480, 27.5, nil, "achievement_boss_nagabruteboss") -- Overzealous Hulk
+		else
+			self:Bar(298787, 65) -- Arcane Orbs
+			self:CDBar(-20480, 35, nil, "achievement_boss_nagabruteboss") -- Overzealous Hulk
+		end
+
+		initInfoBox(self)
+		self:OpenInfo(298569, self:SpellName(298569)) -- Drained Soul
+		self:SetInfoBarsByTable(298569, drainedSoulList, true) -- Drained Soul
 	end
 end
 
@@ -222,6 +257,36 @@ function mod:INSTANCE_ENCOUNTER_ENGAGE_UNIT()
 		self:PlaySound(-20480, "long")
 		hulkKillTime = GetTime()
 		self:CDBar(-20480, self:Mythic() and 63 or self:Easy() and 84 or 59, nil, "achievement_boss_nagabruteboss") -- Overzealous Hulk
+	end
+end
+
+function mod:UNIT_FLAGS(_, unit) -- Hide dead people
+	local name = self:UnitName(unit)
+	if UnitIsDead(unit) then
+		if drainedSoulList[name] then
+			hiddenDrainedSoulList[name] = drainedSoulList[name]
+			drainedSoulList[name] = nil
+			self:SetInfoBarsByTable(298569, drainedSoulList, true)
+		end
+	else
+		if hiddenDrainedSoulList[name] then
+			drainedSoulList[name] = hiddenDrainedSoulList[name]
+			hiddenDrainedSoulList[name] = nil
+			self:SetInfoBarsByTable(298569, drainedSoulList, true)
+		end
+	end
+end
+
+-- XXX patch 8.2.5
+function mod:AddsSpawn(args)
+	if self:MobId(args.sourceGUID) == 153064 then -- Overzealous Hulk
+		BigWigs:Print("Hulk Smash")
+	elseif self:MobId(args.sourceGUID) == 154240 then -- Azshara's Devoted
+		BigWigs:Print("Devoted")
+	elseif self:MobId(args.sourceGUID) == 155354 then -- Azshara's Indomitable
+		BigWigs:Print("Indomitable")
+	elseif self:MobId(args.sourceGUID) == 154565 then -- Loyal Myrmidon
+		BigWigs:Print("Myrmidon")
 	end
 end
 
@@ -307,9 +372,10 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 		self:StopBar(CL.stage:format(4))
 		portalCount = 1
 		piercingCount = 1
+		overloadCount = 1
 
 		self:Bar(300743, self:Mythic() and 12.5 or 12) -- Void Touched
-		self:Bar(301431, self:Mythic() and 14.2 or 17) -- Overload
+		self:Bar(301431, self:Mythic() and 14.2 or 17, CL.count:format(self:SpellName(301431), overloadCount)) -- Overload
 		self:Bar(303982, self:Mythic() and portalTimersMythic[portalCount] or 24) -- Nether Portal
 		self:Bar(300768, self:Mythic() and 51.6 or 44) -- Piercing Gaze
 		self:Bar(299094, self:Mythic() and 72.8 or 68.5) -- Beckon
@@ -347,7 +413,6 @@ do
 		for i = 1, #timersTable do
 			self:CancelTimer(timersTable[i])
 		end
-		timersTable = {}
 		self:StopBar(-20355) -- Loyal Myrmidon
 	end
 end
@@ -367,17 +432,19 @@ end
 
 function mod:DrainedSoulApplied(args)
 	if not drainedSoulList[args.destName] then
-		drainedSoulList[args.destName] = {args.amount or 1, GetTime()+110, 110}
+		drainedSoulList[args.destName] = {args.amount or 1, GetTime()+soulDuration, soulDuration}
 	else
 		drainedSoulList[args.destName][1] = args.amount or 1
-		drainedSoulList[args.destName][2] = GetTime()+110
+		drainedSoulList[args.destName][2] = GetTime()+soulDuration
 	end
 	self:SetInfoBarsByTable(args.spellId, drainedSoulList, true)
 	if self:Me(args.destGUID) then
 		local amount = args.amount or 1
-		if amount % 2 == 0 or amount >= 7 then
+		if amount % 2 == 0 or amount > 5 then
 			self:StackMessage(args.spellId, args.destName, amount, "blue")
-			self:PlaySound(args.spellId, amount > 7 and "warning" or "alarm", nil, args.destName)
+			if amount > 3 then
+				self:PlaySound(args.spellId, amount > 6 and "warning" or "alarm", nil, args.destName)
+			end
 		end
 	end
 end
@@ -385,9 +452,19 @@ end
 function mod:DrainedSoulRemoved(args)
 	if self:Tank(args.destName) then
 		drainedSoulList[args.destName] = nil
+		hiddenDrainedSoulList[args.destName] = nil
 	else
-		drainedSoulList[args.destName][1] = 0
-		drainedSoulList[args.destName][2] = 0
+		if self:Me(args.destGUID) then
+			self:PersonalMessage(args.spellId, false, CL.removed:format(args.spellName))
+			self:PlaySound(args.spellId, "warning", nil, args.destName)
+		end
+		if hiddenDrainedSoulList[args.destName] then -- Support for Mythic, you keep the debuff after death
+			hiddenDrainedSoulList[args.destName][1] = 0
+			hiddenDrainedSoulList[args.destName][2] = 0
+		else
+			drainedSoulList[args.destName][1] = 0
+			drainedSoulList[args.destName][2] = 0
+		end
 	end
 	self:SetInfoBarsByTable(args.spellId, drainedSoulList, true)
 end
@@ -530,25 +607,54 @@ function mod:QueensDecree(args)
 end
 
 do
+	local decreeTimer = nil
 	local debuffs = {}
-	local comma = (GetLocale() == "zhTW" or GetLocale() == "zhCN") and "，" or ", "
-	local tconcat =  table.concat
 	local function announce()
-		local msg = tconcat(debuffs, comma, 1, #debuffs)
-		mod:PersonalMessage(299250, nil, msg)
+		if #debuffs == 2 then
+			mod:PersonalMessage(299250, false, L.yourDecree2:format(debuffs[1], debuffs[2]))
+		else
+			mod:PersonalMessage(299250, false, L.yourDecree:format(debuffs[1]))
+		end
 		mod:PlaySound(299250, "alarm")
 		debuffs = {}
 	end
 
 	function mod:PersonalDecrees(args)
 		if self:Me(args.destGUID) then
-			debuffs[#debuffs+1] = L[args.spellId]:format(args.spellName)
+			debuffs[#debuffs+1] = L[args.spellId]
 			if #debuffs == 1 then
 				self:SimpleTimer(announce, 0.1)
 			end
 			if args.spellId == 299254 then -- Stand Together!
 				self:Yell2(299250, args.spellName)
+				if #debuffs == 1 then
+					if self:GetOption("custom_off_repeating_decree_chat") and not self:LFR() then
+						decreeTimer = self:ScheduleRepeatingTimer(SendChatMessage, 2, L.hugSay:format(args.destName), "YELL")
+					end
+				elseif debuffs[1] == L[299253] then -- Stay!
+					if self:GetOption("custom_off_repeating_decree_chat") and not self:LFR() then -- Stand Together! & Stay!
+						if decreeTimer then self:CancelTimer(decreeTimer) end
+						decreeTimer = self:ScheduleRepeatingTimer(SendChatMessage, 2, L.hugNoMoveSay:format(args.destName), "YELL")
+					end
+				end
+			elseif args.spellId == 299255 then -- Stand Alone!
+				self:Say(299250, args.spellName)
+				if self:GetOption("custom_off_repeating_decree_chat") and not self:LFR() then
+					decreeTimer = self:ScheduleRepeatingTimer(SendChatMessage, 2, L.avoidSay:format(args.destName), "SAY")
+				end
+			elseif args.spellId == 299253 and debuffs[1] == L[299254] then -- Stay! & Stand Together!
+				if self:GetOption("custom_off_repeating_decree_chat") and not self:LFR() then
+					if decreeTimer then self:CancelTimer(decreeTimer) end
+					decreeTimer = self:ScheduleRepeatingTimer(SendChatMessage, 2, L.hugNoMoveSay:format(args.destName), "YELL")
+				end
 			end
+		end
+	end
+
+	function mod:PersonalDecreesRemoved(args)
+		if decreeTimer and self:Me(args.destGUID) then
+			self:CancelTimer(decreeTimer)
+			decreeTimer = nil
 		end
 	end
 end
@@ -569,9 +675,10 @@ function mod:ArcaneMasteryApplied(args)
 	self:Bar(299094, 12.8) -- Beckon
 	self:Bar(303657, self:Mythic() and 43 or 40) -- Arcane Burst
 	self:Bar(297371, self:Mythic() and 55.8 or 56, L.reversal) -- Reversal of Fortune
-	self:Bar(300519, 67.8, CL.count:format(self:SpellName(300519), detonationCount)) -- Arcane Detonation
+	self:Bar(300519, self:Mythic() and 67.8 or 62.9, CL.count:format(self:SpellName(300519), detonationCount)) -- Arcane Detonation
 	self:StartDevotedTimer(23) -- Azshara's Devoted
-	self:StartIndomitableTimer(93.5) -- Azshara's Indomitable
+	local indomitable = self:Mythic() and 103.5 or 93.5
+	self:StartIndomitableTimer(indomitable) -- Azshara's Indomitable
 	if self:Mythic() then
 		self:Bar(300478, 33) -- Divide and Conquer
 	end
@@ -591,7 +698,6 @@ do
 		for i = 1, #timersTable do
 			self:CancelTimer(timersTable[i])
 		end
-		timersTable = {}
 		self:StopBar(-20408) -- Azshara's Devoted
 	end
 end
@@ -610,7 +716,6 @@ do
 		for i = 1, #timersTable do
 			self:CancelTimer(timersTable[i])
 		end
-		timersTable = {}
 		self:StopBar(-20410) -- Azshara's Indomitable
 	end
 end
@@ -638,7 +743,12 @@ function mod:ArcaneDetonation(args)
 	self:PlaySound(args.spellId, "warning")
 	self:CastBar(args.spellId, self:Mythic() and 4 or self:Heroic() and 5 or 6, CL.count:format(args.spellName, detonationCount)) -- Mythic 4s, Heroic 5s, Normal/LFR 6s
 	detonationCount = detonationCount + 1
-	self:CDBar(args.spellId, 75, CL.count:format(args.spellName, detonationCount))
+	if self:Mythic() and stage == 3  and detonationCount < 4 then
+		local cd = detonationCount == 2 and 70 or 50 -- 59, 70, 50 / Stage end
+		self:CDBar(args.spellId, cd, CL.count:format(args.spellName, detonationCount))
+	elseif stage == 2 or not self:Mythic() then
+		self:CDBar(args.spellId, 75, CL.count:format(args.spellName, detonationCount))
+	end
 end
 
 do
@@ -700,9 +810,49 @@ function mod:VoidTouchedApplied(args)
 end
 
 function mod:Overload(args)
-	self:Message2(args.spellId, "red")
+	self:Message2(args.spellId, "red", CL.count:format(args.spellName, overloadCount))
 	self:PlaySound(args.spellId, "warning")
-	self:CDBar(args.spellId, self:Mythic() and 55 or 45)
+	overloadCount = overloadCount + 1
+	self:CDBar(args.spellId, self:Mythic() and 55 or 45, CL.count:format(args.spellName, overloadCount))
+end
+
+function mod:EssenceofAzerothApplied(args)
+	if self:Me(args.destGUID) then
+		local t = self:Mythic() and 25 or 40
+		self:PersonalMessage(303982, false, L.you_die_message:format(t))
+		self:PlaySound(args.spellId, "alert", nil, args.destName)
+		self:Flash(args.spellId)
+		self:Bar(args.spellId, t, L.you_die)
+	else
+		self:TargetMessage2(args.spellId, "yellow", args.destName)
+	end
+end
+
+function mod:EssenceofAzerothRemoved(args)
+	if self:Me(args.destGUID) then
+		self:StopBar(L.you_die)
+	end
+end
+
+function mod:SystemShockApplied(args)
+	self:TargetMessage2(args.spellId, "cyan", args.destName)
+	if self:Me(args.destGUID) then
+		self:PlaySound(args.spellId, "alarm", nil, args.destName)
+	end
+end
+
+do
+	local prev = 0
+	function mod:NetherPortalDamage(args)
+		if self:Me(args.destGUID) then
+			local t = args.time
+			if t-prev > 2 then
+				prev = t
+				self:PlaySound(303982, "alarm")
+				self:PersonalMessage(303982, "underyou")
+			end
+		end
+	end
 end
 
 do

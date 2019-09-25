@@ -1,5 +1,8 @@
+if not WeakAuras.IsCorrectVersion() then return end
+
 local SharedMedia = LibStub("LibSharedMedia-3.0");
 local L = WeakAuras.L;
+if WeakAuras.IsClassic() then return end -- Models disabled for classic
 
 -- Default settings
 local default = {
@@ -69,6 +72,9 @@ local function GetProperties(data)
   return properties;
 end
 
+local regionFunctions = {
+  Update = function() end
+}
 
 -- Called when first creating a new region/display
 local function create(parent)
@@ -90,6 +96,10 @@ local function create(parent)
   region.model = model;
 
   WeakAuras.regionPrototype.create(region);
+
+  for k, v in pairs (regionFunctions) do
+    region[k] = v
+  end
 
   -- Return complete region
   return region;
@@ -114,8 +124,7 @@ local function modify(parent, region, data)
   model:SetPortraitZoom(data.portraitZoom and 1 or 0);
   if (data.api) then
     model:SetTransform(data.model_st_tx / 1000, data.model_st_ty / 1000, data.model_st_tz / 1000,
-      rad(data.model_st_rx), rad(data.model_st_ry), rad(data.model_st_rz),
-      data.model_st_us / 1000);
+      rad(data.model_st_rx), rad(data.model_st_ry), rad(data.model_st_rz), data.model_st_us / 1000);
   else
     model:ClearTransform();
     model:SetPosition(data.model_z, data.model_x, data.model_y);
@@ -123,15 +132,15 @@ local function modify(parent, region, data)
 
   if data.modelIsUnit then
     model:RegisterEvent("UNIT_MODEL_CHANGED");
-    if (data.model_path == "target") then
+    if (data.model_fileId == "target") then
       model:RegisterEvent("PLAYER_TARGET_CHANGED");
-    elseif (data.model_path == "focus") then
+    elseif (data.model_fileId == "focus") then
       model:RegisterEvent("PLAYER_FOCUS_CHANGED");
     end
     model:SetScript("OnEvent", function(self, event, unitId)
       WeakAuras.StartProfileSystem("model");
-      if (event ~= "UNIT_MODEL_CHANGED" or UnitIsUnit(unitId, data.model_path)) then
-        model:SetUnit(data.model_path);
+      if (event ~= "UNIT_MODEL_CHANGED" or UnitIsUnit(unitId, data.model_fileId)) then
+        WeakAuras.SetModel(model, data.model_path, data.model_fileId, data.modelIsUnit, data.modelDisplayInfo)
       end
       WeakAuras.StopProfileSystem("model");
     end
@@ -175,9 +184,9 @@ local function modify(parent, region, data)
       elapsed = elapsed + (elaps * 1000);
       model:SetSequenceTime(data.sequence, elapsed);
       WeakAuras.StopProfileSystem("model");
-    end);
+    end)
   else
-    model:SetScript("OnUpdate", nil);
+    model:SetScript("OnUpdate", nil)
   end
 
   -- Rescale model display
@@ -246,26 +255,25 @@ local function modify(parent, region, data)
       model:ClearTransform();
       model:SetPosition(data.model_z, data.model_x, data.model_y);
     end
-
-    if data.modelIsUnit then
-      model:SetUnit(data.model_path);
-    end
   end
 
   function region:PreHide()
     model:SetKeepModelOnHide(false)
   end
 
+  WeakAuras.regionPrototype.modifyFinish(parent, region, data);
 end
 
---- Work around for movies and world map hiding all models
+-- Work around for movies and world map hiding all models
 do
   function WeakAuras.PreShowModels(self, event)
     WeakAuras.StartProfileSystem("model");
     for id, data in pairs(WeakAuras.regions) do
       WeakAuras.StartProfileAura(id);
-      if (data.regionType == "model" and data.region.toShow) then
-        data.region:PreShow();
+      if data.region.toShow then
+        if (data.regionType == "model") then
+          data.region:PreShow();
+        end
       end
       WeakAuras.StopProfileAura(id);
     end

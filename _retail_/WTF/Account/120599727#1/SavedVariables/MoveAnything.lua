@@ -25,7 +25,7 @@ MADB = {
 						"UIParent", -- [2]
 						"BOTTOMLEFT", -- [3]
 						783.2565307617188, -- [4]
-						37.38461685180664, -- [5]
+						32.38462066650391, -- [5]
 					},
 					["name"] = "BasicActionButtonsMover",
 					["pos"] = {
@@ -266,7 +266,8 @@ MADB = {
 		},
 	},
 	["closeGUIOnEscape"] = false,
-	["playSound"] = false,
-	["noBags"] = false,
 	["frameListRows"] = 18,
+	["noBags"] = false,
+	["disableErrorMessages"] = true,
+	["playSound"] = false,
 }

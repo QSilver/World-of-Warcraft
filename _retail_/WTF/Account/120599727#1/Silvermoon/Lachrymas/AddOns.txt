@@ -22,5 +22,9 @@ AllTheThings: disabled
 RaiderIO: disabled
 Quartz: enabled
 QE-DungeonTips: disabled
-MoveAnything: disabled
+MoveAnything: enabled
 Prat-3.0: enabled
+MSBTOptions: enabled
+ShadowedUF_Options: enabled
+SexyMap: enabled
+VuhDo: enabled

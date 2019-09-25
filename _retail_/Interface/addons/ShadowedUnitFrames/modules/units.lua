@@ -1476,10 +1476,11 @@ end
 -- Handle figuring out what auras players can cure
 local curableSpells = {
 	["DRUID"] = {[88423] = {"Magic", "Curse", "Poison"}, [2782] = {"Curse", "Poison"}},
-	["PRIEST"] = {[527] = {"Magic", "Disease"}, [32375] = {"Magic"}},
+	["PRIEST"] = {[527] = {"Magic", "Disease"}, [32375] = {"Magic"}, [213634] = {"Disease"}},
 	["PALADIN"] = {[4987] = {"Poison", "Disease", "Magic"}, [213644] = {"Poison", "Disease"}},
 	["SHAMAN"] = {[77130] = {"Curse", "Magic"}, [51886] = {"Curse"}},
 	["MONK"] = {[115450] = {"Poison", "Disease", "Magic"}, [218164] = {"Poison", "Disease"}},
+	["MAGE"] = {[475] = {"Curse"}},
 }
 
 curableSpells = curableSpells[select(2, UnitClass("player"))]

@@ -13,6 +13,7 @@ mod.respawnTime = 30
 --
 
 local markList = {}
+local overwhelmingCount = 1
 
 --------------------------------------------------------------------------------
 -- Initialization
@@ -52,9 +53,10 @@ end
 
 function mod:OnEngage()
 	markList = {}
+	overwhelmingCount = 1
 	self:CDBar(295332, 11) -- Crushing Reverberation
 	self:Bar(-20006, self:Mythic() and 19 or 16) -- Overflow
-	self:Bar(296551, 40) -- Overwhelming Barrage
+	self:Bar(296551, 40, CL.count:format(self:SpellName(296551), overwhelmingCount)) -- Overwhelming Barrage
 	self:CDBar(295601, 50) -- Frostshock Bolts
 	if not self:LFR() then
 		self:CDBar(295791, 70) -- Inversion
@@ -98,6 +100,10 @@ end
 function mod:MarkAppliedDose(args)
 	markList[args.destName] = args.amount
 	self:SetInfoByTable(294726, markList)
+	if args.amount > 2 and self:Me(args.destGUID) then
+		self:StackMessage(294726, args.destName, args.amount, "blue", nil, args.spellName, args.spellId)
+		self:PlaySound(294726, "alarm")
+	end
 end
 
 function mod:MarkRemoved(args)
@@ -131,9 +137,10 @@ function mod:FrostvenomTippedRemoved(args)
 end
 
 function mod:OverwhelmingBarrage(args)
-	self:Message2(296551, "red")
+	self:Message2(296551, "red",  CL.count:format(self:SpellName(296551), overwhelmingCount))
 	self:PlaySound(296551, "warning")
-	self:Bar(296551, 40)
+	overwhelmingCount = overwhelmingCount + 1
+	self:Bar(296551, 40, CL.count:format(self:SpellName(296551), overwhelmingCount))
 end
 
 do

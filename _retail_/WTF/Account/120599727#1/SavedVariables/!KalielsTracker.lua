@@ -15,8 +15,9 @@ KalielsTrackerDB = {
 	},
 	["profiles"] = {
 		["Default"] = {
-			["xOffset"] = -40,
+			["xOffset"] = -50,
 			["yOffset"] = -190,
+			["maxHeight"] = 590,
 		},
 	},
 }

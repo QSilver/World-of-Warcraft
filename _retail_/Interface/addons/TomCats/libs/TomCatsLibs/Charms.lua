@@ -41,8 +41,12 @@ function TCL.Charms.Create(buttonInfo)
     if (buttonInfo.handler_onclick) then
         frame:SetHandler("OnClick",buttonInfo.handler_onclick)
     end
-    handleSlideBar(frame)
-    handleSexyMap(frame)
+    if not buttonInfo.ignoreSlideBar then
+        handleSlideBar(frame)
+    end
+    if not buttonInfo.ignoreSexyMap then
+        handleSexyMap(frame)
+    end
     return frame
 end
 

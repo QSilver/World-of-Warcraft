@@ -1,6 +1,6 @@
 
 BPBID_Options = {
-	["format"] = 3,
+	["ManualChange"] = "r199",
 	["Tooltips"] = {
 		["Enabled"] = true,
 		["FBPT"] = true,
@@ -8,7 +8,6 @@ BPBID_Options = {
 		["BPT"] = true,
 		["BattleTooltip"] = true,
 	},
-	["ManualChange"] = "r199",
 	["Breedtip"] = {
 		["Current"] = true,
 		["Possible"] = true,
@@ -20,6 +19,7 @@ BPBID_Options = {
 		["CurrentStats"] = false,
 		["AllStats25"] = true,
 	},
+	["format"] = 3,
 	["BattleFontFix"] = false,
 	["Names"] = {
 		["HSFUpdateRarity"] = true,

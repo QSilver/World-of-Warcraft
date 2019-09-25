@@ -58,6 +58,8 @@
       bigStep (optional) -> step size of the slider. Defaults to 0.05
       step (optional) -> like bigStep, but applies to number input as well
 ]]
+if not WeakAuras.IsCorrectVersion() then return end
+
 local WeakAuras = WeakAuras
 local L = WeakAuras.L
 
@@ -528,6 +530,15 @@ typeControlAdders = {
         return not option.useLength
       end
     }
+    args["prefix" .. "multiline"] = {
+      type = "toggle",
+      width = WeakAuras.doubleWidth,
+      name = name(option, "multiline", L["Large Input"]),
+      desc = desc(option, "multiline", L["If checked, then the user will see a multi line edit box. This is useful for inputting large amounts of text."]),
+      order = order(),
+      get = get(option, "multiline"),
+      set = set(data, option, "multiline"),
+    }
   end,
   number = function(options, args, data, order, prefix, i)
     local option = options[i]
@@ -570,6 +581,16 @@ typeControlAdders = {
   end,
   range = function(options, args, data, order, prefix, i)
     local option = options[i]
+    local min, max, softMin, softMax, step, bigStep
+    softMax = option.softMax
+    softMin = option.softMin
+    bigStep = option.bigStep
+    min = option.min
+    max = option.max
+    if max and min then
+      max = math.max(min, max)
+    end
+    step = option.step
     args[prefix .. "default"] = {
       type = "range",
       width = WeakAuras.normalWidth,
@@ -577,7 +598,13 @@ typeControlAdders = {
       desc = desc(option, "default"),
       order = order(),
       get = get(option, "default"),
-      set = set(data, option, "default")
+      set = set(data, option, "default"),
+      min = min,
+      max = max,
+      step = step,
+      softMin = softMin,
+      softMax = softMax,
+      bigStep = bigStep,
     }
 
     args[prefix .. "min"] = {
@@ -1503,7 +1530,7 @@ function addAuthorModeOption(options, args, data, order, prefix, i)
             local newKey = "option" .. i
             local existingKeys = {}
             for index, option in pairs(optionData.options) do
-              if index ~= optionData.index then
+              if index ~= optionData.index and option.key then
                 existingKeys[option.key] = true
               end
             end
@@ -1881,7 +1908,9 @@ local function addUserModeOption(options, args, data, order, prefix, i)
   -- convert from weakauras option type to ace option type
   if optionClass == "simple" then
     -- toggle and input don't need any extra love
-    if optionType == "number" then
+    if optionType == "input" then
+      userOption.multiline = option.multiline
+    elseif optionType == "number" then
       userOption.type = "input"
       userOption.get = getUserNumAsString(option)
       userOption.set = setUserNum(data, option, true)
@@ -1948,7 +1977,7 @@ local function addUserModeOption(options, args, data, order, prefix, i)
       if not option.variableWidth then
         userOption.width = "full"
       end
-      if option.useHeight and option.height > 1 then
+      if option.useHeight and (option.height or 1) > 1 then
         userOption.name = string.rep("\n", option.height - 1)
       else
         userOption.name = " "
@@ -2280,7 +2309,7 @@ function WeakAuras.GetAuthorOptions(data, args, startorder)
       type = "execute",
       width = WeakAuras.normalWidth,
       name = L["Enter Author Mode"],
-      desc = L["Configure what options appear on this pannel."],
+      desc = L["Configure what options appear on this panel."],
       order = order(),
       func = function()
         if data.controlledChildren then

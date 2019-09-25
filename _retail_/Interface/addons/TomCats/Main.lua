@@ -47,7 +47,7 @@ local function convertVersionToNumber(version)
 end
 
 local addonTOCVersion = convertVersionToNumber(GetAddOnMetadata("TomCats", "version"))
-local newFilesSinceVersion = convertVersionToNumber("1.3.3")
+local newFilesSinceVersion = convertVersionToNumber("1.3.5")
 
 if (newFilesSinceVersion > addonTOCVersion) then
     DEFAULT_CHAT_FRAME:AddMessage("|cffff0000Warning: TomCat's Tours requires that you restart WoW in order for the recent update to function properly|r")
@@ -93,7 +93,7 @@ local slashCommandsHtmlFoot = "</body>\n</html>"
 
 TomCats = {}
 
-TomCats.version = "1.3.4"
+TomCats.version = "1.3.6"
 
 local function refreshInterfaceControlPanels()
     local slashCommandsHtml = slashCommandsHtmlHead
@@ -245,6 +245,7 @@ end
 local function ADDON_LOADED(_, event, arg1)
     if (arg1 == addon.name) then
         TCL.Events.UnregisterEvent("ADDON_LOADED", ADDON_LOADED)
+        addon.savedVariables.account.preferences = addon.savedVariables.account.preferences or { }
         addon.savedVariables.account.preferences.TomCatsMinimapButton = { position = 3 }
         addon.savedVariables.account.notifications = addon.savedVariables.account.notifications or { }
         addon.savedVariables.account.tutorials = addon.savedVariables.account.tutorials or { }
@@ -273,42 +274,50 @@ local function ADDON_LOADED(_, event, arg1)
         --        addon.charm.MinimapLoopPulseAnim:Play()
         --    end
         --end
-        local tomcatsShortcut = TCL.Charms.Create({
-            name = "TomCatsWorldmapRaresButton",
-            iconTexture = "Interface\\AddOns\\TomCats\\images\\tomcat-icon",
-            backgroundColor = { 0.0,0.0,0.0,1.0 },
-            handler_onclick = function() handleSlashCommand("") end
-        })
-        tomcatsShortcut:SetParent(TomCatsRareMapFrame.RaresFrame.Contents)
-        tomcatsShortcut:SetFrameStrata("HIGH")
-        tomcatsShortcut:ClearAllPoints()
-        tomcatsShortcut:SetPoint("TOPRIGHT", TomCatsRareMapFrame.RaresFrame.Contents, "TOPRIGHT", -4, -60)
-        tomcatsShortcut.shadow:Show()
-        tomcatsShortcut.tooltip = {
-            Show = function(this)
-                GameTooltip:ClearLines()
-                GameTooltip:SetOwner(this, "ANCHOR_LEFT")
-                GameTooltip:SetText("TomCat's Tours", 1, 1, 1)
-                GameTooltip:Show()
-            end,
-            Hide = function()
-                GameTooltip:Hide()
-            end
-        }
-        tomcatsShortcut:RegisterForDrag()
+        --local tomcatsShortcut = TCL.Charms.Create({
+        --    name = "TomCatsWorldmapRaresButton",
+        --    iconTexture = "Interface\\AddOns\\TomCats\\images\\tomcat-icon",
+        --    backgroundColor = { 0.0,0.0,0.0,1.0 },
+        --    handler_onclick = function() handleSlashCommand("") end
+        --})
+        --tomcatsShortcut:SetParent(TomCatsRareMapFrame.RaresFrame.Contents.LogHeader)
+        --tomcatsShortcut:SetFrameStrata("HIGH")
+        --tomcatsShortcut:ClearAllPoints()
+        --tomcatsShortcut:SetPoint("TOPRIGHT", TomCatsRareMapFrame.RaresFrame.Contents.LogHeader, "TOPRIGHT", -10, -8)
+        --tomcatsShortcut:SetFrameLevel(TomCatsRareMapFrame.RaresFrame.Contents.LogHeader:GetFrameLevel() + 1)
+        ---- prevent addons such as ElvUI from breaking this button
+        ----tomcatsShortcut.SetPoint_Orig = tomcatsShortcut.SetPoint
+        ----tomcatsShortcut.SetPoint = function() end
+        --tomcatsShortcut.shadow:Show()
+        --tomcatsShortcut.tooltip = {
+        --    Show = function(this)
+        --        GameTooltip:ClearLines()
+        --        GameTooltip:SetOwner(this, "ANCHOR_LEFT")
+        --        GameTooltip:SetText("TomCat's Tours", 1, 1, 1)
+        --        GameTooltip:Show()
+        --    end,
+        --    Hide = function()
+        --        GameTooltip:Hide()
+        --    end
+        --}
+        --tomcatsShortcut:RegisterForDrag()
 
         local offset = -36
         local buttonSpacing = -34
         local count = 0
-
-        for k, v in pairs(addon.supportedMaps) do
+        local mapIDs = { 14, 62, 1355, 1462 }
+        for i = 1, #mapIDs do
+            local k = mapIDs[i]
+            local v = addon.supportedMaps[k]
             local enabled = GetAddOnEnableState(UnitName("player"),v.name)
             if (enabled ~= 0) then
                 local rareMapShortcut = TCL.Charms.Create({
                     name = "TomCatsWorldmapRaresButton" .. k,
                     iconTexture = v.iconTexture,
                     backgroundColor = v.backgroundColor,
-                    handler_onclick = ChangeMap
+                    handler_onclick = ChangeMap,
+                    ignoreSlideBar = true,
+                    ignoreSexyMap = true
                 })
                 rareMapShortcut:SetParent(WorldMapFrame)
                 rareMapShortcut:SetFrameStrata("MEDIUM")

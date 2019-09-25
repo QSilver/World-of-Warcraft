@@ -7,7 +7,7 @@ PasteDB = {
 		["Qsilver - Silvermoon"] = {
 			["loaded"] = true,
 			["minimap"] = {
-				["minimapPos"] = 295.2745501771874,
+				["minimapPos"] = 292.0913214205759,
 			},
 			["where"] = "Default",
 			["whispertarget"] = "",

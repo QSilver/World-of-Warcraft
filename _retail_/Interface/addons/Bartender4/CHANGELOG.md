@@ -1,25 +1,10 @@
 # Bartender4
 
-## [4.8.3](https://github.com/Nevcairiel/Bartender4/tree/4.8.3) (2019-06-26)
-[Full Changelog](https://github.com/Nevcairiel/Bartender4/compare/4.8.2...4.8.3)
+## [4.8.8](https://github.com/Nevcairiel/Bartender4/tree/4.8.8) (2019-09-25)
+[Full Changelog](https://github.com/Nevcairiel/Bartender4/compare/4.8.7...4.8.8)
 
-- Update TOC for 8.2  
-- Fix MicroMenu issues in vehicles  
-- Fix micro button layout on retail  
-- Fixup LuaCheck  
-- Preliminary WoW Classic support, not fully complete yet  
-- Use short-url form for LibStub external  
-- Use read\_globals for most global variables in luacheck  
-- Fix LibStub tag URL  
-- Update pkgmeta to new-style repo URLs  
-- Change how travis executes tasks  
-- Run LuaCheck in travis  
-- Add luacheckrc  
-- Cleanup warnings and style  
-- Remove pre-8.0 frame hiding code  
-- Remove pre-8.0 compat code in MicroMenu  
-- Update pkgmeta file ignores  
-- Fix script some more  
-- More locale work  
-- Play with better locale import  
-- Add travis-ci metadata  
+- Update TOC for 8.2.5  
+- Also re-layout the MicroMenu after taking it back over  
+- Add a few additional hooks to restore the MicroMenu to its original state  
+    Hopefully this can reduce the impact of other addons also messing with  
+    the MainMenuBar  

@@ -354,7 +354,7 @@ CollectMe: disabled
 InboxMailBag: disabled
 SimpleILevel_Social: enabled
 SimpleILevel_Resilience: enabled
-MoveAnything: disabled
+MoveAnything: enabled
 AngryAssignments: enabled
 Arh: enabled
 Hermes: enabled

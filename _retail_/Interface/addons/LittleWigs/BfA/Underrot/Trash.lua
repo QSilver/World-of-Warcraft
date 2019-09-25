@@ -25,6 +25,10 @@ mod:RegisterEnableMob(
 
 local L = mod:GetLocale()
 if L then
+	L.custom_on_fixate_plates = "Thirst For Blood icon on Enemy Nameplate"
+	L.custom_on_fixate_plates_desc = "Show an icon on the target nameplate that is fixating on you.\nRequires the use of Enemy Nameplates. This feature is currently only supported by KuiNameplates."
+	L.custom_on_fixate_plates_icon = 266107
+
 	L.spirit = "Befouled Spirit"
 	L.priest = "Devout Blood Priest"
 	L.maggot = "Fetid Maggot"
@@ -57,6 +61,7 @@ function mod:GetOptions()
 		278961, -- Decaying Mind
 		-- Feral Bloodswarmer
 		266107, -- Thirst For Blood
+		"custom_on_fixate_plates",
 		266106, -- Sonic Screech
 		-- Living Rot
 		265668, -- Wave of Decay
@@ -85,8 +90,6 @@ function mod:GetOptions()
 end
 
 function mod:OnBossEnable()
-	self:RegisterMessage("BigWigs_OnBossEngage", "Disable")
-
 	-- Befouled Spirit
 	self:Log("SPELL_CAST_START", "DarkOmen", 265568)
 	self:Log("SPELL_AURA_APPLIED", "DarkOmenApplied", 265568)
@@ -107,10 +110,14 @@ function mod:OnBossEnable()
 	self:Log("SPELL_AURA_REMOVED", "DecayingMindRemoved", 278961)
 	-- Feral Bloodswarmer
 	self:Log("SPELL_AURA_APPLIED", "ThirstForBloodApplied", 266107)
+	self:Log("SPELL_AURA_REMOVED", "ThirstForBloodRemoved", 266107)
 	self:Log("SPELL_CAST_START", "SonicScreech", 266106)
 	-- Fallen Deathspeaker
 	self:Log("SPELL_CAST_START", "RaiseDead", 272183)
 	self:Log("SPELL_CAST_START", "WickedFrenzy", 266209)
+	self:Log("SPELL_AURA_APPLIED", "WickedFrenzyApplied", 266209)
+	self:Log("SPELL_AURA_REMOVED", "WickedFrenzyRemoved", 266209)
+	self:Log("SPELL_DISPEL", "WickedFrenzySoothed", "*")
 	-- Bloodsworn Defiler
 	self:Log("SPELL_CAST_START", "ShadowBoltVolley", 265487)
 	self:Log("SPELL_CAST_START", "WitheringCurse", 265433)
@@ -118,10 +125,20 @@ function mod:OnBossEnable()
 	-- Faceless Corruptor
 	self:Log("SPELL_CAST_START", "AbyssalReach", 272592)
 	self:Log("SPELL_CAST_START", "MaddeningGaze", 272609)
-
+	-- Living Rot
 	self:Log("SPELL_AURA_APPLIED", "WaveOfDecayDamage", 278789)
 	self:Log("SPELL_PERIODIC_DAMAGE", "WaveOfDecayDamage", 278789)
 	self:Log("SPELL_PERIODIC_MISSED", "WaveOfDecayDamage", 278789)
+
+	if self:GetOption("custom_on_fixate_plates") then
+		self:ShowPlates()
+	end
+end
+
+function mod:OnBossDisable()
+	if self:GetOption("custom_on_fixate_plates") then
+		self:HidePlates()
+	end
 end
 
 --------------------------------------------------------------------------------
@@ -215,10 +232,26 @@ function mod:DecayingMindRemoved(args)
 end
 
 -- Feral Bloodswarmer
-function mod:ThirstForBloodApplied(args)
-	if self:Me(args.destGUID) then
-		self:PersonalMessage(args.spellId)
-		self:PlaySound(args.spellId, "alarm")
+do
+	local prev = 0
+	function mod:ThirstForBloodApplied(args)
+		if self:Me(args.destGUID) then
+			local t = args.time
+			if t-prev > 1.5 then
+				prev = t
+				self:PersonalMessage(args.spellId)
+				self:PlaySound(args.spellId, "alarm")
+			end
+			if self:GetOption("custom_on_fixate_plates") then
+				self:AddPlateIcon(args.spellId, args.sourceGUID)
+			end
+		end
+	end
+end
+
+function mod:ThirstForBloodRemoved(args)
+	if self:Me(args.destGUID) and self:GetOption("custom_on_fixate_plates") then
+		self:RemovePlateIcon(args.spellId, args.sourceGUID)
 	end
 end
 
@@ -236,6 +269,30 @@ end
 function mod:WickedFrenzy(args)
 	self:Message2(args.spellId, "cyan")
 	self:PlaySound(args.spellId, "info")
+end
+
+function mod:WickedFrenzyApplied(args)
+	local isTank = self:Tank()
+	if isTank or self:Dispeller("enrage", true) then
+		self:TargetMessage2(args.spellId, "red", args.destName)
+		self:PlaySound(args.spellId, isTank and "alarm" or "alert")
+		if isTank then
+			self:TargetBar(args.spellId, 8, args.destName)
+		end
+	end
+end
+
+function mod:WickedFrenzyRemoved(args)
+	if self:Tank() then
+		self:StopBar(args.spellId, args.destName)
+	end
+end
+
+function mod:WickedFrenzySoothed(args)
+	if args.extraSpellId == 266209 and self:Tank() then
+		self:Message2(266209, "green", CL.removed:format(args.extraSpellName))
+		self:PlaySound(266209, "info")
+	end
 end
 
 -- Bloodsworn Defiler

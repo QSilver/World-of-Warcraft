@@ -354,7 +354,7 @@ CollectMe: enabled
 InboxMailBag: disabled
 SimpleILevel_Social: enabled
 SimpleILevel_Resilience: enabled
-MoveAnything: disabled
+MoveAnything: enabled
 DroodFocus: disabled
 Cartographer: enabled
 Cartographer3: enabled

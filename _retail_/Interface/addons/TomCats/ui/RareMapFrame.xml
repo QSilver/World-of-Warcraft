@@ -1,7 +1,6 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
 ..\FrameXML\UI.xsd">
     <Script file="RareMapFrame.lua"/>
-
     <Font name="TomCatsRareIncomplete" inherits="GameFontNormalLeft">
         <Color r="0.8" g="0.8" b="0.8" />
     </Font>
@@ -61,115 +60,31 @@
         <NormalFont style="GameFontNormalMed3"/>
         <HighlightFont style="GameFontHighlightMedium"/>
     </Button>
-    <Button name="TomCatsRareLogIconTemplate" virtual="true" hidden="true">
-        <Size x="16" y="16" />
-        <Anchors>
-            <Anchor point="LEFT" x="0" y="0" />
-        </Anchors>
-        <Scripts>
-            <OnLoad>
-                self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
-            </OnLoad>
-            <OnMouseDown>
-                self:ClearAllPoints()
-                self:SetPoint("LEFT",2,-2)
-            </OnMouseDown>
-            <OnMouseUp>
-                self:ClearAllPoints()
-                self:SetPoint("LEFT",0,0)
-            </OnMouseUp>
-            <OnClick function="TomCatsRareLogEntryIcon_OnClick" />
-            <OnEnter function="TomCats_ShowRareTooltip" />
-            <OnLeave function="TomCats_HideRareTooltip" />
-        </Scripts>
-    </Button>
-    <Frame name="TomCatsRareLogTitleTemplate" virtual="true">
-        <Size x="255" y="16"/>
-        <Frames>
-            <Button parentKey="Incomplete" inherits="TomCatsRareLogIconTemplate">
-                <Layers>
-                    <Layer level="ARTWORK">
-                        <Texture parentKey="Texture" atlas="VignetteKill" useAtlasSize="true" scale="0.8" texelSnappingBias="1">
-                            <Anchors>
-                                <Anchor point="LEFT" x="0" y="0"/>
-                            </Anchors>
-                        </Texture>
-                    </Layer>
-                    <Layer level="HIGHLIGHT">
-                        <Texture parentKey="HighlightTexture" alphaMode="ADD" atlas="VignetteKill" useAtlasSize="true" scale="0.8" texelSnappingBias="1">
-                            <Anchors>
-                                <Anchor point="TOPLEFT" relativeKey="$parent.Texture"/>
-                                <Anchor point="BOTTOMRIGHT" relativeKey="$parent.Texture"/>
-                            </Anchors>
-                            <Color r="1.0" g="1.0" b="1.0" a="0.4"/>
-                        </Texture>
-                    </Layer>
-                </Layers>
-            </Button>
-            <Button parentKey="Complete" inherits="TomCatsRareLogIconTemplate">
-                <Layers>
-                    <Layer level="ARTWORK">
-                        <Texture parentKey="Texture" atlas="Capacitance-General-WorkOrderCheckmark" useAtlasSize="true" scale="0.7">
-                            <Anchors>
-                                <Anchor point="LEFT" x="0" y="0"/>
-                            </Anchors>
-                        </Texture>
-                    </Layer>
-                    <Layer level="HIGHLIGHT">
-                        <Texture parentKey="HighlightTexture" alphaMode="ADD" atlas="Capacitance-General-WorkOrderCheckmark" useAtlasSize="true" scale="0.7">
-                            <Anchors>
-                                <Anchor point="TOPLEFT" relativeKey="$parent.Texture"/>
-                                <Anchor point="BOTTOMRIGHT" relativeKey="$parent.Texture"/>
-                            </Anchors>
-                            <Color r="1.0" g="1.0" b="1.0" a="0.4"/>
-                        </Texture>
-                    </Layer>
-                </Layers>
-            </Button>
-            <Button parentKey="Unavailable" inherits="TomCatsRareLogIconTemplate">
-                <Layers>
-                    <Layer level="ARTWORK">
-                        <Texture file="Interface/AddOns/TomCats/images/Unavailable">
-                            <Size x="16" y="16" />
-                            <Anchors>
-                                <Anchor point="LEFT" x="5" y="-1" />
-                            </Anchors>
-                        </Texture>
-                    </Layer>
-                </Layers>
-                <Scripts>
-                    <OnLoad />
-                    <OnClick />
-                    <OnMouseDown />
-                    <OnMouseUp />
-                    <OnEnter function="TomCats_ShowRareTooltip" />
-                    <OnLeave function="TomCats_HideRareTooltip" />
-                </Scripts>
-            </Button>
-            <Button parentKey="label">
-                <Size x="239" y="16" />
-                <Anchors>
-                    <Anchor point="LEFT" x="16" y="0"/>
-                </Anchors>
-                <Scripts>
-                    <OnLoad>
-                        self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
-                    </OnLoad>
-                    <OnClick function="TomCatsRareLogEntryIcon_OnClick" />
-                    <OnEnter function="TomCats_ShowRareTooltip" />
-                    <OnLeave function="TomCats_HideRareTooltip" />
-                </Scripts>
-                <ButtonText nonspacewrap="true" parentKey="ButtonText" justifyH="LEFT">
+
+    <Button name="TomCatsRareLogTitleTemplate" virtual="true">
+        <Size x="226" y="16"/>
+        <Layers>
+            <Layer level="ARTWORK">
+                <FontString parentKey="Text" inherits="GameFontNormalLeft">
+                    <Size x="175" y="0"/>
                     <Anchors>
-                        <Anchor point="LEFT" x="10" y="0" />
+                        <Anchor point="TOPLEFT" x="0" y="0"/>
                     </Anchors>
-                </ButtonText>
-                <NormalFont style="TomCatsRareIncomplete"/>
-                <HighlightFont style="TomCatsRareIncompleteHighlight"/>
-                <DisabledFont style="TomCatsRareUnavailable"/>
-            </Button>
-        </Frames>
-    </Frame>
+                    <Color r="0.75" g="0.61" b="0"/>
+                </FontString>
+            </Layer>
+        </Layers>
+        <Scripts>
+            <OnClick function="TomCatsRareLogTitleButton_OnClick"/>
+            <OnEnter function="TomCatsRareLogTitleButton_OnEnter"/>
+            <OnLeave function="TomCatsRareLogTitleButton_OnLeave"/>
+            <OnMouseDown function="TomCatsRareLogTitleButton_OnMouseDown"/>
+            <OnMouseUp function="TomCatsRareLogTitleButton_OnMouseUp"/>
+        </Scripts>
+        <NormalFont style="GameFontNormalLeft"/>
+        <HighlightFont style="GameFontHighlightLeft"/>
+        <DisabledFont style="GameFontHighlightLeft"/>
+    </Button>
     <Frame name="TomCatsRareLogObjectiveTemplate" virtual="true">
         <Size x="220" y="16"/>
         <Layers>
@@ -189,24 +104,6 @@
             </Layer>
         </Layers>
     </Frame>
-    <Button name="TomCatsRareDetailsButtonTemplate" virtual="true">
-        <Size x="32" y="32"/>
-        <NormalTexture atlas="UI-SquareButtonBrown-Up"/>
-        <PushedTexture atlas="UI-SquareButtonBrown-Down"/>
-<!--
-        <Scripts>
-            <OnMouseDown>
-                local anchor, _, _, x, y = self.Icon:GetPoint(1);
-                self.Icon:SetPoint(anchor, x - 1, y - 1);
-            </OnMouseDown>
-            <OnMouseUp>
-                local anchor, _, _, x, y = self.Icon:GetPoint(1);
-                self.Icon:SetPoint(anchor, x + 1, y + 1);
-            </OnMouseUp>
-        </Scripts>
--->
-    </Button>
-
     <Frame name="TomCatsRareLogPopupDetailFrame" toplevel="true" enableMouse="true" parent="UIParent" hidden="true" inherits="ButtonFrameTemplate, QuestFramePanelTemplate">
         <Size x="338" y="496"/>
         <Layers>
@@ -365,7 +262,7 @@
         -->
     </Frame>
 
-    <Frame name="TomCatsRareMapFrameTutorialBox" inherits="GlowBoxTemplate" enableMouse="true" frameStrata="DIALOG" hidden="true">
+    <Frame name="TomCatsRareMapFrameTutorialBoxTemplate" inherits="GlowBoxTemplate" enableMouse="true" frameStrata="DIALOG" hidden="true" virtual="true">
         <Size x="220" y="100"/>
         <Layers>
             <Layer level="OVERLAY">
@@ -382,15 +279,12 @@
                 <Anchors>
                     <Anchor point="TOPRIGHT" x="6" y="6"/>
                 </Anchors>
-                <Scripts>
-                    <OnClick function="TomCatsRareMapFrameTutorial_Closed" />
-                </Scripts>
             </Button>
             <Frame parentKey="Arrow" inherits="GlowBoxArrowTemplate" />
         </Frames>
     </Frame>
 
-    <Frame name="TomCatsRareMapFrame" enableMouse="true" mixin="TomCatsRareLogMixin" hidden="true">
+    <Frame name="TomCatsRareMapFrame" enableMouse="true" mixin="TomCatsRareLogMixin" hidden="true" parent="WorldMapFrame">
         <Size x="287" y="462"/>
         <Layers>
             <Layer level="OVERLAY">
@@ -411,21 +305,19 @@
                 </Anchors>
                 <Layers>
                     <Layer level="BACKGROUND">
-                        <Texture parentKey="Background" file="Interface/ACHIEVEMENTFRAME/UI-ACHIEVEMENT-PARCHMENT" desaturated="true">
-                            <Anchors>
-                                <Anchor point="TOPLEFT" x="0" y="3" />
-                                <Anchor point="BOTTOMRIGHT" x="24" y="0" />
-                            </Anchors>
-                            <TexCoords top="0" bottom="1" left="0" right="0.5" />
-                            <Color r="0.337" g="0.227" b="0.094" a="1.0" />
-                        </Texture>
-                        <!--
-                        <Texture parentKey="Background" atlas="QuestLogBackground" useAtlasSize="true">
+                        <!--                        <Texture parentKey="Background" file="Interface/AddOns/TomCats/images/RareLogBG">-->
+                        <!--                            <Anchors>-->
+                        <!--                                <Anchor point="TOPLEFT" x="0" y="3" />-->
+                        <!--                                <Anchor point="BOTTOMRIGHT" x="24" y="0" />-->
+                        <!--                            </Anchors>-->
+                        <!--                            <TexCoords top="0" bottom="1" left="0" right="0.564" />-->
+                        <!--                        </Texture>-->
+                        <Texture parentKey="Background" atlas="QuestLogBackground" useAtlasSize="true" desaturated="true">
                             <Anchors>
                                 <Anchor point="TOPLEFT" x="0" y="3"/>
                             </Anchors>
+                            <Color r="1" g="0.4" b="0.33" a="1" />
                         </Texture>
-                        -->
                     </Layer>
                 </Layers>
                 <ScrollChild>
@@ -441,7 +333,7 @@
                                 </KeyValues>
                                 <Size x="260" y="10"/>
                             </Frame>
-                            <Frame parentKey="WarCampaignHeader" hidden="true">
+                            <Frame parentKey="LogHeader" hidden="true">
                                 <KeyValues>
                                     <KeyValue key="layoutIndex" value="QUEST_LOG_WAR_CAMPAIGN_LAYOUT_INDEX" type="global"/>
                                     <KeyValue key="topPadding" value="-10" type="number"/>
@@ -452,10 +344,12 @@
                                 </Anchors>
                                 <Layers>
                                     <Layer level="BACKGROUND">
-                                        <Texture parentKey="Background" atlas="Campaign_Horde" useAtlasSize="true">
+                                        <Texture parentKey="Background" file="Interface/AddOns/TomCats/images/RareLogHeader">
+                                            <Size x="260" y="62" />
                                             <Anchors>
                                                 <Anchor point="TOP" x="0" y="0"/>
                                             </Anchors>
+                                            <TexCoords left="0" right="0.508" top="0" bottom="0.969" />
                                         </Texture>
                                     </Layer>
                                     <Layer level="ARTWORK">
@@ -464,12 +358,13 @@
                                                 <Anchor point="TOPLEFT" x="18" y="-11"/>
                                             </Anchors>
                                         </FontString>
-                                        <FontString parentKey="Progress" inherits="GameFontNormalSmall">
+                                        <FontString parentKey="Location" inherits="GameFontNormalSmall">
                                             <Anchors>
                                                 <Anchor point="TOPLEFT" relativeKey="$parent.Text" relativePoint="BOTTOMLEFT" x="0" y="-4"/>
                                             </Anchors>
                                         </FontString>
                                     </Layer>
+                                    <!--
                                     <Layer level="HIGHLIGHT">
                                         <Texture parentKey="HighlightTexture" file="Interface\QuestFrame\UI-QuestLogTitleHighlight" alphaMode="ADD">
                                             <Size x="248" y="50"/>
@@ -478,6 +373,7 @@
                                             </Anchors>
                                         </Texture>
                                     </Layer>
+                                    -->
                                 </Layers>
                                 <!--
                                 <Scripts>
@@ -486,7 +382,7 @@
                                 </Scripts>
                                 -->
                             </Frame>
-                            <Frame parentKey="WarCampaignNextObjective" hidden="false">
+                            <Frame parentKey="Notice" hidden="false">
                                 <KeyValues>
                                     <KeyValue key="layoutIndex" value="QUEST_LOG_WAR_CAMPAIGN_NEXT_OBJECTIVE_LAYOUT_INDEX" type="global"/>
                                 </KeyValues>
@@ -529,10 +425,11 @@
                                 </Anchors>
                                 <Layers>
                                     <Layer level="BACKGROUND">
-                                        <Texture parentKey="Background" atlas="StoryHeader-BG" useAtlasSize="true">
+                                        <Texture parentKey="Background" atlas="StoryHeader-BG" useAtlasSize="true" desaturated="true">
                                             <Anchors>
                                                 <Anchor point="TOP" x="0" y="-5"/>
                                             </Anchors>
+                                            <Color r="1" g="0.2" b="0.165" a="1" />
                                         </Texture>
                                     </Layer>
                                     <Layer level="ARTWORK">
@@ -689,13 +586,16 @@
                             <Anchors>
                                 <Anchor point="TOPLEFT"/>
                             </Anchors>
+<!--                            <Color r="1" g="0.4" b="0.33" a="1" /> -->
+                            <Color r="1" g="0.957" b="0.949" a="1" />
                         </Texture>
                     </Layer>
                     <Layer level="BORDER">
-                        <Texture atlas="QuestDetails-TopOverlay" useAtlasSize="true">	<!-- buttons background -->
+                        <Texture atlas="QuestDetails-TopOverlay" useAtlasSize="true" desaturated="true">	<!-- buttons background -->
                             <Anchors>
                                 <Anchor point="TOPLEFT" x="0" y="45"/>
                             </Anchors>
+                            <Color r=".7" g="0.14" b="0.116" a="1" />
                         </Texture>
                     </Layer>
                     <Layer level="BORDER" textureSubLevel="-1">
@@ -732,17 +632,20 @@
                     <Frame parentKey="RewardsFrame">
                         <Size x="287" y="275"/>
                         <Anchors>
-                            <Anchor point="BOTTOMLEFT" x="0" y="20"/>
+                            <Anchor point="BOTTOMLEFT" x="0" y="0"/>
                         </Anchors>
                         <Layers>
                             <Layer level="BORDER">
-                                <Texture parentKey="Background" atlas="QuestDetails-RewardsOverlay" setAllPoints="true"/>
+                                <Texture parentKey="Background" atlas="QuestDetails-RewardsOverlay" setAllPoints="true" desaturated="true">
+                                    <Color r="1" g="0.2" b="0.165" a="1" />
+                                </Texture>
                             </Layer>
                             <Layer level="BORDER" textureSubLevel="1">
-                                <Texture atlas="QuestDetails-RewardsBottomOverlay" useAtlasSize="true">		<!-- bottom shadow -->
+                                <Texture atlas="QuestDetails-RewardsBottomOverlay" useAtlasSize="true" desaturated="true">		<!-- bottom shadow -->
                                     <Anchors>
                                         <Anchor point="BOTTOMLEFT" x="0" y="0"/>
                                     </Anchors>
+                                    <Color r="1" g="0.2" b="0.165" a="1" />
                                 </Texture>
                             </Layer>
                             <Layer level="ARTWORK">
@@ -777,7 +680,6 @@
                                 </Anchors>
                             </Slider>
                         </Frames>
-                        <!--
                         <Scripts>
                             <OnLoad>
                                 self.scrollBarHideable = true;
@@ -785,14 +687,13 @@
                                 ScrollFrame_OnLoad(self);
                             </OnLoad>
                         </Scripts>
-                        -->
                     </ScrollFrame>
+                    <!--
                     <Button>
                         <Anchors>
                             <Anchor point="TOPLEFT" relativeKey="$parent.ScrollFrame" x="-4" y="0"/>
                             <Anchor point="BOTTOMRIGHT" relativeKey="$parent.RewardsFrame"/>
                         </Anchors>
-                        <!--
                         <Scripts>
                             <OnLoad>
                                 self:RegisterForClicks("RightButtonUp");
@@ -801,8 +702,9 @@
                                 QuestMapFrame_ReturnFromQuestDetails();
                             </OnClick>
                         </Scripts>
-                        -->
                     </Button>
+                    -->
+                    <!--
                     <Frame parentKey="CompleteQuestFrame">
                         <Size x="287" y="24"/>
                         <Anchors>
@@ -848,7 +750,6 @@
                                         <Texture parentKey="Flash" inherits="UIPanelButtonHighlightTexture"/>
                                     </Layer>
                                 </Layers>
-                                <!--
                                 <Scripts>
                                     <OnClick>
                                         ShowQuestComplete(GetQuestLogSelection());
@@ -861,7 +762,6 @@
                                         UIFrameFlashStop(self.Flash);
                                     </OnHide>
                                 </Scripts>
-                                -->
                             </Button>
                         </Frames>
                     </Frame>
@@ -870,7 +770,6 @@
                         <Anchors>
                             <Anchor point="BOTTOMLEFT" x="-3" y="-2"/>
                         </Anchors>
-                        <!--
                         <Scripts>
                             <OnClick>
                                 QuestMapQuestOptions_AbandonQuest(QuestMapFrame_GetDetailQuestID())
@@ -880,7 +779,6 @@
                             </OnEnter>
                             <OnLeave function="GameTooltip_Hide"/>
                         </Scripts>
-                        -->
                     </Button>
                     <Button parentKey="ShareButton" inherits="UIPanelButtonTemplate" text="SHARE_QUEST_ABBREV">
                         <Size x="96" y="22"/>
@@ -901,7 +799,6 @@
                                 </Texture>
                             </Layer>
                         </Layers>
-                        <!--
                         <Scripts>
                             <OnClick>
                                 QuestMapQuestOptions_ShareRare(QuestMapFrame_GetDetailRareID())
@@ -911,14 +808,12 @@
                             </OnEnter>
                             <OnLeave function="GameTooltip_Hide"/>
                         </Scripts>
-                        -->
                     </Button>
                     <Button parentKey="TrackButton" inherits="UIPanelButtonTemplate" text="TRACK_QUEST_ABBREV">
                         <Size x="98" y="22"/>
                         <Anchors>
                             <Anchor point="LEFT" relativeKey="$parent.ShareButton" relativePoint="RIGHT"/>
                         </Anchors>
-                        <!--
                         <Scripts>
                             <OnClick>
                                 PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON);
@@ -929,8 +824,8 @@
                             </OnEnter>
                             <OnLeave function="GameTooltip_Hide"/>
                         </Scripts>
-                        -->
                     </Button>
+    -->
                 </Frames>
             </Frame>
         </Frames>
@@ -1003,5 +898,288 @@
                 </HighlightTexture>
             </Button>
         </Frames>
-   </Frame>
+    </Frame>
+
+    <Button name="TomCatsSmallRareRewardItemButtonTemplate" inherits="SmallItemButtonTemplate" virtual="true">
+        <Layers>
+            <Layer level="OVERLAY" textureSubLevel="1">
+                <Texture parentKey="IconBorder" file="Interface\Common\WhiteIconFrame" hidden="true">
+                    <Anchors>
+                        <Anchor point="TOPLEFT" relativeKey="$parent.Icon"/>
+                        <Anchor point="BOTTOMRIGHT" relativeKey="$parent.Icon"/>
+                    </Anchors>
+                </Texture>
+            </Layer>
+            <Layer level="OVERLAY" textureSubLevel="2">
+                <Texture parentKey="IconOverlay" hidden="true">
+                    <Anchors>
+                        <Anchor point="TOPLEFT" relativeKey="$parent.Icon"/>
+                        <Anchor point="BOTTOMRIGHT" relativeKey="$parent.Icon"/>
+                    </Anchors>
+                </Texture>
+            </Layer>
+        </Layers>
+        <Scripts>
+            <OnEnter function="TomCatsRareRewardItem_OnEnter" />
+            <OnLeave>
+                GameTooltip:Hide();
+                ResetCursor();
+            </OnLeave>
+            <OnClick function="TomCatsRareRewardItem_OnClick" />
+        </Scripts>
+    </Button>
+
+    <Frame name="TomCatsRareInfoRewardsFrame" hidden="true">
+        <Size x="285" y="10" />
+        <Anchors>
+            <Anchor point="CENTER" />
+        </Anchors>
+        <Layers>
+            <Layer level="BACKGROUND">
+                <FontString parentKey="ItemChooseText" inherits="QuestMapRewardsFont" text="REWARDS" hidden="true" justifyH="LEFT">
+                    <Size x="285" y="0"/>
+                    <Anchors>
+                        <Anchor point="TOPLEFT" x="0" y="-6"/>
+                    </Anchors>
+                    <Color r="0.902" g="0.788" b="0.671"/>
+                </FontString>
+                <FontString parentKey="ItemReceiveText" inherits="QuestMapRewardsFont" hidden="true" justifyH="LEFT"/>
+                <FontString parentKey="PlayerTitleText" inherits="QuestMapRewardsFont" text="REWARD_TITLE" hidden="true" justifyH="LEFT"/>
+            </Layer>
+        </Layers>
+        <Frames>
+            <!-- need this for anchoring -->
+            <Frame parentKey="Header">
+                <Size x="1" y="1"/>
+                <Anchors>
+                    <Anchor point="TOPLEFT"/>
+                </Anchors>
+            </Frame>
+            <Button parentArray="RewardButtons" name="$parentQuestInfoItem1" inherits="TomCatsSmallRareRewardItemButtonTemplate" hidden="true"/>
+            <Button parentKey="XPFrame" inherits="SmallItemButtonTemplate" hidden="true"/>
+            <Button parentKey="HonorFrame" inherits="SmallItemButtonTemplate, QuestInfoHonorFrameScriptTemplate" hidden="true"/>
+            <Button parentKey="ArtifactXPFrame" inherits="SmallItemButtonTemplate" hidden="true">
+                <Layers>
+                    <Layer level="BORDER">
+                        <Texture parentKey="Overlay" file="Interface\Artifacts\ArtifactPower-QuestBorder">
+                            <Size x="49" y="49" />
+                            <Anchors>
+                                <Anchor point="CENTER" relativeKey="$parent.Icon" />
+                            </Anchors>
+                        </Texture>
+                    </Layer>
+                </Layers>
+                <Scripts>
+                    <OnEnter>
+                        GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
+                        GameTooltip:SetText(ARTIFACT_XP_REWARD, HIGHLIGHT_FONT_COLOR.r, HIGHLIGHT_FONT_COLOR.g, HIGHLIGHT_FONT_COLOR.b, nil, true);
+                    </OnEnter>
+
+                    <OnLeave function="GameTooltip_Hide" />
+                </Scripts>
+            </Button>
+            <Button parentKey="MoneyFrame" inherits="SmallItemButtonTemplate" hidden="true"/>
+            <Button parentKey="SkillPointFrame" inherits="SmallItemButtonTemplate">
+                <Layers>
+                    <Layer level="OVERLAY">
+                        <Texture parentKey="CircleBackground" name="$parentSkillPointBg" file="Interface\QuestFrame\SkillUp-BG">
+                            <Size x="24" y="24"/>
+                            <Anchors>
+                                <Anchor point="BOTTOMRIGHT" relativeKey="$parent.Icon" x="9" y="-4"/>
+                            </Anchors>
+                        </Texture>
+                        <Texture parentKey="CircleBackgroundGlow" name="$parentSkillPointBgGlow" file="Interface\QuestFrame\SkillUp-Glow" alphaMode="ADD" alpha="0.3">
+                            <Size x="48" y="48"/>
+                            <Anchors>
+                                <Anchor point="CENTER" relativeKey="$parent.CircleBackground"/>
+                            </Anchors>
+                        </Texture>
+                        <FontString parentKey="ValueText" name="$parentPoints" inherits="GameFontNormal" justifyH="LEFT">
+                            <Anchors>
+                                <Anchor point="CENTER" relativeKey="$parent.CircleBackground" relativePoint="CENTER" x="3"/>
+                            </Anchors>
+                        </FontString>
+                    </Layer>
+                </Layers>
+                <Scripts>
+                    <OnLoad>
+                        -- Hacks to get this to display a little more nicely
+                        self.Name:SetPoint("LEFT", self.NameFrame, 10, 0);
+                        self.Name:SetWidth(81);
+                    </OnLoad>
+                    <OnEnter>
+                        if (self.tooltip) then
+                        GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
+                        GameTooltip:SetText(self.tooltip, HIGHLIGHT_FONT_COLOR.r, HIGHLIGHT_FONT_COLOR.g, HIGHLIGHT_FONT_COLOR.b);
+                        end
+                    </OnEnter>
+                    <OnLeave>
+                        GameTooltip:Hide();
+                    </OnLeave>
+                </Scripts>
+            </Button>
+            <Button parentKey="TitleFrame" inherits="SmallItemButtonTemplate"/>
+        </Frames>
+        <Scripts>
+            <OnLoad>
+                self.buttonTemplate = "TomCatsSmallRareRewardItemButtonTemplate";
+                self.spellRewardPool = CreateFramePool("BUTTON", self, "SmallItemButtonTemplate, QuestInfoRewardSpellCodeTemplate");
+                self.followerRewardPool = CreateFramePool("BUTTON", self, "SmallQuestInfoRewardFollowerTemplate");
+                self.spellHeaderPool = CreateFontStringPool(self, "BACKGROUND", 0, "MapQuestInfoSpellHeaderTemplate");
+
+                self.MoneyFrame.Icon:SetTexture("Interface\\Icons\\inv_misc_coin_01");
+                self.MoneyFrame.Name:SetFontObject("GameFontHighlight");
+                self.XPFrame.Icon:SetTexture("Interface\\Icons\\XP_Icon");
+                self.XPFrame.Name:SetFontObject("NumberFontNormal");
+                self.ArtifactXPFrame.Name:SetFontObject("NumberFontNormal");
+                self.TitleFrame.Icon:SetTexture("Interface\\Icons\\INV_Misc_Note_02");
+            </OnLoad>
+        </Scripts>
+    </Frame>
+
+    <Button name="TomCatsRareLogIconTemplate" virtual="true" hidden="true">
+        <Size x="16" y="16" />
+        <Anchors>
+            <Anchor point="LEFT" x="0" y="0" />
+        </Anchors>
+        <Scripts>
+            <OnLoad>
+                self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+            </OnLoad>
+            <OnMouseDown>
+                self:ClearAllPoints()
+                self:SetPoint("LEFT",2,-2)
+            </OnMouseDown>
+            <OnMouseUp>
+                self:ClearAllPoints()
+                self:SetPoint("LEFT",0,0)
+            </OnMouseUp>
+            <OnClick function="TomCatsRareLogEntryIcon_OnClick" />
+        </Scripts>
+    </Button>
+
+
+    <Frame name="TomCatsRarePOITemplate" hidden="true" virtual="true">
+        <Size x="16" y="16" />
+        <Frames>
+            <Button parentKey="Incomplete" hidden="true">
+                <Size x="16" y="16" />
+                <Anchors>
+                    <Anchor point="CENTER" />
+                </Anchors>
+                <Layers>
+                    <Layer level="BACKGROUND">
+                        <Texture parentKey="Glow" file="Interface\WorldMap\UI-QuestPoi-IconGlow.tga" alphaMode="ADD" alpha="0.7" hidden="true">
+                            <Size x="44" y="44"/>
+                            <Anchors>
+                                <Anchor point="CENTER"/>
+                            </Anchors>
+                        </Texture>
+                    </Layer>
+                    <Layer level="ARTWORK">
+                        <Texture parentKey="Texture" atlas="VignetteKill" useAtlasSize="true" scale="0.8" texelSnappingBias="1">
+                            <Anchors>
+                                <Anchor point="CENTER"/>
+                            </Anchors>
+                        </Texture>
+                    </Layer>
+                    <Layer level="HIGHLIGHT">
+                        <Texture parentKey="HighlightTexture" alphaMode="ADD" atlas="VignetteKill" useAtlasSize="true" scale="0.8" texelSnappingBias="1">
+                            <Anchors>
+                                <Anchor point="TOPLEFT" relativeKey="$parent.Texture"/>
+                                <Anchor point="BOTTOMRIGHT" relativeKey="$parent.Texture"/>
+                            </Anchors>
+                            <Color r="1.0" g="1.0" b="1.0" a="0.4"/>
+                        </Texture>
+                    </Layer>
+                </Layers>
+                <Scripts>
+                    <OnEnter>
+                        self.Glow:Show()
+                    </OnEnter>
+                    <OnLeave>
+                        self.Glow:Hide()
+                    </OnLeave>
+                    <OnMouseDown>
+                        local a, b, c, x, y = self:GetPoint();
+                        self:SetPoint(a, b, c, x + 1, y - 1);
+                    </OnMouseDown>
+                    <OnMouseUp>
+                        local a, b, c, x, y = self:GetPoint();
+                        self:SetPoint(a, b, c, x - 1, y + 1);
+                    </OnMouseUp>
+                    <OnClick function="TomCatsRareLogEntryIcon_OnClick" />
+                </Scripts>
+            </Button>
+
+            <Button parentKey="Complete" hidden="true">
+                <Size x="16" y="16" />
+                <Anchors>
+                    <Anchor point="CENTER" />
+                </Anchors>
+                <Layers>
+                    <Layer level="BACKGROUND">
+                        <Texture parentKey="Glow" file="Interface\WorldMap\UI-QuestPoi-IconGlow.tga" alphaMode="ADD" alpha="0.6" hidden="true">
+                            <Size x="44" y="44"/>
+                            <Anchors>
+                                <Anchor point="CENTER"/>
+                            </Anchors>
+                        </Texture>
+                    </Layer>
+                    <Layer level="ARTWORK">
+                        <Texture parentKey="Texture" atlas="Capacitance-General-WorkOrderCheckmark" useAtlasSize="true" scale="0.7" texelSnappingBias="1">
+                            <Anchors>
+                                <Anchor point="CENTER"/>
+                            </Anchors>
+                        </Texture>
+                    </Layer>
+                    <Layer level="HIGHLIGHT">
+                        <Texture parentKey="HighlightTexture" alphaMode="ADD" atlas="Capacitance-General-WorkOrderCheckmark" useAtlasSize="true" scale="0.7" texelSnappingBias="1">
+                            <Anchors>
+                                <Anchor point="TOPLEFT" relativeKey="$parent.Texture"/>
+                                <Anchor point="BOTTOMRIGHT" relativeKey="$parent.Texture"/>
+                            </Anchors>
+                            <Color r="1.0" g="1.0" b="1.0" a="0.4"/>
+                        </Texture>
+                    </Layer>
+                </Layers>
+                <Scripts>
+                    <OnEnter>
+                        self.Glow:Show()
+                    </OnEnter>
+                    <OnLeave>
+                        self.Glow:Hide()
+                    </OnLeave>
+                    <OnMouseDown>
+                        local a, b, c, x, y = self:GetPoint();
+                        self:SetPoint(a, b, c, x + 1, y - 1);
+                    </OnMouseDown>
+                    <OnMouseUp>
+                        local a, b, c, x, y = self:GetPoint();
+                        self:SetPoint(a, b, c, x - 1, y + 1);
+                    </OnMouseUp>
+                    <OnClick function="TomCatsRareLogEntryIcon_OnClick" />
+                </Scripts>
+            </Button>
+
+            <Button parentKey="Unavailable" hidden="true">
+                <Size x="16" y="16" />
+                <Anchors>
+                    <Anchor point="CENTER" />
+                </Anchors>
+                <Layers>
+                    <Layer level="ARTWORK">
+                        <Texture file="Interface/AddOns/TomCats/images/Unavailable">
+                            <Size x="16" y="16" />
+                            <Anchors>
+                                <Anchor point="CENTER"/>
+                            </Anchors>
+                        </Texture>
+                    </Layer>
+                </Layers>
+            </Button>
+        </Frames>
+    </Frame>
+
+
 </Ui>

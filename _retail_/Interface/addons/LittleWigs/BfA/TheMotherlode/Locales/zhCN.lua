@@ -18,3 +18,9 @@ if L then
 	L.taskmaster = "监工阿斯加里"
 	L.warmachine = "风险投资公司战争机器"
 end
+
+L = BigWigs:NewBossLocale("Tik'ali", "zhCN")
+if L then
+	L.custom_on_fixate_plates = "愤怒凝视图标位于敌对姓名板"
+	L.custom_on_fixate_plates_desc = "当你被凝视时在目标姓名板上显示一个图标。\n需要使用敌对姓名板。此功能当前只支持 KuiNameplates。"
+end

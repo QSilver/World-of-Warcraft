@@ -4,7 +4,7 @@
 -- @author	Potdisc
 -- Create Date : 12/15/2014 8:54:35 PM
 
-local addon = LibStub("AceAddon-3.0"):GetAddon("RCLootCouncil")
+local _,addon = ...
 local RCVotingFrame = addon:NewModule("RCVotingFrame", "AceComm-3.0", "AceTimer-3.0", "AceEvent-3.0", "AceBucket-3.0")
 local LibDialog = LibStub("LibDialog-1.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("RCLootCouncil")
@@ -103,11 +103,19 @@ end
 function RCVotingFrame:Show()
 	if self.frame and lootTable[session] then
 		councilInGroup = addon.council
+		if self:HasUnawardedItems() then active = true end
 		self.frame:Show()
 		self:SwitchSession(session)
 	else
 		addon:Print(L["No session running"])
 	end
+end
+
+function RCVotingFrame:HasUnawardedItems ()
+	for _,v in pairs(lootTable) do
+		if not v.awarded then return true end
+	end
+	return false
 end
 
 function RCVotingFrame:ReceiveLootTable(lt)
@@ -665,12 +673,8 @@ function RCVotingFrame:GetFrame()
 		st:RegisterEvents({
 			["OnClick"] = function(rowFrame, cellFrame, data, cols, row, realrow, column, table, button, ...)
 				if button == "RightButton" and row then
-					if active then
-						menuFrame.name = data[realrow].name
-						MSA_ToggleDropDownMenu(1, nil, menuFrame, cellFrame, 0, 0);
-					else
-						addon:Print(L["You cannot use the menu when the session has ended."])
-					end
+					menuFrame.name = data[realrow].name
+					MSA_ToggleDropDownMenu(1, nil, menuFrame, cellFrame, 0, 0);
 				elseif button == "LeftButton" and row then -- Update more info
 					self:UpdateMoreInfo(realrow, data)
 				end
@@ -1310,6 +1314,7 @@ function RCVotingFrame:GetAwardPopupData(session, name, data, reason)
 		isToken		= lootTable[session].token,
 		note		= data.note,
 		equipLoc		= lootTable[session].equipLoc,
+		texture 		= lootTable[session].texture
 	}
 end
 

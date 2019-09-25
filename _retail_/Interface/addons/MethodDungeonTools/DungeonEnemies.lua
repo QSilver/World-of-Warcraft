@@ -129,67 +129,17 @@ function MDTDungeonEnemyMixin:OnClick(button, down)
         if IsShiftKeyDown() then
             local newPullIdx = MethodDungeonTools:GetCurrentPull() + 1
             MethodDungeonTools:PresetsAddPull(newPullIdx)
-            MethodDungeonTools:ReloadPullButtons()
             MethodDungeonTools:GetCurrentPreset().value.selection = {newPullIdx}
+            MethodDungeonTools:ReloadPullButtons()
             MethodDungeonTools:SetSelectionToPull(newPullIdx)
-            MethodDungeonTools:DungeonEnemies_AddOrRemoveBlipToCurrentPull(self,not self.selected,isCTRLKeyDown)
-            MethodDungeonTools:DungeonEnemies_UpdateSelected(newPullIdx)
-            MethodDungeonTools:UpdateProgressbar()
-            if false then
-                -- Add to current pull
-                MethodDungeonTools:DungeonEnemies_AddOrRemoveBlipToCurrentPull(self,not self.selected, false)
-                MethodDungeonTools:DungeonEnemies_UpdateSelected(MethodDungeonTools:GetCurrentPull())
-                MethodDungeonTools:UpdateProgressbar()
-            end
-        elseif IsControlKeyDown() then
-            MethodDungeonTools:DungeonEnemies_AddOrRemoveBlipToCurrentPull(self,not self.selected, true)
-            MethodDungeonTools:DungeonEnemies_UpdateSelected(MethodDungeonTools:GetCurrentPull())
-            MethodDungeonTools:UpdateProgressbar()
-        else
-            MethodDungeonTools:DungeonEnemies_AddOrRemoveBlipToCurrentPull(self,not self.selected,isCTRLKeyDown)
-            MethodDungeonTools:DungeonEnemies_UpdateSelected(MethodDungeonTools:GetCurrentPull())
-            MethodDungeonTools:UpdateProgressbar()
-            if false then
-                if not self.selected then
-                    -- Add new Pull, if the current one isn't empty
-                    local pull = MethodDungeonTools:GetCurrentPreset().value.pulls[MethodDungeonTools:GetCurrentPull()]
-                    local enemyCount = MethodDungeonTools.U.count_if(pull, function(entry)
-                        return #entry > 0
-                    end)
-
-                    if enemyCount > 0 then
-                        MethodDungeonTools:PresetsAddPull(MethodDungeonTools:GetCurrentPull() + 1)
-                        MethodDungeonTools:SetSelectionToPull(MethodDungeonTools:GetCurrentPull() + 1)
-                        MethodDungeonTools:ScrollToPull(MethodDungeonTools:GetCurrentPull())
-                    end
-
-                    MethodDungeonTools:DungeonEnemies_AddOrRemoveBlipToCurrentPull(self,not self.selected, false)
-                    MethodDungeonTools:DungeonEnemies_UpdateSelected(MethodDungeonTools:GetCurrentPull())
-                    MethodDungeonTools:UpdateProgressbar()
-                else
-                    local pullIdx = MethodDungeonTools:FindPullOfBlip(self)
-                    if pullIdx then
-                        MethodDungeonTools:DungeonEnemies_AddOrRemoveBlipToCurrentPull(self,not self.selected, false)
-                        MethodDungeonTools:DungeonEnemies_UpdateSelected(pullIdx)
-
-                        local pull = MethodDungeonTools:GetCurrentPreset().value.pulls[pullIdx]
-                        local enemyCount = MethodDungeonTools.U.count_if(pull, function(entry)
-                            return #entry > 0
-                        end)
-
-                        if enemyCount == 0 then
-                            MethodDungeonTools:DeletePull(pullIdx)
-                            if pullIdx > #MethodDungeonTools:GetCurrentPreset().value.pulls then
-                                MethodDungeonTools:SetSelectionToPull(#MethodDungeonTools:GetCurrentPreset().value.pulls)
-                            end
-                        end
-                        MethodDungeonTools:UpdateProgressbar()
-                    end
-                end
-            end
         end
+        MethodDungeonTools:DungeonEnemies_AddOrRemoveBlipToCurrentPull(self,not self.selected,IsControlKeyDown())
+        MethodDungeonTools:DungeonEnemies_UpdateSelected(MethodDungeonTools:GetCurrentPull())
+        MethodDungeonTools:UpdateProgressbar()
         MethodDungeonTools:ReloadPullButtons()
-
+        if MethodDungeonTools.liveSessionActive and MethodDungeonTools:GetCurrentPreset().uid == MethodDungeonTools.livePresetUID then
+            MethodDungeonTools:LiveSession_SendPulls(MethodDungeonTools:GetPulls())
+        end
     elseif button == "RightButton" then
         if db.devMode then
             if IsAltKeyDown() then
@@ -219,11 +169,8 @@ end
 local patrolPoints =  {}
 local patrolLines = {}
 
-function MethodDungeonTools:DungeonEnemies_UpdateReapingPulls()
-    
-end
-
 function MDTDungeonEnemyMixin:DisplayPatrol(shown)
+    local scale = MethodDungeonTools:GetScale()
 
     --Hide all points/line
     for _,point in pairs(patrolPoints) do point:Hide() end
@@ -239,10 +186,10 @@ function MDTDungeonEnemyMixin:DisplayPatrol(shown)
 
             patrolPoints[patrolIdx]:SetDrawLayer("OVERLAY", 2)
             patrolPoints[patrolIdx]:SetTexture("Interface\\Worldmap\\X_Mark_64Grey")
-            patrolPoints[patrolIdx]:SetSize(4,4)
+            patrolPoints[patrolIdx]:SetSize(4*scale,4*scale)
             patrolPoints[patrolIdx]:SetVertexColor(0,0.2,0.5,0.6)
             patrolPoints[patrolIdx]:ClearAllPoints()
-            patrolPoints[patrolIdx]:SetPoint("CENTER",MethodDungeonTools.main_frame.mapPanelTile1,"TOPLEFT",waypoint.x,waypoint.y)
+            patrolPoints[patrolIdx]:SetPoint("CENTER",MethodDungeonTools.main_frame.mapPanelTile1,"TOPLEFT",waypoint.x*scale,waypoint.y*scale)
             patrolPoints[patrolIdx].x = waypoint.x
             patrolPoints[patrolIdx].y = waypoint.y
             patrolPoints[patrolIdx]:Show()
@@ -257,7 +204,7 @@ function MDTDungeonEnemyMixin:DisplayPatrol(shown)
             if oldWaypointBlip then
                 local startPoint, startRelativeTo, startRelativePoint, startX, startY = patrolPoints[patrolIdx]:GetPoint()
                 local endPoint, endRelativeTo, endRelativePoint, endX, endY = oldWaypointBlip:GetPoint()
-                DrawLine(patrolLines[patrolIdx], MethodDungeonTools.main_frame.mapPanelTile1, startX, startY, endX, endY, 1, 1,"TOPLEFT")
+                DrawLine(patrolLines[patrolIdx], MethodDungeonTools.main_frame.mapPanelTile1, startX, startY, endX, endY, 1*scale, 1,"TOPLEFT")
                 patrolLines[patrolIdx]:Show()
             else
                 firstWaypointBlip = patrolPoints[patrolIdx]
@@ -268,7 +215,7 @@ function MDTDungeonEnemyMixin:DisplayPatrol(shown)
         if firstWaypointBlip and oldWaypointBlip then
             local startPoint, startRelativeTo, startRelativePoint, startX, startY = firstWaypointBlip:GetPoint()
             local endPoint, endRelativeTo, endRelativePoint, endX, endY = oldWaypointBlip:GetPoint()
-            DrawLine(patrolLines[1], MethodDungeonTools.main_frame.mapPanelTile1, startX, startY, endX, endY, 1, 1,"TOPLEFT")
+            DrawLine(patrolLines[1], MethodDungeonTools.main_frame.mapPanelTile1, startX, startY, endX, endY, 1*scale, 1,"TOPLEFT")
             patrolLines[1]:Show()
         end
 
@@ -310,12 +257,7 @@ function MethodDungeonTools:DisplayBlipTooltip(blip,shown)
     end
 
     local boss = blip.data.isBoss or false
-    local reapingText = ''
-    if blip.data.reaping then
-        local reapingIcon = CreateTextureMarkup(MethodDungeonTools.reapingStatic[tostring(blip.data.reaping)].iconTexture, 32, 32, 16, 16, 0, 1, 0, 1,0,0) or ""
-        reapingText = "Reaping: "..reapingIcon.." "..MethodDungeonTools.reapingStatic[tostring(blip.data.reaping)].name .. "\n"
-    end
-    local health = MethodDungeonTools:CalculateEnemyHealth(boss,data.health,db.currentDifficulty)
+    local health = MethodDungeonTools:CalculateEnemyHealth(boss,data.health,db.currentDifficulty,data.ignoreFortified)
     local group = blip.clone.g and " (G "..blip.clone.g..")" or ""
     local upstairs = blip.clone.upstairs and CreateTextureMarkup("Interface\\MINIMAP\\MiniMap-PositionArrows", 16, 32, 16, 16, 0, 1, 0, 0.5,0,-50) or ""
     --[[
@@ -325,7 +267,6 @@ function MethodDungeonTools:DisplayBlipTooltip(blip,shown)
 
     local text = upstairs..data.name.." "..occurence..group.."\nLevel "..data.level.." "..data.creatureType.."\n"..MethodDungeonTools:FormatEnemyHealth(health).." HP\n"
     text = text .."Forces: "..MethodDungeonTools:FormatEnemyForces(data.count)
-    text = text .. "\n" .. reapingText
     text = text .."\n\n[Right click for more info]"
     tooltip.String:SetText(text)
 
@@ -376,6 +317,9 @@ local function blipDevModeSetup(blip)
     local xOffset,yOffset
     blip:SetScript("OnMouseDown",function()
         local x,y = MethodDungeonTools:GetCursorPosition()
+        local scale = MethodDungeonTools:GetScale()
+        x = x*(1/scale)
+        y = y*(1/scale)
         local nx = MethodDungeonTools.dungeonEnemies[db.currentDungeonIdx][blip.enemyIdx].clones[blip.cloneIdx].x
         local ny = MethodDungeonTools.dungeonEnemies[db.currentDungeonIdx][blip.enemyIdx].clones[blip.cloneIdx].y
         xOffset = x-nx
@@ -388,20 +332,24 @@ local function blipDevModeSetup(blip)
     blip:SetScript("OnDragStop", function()
         if not db.devModeBlipsMovable then return end
         local x,y = MethodDungeonTools:GetCursorPosition()
+        local scale = MethodDungeonTools:GetScale()
+        x = x*(1/scale)
+        y = y*(1/scale)
         x = x-xOffset
         y = y-yOffset
         blip:StopMovingOrSizing()
         blip:ClearAllPoints()
-        blip:SetPoint("CENTER",MethodDungeonTools.main_frame.mapPanelTile1,"TOPLEFT",x,y)
+        blip:SetPoint("CENTER",MethodDungeonTools.main_frame.mapPanelTile1,"TOPLEFT",x*scale,y*scale)
         MethodDungeonTools.dungeonEnemies[db.currentDungeonIdx][blip.enemyIdx].clones[blip.cloneIdx].x = x
         MethodDungeonTools.dungeonEnemies[db.currentDungeonIdx][blip.enemyIdx].clones[blip.cloneIdx].y = y
     end)
 end
 
 function MDTDungeonEnemyMixin:SetUp(data,clone)
+    local scale = MethodDungeonTools:GetScale()
     self:ClearAllPoints()
-    self:SetPoint("CENTER",MethodDungeonTools.main_frame.mapPanelTile1,"TOPLEFT",clone.x,clone.y)
-    self.normalScale = data.scale*(data.isBoss and 1.7 or 1)*(MethodDungeonTools.scaleMultiplier[db.currentDungeonIdx] or 1)
+    self:SetPoint("CENTER",MethodDungeonTools.main_frame.mapPanelTile1,"TOPLEFT",clone.x*scale,clone.y*scale)
+    self.normalScale = data.scale*(data.isBoss and 1.7 or 1)*(MethodDungeonTools.scaleMultiplier[db.currentDungeonIdx] or 1)*scale
     self.normalScale = self.normalScale * 0.6
     self:SetSize(self.normalScale*13,self.normalScale*13)
     self:updateSizes(1)
@@ -420,15 +368,6 @@ function MDTDungeonEnemyMixin:SetUp(data,clone)
     self.texture_Background:SetVertexColor(1,1,1,1)
     if clone.patrol then self.texture_Background:SetVertexColor(unpack(patrolColor)) end
     self.data = data
-
-
-
-    if self.data.reaping then
-        self.texture_Reaping:SetTexture(MethodDungeonTools.reapingStatic[tostring(self.data.reaping)].iconTexture)
-        --self.texture_Reaping_Outline:SetColorTexture(value.outline)
-        self.texture_Reaping:Hide()
-    end
-
     self.clone = clone
     tinsert(blips,self)
     if db.enemyStyle == 2 then
@@ -444,6 +383,20 @@ function MDTDungeonEnemyMixin:SetUp(data,clone)
     self.texture_Indicator:Hide()
 
     if db.devMode then blipDevModeSetup(self) end
+end
+
+---DungeonEnemies_PositionAllBlips
+---Used to position during scaling changes to the map
+function MethodDungeonTools:DungeonEnemies_PositionAllBlips(scale)
+    for _,blip in pairs(blips) do
+        self:DungeonEnemies_PositionBlip(blip,scale)
+    end
+end
+
+---DungeonEnemies_PositionBlip
+---Used to position during scaling changes to the map
+function MethodDungeonTools:DungeonEnemies_PositionBlip(blip, scale)
+    blip:SetPoint("CENTER",self.main_frame.mapPanelTile1,"TOPLEFT",blip.clone.x*scale,blip.clone.y*scale)
 end
 
 function MethodDungeonTools:DungeonEnemies_UpdateEnemies()
@@ -488,48 +441,62 @@ function MethodDungeonTools:FindPullOfBlip(blip)
     end
 end
 
+
+function MethodDungeonTools:GetBlip(enemyIdx,cloneIdx,preset)
+    for blipIdx,blip in pairs(blips) do
+        if blip.enemyIdx == enemyIdx and blip.cloneIdx == cloneIdx then
+            return blip
+        end
+    end
+end
+
 ---DungeonEnemies_AddOrRemoveBlipToCurrentPull
 ---Adds or removes an enemy clone and all it's linked npcs to the currently selected pull
 function MethodDungeonTools:DungeonEnemies_AddOrRemoveBlipToCurrentPull(blip,add,ignoreGrouped)
-    local preset = MethodDungeonTools:GetCurrentPreset()
+    local preset = self:GetCurrentPreset()
+    local enemyIdx = blip.enemyIdx
+    local cloneIdx = blip.cloneIdx
     local pull = preset.value.currentPull
     local pulls = preset.value.pulls or {}
     pulls[pull] = pulls[pull] or {}
-    pulls[pull][blip.enemyIdx] = pulls[pull][blip.enemyIdx] or {}
+    pulls[pull][enemyIdx] = pulls[pull][enemyIdx] or {}
     --remove clone from all other pulls first
     for pullIdx,p in pairs(pulls) do
-        if pullIdx ~= pull and p[blip.enemyIdx] then
-            for k,v in pairs(p[blip.enemyIdx]) do
-                if v == blip.cloneIdx then
-                    tremove(preset.value.pulls[pullIdx][blip.enemyIdx],k)
+        if pullIdx ~= pull and p[enemyIdx] then
+            for k,v in pairs(p[enemyIdx]) do
+                if v == cloneIdx then
+                    tremove(preset.value.pulls[pullIdx][enemyIdx],k)
                 end
             end
         end
-        MethodDungeonTools:UpdatePullButtonNPCData(pullIdx)
+        self:UpdatePullButtonNPCData(pullIdx)
     end
     if add then
-        blip.selected = true
+        if blip then blip.selected = true end
         local found = false
-        for _,v in pairs(pulls[pull][blip.enemyIdx]) do
-            if v == blip.cloneIdx then found = true end
+        for _,v in pairs(pulls[pull][enemyIdx]) do
+            if v == cloneIdx then found = true end
         end
-        --print(blip:IsEnabled())
-        if found==false and blip:IsEnabled() then tinsert(pulls[pull][blip.enemyIdx],blip.cloneIdx) end
+        if found==false and blip:IsEnabled() then
+            tinsert(pulls[pull][enemyIdx],cloneIdx)
+        end
     else
         blip.selected = false
-        for k,v in pairs(preset.value.pulls[pull][blip.enemyIdx]) do
-            if v == blip.cloneIdx then tremove(preset.value.pulls[pull][blip.enemyIdx],k) end
+        for k,v in pairs(preset.value.pulls[pull][enemyIdx]) do
+            if v == cloneIdx then
+                tremove(preset.value.pulls[pull][enemyIdx],k)
+            end
         end
     end
     --linked npcs
     if not ignoreGrouped then
         for idx,otherBlip in pairs(blips) do
             if blip.clone.g and otherBlip.clone.g == blip.clone.g and blip~=otherBlip then
-                MethodDungeonTools:DungeonEnemies_AddOrRemoveBlipToCurrentPull(otherBlip,add,true)
+                self:DungeonEnemies_AddOrRemoveBlipToCurrentPull(otherBlip,add,true,nil)
             end
         end
     end
-    MethodDungeonTools:UpdatePullButtonNPCData(pull)
+    self:UpdatePullButtonNPCData(pull)
 end
 
 ---DungeonEnemies_UpdateBlipColors
@@ -648,14 +615,17 @@ end
 ---DungeonEnemies_UpdateBeguiling
 ---Updates visibility state of Beguiling NPCs
 function MethodDungeonTools:DungeonEnemies_UpdateBeguiling()
-    local week = preset.week
+    local week
+    if db.MDI.enabled then
+        week = preset.mdi.beguiling or 1
+    else
+        week = preset.week
+    end
     for _,blip in pairs(blips) do
         local weekData =  blip.clone.week
         if weekData and not weekData[week] then
-            blip:Disable()
             blip:Hide()
         elseif weekData and weekData[week] then
-            blip:Enable()
             blip:Show()
         end
     end
@@ -664,9 +634,14 @@ end
 ---DungeonEnemies_UpdateBlacktoothEvent
 ---Updates visibility state of blacktooth event blips
 function MethodDungeonTools:DungeonEnemies_UpdateBlacktoothEvent()
-    local week = preset.week%3
+    local week
+    if db.MDI.enabled then
+        week = preset.mdi.freehold or 1
+    else
+        week = preset.week%3
+    end
     if week == 0 then week = 3 end
-    local isBlacktoothWeek = week == 1
+    local isBlacktoothWeek = week == 2
     for _,blip in pairs(blips) do
         if blip.clone.blacktoothEvent then
             if isBlacktoothWeek then
@@ -680,15 +655,36 @@ function MethodDungeonTools:DungeonEnemies_UpdateBlacktoothEvent()
     end
 end
 
+local emissaryIds = {[155432]=true,[155433]=true,[155434]=true}
 function MethodDungeonTools:DungeonEnemies_UpdateBoralusFaction(faction)
     preset = MethodDungeonTools:GetCurrentPreset()
     local teeming = MethodDungeonTools:IsPresetTeeming(preset)
     for _,blip in pairs(blips) do
         if blip.clone.faction then
-            if blip.clone.faction == faction and ((teeming and blip.clone.teeming) or (not blip.clone.teeming)) then
-                blip:Show()
+            --handle beguiling npcs here
+            if emissaryIds[blip.data.id] then
+                local week
+                if db.MDI.enabled then
+                    week = preset.mdi.beguiling or 1
+                else
+                    week = preset.week
+                end
+                local weekData =  blip.clone.week
+                if weekData and not weekData[week] then
+                    blip:Hide()
+                elseif weekData and weekData[week] then
+                    if blip.clone.faction == faction then
+                        blip:Show()
+                    else
+                        blip:Hide()
+                    end
+                end
             else
-                blip:Hide()
+                if blip.clone.faction == faction and ((teeming and blip.clone.teeming) or (not blip.clone.teeming)) then
+                    blip:Show()
+                else
+                    blip:Hide()
+                end
             end
         end
     end
@@ -724,19 +720,19 @@ end
 
 ---Frehold Crews
 MethodDungeonTools.freeholdCrews = {
-    [1] = {
+    [2] = {--blacktooth
         [129548] = true,
         [129529] = true,
         [129547] = true,
         [126847] = true,
     },
-    [3] = {
+    [1] = {--cutwater
         [129559] = true,
         [129599] = true,
         [126845] = true,
         [129601] = true,
     },
-    [2] = {
+    [3] = {--bilge rat
         [129550] = true,
         [129527] = true,
         [129600] = true,
@@ -747,6 +743,10 @@ MethodDungeonTools.freeholdCrews = {
 ---DungeonEnemies_UpdateFreeholdCrew
 ---Updates the enemies in Freehold to reflect the weekly event of "joining" a crew i.e. disabling npcs of the crew
 function MethodDungeonTools:DungeonEnemies_UpdateFreeholdCrew(crewIdx)
+    --override crew with mdi data
+    if db.MDI.enabled then
+        crewIdx = (preset.mdi.freeholdJoined and preset.mdi.freehold) or nil
+    end
     --if we are not in freehold map we need to tidy up our mess a bit
     if not crewIdx then
         for _,blip in pairs(blips) do
@@ -756,6 +756,7 @@ function MethodDungeonTools:DungeonEnemies_UpdateFreeholdCrew(crewIdx)
         end
         return
     end
+
     local crew = MethodDungeonTools.freeholdCrews[crewIdx]
     for _,blip in pairs(blips) do
         if crew[blip.data.id] and not blip.clone.blacktoothEvent then
@@ -770,6 +771,7 @@ function MethodDungeonTools:DungeonEnemies_UpdateFreeholdCrew(crewIdx)
     end
 end
 
+
 ---returns count, maxCountNormal, maxCountTeeming
 function MethodDungeonTools:GetEnemyForces(npcId)
     for i = 1,24 do
@@ -782,27 +784,4 @@ function MethodDungeonTools:GetEnemyForces(npcId)
             end
         end
     end
-end
-
----returns how many of each reaping type are in the specified pull
-local reapingTypeCount = {}
-function MethodDungeonTools:GetReapingTypesForPull(pullIdx)
-    preset = MethodDungeonTools:GetCurrentPreset()
-    db = db or MethodDungeonTools:GetDB()
-    table.wipe(reapingTypeCount)
-
-    for enemyIdx,clones in pairs(preset.value.pulls[pullIdx]) do
-        if tonumber(enemyIdx) then
-            local reapingType = MethodDungeonTools.dungeonEnemies[db.currentDungeonIdx][enemyIdx].reaping
-            if reapingType then
-                for _,cloneIdx in pairs(clones) do
-                    if MethodDungeonTools:IsCloneIncluded(enemyIdx,cloneIdx) then
-                        reapingTypeCount[reapingType] = reapingTypeCount[reapingType] and reapingTypeCount[reapingType]+1 or 1
-                    end
-                end
-            end
-        end
-    end
-
-    return reapingTypeCount[148716] or 0,reapingTypeCount[148893] or 0,reapingTypeCount[148894] or 0
 end

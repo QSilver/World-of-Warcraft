@@ -174,7 +174,7 @@ WeakAurasModelPaths: enabled
 WeakAurasOptions: enabled
 WeakAurasTutorials: enabled
 DBM-Brawlers: enabled
-MoveAnything: disabled
+MoveAnything: enabled
 Titan: enabled
 TrueItemLevel: enabled
 BossFilter: disabled

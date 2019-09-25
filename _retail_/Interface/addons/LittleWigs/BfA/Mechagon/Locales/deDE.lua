@@ -30,3 +30,11 @@ if L then
 	L.mechagon_mechanic = "Mechaniker von Mechagon"
 	L.workshop_defender = "Werkstattverteidiger"
 end
+
+L = BigWigs:NewBossLocale("King Mechagon", "deDE")
+if L then
+	L.hardmode_desc = "Warnung wenn der Annihilo-tron 5000 beginnt die Knopf-Reihenfolge anzuzeigen."
+
+	L.button = "Knopf"
+	L.button_desc = "Zeigt eine Warnung sobald jemand einen Knopf drückt."
+end

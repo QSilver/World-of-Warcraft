@@ -264,7 +264,7 @@ WeakAurasOptions: enabled
 WeakAurasTutorials: enabled
 DBM-Brawlers: enabled
 DBM: enabled
-MoveAnything: disabled
+MoveAnything: enabled
 AngryAssignments: enabled
 Arh: enabled
 Hermes: enabled

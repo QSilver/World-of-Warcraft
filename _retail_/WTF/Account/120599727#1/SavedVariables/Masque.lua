@@ -7,17 +7,17 @@ MasqueDB = {
 	["profileKeys"] = {
 		["Simroth - Silvermoon"] = "Default",
 		["Alyara - Silvermoon"] = "Default",
-		["Siluna - Silvermoon"] = "Default",
-		["Flaville - Silvermoon"] = "Default",
-		["Myvanna - Silvermoon"] = "Default",
-		["Stephanna - Argent Dawn"] = "Default",
 		["Thagmarr - Silvermoon"] = "Default",
+		["Erdanii - Silvermoon"] = "Default",
+		["Tenderbreeze - Silvermoon"] = "Default",
+		["Stephanna - Argent Dawn"] = "Default",
+		["Siluna - Silvermoon"] = "Default",
 		["Spinhoof - Ragnaros"] = "Default",
 		["Lachrymas - Silvermoon"] = "Default",
-		["Tenderbreeze - Silvermoon"] = "Default",
+		["Myvanna - Silvermoon"] = "Default",
 		["Kjerstina - Silvermoon"] = "Default",
 		["Linela - Silvermoon"] = "Default",
-		["Erdanii - Silvermoon"] = "Default",
+		["Flaville - Silvermoon"] = "Default",
 		["Qsilver - Silvermoon"] = "Default",
 	},
 	["profiles"] = {
@@ -41,25 +41,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_high_energy"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_10_searing_binding"] = {
+				["WeakAuras_02_siphoned"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -95,25 +77,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_poison_barrage_tsu"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_charge_2"] = {
+				["WeakAuras_best_cleave_-_inactive_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -167,7 +131,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_static_shock"] = {
+				["WeakAuras_Xsm7)izBwDo"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -185,7 +150,45 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_tormented_souls_buff"] = {
+				["WeakAuras_mthYEQMyWf1"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_1_-_infernal_spikes"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_BktCZRYe635"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -311,7 +314,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_09_flames_of_khaz'goroth"] = {
+				["WeakAuras_kr:_mind_control_totem"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -347,7 +350,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_plague"] = {
+				["WeakAuras_4_-_embrace_of_the_eclipse"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -365,7 +368,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_4_-_embrace_of_the_eclipse"] = {
+				["WeakAuras_wRfMnCGtlYs"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -401,7 +405,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_blood_splatter_2"] = {
+				["WeakAuras_yQ52FL4F5s5"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -419,7 +424,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_static_pulse"] = {
+				["WeakAuras_ziMXP9CySkY"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -437,7 +443,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_03_cavitation"] = {
+				["WeakAuras_224qUfdvPM6"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -455,7 +462,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_9_-_armageddon"] = {
+				["WeakAuras_shared_fate"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -473,7 +480,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_clinging_corruption"] = {
+				["WeakAuras_02-clinging_corruption"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -509,7 +516,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_taint_of_the_sea_2"] = {
+				["WeakAuras_05-liquefy"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -545,7 +552,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06_shock_lance_\\_empowered_shock_lance__(tank_only)"] = {
+				["WeakAuras_04_shatter_(tank)"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -563,7 +570,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_dust_cloud_self"] = {
+				["WeakAuras_1WmeJqdlQC1"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -581,7 +589,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_void_touched_(tank)"] = {
+				["WeakAuras_d7BgwL3RZoe"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -599,7 +608,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_2_-_echoing_anguish"] = {
+				["WeakAuras_fel_rage_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -635,7 +644,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_transfusion_trash"] = {
+				["WeakAuras_DkO)icPhMFC"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -671,7 +681,27 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_wildfire_dot"] = {
+				["WeakAuras_ydEPvmaFK3O"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_bmT47WzhjxQ"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -779,24 +809,6 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_brage2_2"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
 				["WeakAuras_8_-_black_winds"] = {
 					["Colors"] = {
 						["Normal"] = {
@@ -815,7 +827,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_sv-artifact-fury_of_the_eagle_ready"] = {
+				["WeakAuras_lockdown"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -833,7 +845,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_undr:_warcry_(e)"] = {
+				["WeakAuras_rsigNT7Qdk2"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -852,6 +865,25 @@ MasqueDB = {
 					["SkinID"] = "Caith",
 				},
 				["WeakAuras_11_strength_of_the_sky"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_6Vx8xu0cLQL"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -905,7 +937,27 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_frhd:_bestial_wrath_(e)"] = {
+				["WeakAuras_OMLmCyGL8Nq"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_zczrL6DW9U5"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -941,7 +993,44 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_hfc13:_chaos_mythic_v15"] = {
+				["WeakAuras_07_annihilation_2"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_10_searing_binding"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_maSGNBrmpxR"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -977,7 +1066,45 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_summon_ghoul"] = {
+				["WeakAuras_67lOOzO8ynP"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_HXAH)Ysj5w2"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["Raven_Debuffs"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -1031,7 +1158,63 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04_collapsing_world"] = {
+				["WeakAuras_MZOC9CxX6Os"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_flanking_strike_gcd"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_TheWCOHAupg"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_tormented_souls_buff"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -1067,6 +1250,24 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
+				["WeakAuras_09_shadow_blades"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
 				["WeakAuras_parasitic_fixate"] = {
 					["Colors"] = {
 						["Normal"] = {
@@ -1085,7 +1286,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_fel_surge_/_void_surge"] = {
+				["WeakAuras_08_beckon_cast"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -1121,7 +1322,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_lone_wolf_2"] = {
+				["WeakAuras_mt:_discombobulation"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -1139,7 +1340,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_suffer:_soak"] = {
+				["WeakAuras_06_charged_blast_dot"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -1157,7 +1358,117 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["Raven_Debuffs"] = {
+				["WeakAuras_wcyjzZq5XeC"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_soulforged_construct"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_11_soulbomb"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_YbDrNQIk6Hi"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_eye_of_fate"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_briney_volatile_foam"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_wildfire_dot"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -1193,7 +1504,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_beckon_cast"] = {
+				["WeakAuras_SWQOGHOws2w"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -1247,7 +1559,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_immolation"] = {
+				["WeakAuras_Qvj7Ixcg1bk"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -1265,7 +1578,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_03_extract_interloper"] = {
+				["WeakAuras_K8(o4Sgmxgq"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -1283,7 +1597,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_icebound_fortitude"] = {
+				["WeakAuras_7_-_fel_remanence"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -1337,7 +1651,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_charged_spear_(you)"] = {
+				["WeakAuras_lIlX0t4UlC3"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -1355,7 +1670,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_09_shadow_blades"] = {
+				["WeakAuras_mSYFRD5eGnI"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -1391,7 +1707,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_lockdown"] = {
+				["WeakAuras_06_rupturing_blood_(tank)"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -1409,7 +1725,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_09_flashfreeze"] = {
+				["WeakAuras_SiYIf(gi0JF"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -1445,7 +1762,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06_charged_blast_dot"] = {
+				["WeakAuras_H3KUCjWm35B"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -1463,7 +1781,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_chilled"] = {
+				["WeakAuras_caster_ring_cd"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -1481,7 +1799,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_haste_brew"] = {
+				["WeakAuras_06_shock_lance_\\_empowered_shock_lance__(tank_only)"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -1517,7 +1835,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_deadeye_shot"] = {
+				["WeakAuras_llqE2p3BpCs"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -1535,7 +1854,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_fixate"] = {
+				["WeakAuras_2_-_echoing_anguish"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -1571,7 +1890,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_soulforged_construct"] = {
+				["WeakAuras_cjwK5XX00(l"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -1589,7 +1909,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06_rupturing_blood_(tank)"] = {
+				["WeakAuras_903nNZ0z(qR"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -1607,7 +1928,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_etch"] = {
+				["WeakAuras_08_dark_bargain"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -1625,7 +1946,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_annihilation"] = {
+				["WeakAuras_05_mutagenic_pathogen_(tank)"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -1661,7 +1982,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_dark_pulse"] = {
+				["WeakAuras_0HV341ua)q6"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -1697,7 +2019,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_orb_of_destruction_range"] = {
+				["WeakAuras_AF1Nc7NEmfE"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -1715,7 +2038,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_blinding_sand"] = {
+				["WeakAuras_)IcjxVqWeIc"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -1769,7 +2093,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_eye_of_fate"] = {
+				["WeakAuras_sv-artifact-fury_of_the_eagle_ready"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -1787,7 +2111,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04_felsilk_wrap"] = {
+				["WeakAuras_01_fixate"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -1805,7 +2129,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_05_incubation_fluid"] = {
+				["WeakAuras_xs)O2X7QNle"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -1841,7 +2166,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_light_of_the_naaru"] = {
+				["WeakAuras_phantasmal_winds_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -1859,7 +2184,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_frhd:_ancestral_fury_(e)"] = {
+				["WeakAuras_i)wdZTR)i(n"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -1895,7 +2221,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_cyclone_strike"] = {
+				["WeakAuras_blood_splatter_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -1913,7 +2239,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06_gigavolt_charge"] = {
+				["WeakAuras_8XPSlusi3XA"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -1949,7 +2276,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_forging_strike_(tank_only)"] = {
+				["WeakAuras_12_stacks_p3"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -1967,7 +2294,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_transfusion"] = {
+				["WeakAuras_Vwv(uP2CTP1"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -1985,7 +2313,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_poison_barrage"] = {
+				["WeakAuras_04-orb_impact6"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -2039,7 +2367,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_stand_alone!_(disabled)"] = {
+				["WeakAuras_sv-talent30-snake_hunter_almost"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -2057,7 +2385,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04_arcing_azerite"] = {
+				["WeakAuras_hfc13:_chaos_mythic_v15"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -2093,7 +2421,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_told:_watery_dome"] = {
+				["WeakAuras_kr:_caress_of_death"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -2111,7 +2439,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_best_cleave_-_inactive_2"] = {
+				["WeakAuras_Rk8jOq5p1UY"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -2129,7 +2458,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_acidic_fragments_debuff"] = {
+				["WeakAuras_YPFe0Za5Pf6"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -2165,421 +2495,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01_wave_of_light"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_06_gigavolt_blast"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_01_rimefrost_/_septic_taint_(tank)"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_feign_2"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_stampede_-_cd"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_barrage_1_2"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_05_paku's_wrath"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_xavaric_-_icon"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_01_high_energy"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_08_dark_purpose"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_01_eldritch_revelation"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_9_-_focused_dreadflame_group"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_tank_flames"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_strm:_evasion"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_sv-talent90-dragonsfire_grenade_almost"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_briney_volatile_foam"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_08-growing_corruption"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_mm-talent15-steady_focus_active"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_eternal_hunger_2"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_chimaera_shot"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_06_fanatical_verdict"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_04-orb_impact6"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_11_inevitability"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_burn_2"] = {
+				["WeakAuras_aspow_cd"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -2615,7 +2531,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_deadeye_target_2"] = {
+				["WeakAuras_pBzFmOhkGxX"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -2633,7 +2550,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_mm-vulnerable_target"] = {
+				["WeakAuras_(U9Iw3(hYeo"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -2651,7 +2569,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_10_taeshalach's_reach_(tank_only)"] = {
+				["WeakAuras_NAFzawhBGyV"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -2669,7 +2588,434 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_artillery_2"] = {
+				["WeakAuras_PxF4BUUp7AN"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_10fZoOeQ2sc"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_FFNF9jNPdZ1"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_ux)hJftBXDR"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_jfXmy6RcdzI"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_7n60rqXCtVI"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_04-orb_impact"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_tank_flames"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_taint_of_the_sea_2"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_sv-talent90-dragonsfire_grenade_almost"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_manatap_short"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_08-growing_corruption"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_XOv((c(5)9Z"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_eternal_hunger_2"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_08_echoes_of_doom"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_RMLoOzF5ShV"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_horn_of_valor_cast"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_G6CqGERzIKr"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_03_protected"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_qRXxosPKTkm"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_QOdZINBK(pR"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_J5TKFiOolNS"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_witness_of_the_void"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_kaSX(ez0xc7"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -2723,7 +3069,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_09_ring_of_frost"] = {
+				["WeakAuras_chilled"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -2741,7 +3087,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_sv-mongoose_bite_3_stacks"] = {
+				["WeakAuras_anchors_wa_to_spawn_of_g'huun_nameplate_if_it_targets_you5"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -2795,7 +3141,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_soul_corrosion"] = {
+				["WeakAuras_07_annihilation"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -2831,7 +3177,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04-orb_impact"] = {
+				["WeakAuras_D))iUJlgd0N"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -2849,7 +3196,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_molo:_overcharge"] = {
+				["WeakAuras_UcAvA7QJZy4"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -2867,7 +3215,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_sb:_reaching_attack"] = {
+				["WeakAuras_cjR4OTiyh39"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -2885,7 +3234,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_reverberating_decimation"] = {
+				["WeakAuras_k9MV3cglyE6"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -2903,7 +3253,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02-clinging_corruption"] = {
+				["WeakAuras_cDYcLp2UfqY"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -2939,7 +3290,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_diabolic_bomb"] = {
+				["WeakAuras_TpWqANDTr0l"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -2975,7 +3327,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_horn_of_valor_cast"] = {
+				["WeakAuras_MNJkCubsp(w"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -2993,7 +3346,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_05_mutagenic_pathogen_(tank)"] = {
+				["WeakAuras_(iQn(6n1xKI"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -3011,7 +3365,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_widowmaker_toxin"] = {
+				["WeakAuras_mm-talent15-steady_focus_active"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -3029,7 +3383,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_tempting_song"] = {
+				["WeakAuras_04_felsilk_wrap"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -3047,7 +3401,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_mt:_discombobulation"] = {
+				["WeakAuras_deadeye_target_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -3101,7 +3455,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_8_-_unbound_chaos"] = {
+				["WeakAuras_(BGqWzh)dv("] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -3191,7 +3546,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_electroshock"] = {
+				["WeakAuras_oU)eQyA)Znk"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -3227,7 +3583,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_5_-_consuming_hunger"] = {
+				["WeakAuras_J(i(i7jsmgB"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -3245,7 +3602,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01_umbral_shell"] = {
+				["WeakAuras_sv-mongoose_bite_3_stacks"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -3299,7 +3656,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_kr:_mind_control_totem"] = {
+				["WeakAuras_feign_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -3317,7 +3674,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_soulfeast"] = {
+				["WeakAuras_jiNd3wyEIRI"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -3335,7 +3693,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_sv-talent30-snake_hunter_almost"] = {
+				["WeakAuras_(4zWCLo50fr"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -3353,7 +3712,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_anchors_wa_to_spawn_of_g'huun_nameplate_if_it_targets_you5"] = {
+				["WeakAuras_h1ZzPxEhGdE"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -3371,7 +3731,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_iceicles"] = {
+				["WeakAuras_07_reverberating_decimation"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -3389,7 +3749,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_shadowforce"] = {
+				["WeakAuras_tlZ8jE7oDhs"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -3407,7 +3768,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_mm-talent15-true_aim_active_progress"] = {
+				["WeakAuras_03_add_spawn_(mythic)"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -3425,7 +3786,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_sgbr:_ferocity_(e)"] = {
+				["WeakAuras_PkNWhIFSUGy"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -3443,7 +3805,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_05-liquefy"] = {
+				["WeakAuras_BEpLRCZoQyE"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -3479,7 +3842,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_necrotic_embrace"] = {
+				["WeakAuras_necrotic_venom"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -3497,7 +3860,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_dust_cloud_enemy"] = {
+				["WeakAuras_sqZTmCyV5kT"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -3515,7 +3879,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_frenzy_-_inactive"] = {
+				["WeakAuras_kr:_death_vacuum"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -3551,7 +3915,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_09_freezing_blast"] = {
+				["WeakAuras_06_unleashed_shadow"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -3605,7 +3969,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_05_liquefy"] = {
+				["WeakAuras_xavaric_-_icon"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -3623,7 +3987,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_reinforcing_ward_self_buff"] = {
+				["WeakAuras_FX2Sc1NTwB4"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -3641,151 +4006,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_05-mutagenic_pathogen_offtank"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_02_insatiable_torment"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_call_of_night"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_11_shadow_vulnerability"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_windburst_cd"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_clear_the_deck_tank"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_bm-talent30-dire_frenzy_ready"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_05_feedback_-_targeted"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_slam_counter"] = {
+				["WeakAuras_S5Ra4ged4Kw"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -3821,7 +4043,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_tormenting_fixation"] = {
+				["WeakAuras_call_of_night"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -3839,7 +4061,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_aspect_of_the_turtle_-_active"] = {
+				["WeakAuras_8_-_unbound_chaos"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -3857,7 +4079,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04-orb_impact3"] = {
+				["WeakAuras_windburst_cd"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -3875,7 +4097,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_mm_posthaste"] = {
+				["WeakAuras_0(D1vF)0WY2"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -3893,7 +4116,154 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_conduction"] = {
+				["WeakAuras_08_explosive_corruption_on_you"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_05-mutagenic_pathogen_offtank"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_slam_counter"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_evliJh2Fah("] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_chimaera_shot"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_burn_2"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_VvWtjZ3gVcl"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_08_necrotic_embrace"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_FLRJDsZM6lZ"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -3965,7 +4335,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_aoc_2"] = {
+				["WeakAuras_CNofCtoJX9d"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -3983,7 +4354,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_03-putrid_paroxysm"] = {
+				["WeakAuras_WQFApVAOFeB"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -4001,7 +4373,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_channel_lightning"] = {
+				["WeakAuras_lqLmV7Yyv(o"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -4019,7 +4392,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_sea_swell"] = {
+				["WeakAuras_jaRY71jGBYy"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -4037,7 +4411,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_fel_rage_2"] = {
+				["WeakAuras_op:_volatile_charge"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -4055,7 +4429,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_marked_shot"] = {
+				["WeakAuras_HBxVn3jEYMm"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -4073,7 +4448,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04_spirits_of_gold"] = {
+				["WeakAuras_05_liquefy"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -4091,7 +4466,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_corrupted_axion"] = {
+				["WeakAuras_ch:_blinding_faith"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -4127,7 +4502,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_steady_aim_available"] = {
+				["WeakAuras_WX5h)9ctKwt"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -4145,7 +4521,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_energy_update"] = {
+				["WeakAuras_ogP6APiPnVt"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -4163,7 +4540,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_endemic_virus"] = {
+				["WeakAuras_11_inevitability"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -4199,7 +4576,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_manatap_short"] = {
+				["WeakAuras_pot_rdy"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -4217,7 +4594,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_sb:_storm's_wail"] = {
+				["WeakAuras_05_feedback_-_targeted"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -4289,7 +4666,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_tenderize"] = {
+				["WeakAuras_dBPDGqcnTHj"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -4307,7 +4685,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01_decimation"] = {
+				["WeakAuras_hqJQ6Juiqp)"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -4325,7 +4704,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_tank_debuffs_"] = {
+				["WeakAuras_tormenting_fixation"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -4343,7 +4722,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_high_energy"] = {
+				["WeakAuras_bonds_of_fel"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -4361,7 +4740,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_09_heart_of_frost_on_you"] = {
+				["WeakAuras_mm_posthaste"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -4379,7 +4758,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_drained_soul"] = {
+				["WeakAuras_9_-_focused_dreadflame"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -4415,7 +4794,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_unstable_resonance"] = {
+				["WeakAuras_sb:_electric_/_tidal_shroud"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -4451,7 +4830,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04_opal_of_unleashed_rage"] = {
+				["WeakAuras_i(xyMAhQ49O"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -4469,7 +4849,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_cursed_blood"] = {
+				["WeakAuras_Kow1)8g)UYa"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -4487,7 +4868,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_cast_on_you_(tank_only)_-_airhorn_sound_active_(selfcd)"] = {
+				["WeakAuras_H5AmQ5MDLjr"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -4523,7 +4905,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_feedback:_void/ocean/storm"] = {
+				["WeakAuras_aoc_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -4541,7 +4923,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_crit"] = {
+				["WeakAuras_03-putrid_paroxysm"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -4595,7 +4977,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_trueshot_ready"] = {
+				["WeakAuras_sMk6tmz7tGW"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -4613,7 +4996,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_hooked_snare"] = {
+				["WeakAuras_artillery"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -4631,7 +5014,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_fel_incineration_2"] = {
+				["WeakAuras_bm-bestial_wrath_almost"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -4667,7 +5050,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_rd_soul_harvest"] = {
+				["WeakAuras_5_-_consuming_hunger"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -4685,7 +5068,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_witness_of_the_void"] = {
+				["WeakAuras_o)PJzRqyTTr"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -4703,7 +5087,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01_unstable_mixture"] = {
+				["WeakAuras_shadowforce"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -4739,7 +5123,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_09_prismatic_image_spawn"] = {
+				["WeakAuras_fZwGDApe9Vk"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -4757,7 +5142,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_burn_corruption"] = {
+				["WeakAuras_sb:_storm's_wail"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -4775,7 +5160,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_shackled_torment"] = {
+				["WeakAuras_aspect_of_the_wild_-_cd_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -4811,7 +5196,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_shocking_claw"] = {
+				["WeakAuras_07_energy_update"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -4829,7 +5214,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04-eye_beam_cast"] = {
+				["WeakAuras_crit"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -4847,7 +5232,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_unstable_orb"] = {
+				["WeakAuras_shockwave_cast"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -4865,7 +5250,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_toad_toxin"] = {
+				["WeakAuras_mm-talent15-true_aim_active_progress"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -4901,7 +5286,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_exhilaration_-_cd"] = {
+				["WeakAuras_summon_ghoul"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -4919,7 +5304,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_sb:_electric_/_tidal_shroud"] = {
+				["WeakAuras_0oMhnw05Exa"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -4937,7 +5323,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_kr:_death_vacuum"] = {
+				["WeakAuras_F5FNqiVU8zR"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -4955,7 +5342,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["Kaliel's Tracker_Quest Item Button"] = {
+				["WeakAuras_mark_of_taerar"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -4973,7 +5360,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_fel_stomp"] = {
+				["WeakAuras_4JrwsbNVOl2"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -4991,7 +5379,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_03_demonic_charge"] = {
+				["WeakAuras_DO4CFXRRb7K"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -5045,7 +5434,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_sv-lacerate_debuff_falling_off"] = {
+				["WeakAuras_QT(WhSnu2ur"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -5063,7 +5453,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_flaming_volatile_foam"] = {
+				["WeakAuras_X)HjyFqvei)"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -5081,7 +5472,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_jm:_whirling_jade_storm"] = {
+				["WeakAuras_EQtqEEHGUwC"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -5099,7 +5491,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_putrid_waters"] = {
+				["WeakAuras_7pdPyfYoSlf"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -5117,7 +5510,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_soul_reaper_2"] = {
+				["WeakAuras_5J5SlBK5aKw"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -5153,7 +5547,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_electric_shroud"] = {
+				["WeakAuras_unstable_orb"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -5171,7 +5565,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_jagged_nettles_cast"] = {
+				["WeakAuras_kn4HEXpm1N9"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -5189,7 +5584,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_caster_ring_cd"] = {
+				["WeakAuras_mark_of_emeriss"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -5207,7 +5602,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01_overwhelming_barrage"] = {
+				["WeakAuras_bm-talent30-dire_frenzy_ready"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -5243,7 +5638,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_op:_hex_of_lethargy"] = {
+				["WeakAuras_cast_on_you_(tank_only)_-_airhorn_sound_active_(selfcd)"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -5261,7 +5656,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_active_2"] = {
+				["WeakAuras_kXX9WtvZlDf"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -5279,7 +5675,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_seal_of_bwonsamdi"] = {
+				["WeakAuras_)7FzF)1hj4j"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -5297,7 +5694,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_permeliative_torment"] = {
+				["WeakAuras_39laB((ki8y"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -5333,7 +5731,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_fel_rage"] = {
+				["WeakAuras_kupU2KlQyZU"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -5351,7 +5750,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_sanitizing_strike_cast_(tank_only)"] = {
+				["WeakAuras_08-mind-numbing_chatter"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -5387,7 +5786,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04_flames_of_punishment_dot"] = {
+				["WeakAuras_fel_incineration_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -5423,7 +5822,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_strm:_consuming_void"] = {
+				["WeakAuras_barbed_shot_-_cd_-_1+_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -5441,7 +5840,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_pet_active_-_bm"] = {
+				["WeakAuras_10_taeshalach's_reach_(tank_only)"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -5477,7 +5876,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_09_orb_of_frost"] = {
+				["WeakAuras_RvwPEXVfULH"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -5513,7 +5913,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_necrotic_venom"] = {
+				["WeakAuras_St6F9yxz(zi"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -5531,7 +5932,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_sea_storm"] = {
+				["WeakAuras_permeliative_torment"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -5567,7 +5968,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01_crushing_doubt"] = {
+				["WeakAuras_06_seared_skin"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -5585,7 +5986,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_zombie_dust_totem"] = {
+				["WeakAuras_02-spreading_epidemic"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -5603,7 +6004,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_tectonic_smash"] = {
+				["WeakAuras_7tKbHf5Qgws"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -5621,7 +6023,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_enflame_corruption_(mythic)"] = {
+				["WeakAuras_Ac7wzK)MvAa"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -5639,7 +6042,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01-fixate"] = {
+				["WeakAuras_mHcitXKaCiA"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -5657,7 +6061,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_v.i.g.o.r_cooldown"] = {
+				["WeakAuras_op:_brilliant_aura"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -5693,43 +6097,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01_seal_of_retribution"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_strm:_protective_aura"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_eternal_hunger"] = {
+				["WeakAuras_03_shockwave_stomp"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -5765,7 +6133,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_caustic_brew"] = {
+				["WeakAuras_04_surging_darkness"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -5783,7 +6151,43 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_bonds_of_fel"] = {
+				["WeakAuras_corrupted_axion"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_healer_ring_cd"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_01_decimation"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -5837,7 +6241,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_explosive_corruption_on_you"] = {
+				["WeakAuras_K57N(YPJgzO"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -5855,7 +6260,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_told:_inner_flames"] = {
+				["WeakAuras_Jxx5GgjfmkN"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -5873,7 +6279,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_virulent_haunt"] = {
+				["WeakAuras_flaming_volatile_foam"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -5891,7 +6297,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_dire_beast/frenzy_icon"] = {
+				["WeakAuras_gIa8HRfcIYL"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -5945,7 +6352,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_05_kimbul's_wrath"] = {
+				["WeakAuras_soul_reaper_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -6035,7 +6442,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06_world_enlarger"] = {
+				["WeakAuras_d)JcfWq(1s8"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -6107,7 +6515,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_toxic_slice"] = {
+				["WeakAuras_tank_debuffs_"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -6125,7 +6533,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_focused_chaos_/_wrought_chaos"] = {
+				["WeakAuras_fear_icon"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -6179,7 +6587,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_dark_bindings"] = {
+				["WeakAuras_felsinged_/_wasting_void_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -6197,7 +6605,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_2_-_scythe_sweep"] = {
+				["WeakAuras_09_flashfreeze"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -6233,7 +6641,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_05-hypergenesis"] = {
+				["WeakAuras_02_consumin_sphere_(mythic)"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -6287,7 +6695,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_09_glacial_ray"] = {
+				["WeakAuras_intervene"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -6305,7 +6713,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_beckon_on_you"] = {
+				["WeakAuras_mceLN2nnM9T"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -6323,7 +6732,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_9_-_felclaws"] = {
+				["WeakAuras_YZ8zAT)vaAR"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -6359,7 +6769,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_ablation"] = {
+				["WeakAuras_8_-_desolate"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -6377,7 +6787,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_stay!_(disabled)"] = {
+				["WeakAuras_7ntj1qAPCi7"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -6413,7 +6824,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_stinging_venom"] = {
+				["WeakAuras_bellowing_roar_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -6431,7 +6842,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_hunter's_mark"] = {
+				["WeakAuras_A2RDeJiaJe8"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -6449,7 +6861,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_brew_spawn_2"] = {
+				["WeakAuras_10_flame_rend_dot"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -6485,7 +6897,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_vile_bombardment"] = {
+				["WeakAuras_01-fixate"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -6521,7 +6933,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_expel_soul_spawn"] = {
+				["WeakAuras_fel_fire"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -6539,7 +6951,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["Masque"] = {
+				["WeakAuras_07_decimation"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -6554,9 +6966,11 @@ MasqueDB = {
 							1, -- [4]
 						},
 					},
+					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_shadowy_volatile_distance"] = {
+				["WeakAuras_J7aacH(BWzE"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -6610,7 +7024,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_serrated_fangs"] = {
+				["WeakAuras_fel_stomp"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -6646,7 +7060,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_spitting_cobra_-_cd"] = {
+				["WeakAuras_dark_bindings"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -6664,7 +7078,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_sv-flanking_strike_almost"] = {
+				["WeakAuras_07_essence_shear_(tank)"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -6700,7 +7114,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_05_krag'wa's_wrath"] = {
+				["WeakAuras_02_sanitizing_strike_cast_(tank_only)"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -6718,7 +7132,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_12_stacks_p3"] = {
+				["WeakAuras_n(e6zZCJPR("] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -6772,7 +7187,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_thorned_barrage"] = {
+				["WeakAuras_dPnUnLV8lzz"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -6790,7 +7206,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_serpent_sting_3"] = {
+				["WeakAuras_light_of_the_naaru"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -6808,7 +7224,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_kr:_focused_demise"] = {
+				["WeakAuras_anchors_interruptorder_to_jaina's_tide_elemetal(s)"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -6826,7 +7242,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_discharge_shadow/apetagonizer_core"] = {
+				["WeakAuras_e5AQ9JkLCHN"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -6844,7 +7261,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_enflame_corruption"] = {
+				["WeakAuras_branded_blue_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -6862,7 +7279,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_unstable_resonance:_storm"] = {
+				["WeakAuras_9_-_felclaws"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -6880,7 +7297,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06_seared_skin"] = {
+				["WeakAuras_intimidation_gcd"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -6898,7 +7315,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_kill_command_-_cd_2"] = {
+				["WeakAuras_op:_hex_of_lethargy"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -6916,7 +7333,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_decimation"] = {
+				["WeakAuras_JFw1ggiWA8R"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -6952,7 +7370,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_05-mutagenic_pathogen"] = {
+				["WeakAuras_torn_soul"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -6988,7 +7406,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_tank_ring"] = {
+				["WeakAuras_broadside"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -7006,7 +7424,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_carve_flesh"] = {
+				["WeakAuras_eT2u2qw7o5T"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -7042,7 +7461,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_10_flame_rend_dot"] = {
+				["WeakAuras_sj5WXLhJgII"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -7078,7 +7498,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04_fiery_detonation"] = {
+				["WeakAuras_o7GwJj5Z3Rl"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -7096,7 +7517,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_shadow_of_death2"] = {
+				["WeakAuras_mm-talent30-black_arrow_almost"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -7168,7 +7589,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_precise_shots_1"] = {
+				["WeakAuras_08_dark_fissure"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -7204,7 +7625,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_mm-marked_shot_ready"] = {
+				["WeakAuras_09_chilled_blood"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -7222,7 +7643,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_mannoroth's_gaze"] = {
+				["WeakAuras_branded_purple"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -7240,7 +7661,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_mm-talent30-black_arrow_almost"] = {
+				["WeakAuras_SKGyBEztG3x"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -7258,7 +7680,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_twisting_shadows"] = {
+				["WeakAuras_vul_cd_big"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -7276,7 +7698,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_kill_command_-_cd"] = {
+				["WeakAuras_9qMQ0qF8anc"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -7294,7 +7717,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_op:_wail_of_greed"] = {
+				["WeakAuras_9_-_bursting_dreadflame"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -7348,7 +7771,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_agility_ring"] = {
+				["WeakAuras_fi8Hy1P11lJ"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -7366,7 +7790,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_shield_of_light"] = {
+				["WeakAuras_dugpO8fBK6K"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -7384,7 +7809,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01_blinding_faith"] = {
+				["WeakAuras_tank_ring"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -7402,7 +7827,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_static_shock"] = {
+				["WeakAuras_4_-_astral_vulnerability"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -7420,7 +7845,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_beckon"] = {
+				["WeakAuras_8)Z4T2StBXe"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -7438,7 +7864,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_ire_of_the_deep"] = {
+				["WeakAuras_07-obliteration_beam"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -7456,7 +7882,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01_fixate"] = {
+				["WeakAuras_aRhQ0OWlv3Q"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -7510,7 +7937,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02-spreading_epidemic"] = {
+				["WeakAuras_Hg3SYo7I6OL"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -7528,7 +7956,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_arc_dash"] = {
+				["WeakAuras_FvolYaOrwDI"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -7546,7 +7975,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_swiftness_ward_self_buff"] = {
+				["WeakAuras_)XtHGT1uXq9"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -7582,7 +8012,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_reap_soul"] = {
+				["WeakAuras_7_-_spontaneous_fragmentation"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -7600,7 +8030,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_carve_gcd"] = {
+				["WeakAuras_die_by_the_sword"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -7618,7 +8048,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_healer_ring_cd"] = {
+				["WeakAuras_mannoroth's_gaze"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -7654,7 +8084,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_maddening_eyes_of_n'zoth"] = {
+				["WeakAuras_pBPjkTpps04"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -7672,7 +8103,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_blood_tap"] = {
+				["WeakAuras_mm-talent60-sentinel_almost"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -7726,7 +8157,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_thrill_of_the_hunt_-_inactive"] = {
+				["WeakAuras_op:_wail_of_greed"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -7798,7 +8229,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_shockwave_tank"] = {
+				["WeakAuras_twisting_shadows"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -7816,7 +8247,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_hunger_for_life"] = {
+				["WeakAuras_vGY9msT7BE8"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -7834,7 +8266,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_a_murder_of_crows_mm_gcd"] = {
+				["WeakAuras_9Ar6RoAPHNV"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -7906,7 +8339,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_dream_simulacrum"] = {
+				["WeakAuras_4YFhCcdEe(3"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -7924,7 +8358,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_broadside"] = {
+				["WeakAuras_melt"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -7942,7 +8376,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_apocalypse_protocol"] = {
+				["WeakAuras_y3nDzm6gxqB"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -7996,7 +8431,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_09_burning_explosion"] = {
+				["WeakAuras_3_-_drenching_waters"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -8014,7 +8449,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08-dark_bargain_don't_soak"] = {
+				["WeakAuras_sv-mongoose_bite_2_stacks"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -8032,7 +8467,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_plague_of_fire"] = {
+				["WeakAuras_fat_edict"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -8050,7 +8485,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_apetagonizer_3000"] = {
+				["WeakAuras_caster_ring"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -8122,7 +8557,30 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_09_chilled_blood"] = {
+				["Bartender4_BagBar"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Pushed"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							0.716866940259934, -- [4]
+						},
+						["Checked"] = {
+							0.0745098039215686, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_arc_dash"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -8140,7 +8598,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_03_roll_(tank_only)"] = {
+				["WeakAuras_carve_gcd"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -8158,25 +8616,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_heart_of_frost_pre-cast_warning"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_dire_beast_-_cd"] = {
+				["WeakAuras_)RskGc6TLip"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -8212,7 +8653,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_annihilation_2"] = {
+				["WeakAuras_3neGACO6rrs"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -8266,7 +8708,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_10_searing_tempest"] = {
+				["WeakAuras_0exdZGyiMA("] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -8320,31 +8763,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["SBF_Debuffs"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Gloss"] = {
-							1, -- [1]
-							0.988235294117647, -- [2]
-							0.972549019607843, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_melt"] = {
+				["WeakAuras_mm-no_pet"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -8362,7 +8781,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_cc:_lacerating_claws_(tank)"] = {
+				["WeakAuras_FWDb88fT6oZ"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -8380,7 +8800,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_fear_icon"] = {
+				["WeakAuras_1ioLeTQ9cub"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -8398,7 +8819,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_wracking_pain"] = {
+				["WeakAuras_1n5LZnLz(Xu"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -8416,7 +8838,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_shockwave_cast"] = {
+				["WeakAuras_active_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -8434,7 +8856,27 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_soo_-_garrosh_-_malicious_blast_active_icon_2"] = {
+				["WeakAuras_byDDOPusq9k"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_hngKGpe(PPj"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -8470,7 +8912,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_dire_beast_-_active"] = {
+				["WeakAuras_KA(dTW0SGKG"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -8488,7 +8931,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_crushed_(tank_only)"] = {
+				["WeakAuras_08-dark_bargain_don't_soak"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -8524,7 +8967,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08-reorigination_blast_buff"] = {
+				["WeakAuras_star_sign:_dragon"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -8542,7 +8985,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_unshackled_power"] = {
+				["WeakAuras_MZhGzn5bqnh"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -8578,7 +9022,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_1_stack_2"] = {
+				["WeakAuras_cc:_lacerating_claws_(tank)"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -8614,7 +9058,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_surging_rush"] = {
+				["WeakAuras_scattering_field"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -8632,7 +9076,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01_cudgel_of_gore"] = {
+				["WeakAuras_xE6GustpSQj"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -8686,7 +9131,32 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_aura_of_dread"] = {
+				["SBF_Buffs"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Gloss"] = {
+							1, -- [1]
+							0.988235294117647, -- [2]
+							0.972549019607843, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_UXJYZDuBvfm"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -8704,7 +9174,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_chimaera_shot_gcd"] = {
+				["WeakAuras_soo_-_garrosh_-_malicious_blast_active_icon_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -8722,7 +9192,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_ancient_tempest"] = {
+				["WeakAuras_eSzbxOS3xRP"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -8740,7 +9211,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_nightorb_threat"] = {
+				["WeakAuras_focused_chaos_/_wrought_chaos"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -8758,7 +9229,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_aspow_cd"] = {
+				["WeakAuras_EegHKdq5Due"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -8776,7 +9248,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_sanction"] = {
+				["WeakAuras_icy_ejection"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -8794,7 +9266,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_death's_door"] = {
+				["WeakAuras_doomfire"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -8812,25 +9284,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_virulent_pathogen"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_arcane_fog"] = {
+				["WeakAuras_aimed_shot"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -8866,7 +9320,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01_storm_of_annihilation"] = {
+				["WeakAuras_font_of_corruption_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -8884,7 +9338,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_3_-_driven_assault"] = {
+				["WeakAuras_ablation"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -8902,7 +9356,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_scattering_field"] = {
+				["WeakAuras_orb_of_destruction_range"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -8920,7 +9374,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_frostbitten"] = {
+				["WeakAuras_kc_cd"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -8938,7 +9392,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_double_tap_2"] = {
+				["WeakAuras_(QYsBFJj88z"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -8956,7 +9411,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_bellowing_roar"] = {
+				["WeakAuras_chaos_seed_cast"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -8974,7 +9429,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_ch:_divine_protection"] = {
+				["WeakAuras_shadow_of_death2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -8992,7 +9447,25 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_rotting_wounds"] = {
+				["Masque"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_Nn8KRUU1mEx"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9010,7 +9483,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_bm-beast_cleave_active"] = {
+				["WeakAuras_mm-marked_shot_ready"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9028,7 +9501,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_serpent's_breath"] = {
+				["WeakAuras_02-sundering_scalpel_offtank"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9046,7 +9519,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_vile_expulsion"] = {
+				["WeakAuras_03_shock_grenade"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9064,7 +9537,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02-endemic_virus"] = {
+				["WeakAuras_kr:_plague_of_toads"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9082,7 +9555,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_doom_well"] = {
+				["WeakAuras_6WYH0mfNfLB"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9100,7 +9574,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_dread_thorns_aura"] = {
+				["WeakAuras_chimaera_shot_gcd"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9118,25 +9592,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_resonant_pulse"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_01_seal_of_reckoning"] = {
+				["WeakAuras_B)cT4)drauy"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9190,7 +9647,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06_obey_or_suffer_/_suffering"] = {
+				["WeakAuras_nightorb_threat"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9208,7 +9665,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_05_gift_of_wind_buff_on_you_(mage_only)"] = {
+				["WeakAuras_6_-_collapsing_fissure"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9226,7 +9683,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_mass_spell_reflection"] = {
+				["WeakAuras_gCLraWEdFSq"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9244,7 +9702,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_05_arcing_currents"] = {
+				["WeakAuras_fdAg3)ASPi7"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9262,7 +9721,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_unstable_hex"] = {
+				["WeakAuras_HDW)zQ)xivN"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9304,7 +9764,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_chemical_burn"] = {
+				["WeakAuras_I3xEgy)rpwN"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9358,7 +9819,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_jm:_tested"] = {
+				["WeakAuras_MQY)lQRKcAE"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9376,7 +9838,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_cold_blast_(tank)"] = {
+				["WeakAuras_lm7C4sFEQsl"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9394,7 +9857,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_cc:_pa'ku's_winds_duration"] = {
+				["WeakAuras_08_dark_purpose"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9412,7 +9875,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_mm-talent90-barrage_ready"] = {
+				["WeakAuras_6jwwmWUGApH"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9430,7 +9894,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_maddening_eruption"] = {
+				["WeakAuras_pAKHEHLR7Kh"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9448,7 +9913,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_punctured_darkness"] = {
+				["WeakAuras_chakrams_gcd"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9484,7 +9949,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_siphoned"] = {
+				["WeakAuras_fCbusg3tTD6"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9502,7 +9968,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_5_stacks_p3"] = {
+				["WeakAuras_SGZQM1iWf3V"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9538,7 +10005,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_apply_frenzy_if_bw_is_up"] = {
+				["WeakAuras_04_collapsing_world"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9556,7 +10023,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_a_murder_of_crows_-_active_2"] = {
+				["WeakAuras_TN6toBzBa8a"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9574,7 +10042,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_cc:_fixated"] = {
+				["WeakAuras_tQxQXTlgEH("] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9592,7 +10061,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_void_shift"] = {
+				["WeakAuras_frostbitten"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9610,7 +10079,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_kill_command_gcd"] = {
+				["WeakAuras_un3G2fGqvhf"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9628,7 +10098,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01_promises_of_power"] = {
+				["WeakAuras_9_-_illidan_sight"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9646,7 +10116,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_maddening_eyes_of_n'zoth_debuff"] = {
+				["WeakAuras_kR4)W08sNxq"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9664,7 +10135,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_ft_2"] = {
+				["WeakAuras_85TU8Vq7wTC"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9682,7 +10154,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_5_-_jaws_from_the_deep"] = {
+				["WeakAuras_3JIMSks4vKX"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9700,7 +10173,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_rending_bite_(tank_only)"] = {
+				["WeakAuras_04_flames_of_xoroth"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9718,7 +10191,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_overwhelm"] = {
+				["WeakAuras_emXZOuaPjub"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9736,7 +10210,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_aoc_up_2"] = {
+				["WeakAuras_J3M20NtmLcS"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9754,7 +10229,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_frhd:_blind_rage_(e)"] = {
+				["WeakAuras_s6Itkmrqep("] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9772,7 +10248,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_03_glowing_stinger"] = {
+				["WeakAuras_EnWeMksP4w("] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9790,7 +10267,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_orb_on_you"] = {
+				["WeakAuras_B2fTZ3AIsED"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9808,7 +10286,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_tormented_souls"] = {
+				["WeakAuras_sdo5aVORq4m"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9826,7 +10305,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02-sundering_scalpel"] = {
+				["WeakAuras_ch:_divine_protection"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9844,7 +10323,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_dark_revelation"] = {
+				["WeakAuras_255eYUgP7K("] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9862,7 +10342,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_anchors_wa_to_spawn_of_g'huun_nameplate_if_it_targets_you3"] = {
+				["WeakAuras_Ys4(5Q0BK6l"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9916,7 +10397,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_debilitating_shout"] = {
+				["WeakAuras_mm_barrage_almost"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9952,7 +10433,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_scorching_detonation_(tank_only)"] = {
+				["WeakAuras_raking_talons"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -9970,7 +10451,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_09_marked_target"] = {
+				["WeakAuras_3_-_driven_assault"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -10006,7 +10487,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_abyssal_reach"] = {
+				["WeakAuras_wildfire_infusion:_next_bomb"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -10024,7 +10505,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_watery_dome"] = {
+				["WeakAuras_oshSCCOHHZA"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -10042,7 +10524,26 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_tentacle_slam"] = {
+				["Bartender4_MicroMenu"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["SkinID"] = "Caith",
+					["Inherit"] = false,
+				},
+				["WeakAuras_LMkndPHe5QE"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -10060,7 +10561,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_manatap_missing"] = {
+				["WeakAuras_08-reorigination_blast_buff"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -10078,25 +10579,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_09_frost_nova"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_sterilize"] = {
+				["WeakAuras_buff_soul_harvest"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -10150,7 +10633,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01_void_essence"] = {
+				["WeakAuras_LBllQr5XzfX"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -10186,7 +10670,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_05_feedback_-_foul_steps"] = {
+				["WeakAuras_07-annihilation"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -10222,7 +10706,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_chimaera_shot_-_cd"] = {
+				["WeakAuras_himGpanKTnF"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -10240,7 +10725,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_final_blast"] = {
+				["WeakAuras_YV5d0hNltCw"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -10312,7 +10798,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_mm-no_pet"] = {
+				["WeakAuras_aFtlnUCKznc"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -10330,7 +10817,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_frenzy_-_active"] = {
+				["WeakAuras_11_fire_vulnerability"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -10348,7 +10835,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_horning_missiles_targeted"] = {
+				["WeakAuras_11_stacks_p3"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -10366,7 +10853,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_doom_well_2"] = {
+				["WeakAuras_11_sweeping/deadly_scythe/soulrending_scythe_(tank_only)_co-tank"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -10402,7 +10889,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_11_unleashed_rage"] = {
+				["WeakAuras_viper's_venom"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -10420,7 +10907,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_sv-aspect_of_the_eagle_ready"] = {
+				["WeakAuras_06-corrupted_blood"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -10474,7 +10961,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_03_radiant_biomass_(tank)"] = {
+				["WeakAuras_fPF5IsHMY1W"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -10492,7 +10980,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06-pool_of_darkness_soak"] = {
+				["WeakAuras_02-endemic_virus"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -10510,7 +10998,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01_decimation_dot"] = {
+				["WeakAuras_doom_well"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -10528,7 +11016,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_buff_soul_harvest"] = {
+				["WeakAuras_dread_thorns_aura"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -10546,7 +11034,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04_coin_shower"] = {
+				["WeakAuras_BTCEiWtGo0Z"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -10564,7 +11053,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_bone_shield_check"] = {
+				["WeakAuras_FLdirp1r0Xz"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -10600,7 +11090,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_deadeye_target_cast"] = {
+				["WeakAuras_v67YCouiZbH"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -10636,7 +11127,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_8_-_touch_of_sargeras"] = {
+				["WeakAuras_06_empowered_shrapnel_blast"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -10654,7 +11145,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04_acidic_web"] = {
+				["WeakAuras_(4VlNhwKlpm"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -10672,7 +11164,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_bwonsamdi's_mantle"] = {
+				["WeakAuras_Mo2B50GpfFa"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -10690,7 +11183,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_moc2_2"] = {
+				["WeakAuras_A8)HFDmiJVN"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -10726,7 +11220,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_deathly_withering"] = {
+				["WeakAuras_nP0AefsZBa7"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -10762,7 +11257,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_manifest_nightmares"] = {
+				["WeakAuras_03_radiant_biomass"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -10780,7 +11275,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_flame_lick"] = {
+				["WeakAuras_focused_gaze"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -10798,7 +11293,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07-annihilation"] = {
+				["WeakAuras_8_-_tainted_essence"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -10816,7 +11311,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_light_of_the_naaru_2"] = {
+				["WeakAuras_amoc"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -10834,7 +11329,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_arcane_vulnerability"] = {
+				["WeakAuras_orb_on_you"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -10870,7 +11365,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04_consuming_flame"] = {
+				["WeakAuras_n5HUzpdJbch"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -10888,7 +11384,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06_frenetic_charge_(you)"] = {
+				["WeakAuras_mm-talent90-barrage_ready"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -10906,7 +11402,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_shadow_2"] = {
+				["WeakAuras_marrowrend"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -10942,7 +11438,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06_empowered_shrapnel_blast"] = {
+				["WeakAuras_expel_magic:_frost_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -10996,7 +11492,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_anchors_interruptorder_to_jaina's_tide_elemetal(s)"] = {
+				["Raven"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -11032,7 +11528,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_counter_shot_-_cd_-_bm"] = {
+				["WeakAuras_spell_reflection"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -11050,7 +11546,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_flaks_missing"] = {
+				["WeakAuras_9PJNb8WTySY"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -11086,7 +11583,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_9_-_focused_dreadflame_player_"] = {
+				["WeakAuras_2_-_calcified_quills"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -11122,7 +11619,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04_crush"] = {
+				["WeakAuras_kill_command_gcd"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -11140,7 +11637,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_conflexive_burst"] = {
+				["WeakAuras_F7S(nQ34Yj8"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -11158,7 +11656,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_umbral_shell_/_embrace_of_the_void"] = {
+				["WeakAuras_Eggse5SOZI("] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -11176,7 +11675,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04_creeping_blaze"] = {
+				["WeakAuras_06_sleep_canister"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -11230,7 +11729,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_suffer!_(disabled)"] = {
+				["WeakAuras_igsgAz)zXD6"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -11248,7 +11748,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_furious_quake"] = {
+				["WeakAuras_06_shocked"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -11266,7 +11766,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_sea_spout"] = {
+				["WeakAuras_02-sundering_scalpel"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -11284,7 +11784,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_09_ice_shard_(tank_only)"] = {
+				["WeakAuras_9Uew1GWD39q"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -11356,7 +11857,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_caress_of_death"] = {
+				["WeakAuras_Jpgq0LYyp5a"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -11374,7 +11876,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_05_dribbling_ichor"] = {
+				["WeakAuras_01_decimation_dot"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -11428,7 +11930,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_6_-_spirit_chains"] = {
+				["WeakAuras_04_acidic_web"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -11482,7 +11984,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["Raven"] = {
+				["WeakAuras_gqq)MdNbbud"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -11500,7 +12003,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_mm-talent60-explosive_shot_ready"] = {
+				["WeakAuras_juflu)WMtjn"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -11536,7 +12040,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04_everburning_flames"] = {
+				["WeakAuras_05_feedback_-_foul_steps"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -11554,7 +12058,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["TrufiGCD"] = {
+				["WeakAuras_moc2_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -11590,7 +12094,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_jaina"] = {
+				["WeakAuras_3RVPxdgmQ)m"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -11626,7 +12131,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_stormling_spawn_(mythic)"] = {
+				["WeakAuras_mJD1Sx)nq)I"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -11644,7 +12150,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_sb:_new_add_incoming"] = {
+				["WeakAuras_02-surgical_beam_top"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -11662,7 +12168,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_8_-_tainted_essence"] = {
+				["WeakAuras_hlHhFuePb)p"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -11680,7 +12187,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_poisoning_strike"] = {
+				["WeakAuras_nightmare_blades"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -11698,7 +12205,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_unending_darkness"] = {
+				["WeakAuras_09_cosmic_glare"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -11716,7 +12223,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_feign_death_cd_4"] = {
+				["WeakAuras_kr:_fd_early_warning"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -11734,25 +12241,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["Bartender4_MicroMenu"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["SkinID"] = "Caith",
-					["Inherit"] = false,
-				},
-				["WeakAuras_08_echoes_of_doom"] = {
+				["WeakAuras_c)yAxxtuoRZ"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -11770,7 +12260,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_storm_of_justice"] = {
+				["WeakAuras_N1Uzeknd1oy"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -11788,7 +12279,26 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_2_-_suffocating_dark"] = {
+				["WeakAuras_h8PTru)LaJX"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_9_-_focused_dreadflame_player_"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -11824,7 +12334,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["Bartender4_2"] = {
+				["WeakAuras_YhujxGyNwX3"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -11839,10 +12350,10 @@ MasqueDB = {
 							1, -- [4]
 						},
 					},
-					["SkinID"] = "Caith",
 					["Inherit"] = false,
+					["SkinID"] = "Caith",
 				},
-				["WeakAuras_6_-_tormented_cries"] = {
+				["Raven_Buffs"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -11878,7 +12389,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_pursuit"] = {
+				["WeakAuras_LGBaMkBMq7x"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -11896,7 +12408,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_branded_green"] = {
+				["WeakAuras_sv-mongoose_bite_1_stacks"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -11950,7 +12462,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_sv-mongoose_fury_progress"] = {
+				["WeakAuras_XaImzGCxG65"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -11986,7 +12499,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08-blood_feast"] = {
+				["WeakAuras_9C(GlT3poS8"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -12004,7 +12518,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_trueshot_1"] = {
+				["WeakAuras_cGneotxewRw"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -12022,7 +12537,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_mm_barrage_almost"] = {
+				["WeakAuras_3041UzD4e(f"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -12040,7 +12556,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_6_-_collapsing_fissure"] = {
+				["WeakAuras_NzPrjHsF4o("] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -12058,7 +12575,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_indigestion"] = {
+				["WeakAuras_11_sky_and_sea"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -12112,7 +12629,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_9_-_darkness_of_a_thousand_souls"] = {
+				["WeakAuras_5zqx0YnJu28"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -12166,7 +12684,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01_storm_essence"] = {
+				["WeakAuras_barbed_shot_available"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -12184,7 +12702,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_wildfire_infusion:_next_bomb"] = {
+				["WeakAuras_stampede"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -12202,7 +12720,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_09_avalanche"] = {
+				["WeakAuras_gift_of_the_man'ari"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -12220,7 +12738,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_03_protected"] = {
+				["WeakAuras_doom_well_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -12238,7 +12756,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01_eradication"] = {
+				["WeakAuras_tj0g(Np2wNe"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -12274,7 +12793,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_withering_curse"] = {
+				["WeakAuras_2yWV7GunOK2"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -12292,7 +12812,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_05_massive_incubator"] = {
+				["WeakAuras_sv-aspect_of_the_eagle_ready"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -12310,7 +12830,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_told:_darkstep"] = {
+				["WeakAuras_protected"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -12328,7 +12848,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_poison_barrage_targeted"] = {
+				["WeakAuras_06-pool_of_darkness_soak"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -12364,7 +12884,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_aura_mastery"] = {
+				["WeakAuras_PbHsqULHLZg"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -12472,7 +12993,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_kr:_fd_early_warning"] = {
+				["WeakAuras_01-enlarged_heart_offtank"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -12490,7 +13011,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04_earthen_roots"] = {
+				["WeakAuras_oc6L5NdEuw("] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -12508,7 +13030,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_9_-_lingering_eruption"] = {
+				["WeakAuras_bone_shield_check"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -12526,7 +13048,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_9_-_illidan_sight"] = {
+				["WeakAuras_WrmRjcYAeSf"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -12544,7 +13067,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_flames_of_sargeras"] = {
+				["WeakAuras_06_slumber_gas"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -12562,7 +13085,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_sea's_temptation"] = {
+				["WeakAuras_cc:_pa'ku's_winds_duration"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -12580,7 +13103,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_crackling_lightning"] = {
+				["WeakAuras_01_eradication"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -12598,7 +13121,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_strength_ring_cd"] = {
+				["WeakAuras_mbLyPZW0coV"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -12616,7 +13140,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_sb:_sea_swell_incoming"] = {
+				["WeakAuras_fel_prison"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -12634,7 +13158,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06_crusher_spawn"] = {
+				["WeakAuras_X2Q)AmoNQQy"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -12688,7 +13213,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_vampiric_aura"] = {
+				["WeakAuras_VwKE(pDpkE2"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -12706,7 +13232,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_deadeye_target_debuff"] = {
+				["WeakAuras_blood_tap_high"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -12724,7 +13250,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_11_sky_and_sea"] = {
+				["WeakAuras_PIRWl)579bJ"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -12760,7 +13287,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_venomous_spit"] = {
+				["WeakAuras_bm-aspect_of_the_wild_ready"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -12778,7 +13305,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_lock_and_load"] = {
+				["WeakAuras_ccrf)(Ct3rE"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -12796,7 +13324,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06_buster_cannon"] = {
+				["WeakAuras_mark_of_doom"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -12832,7 +13360,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_replenishing_roots"] = {
+				["WeakAuras_05-hypergenesis"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -12850,7 +13378,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_6-_grasping_darkness"] = {
+				["WeakAuras_echo_blade"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -12868,7 +13396,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_chitinous_exoskeleton"] = {
+				["WeakAuras_immolation"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -12886,7 +13414,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_itchy_bite"] = {
+				["WeakAuras_o9WaroLylCO"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -12904,7 +13433,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_aspect_cheetah_fast"] = {
+				["WeakAuras_Dc1ONcXR2A1"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -12922,7 +13452,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_undr:_bone_shield"] = {
+				["WeakAuras_08-blood_feast"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -12940,7 +13470,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_rend_flesh_debuff"] = {
+				["WeakAuras_epocheric_orb"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -12994,7 +13524,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_fel_prison"] = {
+				["WeakAuras_gravitational_pull_void"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -13012,7 +13542,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_mm-talent60-sentinel_almost"] = {
+				["WeakAuras_poison_barrage_targeted"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -13048,7 +13578,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_03_add_spawn_(heroic)"] = {
+				["WeakAuras_9_-_lingering_eruption"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -13084,7 +13614,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_05_loa's_pact"] = {
+				["WeakAuras_overwhelm"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -13120,7 +13650,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_strm:_mending_rapids"] = {
+				["Kaliel's Tracker_Quest Item Button"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -13138,7 +13668,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04_barnacle_bash_(tank)"] = {
+				["WeakAuras_final_blast"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -13156,7 +13686,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01_call_to_arms"] = {
+				["WeakAuras_fztIn9BvNbm"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -13192,7 +13723,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_bomb"] = {
+				["WeakAuras_ByFrHvM6twB"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -13210,7 +13742,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_05_desensitizing_sting_(tank)"] = {
+				["WeakAuras_07_oblivion_sphere"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -13264,7 +13796,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_mt:_shrunk"] = {
+				["WeakAuras_ZJJ0Z0OaZaE"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -13300,7 +13833,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_cheetah_bm"] = {
+				["WeakAuras_7g25XhPG9h1"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -13318,7 +13852,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_frhd:_healing_balm"] = {
+				["WeakAuras_replenishing_roots"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -13354,7 +13888,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_gravitational_pull_frost"] = {
+				["WeakAuras_E9uHIiAUPRb"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -13408,7 +13943,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_star_sign:_hunter"] = {
+				["WeakAuras_79zRTffxGRC"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -13426,7 +13962,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_massive_chomp"] = {
+				["WeakAuras_chitinous_exoskeleton"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -13462,7 +13998,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_slippery_ruds"] = {
+				["WeakAuras_11_initialization_sequence"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -13480,7 +14016,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_despoiled_ground"] = {
+				["WeakAuras_08-explosive_corruption"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -13498,7 +14034,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_noxious_breath_trash"] = {
+				["WeakAuras_xf9lysXPQ4U"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -13516,7 +14053,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_gravitational_pull_void"] = {
+				["WeakAuras_ep6DoN06TAK"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -13534,115 +14072,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_11_holy_vulnerability"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_08_tidemistresses_spawn"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_lone_wolf_2as"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_cobra_shot_killer_cobra_red"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_blood_mirror"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_06-dark_revelation"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_04_depleted_diamond"] = {
+				["WeakAuras_04_aegis_of_flames"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -13678,6 +14108,117 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
+				["WeakAuras_lone_wolf_2as"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_VOU5VEcAIVh"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_vampiric_aura"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_OPib6Ovs6zt"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_W5VtHRCpT1Z"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_gift_of_the_man'ari_2"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
 				["WeakAuras_11_ember_of_rage"] = {
 					["Colors"] = {
 						["Normal"] = {
@@ -13696,7 +14237,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_charge"] = {
+				["WeakAuras_JE6KVO8QDh("] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -13732,7 +14274,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_plague_of_toads"] = {
+				["WeakAuras_06_empowered_pulse_grenade"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -13840,7 +14382,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_nightmare_bloom"] = {
+				["WeakAuras_2J2Kn2IckSF"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -13876,7 +14419,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01_dark_herald"] = {
+				["WeakAuras_void_shift"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -13912,7 +14455,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_7_-_spontaneous_fragmentation"] = {
+				["WeakAuras_NzRkFvmRmz2"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -13966,7 +14510,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_best_cleave_-_inactive"] = {
+				["WeakAuras_kr:_grievous_axe"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -13984,7 +14528,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_imperfect_physiology"] = {
+				["WeakAuras_05-mutagenic_pathogen"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -14002,7 +14546,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_best_cleave_-_active"] = {
+				["WeakAuras_beastwrath"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -14020,7 +14564,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_molo:_tectonic_barrier"] = {
+				["WeakAuras_vGKvZj2wYqz"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -14056,7 +14601,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_wayc:_spirited_defense"] = {
+				["WeakAuras_laMTsCJcysB"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -14074,7 +14620,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01_aphotic_blast"] = {
+				["WeakAuras_ember_of_taeshalach_all_energy_+_highest__(based_on_nameplates_you_see_on_the_screen)"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -14110,7 +14656,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02-surgical_beam_side"] = {
+				["WeakAuras_08-corpulent_mass"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -14128,7 +14674,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_unknowable_terror_(mythic)"] = {
+				["WeakAuras_cc:_bleeding_wounds"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -14182,7 +14728,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_gyro_buff_up"] = {
+				["WeakAuras_star_sign:_hunter"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -14200,7 +14746,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01_dark_herald_on_you"] = {
+				["WeakAuras_Kz(rYDeV7QF"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -14218,7 +14765,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_oscillating_overload"] = {
+				["WeakAuras_qSV4)Y0OrN4"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -14236,7 +14784,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_shattering_bellow"] = {
+				["WeakAuras_5_-befouling_ink"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -14254,7 +14802,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01_divine_mallet"] = {
+				["WeakAuras_dire_beast_cd:_legend_shoulders"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -14272,7 +14820,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_flashing_daggers"] = {
+				["WeakAuras_ieNtQ9okfa7"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -14290,7 +14839,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_barbed_shot_-_cd_-_0"] = {
+				["WeakAuras_2QPcLuFb)3I"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -14308,7 +14858,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_infested"] = {
+				["WeakAuras_mt:_shrunk"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -14326,7 +14876,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_05_gestate"] = {
+				["WeakAuras_bomb"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -14362,7 +14912,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_haste"] = {
+				["WeakAuras_ptNMfhs4aIv"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -14380,115 +14931,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_savage_tempest"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_reinforcing_ward_boss_buff"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_befouled_2"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_06_tampering!"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_1_-_infernal_burning_debuff"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_11_soulblight_2"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_aspect_of_the_turtle_active"] = {
+				["WeakAuras_GJabENHewYD"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -14524,7 +14968,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_1_-_inferfal_burning"] = {
+				["WeakAuras_befouled_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -14560,7 +15004,118 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_cross_ignition"] = {
+				["WeakAuras_okRVTzZVrcV"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_11_soulblight_2"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_mm-marking_targets_active"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_Yx8gX9TuqXq"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_1_-_inferfal_burning"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_zqGr44uRHqp"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_07_obliteration_beam"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -14596,7 +15151,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_serpentine_gust"] = {
+				["WeakAuras_QAhW23J8LX6"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -14632,7 +15188,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_6_-_soulbind"] = {
+				["WeakAuras_despoiled_ground"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -14650,7 +15206,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_meteor_leap_/__on_you"] = {
+				["WeakAuras_RXzLIYfSoT("] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -14704,7 +15261,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_beastwrath"] = {
+				["WeakAuras_sv-mongoose_fury_progress"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -14722,7 +15279,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_xavaric_icon"] = {
+				["WeakAuras_06-dark_revelation"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -14758,7 +15315,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_ember_of_taeshalach_all_energy_+_highest__(based_on_nameplates_you_see_on_the_screen)"] = {
+				["WeakAuras_Ehen8KbHt8s"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -14776,7 +15334,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_searing_bond"] = {
+				["WeakAuras_ec3EW6aRWRG"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -14812,7 +15371,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_8_-_desolate_cast"] = {
+				["WeakAuras_SwsS36GOL)g"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -14830,7 +15390,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_severing_blade"] = {
+				["WeakAuras_aura_mastery"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -14848,7 +15408,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_cc:_bleeding_wounds"] = {
+				["WeakAuras_yehRQmMAnHG"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -14866,7 +15427,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06_frenetic_charge_(others)"] = {
+				["WeakAuras_arcane_orb"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -14884,7 +15445,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_09_spectral_army_of_norgannon_despawn_timer"] = {
+				["WeakAuras_F4VU34T2lj8"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -14902,7 +15464,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_stand_alone_3"] = {
+				["WeakAuras_d(pgt1tcFV1"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -14920,7 +15483,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_immune_shield"] = {
+				["WeakAuras_branded_green_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -14956,7 +15519,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_feign_death_active"] = {
+				["WeakAuras_06_bloodthirsty_crawg_spawn"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -14974,7 +15537,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_fel_incineration"] = {
+				["WeakAuras_02_enflame_corruption"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -14992,7 +15555,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_5_-befouling_ink"] = {
+				["WeakAuras_tfE2iITS92X"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -15028,7 +15592,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_decaying_touch"] = {
+				["WeakAuras_flames_of_sargeras"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -15046,7 +15610,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_03_summon_adds"] = {
+				["WeakAuras_4fKMdyvyxQg"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -15064,7 +15629,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_swiftness_ward"] = {
+				["WeakAuras_09_machinations_of_aman'thul"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -15082,7 +15647,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_berserker_rage"] = {
+				["WeakAuras_Plv7LQefr6n"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -15118,7 +15684,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08-explosive_corruption"] = {
+				["WeakAuras_06_crusher_spawn"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -15136,7 +15702,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_black_hole"] = {
+				["WeakAuras_08_energy_update_(tank_only)"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -15154,7 +15720,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_focused_demise_on_you"] = {
+				["WeakAuras_6rOjtWlaHSM"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -15190,7 +15757,31 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_nightmare_javelin"] = {
+				["SBF"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Gloss"] = {
+							1, -- [1]
+							0.988235294117647, -- [2]
+							0.972549019607843, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_11_frost_vulnerability"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -15208,25 +15799,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_11_soulbomb_-_big_raiddmg"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_a_murder_of_crows_-_active"] = {
+				["WeakAuras_yvHyqV)5XDK"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -15298,7 +15872,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_tsth:_electrified_scales"] = {
+				["WeakAuras_5fquK1YFGpB"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -15316,7 +15891,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_king_kong"] = {
+				["WeakAuras_JzUE3kB(Z)9"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -15334,7 +15910,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04_incandescence"] = {
+				["WeakAuras_05_plague_bomb"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -15352,7 +15928,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_blitz"] = {
+				["WeakAuras_mm_barrage_ready"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -15388,7 +15964,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_stormling_spawn_(heroic)"] = {
+				["WeakAuras_immolation_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -15406,7 +15982,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08-bursting_boil_spawn"] = {
+				["WeakAuras_08_imperfect_physiology"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -15442,7 +16018,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_branded_blue"] = {
+				["WeakAuras_vuqDV4gqXd("] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -15478,7 +16055,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_op:_gem_buffs"] = {
+				["WeakAuras_08_torment_of_shadows"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -15514,7 +16091,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_09_icefall"] = {
+				["WeakAuras_Sa2qbGZSzed"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -15532,7 +16110,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01-enlarged_heart_offtank"] = {
+				["WeakAuras_8_-_cleansing_protocol_custom"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -15550,7 +16128,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_kr:_plague_of_toads"] = {
+				["WeakAuras_searing_bond"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -15586,7 +16164,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_infected_wound"] = {
+				["WeakAuras_fel_surge_/_void_surge"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -15604,7 +16182,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_blade_combo"] = {
+				["WeakAuras_UjHGaQi0gQh"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -15622,7 +16201,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_11_frost_vulnerability"] = {
+				["WeakAuras_d2W5d5sfbK4"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -15640,7 +16220,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_bulwark_of_juju"] = {
+				["WeakAuras_UbXzBVEWsdt"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -15694,7 +16275,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_gift_of_n'zoth_lunacy"] = {
+				["WeakAuras_8_-_touch_of_sargeras"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -15712,7 +16293,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_touch_of_the_drowned"] = {
+				["WeakAuras_xavaric_icon"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -15730,7 +16311,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_op:_soothing_breeze"] = {
+				["WeakAuras_shattering_bellow"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -15820,7 +16401,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_slicing_blast"] = {
+				["WeakAuras_TuZ41CGvJaH"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -15856,7 +16438,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_sonic_screech_2"] = {
+				["WeakAuras_R3G0ZNfDJTD"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -15892,7 +16475,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_misdirection_active"] = {
+				["WeakAuras_Xzljh(3jZbS"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -15910,7 +16494,26 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_dire_frenzy"] = {
+				["Bartender4_StanceBar"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["SkinID"] = "Caith",
+					["Inherit"] = false,
+				},
+				["WeakAuras_9bj9I(lXa3E"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -15928,7 +16531,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06_frenetic_charge"] = {
+				["WeakAuras_SFVxkcDCdOC"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -15946,7 +16550,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_purification_beam"] = {
+				["WeakAuras_D4M739Rb772"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -15964,7 +16569,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_amoc_cd"] = {
+				["WeakAuras_08_blood_host"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -15982,25 +16587,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_hysteria"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_6_stacks_2"] = {
+				["WeakAuras_04_poison_essence"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16036,7 +16623,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_wind_tunnel"] = {
+				["WeakAuras_Wpst7m5UhBz"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16054,7 +16642,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_11_sargeras'_gaze"] = {
+				["WeakAuras_branded_blue"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16072,7 +16660,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06_deferred_sentence"] = {
+				["WeakAuras_mass_spell_reflection"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16090,7 +16678,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_09_warmth"] = {
+				["WeakAuras_op:_gem_buffs"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16126,7 +16714,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04_surging_darkness"] = {
+				["WeakAuras_ardent_defender"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16144,7 +16732,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_bm-bestial_wrath_almost"] = {
+				["WeakAuras_HA4Paxi4(sk"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16162,7 +16751,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_dire_beast:_legend_shoulders_2_stacks"] = {
+				["WeakAuras_blood_mirror"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16198,7 +16787,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_manatap"] = {
+				["WeakAuras_11_the_discs_of_norgannon"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16216,7 +16805,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_bm-bestial_wrath_ready"] = {
+				["WeakAuras_3OVVbZ2EM(y"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16234,7 +16824,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_ardent_defender"] = {
+				["WeakAuras_king_kong"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16252,7 +16842,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_azerite_heartseeker"] = {
+				["WeakAuras_Hs2APo6PqjG"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16270,7 +16861,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_maddening_gaze"] = {
+				["WeakAuras_resonant_barrier"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16288,7 +16879,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_unknowable_terror"] = {
+				["WeakAuras_(pIlo2))ctV"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16360,7 +16952,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_molo:_earth_shield"] = {
+				["WeakAuras_kr:_deathly_withering"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16378,7 +16970,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_05_rain_of_fel"] = {
+				["WeakAuras_sv-aspect_of_the_eagle_almost"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16396,7 +16988,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_raking_talons"] = {
+				["WeakAuras_nhnpMkmob0O"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16432,7 +17025,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_purification_beam_cast"] = {
+				["WeakAuras_06_frenetic_charge"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16450,7 +17043,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_bwonsamdi's_boon"] = {
+				["WeakAuras_zXepT03uviA"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16468,7 +17062,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04_everburning_light"] = {
+				["WeakAuras_kr:_got_hit_by_toads"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16486,7 +17080,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_march:_move"] = {
+				["WeakAuras_shatter_essence"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16522,7 +17116,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_tide_fist_cast_(tank,_you)"] = {
+				["WeakAuras_69D6qf4vYHq"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16576,7 +17171,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_9_-_felclaws_boss"] = {
+				["WeakAuras_WrQny2YNMbM"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16594,7 +17190,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08-corpulent_mass"] = {
+				["WeakAuras_misdirection_active"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16630,7 +17226,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_beast_cleave_icon"] = {
+				["WeakAuras_dire_beast:_legend_shoulders_2_stacks"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16666,7 +17262,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_rotten_expulsion"] = {
+				["WeakAuras_darkening_soul"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16684,7 +17280,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_butchery_gcd"] = {
+				["WeakAuras_06-unleashed_shadow"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16702,7 +17298,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_soulburn"] = {
+				["WeakAuras_DPq5m0CqLLU"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16720,7 +17317,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_03_thrashing_terror_(tank)"] = {
+				["WeakAuras_bilewater_breath"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16738,7 +17335,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_upheaval"] = {
+				["WeakAuras_08_explosive_corruption"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16756,7 +17353,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_11_soulblight"] = {
+				["WeakAuras_w(gOfcgQmGY"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16774,7 +17372,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_03_add_spawn_(mythic)"] = {
+				["WeakAuras_2_-_suffocating_dark"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16828,7 +17426,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_high_energy_[alliance]"] = {
+				["WeakAuras_mekkatorque"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16846,7 +17444,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_aspect_of_the_wild_gcd"] = {
+				["WeakAuras_NdWCRPPq9SQ"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16864,7 +17463,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_doomfire"] = {
+				["WeakAuras_UekZCMTQK5c"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16882,7 +17482,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_viper's_venom"] = {
+				["WeakAuras_)zbDDCt7G5S"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16900,7 +17501,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_09_kul_tiran_corsair"] = {
+				["WeakAuras_05_gestate"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16918,7 +17519,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_death_blossom"] = {
+				["WeakAuras_11_soulblight"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16936,7 +17537,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_wayc:_soul_fetish"] = {
+				["WeakAuras_5_stacks_p3"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16954,7 +17555,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_reorgination_blast_buff"] = {
+				["WeakAuras_xnJ8dbkeduk"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16972,7 +17574,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_cover"] = {
+				["WeakAuras_04-void_lash_offtank"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -16990,7 +17592,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_bm-artifact-titan's_thunder__ready"] = {
+				["WeakAuras_ym)7Iut3mG0"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -17026,7 +17629,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_obliteration_beam"] = {
+				["WeakAuras_04_everburning_light"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -17116,7 +17719,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_bone_shield"] = {
+				["WeakAuras_UdZX6sqZjHU"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -17134,7 +17738,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_undertow"] = {
+				["WeakAuras_fel_nova"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -17152,7 +17756,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_expel_magic:_frost"] = {
+				["WeakAuras_03_thrashing_terror_(tank)"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -17170,7 +17774,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_branded_green_2"] = {
+				["WeakAuras_qcNUm)mRbJ("] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -17188,7 +17793,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_3_-_jagged_abrasion"] = {
+				["WeakAuras_08_reorgination_blast_buff"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -17224,7 +17829,25 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_dark_fissure"] = {
+				["WeakAuras_mastery"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_kr:_artillery_8.1_(tank)"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -17260,7 +17883,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_05_pack_hunter"] = {
+				["WeakAuras_7_stacks_p3"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -17278,25 +17901,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_expel_magic:_frost_2"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_heart_attack"] = {
+				["WeakAuras_o()4rncBiOi"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -17368,7 +17974,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_shatter_essence"] = {
+				["WeakAuras_2_-_soul_corruption"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -17386,7 +17992,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_double_tap_1"] = {
+				["WeakAuras_undying_resolve_/_undying_salvation"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -17404,7 +18010,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["Bartender4_BagBar"] = {
+				["WeakAuras_LlHxKgQEKnZ"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -17412,22 +18019,17 @@ MasqueDB = {
 							0, -- [3]
 							1, -- [4]
 						},
-						["Pushed"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							0.716866940259934, -- [4]
-						},
 						["Checked"] = {
-							0.0745098039215686, -- [1]
+							0.0196078431372549, -- [1]
 							1, -- [2]
 							0, -- [3]
 							1, -- [4]
 						},
 					},
+					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_molo:_azerite_injection"] = {
+				["WeakAuras_bm-artifact-titan's_thunder__ready"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -17463,7 +18065,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_dark_omen"] = {
+				["WeakAuras_BkeDPB8StQz"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -17481,7 +18084,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_demolish"] = {
+				["WeakAuras_cobra_shot_killer_cobra_red"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -17499,7 +18102,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_cinderflame"] = {
+				["WeakAuras_annihilate"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -17517,7 +18120,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_03_slipstream"] = {
+				["WeakAuras_9_-_darkness_of_a_thousand_souls"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -17553,7 +18156,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_drain_fluids"] = {
+				["WeakAuras_zUjcKt1Zisi"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -17589,7 +18193,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_necrotic_smash"] = {
+				["WeakAuras_mJCzfNzj9KO"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -17607,7 +18212,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01_luring_destruction"] = {
+				["WeakAuras_32TJReuhQ60"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -17625,7 +18231,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_chimaera_shot_-_cd_2"] = {
+				["WeakAuras_beast_cleave_icon"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -17643,7 +18249,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_11_fire_vulnerability"] = {
+				["WeakAuras_TzO6qFPzlnz"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -17679,7 +18286,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_xalzaix's_awakening"] = {
+				["WeakAuras_stand_alone_3"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -17697,7 +18304,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_kr:_necrotic_smash"] = {
+				["WeakAuras_e9JPOHu(x2G"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -17715,7 +18323,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_scabrous_bite"] = {
+				["WeakAuras_hZrbmVbVkQu"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -17733,7 +18342,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_void_seed"] = {
+				["WeakAuras_g5w6q7N7Jez"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -17769,7 +18379,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04_chaotic_displacement"] = {
+				["WeakAuras_feign_death_active"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -17787,7 +18397,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_infest"] = {
+				["WeakAuras_black_hole"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -17823,7 +18433,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01_coalesced_blood_spawn"] = {
+				["WeakAuras_05-omega_vector"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -17841,7 +18451,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_last_stand"] = {
+				["WeakAuras_01_luring_destruction"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -18021,7 +18631,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_arcane_orb"] = {
+				["WeakAuras_zUMe2WYxpcv"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -18057,7 +18668,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_tithu_cd"] = {
+				["WeakAuras_Dnc1OGzLsX)"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -18098,7 +18710,7 @@ MasqueDB = {
 					},
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_brew_spawn"] = {
+				["WeakAuras_nightmare_bloom"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -18116,7 +18728,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_wayc:_talisman"] = {
+				["WeakAuras_11_soulbomb_-_big_raiddmg"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -18134,7 +18746,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_star_sign:_wolf"] = {
+				["WeakAuras_blitz"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -18152,7 +18764,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_4_-_incorporeal_shot_player"] = {
+				["WeakAuras_ii3VZsRklUV"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -18188,7 +18801,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01_cerebral_assault"] = {
+				["WeakAuras_GMhBFtn(J5M"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -18206,7 +18820,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06_bloodthirsty_crawg_spawn"] = {
+				["WeakAuras_cc:_fixated"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -18224,7 +18838,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01_frost_javelin_(others)"] = {
+				["WeakAuras_1_-_infernal_burning_debuff"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -18242,7 +18856,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_epocheric_orb"] = {
+				["WeakAuras_0B2Osw75iZp"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -18278,7 +18893,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_obey!_(disabled)"] = {
+				["WeakAuras_08_echoes_of_doom_pool"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -18296,7 +18911,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_headlong_charge"] = {
+				["WeakAuras_Jeold5dtui3"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -18314,7 +18930,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_5_-_slicing_tornado"] = {
+				["WeakAuras_explosive_shot_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -18332,7 +18948,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_bm-talent90-barrage_almost"] = {
+				["WeakAuras_mm-talent90-barrage_almost"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -18350,7 +18966,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_death_lents"] = {
+				["WeakAuras_5mN)uZL9L3U"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -18368,7 +18985,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06_sleeping"] = {
+				["WeakAuras_7)cN(5a4)7H"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -18386,7 +19004,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_focused_blast"] = {
+				["WeakAuras_04_everburning_flames"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -18404,7 +19022,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04_caustic_slime"] = {
+				["WeakAuras_hAv0rYFQiSm"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -18422,7 +19041,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_rat_traps"] = {
+				["WeakAuras_mt:_trampled"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -18440,7 +19059,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_03_toxic_spine"] = {
+				["WeakAuras_kr:_necrotic_smash"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -18476,7 +19095,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_lightning_shield"] = {
+				["WeakAuras_deferred_sentence"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -18512,7 +19131,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_death_bolt"] = {
+				["WeakAuras_wFj0q)OLdzm"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -18530,7 +19150,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_shipbreaker_storm"] = {
+				["WeakAuras_5_-_slicing_tornado"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -18548,7 +19168,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_03_prismatic_shield"] = {
+				["WeakAuras_spew_corruption"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -18602,7 +19222,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07-obliteration_blast"] = {
+				["WeakAuras_Gqc3olAOfDI"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -18638,7 +19259,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_bf3:_pin_down_bw_3"] = {
+				["WeakAuras_cPoNsgIwnwE"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -18674,7 +19296,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_v.i.g.o.r"] = {
+				["WeakAuras_sv-aspect_of_the_eagle_active"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -18692,7 +19314,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras"] = {
+				["WeakAuras_p4cEPNfttqa"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -18710,7 +19333,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_deferred_sentence"] = {
+				["WeakAuras_focused_blast"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -18728,7 +19351,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_burning_brush"] = {
+				["WeakAuras_M3gx(wUylxL"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -18800,7 +19424,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_rotten_bile2"] = {
+				["WeakAuras_fel_surge_/_void_surge_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -18836,7 +19460,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_lock_and_load_active"] = {
+				["WeakAuras_D8IXNYKVseC"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -18872,7 +19497,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_chimaera_shot_cd"] = {
+				["WeakAuras_uH1Up8pggjX"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -18890,7 +19516,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_mt:_buster_cannon_cast"] = {
+				["WeakAuras_08_static_shock_cast_on_you"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -18908,7 +19534,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_05_zoatroid_spawn_(mythic)"] = {
+				["WeakAuras_gyro_buff_up"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -18926,7 +19552,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_cheetah_bm2"] = {
+				["WeakAuras"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -18944,7 +19570,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_corruption_active_long"] = {
+				["WeakAuras_FlEDf23ufnC"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -18962,7 +19589,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_raging_gaze"] = {
+				["WeakAuras_XaVqipOll8B"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -18980,7 +19608,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_fel_corruption_2"] = {
+				["WeakAuras_U4k1E8yx0P3"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -18998,7 +19627,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_focusfire"] = {
+				["WeakAuras_07-obliteration_blast"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -19016,7 +19645,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_chronometric_particles"] = {
+				["WeakAuras_03-rotting_regurgitation"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -19034,7 +19663,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06_engorged_burst"] = {
+				["WeakAuras_bm-bestial_wrath_ready"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -19070,7 +19699,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_09_set_charge"] = {
+				["WeakAuras_5_-_hydra_acid"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -19088,7 +19717,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_told:_enrage_-_sand_queen_(e)"] = {
+				["WeakAuras_gravitational_pull_frost"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -19106,7 +19735,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06_electroshock_amplification"] = {
+				["WeakAuras_mt:_buster_cannon_cast"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -19124,7 +19753,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_jm:_successful_defense"] = {
+				["WeakAuras_ShTEEVfHiRz"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -19142,7 +19772,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_slobber_knocker"] = {
+				["WeakAuras_3_-_frigid_blows"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -19160,7 +19790,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06_blast_off"] = {
+				["WeakAuras_op_(m):_displacement"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -19178,7 +19808,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_03_shock_grenade"] = {
+				["WeakAuras_essence_background"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -19196,7 +19826,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06_zealous_eruption"] = {
+				["WeakAuras_gr:_deathly_slam_[a]"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -19214,7 +19844,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_guardian_of_ancient_kings"] = {
+				["WeakAuras_kZOKjtQeEeB"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -19268,7 +19899,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_countershot_cd"] = {
+				["WeakAuras_sonic_screech_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -19286,7 +19917,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04_waterlogged"] = {
+				["WeakAuras_unstable_orb_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -19304,7 +19935,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_03_high_energy"] = {
+				["WeakAuras_orb_of_destruciton_debuff"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -19340,7 +19971,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_6_-_wailing_souls"] = {
+				["WeakAuras_BL1rSnLxoF2"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -19358,7 +19990,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_queen_azshara_decrees_all_in_one"] = {
+				["WeakAuras_06_engorged_burst"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -19394,7 +20026,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_7_stacks_p3"] = {
+				["WeakAuras_ZYp55o411zk"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -19412,7 +20045,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_2_-_soul_corruption"] = {
+				["WeakAuras_rotten_bile2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -19430,7 +20063,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_05_amniotic_eruption"] = {
+				["WeakAuras_TsK)Q(DVN6k"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -19448,7 +20082,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_shattered_defense"] = {
+				["WeakAuras_slobber_knocker"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -19466,7 +20100,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_hangman's_noose"] = {
+				["WeakAuras_05_rain_of_fel"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -19502,7 +20136,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_8_stacks_p3"] = {
+				["WeakAuras_focusfire"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -19520,7 +20154,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_11_initialization_sequence"] = {
+				["WeakAuras_ft_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -19592,7 +20226,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_delirium's_descent"] = {
+				["WeakAuras_01_inversion_sickness_(frost/toxic)"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -19700,7 +20334,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_fel_surge_/_void_surge_2"] = {
+				["WeakAuras_rend_flesh_debuff"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -19736,7 +20370,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_a_murder_of_crows_-_cd"] = {
+				["WeakAuras_FCr6OuMwA6M"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -19772,7 +20407,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_recursive_strikes"] = {
+				["WeakAuras_6_-_wailing_souls"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -19808,7 +20443,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_flanking_strike_gcd"] = {
+				["WeakAuras_cS4GajDKq3T"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -19844,7 +20480,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_beastwrath_cd"] = {
+				["WeakAuras_mark_of_frost_soon"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -19862,7 +20498,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_whirling_slam"] = {
+				["WeakAuras_branded_orange_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -19880,7 +20516,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_spew_corruption"] = {
+				["WeakAuras_4hvc9(2073I"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -19934,7 +20571,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_thrill_of_the_hunt_-_active"] = {
+				["WeakAuras_dire_frenzy"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -19952,7 +20589,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_03_rotting_regurgitation"] = {
+				["WeakAuras_amoc_cd"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -19970,7 +20607,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_precise_shots_2"] = {
+				["WeakAuras_07_ruiner_dot"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -19988,7 +20625,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_11_sweeping/deadly_scythe/soulrending_scythe_(tank_only)_co-tank"] = {
+				["WeakAuras_recursive_strikes"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -20006,7 +20643,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_mental_assault"] = {
+				["WeakAuras_YRdu9GejlV5"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -20024,7 +20662,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_gale_slash"] = {
+				["WeakAuras_fuel_streak"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -20042,7 +20680,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_05_zoatroid_spawn_(non-mythic)"] = {
+				["WeakAuras_3EbLMJU1dGr"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -20078,7 +20717,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_op_(m):_displacement"] = {
+				["WeakAuras_beastwrath_cd"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -20132,7 +20771,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_gr:_zappy_core"] = {
+				["WeakAuras_B48KOuJV8ph"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -20150,7 +20790,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_massive_energy_spike"] = {
+				["WeakAuras_death_blossom"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -20168,7 +20808,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_mm-talent90-barrage_almost"] = {
+				["WeakAuras_HfF)E81d2cZ"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -20186,7 +20827,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_storm's_wail"] = {
+				["WeakAuras_rNkGQXbJNDs"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -20204,7 +20846,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08-wave_of_corruption_stack"] = {
+				["WeakAuras_M4TE6m25HGT"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -20222,7 +20865,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_8_-_cleansing_protocol"] = {
+				["WeakAuras_expel_magic:_frost"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -20240,7 +20883,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_terrifying_roar"] = {
+				["WeakAuras_sv-talent90-dragonsfire_grenade_debuff_active"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -20258,7 +20901,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_reverberating_slam_[horde]"] = {
+				["WeakAuras_hfc_rewind"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -20312,7 +20955,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_felsinged_/_wasting_void"] = {
+				["WeakAuras_6fsC0pr9lit"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -20330,7 +20974,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_bm/surv-pet_dead"] = {
+				["WeakAuras_08_putrid_blood"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -20348,7 +20992,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_03_rising_flames_on_you_(tank_only)"] = {
+				["WeakAuras_1TEskqRdl6p"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -20384,7 +21029,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_arcane_slash"] = {
+				["WeakAuras_defiled_vines"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -20402,7 +21047,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_gr:_throw_target"] = {
+				["WeakAuras_r4dvEsDHWMF"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -20438,7 +21084,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_sv-aspect_of_the_eagle_active"] = {
+				["WeakAuras_3FJMGwvphhi"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -20456,7 +21103,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01_inversion"] = {
+				["WeakAuras_toxic_spores"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -20533,7 +21180,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_dispersed_spores"] = {
+				["WeakAuras_5_-_hydra_shot_soaking"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -20569,7 +21216,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_thrill_of_the_hunt_2"] = {
+				["WeakAuras_o2shjEO(iRk"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -20587,7 +21235,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_piercing_gaze_of_n'zoth_dot"] = {
+				["WeakAuras_cBVlISto(PB"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -20605,7 +21254,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_warding_candles"] = {
+				["WeakAuras_thrill_of_the_hunt_-_inactive_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -20641,7 +21290,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06_enormous"] = {
+				["WeakAuras_bwb5O21nJB)"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -20659,7 +21309,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_fel_nova"] = {
+				["WeakAuras_L0yApV82wQl"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -20677,7 +21328,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_10_ravenous_blaze"] = {
+				["WeakAuras_dispersed_spores"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -20713,7 +21364,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_jm:_magma_trap"] = {
+				["WeakAuras_gYyOMf4xFXq"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -20731,7 +21383,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_molo:_inhale_vapors_(e)"] = {
+				["WeakAuras_08-wave_of_corruption_stack"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -20749,7 +21401,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_epocheric_vulnerability"] = {
+				["WeakAuras_LTYWaHox1oE"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -20767,7 +21420,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_sv-talent90-dragonsfire_grenade_debuff_active"] = {
+				["WeakAuras_07_diabolic_bomb"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -20785,7 +21438,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_conducted_shock_pulse_2"] = {
+				["WeakAuras_chain_:)"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -20803,7 +21456,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_lingering_nausea"] = {
+				["WeakAuras_eIz1ZZ8lSJF"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -20821,7 +21475,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06_decree:_form_ranks"] = {
+				["WeakAuras_WH2ukH01y3g"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -20875,7 +21530,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_03_feeding_frenzy_(tank)"] = {
+				["WeakAuras_coa_inactive"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -20893,7 +21548,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_3_-_drenched"] = {
+				["WeakAuras_last_stand"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -20911,7 +21566,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_savage_cleave"] = {
+				["WeakAuras_e9fZR387bsM"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -20947,7 +21603,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_highmaul_-_ko'ragh_-_expel_magic:_fel_active_&_distance"] = {
+				["WeakAuras_PH1Qh6bSLYF"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -20965,7 +21622,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_11_arcane_vulnerability"] = {
+				["WeakAuras_03_psychic_assault"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -21001,7 +21658,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_riot_shield"] = {
+				["WeakAuras_sniper_training"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -21127,7 +21784,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_vigilance"] = {
+				["WeakAuras_TpSKI5hmTvx"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -21145,7 +21803,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04_briny_bubble_(you)"] = {
+				["WeakAuras_03_malodorous_miasma"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -21181,7 +21839,7 @@ MasqueDB = {
 					["SkinID"] = "Caith",
 					["Inherit"] = false,
 				},
-				["WeakAuras_04-orb_of_corruption"] = {
+				["WeakAuras_11_arcane_vulnerability"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -21199,7 +21857,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_09_cosmic_glare"] = {
+				["WeakAuras_shared_fate_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -21217,7 +21875,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_3_-_aqueous_burst"] = {
+				["WeakAuras_tithu_cd"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -21235,7 +21893,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_bestial_wrath_-_cd_2"] = {
+				["WeakAuras_tD9Zun8w(Ye"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -21253,7 +21912,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_heart_seeker_2"] = {
+				["WeakAuras_conflexive_burst_list"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -21271,7 +21930,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_soul_reaper_do_it"] = {
+				["WeakAuras_double_tap_gcd"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -21289,7 +21948,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_lone_wolf"] = {
+				["WeakAuras_02_molten_touch"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -21325,7 +21984,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_ruiner_dot"] = {
+				["WeakAuras_edsSnwKKBEL"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -21343,7 +22003,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_essence_of_azeroth"] = {
+				["WeakAuras_bm-talent90-barrage_almost"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -21361,7 +22021,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["Bartender4_5"] = {
+				["WeakAuras_Z()jsJcMsqN"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -21369,19 +22030,14 @@ MasqueDB = {
 							0, -- [3]
 							1, -- [4]
 						},
-						["Pushed"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							0.716866940259934, -- [4]
-						},
 						["Checked"] = {
-							0.0745098039215686, -- [1]
+							0.0196078431372549, -- [1]
 							1, -- [2]
 							0, -- [3]
 							1, -- [4]
 						},
 					},
+					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
 				["WeakAuras_4_-_rapid_shot"] = {
@@ -21402,7 +22058,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_gift_of_n'zoth_energy"] = {
+				["WeakAuras_zLPORfIS8BW"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -21420,7 +22077,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_mt:_world_enlarger_cast"] = {
+				["WeakAuras_lone_wolf"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -21438,7 +22095,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_font_of_corruption"] = {
+				["WeakAuras_R)dDSRVcyS0"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -21456,7 +22114,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_chain_:)"] = {
+				["WeakAuras_mYuHykvhLYk"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -21474,7 +22133,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_barrage_gcd"] = {
+				["WeakAuras_11_tank_run_to_soulbomb"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -21564,7 +22223,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_blind_rage"] = {
+				["WeakAuras_TVigiCRkWro"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -21582,7 +22242,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_aspect_of_the_wild_-_active"] = {
+				["WeakAuras_3_-_aqueous_burst"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -21600,7 +22260,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04_flames_of_punishment"] = {
+				["WeakAuras_sb:_kj_orb_2.0"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -21618,7 +22278,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_wildfire_bomb_gcd"] = {
+				["WeakAuras_bm-talent90-a_murder_of_crows_ready"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -21636,7 +22296,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_burn"] = {
+				["WeakAuras_jQ37)UlK2SZ"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -21654,7 +22315,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06_sleep_canister"] = {
+				["WeakAuras_XRkeSp)oVHC"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -21672,7 +22334,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_05-lingering_infection"] = {
+				["WeakAuras_HfoAa0yyv7b"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -21708,7 +22371,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_numb_hands"] = {
+				["WeakAuras_force_cannon"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -21726,7 +22389,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01_fel_bombardment_(tank_only)"] = {
+				["WeakAuras_fG)S8f7)t(h"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -21744,7 +22408,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_defiled_vines"] = {
+				["WeakAuras_fAYLkGCmb0q"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -21762,7 +22427,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04_eye_beams"] = {
+				["WeakAuras_bestial_wrath_-_active_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -21798,7 +22463,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_aimed_shot_1"] = {
+				["WeakAuras_jm:_magma_trap"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -21816,7 +22481,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04_reality_tear_(tank_only)"] = {
+				["WeakAuras_Ot8wCBLkO8r"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -21852,7 +22518,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04_volatile_charge"] = {
+				["WeakAuras_vampiric_blood"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -21870,7 +22536,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_aspect_cheetah_slow"] = {
+				["WeakAuras_8pyeiwsXDR4"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -21888,7 +22555,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_purging_protocol_dot"] = {
+				["WeakAuras_04_reality_tear_(tank_only)"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -21924,7 +22591,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_ja:_siegebreaker_blast"] = {
+				["WeakAuras_lock_and_load_active"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -21978,7 +22645,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_unstable_orb_2"] = {
+				["WeakAuras_bloodboil"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -22014,7 +22681,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_cs1_2"] = {
+				["WeakAuras_Xin1N3UE3re"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -22032,7 +22700,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_05_lacerating_claws_(tank)"] = {
+				["WeakAuras_dire_beast"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -22050,7 +22718,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_storm_of_annihilation"] = {
+				["WeakAuras_sv-talent90-serpent_sting_debuff_active"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -22068,7 +22736,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_empowerment"] = {
+				["WeakAuras_conducted_shock_pulse_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -22086,7 +22754,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_bm-talent100-stampede_ready"] = {
+				["WeakAuras_RwSZmG1gZQ7"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -22104,7 +22773,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_barbed_shot_gcd"] = {
+				["WeakAuras_cheetah_bm2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -22122,7 +22791,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_blazing_azerite_self"] = {
+				["WeakAuras_05-lingering_infection"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -22140,7 +22809,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_10_flame_rend_dot_"] = {
+				["WeakAuras_TUKM2IjS)eb"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -22230,7 +22900,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_empowered_eye_of_gul'dan"] = {
+				["WeakAuras_NJUypXxsnnU"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -22266,7 +22937,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07-essence_shear"] = {
+				["WeakAuras_empowered_eye_of_gul'dan"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -22284,7 +22955,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_thirst_for_blood"] = {
+				["WeakAuras_fel_corruption_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -22320,7 +22991,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_supression_fire"] = {
+				["WeakAuras_aspect_cheetah_slow"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -22338,7 +23009,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_ancient_mindbender"] = {
+				["WeakAuras_)3S8w5GYmti"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -22356,7 +23028,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_consumption"] = {
+				["WeakAuras_exhilaration_gcd"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -22374,7 +23046,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_mm_misdirection"] = {
+				["WeakAuras_Z8OE5VirNta"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -22410,7 +23083,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_undr:_wicked_frenzy_(e)"] = {
+				["WeakAuras_mk)CVq9oOkU"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -22446,7 +23120,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01_terrifying_echo"] = {
+				["WeakAuras_6_-_soulbind"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -22464,7 +23138,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_strength_ring"] = {
+				["WeakAuras_Odifs2RO(Bt"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -22482,7 +23157,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_dire_beast_-_cd_2"] = {
+				["WeakAuras_ja:_siegebreaker_blast"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -22500,7 +23175,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_malignant_growth"] = {
+				["WeakAuras_jm:_force_orb"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -22518,7 +23193,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06-shadow_barrage"] = {
+				["WeakAuras_a_murder_of_crows_-_cd_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -22536,7 +23211,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02-wind_tunnel"] = {
+				["WeakAuras_08-power_matrix_status_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -22572,7 +23247,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_siphon_life_short"] = {
+				["WeakAuras_f2MCZsKoN6M"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -22626,7 +23302,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_05_crawling_hex"] = {
+				["WeakAuras_chimaera_shot_cd"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -22644,7 +23320,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_bestial_throw_(tank_only)"] = {
+				["WeakAuras_ch:_wave_of_light"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -22698,7 +23374,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_ablating_explosion"] = {
+				["WeakAuras_COi8w6TUSrP"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -22716,7 +23393,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_blood_splatter"] = {
+				["WeakAuras_4_-_incorporeal_shot_player"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -22752,7 +23429,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_6_-_sundering_doom"] = {
+				["WeakAuras_death_strike_(blood)"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -22770,7 +23447,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_briney"] = {
+				["WeakAuras_10_flame_rend_dot_"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -22788,7 +23465,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_11_cone_of_death"] = {
+				["WeakAuras_aFM0bY9rKEO"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -22806,7 +23484,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_5_-_hydra_shot_player"] = {
+				["WeakAuras_PMNr8V77vt("] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -22824,7 +23503,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_3_-_frigid_blows"] = {
+				["WeakAuras_poison_barrage_cone"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -22842,7 +23521,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_11_tank_run_to_soulbomb"] = {
+				["WeakAuras_1943(Wc)Whv"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -22860,7 +23540,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_03_swift_currents"] = {
+				["WeakAuras_02-wind_tunnel"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -22914,7 +23594,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_09_searing_pitch"] = {
+				["WeakAuras_aspect_of_the_eagle"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -22932,7 +23612,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_bm-talent90-barrage_ready"] = {
+				["WeakAuras_siphon_life_short"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -22986,7 +23666,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_tide_fist_debuff_(tank)"] = {
+				["WeakAuras_explosive_shot_1"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -23022,7 +23702,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_bm-talent90-a_murder_of_crows_ready"] = {
+				["WeakAuras_FXpLXrftyxL"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -23058,7 +23739,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_death_strike_(blood)"] = {
+				["WeakAuras_05_plague_bomb_dot"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -23076,7 +23757,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_dive_bomb"] = {
+				["WeakAuras_04_transportation_portal"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -23094,7 +23775,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_bestial_wrath_-_active"] = {
+				["WeakAuras_MN(jUlScy3J"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -23130,7 +23812,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04_high_energy"] = {
+				["WeakAuras_mm_misdirection"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -23184,7 +23866,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_hfc_rewind"] = {
+				["WeakAuras_branded_purple_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -23202,7 +23884,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_reorigination_blast_cast"] = {
+				["WeakAuras_branded_yellow"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -23220,7 +23902,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01_apocalypse_drive"] = {
+				["WeakAuras_2Eg650ZIUl4"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -23238,7 +23921,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_10_scorching_blaze"] = {
+				["WeakAuras_ewJXooRngnQ"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -23256,7 +23940,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_09_broadside"] = {
+				["WeakAuras_yxZuSNeC5Y)"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -23274,7 +23959,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_capped_on_charges"] = {
+				["WeakAuras_GJkX1KbRNAN"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -23310,7 +23996,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_05-contagion"] = {
+				["WeakAuras_barrage_cd_bm"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -23328,7 +24014,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_05_plague_bomb_dot"] = {
+				["WeakAuras_8_-_dark_mark_others"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -23346,7 +24032,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06_radiation_zone"] = {
+				["WeakAuras_bbN5IQW7HZw"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -23364,7 +24051,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_mm-marking_targets_active"] = {
+				["WeakAuras_sv-talent75-sticky_bomb_ready"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -23382,7 +24069,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_flaming"] = {
+				["WeakAuras_62sm)YtUFBo"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -23418,7 +24106,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_2_stacks_p3"] = {
+				["WeakAuras_TJjubLjSTdN"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -23454,7 +24143,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_09_arctic_armor"] = {
+				["WeakAuras_b(MQ8yC(IGL"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -23472,7 +24162,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_lingering_dread"] = {
+				["WeakAuras_T3Od4jxJs8E"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -23526,7 +24217,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_shared_fate_2"] = {
+				["WeakAuras_ho0kWZtN4U2"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -23562,7 +24254,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02-sundering_scalpel_offtank"] = {
+				["WeakAuras_2VbANe0gO6r"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -23634,7 +24327,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_deadeye_target"] = {
+				["WeakAuras_MF)kzv1Ez00"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -23652,7 +24346,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01_crushing_reverberation"] = {
+				["WeakAuras_TJTZE0B4xJq"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -23688,7 +24383,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_lethal_shots_2"] = {
+				["WeakAuras_consumption"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -23706,7 +24401,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_dessication"] = {
+				["WeakAuras_drain"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -23742,7 +24437,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_time_bomb"] = {
+				["WeakAuras_bm-talent90-barrage_ready"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -23760,7 +24455,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_poison_barrage_cone"] = {
+				["WeakAuras_08_reorigination_blast_cast"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -23778,7 +24473,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_mark_of_the_necromancer"] = {
+				["WeakAuras_zmusntFJx5V"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -23796,7 +24492,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_sniper_training"] = {
+				["WeakAuras_trueshot_cd"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -23850,7 +24546,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_tsu"] = {
+				["WeakAuras_LecDuZkkVrq"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -23868,7 +24565,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_infected"] = {
+				["WeakAuras_04-orb_impact5"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -23886,7 +24583,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_shadow_smash"] = {
+				["WeakAuras_vOsx(qM0MXT"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -23904,7 +24602,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_fat_edict"] = {
+				["WeakAuras_CkXEADg5lhn"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -23922,7 +24621,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_gorefiend_-_touch_of_doom_range"] = {
+				["WeakAuras_4Hw5vyzFTOV"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -23940,7 +24640,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_anchors_wa_to_spawn_of_g'huun_nameplate_if_it_targets_you4"] = {
+				["WeakAuras_xkkHk(I9lQS"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -23958,7 +24659,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_sv-talent15-mok'nathal_tactics_active_stacks"] = {
+				["WeakAuras_OdupVvWfvsi"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -23994,7 +24696,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_volatile_wound"] = {
+				["WeakAuras_f(BQCNCmAZF"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -24012,7 +24715,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_refresh_frenzy"] = {
+				["WeakAuras_I1IyyO2xWYt"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -24120,7 +24824,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_sv-talent75-sticky_bomb_ready"] = {
+				["WeakAuras_6_stacks_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -24138,7 +24842,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_atdz:_fanatic's_rage_(e)"] = {
+				["WeakAuras_yVgR0hmJ8Uq"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -24156,7 +24861,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_brutal_blackhand"] = {
+				["WeakAuras_flaming"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -24174,7 +24879,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_aspect_of_the_eagle"] = {
+				["WeakAuras_ja:_heart_of_frost"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -24192,7 +24897,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_iron_gaze"] = {
+				["WeakAuras_gr:_throw_target"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -24210,7 +24915,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_8_-_dark_mark_others"] = {
+				["WeakAuras_O)X6RpAVN)y"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -24228,7 +24934,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_absorbed_in_darkness"] = {
+				["WeakAuras_sv-talent15-mok'nathal_tactics_active_stacks"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -24300,7 +25006,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_rock_lance"] = {
+				["WeakAuras_deadeye_target"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -24336,7 +25042,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_misery"] = {
+				["WeakAuras_bZm4Qaw2Etl"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -24354,7 +25061,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_chains_of_fel_2"] = {
+				["WeakAuras_volatile_wound"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -24372,7 +25079,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04_corruptor's_pact"] = {
+				["WeakAuras_0MVQ7Ucw0Hn"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -24426,7 +25134,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_putrid_blood"] = {
+				["WeakAuras_time_bomb"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -24462,7 +25170,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_incendiary_rounds"] = {
+				["WeakAuras_St9k0hOvCj0"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -24516,7 +25225,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_runic_mark"] = {
+				["WeakAuras_gorefiend_-_touch_of_doom_range"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -24552,7 +25261,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_parasites"] = {
+				["WeakAuras_5XrmCAxQs5B"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -24570,7 +25280,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_vampiric_blood"] = {
+				["WeakAuras_anchors_wa_to_spawn_of_g'huun_nameplate_if_it_targets_you4"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -24606,7 +25316,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08-power_matrix_status_2"] = {
+				["WeakAuras_ja:_icefall"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -24624,7 +25334,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_creeping_nightmares"] = {
+				["WeakAuras_GOQ0UCn61Q1"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -24642,79 +25353,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_grace_of_nature"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_07_caress_of_death_on_you"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_ja:_heart_of_frost"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_choking_brine"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_bestial_wrath_gcd"] = {
+				["WeakAuras_NZV6ojT47e6"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -24750,7 +25390,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_marked_shot_buff"] = {
+				["WeakAuras_5_-_hydra_shot_player"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -24768,7 +25408,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_consuming_sphere_(mythic)"] = {
+				["WeakAuras_bm/surv-pet_dead"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -24786,7 +25426,83 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_turtle_timer_bm"] = {
+				["WeakAuras_bestial_wrath_gcd"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_YI6pWq(1hYF"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_K3H(9eEzBZC"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_GLUFVkfk3E("] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_p)CSg39sGKu"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -24822,7 +25538,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06_stand_alone"] = {
+				["WeakAuras_09_storm_of_darkness"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -24858,7 +25574,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_barrage_cd_bm"] = {
+				["WeakAuras_latent_energy"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -24876,7 +25592,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_whispers_of_power"] = {
+				["WeakAuras_pMj9XXfiuOg"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -24912,7 +25629,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_6_-_sundering_doom_shadow"] = {
+				["WeakAuras_06_stasis_trap"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -24948,7 +25665,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_taint_of_ghuun"] = {
+				["WeakAuras_creeping_nightmares"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -25002,7 +25719,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_dire_beast_gcd"] = {
+				["WeakAuras_mark_of_the_necromancer_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -25020,7 +25737,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08-power_matrix_status"] = {
+				["WeakAuras_ZoJN3ycuwHz"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -25038,7 +25756,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_stampede_cd"] = {
+				["WeakAuras_Vu92xtOzfUG"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -25056,7 +25775,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_chronometric_particles_danger"] = {
+				["WeakAuras_butchery_gcd"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -25074,7 +25793,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_iced_spritzer"] = {
+				["WeakAuras_blockade"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -25110,7 +25829,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_energized_storm"] = {
+				["WeakAuras_highmaul_-_ko'ragh_-_expel_magic:_fel_active_&_distance"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -25146,7 +25865,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_expel_soul"] = {
+				["WeakAuras_mt:_world_enlarger_cast"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -25182,7 +25901,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04_hex_of_lethargy"] = {
+				["WeakAuras_5rPuJdRD1yI"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -25200,7 +25920,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_branded_yellow"] = {
+				["WeakAuras_turtle_timer_bm"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -25308,7 +26028,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_crushing_grasp"] = {
+				["WeakAuras_soul_reaper_do_it"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -25326,7 +26046,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_sgbr:_bolstering_shout"] = {
+				["WeakAuras_1GSGK7NtE9)"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -25344,7 +26065,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01_enlarged_heart"] = {
+				["WeakAuras_rG2SIwtnuUY"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -25380,7 +26102,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_05_paku's_wrath_duration"] = {
+				["WeakAuras_0G3r1bY2PL7"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -25398,7 +26121,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_drain"] = {
+				["WeakAuras_07_caress_of_death_on_you"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -25416,7 +26139,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_05_thundering_storm"] = {
+				["WeakAuras_UZrmQZYAHgA"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -25452,7 +26176,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_counter_shot-interrupt"] = {
+				["WeakAuras_mark_of_ysondre"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -25470,7 +26194,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_piercing_gaze"] = {
+				["WeakAuras_72gjQNDmueI"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -25488,25 +26213,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["Bartender4_1"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["SkinID"] = "Caith",
-					["Inherit"] = false,
-				},
-				["WeakAuras_bm/surv-no_pet"] = {
+				["WeakAuras_07_purging_protocol_dot"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -25524,7 +26231,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_serrated_teeth"] = {
+				["WeakAuras_01_enlarged_heart"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -25542,7 +26249,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_mastery"] = {
+				["WeakAuras_awSs)fmVXJv"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -25560,7 +26268,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_chaos_seed_cast_2"] = {
+				["WeakAuras_stampede_cd"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -25578,7 +26286,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_09_frost_nova_cast"] = {
+				["WeakAuras_is9TiP7XVHe"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -25596,7 +26305,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_murder_of_crows_-_cd"] = {
+				["WeakAuras_chronometric_particles_danger"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -25614,7 +26323,25 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_mind_flay"] = {
+				["WeakAuras_5_-_delicious_bufferfish"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_shadow_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -25668,7 +26395,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_bestial_wrath_-_cd"] = {
+				["WeakAuras_bm-talent100-stampede_ready"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -25686,7 +26413,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_sgbr:_watertight_shell"] = {
+				["WeakAuras_counter_shot-interrupt"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -25704,7 +26431,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_jm:_fire_shield"] = {
+				["WeakAuras_rumbling_fissure"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -25722,7 +26449,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_slicing_hurricane"] = {
+				["Bartender4_1"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -25737,8 +26464,8 @@ MasqueDB = {
 							1, -- [4]
 						},
 					},
-					["Inherit"] = false,
 					["SkinID"] = "Caith",
+					["Inherit"] = false,
 				},
 				["WeakAuras_mark_of_doom_2"] = {
 					["Colors"] = {
@@ -25776,7 +26503,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_branded_purple_2"] = {
+				["WeakAuras_9_-_rupturing_singularity"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -25794,7 +26521,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_rupture_blast_furnace"] = {
+				["WeakAuras_9_-_shadow_reflection:_erupting"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -25812,7 +26539,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_kr:_plague_of_fire"] = {
+				["WeakAuras_r016C8FpLXP"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -25830,7 +26558,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06_potent_spark"] = {
+				["WeakAuras_gr:_tantrum_debuffs_[a/h]"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -25848,7 +26576,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_5_-_delicious_bufferfish"] = {
+				["WeakAuras_kIi0coUzmfs"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -25866,7 +26595,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_6_-_soul_rot"] = {
+				["WeakAuras_XqYn(AMHQUT"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -25892,22 +26622,17 @@ MasqueDB = {
 							0, -- [3]
 							1, -- [4]
 						},
-						["Pushed"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							0.716866940259934, -- [4]
-						},
 						["Checked"] = {
-							0.0745098039215686, -- [1]
+							0.0196078431372549, -- [1]
 							1, -- [2]
 							0, -- [3]
 							1, -- [4]
 						},
 					},
 					["SkinID"] = "Caith",
+					["Inherit"] = false,
 				},
-				["WeakAuras_mm-talent90-a_murder_of_crows_almost"] = {
+				["WeakAuras_bm-talent90-a_murder_of_crows_almost"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -25961,7 +26686,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_atdz:_gilded_claws"] = {
+				["WeakAuras_1B5EHR6EDTS"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -25997,7 +26723,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_hail_of_flechettes"] = {
+				["WeakAuras_11_cosmic_smash"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -26015,7 +26741,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_aspect_of_the_turtle_-_cd_2"] = {
+				["WeakAuras_XU87KaqYPmF"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -26051,7 +26778,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04-roiling_deceit"] = {
+				["WeakAuras_w5oA()2zCbW"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -26123,205 +26851,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_mark_of_ysondre"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_01_judgment:_reckoning"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_11_cosmic_smash"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_accelerate"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_thundering_crash"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_frenzied_charge"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_digest_2"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_explosive_orbs_||_mythic+"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_9_-_rupturing_singularity"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_01_javelin_on_you"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_gr:_reverberating_slam_[h]"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_04_thief's_bane"] = {
+				["WeakAuras_k07cQfTrZyF"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -26357,7 +26888,227 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_kc_cd"] = {
+				["WeakAuras_6_-_sundering_doom"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_kr:_plague_of_fire"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_kQlHdkASFYi"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_frenzied_charge"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_zRLJqg4VW2b"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_6_-_soul_rot"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_murder_of_crows_-_cd"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_mind_flay"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_gr:_reverberating_slam_[h]"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_digest"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_slow_time"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_0gUzCvGccbW"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_JTQaAHXv)jD"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -26393,7 +27144,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_coordinated_assault_gcd"] = {
+				["WeakAuras_supression_fire"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -26411,7 +27162,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_gale_buffet"] = {
+				["WeakAuras_(AXVAfiDNdU"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -26429,7 +27181,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_03_radiant_biomass"] = {
+				["WeakAuras_dire_beast_-_cd_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -26447,25 +27199,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_mm-talent60-explosive_shot_almost"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_08_torment_of_shadows"] = {
+				["WeakAuras_Wmv0mVYPySl"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -26519,7 +27254,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_09_freezing_blood"] = {
+				["WeakAuras_aspect_of_the_turtle_-_cd_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -26555,7 +27290,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04_liquid_gold"] = {
+				["WeakAuras_IV5tVEsI6bQ"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -26573,7 +27309,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_11_sky_and_sea_spawn"] = {
+				["WeakAuras_04-roiling_deceit"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -26591,7 +27327,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_digest"] = {
+				["WeakAuras_briney"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -26627,7 +27363,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_rumbling_fissure"] = {
+				["WeakAuras_(fsOlXqIsRJ"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -26645,7 +27382,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_shaken_/_death_touched"] = {
+				["WeakAuras_a96HgWeacTr"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -26663,7 +27401,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_crushed_(tank-only)"] = {
+				["WeakAuras_digest_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -26717,7 +27455,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_slow_time"] = {
+				["WeakAuras_accelerate"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -26735,7 +27473,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_kr:_deathly_withering"] = {
+				["WeakAuras_6-_grasping_darkness"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -26753,7 +27491,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_tectuspillar45"] = {
+				["WeakAuras_07-essence_shear"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -26825,7 +27563,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_painful_memories_debuff_(tank)"] = {
+				["WeakAuras_jm:_fire_shield"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -26843,7 +27581,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_bm-talent90-a_murder_of_crows_almost"] = {
+				["WeakAuras_LXvhwmiKENz"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -26861,7 +27600,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06_stasis_trap"] = {
+				["WeakAuras_bm/surv-no_pet"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -26879,7 +27618,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_gr:_tantrum_debuffs_[a/h]"] = {
+				["WeakAuras_cc_(m):_bwonsamdi's_wrath"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -26897,7 +27636,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_blockade"] = {
+				["WeakAuras_chaos_seed_cast_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -26915,7 +27654,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_9_-_shadow_reflection:_erupting"] = {
+				["WeakAuras_mm-talent90-a_murder_of_crows_almost"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -26933,7 +27672,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_cursed_slash"] = {
+				["WeakAuras_RSrsxEiDUxl"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -26969,7 +27709,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_09_chilling_touch"] = {
+				["WeakAuras_30FlkqqeQPH"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -26987,7 +27728,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_cc_(m):_bwonsamdi's_wrath"] = {
+				["WeakAuras_rupture_blast_furnace"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -27041,7 +27782,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_09_burning_explosion_(mythic)"] = {
+				["WeakAuras_11_sky_and_sea_spawn"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -27095,7 +27836,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_illusionary_night"] = {
+				["WeakAuras_essence_cooldown"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -27131,7 +27872,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_ja:_icefall"] = {
+				["WeakAuras_08-power_matrix_status"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -27167,7 +27908,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_stand_alone"] = {
+				["WeakAuras_6_-_sundering_doom_shadow"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -27203,7 +27944,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_barrage_-_cd_-_bm"] = {
+				["WeakAuras_storm_of_justice"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -27239,7 +27980,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_aspect_of_the_turtle_-_cd"] = {
+				["WeakAuras_A)9qhGPSmRo"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -27257,7 +27999,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_disengage_-_cd_-_bm"] = {
+				["WeakAuras_P(FsgqzjiSe"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -27275,7 +28018,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_mark_of_the_necromancer_2"] = {
+				["WeakAuras_barrage_gcd"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -27293,7 +28036,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_trueshot_cd"] = {
+				["WeakAuras_grace_of_nature"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -27311,7 +28054,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_wayc:_enrage_(e)"] = {
+				["WeakAuras_LUDkR)wYXED"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -27347,7 +28091,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_trick_shots"] = {
+				["WeakAuras_parasites"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -27419,7 +28163,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01_haywire_decimation_removed"] = {
+				["WeakAuras_X5vqV8(WcS0"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -27437,7 +28182,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_exhilaration_-_cd_2"] = {
+				["WeakAuras_Y7CmlXas9lm"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -27455,7 +28201,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_arcane_orbs"] = {
+				["WeakAuras_04_corruptor's_pact"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -27491,7 +28237,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_03_bioluminescent_cloud"] = {
+				["WeakAuras_gP3xBHif(k0"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -27509,7 +28256,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_double_tap_gcd"] = {
+				["WeakAuras_l9LGSTCK2qt"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -27527,7 +28275,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_filler_barbed_(if_1.4_charges)"] = {
+				["WeakAuras_p6gjFSBeWN6"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -27581,7 +28330,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_longing_debuff_(tank)"] = {
+				["WeakAuras_sgiNUo0A24I"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -27599,7 +28349,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_explosive_shot_1"] = {
+				["WeakAuras_05_eonar_energy"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -27617,277 +28367,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_jagged_nettles"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_04-orb_impact5"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_08_tidal_shroud"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_2_-_bone_saw"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_sv-talent90-serpent_sting_debuff_active"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_04_wail_of_greed_channel"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_04_grossly_incandescent!"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_spit_gold"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_a_murder_of_crows_-_cd_2"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_jm:_force_orb"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_5_-_hydra_shot_soaking"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_sheared_soul"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_exhilaration_gcd"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_01_embrace_of_the_void"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_azerite_heartseeker_2"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_soul_harvest"] = {
+				["WeakAuras_vemI6i6ywqg"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -27923,7 +28404,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_putrid_blood"] = {
+				["WeakAuras_dire_beast_gcd"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -27941,7 +28422,287 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_mark_of_emeriss"] = {
+				["WeakAuras_1YVH5i)JpT2"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["Bartender4_5"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Pushed"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							0.716866940259934, -- [4]
+						},
+						["Checked"] = {
+							0.0745098039215686, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_KquG)BbYQsD"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_felsinged_/_wasting_void"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_B)4GCbJAo3o"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_10_scorching_blaze"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_01_apocalypse_drive"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_mm-talent60-explosive_shot_almost"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_sheared_soul"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_blood_splatter"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_01_embrace_of_the_void"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_04-orb_of_corruption"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_DUZFmB3ZJfz"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_2_-_bone_saw"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_ablating_explosion"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_MWdRWTU5wrh"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -27977,7 +28738,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06_pashmar's_touch_(tank)"] = {
+				["WeakAuras_07_xalzaix's_awakening"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -27995,7 +28756,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_static_shock_cast_on_you"] = {
+				["WeakAuras_06-shadow_barrage"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -28031,7 +28792,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_aow2_2"] = {
+				["WeakAuras_strength_ring"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -28049,7 +28810,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_ch:_wave_of_light"] = {
+				["WeakAuras_08_misery"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -28067,7 +28828,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_decree:_stand_alone"] = {
+				["WeakAuras_01_haywire_decimation_removed"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -28085,7 +28846,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_arcane_detonation"] = {
+				["WeakAuras_exhilaration_-_cd_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -28121,7 +28882,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_embalming_fluid"] = {
+				["WeakAuras_2_stacks_p3"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -28139,7 +28900,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_conflexive_burst_list"] = {
+				["WeakAuras_10_ravenous_blaze"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -28157,7 +28918,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_10_blazing_eruption"] = {
+				["WeakAuras_barbed_shot_gcd"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -28175,7 +28936,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_t23_co-tank_auras_(custom_options!)"] = {
+				["WeakAuras_chains_of_fel_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -28193,7 +28954,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_09_storm_of_darkness"] = {
+				["WeakAuras_02_consuming_sphere_(mythic)"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -28211,7 +28972,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_molten_touch"] = {
+				["WeakAuras_cs1_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -28247,7 +29008,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_03_psychic_assault"] = {
+				["WeakAuras_marked_shot_buff"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -28265,7 +29026,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_dire_beast"] = {
+				["WeakAuras_VpAURWR6EZh"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -28301,7 +29063,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_03_malodorous_miasma"] = {
+				["WeakAuras_04_eye_beams"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -28337,7 +29099,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_frigid_nova"] = {
+				["WeakAuras_01_fel_bombardment_(tank_only)"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -28355,7 +29117,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_11_the_discs_of_norgannon"] = {
+				["WeakAuras_yHvOXKcZskO"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -28373,7 +29136,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_latent_energy"] = {
+				["WeakAuras_mark_of_the_necromancer"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -28409,7 +29172,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_05_plague_bomb"] = {
+				["WeakAuras_Cupx(YFbA7n"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -28427,7 +29191,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_chaos_seed"] = {
+				["WeakAuras_wildfire_bomb_gcd"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -28445,7 +29209,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_tsth:_charged"] = {
+				["WeakAuras_q2Lt)fl(1fc"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -28463,7 +29228,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_torn_soul"] = {
+				["WeakAuras_1_stack_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -28481,7 +29246,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_05_eonar_energy"] = {
+				["WeakAuras_epocheric_vulnerability"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -28553,7 +29318,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_03-rotting_regurgitation"] = {
+				["WeakAuras_azWpdUki0XS"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -28571,7 +29337,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_volatile_pods"] = {
+				["WeakAuras_heart_seeker_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -28589,7 +29355,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_stay:_don't_move"] = {
+				["WeakAuras_bestial_wrath_-_cd_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -28607,7 +29373,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["SBF"] = {
+				["WeakAuras_ffPKLGs)9r4"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -28619,12 +29386,6 @@ MasqueDB = {
 							0.0196078431372549, -- [1]
 							1, -- [2]
 							0, -- [3]
-							1, -- [4]
-						},
-						["Gloss"] = {
-							1, -- [1]
-							0.988235294117647, -- [2]
-							0.972549019607843, -- [3]
 							1, -- [4]
 						},
 					},
@@ -28649,7 +29410,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_gift_of_the_man'ari_2"] = {
+				["WeakAuras_brutal_blackhand"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -28685,7 +29446,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_barrel_through"] = {
+				["WeakAuras_mental_assault"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -28703,7 +29464,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_aimed_shot"] = {
+				["WeakAuras_pyEZwdpQYnx"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -28721,7 +29483,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_bestial_wrath_-_active_2"] = {
+				["WeakAuras_08-bursting_boil_spawn"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -28739,7 +29501,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_obey:_don't_soak"] = {
+				["WeakAuras_3_-_drenched"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -28793,7 +29555,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_ground_crush"] = {
+				["WeakAuras_11_cone_of_death"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -28811,7 +29573,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_11_soulburst"] = {
+				["WeakAuras_08_malignant_growth"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -28829,7 +29591,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_coa_inactive"] = {
+				["WeakAuras_iceicles"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -28865,7 +29627,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_sanguine_feast"] = {
+				["WeakAuras_8_stacks_p3"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -28883,7 +29645,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_no_pet!"] = {
+				["WeakAuras_hdEy9e008Dk"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -28919,7 +29682,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01_inversion_sickness_(frost/toxic)"] = {
+				["WeakAuras_arcane_slash"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -28937,7 +29700,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_thrill_of_the_hunt_-_inactive_2"] = {
+				["WeakAuras_jm:_successful_defense"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -28955,7 +29718,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_explode_totem"] = {
+				["WeakAuras_vigilance"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -28973,7 +29736,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_nightmare_blades"] = {
+				["WeakAuras_decree:_stand_alone"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -28991,7 +29754,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_05_aqua_lance"] = {
+				["WeakAuras_burn"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -29009,7 +29772,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_toxic_spores"] = {
+				["WeakAuras_aspect_of_the_turtle_active"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -29027,7 +29790,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_chaos_seed_cast"] = {
+				["WeakAuras_branded_green"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -29045,7 +29808,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_big_red_rocket"] = {
+				["WeakAuras_gr:_zappy_core"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -29063,7 +29826,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_focused_demise"] = {
+				["WeakAuras_Wk(hqCKC6YC"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -29099,7 +29863,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_energy_update_(tank_only)"] = {
+				["WeakAuras_Z0rPc0yHvwO"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -29117,7 +29882,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_03_piercing_barb_(others)"] = {
+				["WeakAuras_03_rotting_regurgitation"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -29171,7 +29936,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_stand_together!_(disabled)"] = {
+				["WeakAuras_whirling_slam"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -29189,7 +29954,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_3_-_drenching_waters"] = {
+				["WeakAuras_PSdcsCWUC7o"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -29243,7 +30009,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_mark_of_frost_soon"] = {
+				["WeakAuras_NIZHeUZNDar"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -29261,7 +30028,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04_transportation_portal"] = {
+				["WeakAuras_2iQACalq1M("] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -29315,7 +30083,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_mt:_trampled"] = {
+				["WeakAuras_countershot_cd"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -29333,7 +30101,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_undr:_gift_of_g'huun"] = {
+				["WeakAuras_font_of_corruption"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -29351,7 +30119,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_fuel_streak"] = {
+				["WeakAuras_gfltApdm7UI"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -29369,7 +30138,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_consumin_sphere_(non_mythic)"] = {
+				["WeakAuras_P9Got7yzYKC"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -29387,7 +30157,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_explosive_shot_2"] = {
+				["WeakAuras_pXszZc6(uXn"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -29405,7 +30176,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_echoes_of_doom_pool"] = {
+				["WeakAuras_OMNY0PsZhHV"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -29423,7 +30195,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_orb_of_destruciton_debuff"] = {
+				["WeakAuras_10_blazing_eruption"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -29441,7 +30213,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_gr:_deathly_slam_[a]"] = {
+				["WeakAuras_aspect_cheetah_fast"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -29459,7 +30231,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_hindering_cut"] = {
+				["WeakAuras_06_pool_of_darkness"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -29495,7 +30267,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_5_-_hydra_acid"] = {
+				["WeakAuras_hwUiqr0LoFd"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -29513,7 +30286,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_03_stalking_you"] = {
+				["WeakAuras_chimaera_shot_-_cd_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -29531,7 +30304,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_ablaze"] = {
+				["WeakAuras_tectuspillar45"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -29549,7 +30322,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06_critter_explosion"] = {
+				["WeakAuras_01_coalesced_blood_spawn"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -29567,7 +30340,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_arcane_bomb_+_detonation_timer"] = {
+				["WeakAuras_6eHREqaKRo0"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -29585,7 +30359,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_sighted_artillery"] = {
+				["WeakAuras_corruption_active_long"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -29693,7 +30467,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_annihilate"] = {
+				["WeakAuras_IC(cdZlt9tt"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -29711,7 +30486,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_force_cannon"] = {
+				["Bartender4_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -29726,8 +30501,8 @@ MasqueDB = {
 							1, -- [4]
 						},
 					},
-					["Inherit"] = false,
 					["SkinID"] = "Caith",
+					["Inherit"] = false,
 				},
 				["WeakAuras_feast_of_blood"] = {
 					["Colors"] = {
@@ -29747,7 +30522,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_sea_swell_(mythic)"] = {
+				["WeakAuras_6_-_grasping_darkness"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -29765,7 +30540,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_sb:_kj_orb_2.0"] = {
+				["WeakAuras_no_pet!"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -29783,7 +30558,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_mm_barrage_ready"] = {
+				["WeakAuras_3_-_jagged_abrasion"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -29801,7 +30576,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06_wormhole_generator"] = {
+				["WeakAuras_star_sign:_wolf"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -29819,7 +30594,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_sundering_blow"] = {
+				["WeakAuras_3brKI9DxM8o"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -29855,7 +30631,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_sv-mongoose_bite_1_stacks"] = {
+				["WeakAuras_Bgp5MZsrldQ"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -29873,7 +30650,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_05-omega_vector"] = {
+				["WeakAuras_P4K8GYhmdT7"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -29909,7 +30687,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_shared_fate"] = {
+				["WeakAuras_serpent_sting_3"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -29963,7 +30741,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06_decree:_stand_alone"] = {
+				["WeakAuras_ZnYxKqFXT8B"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -29981,7 +30760,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_explosive_corruption"] = {
+				["WeakAuras_cinderflame"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -29999,7 +30778,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_bilewater_breath"] = {
+				["WeakAuras_07_demolish"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -30017,7 +30796,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_kr:_artillery_8.1_(tank)"] = {
+				["WeakAuras_09_spectral_army_of_norgannon_despawn_timer"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -30035,7 +30814,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_dread_/_manic_dread_cast"] = {
+				["WeakAuras_s7GIReyd4HT"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -30071,7 +30851,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06_buster_cannon_dot"] = {
+				["WeakAuras_zrN4cR176XF"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -30089,7 +30870,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_unstable_resonance:_void"] = {
+				["WeakAuras_bf3:_pin_down_bw_3"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -30107,7 +30888,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_undying_resolve_/_undying_salvation"] = {
+				["WeakAuras_p)RvznyBY3O"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -30143,7 +30925,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_high_energy_[horde]"] = {
+				["WeakAuras_hT1ACyCPaeK"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -30161,7 +30944,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_sv-mongoose_bite_2_stacks"] = {
+				["WeakAuras_maddening_gaze"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -30179,7 +30962,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04_regenerative_coral"] = {
+				["WeakAuras_bone_shield"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -30197,7 +30980,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_decaying_spores"] = {
+				["WeakAuras_3L4cBQabsi3"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -30215,7 +30999,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04-void_lash_offtank"] = {
+				["WeakAuras_RKHfSlqZmJd"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -30233,7 +31018,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_charged_spear_(others)"] = {
+				["WeakAuras_manatap"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -30269,7 +31054,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["Bartender4_StanceBar"] = {
+				["WeakAuras_aspect_of_the_wild_gcd"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -30284,8 +31069,8 @@ MasqueDB = {
 							1, -- [4]
 						},
 					},
-					["SkinID"] = "Caith",
 					["Inherit"] = false,
+					["SkinID"] = "Caith",
 				},
 				["WeakAuras_talent45-posthaste_active"] = {
 					["Colors"] = {
@@ -30341,7 +31126,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_mekkatorque"] = {
+				["WeakAuras_11_sargeras'_gaze"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -30359,7 +31144,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_king:_induce_regen"] = {
+				["WeakAuras_trap_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -30377,7 +31162,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_6_-_spear_of_anguish_hc"] = {
+				["WeakAuras_headlong_charge"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -30413,7 +31198,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_6_-_grasping_darkness"] = {
+				["WeakAuras_wqKuHTI9Bzv"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -30467,7 +31253,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06_shrunk"] = {
+				["WeakAuras_3iN7nWbetkv"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -30485,7 +31272,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_branded_orange_2"] = {
+				["WeakAuras_op:_soothing_breeze"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -30503,7 +31290,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_03_searing_embers"] = {
+				["WeakAuras_02_wind_tunnel"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -30521,7 +31308,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06-unleashed_shadow"] = {
+				["WeakAuras_barrle_through"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -30539,7 +31326,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04_soothin_breeze"] = {
+				["WeakAuras_coordinated_assault_gcd"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -30557,7 +31344,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_sv-aspect_of_the_eagle_almost"] = {
+				["WeakAuras_hi1IRNQ7tBb"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -30575,7 +31363,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_05_akunda's_wrath"] = {
+				["WeakAuras_haste"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -30611,7 +31399,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_resonant_barrier"] = {
+				["WeakAuras_e38M23pgAB5"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -30629,7 +31418,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_system_shock"] = {
+				["WeakAuras_frigid_nova"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -30665,7 +31454,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_blazing_azerite"] = {
+				["WeakAuras_WU0spv)2yYG"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -30683,7 +31473,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01_frost_mark_/_toxic_brand"] = {
+				["WeakAuras_wbmGemBDaQv"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -30701,7 +31492,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04_deadly_hex"] = {
+				["WeakAuras_02_consumin_sphere_(non_mythic)"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -30773,7 +31564,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_trap_2"] = {
+				["WeakAuras_hALAJfK9CV2"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -30791,7 +31583,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04_poison_essence"] = {
+				["WeakAuras_illusionary_night"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -30809,7 +31601,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_painful_memories_cast_(tank)"] = {
+				["WeakAuras_nightmare_javelin"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -30827,7 +31619,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_blood_host"] = {
+				["WeakAuras_UpvZyooz7NY"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -30845,7 +31638,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_mind_tether"] = {
+				["WeakAuras_berserker_rage"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -30863,7 +31656,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_sandstorm"] = {
+				["WeakAuras_03_summon_adds"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -30899,7 +31692,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_severing_axe"] = {
+				["WeakAuras_fel_incineration"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -30935,7 +31728,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_bloodboil"] = {
+				["WeakAuras_KDMRM2Kwech"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -30971,7 +31765,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_terrifying_visage"] = {
+				["WeakAuras_infested"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -31043,7 +31837,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01_shear_mind_(tank_only)"] = {
+				["WeakAuras_bellowing_roar"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -31061,7 +31855,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_kr:_grievous_axe"] = {
+				["WeakAuras_ablaze"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -31079,7 +31873,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_barrle_through"] = {
+				["WeakAuras_jjcGiMeiS7V"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -31133,7 +31928,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_immolation_2"] = {
+				["WeakAuras_mVD2iu1rstI"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -31187,7 +31983,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_hindering_cleave"] = {
+				["WeakAuras_02-surgical_beam_side"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -31223,7 +32019,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_09_machinations_of_aman'thul"] = {
+				["WeakAuras_Uwc8Grks55M"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -31259,7 +32056,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_intimidation_-_cd"] = {
+				["WeakAuras_81uxag8gbKq"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -31277,7 +32075,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01_judgment:_righteousness"] = {
+				["WeakAuras_11_holy_vulnerability"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -31295,7 +32093,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_voltaic_flash"] = {
+				["WeakAuras_qeSxMEOWsMF"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -31313,7 +32112,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_ravaging_leap"] = {
+				["WeakAuras_cheetah_bm"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -31331,7 +32130,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_03_force_orb"] = {
+				["WeakAuras_j3ZObPMHbgS"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -31349,7 +32149,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_v.i.g.o.r_cooldown_2"] = {
+				["WeakAuras_03_add_spawn_(heroic)"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -31367,7 +32167,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06_pool_of_darkness"] = {
+				["WeakAuras_)ClDKQPh7ZM"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -31439,7 +32240,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_dire_beast_cd:_legend_shoulders"] = {
+				["WeakAuras_9CnrS5eBHVX"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -31457,7 +32259,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_03_post_multi-sided_strike_buff"] = {
+				["WeakAuras_CV618BxfyrZ"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -31475,7 +32278,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_kr:_got_hit_by_toads"] = {
+				["WeakAuras_05-contagion"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -31493,7 +32296,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_deathly_slam_[alliance]"] = {
+				["WeakAuras_blood_tap"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -31511,7 +32314,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04_briny_bubble_(others)"] = {
+				["WeakAuras_11_soulburst"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -31547,7 +32350,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06_empowered_pulse_grenade"] = {
+				["WeakAuras_disengage_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -31565,7 +32368,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_mrrl_cloak"] = {
+				["WeakAuras_8_-_desolate_cast"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -31583,7 +32386,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04_aegis_of_flames"] = {
+				["WeakAuras_tsUn2ZjiAju"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -31601,7 +32405,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06_commander's_fury_(tank)"] = {
+				["WeakAuras_chaos_seed"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -31637,7 +32441,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01_visage_from_beyond"] = {
+				["WeakAuras_axx6eWgX)Gk"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -31673,7 +32478,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_03_gaze_from_below"] = {
+				["WeakAuras_flaks_missing"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -31691,7 +32496,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_gaze_of_g'huun_cast"] = {
+				["WeakAuras_04_caustic_slime"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -31727,7 +32532,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["Raven_Buffs"] = {
+				["WeakAuras_sb:_sea_swell_incoming"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -31745,7 +32550,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_03_bioluminescence"] = {
+				["WeakAuras_strength_ring_cd"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -31781,7 +32586,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01_sacred_blade_(tank_only)"] = {
+				["WeakAuras_shadowy_volatile_distance"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -31799,7 +32604,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_echo_blade"] = {
+				["WeakAuras_08_dark_young_energy"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -31835,7 +32640,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_blood_tap_high"] = {
+				["WeakAuras_kqAMw8Gh7aZ"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -31853,7 +32659,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_call_undying_guardian"] = {
+				["TrufiGCD"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -31871,7 +32677,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02-surgical_beam_top"] = {
+				["WeakAuras_8_-_cleansing_protocol"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -31925,7 +32731,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06_slumber_gas"] = {
+				["WeakAuras_vnoZy96FB7S"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -31961,7 +32768,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_explosive_burst"] = {
+				["WeakAuras_wBBCbsCy3jS"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -31997,7 +32805,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_strm:_tidal_surge"] = {
+				["WeakAuras_mm-talent60-explosive_shot_ready"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -32015,7 +32823,45 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_2_-_calcified_quills"] = {
+				["WeakAuras_6_-_tormented_cries"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_Mon9sYhF25d"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_JuW9)PSlXAb"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -32051,7 +32897,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_gift_of_the_man'ari"] = {
+				["WeakAuras_x5dae4t)FYh"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -32069,7 +32916,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_protected"] = {
+				["WeakAuras_feign_death_cd_4"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -32087,7 +32934,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_barbed_shot_available"] = {
+				["WeakAuras_rlVOVlWExJZ"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -32105,7 +32953,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_amoc"] = {
+				["WeakAuras_sb:_new_add_incoming"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -32123,7 +32971,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_trueshot_2"] = {
+				["WeakAuras_jaina"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -32141,43 +32989,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_focused_gaze"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_09_siegebreaker_blast"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_03_magma_trap"] = {
+				["WeakAuras_6_-_spirit_chains"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -32231,7 +33043,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_soulrend"] = {
+				["WeakAuras_conflexive_burst"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -32267,7 +33079,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_unstable_resonance:_ocean"] = {
+				["WeakAuras_wUsxTDI26hv"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -32303,7 +33116,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_11_stacks_p3"] = {
+				["WeakAuras_05_feedback_-_arcane_singularity"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -32321,7 +33134,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04_quickened_pulse"] = {
+				["WeakAuras_04-orb_impact3"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -32357,7 +33170,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_stampede"] = {
+				["WeakAuras_1(pqjwlQhYR"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -32375,7 +33189,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_05_feedback_-_arcane_singularity"] = {
+				["WeakAuras_a_murder_of_crows_-_active_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -32465,7 +33279,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_oblivion_sphere"] = {
+				["WeakAuras_u8BBLBxzAuA"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -32483,7 +33298,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_shattered_defenses"] = {
+				["WeakAuras_bm-beast_cleave_active"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -32501,7 +33316,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_lucre's_call"] = {
+				["WeakAuras_11_unleashed_rage"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -32537,7 +33352,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_kel-wrapped_(tank_only)"] = {
+				["WeakAuras_flame_lick"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -32555,7 +33370,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01_umbral_shell_/_embrace_of_the_void"] = {
+				["WeakAuras_light_of_the_naaru_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -32573,7 +33388,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_cd_soul_harvest"] = {
+				["WeakAuras_manatap_missing"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -32591,7 +33406,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_barbed_shot_-_cd_-_1+"] = {
+				["WeakAuras_sterilize"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -32627,7 +33442,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_aura_of_apathy"] = {
+				["WeakAuras_Oc6YEM3fuuy"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -32699,7 +33515,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_03_shockwave_stomp"] = {
+				["WeakAuras_anchors_wa_to_spawn_of_g'huun_nameplate_if_it_targets_you3"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -32717,7 +33533,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_05_high_energy"] = {
+				["WeakAuras_tormented_souls"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -32735,7 +33551,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_05_powerful_stomp"] = {
+				["WeakAuras_(peCcGDhdWp"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -32753,7 +33570,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_dark_young_energy"] = {
+				["WeakAuras_rd_soul_harvest"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -32771,7 +33588,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_mark_of_doom"] = {
+				["WeakAuras_04-eye_beam_cast"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -32789,7 +33606,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_unstable_runic_mark"] = {
+				["WeakAuras_5_-_jaws_from_the_deep"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -32825,7 +33642,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_03_piercing_barb_(you)"] = {
+				["WeakAuras_z9ys2tU7Z9A"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -32861,7 +33679,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_horning_missiles"] = {
+				["WeakAuras_mt:_gigavolt_charge"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -32879,7 +33697,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_apply_frenzy_if_>1.8_charges"] = {
+				["WeakAuras_KRqSwk3dEJh"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -32897,7 +33716,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06_shocked"] = {
+				["WeakAuras_01_cudgel_of_gore"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -32915,115 +33734,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_8_-_cleansing_protocol_custom"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_stand_together"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_marrowrend"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_07-obliteration_beam"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_06_repeat_performance"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_06-corrupted_blood"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_04_flames_of_xoroth"] = {
+				["WeakAuras_GEpw2i1lF7Z"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -33059,7 +33771,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["SBF_Buffs"] = {
+				["WeakAuras_TQnAkgd6unL"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -33073,10 +33786,117 @@ MasqueDB = {
 							0, -- [3]
 							1, -- [4]
 						},
-						["Gloss"] = {
-							1, -- [1]
-							0.988235294117647, -- [2]
-							0.972549019607843, -- [3]
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_Qa8GBKvtU5J"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_NfcJzhxFRUc"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_lZfSKO)QirY"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_07_apocalypse_protocol"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_Upyv9oA6IWs"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
+				["WeakAuras_(QEQzyWGJWp"] = {
+					["Upgraded"] = true,
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
 							1, -- [4]
 						},
 					},
@@ -33119,7 +33939,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_touch_of_the_end"] = {
+				["WeakAuras_cdrkqD0pVd0"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -33137,7 +33958,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_darkening_soul"] = {
+				["WeakAuras_11_tank_taunt_so_other_can_run_to_soulbomb"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -33155,7 +33976,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_chakrams_gcd"] = {
+				["WeakAuras_hunger_for_life"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -33227,7 +34048,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_felsinged_/_wasting_void_2"] = {
+				["WeakAuras_Yj4mTUqZipC"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -33245,7 +34067,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_spell_reflection"] = {
+				["WeakAuras_MkEiT41z1I8"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -33263,7 +34086,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_font_of_corruption_2"] = {
+				["WeakAuras_RNaP(8BuJ(z"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -33299,7 +34123,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_icy_ejection"] = {
+				["WeakAuras_worldvein_resonance_cd"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -33335,7 +34159,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_star_sign:_dragon"] = {
+				["WeakAuras_fel_rage"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -33371,7 +34195,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_8_-_desolate"] = {
+				["WeakAuras_G(3o1b0E)x3"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -33389,7 +34214,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_intervene"] = {
+				["SBF_Debuffs"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -33401,6 +34226,12 @@ MasqueDB = {
 							0.0196078431372549, -- [1]
 							1, -- [2]
 							0, -- [3]
+							1, -- [4]
+						},
+						["Gloss"] = {
+							1, -- [1]
+							0.988235294117647, -- [2]
+							0.972549019607843, -- [3]
 							1, -- [4]
 						},
 					},
@@ -33443,7 +34274,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_05_hastening_winds_(tank_only)"] = {
+				["WeakAuras_08_gaze_of_g'huun_cast"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -33461,7 +34292,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_aspect_of_the_wild_-_cd"] = {
+				["WeakAuras_pIPKRlI3Hek"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -33515,6 +34347,24 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
+				["WeakAuras_04_fiery_detonation"] = {
+					["Colors"] = {
+						["Normal"] = {
+							0, -- [1]
+							0, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+						["Checked"] = {
+							0.0196078431372549, -- [1]
+							1, -- [2]
+							0, -- [3]
+							1, -- [4]
+						},
+					},
+					["Inherit"] = false,
+					["SkinID"] = "Caith",
+				},
 				["WeakAuras_brand_of_argus"] = {
 					["Colors"] = {
 						["Normal"] = {
@@ -33533,25 +34383,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_4_-_astral_vulnerability"] = {
-					["Colors"] = {
-						["Normal"] = {
-							0, -- [1]
-							0, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-						["Checked"] = {
-							0.0196078431372549, -- [1]
-							1, -- [2]
-							0, -- [3]
-							1, -- [4]
-						},
-					},
-					["Inherit"] = false,
-					["SkinID"] = "Caith",
-				},
-				["WeakAuras_11_tank_taunt_so_other_can_run_to_soulbomb"] = {
+				["WeakAuras_fwzVD5dknZm"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -33587,7 +34420,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_9_-_bursting_dreadflame"] = {
+				["WeakAuras_dream_simulacrum"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -33605,7 +34438,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_overload"] = {
+				["WeakAuras_a_murder_of_crows_mm_gcd"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -33623,7 +34456,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06_potent_spark_spawn"] = {
+				["WeakAuras_pvxCQwoRPGR"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -33641,7 +34475,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_caster_ring"] = {
+				["WeakAuras_sv-flanking_strike_almost"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -33659,7 +34493,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_7_-_fel_remanence"] = {
+				["WeakAuras_guardian_of_ancient_kings"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -33677,7 +34511,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_touch_of_harm"] = {
+				["WeakAuras_06_sleeping"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -33713,7 +34547,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_told:_drones_-_sand_queen_(e)"] = {
+				["WeakAuras_vile_bombardment"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -33731,7 +34565,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_branded_blue_2"] = {
+				["WeakAuras_shield_of_light"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -33749,7 +34583,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06_sheep_shrapnel"] = {
+				["WeakAuras_agility_ring"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -33767,7 +34601,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_die_by_the_sword"] = {
+				["WeakAuras_4ZJPOaususe"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -33785,7 +34620,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_longing_cast_(tank)"] = {
+				["WeakAuras_p0NFMgq8Exf"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -33821,7 +34657,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_king:_seduction"] = {
+				["WeakAuras_7GkJagPO1d9"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -33875,7 +34712,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_fel_fire"] = {
+				["WeakAuras_kill_command_-_cd_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -33911,7 +34748,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_leathal_shots_1"] = {
+				["WeakAuras_dire_beast/frenzy_icon"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -33965,7 +34802,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_vul_cd_big"] = {
+				["WeakAuras_GTxXhxf0DZO"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -34001,7 +34839,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_branded_purple"] = {
+				["WeakAuras_virulent_haunt"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -34019,7 +34857,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_crit_brew"] = {
+				["WeakAuras_C8hAHy9pxoW"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -34037,7 +34876,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04_pulse-quickening_toxin"] = {
+				["WeakAuras_eternal_hunger"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -34073,7 +34912,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_intimidation_gcd"] = {
+				["WeakAuras_v378L14d)9F"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -34109,7 +34949,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_hindering_cleave_tank"] = {
+				["WeakAuras_eMfGV4SZP0G"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -34127,7 +34968,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04_rippling_wave"] = {
+				["WeakAuras_2_-_scythe_sweep"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -34145,7 +34986,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_tidal_surge"] = {
+				["WeakAuras_rb(I6171cgx"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -34163,7 +35005,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_essence_shear_(tank)"] = {
+				["WeakAuras_2dOyDV(HKhs"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -34181,7 +35024,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_atdz:_gathered_souls"] = {
+				["WeakAuras_lzOtwpKA0r3"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -34235,7 +35079,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_shield"] = {
+				["WeakAuras_chronometric_particles"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -34253,7 +35097,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_aspect_of_the_wild_-_cd_2"] = {
+				["WeakAuras_fqGuI0pRLKz"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -34271,7 +35116,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08-mind-numbing_chatter"] = {
+				["WeakAuras_mm-talent30-black_arrow_active"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -34289,7 +35134,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_bellowing_roar_2"] = {
+				["WeakAuras_beast_cleave_tracker"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -34307,7 +35152,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_9_-_armageddon_p3"] = {
+				["WeakAuras_02_enflame_corruption_(mythic)"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -34361,7 +35206,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04_protected_from_dance"] = {
+				["WeakAuras_shackled_torment"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -34379,7 +35224,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_consumin_sphere_(mythic)"] = {
+				["WeakAuras_jm:_tested"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -34397,7 +35242,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_mm-talent30-black_arrow_active"] = {
+				["WeakAuras_kr:_focused_demise"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -34433,7 +35278,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_clear_the_deck"] = {
+				["WeakAuras_toxic_slice"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -34451,7 +35296,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_bm-aspect_of_the_wild_ready"] = {
+				["WeakAuras_trueshot_ready"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -34505,7 +35350,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_02_bestial_throw_target"] = {
+				["WeakAuras_jm:_whirling_jade_storm"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -34523,7 +35368,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01_toxic_javelin_(others)"] = {
+				["WeakAuras_marked_shot"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -34541,7 +35386,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_reinforcing_ward"] = {
+				["WeakAuras_sv-lacerate_debuff_falling_off"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -34559,7 +35404,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_artillery"] = {
+				["WeakAuras_03_demonic_charge"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -34577,7 +35422,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_mark_of_taerar"] = {
+				["WeakAuras_6xsmdym)dks"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -34667,7 +35513,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_pot_rdy"] = {
+				["WeakAuras_cursed_blood"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -34685,7 +35531,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_barbed_shot_-_cd_-_1+_2"] = {
+				["WeakAuras_fel_bomb"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -34703,7 +35549,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_march!_(disabled)"] = {
+				["WeakAuras_storm_of_the_destroyer_cast2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -34721,7 +35567,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_03_xuen_spawn"] = {
+				["WeakAuras_11_shadow_vulnerability"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -34739,7 +35585,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_op:_brilliant_aura"] = {
+				["WeakAuras_Wsj6w7tid4j"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -34757,7 +35604,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_aimed_shot_2"] = {
+				["WeakAuras_touch_of_harm"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -34793,7 +35640,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_beast_cleave_tracker"] = {
+				["WeakAuras_cd_soul_harvest"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -34811,7 +35658,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_neurotoxin"] = {
+				["WeakAuras_arcane_fog"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -34829,7 +35676,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_mt:_extremely_dead_soon"] = {
+				["WeakAuras_ShNYrFfTkzD"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -34847,7 +35695,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_06_unleashed_shadow"] = {
+				["WeakAuras_01_umbral_shell"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -34865,7 +35713,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_phantasmal_winds_2"] = {
+				["WeakAuras_kb8H4uIvZma"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -34883,7 +35732,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_9_-_focused_dreadflame"] = {
+				["WeakAuras_(SxKddTuHzH"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -34955,7 +35805,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_05_gift_of_wind_cast_(mage_only)"] = {
+				["WeakAuras_9_-_felclaws_boss"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -34973,7 +35823,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_ch:_blinding_faith"] = {
+				["WeakAuras_8oPrgzFFrbd"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -35027,7 +35878,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_01_witness_the_end"] = {
+				["WeakAuras_shield"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -35063,7 +35914,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_fel_bomb"] = {
+				["WeakAuras_9_-_armageddon_p3"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -35081,7 +35932,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_serrated_edge_(tank)"] = {
+				["WeakAuras_stOuhlhp1Eb"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -35117,7 +35969,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_storm_of_the_destroyer_cast2"] = {
+				["WeakAuras_worldvein_resonance_off_cd"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -35153,7 +36005,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_target_immune"] = {
+				["WeakAuras_dqFOspWyWF9"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -35171,7 +36024,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_oiled_blade"] = {
+				["WeakAuras_07_forging_strike_(tank_only)"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -35189,7 +36042,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_04_shatter_(tank)"] = {
+				["WeakAuras_6_-_spear_of_anguish_hc"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -35207,7 +36060,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_11_soulbomb"] = {
+				["WeakAuras_lone_wolf_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -35243,7 +36096,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_aimed_shot_3"] = {
+				["WeakAuras_02_endemic_virus"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -35261,7 +36114,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_bloodboil_2"] = {
+				["WeakAuras_10_searing_tempest"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -35315,7 +36168,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_proc_dod_(enable_with_dance_of_death_trait)"] = {
+				["WeakAuras_soul_corrosion"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -35333,7 +36186,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_seal_of_purification"] = {
+				["WeakAuras_Thl8WMFanq4"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -35459,7 +36313,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_inevitable_end"] = {
+				["WeakAuras_09_flames_of_khaz'goroth"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -35477,7 +36331,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_op:_volatile_charge"] = {
+				["WeakAuras_sb:_reaching_attack"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -35495,7 +36349,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_kr:_caress_of_death"] = {
+				["WeakAuras_9_-_focused_dreadflame_group"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -35513,7 +36367,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_anchors_interruptorder_to_eldritch_abomination_nameplate"] = {
+				["WeakAuras_icebound_fortitude"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -35531,7 +36385,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_mt:_gigavolt_charge"] = {
+				["WeakAuras_mm-vulnerable_target"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -35603,7 +36457,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_crystalline_dust,_p3_frontal_timer"] = {
+				["WeakAuras_bloodboil_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -35621,7 +36475,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_aow1_2"] = {
+				["WeakAuras_mt:_extremely_dead_soon"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -35657,7 +36511,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_dark_bargain"] = {
+				["WeakAuras_acidic_fragments_debuff"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -35675,7 +36529,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_05_bwonsamdi's_wrath"] = {
+				["WeakAuras_aKLlycxytjD"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -35693,7 +36548,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_disengage_2"] = {
+				["WeakAuras_9_-_armageddon"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -35873,7 +36728,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_09_heart_of_frost"] = {
+				["WeakAuras_artillery_2"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -35891,7 +36746,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_07_portal_to_madness"] = {
+				["WeakAuras_02_clinging_corruption"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -35909,7 +36764,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_arcane_burst"] = {
+				["WeakAuras_03_extract_interloper"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -35927,7 +36782,7 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_08_queen's_decree"] = {
+				["WeakAuras_target_immune"] = {
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]
@@ -35945,7 +36800,8 @@ MasqueDB = {
 					["Inherit"] = false,
 					["SkinID"] = "Caith",
 				},
-				["WeakAuras_1_-_infernal_spikes"] = {
+				["WeakAuras_BT8dj395CeK"] = {
+					["Upgraded"] = true,
 					["Colors"] = {
 						["Normal"] = {
 							0, -- [1]

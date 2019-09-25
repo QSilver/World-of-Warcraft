@@ -67,8 +67,8 @@ Prat3DB = {
 							["b"] = 0.749019622802734,
 						},
 						["trade"] = {
-							["b"] = 0.752941250801086,
-							["g"] = 0.752941250801086,
+							["b"] = 0.7529412508010864,
+							["g"] = 0.7529412508010864,
 							["r"] = 1,
 						},
 						["phrogues"] = {
@@ -91,6 +91,11 @@ Prat3DB = {
 							["g"] = 0.749019622802734,
 							["b"] = 0.749019622802734,
 						},
+						["phhunters"] = {
+							["b"] = 0.752941250801086,
+							["g"] = 0.752941250801086,
+							["r"] = 1,
+						},
 						["wqp51644"] = {
 							["r"] = 1,
 							["g"] = 0.749019622802734,
@@ -106,9 +111,9 @@ Prat3DB = {
 							["g"] = 0.749019622802734,
 							["b"] = 0.749019622802734,
 						},
-						["phhunters"] = {
-							["b"] = 0.752941250801086,
-							["g"] = 0.752941250801086,
+						["phoenixhunters"] = {
+							["b"] = 0.7490196228027344,
+							["g"] = 0.7490196228027344,
 							["r"] = 1,
 						},
 						["wqp51886"] = {
@@ -116,12 +121,12 @@ Prat3DB = {
 							["g"] = 0.752941250801086,
 							["b"] = 0.752941250801086,
 						},
-						["wqp51778"] = {
+						["wqp51669"] = {
 							["r"] = 1,
 							["g"] = 0.752941250801086,
 							["b"] = 0.752941250801086,
 						},
-						["wqp51669"] = {
+						["wqp51778"] = {
 							["r"] = 1,
 							["g"] = 0.752941250801086,
 							["b"] = 0.752941250801086,
@@ -141,12 +146,12 @@ Prat3DB = {
 							["g"] = 0.752941250801086,
 							["r"] = 1,
 						},
-						["wqp52179"] = {
+						["phsecretmage"] = {
+							["b"] = 0.749019622802734,
+							["g"] = 0.749019622802734,
 							["r"] = 1,
-							["g"] = 0.752941250801086,
-							["b"] = 0.752941250801086,
 						},
-						["wqp51615"] = {
+						["wqp52179"] = {
 							["r"] = 1,
 							["g"] = 0.752941250801086,
 							["b"] = 0.752941250801086,
@@ -156,10 +161,10 @@ Prat3DB = {
 							["g"] = 0.752941250801086,
 							["r"] = 1,
 						},
-						["phsecretmage"] = {
-							["b"] = 0.749019622802734,
-							["g"] = 0.749019622802734,
+						["wqp51615"] = {
 							["r"] = 1,
+							["g"] = 0.752941250801086,
+							["b"] = 0.752941250801086,
 						},
 						["wqp51422"] = {
 							["r"] = 1,
@@ -247,11 +252,11 @@ Prat3DB = {
 		["Prat_Buttons"] = {
 			["profiles"] = {
 				["Default"] = {
-					["showminimize"] = false,
-					["showBnet"] = false,
-					["showButtons"] = false,
 					["showMenu"] = false,
+					["showBnet"] = false,
 					["scrollReminder"] = false,
+					["showminimize"] = false,
+					["showButtons"] = false,
 				},
 			},
 		},
@@ -263,17 +268,17 @@ Prat3DB = {
 	["profileKeys"] = {
 		["Alyara - Silvermoon"] = "Default",
 		["Linela - Silvermoon"] = "Default",
-		["Flaville - Silvermoon"] = "Default",
 		["Erdanii - Silvermoon"] = "Default",
+		["Flaville - Silvermoon"] = "Default",
 		["Simroth - Silvermoon"] = "Default",
 		["Stephanna - Argent Dawn"] = "Default",
-		["Thagmarr - Silvermoon"] = "Default",
+		["Siluna - Silvermoon"] = "Default",
 		["Spinhoof - Ragnaros"] = "Default",
 		["Lachrymas - Silvermoon"] = "Default",
-		["Tenderbreeze - Silvermoon"] = "Default",
-		["Kjerstina - Silvermoon"] = "Default",
 		["Myvanna - Silvermoon"] = "Default",
-		["Siluna - Silvermoon"] = "Default",
+		["Kjerstina - Silvermoon"] = "Default",
+		["Tenderbreeze - Silvermoon"] = "Default",
+		["Thagmarr - Silvermoon"] = "Default",
 		["Qsilver - Silvermoon"] = "Default",
 	},
 	["profiles"] = {

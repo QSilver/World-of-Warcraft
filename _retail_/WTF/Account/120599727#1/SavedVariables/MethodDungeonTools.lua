@@ -4,6 +4,8 @@ MethodDungeonToolsDB = {
 		["Qsilver - Silvermoon"] = "Qsilver - Silvermoon",
 	},
 	["global"] = {
+		["anchorTo"] = "CENTER",
+		["currentDungeonIdx"] = 21,
 		["presets"] = {
 			[15] = {
 				{
@@ -45,9 +47,9 @@ MethodDungeonToolsDB = {
 								},
 								[11] = {
 								},
-								[9] = {
-								},
 								[5] = {
+								},
+								[9] = {
 								},
 							}, -- [1]
 						},
@@ -55,10 +57,8 @@ MethodDungeonToolsDB = {
 				}, -- [1]
 			},
 		},
-		["anchorTo"] = "CENTER",
-		["currentDungeonIdx"] = 21,
-		["anchorFrom"] = "CENTER",
 		["xoffset"] = -109.40160369873,
+		["anchorFrom"] = "CENTER",
 		["yoffset"] = 38.5514259338379,
 	},
 }

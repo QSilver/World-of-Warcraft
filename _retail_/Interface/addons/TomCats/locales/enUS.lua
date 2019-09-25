@@ -1,4 +1,7 @@
 select(2, ...).TomCatsLibs.Locales.AddLocaleLookup("enUS", {
+    ["Click to view Creature Details"] = "Click to view Creature Details",
+    ["Rare Creatures Log"] = "Rare Creatures Log",
+    ["TUTORIAL_RaresLogNames"] = "Clicking the creature's name will provide you with more details",
+    ["TUTORIAL_RaresLogStars"] = "Clicking the stars will provide a waypoint arrow if you have TomTom installed",
     ["TUTORIAL_RaresLogToggle"] = "The Quest Log and Rares Log can be toggled from here.",
-    ["No Description"] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at ipsum quis nulla cursus cursus. Nam efficitur, felis eget pellentesque lacinia, eros nisi ornare est, id rutrum nisi nisl in tellus. Mauris aliquet nibh odio, ac suscipit purus suscipit hendrerit. Cras pharetra risus hendrerit ligula ultricies, a sagittis turpis varius. In ipsum quam, scelerisque id lobortis ac, hendrerit ut odio. Proin et leo porta, consequat felis vitae, congue nisi. Nunc viverra augue et gravida porttitor. Cras facilisis egestas libero vel accumsan. Etiam tincidunt ligula ipsum, luctus congue lacus pretium a. Quisque justo nulla, vestibulum non nisi id, condimentum gravida lacus. Mauris tellus arcu, finibus in odio sit amet, ornare lacinia sapien. Vivamus aliquet ex nibh, sed volutpat mi tristique sit amet. In id mattis ante. Sed sit amet eleifend lorem."
 })

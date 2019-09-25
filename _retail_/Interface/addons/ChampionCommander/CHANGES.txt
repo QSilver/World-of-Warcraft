@@ -1,24 +1,12 @@
-tag b076712672a8210d2de57d5b2f4097baa8eb2bd4 1.2.0
+tag 28b3a67130f2207aa61c8f5740a0c100320d7e9a 1.2.3
 Author:	Alar of Runetotem <alar@aspide.it>
-Date:	Mon Jul 1 09:28:44 2019 +0200
+Date:	Sun Sep 22 17:25:57 2019 +0200
 
-Updated to 8.2.0
+Reputation color codes improved
 
-commit 46dcc9f98e0e1d7c2380e0fd69eb48bbec477ad1
+commit 7c03a3a4af5befe8ff964c41a066ec13f5be16cc
 Author: Alar of Runetotem <alar@aspide.it>
-Date:   Mon Jul 1 09:28:07 2019 +0200
+Date:   Sun Sep 22 17:15:50 2019 +0200
 
-    TOC Bump
-
-commit 770094636e14f3d60f0d2140215d8d83fe5e6f13
-Author: Alar of Runetotem <alar@aspide.it>
-Date:   Mon Jul 1 09:27:16 2019 +0200
-
-    Defends from no status follower
-
-commit e430f1b4aa5875622bf583295b784e2bc2b5d071
-Author: Alar of Runetotem <alar@aspide.it>
-Date:   Tue May 14 22:34:48 2019 +0200
-
-    #24 fixed MAX_LEVEL
+    Feature: Improved reputation color codes.
 

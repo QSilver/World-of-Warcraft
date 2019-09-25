@@ -156,3 +156,7 @@ c["The MOTHERLODE!!"] = {8, 1, "The MOTHERLODE!!"}
 c["The Underrot"] = {8, 1, "The Underrot"}
 c["Tol Dagor"] = {8, 1, "Tol Dagor"}
 c["Waycrest Manor"] = {8, 1, "Waycrest Manor"}
+c["Battle of Dazar'alor"] = {8, 2, "Battle of Dazar'alor"}
+c["Crucible of Storms"] = {8, 2, "Crucible of Storms"}
+c["Operation: Mechagon"] = {8, 1, "Operation: Mechagon"}
+c["The Eternal Palace"] = {8, 2, "The Eternal Palace"}

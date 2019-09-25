@@ -173,4 +173,4 @@ AzeriteForge: disabled
 AllTheThings: disabled
 RaiderIO: disabled
 QE-DungeonTips: disabled
-MoveAnything: disabled
+MoveAnything: enabled

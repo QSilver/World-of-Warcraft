@@ -1,7 +1,0 @@
-changeset:   1200:7c496a95a831
-tag:         3.7.23
-user:        sylvanaar <sylvanaar@mindspring.com>
-date:        Sun Jul 14 06:15:54 2019 -0700
-summary:     Show hovertips on currency
-
-

@@ -457,6 +457,7 @@ L["Incoming heal/Name"] = "Incoming heal/Name"
 L["Incoming heals"] = "Incoming heals"
 L["Index"] = "Index"
 L["Indicator color"] = "Indicator color"
+L["Indicator for the current pet happiness."] = "Indicator for the current pet happiness."
 L["Indicator name"] = "Indicator name"
 L["Indicator this aura should be displayed in."] = "Indicator this aura should be displayed in."
 L["Indicators"] = "Indicators"
@@ -589,6 +590,7 @@ L["Percentage value of how far outside the unit frame the incoming absorb bar ca
 L["Percentage value of how far outside the unit frame the incoming heal bar can go. 130% means it will go 30% outside the frame, 100% means it will not go outside."] = "Percentage value of how far outside the unit frame the incoming heal bar can go. 130% means it will go 30% outside the frame, 100% means it will not go outside."
 L["Pet"] = "Pet"
 L["Pet Battle"] = "Pet Battle"
+L["Pet Happiness"] = "Pet Happiness"
 L["Pet Target"] = "Pet Target"
 L["Player"] = "Player"
 L["player alt. power"] = "player alt. power"
@@ -813,8 +815,8 @@ L[ [=[This color will be used if the indicator shown is your own, only applies i
 Handy if you want to know if a target has a Rejuvenation on them, but you also want to know if you were the one who casted the Rejuvenation.]=] ] = [=[This color will be used if the indicator shown is your own, only applies if icons are not used.
 Handy if you want to know if a target has a Rejuvenation on them, but you also want to know if you were the one who casted the Rejuvenation.]=]
 --[[Translation missing --]]
---[[ L[ [=[This color will be used if the indicator shown is your own, only applies if icons are not used.
-Handy if you want to know if a target has a Rejuvenation on them, but you also want to know if you were the one who casted the Rejuvenation.]=] ] = ""--]] 
+L[ [=[This color will be used if the indicator shown is your own, only applies if icons are not used.
+Handy if you want to know if a target has a Rejuvenation on them, but you also want to know if you were the one who casted the Rejuvenation.]=] ] = ""
 L["This filter has no aura types set to filter out."] = "This filter has no aura types set to filter out."
 L["This filter has no auras in it, you will have to add some using the dialog above."] = "This filter has no auras in it, you will have to add some using the dialog above."
 L["This is a good guide on how to get started with programming in Lua, while you do not need to read the entire thing it is a helpful for understanding the basics of Lua syntax and API's."] = "This is a good guide on how to get started with programming in Lua, while you do not need to read the entire thing it is a helpful for understanding the basics of Lua syntax and API's."
@@ -824,8 +826,8 @@ L[ [=[This will be set for your current class only.
 If no custom spells are set, defaults appropriate for your class will be used.]=] ] = [=[This will be set for your current class only.
 If no custom spells are set, defaults appropriate for your class will be used.]=]
 --[[Translation missing --]]
---[[ L[ [=[This will be set for your current class only.
-If no custom spells are set, defaults appropriate for your class will be used.]=] ] = ""--]] 
+L[ [=[This will be set for your current class only.
+If no custom spells are set, defaults appropriate for your class will be used.]=] ] = ""
 L["This will disable the automatic detection of what events this tag will need, you should leave this unchecked unless you know what you are doing."] = "This will disable the automatic detection of what events this tag will need, you should leave this unchecked unless you know what you are doing."
 L["This will override all background colorings for bars including custom set ones."] = "This will override all background colorings for bars including custom set ones."
 L["Threat"] = "Threat"

@@ -30,11 +30,19 @@ local TimeFmt = Quartz3.Util.TimeFormat
 local GetTime, UnitCastingInfo = GetTime, UnitCastingInfo
 local unpack, tonumber, format = unpack, tonumber, format
 
+local WoWClassic = (WOW_PROJECT_ID == WOW_PROJECT_CLASSIC)
+if WoWClassic then
+	UnitCastingInfo = function(unit)
+		if unit ~= "player" then return end
+		return CastingInfo()
+	end
+end
+
 local getOptions
 
 local castBar, castBarText, castBarTimeText, castBarIcon, castBarSpark, castBarParent
 
-local repeattimes, castname, duration, totaltime, starttime, casting, bail
+local repeattimes, castSpellID, duration, totaltime, starttime, casting, bail
 local completedcasts = 0
 local restartdelay = 1
 
@@ -89,22 +97,26 @@ function Tradeskill:OnEnable()
 	self:RegisterEvent("UNIT_SPELLCAST_STOP")
 	self:RegisterEvent("UNIT_SPELLCAST_SUCCEEDED")
 	self:RegisterEvent("UNIT_SPELLCAST_INTERRUPTED")
-	self:SecureHook(C_TradeSkillUI, "CraftRecipe", "DoTradeSkill")
+	if WoWClassic then
+		self:SecureHook("DoTradeSkill")
+	else
+		self:SecureHook(C_TradeSkillUI, "CraftRecipe", "DoTradeSkill")
+	end
 end
 
-function Tradeskill:UNIT_SPELLCAST_START(object, event, unit, guid, spellID)
+function Tradeskill:UNIT_SPELLCAST_START(object, bar, unit, guid, spellID)
 	if unit ~= "player" then
-		return self.hooks[object].UNIT_SPELLCAST_START(object, event, unit, guid, spellID)
+		return self.hooks[object].UNIT_SPELLCAST_START(object, bar, unit, guid, spellID)
 	end
 	local spell, displayName, icon, startTime, endTime, isTradeskill = UnitCastingInfo(unit)
 	if isTradeskill then
 		repeattimes = repeattimes or 1
 		duration = (endTime - startTime) / 1000
-		totaltime = duration * (repeattimes or 1)
+		totaltime = duration * repeattimes
 		starttime = GetTime()
 		casting = true
 		Player.Bar.fadeOut = nil
-		castname = spell
+		castSpellID = spellID
 		bail = nil
 		Player.Bar.endTime = nil
 		
@@ -126,7 +138,7 @@ function Tradeskill:UNIT_SPELLCAST_START(object, event, unit, guid, spellID)
 		castBarIcon:SetTexture(icon)
 	else
 		castBar:SetMinMaxValues(0, 1)
-		return self.hooks[object].UNIT_SPELLCAST_START(object, event, unit, guid, spellID)
+		return self.hooks[object].UNIT_SPELLCAST_START(object, bar, unit, guid, spellID)
 	end
 end
 
@@ -137,11 +149,11 @@ function Tradeskill:UNIT_SPELLCAST_STOP(event, unit)
 	casting = false
 end
 
-function Tradeskill:UNIT_SPELLCAST_SUCCEEDED(event, unit, spell)
+function Tradeskill:UNIT_SPELLCAST_SUCCEEDED(event, unit, guid, spell)
 	if unit ~= "player" then
 		return
 	end
-	if castname == spell then
+	if castSpellID == spell then
 		completedcasts = completedcasts + 1
 	end
 end

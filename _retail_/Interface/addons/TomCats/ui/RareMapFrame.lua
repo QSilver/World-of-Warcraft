@@ -2,7 +2,7 @@ local _, addon = ...
 local TCL = addon.TomCatsLibs
 local L = addon.TomCatsLibs.Locales
 
-local supportedMaps
+local supportedMaps, RaresLogFrame_ShowRareDetails
 
 local DISPLAY_STATE_CLOSED = 1
 local DISPLAY_STATE_OPEN_MINIMIZED_NO_LOG = 2
@@ -41,10 +41,10 @@ function TomCatsRareLogMixin:InitLayoutIndexManager()
     self.layoutIndexManager = CreateLayoutIndexManager()
     self.layoutIndexManager:AddManagedLayoutIndex("RaresLog", QUEST_LOG_WAR_CAMPAIGN_LAYOUT_INDEX + 1)
     local faction = UnitFactionGroup("player")
-    self.RaresFrame.Contents.WarCampaignHeader.Background:SetAtlas("Campaign_" .. faction)
     self.RaresFrame.Contents.Separator:Show()
-    self.RaresFrame.Contents.WarCampaignNextObjective.Text:SetText(
-            "New feature being developed:\n|cffffffffRare Descriptions (30% of votes)|r\n\n|cff00ff00Round 2 voting has begun!|r\nVote each day on what's next:\n|cffffffffhttps://twitch.tv/TomCat|r"
+    self.RaresFrame.Contents.StoryHeader:Show()
+    self.RaresFrame.Contents.Notice.Text:SetText(
+            "New feature being developed:\n|cffffffffRare Spawn Share (34% of votes)|r\n\n|cff00ff00Round 3 voting has begun!|r\nVote each day on what's next:\n|cffffffffhttps://twitch.tv/TomCat|r"
     )
 end
 
@@ -59,8 +59,98 @@ end
 
 C_Timer.NewTicker(0.2, CheckForUpdatedRaresLog);
 
+local RareTextColorLookup = {
+    [CREATURE_STATUS.COMPLETE] = { QuestDifficultyColors["standard"], QuestDifficultyHighlightColors["standard"] },
+    [CREATURE_STATUS.LOOT_ELIGIBLE] = { QuestDifficultyHighlightColors["header"], QuestDifficultyHighlightColors["difficult"] },
+    [CREATURE_STATUS.UNAVAILABLE] = { QuestDifficultyColors["impossible"], QuestDifficultyHighlightColors["impossible"] },
+}
+
+local RareButtonLookup = {
+    [CREATURE_STATUS.COMPLETE] = "Complete",
+    [CREATURE_STATUS.LOOT_ELIGIBLE] = "Incomplete",
+    [CREATURE_STATUS.UNAVAILABLE] = "Unavailable",
+}
+
+function TomCatsRareLogTitleButton_OnClick(self)
+    PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON);
+    TomCatsRareMapFrame.RaresFrame:Hide()
+    RaresLogFrame_ShowRareDetails(self.creature)
+end
+
+function TomCatsRareLogTitleButton_OnMouseDown(self)
+    local anchor, _, _, x, y = self.Text:GetPoint();
+    self.Text:SetPoint(anchor, x + 1, y - 1);
+end
+
+function TomCatsRareLogTitleButton_OnMouseUp(self)
+    local anchor, _, _, x, y = self.Text:GetPoint();
+    self.Text:SetPoint(anchor, x - 1, y + 1);
+end
+
+local LOOT_NOUN_COLOR = CreateColor(1.0, 0.82, 0.0, 1.0)
+
+function TomCatsRareLogTitleButton_OnEnter(self)
+    local textColor = RareTextColorLookup[self.creature["Status"]][2]
+    self.Text:SetTextColor( textColor.r, textColor.g, textColor.b );
+    local creature = self.creature
+    EmbeddedItemTooltip:ClearAllPoints();
+    EmbeddedItemTooltip:SetPoint("TOPLEFT", self, "TOPRIGHT", 34, 0);
+    EmbeddedItemTooltip:SetOwner(self, "ANCHOR_PRESERVE");
+    local color = WORLD_QUEST_QUALITY_COLORS[1];
+    EmbeddedItemTooltip:SetText(creature["Name"], color.r, color.g, color.b);
+    local tooltipWidth = 20 + max(231, EmbeddedItemTooltipTextLeft1:GetStringWidth());
+    if ( tooltipWidth > UIParent:GetRight() - QuestMapFrame:GetParent():GetRight() ) then
+        EmbeddedItemTooltip:ClearAllPoints();
+        EmbeddedItemTooltip:SetPoint("TOPRIGHT", self, "TOPLEFT", -34, 0);
+        EmbeddedItemTooltip:SetOwner(self, "ANCHOR_PRESERVE");
+        EmbeddedItemTooltip:SetText(creature["Name"], color.r, color.g, color.b);
+    end
+    local footerText = ("|cff00ff00<%s>|r"):format(L["Click to view Creature Details"])
+    if (creature["Loot"]) then
+        local itemID
+        if type(creature["Loot"]) == "table" then
+            if creature["Loot"].items then
+                itemID = creature["Loot"].items[1]
+                if #(creature["Loot"].items) > 1 then
+                    footerText = ("+ %d more items\n\n" .. footerText):format(#(creature["Loot"].items) - 1)
+                end
+            end
+        else
+            itemID = creature["Loot"]
+        end
+        if itemID then
+            GameTooltip_AddBlankLinesToTooltip(EmbeddedItemTooltip, 1);
+            GameTooltip_AddColoredLine(EmbeddedItemTooltip, LOOT_NOUN, LOOT_NOUN_COLOR, true);
+            EmbeddedItemTooltip_SetItemByID(EmbeddedItemTooltip.ItemTooltip, itemID)
+        end
+    end
+    EmbeddedItemTooltip.BottomFontString:SetText(footerText)
+    EmbeddedItemTooltip.BottomFontString:SetShown(true)
+    EmbeddedItemTooltip:Show()
+end
+
+function TomCatsRareLogTitleButton_OnLeave(self)
+    local textColor = RareTextColorLookup[self.creature["Status"]][1]
+    self.Text:SetTextColor( textColor.r, textColor.g, textColor.b )
+    EmbeddedItemTooltip:Hide()
+end
+
+function TomCatsRareRewardItem_OnEnter(self)
+    GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
+    GameTooltip:SetItemByID(self:GetID());
+    GameTooltip:Show()
+end
+
+function TomCatsRareRewardItem_OnClick(self, button)
+    if ( IsModifiedClick() and self.objectType == "item") then
+        local _, itemLink = GetItemInfo(self:GetID())
+        HandleModifiedItemClick(itemLink);
+    end
+end
+
 function TomCatsRareLogMixin:RefreshRaresLog()
     self.titleFramePool:ReleaseAll()
+    self.poiFramePool:ReleaseAll()
     local lastButton
     if (raresLog) then
         if not raresLog.isSorted then
@@ -78,33 +168,49 @@ function TomCatsRareLogMixin:RefreshRaresLog()
                 end
             end
             table.sort(rareNames)
-            for k, v in ipairs(rareNames) do
+            for _, v in ipairs(rareNames) do
                 table.insert(raresLog.creatures_sorted,lookupByName[v])
             end
         end
-        for _, v in pairs(raresLog.creatures_sorted) do
-            if v["Status"] ~= CREATURE_STATUS.HIDDEN then
-                local frame = self.titleFramePool:Acquire()
-                frame.label:SetText(v["Name"])
-                frame:ClearAllPoints()
+        for _, creature in pairs(raresLog.creatures_sorted) do
+            if creature["Status"] ~= CREATURE_STATUS.HIDDEN then
+                local button = self.titleFramePool:Acquire()
+                button.creature = creature
+                button.Text:SetText(creature["Name"])
+                local textColor = RareTextColorLookup[creature["Status"]][1]
+                button.Text:SetTextColor(textColor.r, textColor.g, textColor.b)
+                button:ClearAllPoints()
                 if (lastButton) then
-                    frame:SetPoint("TOPLEFT",lastButton,"BOTTOMLEFT",0,-4)
+                    button:SetPoint("TOPLEFT",lastButton,"BOTTOMLEFT",0,-4)
                 else
-                    frame:SetPoint("TOPLEFT",self.RaresFrame.Contents.Separator, "BOTTOMLEFT", 8, 0)
+                    button:SetPoint("TOPLEFT",self.RaresFrame.Contents.StoryHeader, "BOTTOMLEFT", 29, -8)
                 end
-                frame.creature = v
-                if v["Status"] == CREATURE_STATUS.COMPLETE then
-                    frame.label:SetNormalFontObject(TomCatsRareComplete)
-                    frame.label:SetHighlightFontObject(TomCatsRareCompleteHighlight)
-                    frame.Complete:Show()
-                elseif v["Status"] == CREATURE_STATUS.LOOT_ELIGIBLE then
-                    frame.Incomplete:Show()
-                elseif v["Status"] == CREATURE_STATUS.UNAVAILABLE then
-                    frame.Unavailable:Show()
-                    frame.label:Disable()
+                --button.creature = v
+                --if v["Status"] == CREATURE_STATUS.COMPLETE then
+                --    button.Complete:Show()
+                --elseif v["Status"] == CREATURE_STATUS.LOOT_ELIGIBLE then
+                --    button.Incomplete:Show()
+                --elseif v["Status"] == CREATURE_STATUS.UNAVAILABLE then
+                --    button.Unavailable:Show()
+                --    button.label:Disable()
+                --end
+                lastButton = button
+                button:Show()
+
+                local poiButton = self.poiFramePool:Acquire()
+                poiButton:ClearAllPoints()
+                poiButton:SetPoint("LEFT", button, -21, 2);
+                poiButton.parent = button;
+                poiButton:SetFrameLevel(button:GetFrameLevel() + 1)
+                poiButton:Show()
+                poiButton.creature = creature
+                for key, value in pairs(RareButtonLookup) do
+                    if (key == creature["Status"]) then
+                        poiButton[value]:Show()
+                    else
+                        poiButton[value]:Hide()
+                    end
                 end
-                lastButton = frame
-                frame:Show()
             end
         end
     end
@@ -121,14 +227,13 @@ local function ResetTitleFrame(framepool, frame)
 end
 
 function TomCatsRareLogMixin:Refresh()
-    self.RaresFrame.Contents.WarCampaignHeader.Text:SetText("Rares Log")
-    self.RaresFrame.Contents.WarCampaignHeader:Show()
+    self.RaresFrame.Contents.LogHeader.Text:SetText(L["Rare Creatures Log"])
+    self.RaresFrame.Contents.LogHeader:Show()
+    self.RaresFrame.Contents.StoryHeader.Text:SetText(C_Map.GetMapInfo(WorldMapFrame:GetMapID())["name"])
     self.layoutIndexManager:Reset()
     self:RefreshRaresLog()
     self.RaresFrame.Contents:Layout()
 end
-
-
 
 -- Fire the testHandler when:
 -- The rare log is first shown while on the supported map ID
@@ -180,7 +285,8 @@ end
 
 function TomCatsRareMapFrame_OnLoad(self)
     self:InitLayoutIndexManager()
-    self.titleFramePool = CreateFramePool("FRAME", TomCatsRareMapFrame.RaresFrame.Contents, "TomCatsRareLogTitleTemplate", ResetTitleFrame);
+    self.titleFramePool = CreateFramePool("BUTTON", TomCatsRareMapFrame.RaresFrame.Contents, "TomCatsRareLogTitleTemplate");
+    self.poiFramePool = CreateFramePool("FRAME", TomCatsRareMapFrame.RaresFrame.Contents, "TomCatsRarePOITemplate");
 end
 
 function TomCatsRareMapFrame_OnEvent() end
@@ -303,39 +409,96 @@ end
 
 local function TryShowTutorial()
     if not addon.savedVariables.account.tutorials["Rares Log Toggle"] then
-        self = TomCatsRareMapFrameTutorialBox
-        self:SetParent(TomCatsRarePanelToggle)
-        self:SetFrameStrata("DIALOG")
-        self.Text:SetText(L["TUTORIAL_RaresLogToggle"]);
-        self.Text:SetSpacing(4);
-        SetClampedTextureRotation(self.Arrow.Arrow, 270);
-        SetClampedTextureRotation(self.Arrow.Glow, 270);
-
-        self.Arrow:ClearAllPoints();
-        self.Arrow:SetPoint("BOTTOMLEFT", self, "RIGHT", -4, 4);
-
-        self.Arrow.Glow:ClearAllPoints();
-        self.Arrow.Glow:SetPoint("CENTER", self.Arrow.Arrow, "CENTER", 2, 0);
-
-        self:ClearAllPoints();
-        self:SetPoint("RIGHT", TomCatsRarePanelToggle, "BOTTOMLEFT", -18, 0);
-        local newHeight = self.Text:GetHeight() + 48
+        local frame = CreateFrame("FRAME",nil,TomCatsRarePanelToggle,"TomCatsRareMapFrameTutorialBoxTemplate")
+        frame:SetFrameStrata("DIALOG")
+        frame:SetFrameLevel(100)
+        frame.Text:SetText(L["TUTORIAL_RaresLogToggle"]);
+        frame.Text:SetSpacing(4);
+        SetClampedTextureRotation(frame.Arrow.Arrow, 270);
+        SetClampedTextureRotation(frame.Arrow.Glow, 270);
+        frame.Arrow:ClearAllPoints();
+        frame.Arrow:SetPoint("BOTTOMLEFT", frame, "RIGHT", -4, 4);
+        frame.Arrow.Glow:ClearAllPoints();
+        frame.Arrow.Glow:SetPoint("CENTER", frame.Arrow.Arrow, "CENTER", 2, 0);
+        frame:ClearAllPoints();
+        frame:SetPoint("RIGHT", TomCatsRarePanelToggle, "BOTTOMLEFT", -18, 0);
+        local newHeight = frame.Text:GetHeight() + 48
         if 100 >= newHeight then newHeight = 100 end
-        self:SetHeight(newHeight);
-        self:Show()
+        frame:SetHeight(newHeight);
+        frame.CloseButton:SetScript("OnClick", function()
+            addon.savedVariables.account.tutorials["Rares Log Toggle"] = true
+            frame:Hide()
+        end)
+        frame:Show()
     end
+    --if not addon.savedVariables.account.tutorials["Rares Log Stars"] then
+    --    local frame = CreateFrame("FRAME",nil,TomCatsRareMapFrame,"TomCatsRareMapFrameTutorialBoxTemplate")
+    --    frame:SetFrameStrata("DIALOG")
+    --    frame:SetFrameLevel(100)
+    --    frame.Text:SetText(L["TUTORIAL_RaresLogStars"]);
+    --    frame.Text:SetSpacing(4);
+    --    SetClampedTextureRotation(frame.Arrow.Arrow, 270);
+    --    SetClampedTextureRotation(frame.Arrow.Glow, 270);
+    --    frame.Arrow:ClearAllPoints();
+    --    frame.Arrow:SetPoint("BOTTOMLEFT", frame, "RIGHT", -4, 4);
+    --    frame.Arrow.Glow:ClearAllPoints();
+    --    frame.Arrow.Glow:SetPoint("CENTER", frame.Arrow.Arrow, "CENTER", 2, 0);
+    --    frame:ClearAllPoints();
+    --    frame:SetPoint("RIGHT", TomCatsRareMapFrame, "LEFT", -18, -100);
+    --    local newHeight = frame.Text:GetHeight() + 48
+    --    if 100 >= newHeight then newHeight = 100 end
+    --    frame:SetHeight(newHeight);
+    --    frame.CloseButton:SetScript("OnClick", function()
+    --        addon.savedVariables.account.tutorials["Rares Log Stars"] = true
+    --        frame:Hide()
+    --    end)
+    --    frame:Show()
+    --end
+    --if not addon.savedVariables.account.tutorials["Rares Log Names"] then
+    --    local frame = CreateFrame("FRAME",nil,TomCatsRareMapFrame,"TomCatsRareMapFrameTutorialBoxTemplate")
+    --    frame:SetFrameStrata("DIALOG")
+    --    frame:SetFrameLevel(501)
+    --    frame.Text:SetText(L["TUTORIAL_RaresLogNames"]);
+    --    frame.Text:SetSpacing(4);
+    --    SetClampedTextureRotation(frame.Arrow.Arrow, 0);
+    --    SetClampedTextureRotation(frame.Arrow.Glow, 0);
+    --    frame.Arrow:ClearAllPoints();
+    --    frame.Arrow:SetPoint("BOTTOM", frame, "BOTTOM", 0, -16);
+    --    frame.Arrow.Glow:ClearAllPoints();
+    --    frame.Arrow.Glow:SetPoint("CENTER", frame.Arrow.Arrow, "CENTER", 0, -2);
+    --    frame:ClearAllPoints();
+    --    frame:SetPoint("CENTER", TomCatsRareMapFrame, "CENTER", -20, 0);
+    --    local newHeight = frame.Text:GetHeight() + 48
+    --    if 100 >= newHeight then newHeight = 100 end
+    --    frame:SetHeight(newHeight);
+    --    frame.CloseButton:SetScript("OnClick", function()
+    --        addon.savedVariables.account.tutorials["Rares Log Stars"] = true
+    --        frame:Hide()
+    --    end)
+    --    frame:Show()
+    --end
 end
 
-function TomCatsRareMapFrameTutorial_Closed()
-    addon.savedVariables.account.tutorials["Rares Log Toggle"] = true
-    TomCatsRareMapFrameTutorialBox:Hide()
+local function AddOverlayFrame(self, templateName, templateType, anchorPoint, relativeFrame, relativePoint, offsetX, offsetY)
+    local frame = CreateFrame(templateType, nil, self, templateName);
+    if anchorPoint then
+        frame:SetPoint(anchorPoint, relativeFrame, relativePoint, offsetX, offsetY);
+    end
+    frame.relativeFrame = relativeFrame or self;
+    --if not self.overlayFrames then
+    --    self.overlayFrames = { };
+    --end
+    --tinsert(self.overlayFrames, frame);
+
+    return frame;
 end
 
 local function ADDON_LOADED(_, _, arg1)
     if (arg1 == addon.name) then
         TCL.Events.UnregisterEvent("ADDON_LOADED", ADDON_LOADED)
         supportedMaps = addon.supportedMaps
-        TomCatsRarePanelToggle = WorldMapFrame:AddOverlayFrame("TomCatsWorldMapRareSidePanelToggleTemplate", "BUTTON", "BOTTOMRIGHT", WorldMapFrame:GetCanvasContainer(), "BOTTOMRIGHT", -2, 36)
+        TomCatsRarePanelToggle = AddOverlayFrame(WorldMapFrame,"TomCatsWorldMapRareSidePanelToggleTemplate", "BUTTON", "BOTTOMRIGHT", WorldMapFrame:GetCanvasContainer(), "BOTTOMRIGHT", -2, 36)
+        tinsert(WorldMapFrame.overlayFrames, TomCatsRarePanelToggle);
         TryShowTutorial()
 
         TomCatsRareMapFrame:SetParent(WorldMapFrame)
@@ -368,39 +531,6 @@ local function ADDON_LOADED(_, _, arg1)
             end)
         end
     end
-end
-
-local LOOT_NOUN_COLOR = CreateColor(1.0, 0.82, 0.0, 1.0)
-
-function TomCats_ShowRareTooltip(self)
-    local creature = self.creature or self:GetParent().creature
-    local tooltip = EmbeddedItemTooltip
-    tooltip:SetOwner(self:GetParent(), "ANCHOR_BOTTOMRIGHT", -50, 20);
---    if (showCreatureName) then
-        local color = WORLD_QUEST_QUALITY_COLORS[1];
-        --todo: Check for any reason that creature["Name"] could return nil
-        EmbeddedItemTooltip:SetText(creature["Name"], color.r, color.g, color.b);
-        GameTooltip_AddBlankLinesToTooltip(tooltip, 1);
---    end
-    if (creature["Loot"]) then
-        GameTooltip_AddColoredLine(tooltip, LOOT_NOUN, LOOT_NOUN_COLOR, true);
-        EmbeddedItemTooltip_SetItemByID(tooltip.ItemTooltip, creature["Loot"])
-    elseif (creature["Level"] == nil) then
-        GameTooltip_AddColoredLine(tooltip, STAT_AVERAGE_ITEM_LEVEL .. " " .. "385" .. " " .. LOOT_NOUN, LOOT_NOUN_COLOR, true);
-        GameTooltip_AddColoredLine(tooltip, "(See adventure guide)", LOOT_NOUN_COLOR, true);
-    else
-        GameTooltip_AddColoredLine(tooltip, LOOT_NOUN, LOOT_NOUN_COLOR, true);
-        local name, texture, quantity, quality = CurrencyContainerUtil.GetCurrencyContainerInfo(1553, 39);
-        local text = BONUS_OBJECTIVE_REWARD_FORMAT:format(texture, name);
-        local color = ITEM_QUALITY_COLORS[quality];
-        tooltip:AddLine(text, color.r, color.g, color.b);
-    end
-    --EmbeddedItemTooltip.recalculatePadding = true;
-    EmbeddedItemTooltip:Show()
-end
-
-function TomCats_HideRareTooltip()
-    EmbeddedItemTooltip:Hide()
 end
 
 local lastWaypoint
@@ -506,81 +636,106 @@ local RARE_TEMPLATE_MAP_DETAILS = { questLog = true, chooseItems = nil, contentW
                                     }
 }
 local REWARDS_SECTION_OFFSET = 5
+
+local TryLoadItem, GetItemLoadCallback
+
+function TryLoadItem(frame, item, attempts)
+    return function()
+        if attempts ~= 0 then
+            attempts = attempts - 1
+            print(item.itemID)
+            item:ContinueOnItemLoad(GetItemLoadCallback(frame, item, attempts))
+        end
+    end
+end
+
+function GetItemLoadCallback(frame, item, attempts)
+    return function()
+        if not item:GetItemName() then
+            C_Timer.NewTimer(1, TryLoadItem(frame, item, attempts))
+        else
+            print("--" .. itemID)
+            frame.Name:SetText(item:GetItemName());
+            SetItemButtonTexture(frame, item:GetItemIcon())
+            SetItemButtonQuality(frame, item:GetItemQuality(), item.itemID, false)
+        end
+    end
+end
+
 local function RareInfo_ShowRewards(creature)
---[[    local numQuestRewards = 0;
-    local numQuestChoices = 0;
-    local numQuestCurrencies = 0;
-    local numQuestSpellRewards = 0;
-    local money = 0;
-    local skillName;
-    local skillPoints;
-    local skillIcon;
-    local xp = 0;
-    local artifactXP = 0;
-    local artifactCategory;
-    local honor = 0;
-    local playerTitle;]]
+    --[[    local numQuestRewards = 0;
+        local numQuestChoices = 0;
+        local numQuestCurrencies = 0;
+        local numQuestSpellRewards = 0;
+        local money = 0;
+        local skillName;
+        local skillPoints;
+        local skillIcon;
+        local xp = 0;
+        local artifactXP = 0;
+        local artifactCategory;
+        local honor = 0;
+        local playerTitle;]]
     local totalHeight = 0;
---[[    local numSpellRewards = 0;
-    local rewardsFrame = QuestInfoFrame.rewardsFrame;]]
-    local rewardsFrame = MapQuestInfoRewardsFrame
+    --[[    local numSpellRewards = 0;
+        local rewardsFrame = QuestInfoFrame.rewardsFrame;]]
+    local rewardsFrame = TomCatsRareInfoRewardsFrame
 
---[[    local spellGetter;
-    if ( QuestInfoFrame.questLog ) then
-        local questID = select(8, GetQuestLogTitle(GetQuestLogSelection()));
-        if C_QuestLog.ShouldShowQuestRewards(questID) then
-            numQuestRewards = GetNumQuestLogRewards();
-            numQuestChoices = GetNumQuestLogChoices();
-            numQuestCurrencies = GetNumQuestLogRewardCurrencies();
-            money = GetQuestLogRewardMoney();
-            skillName, skillIcon, skillPoints = GetQuestLogRewardSkillPoints();
-            xp = GetQuestLogRewardXP();
-            artifactXP, artifactCategory = GetQuestLogRewardArtifactXP();
-            honor = GetQuestLogRewardHonor();
-            playerTitle = GetQuestLogRewardTitle();
-            ProcessQuestLogRewardFactions();
-            numSpellRewards = GetNumQuestLogRewardSpells();
-            spellGetter = GetQuestLogRewardSpell;
+    --[[    local spellGetter;
+        if ( QuestInfoFrame.questLog ) then
+            local questID = select(8, GetQuestLogTitle(GetQuestLogSelection()));
+            if C_QuestLog.ShouldShowQuestRewards(questID) then
+                numQuestRewards = GetNumQuestLogRewards();
+                numQuestChoices = GetNumQuestLogChoices();
+                numQuestCurrencies = GetNumQuestLogRewardCurrencies();
+                money = GetQuestLogRewardMoney();
+                skillName, skillIcon, skillPoints = GetQuestLogRewardSkillPoints();
+                xp = GetQuestLogRewardXP();
+                artifactXP, artifactCategory = GetQuestLogRewardArtifactXP();
+                honor = GetQuestLogRewardHonor();
+                playerTitle = GetQuestLogRewardTitle();
+                ProcessQuestLogRewardFactions();
+                numSpellRewards = GetNumQuestLogRewardSpells();
+                spellGetter = GetQuestLogRewardSpell;
+            end
+        else
+            numQuestRewards = GetNumQuestRewards();
+            numQuestChoices = GetNumQuestChoices();
+            numQuestCurrencies = GetNumRewardCurrencies();
+            money = GetRewardMoney();
+            skillName, skillIcon, skillPoints = GetRewardSkillPoints();
+            xp = GetRewardXP();
+            artifactXP, artifactCategory = GetRewardArtifactXP();
+            honor = GetRewardHonor();
+            playerTitle = GetRewardTitle();
+            numSpellRewards = GetNumRewardSpells();
+            spellGetter = GetRewardSpell;
         end
-    else
-        numQuestRewards = GetNumQuestRewards();
-        numQuestChoices = GetNumQuestChoices();
-        numQuestCurrencies = GetNumRewardCurrencies();
-        money = GetRewardMoney();
-        skillName, skillIcon, skillPoints = GetRewardSkillPoints();
-        xp = GetRewardXP();
-        artifactXP, artifactCategory = GetRewardArtifactXP();
-        honor = GetRewardHonor();
-        playerTitle = GetRewardTitle();
-        numSpellRewards = GetNumRewardSpells();
-        spellGetter = GetRewardSpell;
-    end
 
-    for rewardSpellIndex = 1, numSpellRewards do
-        local texture, name, isTradeskillSpell, isSpellLearned, hideSpellLearnText, isBoostSpell, garrFollowerID, genericUnlock, spellID = spellGetter(rewardSpellIndex);
-        local knownSpell = IsSpellKnownOrOverridesKnown(spellID);
+        for rewardSpellIndex = 1, numSpellRewards do
+            local texture, name, isTradeskillSpell, isSpellLearned, hideSpellLearnText, isBoostSpell, garrFollowerID, genericUnlock, spellID = spellGetter(rewardSpellIndex);
+            local knownSpell = IsSpellKnownOrOverridesKnown(spellID);
 
-        -- only allow the spell reward if user can learn it
-        if ( texture and not knownSpell and (not isBoostSpell or IsCharacterNewlyBoosted()) and (not garrFollowerID or not C_Garrison.IsFollowerCollected(garrFollowerID)) ) then
-            numQuestSpellRewards = numQuestSpellRewards + 1;
+            -- only allow the spell reward if user can learn it
+            if ( texture and not knownSpell and (not isBoostSpell or IsCharacterNewlyBoosted()) and (not garrFollowerID or not C_Garrison.IsFollowerCollected(garrFollowerID)) ) then
+                numQuestSpellRewards = numQuestSpellRewards + 1;
+            end
         end
-    end
 
-    local totalRewards = numQuestRewards + numQuestChoices + numQuestCurrencies; ]]
+        local totalRewards = numQuestRewards + numQuestChoices + numQuestCurrencies; ]]
     local totalRewards = 1
---[[
-    if ( totalRewards == 0 and money == 0 and xp == 0 and not playerTitle and numQuestSpellRewards == 0 and artifactXP == 0 ) then
-        rewardsFrame:Hide();
-        return nil;
-    end
-]]
+    --[[
+        if ( totalRewards == 0 and money == 0 and xp == 0 and not playerTitle and numQuestSpellRewards == 0 and artifactXP == 0 ) then
+            rewardsFrame:Hide();
+            return nil;
+        end
+    ]]
     -- Hide unused rewards
     local rewardButtons = rewardsFrame.RewardButtons;
-    for i = totalRewards + 1, #rewardButtons do
+    for i = totalRewards, #rewardButtons do
         rewardButtons[i]:ClearAllPoints();
         rewardButtons[i]:Hide();
     end
-
     local questItem, name, texture, quality, isUsable, numItems, itemID;
     local rewardsCount = 0;
     local lastFrame = rewardsFrame.Header;
@@ -589,258 +744,294 @@ local function RareInfo_ShowRewards(creature)
     local buttonHeight = rewardsFrame.RewardButtons[1]:GetHeight();
 
     rewardsFrame.ArtifactXPFrame:ClearAllPoints();
---[[    if ( artifactXP > 0 ) then
-        local name, icon = C_ArtifactUI.GetArtifactXPRewardTargetInfo(artifactCategory);
-        rewardsFrame.ArtifactXPFrame:SetPoint("TOPLEFT", lastFrame, "BOTTOMLEFT", 0, -REWARDS_SECTION_OFFSET);
-        rewardsFrame.ArtifactXPFrame.Name:SetText(BreakUpLargeNumbers(artifactXP));
-        rewardsFrame.ArtifactXPFrame.Icon:SetTexture(icon or "Interface\\Icons\\INV_Misc_QuestionMark");
-        rewardsFrame.ArtifactXPFrame:Show();
+    --[[    if ( artifactXP > 0 ) then
+            local name, icon = C_ArtifactUI.GetArtifactXPRewardTargetInfo(artifactCategory);
+            rewardsFrame.ArtifactXPFrame:SetPoint("TOPLEFT", lastFrame, "BOTTOMLEFT", 0, -REWARDS_SECTION_OFFSET);
+            rewardsFrame.ArtifactXPFrame.Name:SetText(BreakUpLargeNumbers(artifactXP));
+            rewardsFrame.ArtifactXPFrame.Icon:SetTexture(icon or "Interface\\Icons\\INV_Misc_QuestionMark");
+            rewardsFrame.ArtifactXPFrame:Show();
 
-        lastFrame = rewardsFrame.ArtifactXPFrame;
-        totalHeight = totalHeight + rewardsFrame.ArtifactXPFrame:GetHeight() + REWARDS_SECTION_OFFSET;
-    else]]
-        rewardsFrame.ArtifactXPFrame:Hide();
---[[    end
+            lastFrame = rewardsFrame.ArtifactXPFrame;
+            totalHeight = totalHeight + rewardsFrame.ArtifactXPFrame:GetHeight() + REWARDS_SECTION_OFFSET;
+        else]]
+    rewardsFrame.ArtifactXPFrame:Hide();
+    --[[    end
 
-    -- Setup choosable rewards]]
+        -- Setup choosable rewards]]
 
     rewardsFrame.ItemChooseText:ClearAllPoints();
---[[    if ( numQuestChoices > 0 ) then
-        rewardsFrame.ItemChooseText:Show();
-        rewardsFrame.ItemChooseText:SetPoint("TOPLEFT", lastFrame, "BOTTOMLEFT", 0, -5);
+    --[[    if ( numQuestChoices > 0 ) then
+            rewardsFrame.ItemChooseText:Show();
+            rewardsFrame.ItemChooseText:SetPoint("TOPLEFT", lastFrame, "BOTTOMLEFT", 0, -5);
 
-        local index;
-        local baseIndex = rewardsCount;
-        for i = 1, numQuestChoices do
-            index = i + baseIndex;
-            questItem = QuestInfo_GetRewardButton(rewardsFrame, index);
-            questItem.type = "choice";
-            questItem.objectType = "item";
-            numItems = 1;
-            if ( QuestInfoFrame.questLog ) then
-                name, texture, numItems, quality, isUsable, itemID = GetQuestLogChoiceInfo(i);
-                SetItemButtonQuality(questItem, quality, itemID);
-            else
-                name, texture, numItems, quality, isUsable = GetQuestItemInfo(questItem.type, i);
-                SetItemButtonQuality(questItem, quality, GetQuestItemLink(questItem.type, i));
-            end
-            questItem:SetID(i)
-            questItem:Show();
-            -- For the tooltip
-            questItem.Name:SetText(name);
-            SetItemButtonCount(questItem, numItems);
-            SetItemButtonTexture(questItem, texture);
-            if ( isUsable ) then
-                SetItemButtonTextureVertexColor(questItem, 1.0, 1.0, 1.0);
-                SetItemButtonNameFrameVertexColor(questItem, 1.0, 1.0, 1.0);
-            else
-                SetItemButtonTextureVertexColor(questItem, 0.9, 0, 0);
-                SetItemButtonNameFrameVertexColor(questItem, 0.9, 0, 0);
-            end
-            if ( i > 1 ) then
-                if ( mod(i,2) == 1 ) then
-                    questItem:SetPoint("TOPLEFT", rewardButtons[index - 2], "BOTTOMLEFT", 0, -2);
-                    lastFrame = questItem;
-                    totalHeight = totalHeight + buttonHeight + 2;
+            local index;
+            local baseIndex = rewardsCount;
+            for i = 1, numQuestChoices do
+                index = i + baseIndex;
+                questItem = QuestInfo_GetRewardButton(rewardsFrame, index);
+                questItem.type = "choice";
+                questItem.objectType = "item";
+                numItems = 1;
+                if ( QuestInfoFrame.questLog ) then
+                    name, texture, numItems, quality, isUsable, itemID = GetQuestLogChoiceInfo(i);
+                    SetItemButtonQuality(questItem, quality, itemID);
                 else
-                    questItem:SetPoint("TOPLEFT", rewardButtons[index - 1], "TOPRIGHT", 1, 0);
+                    name, texture, numItems, quality, isUsable = GetQuestItemInfo(questItem.type, i);
+                    SetItemButtonQuality(questItem, quality, GetQuestItemLink(questItem.type, i));
                 end
-            else
-                questItem:SetPoint("TOPLEFT", rewardsFrame.ItemChooseText, "BOTTOMLEFT", 0, -REWARDS_SECTION_OFFSET);
-                lastFrame = questItem;
-                totalHeight = totalHeight + buttonHeight + REWARDS_SECTION_OFFSET;
+                questItem:SetID(i)
+                questItem:Show();
+                -- For the tooltip
+                questItem.Name:SetText(name);
+                SetItemButtonCount(questItem, numItems);
+                SetItemButtonTexture(questItem, texture);
+                if ( isUsable ) then
+                    SetItemButtonTextureVertexColor(questItem, 1.0, 1.0, 1.0);
+                    SetItemButtonNameFrameVertexColor(questItem, 1.0, 1.0, 1.0);
+                else
+                    SetItemButtonTextureVertexColor(questItem, 0.9, 0, 0);
+                    SetItemButtonNameFrameVertexColor(questItem, 0.9, 0, 0);
+                end
+                if ( i > 1 ) then
+                    if ( mod(i,2) == 1 ) then
+                        questItem:SetPoint("TOPLEFT", rewardButtons[index - 2], "BOTTOMLEFT", 0, -2);
+                        lastFrame = questItem;
+                        totalHeight = totalHeight + buttonHeight + 2;
+                    else
+                        questItem:SetPoint("TOPLEFT", rewardButtons[index - 1], "TOPRIGHT", 1, 0);
+                    end
+                else
+                    questItem:SetPoint("TOPLEFT", rewardsFrame.ItemChooseText, "BOTTOMLEFT", 0, -REWARDS_SECTION_OFFSET);
+                    lastFrame = questItem;
+                    totalHeight = totalHeight + buttonHeight + REWARDS_SECTION_OFFSET;
+                end
+                rewardsCount = rewardsCount + 1;
             end
-            rewardsCount = rewardsCount + 1;
-        end
-        if ( numQuestChoices == 1 ) then
-            QuestInfoFrame.chooseItems = nil
-            rewardsFrame.ItemChooseText:SetText(REWARD_ITEMS_ONLY);
-        elseif ( QuestInfoFrame.chooseItems ) then
-            rewardsFrame.ItemChooseText:SetText(REWARD_CHOOSE);
-        else
-            rewardsFrame.ItemChooseText:SetText(REWARD_CHOICES);
-        end
-        totalHeight = totalHeight + rewardsFrame.ItemChooseText:GetHeight() + REWARDS_SECTION_OFFSET;
-    else]]
-        rewardsFrame.ItemChooseText:Hide();
---[[    end ]]
+            if ( numQuestChoices == 1 ) then
+                QuestInfoFrame.chooseItems = nil
+                rewardsFrame.ItemChooseText:SetText(REWARD_ITEMS_ONLY);
+            elseif ( QuestInfoFrame.chooseItems ) then
+                rewardsFrame.ItemChooseText:SetText(REWARD_CHOOSE);
+            else
+                rewardsFrame.ItemChooseText:SetText(REWARD_CHOICES);
+            end
+            totalHeight = totalHeight + rewardsFrame.ItemChooseText:GetHeight() + REWARDS_SECTION_OFFSET;
+        else]]
+    rewardsFrame.ItemChooseText:Hide();
+    --[[    end ]]
 
     rewardsFrame.spellRewardPool:ReleaseAll();
     rewardsFrame.followerRewardPool:ReleaseAll();
     rewardsFrame.spellHeaderPool:ReleaseAll();
 
     -- Setup spell rewards
---[[    if ( numQuestSpellRewards > 0 ) then
-        local spellBuckets = {};
+    --[[    if ( numQuestSpellRewards > 0 ) then
+            local spellBuckets = {};
 
-        for rewardSpellIndex = 1, numSpellRewards do
-            local texture, name, isTradeskillSpell, isSpellLearned, hideSpellLearnText, isBoostSpell, garrFollowerID, genericUnlock, spellID = spellGetter(rewardSpellIndex);
-            local knownSpell = IsSpellKnownOrOverridesKnown(spellID);
-            if texture and not knownSpell and (not isBoostSpell or IsCharacterNewlyBoosted()) and (not garrFollowerID or not C_Garrison.IsFollowerCollected(garrFollowerID)) then
-                if ( isTradeskillSpell ) then
-                    AddSpellToBucket(spellBuckets, QUEST_SPELL_REWARD_TYPE_TRADESKILL_SPELL, rewardSpellIndex);
-                elseif ( isBoostSpell ) then
-                    AddSpellToBucket(spellBuckets, QUEST_SPELL_REWARD_TYPE_ABILITY, rewardSpellIndex);
-                elseif ( garrFollowerID ) then
-                    AddSpellToBucket(spellBuckets, QUEST_SPELL_REWARD_TYPE_FOLLOWER, rewardSpellIndex);
-                elseif ( isSpellLearned ) then
-                    AddSpellToBucket(spellBuckets, QUEST_SPELL_REWARD_TYPE_SPELL, rewardSpellIndex);
-                elseif ( genericUnlock ) then
-                    AddSpellToBucket(spellBuckets, QUEST_SPELL_REWARD_TYPE_UNLOCK, rewardSpellIndex);
-                else
-                    AddSpellToBucket(spellBuckets, QUEST_SPELL_REWARD_TYPE_AURA, rewardSpellIndex);
-                end
-            end
-        end
-
-        for orderIndex, spellBucketType in ipairs(QUEST_INFO_SPELL_REWARD_ORDERING) do
-            local spellBucket = spellBuckets[spellBucketType];
-            if spellBucket then
-                for i, rewardSpellIndex in ipairs(spellBucket) do
-                    local texture, name, isTradeskillSpell, isSpellLearned, hideSpellLearnText, isBoostSpell, garrFollowerID = spellGetter(rewardSpellIndex);
-                    -- hideSpellLearnText is a quest flag
-                    if i == 1 and not hideSpellLearnText then
-                        local header = rewardsFrame.spellHeaderPool:Acquire();
-                        header:SetText(QUEST_INFO_SPELL_REWARD_TO_HEADER[spellBucketType]);
-                        header:SetPoint("TOPLEFT", lastFrame, "BOTTOMLEFT", 0, -REWARDS_SECTION_OFFSET);
-                        if rewardsFrame.spellHeaderPool.textR and rewardsFrame.spellHeaderPool.textG and rewardsFrame.spellHeaderPool.textB then
-                            header:SetVertexColor(rewardsFrame.spellHeaderPool.textR, rewardsFrame.spellHeaderPool.textG, rewardsFrame.spellHeaderPool.textB);
-                        end
-                        header:Show();
-
-                        totalHeight = totalHeight + header:GetHeight() + REWARDS_SECTION_OFFSET;
-                        lastFrame = header;
-                    end
-
-                    local anchorFrame;
-                    if garrFollowerID then
-                        local followerFrame = rewardsFrame.followerRewardPool:Acquire();
-                        local followerInfo = C_Garrison.GetFollowerInfo(garrFollowerID);
-                        followerFrame.Name:SetText(followerInfo.name);
-                        followerFrame.Class:SetAtlas(followerInfo.classAtlas);
-                        followerFrame.PortraitFrame:SetupPortrait(followerInfo);
-                        followerFrame.ID = garrFollowerID;
-                        followerFrame:Show();
-
-                        anchorFrame = followerFrame;
+            for rewardSpellIndex = 1, numSpellRewards do
+                local texture, name, isTradeskillSpell, isSpellLearned, hideSpellLearnText, isBoostSpell, garrFollowerID, genericUnlock, spellID = spellGetter(rewardSpellIndex);
+                local knownSpell = IsSpellKnownOrOverridesKnown(spellID);
+                if texture and not knownSpell and (not isBoostSpell or IsCharacterNewlyBoosted()) and (not garrFollowerID or not C_Garrison.IsFollowerCollected(garrFollowerID)) then
+                    if ( isTradeskillSpell ) then
+                        AddSpellToBucket(spellBuckets, QUEST_SPELL_REWARD_TYPE_TRADESKILL_SPELL, rewardSpellIndex);
+                    elseif ( isBoostSpell ) then
+                        AddSpellToBucket(spellBuckets, QUEST_SPELL_REWARD_TYPE_ABILITY, rewardSpellIndex);
+                    elseif ( garrFollowerID ) then
+                        AddSpellToBucket(spellBuckets, QUEST_SPELL_REWARD_TYPE_FOLLOWER, rewardSpellIndex);
+                    elseif ( isSpellLearned ) then
+                        AddSpellToBucket(spellBuckets, QUEST_SPELL_REWARD_TYPE_SPELL, rewardSpellIndex);
+                    elseif ( genericUnlock ) then
+                        AddSpellToBucket(spellBuckets, QUEST_SPELL_REWARD_TYPE_UNLOCK, rewardSpellIndex);
                     else
-                        local spellRewardFrame = rewardsFrame.spellRewardPool:Acquire();
-                        spellRewardFrame.Icon:SetTexture(texture);
-                        spellRewardFrame.Name:SetText(name);
-                        spellRewardFrame.rewardSpellIndex = rewardSpellIndex;
-                        spellRewardFrame:Show();
-
-                        anchorFrame = spellRewardFrame;
+                        AddSpellToBucket(spellBuckets, QUEST_SPELL_REWARD_TYPE_AURA, rewardSpellIndex);
                     end
+                end
+            end
 
-                    anchorFrame:SetPoint("TOPLEFT", lastFrame, "BOTTOMLEFT", 0, -REWARDS_SECTION_OFFSET);
-                    totalHeight = totalHeight + anchorFrame:GetHeight() + REWARDS_SECTION_OFFSET;
+            for orderIndex, spellBucketType in ipairs(QUEST_INFO_SPELL_REWARD_ORDERING) do
+                local spellBucket = spellBuckets[spellBucketType];
+                if spellBucket then
+                    for i, rewardSpellIndex in ipairs(spellBucket) do
+                        local texture, name, isTradeskillSpell, isSpellLearned, hideSpellLearnText, isBoostSpell, garrFollowerID = spellGetter(rewardSpellIndex);
+                        -- hideSpellLearnText is a quest flag
+                        if i == 1 and not hideSpellLearnText then
+                            local header = rewardsFrame.spellHeaderPool:Acquire();
+                            header:SetText(QUEST_INFO_SPELL_REWARD_TO_HEADER[spellBucketType]);
+                            header:SetPoint("TOPLEFT", lastFrame, "BOTTOMLEFT", 0, -REWARDS_SECTION_OFFSET);
+                            if rewardsFrame.spellHeaderPool.textR and rewardsFrame.spellHeaderPool.textG and rewardsFrame.spellHeaderPool.textB then
+                                header:SetVertexColor(rewardsFrame.spellHeaderPool.textR, rewardsFrame.spellHeaderPool.textG, rewardsFrame.spellHeaderPool.textB);
+                            end
+                            header:Show();
 
-                    lastFrame = anchorFrame;
+                            totalHeight = totalHeight + header:GetHeight() + REWARDS_SECTION_OFFSET;
+                            lastFrame = header;
+                        end
+
+                        local anchorFrame;
+                        if garrFollowerID then
+                            local followerFrame = rewardsFrame.followerRewardPool:Acquire();
+                            local followerInfo = C_Garrison.GetFollowerInfo(garrFollowerID);
+                            followerFrame.Name:SetText(followerInfo.name);
+                            followerFrame.Class:SetAtlas(followerInfo.classAtlas);
+                            followerFrame.PortraitFrame:SetupPortrait(followerInfo);
+                            followerFrame.ID = garrFollowerID;
+                            followerFrame:Show();
+
+                            anchorFrame = followerFrame;
+                        else
+                            local spellRewardFrame = rewardsFrame.spellRewardPool:Acquire();
+                            spellRewardFrame.Icon:SetTexture(texture);
+                            spellRewardFrame.Name:SetText(name);
+                            spellRewardFrame.rewardSpellIndex = rewardSpellIndex;
+                            spellRewardFrame:Show();
+
+                            anchorFrame = spellRewardFrame;
+                        end
+
+                        anchorFrame:SetPoint("TOPLEFT", lastFrame, "BOTTOMLEFT", 0, -REWARDS_SECTION_OFFSET);
+                        totalHeight = totalHeight + anchorFrame:GetHeight() + REWARDS_SECTION_OFFSET;
+
+                        lastFrame = anchorFrame;
+                    end
                 end
             end
         end
+
+        -- Title reward
+        if ( playerTitle ) then
+            rewardsFrame.PlayerTitleText:Show();
+            rewardsFrame.PlayerTitleText:SetPoint("TOPLEFT", lastFrame, "BOTTOMLEFT", 0, -REWARDS_SECTION_OFFSET);
+            totalHeight = totalHeight +  rewardsFrame.PlayerTitleText:GetHeight() + REWARDS_SECTION_OFFSET;
+            rewardsFrame.TitleFrame:SetPoint("TOPLEFT", rewardsFrame.PlayerTitleText, "BOTTOMLEFT", 0, -REWARDS_SECTION_OFFSET);
+            rewardsFrame.TitleFrame.Name:SetText(playerTitle);
+            rewardsFrame.TitleFrame:Show();
+            lastFrame = rewardsFrame.TitleFrame;
+            totalHeight = totalHeight +  rewardsFrame.TitleFrame:GetHeight() + REWARDS_SECTION_OFFSET;
+        else]]
+    rewardsFrame.PlayerTitleText:Hide();
+    rewardsFrame.TitleFrame:Hide();
+    --[[    end
+
+        -- Setup mandatory rewards
+        if ( numQuestRewards > 0 or numQuestCurrencies > 0 or money > 0 or xp > 0 ) then
+            -- receive text, will either say "You will receive" or "You will also receive"
+            local questItemReceiveText = rewardsFrame.ItemReceiveText;
+            if ( numQuestChoices > 0 or numQuestSpellRewards > 0 or playerTitle ) then
+                questItemReceiveText:SetText(REWARD_ITEMS);
+            else
+                questItemReceiveText:SetText(REWARD_ITEMS_ONLY);
+            end
+            questItemReceiveText:SetPoint("TOPLEFT", lastFrame, "BOTTOMLEFT", 0, -REWARDS_SECTION_OFFSET);
+            questItemReceiveText:Show();
+            totalHeight = totalHeight + questItemReceiveText:GetHeight() + REWARDS_SECTION_OFFSET;
+            lastFrame = questItemReceiveText;
+            -- Money and XP
+            if ( QuestInfoFrame.mapView ) then
+                if ( xp > 0 ) then
+                    rewardsFrame.XPFrame:SetPoint("TOPLEFT", lastFrame, "BOTTOMLEFT", 0, -REWARDS_SECTION_OFFSET);
+                    rewardsFrame.XPFrame.Name:SetText(BreakUpLargeNumbers(xp));
+                    rewardsFrame.XPFrame:Show();
+                    lastFrame = rewardsFrame.XPFrame;
+                    totalHeight = totalHeight + buttonHeight + REWARDS_SECTION_OFFSET;
+                else --]]
+    rewardsFrame.XPFrame:Hide();
+    --[[            end
+                if ( money > 0 ) then
+                    if ( xp > 0 ) then
+                        rewardsFrame.MoneyFrame:SetPoint("TOPLEFT", rewardsFrame.XPFrame, "TOPRIGHT", 2, 0);
+                    else
+                        rewardsFrame.MoneyFrame:SetPoint("TOPLEFT", lastFrame, "BOTTOMLEFT", 0, -REWARDS_SECTION_OFFSET);
+                        lastFrame = rewardsFrame.MoneyFrame;
+                        totalHeight = totalHeight + buttonHeight + REWARDS_SECTION_OFFSET;
+                    end
+                    rewardsFrame.MoneyFrame.Name:SetText(GetMoneyString(money));
+                    rewardsFrame.MoneyFrame:Show();
+                else --]]
+    rewardsFrame.MoneyFrame:Hide();
+    --[[            end
+            else
+                -- Money rewards
+                if ( money > 0 ) then
+                    MoneyFrame_Update(rewardsFrame.MoneyFrame, money);
+                    rewardsFrame.MoneyFrame:Show();
+                else
+                    rewardsFrame.MoneyFrame:Hide();
+                end
+                -- XP rewards
+                if ( QuestInfo_ToggleRewardElement(rewardsFrame.XPFrame, BreakUpLargeNumbers(xp), lastFrame) ) then
+                    lastFrame = rewardsFrame.XPFrame;
+                    totalHeight = totalHeight + rewardsFrame.XPFrame:GetHeight() + REWARDS_SECTION_OFFSET;
+                end
+            end
+            -- Skill Point rewards
+            if ( QuestInfo_ToggleRewardElement(rewardsFrame.SkillPointFrame, skillPoints, lastFrame) ) then
+                lastFrame = rewardsFrame.SkillPointFrame;
+                rewardsFrame.SkillPointFrame.Icon:SetTexture(skillIcon);
+                if (skillName) then
+                    rewardsFrame.SkillPointFrame.Name:SetFormattedText(BONUS_SKILLPOINTS, skillName);
+                    rewardsFrame.SkillPointFrame.tooltip = format(BONUS_SKILLPOINTS_TOOLTIP, skillPoints, skillName);
+                else
+                    rewardsFrame.SkillPointFrame.tooltip = nil;
+                    rewardsFrame.SkillPointFrame.Name:SetText("");
+                end
+                totalHeight = totalHeight + buttonHeight + REWARDS_SECTION_OFFSET;
+            end
+            -- Item rewards]]
+
+    local loot = creature["Loot"] or {
+        items = { }
+    }
+    if type(loot) ~= "table" then
+        loot = {
+            items = { loot }
+        }
     end
 
-    -- Title reward
-    if ( playerTitle ) then
-        rewardsFrame.PlayerTitleText:Show();
-        rewardsFrame.PlayerTitleText:SetPoint("TOPLEFT", lastFrame, "BOTTOMLEFT", 0, -REWARDS_SECTION_OFFSET);
-        totalHeight = totalHeight +  rewardsFrame.PlayerTitleText:GetHeight() + REWARDS_SECTION_OFFSET;
-        rewardsFrame.TitleFrame:SetPoint("TOPLEFT", rewardsFrame.PlayerTitleText, "BOTTOMLEFT", 0, -REWARDS_SECTION_OFFSET);
-        rewardsFrame.TitleFrame.Name:SetText(playerTitle);
-        rewardsFrame.TitleFrame:Show();
-        lastFrame = rewardsFrame.TitleFrame;
-        totalHeight = totalHeight +  rewardsFrame.TitleFrame:GetHeight() + REWARDS_SECTION_OFFSET;
-    else]]
-        rewardsFrame.PlayerTitleText:Hide();
-        rewardsFrame.TitleFrame:Hide();
---[[    end
+    local numQuestRewards = 0
+    if loot.items then
+        numQuestRewards = #(loot.items)
+    end
+    local index
+    local baseIndex = 0;
+    local buttonIndex = 0;
+    for i = 1, numQuestRewards, 1 do
+        buttonIndex = buttonIndex + 1;
+        index = i + baseIndex;
 
-    -- Setup mandatory rewards
-    if ( numQuestRewards > 0 or numQuestCurrencies > 0 or money > 0 or xp > 0 ) then
-        -- receive text, will either say "You will receive" or "You will also receive"]]
-        local questItemReceiveText = rewardsFrame.ItemReceiveText;
---[[        if ( numQuestChoices > 0 or numQuestSpellRewards > 0 or playerTitle ) then
-            questItemReceiveText:SetText(REWARD_ITEMS);
-        else]]
-            questItemReceiveText:SetText(REWARD_ITEMS_ONLY);
---[[        end]]
-        questItemReceiveText:SetPoint("TOPLEFT", lastFrame, "BOTTOMLEFT", 0, -REWARDS_SECTION_OFFSET);
-        questItemReceiveText:Show();
-        totalHeight = totalHeight + questItemReceiveText:GetHeight() + REWARDS_SECTION_OFFSET;
-        lastFrame = questItemReceiveText;
---[[
-        -- Money and XP
-        if ( QuestInfoFrame.mapView ) then
-            if ( xp > 0 ) then
-                rewardsFrame.XPFrame:SetPoint("TOPLEFT", lastFrame, "BOTTOMLEFT", 0, -REWARDS_SECTION_OFFSET);
-                rewardsFrame.XPFrame.Name:SetText(BreakUpLargeNumbers(xp));
-                rewardsFrame.XPFrame:Show();
-                lastFrame = rewardsFrame.XPFrame;
-                totalHeight = totalHeight + buttonHeight + REWARDS_SECTION_OFFSET;
+        local questItem = QuestInfo_GetRewardButton(rewardsFrame, i);
+        questItem.type = "reward";
+        questItem.objectType = "item";
+
+        questItem:SetID(loot.items[i])
+        questItem:Show()
+
+        local itemID = loot.items[i]
+        local item = Item:CreateFromItemID(itemID)
+        item:ContinueOnItemLoad(function()
+            questItem.Name:SetText(item:GetItemName())
+            questItem.Icon:SetTexture(item:GetItemIcon())
+            SetItemButtonQuality(questItem, item:GetItemQuality(), itemID, false)
+        end)
+        if ( buttonIndex > 1 ) then
+            if ( mod(buttonIndex,2) == 1 ) then
+                questItem:SetPoint("TOPLEFT", rewardButtons[index - 2], "BOTTOMLEFT", 0, -2);
+                lastFrame = questItem;
+                totalHeight = totalHeight + buttonHeight + 2;
             else
-                rewardsFrame.XPFrame:Hide();
-            end
-            if ( money > 0 ) then
-                if ( xp > 0 ) then
-                    rewardsFrame.MoneyFrame:SetPoint("TOPLEFT", rewardsFrame.XPFrame, "TOPRIGHT", 2, 0);
-                else
-                    rewardsFrame.MoneyFrame:SetPoint("TOPLEFT", lastFrame, "BOTTOMLEFT", 0, -REWARDS_SECTION_OFFSET);
-                    lastFrame = rewardsFrame.MoneyFrame;
-                    totalHeight = totalHeight + buttonHeight + REWARDS_SECTION_OFFSET;
-                end
-                rewardsFrame.MoneyFrame.Name:SetText(GetMoneyString(money));
-                rewardsFrame.MoneyFrame:Show();
-            else
-                rewardsFrame.MoneyFrame:Hide();
+                questItem:SetPoint("TOPLEFT", rewardButtons[index - 1], "TOPRIGHT", 1, 0);
             end
         else
-            -- Money rewards
-            if ( money > 0 ) then
-                MoneyFrame_Update(rewardsFrame.MoneyFrame, money);
-                rewardsFrame.MoneyFrame:Show();
-            else
-                rewardsFrame.MoneyFrame:Hide();
-            end
-            -- XP rewards
-            if ( QuestInfo_ToggleRewardElement(rewardsFrame.XPFrame, BreakUpLargeNumbers(xp), lastFrame) ) then
-                lastFrame = rewardsFrame.XPFrame;
-                totalHeight = totalHeight + rewardsFrame.XPFrame:GetHeight() + REWARDS_SECTION_OFFSET;
-            end
-        end
-        -- Skill Point rewards
-        if ( QuestInfo_ToggleRewardElement(rewardsFrame.SkillPointFrame, skillPoints, lastFrame) ) then
-            lastFrame = rewardsFrame.SkillPointFrame;
-            rewardsFrame.SkillPointFrame.Icon:SetTexture(skillIcon);
-            if (skillName) then
-                rewardsFrame.SkillPointFrame.Name:SetFormattedText(BONUS_SKILLPOINTS, skillName);
-                rewardsFrame.SkillPointFrame.tooltip = format(BONUS_SKILLPOINTS_TOOLTIP, skillPoints, skillName);
-            else
-                rewardsFrame.SkillPointFrame.tooltip = nil;
-                rewardsFrame.SkillPointFrame.Name:SetText("");
-            end
+            questItem:SetPoint("TOPLEFT", lastFrame, "BOTTOMLEFT", 0, -REWARDS_SECTION_OFFSET);
+            lastFrame = questItem;
             totalHeight = totalHeight + buttonHeight + REWARDS_SECTION_OFFSET;
         end
-        -- Item rewards
-        local index;]]
-    local index = 1
---[[        local baseIndex = rewardsCount;
-        local buttonIndex = 0;
-        for i = 1, numQuestRewards, 1 do
-            buttonIndex = buttonIndex + 1;
-            index = i + baseIndex; ]]
-            questItem = QuestInfo_GetRewardButton(rewardsFrame, index);
-            questItem.type = "reward";
-            questItem.objectType = "item";
-            local loot = creature["Loot"] or 33447
-            SetItemButtonQuality(questItem, 1, loot)
-            questItem:SetID(index)
-            questItem:Show();
-            questItem.Name:SetText("Loot");
-    questItem:SetPoint("TOPLEFT", lastFrame, "BOTTOMLEFT", 0, -REWARDS_SECTION_OFFSET);
-    lastFrame = questItem;
-    totalHeight = totalHeight + buttonHeight + REWARDS_SECTION_OFFSET;
+        rewardsCount = rewardsCount + 1;
+
+
+        --questItem:SetPoint("TOPLEFT", lastFrame, "BOTTOMLEFT", 0, -REWARDS_SECTION_OFFSET);
+        lastFrame = questItem;
+        -- totalHeight = totalHeight + buttonHeight + REWARDS_SECTION_OFFSET;
+    end
     --[[            if ( QuestInfoFrame.questLog ) then
                 name, texture, numItems, quality, isUsable, itemID = GetQuestLogRewardInfo(i);
                 SetItemButtonQuality(questItem, quality, itemID);
@@ -950,27 +1141,27 @@ local function RareInfo_ShowRewards(creature)
         else
             rewardsFrame.HonorFrame:Hide();
         end
-    else
-        rewardsFrame.ItemReceiveText:Hide();
-        rewardsFrame.MoneyFrame:Hide();
-        rewardsFrame.XPFrame:Hide();
-        rewardsFrame.SkillPointFrame:Hide();
-        rewardsFrame.HonorFrame:Hide();
-    end
+    else ]]
+    rewardsFrame.ItemReceiveText:Hide();
+    rewardsFrame.MoneyFrame:Hide();
+    rewardsFrame.XPFrame:Hide();
+    rewardsFrame.SkillPointFrame:Hide();
+    rewardsFrame.HonorFrame:Hide();
+    --[[    end
 
-    -- deselect item
-    QuestInfoFrame.itemChoice = 0;
-    if ( rewardsFrame.ItemHighlight ) then
-        rewardsFrame.ItemHighlight:Hide();
-    end]]
+        -- deselect item
+        QuestInfoFrame.itemChoice = 0;
+        if ( rewardsFrame.ItemHighlight ) then
+            rewardsFrame.ItemHighlight:Hide();
+        end]]
     rewardsFrame:Show();
     rewardsFrame:SetHeight(totalHeight);
     return rewardsFrame, lastFrame;
 end
 
 
-local function RaresLogFrame_ShowRareDetails(creature)
---    RareInfo_Display(RARE_TEMPLATE_MAP_DETAILS, QuestMapFrame.DetailsFrame.ScrollFrame.Contents);
+function RaresLogFrame_ShowRareDetails(creature)
+    --    RareInfo_Display(RARE_TEMPLATE_MAP_DETAILS, QuestMapFrame.DetailsFrame.ScrollFrame.Contents);
     local elements = {
         QuestInfoTitleHeader, 5, -5,
         QuestInfoQuestType, 0, -5,
@@ -980,8 +1171,6 @@ local function RaresLogFrame_ShowRareDetails(creature)
         --QuestInfo_ShowSpecialObjectives, 0, -10,
         --QuestInfo_ShowRequiredMoney, 0, 0,
         --QuestInfo_ShowGroupSize, 0, -10,
-        QuestInfoDescriptionHeader, 0, -10,
-        QuestInfoDescriptionText, 0, -5,
         --QuestInfo_ShowSeal, 0, 0,
         --QuestInfo_ShowSpacer, 0, 0,
     }
@@ -991,7 +1180,21 @@ local function RaresLogFrame_ShowRareDetails(creature)
     QuestInfoTitleHeader:SetWidth(contentWidth)
     QuestInfoQuestType:SetText("|T1121272:20:20:0:2:1024:512:576:608:373:405|t Rare Spawn")
 
-    QuestInfoDescriptionText:SetText(L["No Description"]);
+
+    local description = creature["Description"]
+    if description then
+        table.insert(elements, QuestInfoDescriptionHeader)
+        table.insert(elements, 0)
+        table.insert(elements, -10)
+        table.insert(elements, QuestInfoDescriptionText)
+        table.insert(elements, 0)
+        table.insert(elements, -5)
+        QuestInfoDescriptionText:SetText(description)
+        QuestInfoDescriptionText:SetWidth(244)
+    else
+        QuestInfoDescriptionHeader:Hide()
+        QuestInfoDescriptionText:Hide()
+    end
     local lastFrame;
     for i = 1, #elements, 3 do
         shownFrame = elements[i]
@@ -1024,19 +1227,19 @@ local function RaresLogFrame_ShowRareDetails(creature)
     --    QuestFrame_ShowQuestPortrait(mapFrame, questPortrait, questPortraitMount, questPortraitText, questPortraitName, -2, -43);
     --    QuestNPCModel:SetFrameLevel(mapFrame:GetFrameLevel() + 2);
     --else
-        --QuestFrame_HideQuestPortrait();
+    --QuestFrame_HideQuestPortrait();
     --end
     --
     ---- height
-    --local height;
-    --if ( MapQuestInfoRewardsFrame:IsShown() ) then
-    --    height = MapQuestInfoRewardsFrame:GetHeight() + 49;
-    --else
-    --    height = 59;
-    --end
-    --height = min(height, 275);
-    --QuestMapFrame.DetailsFrame.RewardsFrame:SetHeight(height);
-    --QuestMapFrame.DetailsFrame.RewardsFrame.Background:SetTexCoord(0, 1, 0, height / 275);
+    local height;
+    if ( TomCatsRareInfoRewardsFrame:IsShown() ) then
+        height = TomCatsRareInfoRewardsFrame:GetHeight() + 49;
+    else
+        height = 59;
+    end
+    height = min(height, 275);
+    TomCatsRareMapFrame.DetailsFrame.RewardsFrame:SetHeight(height);
+    TomCatsRareMapFrame.DetailsFrame.RewardsFrame.Background:SetTexCoord(0, 1, 0, height / 275);
     --
     --QuestMapFrame.QuestsFrame:Hide();
     TomCatsRareMapFrame.DetailsFrame:Show();
@@ -1063,16 +1266,10 @@ local function RaresLogFrame_ShowRareDetails(creature)
     --StaticPopup_Hide("ABANDON_QUEST_WITH_ITEMS");
 end
 
-
-function TomCatsRareLogEntryLabel_OnClick(self)
-    TomCatsRareMapFrame.RaresFrame:Hide()
-    RaresLogFrame_ShowRareDetails(self:GetParent().creature)
-end
-
 function TomCatsRareMapFrame_ReturnFromRareDetails()
     TomCatsRareMapFrame.RaresFrame:Show()
     TomCatsRareMapFrame.DetailsFrame:Hide()
 end
 
-
 TCL.Events.RegisterEvent("ADDON_LOADED", ADDON_LOADED)
+
