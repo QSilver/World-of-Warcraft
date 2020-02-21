@@ -1,6 +1,6 @@
 ﻿-- Pawn by Vger-Azjol-Nerub
 -- www.vgermods.com
--- © 2006-2019 Green Eclipse.  This mod is released under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 license.
+-- © 2006-2020 Green Eclipse.  This mod is released under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 license.
 -- See Readme.htm for more information.
 
 -- 
@@ -17,93 +17,143 @@ local L
 -- For conciseness
 L = PawnLocal.Stats
 
+PawnStatLiveOnly = 1
+PawnStatClassicOnly = 2
+
+PawnStatNormal = 1
+PawnStatUnignorable = 2
+PawnStatItemType = 3
+
 -- The master list of all stats that Pawn supports.
 -- First column is the friendly translated name of the stat.
 -- Second column is the Pawn name of the stat; this can't be translated.
 -- Third column is the description of the stat; if not present, then it won't show up on the Values tab.
 -- Fourth column is true if the stat can't be ignored.
 -- Fifth column is an optional chunk of text instead of the "1 ___ is worth:" prompt.
+-- Sixth column is optional, and determines whether the stat is shown for live only, classic only, or both.
 -- If only a name is present, the row becomes an uneditable header in the UI and is otherwise ignored.
-PawnStats =
+local PawnStatsUnfiltered =
 {
 	{STAT_CATEGORY_ATTRIBUTES},
-	{SPELL_STAT1_NAME, "Strength", L.StrengthInfo, true},
-	{SPELL_STAT2_NAME, "Agility", L.AgilityInfo, true},
-	{SPELL_STAT4_NAME, "Intellect", L.IntellectInfo, true},
-	{SPELL_STAT3_NAME, "Stamina", L.StaminaInfo, true},
-	{ARMOR, "Armor", L.ArmorInfo},
+	{SPELL_STAT1_NAME, "Strength", L.StrengthInfo, PawnStatUnignorable},
+	{SPELL_STAT2_NAME, "Agility", L.AgilityInfo, PawnStatUnignorable},
+	{SPELL_STAT4_NAME, "Intellect", L.IntellectInfo, PawnStatUnignorable},
+	{SPELL_STAT3_NAME, "Stamina", L.StaminaInfo, PawnStatUnignorable},
+	{SPELL_STAT5_NAME, "Spirit", L.SpiritInfo, PawnStatUnignorable, nil, PawnStatClassicOnly},
+	{ARMOR, "Armor", L.ArmorInfo, PawnStatUnignorable},
 
 	{STAT_CATEGORY_ENHANCEMENTS},
+	{ITEM_MOD_HIT_RATING_SHORT, "HitRating", L.HitInfo, PawnStatNormal, nil, PawnStatClassicOnly},
+	{ITEM_MOD_HIT_SPELL_RATING_SHORT, "SpellHitRating", L.SpellHitInfo, PawnStatNormal, nil, PawnStatClassicOnly},
 	{L.Crit, "CritRating", L.CritInfo},
-	{STAT_HASTE, "HasteRating", L.HasteInfo},
-	{STAT_MASTERY, "MasteryRating", L.MasteryInfo},
-	{STAT_VERSATILITY, "Versatility", L.VersatilityInfo},
+	{ITEM_MOD_CRIT_SPELL_RATING_SHORT, "SpellCritRating", L.SpellCritInfo, PawnStatNormal, nil, PawnStatClassicOnly},
+	{STAT_HASTE, "HasteRating", L.HasteInfo, PawnStatNormal, nil, PawnStatLiveOnly},
+	{STAT_MASTERY, "MasteryRating", L.MasteryInfo, PawnStatNormal, nil, PawnStatLiveOnly},
+	{STAT_VERSATILITY, "Versatility", L.VersatilityInfo, PawnStatNormal, nil, PawnStatLiveOnly},
+	{ITEM_MOD_ATTACK_POWER_SHORT, "Ap", L.ApInfo, PawnStatNormal, nil, PawnStatClassicOnly},
+	{ITEM_MOD_RANGED_ATTACK_POWER_SHORT, "Rap", L.RapInfo, PawnStatNormal, nil, PawnStatClassicOnly},
+	{ITEM_MOD_FERAL_ATTACK_POWER_SHORT, "FeralAp", L.FeralApInfo, PawnStatNormal, nil, PawnStatClassicOnly},
+	{L.SpellDamage, "SpellDamage", L.SpellDamageInfo, PawnStatNormal, nil, PawnStatClassicOnly},
+	{L.Healing, "Healing", L.HealingInfo, PawnStatNormal, nil, PawnStatClassicOnly},
+	{ITEM_MOD_DEFENSE_SKILL_RATING_SHORT, "DefenseRating", L.DefenseInfo, PawnStatNormal, nil, PawnStatClassicOnly},
+	{ITEM_MOD_DODGE_RATING_SHORT, "DodgeRating", L.DodgeInfo, PawnStatNormal, nil, PawnStatClassicOnly},
+	{ITEM_MOD_PARRY_RATING_SHORT , "ParryRating", L.ParryInfo, PawnStatNormal, nil, PawnStatClassicOnly},
+	{ITEM_MOD_BLOCK_RATING_SHORT, "BlockRating", L.BlockRatingInfo, PawnStatNormal, nil, PawnStatClassicOnly},
+	{ITEM_MOD_BLOCK_VALUE_SHORT, "BlockValue", L.BlockValueInfo, PawnStatNormal, nil, PawnStatClassicOnly},
 
 	{L.MinorStats},
-	{STAT_MOVEMENT_SPEED, "MovementSpeed", L.MovementSpeedInfo},
-	{STAT_AVOIDANCE, "Avoidance", L.AvoidanceInfo},
-	{STAT_LIFESTEAL, "Leech", L.LeechInfo},
-	{STAT_STURDINESS, "Indestructible", L.IndestructibleInfo, false, L.IndestructibleIs},
+	{STAT_MOVEMENT_SPEED, "MovementSpeed", L.MovementSpeedInfo, PawnStatNormal, nil, PawnStatLiveOnly},
+	{STAT_AVOIDANCE, "Avoidance", L.AvoidanceInfo, PawnStatNormal, nil, PawnStatLiveOnly},
+	{STAT_LIFESTEAL, "Leech", L.LeechInfo, PawnStatNormal, nil, PawnStatLiveOnly},
+	{STAT_STURDINESS, "Indestructible", L.IndestructibleInfo, PawnStatNormal, L.IndestructibleIs, PawnStatLiveOnly},
+	{ITEM_MOD_POWER_REGEN0_SHORT, "Mp5", L.Mp5Info, PawnStatNormal, nil, PawnStatClassicOnly},
+	{ITEM_MOD_HEALTH_REGEN_SHORT, "Hp5", L.Hp5Info, PawnStatNormal, nil, PawnStatClassicOnly},
+	{RESISTANCE2_NAME, "FireResist", L.FireResistInfo, PawnStatNormal, nil, PawnStatClassicOnly},
+	{RESISTANCE3_NAME, "NatureResist", L.NatureResistInfo, PawnStatNormal, nil, PawnStatClassicOnly},
+	{RESISTANCE4_NAME, "FrostResist", L.FrostResistInfo, PawnStatNormal, nil, PawnStatClassicOnly},
+	{RESISTANCE5_NAME, "ShadowResist", L.ShadowResistInfo, PawnStatNormal, nil, PawnStatClassicOnly},
+	{RESISTANCE6_NAME, "ArcaneResist", L.ArcaneResistInfo, PawnStatNormal, nil, PawnStatClassicOnly},
+	{L.FireSpellDamage, "FireSpellDamage", L.FireSpellDamageInfo, PawnStatNormal, nil, PawnStatClassicOnly},
+	{L.ShadowSpellDamage, "ShadowSpellDamage", L.ShadowSpellDamageInfo, PawnStatNormal, nil, PawnStatClassicOnly},
+	{L.NatureSpellDamage, "NatureSpellDamage", L.NatureSpellDamageInfo, PawnStatNormal, nil, PawnStatClassicOnly},
+	{L.ArcaneSpellDamage, "ArcaneSpellDamage", L.ArcaneSpellDamageInfo, PawnStatNormal, nil, PawnStatClassicOnly},
+	{L.FrostSpellDamage, "FrostSpellDamage", L.FrostSpellDamageInfo, PawnStatNormal, nil, PawnStatClassicOnly},
+	{L.HolySpellDamage, "HolySpellDamage", L.HolySpellDamageInfo, PawnStatNormal, nil, PawnStatClassicOnly},
+	{ITEM_MOD_CORRUPTION, "Corruption", L.CorruptionInfo, PawnStatNormal, nil, PawnStatLiveOnly},
 
 	{L.WeaponStats},
-	{STAT_DPS_SHORT, "Dps", L.DpsInfo, true},
-	{WEAPON_SPEED, "Speed", L.SpeedInfo, true, L.SpeedIs},
+	{STAT_DPS_SHORT, "Dps", L.DpsInfo, PawnStatUnignorable},
+	{WEAPON_SPEED, "Speed", L.SpeedInfo, PawnStatUnignorable, L.SpeedIs},
 
 	{L.ArmorTypes},
-	{L.Cloth, "IsCloth", L.ClothInfo},
-	{L.Leather, "IsLeather", L.LeatherInfo},
-	{L.Mail, "IsMail", L.MailInfo},
-	{L.Plate, "IsPlate", L.PlateInfo},
-	{L.Shield, "IsShield", L.ShieldInfo},
+	{L.Cloth, "IsCloth", L.ClothInfo, PawnStatItemType},
+	{L.Leather, "IsLeather", L.LeatherInfo, PawnStatItemType},
+	{L.Mail, "IsMail", L.MailInfo, PawnStatItemType},
+	{L.Plate, "IsPlate", L.PlateInfo, PawnStatItemType},
+	{L.Shield, "IsShield", L.ShieldInfo, PawnStatItemType},
 
 	{L.WeaponTypes},
-	{L.WeaponType1HAxe, "IsAxe", L.WeaponType1HAxeInfo},
-	{L.WeaponType2HAxe, "Is2HAxe", L.WeaponType2HAxeInfo},
-	{L.WeaponTypeBow, "IsBow", L.WeaponTypeBowInfo},
-	{L.WeaponTypeCrossbow, "IsCrossbow", L.WeaponTypeCrossbowInfo},
-	{L.WeaponTypeDagger, "IsDagger", L.WeaponTypeDaggerInfo},
-	{L.WeaponTypeFistWeapon, "IsFist", L.WeaponTypeFistWeaponInfo},
-	{L.WeaponTypeGun, "IsGun", L.WeaponTypeGunInfo},
-	{L.WeaponType1HMace, "IsMace", L.WeaponType1HMaceInfo},
-	{L.WeaponType2HMace, "Is2HMace", L.WeaponType2HMaceInfo},
-	{L.WeaponTypePolearm, "IsPolearm", L.WeaponTypePolearmInfo},
-	{L.WeaponTypeStaff, "IsStaff", L.WeaponTypeStaffInfo},
-	{L.WeaponType1HSword, "IsSword", L.WeaponType1HSwordInfo},
-	{L.WeaponType2HSword, "Is2HSword", L.WeaponType2HSwordInfo},
-	{L.WeaponTypeWand, "IsWand", L.WeaponTypeWandInfo},
-	{L.WeaponTypeWarglaive, "IsWarglaive", L.WeaponTypeWarglaiveInfo},
-	{L.WeaponTypeOffHand, "IsOffHand", L.WeaponTypeOffHandInfo},
-	{L.WeaponTypeFrill, "IsFrill", L.WeaponTypeFrillInfo},
+	{L.WeaponType1HAxe, "IsAxe", L.WeaponType1HAxeInfo, PawnStatItemType},
+	{L.WeaponType2HAxe, "Is2HAxe", L.WeaponType2HAxeInfo, PawnStatItemType},
+	{L.WeaponTypeBow, "IsBow", L.WeaponTypeBowInfo, PawnStatItemType},
+	{L.WeaponTypeCrossbow, "IsCrossbow", L.WeaponTypeCrossbowInfo, PawnStatItemType},
+	{L.WeaponTypeDagger, "IsDagger", L.WeaponTypeDaggerInfo, PawnStatItemType},
+	{L.WeaponTypeFistWeapon, "IsFist", L.WeaponTypeFistWeaponInfo, PawnStatItemType},
+	{L.WeaponTypeGun, "IsGun", L.WeaponTypeGunInfo, PawnStatItemType},
+	{L.WeaponType1HMace, "IsMace", L.WeaponType1HMaceInfo, PawnStatItemType},
+	{L.WeaponType2HMace, "Is2HMace", L.WeaponType2HMaceInfo, PawnStatItemType},
+	{L.WeaponTypePolearm, "IsPolearm", L.WeaponTypePolearmInfo, PawnStatItemType},
+	{L.WeaponTypeStaff, "IsStaff", L.WeaponTypeStaffInfo, PawnStatItemType},
+	{L.WeaponType1HSword, "IsSword", L.WeaponType1HSwordInfo, PawnStatItemType},
+	{L.WeaponType2HSword, "Is2HSword", L.WeaponType2HSwordInfo, PawnStatItemType},
+	{L.WeaponTypeWand, "IsWand", L.WeaponTypeWandInfo, PawnStatItemType},
+	{L.WeaponTypeWarglaive, "IsWarglaive", L.WeaponTypeWarglaiveInfo, PawnStatItemType, nil, PawnStatLiveOnly},
+	{L.WeaponTypeOffHand, "IsOffHand", L.WeaponTypeOffHandInfo, PawnStatItemType},
+	{L.WeaponTypeFrill, "IsFrill", L.WeaponTypeFrillInfo, PawnStatItemType},
 
 	{L.SpecialWeaponStats},
-	{L.WeaponMinDamage, "MinDamage", L.WeaponMinDamageInfo, true},
-	{L.WeaponMaxDamage, "MaxDamage", L.WeaponMaxDamageInfo, true},
-	{L.WeaponMeleeDps, "MeleeDps", L.WeaponMeleeDpsInfo, true},
-	{L.WeaponMeleeMinDamage, "MeleeMinDamage", L.WeaponMeleeMinDamageInfo, true},
-	{L.WeaponMeleeMaxDamage, "MeleeMaxDamage", L.WeaponMeleeMaxDamageInfo, true},
-	{L.WeaponMeleeSpeed, "MeleeSpeed", L.WeaponMeleeSpeedInfo, true},
-	{L.WeaponRangedDps, "RangedDps", L.WeaponRangedDpsInfo, true},
-	{L.WeaponRangedMinDamage, "RangedMinDamage", L.WeaponRangedMinDamageInfo, true},
-	{L.WeaponRangedMaxDamage, "RangedMaxDamage", L.WeaponRangedMaxDamageInfo, true},
-	{L.WeaponRangedSpeed, "RangedSpeed", L.WeaponRangedSpeedInfo, true},
-	{L.WeaponMainHandDps, "MainHandDps", L.WeaponMainHandDpsInfo, true},
-	{L.WeaponMainHandMinDamage, "MainHandMinDamage", L.WeaponMainHandMinDamageInfo, true},
-	{L.WeaponMainHandMaxDamage, "MainHandMaxDamage", L.WeaponMainHandMaxDamageInfo, true},
-	{L.WeaponMainHandSpeed, "MainHandSpeed", L.WeaponMainHandSpeedInfo, true},
-	{L.WeaponOffHandDps, "OffHandDps", L.WeaponOffHandDpsInfo, true},
-	{L.WeaponOffHandMinDamage, "OffHandMinDamage", L.WeaponOffHandMinDamageInfo, true},
-	{L.WeaponOffHandMaxDamage, "OffHandMaxDamage", L.WeaponOffHandMaxDamageInfo, true},
-	{L.WeaponOffHandSpeed, "OffHandSpeed", L.WeaponOffHandSpeedInfo, true},
-	{L.WeaponOneHandDps, "OneHandDps", L.WeaponOneHandDpsInfo, true},
-	{L.WeaponOneHandMinDamage, "OneHandMinDamage", L.WeaponOneHandMinDamageInfo, true},
-	{L.WeaponOneHandMaxDamage, "OneHandMaxDamage", L.WeaponOneHandMaxDamageInfo, true},
-	{L.WeaponOneHandSpeed, "OneHandSpeed", L.WeaponOneHandSpeedInfo, true},
-	{L.WeaponTwoHandDps, "TwoHandDps", L.WeaponTwoHandDpsInfo, true},
-	{L.WeaponTwoHandMinDamage, "TwoHandMinDamage", L.WeaponTwoHandMinDamageInfo, true},
-	{L.WeaponTwoHandMaxDamage, "TwoHandMaxDamage", L.WeaponTwoHandMaxDamageInfo, true},
-	{L.WeaponTwoHandSpeed, "TwoHandSpeed", L.WeaponTwoHandSpeedInfo, true},
-	{L.SpeedBaseline, "SpeedBaseline", L.SpeedBaselineInfo, true, L.SpeedBaselineIs},
+	{L.WeaponMinDamage, "MinDamage", L.WeaponMinDamageInfo, PawnStatUnignorable},
+	{L.WeaponMaxDamage, "MaxDamage", L.WeaponMaxDamageInfo, PawnStatUnignorable},
+	{L.WeaponMeleeDps, "MeleeDps", L.WeaponMeleeDpsInfo, PawnStatUnignorable},
+	{L.WeaponMeleeMinDamage, "MeleeMinDamage", L.WeaponMeleeMinDamageInfo, PawnStatUnignorable},
+	{L.WeaponMeleeMaxDamage, "MeleeMaxDamage", L.WeaponMeleeMaxDamageInfo, PawnStatUnignorable},
+	{L.WeaponMeleeSpeed, "MeleeSpeed", L.WeaponMeleeSpeedInfo, PawnStatUnignorable},
+	{L.WeaponRangedDps, "RangedDps", L.WeaponRangedDpsInfo, PawnStatUnignorable},
+	{L.WeaponRangedMinDamage, "RangedMinDamage", L.WeaponRangedMinDamageInfo, PawnStatUnignorable},
+	{L.WeaponRangedMaxDamage, "RangedMaxDamage", L.WeaponRangedMaxDamageInfo, PawnStatUnignorable},
+	{L.WeaponRangedSpeed, "RangedSpeed", L.WeaponRangedSpeedInfo, PawnStatUnignorable},
+	{L.WeaponMainHandDps, "MainHandDps", L.WeaponMainHandDpsInfo, PawnStatUnignorable},
+	{L.WeaponMainHandMinDamage, "MainHandMinDamage", L.WeaponMainHandMinDamageInfo, PawnStatUnignorable},
+	{L.WeaponMainHandMaxDamage, "MainHandMaxDamage", L.WeaponMainHandMaxDamageInfo, PawnStatUnignorable},
+	{L.WeaponMainHandSpeed, "MainHandSpeed", L.WeaponMainHandSpeedInfo, PawnStatUnignorable},
+	{L.WeaponOffHandDps, "OffHandDps", L.WeaponOffHandDpsInfo, PawnStatUnignorable},
+	{L.WeaponOffHandMinDamage, "OffHandMinDamage", L.WeaponOffHandMinDamageInfo, PawnStatUnignorable},
+	{L.WeaponOffHandMaxDamage, "OffHandMaxDamage", L.WeaponOffHandMaxDamageInfo, PawnStatUnignorable},
+	{L.WeaponOffHandSpeed, "OffHandSpeed", L.WeaponOffHandSpeedInfo, PawnStatUnignorable},
+	{L.WeaponOneHandDps, "OneHandDps", L.WeaponOneHandDpsInfo, PawnStatUnignorable},
+	{L.WeaponOneHandMinDamage, "OneHandMinDamage", L.WeaponOneHandMinDamageInfo, PawnStatUnignorable},
+	{L.WeaponOneHandMaxDamage, "OneHandMaxDamage", L.WeaponOneHandMaxDamageInfo, PawnStatUnignorable},
+	{L.WeaponOneHandSpeed, "OneHandSpeed", L.WeaponOneHandSpeedInfo, PawnStatUnignorable},
+	{L.WeaponTwoHandDps, "TwoHandDps", L.WeaponTwoHandDpsInfo, PawnStatUnignorable},
+	{L.WeaponTwoHandMinDamage, "TwoHandMinDamage", L.WeaponTwoHandMinDamageInfo, PawnStatUnignorable},
+	{L.WeaponTwoHandMaxDamage, "TwoHandMaxDamage", L.WeaponTwoHandMaxDamageInfo, PawnStatUnignorable},
+	{L.WeaponTwoHandSpeed, "TwoHandSpeed", L.WeaponTwoHandSpeedInfo, PawnStatUnignorable},
+	{L.SpeedBaseline, "SpeedBaseline", L.SpeedBaselineInfo, PawnStatUnignorable, L.SpeedBaselineIs},
 }
+
+-- Filter this list based on expansion level.
+local i, Stat
+local IsClassic = VgerCore.IsClassic
+PawnStats = {}
+
+for i, Stat in pairs(PawnStatsUnfiltered) do
+	if	(Stat[6] == nil) or
+		(Stat[6] == PawnStatClassicOnly and IsClassic) or
+		(Stat[6] == PawnStatLiveOnly and not IsClassic) then
+		Stat[6] = nil
+		tinsert(PawnStats, Stat)
+	end
+end
 
 
 ------------------------------------------------------------
@@ -186,7 +236,6 @@ PawnUIFrame_ValuesWelcomeLabel_ReadOnlyScaleText = L.ValuesWelcomeReadOnly
 PawnUIFrame_ClearValueButton_Text = L.ValuesRemove
 PawnUIFrame_ClearValueButton_Tooltip = L.ValuesRemoveTooltip
 
-PawnUIFrame_IgnoreStatCheck_Text = L.ValuesIgnoreStat
 PawnUIFrame_IgnoreStatCheck_Tooltip = L.ValuesIgnoreStatTooltip
 
 PawnUIFrame_NoUpgradesCheck_Tooltip = L.ValuesDoNotShowUpgradesTooltip

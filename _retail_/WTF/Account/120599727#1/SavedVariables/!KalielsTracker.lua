@@ -2,7 +2,7 @@
 KalielsTrackerDB = {
 	["global"] = {
 		["helpTutorial"] = 11,
-		["version"] = "3.1.10",
+		["version"] = "3.2.1",
 	},
 	["profileKeys"] = {
 		["Qsilver - Silvermoon"] = "Default",

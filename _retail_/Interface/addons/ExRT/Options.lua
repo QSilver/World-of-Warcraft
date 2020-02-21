@@ -439,12 +439,28 @@ OptionsFrame.contactLeft = ELib:Text(OptionsFrame,L.setcontact,12):Size(150,25):
 OptionsFrame.contactRight = ELib:Text(OptionsFrame,"e-mail: ykiigor@gmail.com",12):Size(520,25):Point(135,-235):Color():Shadow():Top()
 
 OptionsFrame.thanksLeft = ELib:Text(OptionsFrame,L.SetThanks,12):Size(150,25):Point(15,-255):Shadow():Top()
-OptionsFrame.thanksRight = ELib:Text(OptionsFrame,"Phanx, funkydude, Shurshik, Kemayo, Guillotine, Rabbit, fookah, diesal2010, Felix, yuk6196, martinkerth, Gyffes, Cubetrace, tigerlolol, Morana, SafeteeWoW",12):Size(520,25):Point(135,-255):Color():Shadow():Top()
+OptionsFrame.thanksRight = ELib:Text(OptionsFrame,"Phanx, funkydude, Shurshik, Kemayo, Guillotine, Rabbit, fookah, diesal2010, Felix, yuk6196, martinkerth, Gyffes, Cubetrace, tigerlolol, Morana, SafeteeWoW, Dejablue",12):Size(520,25):Point(135,-255):Color():Shadow():Top()
 
 if L.TranslateBy ~= "" then
 	OptionsFrame.translateLeft = ELib:Text(OptionsFrame,L.SetTranslate,12):Size(150,25):Point("LEFT",OptionsFrame,15,0):Point("TOP",OptionsFrame.thanksRight,"BOTTOM",0,-8):Shadow():Top()
 	OptionsFrame.translateRight = ELib:Text(OptionsFrame,L.TranslateBy,12):Size(520,25):Point("LEFT",OptionsFrame.thanksRight,"LEFT",0,0):Point("TOP",OptionsFrame.translateLeft,0,0):Color():Shadow():Top()
 end
+
+OptionsFrame.Changelog = ELib:ScrollFrame(OptionsFrame):Size(620,160):Point(15,-325):OnShow(function(self)
+	local isFind
+	local text = (ExRT.Options.Changelog or ""):gsub("^[ \t\n]*","|cff99ff99"):gsub("v%.(%d+)",function(ver)
+		if not isFind and ver ~= tostring(ExRT.V) then
+			isFind = true
+			return "|rv."..ver
+		end
+	end)
+	self.Text:SetText(text)
+	self:Height(self.Text:GetStringHeight()+30)
+	self:OnShow()
+end,true)
+
+OptionsFrame.Changelog.Text = ELib:Text(OptionsFrame.Changelog.C,"",12):Point("TOPLEFT",5,0):Point("TOPRIGHT",-5,0):Left():Color(1,1,1)
+OptionsFrame.Changelog.Header = ELib:Text(OptionsFrame.Changelog,"Changelog",12):Point("BOTTOMLEFT",OptionsFrame.Changelog,"TOPLEFT",0,4):Left()
 
 local VersionCheckReqSended = {}
 local function UpdateVersionCheck()
@@ -514,7 +530,7 @@ local function UpdateVersionCheck()
 	OptionsFrame.VersionCheck:Update()
 end
 
-OptionsFrame.VersionCheck = ELib:ScrollTableList(OptionsFrame,0,130):Point("TOPLEFT",15,-330):Size(350,281)
+OptionsFrame.VersionCheck = ELib:ScrollTableList(OptionsFrame,0,130):Point("TOPLEFT",15,-501):Size(350,110)
 OptionsFrame.VersionUpdateButton = ELib:Button(OptionsFrame,UPDATE):Point("TOPLEFT",OptionsFrame.VersionCheck,"TOPRIGHT",10,0):Size(100,20):OnClick(function()
 	ExRT.F.SendExMsg("needversion","")
 	C_Timer.After(2,UpdateVersionCheck)

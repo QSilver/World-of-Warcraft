@@ -17,10 +17,10 @@ function Compat:Run()
          or (addon:VersionCompare(addon.db.global.version, v.version) or not addon.db.global.version)
          and not v.executed then
          addon:Debug("<Compat>", "Executing:", k, v.name or "no_name")
-         local check = pcall(v.func, addon, addon.version, addon.db.global.version, addon.db.global.oldVersion)
+         local check, err = pcall(v.func, addon, addon.version, addon.db.global.version, addon.db.global.oldVersion)
          v.executed = true
          if not check then
-            addon:Debug("<Compat>", "<ERROR>", "Failed to execute:", v.name)
+            addon:Debug("<Compat>", "<ERROR>", err)
          end
       end
    end
@@ -148,6 +148,61 @@ Compat.list = {
             return count > 0 and addon:Debug("Removed", count, link)
          end, 10)
       end
-   }
+   },
+   {
+      name = "Add iClass and iSubClass to loot history",
+      version = "2.15.0",
+      func = function (addon)
+         addon:ScheduleTimer( -- Wait 20 secs
+            function ()
+               local count = 0
+               for _,factionrealm in pairs(addon.lootDB.sv.factionrealm) do
+                  for player,items  in pairs(factionrealm) do
+                     for i,data in ipairs(items) do
+                        local _, _, _, _, _, itemClassID, itemSubClassID = GetItemInfoInstant(data.lootWon)
+                        data.iClass = itemClassID
+                        data.iSubClass = itemSubClassID
+                        count = count + 1
+                     end
+                  end
+               end
+               addon:DebugLog("Added classID and subClassID to", count, "items")
+            end,
+         20)
+      end
+   },
 
+   {
+      name = "Fix for wrong responseID for awardReasons",
+      version = "2.16.0",
+      func = function (addon, version)
+         addon:ScheduleTimer(
+            function ()
+               -- Build lookup table of the awardReasons text
+               local lookup = {}
+               for k,v in ipairs(addon.db.profile.awardReasons) do
+                  lookup[v.text] = k
+               end
+               -- Search for bad awardReasons
+               local count = 0
+               for _,factionrealm in pairs(addon.lootDB.sv.factionrealm) do
+                  for player,items  in pairs(factionrealm) do
+                     for i,data in ipairs(items) do
+                        if lookup[data.response] then
+                           if type(data.responseID ~= "number") then
+                              data.responseID = lookup[data.response]
+                              count = count + 1
+                           end
+                        end
+                     end
+                  end
+               end
+               if count > 0 then
+                  addon:DebugLog("Fixed", count, "broken award reasons")
+                  addon.db.global[version] = count
+               end
+            end,
+            2)
+      end
+   }
 }

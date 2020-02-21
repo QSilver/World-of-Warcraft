@@ -10021,6 +10021,13 @@ AuctionLiteDB = {
 					["suffix"] = true,
 				},
 				[55580] = {
+					[-5] = {
+						["items"] = 2,
+						["time"] = 1306730452,
+						["scans"] = 1,
+						["price"] = 300000,
+						["listings"] = 2,
+					},
 					[-40] = {
 						["items"] = 1,
 						["time"] = 1306730451,
@@ -10034,13 +10041,6 @@ AuctionLiteDB = {
 						["scans"] = 1,
 						["price"] = 2220000,
 						["listings"] = 1,
-					},
-					[-5] = {
-						["items"] = 2,
-						["time"] = 1306730452,
-						["scans"] = 1,
-						["price"] = 300000,
-						["listings"] = 2,
 					},
 					["suffix"] = true,
 				},
@@ -13061,6 +13061,13 @@ AuctionLiteDB = {
 					["listings"] = 1,
 				},
 				[55351] = {
+					[-121] = {
+						["items"] = 1,
+						["time"] = 1306730452,
+						["scans"] = 1,
+						["price"] = 610000,
+						["listings"] = 1,
+					},
 					[-40] = {
 						["items"] = 1,
 						["time"] = 1306730452,
@@ -13073,13 +13080,6 @@ AuctionLiteDB = {
 						["time"] = 1306730451,
 						["scans"] = 1,
 						["price"] = 1832037,
-						["listings"] = 1,
-					},
-					[-121] = {
-						["items"] = 1,
-						["time"] = 1306730452,
-						["scans"] = 1,
-						["price"] = 610000,
 						["listings"] = 1,
 					},
 					["suffix"] = true,
@@ -14572,6 +14572,13 @@ AuctionLiteDB = {
 					["listings"] = 7,
 				},
 				[55364] = {
+					[-132] = {
+						["items"] = 1,
+						["time"] = 1306730452,
+						["scans"] = 1,
+						["price"] = 800000,
+						["listings"] = 1,
+					},
 					[-37] = {
 						["items"] = 1,
 						["time"] = 1306730451,
@@ -14584,13 +14591,6 @@ AuctionLiteDB = {
 						["time"] = 1306730451,
 						["scans"] = 1,
 						["price"] = 2220000,
-						["listings"] = 1,
-					},
-					[-132] = {
-						["items"] = 1,
-						["time"] = 1306730452,
-						["scans"] = 1,
-						["price"] = 800000,
 						["listings"] = 1,
 					},
 					["suffix"] = true,
@@ -18714,6 +18714,13 @@ AuctionLiteDB = {
 					["suffix"] = true,
 				},
 				[55654] = {
+					[-132] = {
+						["items"] = 1,
+						["time"] = 1306730452,
+						["scans"] = 1,
+						["price"] = 283429,
+						["listings"] = 1,
+					},
 					[-91] = {
 						["items"] = 1,
 						["time"] = 1306730452,
@@ -18726,13 +18733,6 @@ AuctionLiteDB = {
 						["time"] = 1306730451,
 						["scans"] = 1,
 						["price"] = 628000,
-						["listings"] = 1,
-					},
-					[-132] = {
-						["items"] = 1,
-						["time"] = 1306730452,
-						["scans"] = 1,
-						["price"] = 283429,
 						["listings"] = 1,
 					},
 					["suffix"] = true,
@@ -22999,12 +22999,12 @@ AuctionLiteDB = {
 					["listings"] = 4,
 				},
 				[55435] = {
-					[-37] = {
-						["items"] = 3,
+					[-130] = {
+						["items"] = 1,
 						["time"] = 1306730451,
 						["scans"] = 1,
-						["price"] = 2217500,
-						["listings"] = 3,
+						["price"] = 2400000,
+						["listings"] = 1,
 					},
 					[-138] = {
 						["items"] = 1,
@@ -23020,13 +23020,7 @@ AuctionLiteDB = {
 						["price"] = 2220000,
 						["listings"] = 1,
 					},
-					[-130] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 2400000,
-						["listings"] = 1,
-					},
+					["suffix"] = true,
 					[-8] = {
 						["items"] = 2,
 						["time"] = 1306730452,
@@ -23048,9 +23042,22 @@ AuctionLiteDB = {
 						["price"] = 2220000,
 						["listings"] = 1,
 					},
-					["suffix"] = true,
+					[-37] = {
+						["items"] = 3,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 2217500,
+						["listings"] = 3,
+					},
 				},
 				[55691] = {
+					[-5] = {
+						["items"] = 1,
+						["time"] = 1306730452,
+						["scans"] = 1,
+						["price"] = 477764,
+						["listings"] = 1,
+					},
 					[-91] = {
 						["items"] = 1,
 						["time"] = 1306730451,
@@ -23063,13 +23070,6 @@ AuctionLiteDB = {
 						["time"] = 1306730451,
 						["scans"] = 1,
 						["price"] = 655000,
-						["listings"] = 1,
-					},
-					[-5] = {
-						["items"] = 1,
-						["time"] = 1306730452,
-						["scans"] = 1,
-						["price"] = 477764,
 						["listings"] = 1,
 					},
 					["suffix"] = true,
@@ -24472,6 +24472,20 @@ AuctionLiteDB = {
 					["price"] = 6979999,
 					["listings"] = 9,
 				},
+				[153715] = {
+					["items"] = 4048,
+					["time"] = 1570796996,
+					["scans"] = 1,
+					["price"] = 316665,
+					["listings"] = 274,
+				},
+				[2696] = {
+					["items"] = 1,
+					["time"] = 1568324483,
+					["scans"] = 1,
+					["price"] = 37890000,
+					["listings"] = 1,
+				},
 				[160053] = {
 					["items"] = 5067,
 					["time"] = 1536250062,
@@ -24486,19 +24500,19 @@ AuctionLiteDB = {
 					["price"] = 569000,
 					["listings"] = 1096,
 				},
-				[164368] = {
-					["items"] = 3,
+				[164344] = {
+					["items"] = 1,
 					["time"] = 1534981590,
 					["scans"] = 1,
-					["price"] = 1449989999,
-					["listings"] = 3,
+					["price"] = 1999990000,
+					["listings"] = 1,
 				},
-				[153442] = {
-					["items"] = 96,
-					["time"] = 1536249726,
+				[164319] = {
+					["items"] = 1,
+					["time"] = 1534981590,
 					["scans"] = 1,
-					["price"] = 139890000,
-					["listings"] = 96,
+					["price"] = 2499999999,
+					["listings"] = 1,
 				},
 				[40089] = {
 					["items"] = 2,
@@ -24514,11 +24528,11 @@ AuctionLiteDB = {
 					["price"] = 3890000,
 					["listings"] = 3,
 				},
-				[164344] = {
+				[164343] = {
 					["items"] = 1,
 					["time"] = 1534981590,
 					["scans"] = 1,
-					["price"] = 1999990000,
+					["price"] = 3661661342,
 					["listings"] = 1,
 				},
 				[32717] = {
@@ -24535,19 +24549,19 @@ AuctionLiteDB = {
 					["price"] = 549000,
 					["listings"] = 12,
 				},
-				[164319] = {
+				[164325] = {
 					["items"] = 1,
 					["time"] = 1534981590,
 					["scans"] = 1,
-					["price"] = 2499999999,
+					["price"] = 899989999,
 					["listings"] = 1,
 				},
-				[164343] = {
-					["items"] = 1,
-					["time"] = 1534981590,
+				[159125] = {
+					["items"] = 26,
+					["time"] = 1534921960,
 					["scans"] = 1,
-					["price"] = 3661661342,
-					["listings"] = 1,
+					["price"] = 1273960000,
+					["listings"] = 26,
 				},
 				[58263] = {
 					["items"] = 12,
@@ -24573,12 +24587,12 @@ AuctionLiteDB = {
 					["price"] = 119957.262978059,
 					["listings"] = 274.886374974289,
 				},
-				[159125] = {
-					["items"] = 26,
+				[152639] = {
+					["items"] = 230,
 					["time"] = 1534921960,
 					["scans"] = 1,
-					["price"] = 1273960000,
-					["listings"] = 26,
+					["price"] = 13700000,
+					["listings"] = 104,
 				},
 				[42905] = {
 					["items"] = 19,
@@ -24587,15 +24601,12 @@ AuctionLiteDB = {
 					["price"] = 188000,
 					["listings"] = 19,
 				},
-				[9805] = {
-					[89] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 55569,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
+				[153627] = {
+					["items"] = 26,
+					["time"] = 1534921960,
+					["scans"] = 1,
+					["price"] = 112000000,
+					["listings"] = 25,
 				},
 				[43417] = {
 					["items"] = 15,
@@ -24639,27 +24650,6 @@ AuctionLiteDB = {
 					["price"] = 200000,
 					["listings"] = 1,
 				},
-				[152639] = {
-					["items"] = 230,
-					["time"] = 1534921960,
-					["scans"] = 1,
-					["price"] = 13700000,
-					["listings"] = 104,
-				},
-				[18511] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 1995750,
-					["listings"] = 1,
-				},
-				[153627] = {
-					["items"] = 26,
-					["time"] = 1534921960,
-					["scans"] = 1,
-					["price"] = 112000000,
-					["listings"] = 25,
-				},
 				[13511] = {
 					["items"] = 9,
 					["time"] = 1306730452,
@@ -24667,12 +24657,12 @@ AuctionLiteDB = {
 					["price"] = 300000,
 					["listings"] = 9,
 				},
-				[37786] = {
-					["items"] = 3,
+				[18511] = {
+					["items"] = 1,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 299000,
-					["listings"] = 3,
+					["price"] = 1995750,
+					["listings"] = 1,
 				},
 				[52986] = {
 					["items"] = 1607,
@@ -24691,6 +24681,30 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
+				[37786] = {
+					["items"] = 3,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 299000,
+					["listings"] = 3,
+				},
+				[49284] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 7500000000,
+					["listings"] = 1,
+				},
+				[35974] = {
+					[-37] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 187995,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
+				},
 				[63127] = {
 					["items"] = 51,
 					["time"] = 1306730451,
@@ -24698,15 +24712,12 @@ AuctionLiteDB = {
 					["price"] = 250000,
 					["listings"] = 27,
 				},
-				[55570] = {
-					[-5] = {
-						["items"] = 1,
-						["time"] = 1306730452,
-						["scans"] = 1,
-						["price"] = 2500000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
+				[62586] = {
+					["items"] = 1,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 3220718,
+					["listings"] = 1,
 				},
 				[55448] = {
 					[-131] = {
@@ -24752,12 +24763,12 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[62586] = {
-					["items"] = 1,
-					["time"] = 1306730452,
+				[21957] = {
+					["items"] = 2,
+					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 3220718,
-					["listings"] = 1,
+					["price"] = 97403,
+					["listings"] = 2,
 				},
 				[40090] = {
 					["items"] = 2,
@@ -24773,12 +24784,12 @@ AuctionLiteDB = {
 					["price"] = 250184,
 					["listings"] = 1,
 				},
-				[21957] = {
-					["items"] = 2,
-					["time"] = 1306730451,
+				[27666] = {
+					["items"] = 1,
+					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 97403,
-					["listings"] = 2,
+					["price"] = 68250,
+					["listings"] = 1,
 				},
 				[22276] = {
 					["items"] = 1,
@@ -24801,30 +24812,6 @@ AuctionLiteDB = {
 					["price"] = 90000,
 					["listings"] = 1,
 				},
-				[27666] = {
-					["items"] = 1,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 68250,
-					["listings"] = 1,
-				},
-				[55420] = {
-					[-41] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 399000,
-						["listings"] = 1,
-					},
-					[-118] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 1300000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-				},
 				[28452] = {
 					["items"] = 9,
 					["time"] = 1306730451,
@@ -24846,6 +24833,20 @@ AuctionLiteDB = {
 					["price"] = 875000,
 					["listings"] = 11,
 				},
+				[59477] = {
+					["items"] = 3,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 989000,
+					["listings"] = 3,
+				},
+				[33567] = {
+					["items"] = 57,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 9600,
+					["listings"] = 25,
+				},
 				[42906] = {
 					["items"] = 14,
 					["time"] = 1306730452,
@@ -24853,12 +24854,12 @@ AuctionLiteDB = {
 					["price"] = 252865,
 					["listings"] = 14,
 				},
-				[52095] = {
-					["items"] = 6,
-					["time"] = 1306730452,
+				[18335] = {
+					["items"] = 7,
+					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 10000,
-					["listings"] = 6,
+					["price"] = 102500,
+					["listings"] = 7,
 				},
 				[43418] = {
 					["items"] = 5,
@@ -24895,12 +24896,12 @@ AuctionLiteDB = {
 					["price"] = 519146,
 					["listings"] = 1,
 				},
-				[33567] = {
-					["items"] = 57,
-					["time"] = 1306730452,
+				[52093] = {
+					["items"] = 14,
+					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 9600,
-					["listings"] = 25,
+					["price"] = 8200,
+					["listings"] = 14,
 				},
 				[15336] = {
 					[767] = {
@@ -24911,20 +24912,6 @@ AuctionLiteDB = {
 						["listings"] = 1,
 					},
 					["suffix"] = true,
-				},
-				[18335] = {
-					["items"] = 7,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 102500,
-					["listings"] = 7,
-				},
-				[6044] = {
-					["items"] = 3,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 1490000,
-					["listings"] = 3,
 				},
 				[19704] = {
 					["items"] = 1,
@@ -24943,6 +24930,33 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
+				[1613] = {
+					[335] = {
+						["items"] = 1,
+						["time"] = 1306730452,
+						["scans"] = 1,
+						["price"] = 500000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
+				},
+				[25210] = {
+					[-15] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 181418,
+						["listings"] = 1,
+					},
+					[-41] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 207326,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
+				},
 				[23119] = {
 					["items"] = 20,
 					["time"] = 1306730452,
@@ -24950,12 +24964,12 @@ AuctionLiteDB = {
 					["price"] = 12000,
 					["listings"] = 20,
 				},
-				[62236] = {
-					["items"] = 11,
-					["time"] = 1306730452,
+				[13107] = {
+					["items"] = 1,
+					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 1950000,
-					["listings"] = 11,
+					["price"] = 149760,
+					["listings"] = 1,
 				},
 				[63128] = {
 					["items"] = 75,
@@ -24998,23 +25012,6 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[15554] = {
-					[1194] = {
-						["items"] = 0,
-						["time"] = 0,
-						["scans"] = 0,
-						["price"] = 0,
-						["listings"] = 0,
-					},
-					["suffix"] = true,
-				},
-				[13107] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 149760,
-					["listings"] = 1,
-				},
 				[13043] = {
 					["items"] = 1,
 					["time"] = 1306730452,
@@ -25039,12 +25036,15 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[22914] = {
-					["items"] = 1,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 8950000,
-					["listings"] = 1,
+				[15554] = {
+					[1194] = {
+						["items"] = 0,
+						["time"] = 0,
+						["scans"] = 0,
+						["price"] = 0,
+						["listings"] = 0,
+					},
+					["suffix"] = true,
 				},
 				[3719] = {
 					["items"] = 13,
@@ -25060,12 +25060,12 @@ AuctionLiteDB = {
 					["price"] = 5211,
 					["listings"] = 4,
 				},
-				[1645] = {
-					["items"] = 57,
-					["time"] = 1306730451,
+				[54506] = {
+					["items"] = 3,
+					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 490,
-					["listings"] = 4,
+					["price"] = 29940000,
+					["listings"] = 3,
 				},
 				[13506] = {
 					["items"] = 1,
@@ -25073,6 +25073,20 @@ AuctionLiteDB = {
 					["scans"] = 1,
 					["price"] = 220000,
 					["listings"] = 1,
+				},
+				[12695] = {
+					["items"] = 2,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 189900,
+					["listings"] = 2,
+				},
+				[4265] = {
+					["items"] = 90,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 1400,
+					["listings"] = 77,
 				},
 				[58265] = {
 					["items"] = 10,
@@ -25098,12 +25112,15 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[12695] = {
-					["items"] = 2,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 189900,
-					["listings"] = 2,
+				[44685] = {
+					[-90] = {
+						["items"] = 1,
+						["time"] = 1306730452,
+						["scans"] = 1,
+						["price"] = 167727,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[42907] = {
 					["items"] = 7,
@@ -25112,12 +25129,12 @@ AuctionLiteDB = {
 					["price"] = 1349998,
 					["listings"] = 7,
 				},
-				[7026] = {
-					["items"] = 3,
-					["time"] = 1306730451,
+				[43416] = {
+					["items"] = 18,
+					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 10000,
-					["listings"] = 3,
+					["price"] = 149000,
+					["listings"] = 18,
 				},
 				[4405] = {
 					["items"] = 2,
@@ -25126,12 +25143,12 @@ AuctionLiteDB = {
 					["price"] = 9700,
 					["listings"] = 2,
 				},
-				[4498] = {
-					["items"] = 0,
-					["time"] = 0,
-					["scans"] = 0,
-					["price"] = 0,
-					["listings"] = 0,
+				[52720] = {
+					["items"] = 12,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 160000,
+					["listings"] = 7,
 				},
 				[52122] = {
 					["items"] = 5,
@@ -25150,19 +25167,25 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[43416] = {
-					["items"] = 18,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 149000,
-					["listings"] = 18,
+				[55696] = {
+					[-132] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 1250000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
-				[52720] = {
-					["items"] = 12,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 160000,
-					["listings"] = 7,
+				[36484] = {
+					[-12] = {
+						["items"] = 1,
+						["time"] = 1306730452,
+						["scans"] = 1,
+						["price"] = 295863,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[44955] = {
 					["items"] = 19,
@@ -25185,23 +25208,6 @@ AuctionLiteDB = {
 					["price"] = 9900,
 					["listings"] = 3,
 				},
-				[45622] = {
-					["items"] = 9,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 120000,
-					["listings"] = 9,
-				},
-				[36484] = {
-					[-12] = {
-						["items"] = 1,
-						["time"] = 1306730452,
-						["scans"] = 1,
-						["price"] = 295863,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-				},
 				[3829] = {
 					["items"] = 8,
 					["time"] = 1306730452,
@@ -25209,19 +25215,12 @@ AuctionLiteDB = {
 					["price"] = 199999,
 					["listings"] = 8,
 				},
-				[25650] = {
-					["items"] = 95,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 42000,
-					["listings"] = 91,
-				},
-				[19280] = {
-					["items"] = 2,
+				[23103] = {
+					["items"] = 11,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 950000,
-					["listings"] = 2,
+					["price"] = 13800,
+					["listings"] = 11,
 				},
 				[12019] = {
 					[848] = {
@@ -25230,6 +25229,37 @@ AuctionLiteDB = {
 						["scans"] = 1,
 						["price"] = 30000,
 						["listings"] = 1,
+					},
+					["suffix"] = true,
+				},
+				[62671] = {
+					["items"] = 3560,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 31499.75,
+					["listings"] = 178,
+				},
+				[19280] = {
+					["items"] = 2,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 950000,
+					["listings"] = 2,
+				},
+				[55747] = {
+					[-131] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 1000000,
+						["listings"] = 1,
+					},
+					[-6] = {
+						["items"] = 2,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 229999,
+						["listings"] = 2,
 					},
 					["suffix"] = true,
 				},
@@ -25281,12 +25311,12 @@ AuctionLiteDB = {
 						["listings"] = 1,
 					},
 				},
-				[62671] = {
-					["items"] = 3560,
+				[25650] = {
+					["items"] = 95,
 					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 31499.75,
-					["listings"] = 178,
+					["price"] = 42000,
+					["listings"] = 91,
 				},
 				[56218] = {
 					["items"] = 2,
@@ -25294,40 +25324,6 @@ AuctionLiteDB = {
 					["scans"] = 1,
 					["price"] = 5000000,
 					["listings"] = 2,
-				},
-				[55747] = {
-					[-131] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 1000000,
-						["listings"] = 1,
-					},
-					[-6] = {
-						["items"] = 2,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 229999,
-						["listings"] = 2,
-					},
-					["suffix"] = true,
-				},
-				[4562] = {
-					[1182] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 10000,
-						["listings"] = 1,
-					},
-					[587] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 30000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
 				},
 				[31179] = {
 					[-42] = {
@@ -25349,13 +25345,6 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[41116] = {
-					["items"] = 3,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 256999,
-					["listings"] = 3,
-				},
 				[55537] = {
 					[-139] = {
 						["items"] = 1,
@@ -25365,6 +25354,27 @@ AuctionLiteDB = {
 						["listings"] = 1,
 					},
 					["suffix"] = true,
+				},
+				[62012] = {
+					["items"] = 2,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 19970000,
+					["listings"] = 2,
+				},
+				[41116] = {
+					["items"] = 3,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 256999,
+					["listings"] = 3,
+				},
+				[40171] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 3500000,
+					["listings"] = 1,
 				},
 				[20816] = {
 					["items"] = 11,
@@ -25408,27 +25418,6 @@ AuctionLiteDB = {
 					["price"] = 939994,
 					["listings"] = 27,
 				},
-				[41534] = {
-					["items"] = 16,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 379995,
-					["listings"] = 16,
-				},
-				[4594] = {
-					["items"] = 6,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 5527,
-					["listings"] = 1,
-				},
-				[21840] = {
-					["items"] = 92,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 48652.5,
-					["listings"] = 10,
-				},
 				[55305] = {
 					[-122] = {
 						["items"] = 1,
@@ -25438,13 +25427,6 @@ AuctionLiteDB = {
 						["listings"] = 1,
 					},
 					["suffix"] = true,
-				},
-				[5525] = {
-					["items"] = 4,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 234,
-					["listings"] = 1,
 				},
 				[36104] = {
 					[-40] = {
@@ -25456,12 +25438,12 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[11177] = {
-					["items"] = 110,
+				[21840] = {
+					["items"] = 92,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 20000,
-					["listings"] = 63,
+					["price"] = 48652.5,
+					["listings"] = 10,
 				},
 				[13108] = {
 					["items"] = 2,
@@ -25469,6 +25451,13 @@ AuctionLiteDB = {
 					["scans"] = 1,
 					["price"] = 2490000,
 					["listings"] = 2,
+				},
+				[5525] = {
+					["items"] = 4,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 234,
+					["listings"] = 1,
 				},
 				[6577] = {
 					[1551] = {
@@ -25479,6 +25468,13 @@ AuctionLiteDB = {
 						["listings"] = 1,
 					},
 					["suffix"] = true,
+				},
+				[11177] = {
+					["items"] = 110,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 20000,
+					["listings"] = 63,
 				},
 				[55300] = {
 					[-5] = {
@@ -25497,13 +25493,6 @@ AuctionLiteDB = {
 					["price"] = 1500000,
 					["listings"] = 3,
 				},
-				[37789] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 503920,
-					["listings"] = 1,
-				},
 				[5498] = {
 					["items"] = 57,
 					["time"] = 1306730452,
@@ -25518,12 +25507,12 @@ AuctionLiteDB = {
 					["price"] = 1497500,
 					["listings"] = 3,
 				},
-				[38557] = {
-					["items"] = 142,
+				[37789] = {
+					["items"] = 1,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 15800,
-					["listings"] = 22,
+					["price"] = 503920,
+					["listings"] = 1,
 				},
 				[15110] = {
 					[590] = {
@@ -25542,6 +25531,13 @@ AuctionLiteDB = {
 					["price"] = 2781199,
 					["listings"] = 2,
 				},
+				[38557] = {
+					["items"] = 142,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 15800,
+					["listings"] = 22,
+				},
 				[38414] = {
 					["items"] = 1,
 					["time"] = 1306730451,
@@ -25549,11 +25545,25 @@ AuctionLiteDB = {
 					["price"] = 490000,
 					["listings"] = 1,
 				},
-				[43973] = {
+				[2865] = {
+					["items"] = 13,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 18500,
+					["listings"] = 13,
+				},
+				[53039] = {
+					["items"] = 473,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 445000,
+					["listings"] = 190,
+				},
+				[56561] = {
 					["items"] = 1,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 1990000,
+					["price"] = 32554899,
 					["listings"] = 1,
 				},
 				[56219] = {
@@ -25570,33 +25580,22 @@ AuctionLiteDB = {
 					["price"] = 5500,
 					["listings"] = 6,
 				},
-				[53039] = {
-					["items"] = 473,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 445000,
-					["listings"] = 190,
-				},
-				[56561] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 32554899,
-					["listings"] = 1,
-				},
-				[15302] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 11600,
-					["listings"] = 1,
-				},
-				[41117] = {
-					["items"] = 2,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 269995,
-					["listings"] = 2,
+				[55562] = {
+					[-131] = {
+						["items"] = 1,
+						["time"] = 1306730452,
+						["scans"] = 1,
+						["price"] = 2220000,
+						["listings"] = 1,
+					},
+					[-40] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 1006505,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[52767] = {
 					["items"] = 5,
@@ -25612,12 +25611,12 @@ AuctionLiteDB = {
 					["price"] = 42000,
 					["listings"] = 1,
 				},
-				[58267] = {
-					["items"] = 4,
-					["time"] = 1306730451,
+				[41117] = {
+					["items"] = 2,
+					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 51802,
-					["listings"] = 4,
+					["price"] = 269995,
+					["listings"] = 2,
 				},
 				[20747] = {
 					["items"] = 6,
@@ -25625,6 +25624,37 @@ AuctionLiteDB = {
 					["scans"] = 1,
 					["price"] = 49800,
 					["listings"] = 6,
+				},
+				[4593] = {
+					["items"] = 7,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 11729,
+					["listings"] = 1,
+				},
+				[58267] = {
+					["items"] = 4,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 51802,
+					["listings"] = 4,
+				},
+				[55413] = {
+					[-7] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 1054655,
+						["listings"] = 1,
+					},
+					[-41] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 1054655,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[42397] = {
 					["items"] = 19,
@@ -25661,32 +25691,22 @@ AuctionLiteDB = {
 					["price"] = 378999,
 					["listings"] = 20,
 				},
-				[55413] = {
-					[-7] = {
+				[36095] = {
+					[-40] = {
 						["items"] = 1,
 						["time"] = 1306730451,
 						["scans"] = 1,
-						["price"] = 1054655,
-						["listings"] = 1,
-					},
-					[-41] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 1054655,
+						["price"] = 116052,
 						["listings"] = 1,
 					},
 					["suffix"] = true,
 				},
-				[36510] = {
-					[-19] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 200000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
+				[52182] = {
+					["items"] = 374,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 61500,
+					["listings"] = 110,
 				},
 				[35998] = {
 					[-6] = {
@@ -25705,29 +25725,15 @@ AuctionLiteDB = {
 					["price"] = 1290000,
 					["listings"] = 1,
 				},
-				[18257] = {
-					["items"] = 2,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 950000,
-					["listings"] = 2,
-				},
-				[36095] = {
-					[-40] = {
+				[36510] = {
+					[-19] = {
 						["items"] = 1,
 						["time"] = 1306730451,
 						["scans"] = 1,
-						["price"] = 116052,
+						["price"] = 200000,
 						["listings"] = 1,
 					},
 					["suffix"] = true,
-				},
-				[52182] = {
-					["items"] = 374,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 61500,
-					["listings"] = 110,
 				},
 				[13159] = {
 					["items"] = 9,
@@ -25736,19 +25742,19 @@ AuctionLiteDB = {
 					["price"] = 2800,
 					["listings"] = 5,
 				},
-				[23098] = {
-					["items"] = 17,
+				[52108] = {
+					["items"] = 1,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 3712,
-					["listings"] = 17,
+					["price"] = 10000,
+					["listings"] = 1,
 				},
-				[52203] = {
-					["items"] = 9,
+				[21371] = {
+					["items"] = 7,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 123380,
-					["listings"] = 9,
+					["price"] = 199000,
+					["listings"] = 7,
 				},
 				[52762] = {
 					["items"] = 18,
@@ -25764,13 +25770,6 @@ AuctionLiteDB = {
 					["price"] = 150000,
 					["listings"] = 4,
 				},
-				[19281] = {
-					["items"] = 1,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 644771,
-					["listings"] = 1,
-				},
 				[32249] = {
 					["items"] = 3,
 					["time"] = 1306730451,
@@ -25778,12 +25777,19 @@ AuctionLiteDB = {
 					["price"] = 100000,
 					["listings"] = 3,
 				},
-				[3478] = {
-					["items"] = 120,
+				[67136] = {
+					["items"] = 1,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 22099,
-					["listings"] = 120,
+					["price"] = 273721066,
+					["listings"] = 1,
+				},
+				[19281] = {
+					["items"] = 1,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 644771,
+					["listings"] = 1,
 				},
 				[31303] = {
 					["items"] = 0,
@@ -25792,19 +25798,12 @@ AuctionLiteDB = {
 					["price"] = 0,
 					["listings"] = 0,
 				},
-				[10998] = {
-					["items"] = 74,
+				[3478] = {
+					["items"] = 120,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 6761,
-					["listings"] = 35,
-				},
-				[56220] = {
-					["items"] = 7,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 2790000,
-					["listings"] = 7,
+					["price"] = 22099,
+					["listings"] = 120,
 				},
 				[2307] = {
 					["items"] = 1,
@@ -25819,6 +25818,13 @@ AuctionLiteDB = {
 					["scans"] = 1,
 					["price"] = 115000,
 					["listings"] = 3,
+				},
+				[56220] = {
+					["items"] = 7,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 2790000,
+					["listings"] = 7,
 				},
 				[23737] = {
 					["items"] = 24,
@@ -25847,12 +25853,26 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[50077] = {
-					["items"] = 6,
+				[8959] = {
+					["items"] = 12,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 7916,
+					["listings"] = 2,
+				},
+				[43971] = {
+					["items"] = 1,
 					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 209133,
-					["listings"] = 6,
+					["price"] = 1990000,
+					["listings"] = 1,
+				},
+				[13452] = {
+					["items"] = 25,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 50000,
+					["listings"] = 5,
 				},
 				[20817] = {
 					["items"] = 48,
@@ -25868,12 +25888,12 @@ AuctionLiteDB = {
 					["price"] = 1490,
 					["listings"] = 10,
 				},
-				[43971] = {
-					["items"] = 1,
+				[50077] = {
+					["items"] = 6,
 					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 1990000,
-					["listings"] = 1,
+					["price"] = 209133,
+					["listings"] = 6,
 				},
 				[42398] = {
 					["items"] = 22,
@@ -25882,12 +25902,12 @@ AuctionLiteDB = {
 					["price"] = 493999,
 					["listings"] = 22,
 				},
-				[13452] = {
-					["items"] = 25,
+				[31882] = {
+					["items"] = 3,
 					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 50000,
-					["listings"] = 5,
+					["price"] = 386000,
+					["listings"] = 3,
 				},
 				[7413] = {
 					[188] = {
@@ -25964,20 +25984,6 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[2673] = {
-					["items"] = 61,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 1000,
-					["listings"] = 4,
-				},
-				[13457] = {
-					["items"] = 5,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 11491,
-					["listings"] = 1,
-				},
 				[64395] = {
 					["items"] = 8,
 					["time"] = 1306730452,
@@ -26006,6 +26012,20 @@ AuctionLiteDB = {
 					["price"] = 37600,
 					["listings"] = 10,
 				},
+				[52081] = {
+					["items"] = 14,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 19200,
+					["listings"] = 14,
+				},
+				[15065] = {
+					["items"] = 1,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 2190000,
+					["listings"] = 1,
+				},
 				[38303] = {
 					["items"] = 5,
 					["time"] = 1306730451,
@@ -26013,12 +26033,12 @@ AuctionLiteDB = {
 					["price"] = 21693,
 					["listings"] = 5,
 				},
-				[52081] = {
-					["items"] = 14,
-					["time"] = 1306730451,
+				[42971] = {
+					["items"] = 24,
+					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 19200,
-					["listings"] = 14,
+					["price"] = 302993,
+					["listings"] = 24,
 				},
 				[63388] = {
 					["items"] = 243,
@@ -26061,27 +26081,6 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[15065] = {
-					["items"] = 1,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 2190000,
-					["listings"] = 1,
-				},
-				[2883] = {
-					["items"] = 4,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 90000,
-					["listings"] = 4,
-				},
-				[56477] = {
-					["items"] = 27,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 92500,
-					["listings"] = 27,
-				},
 				[62604] = {
 					["items"] = 1,
 					["time"] = 1306730451,
@@ -26096,12 +26095,33 @@ AuctionLiteDB = {
 					["price"] = 23950000,
 					["listings"] = 2,
 				},
-				[7967] = {
-					["items"] = 20,
+				[56477] = {
+					["items"] = 27,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 225000,
-					["listings"] = 20,
+					["price"] = 92500,
+					["listings"] = 27,
+				},
+				[2883] = {
+					["items"] = 4,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 90000,
+					["listings"] = 4,
+				},
+				[41446] = {
+					["items"] = 6,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 150000,
+					["listings"] = 6,
+				},
+				[754] = {
+					["items"] = 2,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 420000,
+					["listings"] = 2,
 				},
 				[2059] = {
 					["items"] = 4,
@@ -26117,12 +26137,15 @@ AuctionLiteDB = {
 					["price"] = 899997,
 					["listings"] = 6,
 				},
-				[41446] = {
-					["items"] = 6,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 150000,
-					["listings"] = 6,
+				[2075] = {
+					[2027] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 40000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[58269] = {
 					["items"] = 4,
@@ -26145,11 +26168,11 @@ AuctionLiteDB = {
 					["price"] = 100000,
 					["listings"] = 8,
 				},
-				[754] = {
+				[23436] = {
 					["items"] = 2,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 420000,
+					["price"] = 70000,
 					["listings"] = 2,
 				},
 				[42911] = {
@@ -26159,12 +26182,12 @@ AuctionLiteDB = {
 					["price"] = 217999,
 					["listings"] = 13,
 				},
-				[54477] = {
-					["items"] = 7,
-					["time"] = 1306730452,
+				[11165] = {
+					["items"] = 2,
+					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 647000,
-					["listings"] = 7,
+					["price"] = 169500,
+					["listings"] = 2,
 				},
 				[43423] = {
 					["items"] = 15,
@@ -26173,12 +26196,12 @@ AuctionLiteDB = {
 					["price"] = 110000,
 					["listings"] = 15,
 				},
-				[12360] = {
-					["items"] = 21,
+				[47632] = {
+					["items"] = 2,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 390000,
-					["listings"] = 21,
+					["price"] = 11119999,
+					["listings"] = 2,
 				},
 				[52126] = {
 					["items"] = 10,
@@ -26194,12 +26217,12 @@ AuctionLiteDB = {
 					["price"] = 650000,
 					["listings"] = 3,
 				},
-				[11165] = {
-					["items"] = 2,
-					["time"] = 1306730451,
+				[42897] = {
+					["items"] = 11,
+					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 169500,
-					["listings"] = 2,
+					["price"] = 1339999,
+					["listings"] = 11,
 				},
 				[18258] = {
 					["items"] = 3,
@@ -26222,19 +26245,19 @@ AuctionLiteDB = {
 					["price"] = 180000,
 					["listings"] = 5,
 				},
-				[47632] = {
-					["items"] = 2,
+				[31330] = {
+					["items"] = 3,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 11119999,
-					["listings"] = 2,
+					["price"] = 999000,
+					["listings"] = 3,
 				},
-				[42897] = {
-					["items"] = 11,
-					["time"] = 1306730452,
+				[43109] = {
+					["items"] = 1,
+					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 1339999,
-					["listings"] = 11,
+					["price"] = 30000,
+					["listings"] = 1,
 				},
 				[37792] = {
 					["items"] = 3,
@@ -26243,12 +26266,12 @@ AuctionLiteDB = {
 					["price"] = 152294,
 					["listings"] = 3,
 				},
-				[31330] = {
-					["items"] = 3,
+				[41490] = {
+					["items"] = 2,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 999000,
-					["listings"] = 3,
+					["price"] = 30000,
+					["listings"] = 2,
 				},
 				[24204] = {
 					["items"] = 1,
@@ -26295,15 +26318,12 @@ AuctionLiteDB = {
 					["price"] = 136500,
 					["listings"] = 47,
 				},
-				[12040] = {
-					[513] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 20000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
+				[6292] = {
+					["items"] = 5,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 9263,
+					["listings"] = 5,
 				},
 				[13116] = {
 					["items"] = 2,
@@ -26312,12 +26332,12 @@ AuctionLiteDB = {
 					["price"] = 445500,
 					["listings"] = 2,
 				},
-				[6292] = {
-					["items"] = 5,
-					["time"] = 1306730451,
+				[13926] = {
+					["items"] = 37,
+					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 9263,
-					["listings"] = 5,
+					["price"] = 289000,
+					["listings"] = 37,
 				},
 				[3203] = {
 					["items"] = 1,
@@ -26326,12 +26346,15 @@ AuctionLiteDB = {
 					["price"] = 1490000,
 					["listings"] = 1,
 				},
-				[13926] = {
-					["items"] = 37,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 289000,
-					["listings"] = 37,
+				[9834] = {
+					[599] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 220000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[2555] = {
 					["items"] = 5,
@@ -26340,12 +26363,15 @@ AuctionLiteDB = {
 					["price"] = 1032818,
 					["listings"] = 5,
 				},
-				[41489] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 295605,
-					["listings"] = 1,
+				[36499] = {
+					[-20] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 200000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[41376] = {
 					["items"] = 1,
@@ -26361,43 +26387,12 @@ AuctionLiteDB = {
 					["price"] = 99999,
 					["listings"] = 1,
 				},
-				[25676] = {
-					["items"] = 11,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 134622,
-					["listings"] = 11,
-				},
-				[36499] = {
-					[-20] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 200000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-				},
-				[42400] = {
-					["items"] = 15,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 498995,
-					["listings"] = 15,
-				},
 				[4542] = {
 					["items"] = 3,
 					["time"] = 1306730451,
 					["scans"] = 1,
 					["price"] = 10000,
 					["listings"] = 1,
-				},
-				[42912] = {
-					["items"] = 10,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 147500,
-					["listings"] = 10,
 				},
 				[8285] = {
 					["items"] = 1,
@@ -26406,6 +26401,34 @@ AuctionLiteDB = {
 					["price"] = 13275,
 					["listings"] = 1,
 				},
+				[42400] = {
+					["items"] = 15,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 498995,
+					["listings"] = 15,
+				},
+				[42466] = {
+					["items"] = 21,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 380995,
+					["listings"] = 21,
+				},
+				[42912] = {
+					["items"] = 10,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 147500,
+					["listings"] = 10,
+				},
+				[52240] = {
+					["items"] = 14,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 265665,
+					["listings"] = 14,
+				},
 				[43424] = {
 					["items"] = 38,
 					["time"] = 1306730451,
@@ -26413,12 +26436,12 @@ AuctionLiteDB = {
 					["price"] = 12500,
 					["listings"] = 35,
 				},
-				[68789] = {
-					["items"] = 4,
-					["time"] = 1306730451,
+				[43419] = {
+					["items"] = 31,
+					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 64990000,
-					["listings"] = 4,
+					["price"] = 238497,
+					["listings"] = 31,
 				},
 				[52127] = {
 					["items"] = 5,
@@ -26434,12 +26457,12 @@ AuctionLiteDB = {
 					["price"] = 150000,
 					["listings"] = 4,
 				},
-				[52240] = {
-					["items"] = 14,
+				[41107] = {
+					["items"] = 18,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 265665,
-					["listings"] = 14,
+					["price"] = 338990,
+					["listings"] = 18,
 				},
 				[11178] = {
 					["items"] = 62,
@@ -26448,39 +26471,11 @@ AuctionLiteDB = {
 					["price"] = 75000,
 					["listings"] = 26,
 				},
-				[43419] = {
-					["items"] = 31,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 238497,
-					["listings"] = 31,
-				},
-				[845] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 9999,
-					["listings"] = 1,
-				},
-				[11370] = {
-					["items"] = 49,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 15000,
-					["listings"] = 4,
-				},
 				[20009] = {
 					["items"] = 3,
 					["time"] = 1306730452,
 					["scans"] = 1,
 					["price"] = 70000,
-					["listings"] = 3,
-				},
-				[37793] = {
-					["items"] = 3,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 780000,
 					["listings"] = 3,
 				},
 				[14514] = {
@@ -26490,6 +26485,13 @@ AuctionLiteDB = {
 					["price"] = 395900,
 					["listings"] = 3,
 				},
+				[11370] = {
+					["items"] = 49,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 15000,
+					["listings"] = 4,
+				},
 				[31672] = {
 					["items"] = 20,
 					["time"] = 1306730452,
@@ -26497,12 +26499,33 @@ AuctionLiteDB = {
 					["price"] = 245,
 					["listings"] = 1,
 				},
+				[37793] = {
+					["items"] = 3,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 780000,
+					["listings"] = 3,
+				},
 				[23437] = {
 					["items"] = 7,
 					["time"] = 1306730451,
 					["scans"] = 1,
 					["price"] = 85000,
 					["listings"] = 7,
+				},
+				[23117] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 107400,
+					["listings"] = 1,
+				},
+				[52113] = {
+					["items"] = 16,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 27300,
+					["listings"] = 16,
 				},
 				[11754] = {
 					["items"] = 80,
@@ -26549,11 +26572,11 @@ AuctionLiteDB = {
 					["price"] = 31224,
 					["listings"] = 1,
 				},
-				[23117] = {
+				[13115] = {
 					["items"] = 1,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 107400,
+					["price"] = 450000,
 					["listings"] = 1,
 				},
 				[40097] = {
@@ -26563,19 +26586,19 @@ AuctionLiteDB = {
 					["price"] = 43600,
 					["listings"] = 4,
 				},
-				[52113] = {
-					["items"] = 16,
-					["time"] = 1306730451,
+				[38880] = {
+					["items"] = 13,
+					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 27300,
-					["listings"] = 16,
+					["price"] = 4399900,
+					["listings"] = 13,
 				},
-				[13115] = {
-					["items"] = 1,
-					["time"] = 1306730451,
+				[45781] = {
+					["items"] = 21,
+					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 450000,
-					["listings"] = 1,
+					["price"] = 419997,
+					["listings"] = 21,
 				},
 				[40865] = {
 					["items"] = 7,
@@ -26584,12 +26607,12 @@ AuctionLiteDB = {
 					["price"] = 699000,
 					["listings"] = 7,
 				},
-				[38880] = {
-					["items"] = 13,
-					["time"] = 1306730452,
+				[22548] = {
+					["items"] = 1,
+					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 4399900,
-					["listings"] = 13,
+					["price"] = 29591100,
+					["listings"] = 1,
 				},
 				[24786] = {
 					[-20] = {
@@ -26601,12 +26624,12 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[45781] = {
-					["items"] = 21,
-					["time"] = 1306730452,
+				[16218] = {
+					["items"] = 1,
+					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 419997,
-					["listings"] = 21,
+					["price"] = 997000,
+					["listings"] = 1,
 				},
 				[25042] = {
 					[-22] = {
@@ -26618,12 +26641,12 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[22548] = {
-					["items"] = 1,
+				[5425] = {
+					["items"] = 2,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 29591100,
-					["listings"] = 1,
+					["price"] = 3000000,
+					["listings"] = 2,
 				},
 				[42401] = {
 					["items"] = 5,
@@ -26632,12 +26655,12 @@ AuctionLiteDB = {
 					["price"] = 158000,
 					["listings"] = 5,
 				},
-				[38878] = {
-					["items"] = 6,
+				[1980] = {
+					["items"] = 1,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 7490000,
-					["listings"] = 6,
+					["price"] = 8990000,
+					["listings"] = 1,
 				},
 				[42913] = {
 					["items"] = 11,
@@ -26646,12 +26669,15 @@ AuctionLiteDB = {
 					["price"] = 183998,
 					["listings"] = 11,
 				},
-				[5425] = {
-					["items"] = 2,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 3000000,
-					["listings"] = 2,
+				[10409] = {
+					[1192] = {
+						["items"] = 1,
+						["time"] = 1306730452,
+						["scans"] = 1,
+						["price"] = 10000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[43425] = {
 					["items"] = 24,
@@ -26660,11 +26686,11 @@ AuctionLiteDB = {
 					["price"] = 834995,
 					["listings"] = 24,
 				},
-				[1980] = {
+				[15322] = {
 					["items"] = 1,
-					["time"] = 1306730451,
+					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 8990000,
+					["price"] = 15490,
 					["listings"] = 1,
 				},
 				[52128] = {
@@ -26684,15 +26710,12 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[10409] = {
-					[1192] = {
-						["items"] = 1,
-						["time"] = 1306730452,
-						["scans"] = 1,
-						["price"] = 10000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
+				[43539] = {
+					["items"] = 20,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 399994,
+					["listings"] = 20,
 				},
 				[18259] = {
 					["items"] = 4,
@@ -26700,23 +26723,6 @@ AuctionLiteDB = {
 					["scans"] = 1,
 					["price"] = 3499999,
 					["listings"] = 4,
-				},
-				[15322] = {
-					["items"] = 1,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 15490,
-					["listings"] = 1,
-				},
-				[55545] = {
-					[-45] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 409000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
 				},
 				[35990] = {
 					[-6] = {
@@ -26735,6 +26741,23 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
+				[13490] = {
+					["items"] = 3,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 32012,
+					["listings"] = 3,
+				},
+				[55545] = {
+					[-45] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 409000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
+				},
 				[3371] = {
 					["items"] = 1,
 					["time"] = 1306730451,
@@ -26749,22 +26772,19 @@ AuctionLiteDB = {
 					["price"] = 300000,
 					["listings"] = 4,
 				},
-				[13490] = {
-					["items"] = 3,
-					["time"] = 1306730452,
+				[2977] = {
+					["items"] = 1,
+					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 32012,
-					["listings"] = 3,
+					["price"] = 9000,
+					["listings"] = 1,
 				},
-				[15936] = {
-					[776] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 880000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
+				[54852] = {
+					["items"] = 18,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 253500,
+					["listings"] = 18,
 				},
 				[19283] = {
 					["items"] = 1,
@@ -26773,12 +26793,22 @@ AuctionLiteDB = {
 					["price"] = 1091933,
 					["listings"] = 1,
 				},
-				[2977] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 9000,
-					["listings"] = 1,
+				[25329] = {
+					[-7] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 185000,
+						["listings"] = 1,
+					},
+					[-41] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 148400,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[13866] = {
 					["items"] = 4,
@@ -26794,19 +26824,22 @@ AuctionLiteDB = {
 					["price"] = 1813.52631578947,
 					["listings"] = 3,
 				},
-				[54852] = {
-					["items"] = 18,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 253500,
-					["listings"] = 18,
+				[55373] = {
+					[-138] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 3000000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
-				[3531] = {
-					["items"] = 77,
+				[3827] = {
+					["items"] = 14,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 100,
-					["listings"] = 8,
+					["price"] = 23533,
+					["listings"] = 12,
 				},
 				[40098] = {
 					["items"] = 6,
@@ -26822,19 +26855,19 @@ AuctionLiteDB = {
 					["price"] = 370000,
 					["listings"] = 1,
 				},
-				[3827] = {
-					["items"] = 14,
-					["time"] = 1306730451,
+				[9179] = {
+					["items"] = 58,
+					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 23533,
-					["listings"] = 12,
+					["price"] = 25600,
+					["listings"] = 10,
 				},
-				[19279] = {
-					["items"] = 1,
+				[7957] = {
+					["items"] = 4,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 1654170,
-					["listings"] = 1,
+					["price"] = 17352,
+					["listings"] = 4,
 				},
 				[14378] = {
 					["items"] = 1,
@@ -26857,40 +26890,12 @@ AuctionLiteDB = {
 					["price"] = 1405,
 					["listings"] = 3,
 				},
-				[9179] = {
-					["items"] = 58,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 25600,
-					["listings"] = 10,
-				},
-				[7957] = {
-					["items"] = 4,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 17352,
-					["listings"] = 4,
-				},
-				[42402] = {
-					["items"] = 11,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 140000,
-					["listings"] = 11,
-				},
 				[55058] = {
 					["items"] = 3,
 					["time"] = 1306730451,
 					["scans"] = 1,
 					["price"] = 52200000,
 					["listings"] = 3,
-				},
-				[42914] = {
-					["items"] = 16,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 384985,
-					["listings"] = 16,
 				},
 				[3197] = {
 					[692] = {
@@ -26902,12 +26907,40 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
+				[42402] = {
+					["items"] = 11,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 140000,
+					["listings"] = 11,
+				},
 				[31884] = {
 					["items"] = 3,
 					["time"] = 1306730451,
 					["scans"] = 1,
 					["price"] = 926250,
 					["listings"] = 3,
+				},
+				[42914] = {
+					["items"] = 16,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 384985,
+					["listings"] = 16,
+				},
+				[2450] = {
+					["items"] = 341,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 12500,
+					["listings"] = 139,
+				},
+				[44309] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 10000000,
+					["listings"] = 1,
 				},
 				[21843] = {
 					["items"] = 13,
@@ -26954,33 +26987,19 @@ AuctionLiteDB = {
 					["price"] = 33688,
 					["listings"] = 11,
 				},
-				[3867] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 200000,
-					["listings"] = 1,
-				},
-				[22739] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 1500000,
-					["listings"] = 1,
-				},
-				[44309] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 10000000,
-					["listings"] = 1,
-				},
 				[17010] = {
 					["items"] = 33,
 					["time"] = 1306730451,
 					["scans"] = 1,
 					["price"] = 3500,
 					["listings"] = 11,
+				},
+				[3867] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 200000,
+					["listings"] = 1,
 				},
 				[24930] = {
 					[-11] = {
@@ -27002,12 +27021,15 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[12410] = {
-					["items"] = 10,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 449900,
-					["listings"] = 10,
+				[36375] = {
+					[-67] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 192035,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[40897] = {
 					["items"] = 17,
@@ -27015,6 +27037,23 @@ AuctionLiteDB = {
 					["scans"] = 1,
 					["price"] = 319999,
 					["listings"] = 17,
+				},
+				[6541] = {
+					[28] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 6000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
+				},
+				[6241] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 119999,
+					["listings"] = 1,
 				},
 				[55457] = {
 					[-40] = {
@@ -27050,22 +27089,19 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[6541] = {
-					[28] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 6000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-				},
-				[6241] = {
-					["items"] = 1,
+				[69799] = {
+					["items"] = 11,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 119999,
-					["listings"] = 1,
+					["price"] = 8800000,
+					["listings"] = 11,
+				},
+				[50452] = {
+					["items"] = 0,
+					["time"] = 0,
+					["scans"] = 0,
+					["price"] = 0,
+					["listings"] = 0,
 				},
 				[56481] = {
 					[-135] = {
@@ -27091,19 +27127,19 @@ AuctionLiteDB = {
 					["price"] = 20006,
 					["listings"] = 41,
 				},
-				[50452] = {
-					["items"] = 0,
-					["time"] = 0,
-					["scans"] = 0,
-					["price"] = 0,
-					["listings"] = 0,
+				[45775] = {
+					["items"] = 23,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 140000,
+					["listings"] = 23,
 				},
-				[33048] = {
-					["items"] = 54,
+				[11826] = {
+					["items"] = 3,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 1255,
-					["listings"] = 4,
+					["price"] = 450000,
+					["listings"] = 3,
 				},
 				[41379] = {
 					["items"] = 2,
@@ -27119,12 +27155,12 @@ AuctionLiteDB = {
 					["price"] = 1550000,
 					["listings"] = 1,
 				},
-				[54485] = {
-					["items"] = 2,
+				[4668] = {
+					["items"] = 1,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 1297500,
-					["listings"] = 2,
+					["price"] = 8000,
+					["listings"] = 1,
 				},
 				[4246] = {
 					["items"] = 5,
@@ -27140,12 +27176,15 @@ AuctionLiteDB = {
 					["price"] = 318985,
 					["listings"] = 26,
 				},
-				[11826] = {
-					["items"] = 3,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 450000,
-					["listings"] = 3,
+				[25298] = {
+					[-44] = {
+						["items"] = 1,
+						["time"] = 1306730452,
+						["scans"] = 1,
+						["price"] = 97500,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[42915] = {
 					["items"] = 13,
@@ -27168,22 +27207,36 @@ AuctionLiteDB = {
 					["price"] = 99500,
 					["listings"] = 19,
 				},
-				[4668] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 8000,
-					["listings"] = 1,
-				},
-				[25298] = {
-					[-44] = {
+				[55382] = {
+					[-137] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 2220000,
+						["listings"] = 1,
+					},
+					[-122] = {
 						["items"] = 1,
 						["time"] = 1306730452,
 						["scans"] = 1,
-						["price"] = 97500,
+						["price"] = 2220000,
+						["listings"] = 1,
+					},
+					[-5] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 2220000,
 						["listings"] = 1,
 					},
 					["suffix"] = true,
+				},
+				[62235] = {
+					["items"] = 7,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 3000000,
+					["listings"] = 7,
 				},
 				[52386] = {
 					["items"] = 1,
@@ -27216,43 +27269,12 @@ AuctionLiteDB = {
 					["price"] = 2497500,
 					["listings"] = 4,
 				},
-				[1288] = {
-					["items"] = 1,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 30000,
-					["listings"] = 1,
-				},
-				[4566] = {
-					[1180] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 20000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-				},
-				[45731] = {
-					["items"] = 25,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 811998,
-					["listings"] = 25,
-				},
 				[45778] = {
 					["items"] = 25,
 					["time"] = 1306730452,
 					["scans"] = 1,
 					["price"] = 459997,
 					["listings"] = 25,
-				},
-				[19028] = {
-					["items"] = 6,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 99900,
-					["listings"] = 6,
 				},
 				[25327] = {
 					[-41] = {
@@ -27264,12 +27286,12 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[19284] = {
-					["items"] = 2,
+				[45731] = {
+					["items"] = 25,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 1251743,
-					["listings"] = 2,
+					["price"] = 811998,
+					["listings"] = 25,
 				},
 				[32905] = {
 					["items"] = 2,
@@ -27278,12 +27300,43 @@ AuctionLiteDB = {
 					["price"] = 215,
 					["listings"] = 1,
 				},
+				[19028] = {
+					["items"] = 6,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 99900,
+					["listings"] = 6,
+				},
 				[58259] = {
 					["items"] = 24,
 					["time"] = 1306730452,
 					["scans"] = 1,
 					["price"] = 9800,
 					["listings"] = 15,
+				},
+				[19284] = {
+					["items"] = 2,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 1251743,
+					["listings"] = 2,
+				},
+				[35993] = {
+					[-36] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 190000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
+				},
+				[30305] = {
+					["items"] = 4,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 500000,
+					["listings"] = 4,
 				},
 				[55714] = {
 					[-138] = {
@@ -27302,15 +27355,12 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[35993] = {
-					[-36] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 190000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
+				[52687] = {
+					["items"] = 6,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 399999,
+					["listings"] = 6,
 				},
 				[9963] = {
 					[875] = {
@@ -27329,20 +27379,6 @@ AuctionLiteDB = {
 					["price"] = 40800,
 					["listings"] = 13,
 				},
-				[30305] = {
-					["items"] = 4,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 500000,
-					["listings"] = 4,
-				},
-				[52687] = {
-					["items"] = 6,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 399999,
-					["listings"] = 6,
-				},
 				[31917] = {
 					["items"] = 2,
 					["time"] = 1306730451,
@@ -27356,6 +27392,33 @@ AuctionLiteDB = {
 						["time"] = 1306730451,
 						["scans"] = 1,
 						["price"] = 363440,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
+				},
+				[15241] = {
+					[673] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 20000,
+						["listings"] = 1,
+					},
+					[1802] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 50000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
+				},
+				[55368] = {
+					[-132] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 5300000,
 						["listings"] = 1,
 					},
 					["suffix"] = true,
@@ -27381,22 +27444,12 @@ AuctionLiteDB = {
 					["price"] = 114428,
 					["listings"] = 2,
 				},
-				[15241] = {
-					[673] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 20000,
-						["listings"] = 1,
-					},
-					[1802] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 50000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
+				[42961] = {
+					["items"] = 7,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 1349998,
+					["listings"] = 7,
 				},
 				[42404] = {
 					["items"] = 28,
@@ -27405,29 +27458,26 @@ AuctionLiteDB = {
 					["price"] = 382993,
 					["listings"] = 28,
 				},
-				[24956] = {
-					[-20] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 90000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-				},
-				[42961] = {
-					["items"] = 7,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 1349998,
-					["listings"] = 7,
-				},
 				[12697] = {
 					["items"] = 1,
 					["time"] = 1306730452,
 					["scans"] = 1,
 					["price"] = 20000,
 					["listings"] = 1,
+				},
+				[8386] = {
+					["items"] = 2,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 22800,
+					["listings"] = 2,
+				},
+				[19698] = {
+					["items"] = 2,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 79200,
+					["listings"] = 2,
 				},
 				[43428] = {
 					["items"] = 7,
@@ -27450,12 +27500,12 @@ AuctionLiteDB = {
 					["price"] = 47873,
 					["listings"] = 6,
 				},
-				[8386] = {
-					["items"] = 2,
-					["time"] = 1306730451,
+				[62566] = {
+					["items"] = 1,
+					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 22800,
-					["listings"] = 2,
+					["price"] = 3220718,
+					["listings"] = 1,
 				},
 				[36261] = {
 					[-17] = {
@@ -27474,19 +27524,19 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[19698] = {
-					["items"] = 2,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 79200,
-					["listings"] = 2,
-				},
-				[41483] = {
+				[27516] = {
 					["items"] = 2,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 300000,
+					["price"] = 51500,
 					["listings"] = 2,
+				},
+				[15992] = {
+					["items"] = 228,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 464,
+					["listings"] = 12,
 				},
 				[38682] = {
 					["items"] = 64,
@@ -27516,36 +27566,26 @@ AuctionLiteDB = {
 					["price"] = 150000,
 					["listings"] = 2,
 				},
-				[15992] = {
-					["items"] = 228,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 464,
-					["listings"] = 12,
-				},
-				[44697] = {
-					[-36] = {
-						["items"] = 1,
-						["time"] = 1306730452,
-						["scans"] = 1,
-						["price"] = 850000,
-						["listings"] = 1,
-					},
-					[-88] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 520000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-				},
 				[8395] = {
 					["items"] = 2,
 					["time"] = 1306730451,
 					["scans"] = 1,
 					["price"] = 400000,
 					["listings"] = 2,
+				},
+				[40166] = {
+					["items"] = 6,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 1749999,
+					["listings"] = 6,
+				},
+				[54501] = {
+					["items"] = 11,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 2997500,
+					["listings"] = 11,
 				},
 				[38821] = {
 					["items"] = 1,
@@ -27595,20 +27635,6 @@ AuctionLiteDB = {
 					["price"] = 130000,
 					["listings"] = 3,
 				},
-				[40166] = {
-					["items"] = 6,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 1749999,
-					["listings"] = 6,
-				},
-				[54501] = {
-					["items"] = 11,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 2997500,
-					["listings"] = 11,
-				},
 				[12426] = {
 					["items"] = 7,
 					["time"] = 1306730451,
@@ -27616,15 +27642,12 @@ AuctionLiteDB = {
 					["price"] = 346000,
 					["listings"] = 7,
 				},
-				[25296] = {
-					[-8] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 350000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
+				[16850] = {
+					["items"] = 2,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 349000,
+					["listings"] = 2,
 				},
 				[9842] = {
 					[1024] = {
@@ -27635,6 +27658,23 @@ AuctionLiteDB = {
 						["listings"] = 1,
 					},
 					["suffix"] = true,
+				},
+				[15512] = {
+					[929] = {
+						["items"] = 1,
+						["time"] = 1306730452,
+						["scans"] = 1,
+						["price"] = 70000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
+				},
+				[6342] = {
+					["items"] = 2,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 1897500,
+					["listings"] = 2,
 				},
 				[62672] = {
 					["items"] = 17,
@@ -27650,15 +27690,12 @@ AuctionLiteDB = {
 					["price"] = 500000,
 					["listings"] = 4,
 				},
-				[25172] = {
-					[-19] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 304500,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
+				[56552] = {
+					["items"] = 5,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 6440000,
+					["listings"] = 5,
 				},
 				[58275] = {
 					["items"] = 24,
@@ -27681,12 +27718,12 @@ AuctionLiteDB = {
 					["price"] = 478995,
 					["listings"] = 26,
 				},
-				[56552] = {
-					["items"] = 5,
+				[6390] = {
+					["items"] = 2,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 6440000,
-					["listings"] = 5,
+					["price"] = 2500000,
+					["listings"] = 2,
 				},
 				[42917] = {
 					["items"] = 8,
@@ -27695,12 +27732,12 @@ AuctionLiteDB = {
 					["price"] = 490000,
 					["listings"] = 8,
 				},
-				[6390] = {
-					["items"] = 2,
+				[52747] = {
+					["items"] = 1,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 2500000,
-					["listings"] = 2,
+					["price"] = 1300000,
+					["listings"] = 1,
 				},
 				[6454] = {
 					["items"] = 1,
@@ -27709,12 +27746,12 @@ AuctionLiteDB = {
 					["price"] = 7000000,
 					["listings"] = 1,
 				},
-				[56528] = {
-					["items"] = 4,
-					["time"] = 1306730451,
+				[13034] = {
+					["items"] = 1,
+					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 1992500,
-					["listings"] = 4,
+					["price"] = 3350000,
+					["listings"] = 1,
 				},
 				[3486] = {
 					["items"] = 29,
@@ -27768,12 +27805,12 @@ AuctionLiteDB = {
 					["price"] = 3500000,
 					["listings"] = 1,
 				},
-				[13034] = {
-					["items"] = 1,
-					["time"] = 1306730452,
+				[43390] = {
+					["items"] = 20,
+					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 3350000,
-					["listings"] = 1,
+					["price"] = 499997,
+					["listings"] = 20,
 				},
 				[158327] = {
 					["items"] = 144.416345241062,
@@ -27781,20 +27818,6 @@ AuctionLiteDB = {
 					["scans"] = 1.43248352050695,
 					["price"] = 4994714.53905894,
 					["listings"] = 144.416345241062,
-				},
-				[42737] = {
-					["items"] = 14,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 1007499,
-					["listings"] = 14,
-				},
-				[43390] = {
-					["items"] = 20,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 499997,
-					["listings"] = 20,
 				},
 				[55063] = {
 					["items"] = 5,
@@ -27824,13 +27847,6 @@ AuctionLiteDB = {
 					["price"] = 1200000,
 					["listings"] = 9,
 				},
-				[39334] = {
-					["items"] = 38,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 18000,
-					["listings"] = 38,
-				},
 				[1179] = {
 					["items"] = 1,
 					["time"] = 1306730452,
@@ -27844,6 +27860,27 @@ AuctionLiteDB = {
 					["scans"] = 1,
 					["price"] = 2376,
 					["listings"] = 4,
+				},
+				[39334] = {
+					["items"] = 38,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 18000,
+					["listings"] = 38,
+				},
+				[23441] = {
+					["items"] = 7,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 31804,
+					["listings"] = 5,
+				},
+				[20882] = {
+					["items"] = 1,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 500000,
+					["listings"] = 1,
 				},
 				[56484] = {
 					[-134] = {
@@ -27862,19 +27899,19 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[23441] = {
-					["items"] = 7,
+				[20818] = {
+					["items"] = 25,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 31804,
-					["listings"] = 5,
+					["price"] = 19000,
+					["listings"] = 25,
 				},
-				[20882] = {
-					["items"] = 1,
+				[24301] = {
+					["items"] = 2,
 					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 500000,
-					["listings"] = 1,
+					["price"] = 21000000,
+					["listings"] = 2,
 				},
 				[5997] = {
 					["items"] = 37,
@@ -27911,12 +27948,12 @@ AuctionLiteDB = {
 					["price"] = 1680,
 					["listings"] = 1,
 				},
-				[24301] = {
-					["items"] = 2,
-					["time"] = 1306730452,
+				[16851] = {
+					["items"] = 1,
+					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 21000000,
-					["listings"] = 2,
+					["price"] = 150000,
+					["listings"] = 1,
 				},
 				[42406] = {
 					["items"] = 32,
@@ -27925,26 +27962,26 @@ AuctionLiteDB = {
 					["price"] = 297897,
 					["listings"] = 32,
 				},
-				[31914] = {
-					["items"] = 2,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 9000000,
-					["listings"] = 2,
-				},
-				[16055] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 99996878,
-					["listings"] = 1,
-				},
 				[10603] = {
 					["items"] = 2,
 					["time"] = 1306730451,
 					["scans"] = 1,
 					["price"] = 1521501,
 					["listings"] = 2,
+				},
+				[11224] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 40000000,
+					["listings"] = 1,
+				},
+				[55065] = {
+					["items"] = 1,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 60000000,
+					["listings"] = 1,
 				},
 				[43430] = {
 					["items"] = 33,
@@ -27960,11 +27997,11 @@ AuctionLiteDB = {
 					["price"] = 400000,
 					["listings"] = 5,
 				},
-				[11224] = {
+				[58195] = {
 					["items"] = 1,
-					["time"] = 1306730451,
+					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 40000000,
+					["price"] = 36000000,
 					["listings"] = 1,
 				},
 				[36007] = {
@@ -28007,12 +28044,12 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[15018] = {
-					[135] = {
+				[15242] = {
+					[674] = {
 						["items"] = 1,
-						["time"] = 1306730452,
+						["time"] = 1306730451,
 						["scans"] = 1,
-						["price"] = 30000,
+						["price"] = 80000,
 						["listings"] = 1,
 					},
 					["suffix"] = true,
@@ -28031,29 +28068,26 @@ AuctionLiteDB = {
 					["price"] = 496996,
 					["listings"] = 31,
 				},
-				[52378] = {
-					["items"] = 2,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 850000,
-					["listings"] = 2,
-				},
-				[15242] = {
-					[674] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 80000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-				},
 				[2799] = {
 					["items"] = 11,
 					["time"] = 1306730452,
 					["scans"] = 1,
 					["price"] = 825,
 					["listings"] = 2,
+				},
+				[15781] = {
+					["items"] = 2,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 8000000,
+					["listings"] = 2,
+				},
+				[40127] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 2480000,
+					["listings"] = 1,
 				},
 				[31572] = {
 					[-39] = {
@@ -28072,12 +28106,15 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[7990] = {
-					["items"] = 2,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 80000,
-					["listings"] = 2,
+				[55717] = {
+					[-37] = {
+						["items"] = 1,
+						["time"] = 1306730452,
+						["scans"] = 1,
+						["price"] = 513180,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[55461] = {
 					[-41] = {
@@ -28089,22 +28126,26 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[55717] = {
-					[-37] = {
-						["items"] = 1,
-						["time"] = 1306730452,
-						["scans"] = 1,
-						["price"] = 513180,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-				},
-				[40127] = {
-					["items"] = 1,
+				[7990] = {
+					["items"] = 2,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 2480000,
-					["listings"] = 1,
+					["price"] = 80000,
+					["listings"] = 2,
+				},
+				[5573] = {
+					["items"] = 2,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 2500,
+					["listings"] = 2,
+				},
+				[7993] = {
+					["items"] = 2,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 39900,
+					["listings"] = 2,
 				},
 				[56551] = {
 					["items"] = 20,
@@ -28120,13 +28161,6 @@ AuctionLiteDB = {
 					["price"] = 60000,
 					["listings"] = 13,
 				},
-				[7993] = {
-					["items"] = 2,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 39900,
-					["listings"] = 2,
-				},
 				[8150] = {
 					["items"] = 49,
 					["time"] = 1306730451,
@@ -28134,15 +28168,12 @@ AuctionLiteDB = {
 					["price"] = 9800,
 					["listings"] = 12,
 				},
-				[24726] = {
-					[-40] = {
-						["items"] = 1,
-						["time"] = 1306730452,
-						["scans"] = 1,
-						["price"] = 250000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
+				[45625] = {
+					["items"] = 15,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 309999,
+					["listings"] = 15,
 				},
 				[41127] = {
 					["items"] = 2,
@@ -28151,12 +28182,15 @@ AuctionLiteDB = {
 					["price"] = 650000,
 					["listings"] = 2,
 				},
-				[38992] = {
-					["items"] = 19,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 880000,
-					["listings"] = 19,
+				[36689] = {
+					[-44] = {
+						["items"] = 1,
+						["time"] = 1306730452,
+						["scans"] = 1,
+						["price"] = 289644,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[33448] = {
 					["items"] = 68,
@@ -28172,12 +28206,12 @@ AuctionLiteDB = {
 					["price"] = 24156,
 					["listings"] = 16,
 				},
-				[45625] = {
-					["items"] = 15,
-					["time"] = 1306730452,
+				[31328] = {
+					["items"] = 1,
+					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 309999,
-					["listings"] = 15,
+					["price"] = 1000000,
+					["listings"] = 1,
 				},
 				[42407] = {
 					["items"] = 25,
@@ -28186,39 +28220,12 @@ AuctionLiteDB = {
 					["price"] = 403774,
 					["listings"] = 25,
 				},
-				[36689] = {
-					[-44] = {
-						["items"] = 1,
-						["time"] = 1306730452,
-						["scans"] = 1,
-						["price"] = 289644,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-				},
-				[31328] = {
+				[67394] = {
 					["items"] = 1,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 1000000,
+					["price"] = 500000,
 					["listings"] = 1,
-				},
-				[24992] = {
-					[-18] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 180000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-				},
-				[43431] = {
-					["items"] = 23,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 751996,
-					["listings"] = 23,
 				},
 				[45758] = {
 					["items"] = 16,
@@ -28233,6 +28240,13 @@ AuctionLiteDB = {
 					["scans"] = 1,
 					["price"] = 23800,
 					["listings"] = 134,
+				},
+				[43431] = {
+					["items"] = 23,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 751996,
+					["listings"] = 23,
 				},
 				[7958] = {
 					["items"] = 9,
@@ -28262,13 +28276,6 @@ AuctionLiteDB = {
 					["price"] = 1250000,
 					["listings"] = 3,
 				},
-				[18518] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 2200000,
-					["listings"] = 1,
-				},
 				[2407] = {
 					["items"] = 7,
 					["time"] = 1306730451,
@@ -28276,19 +28283,19 @@ AuctionLiteDB = {
 					["price"] = 51500,
 					["listings"] = 7,
 				},
-				[45735] = {
-					["items"] = 15,
+				[45773] = {
+					["items"] = 7,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 299985,
-					["listings"] = 15,
-				},
-				[20855] = {
-					["items"] = 7,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 400000,
+					["price"] = 2957500,
 					["listings"] = 7,
+				},
+				[18518] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 2200000,
+					["listings"] = 1,
 				},
 				[31209] = {
 					[-8] = {
@@ -28300,12 +28307,36 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
+				[45735] = {
+					["items"] = 15,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 299985,
+					["listings"] = 15,
+				},
 				[13077] = {
 					["items"] = 1,
 					["time"] = 1306730452,
 					["scans"] = 1,
 					["price"] = 300000,
 					["listings"] = 1,
+				},
+				[20407] = {
+					["items"] = 6,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 19500,
+					["listings"] = 6,
+				},
+				[15932] = {
+					[227] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 20000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[25874] = {
 					["items"] = 2,
@@ -28314,19 +28345,22 @@ AuctionLiteDB = {
 					["price"] = 59999,
 					["listings"] = 2,
 				},
-				[42910] = {
-					["items"] = 21,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 190000,
-					["listings"] = 21,
-				},
-				[30420] = {
-					["items"] = 3,
+				[21217] = {
+					["items"] = 20,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 20000,
-					["listings"] = 3,
+					["price"] = 1000,
+					["listings"] = 1,
+				},
+				[36559] = {
+					[-20] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 160000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[55718] = {
 					[-36] = {
@@ -28359,32 +28393,12 @@ AuctionLiteDB = {
 						["listings"] = 1,
 					},
 				},
-				[21217] = {
-					["items"] = 20,
+				[30420] = {
+					["items"] = 3,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 1000,
-					["listings"] = 1,
-				},
-				[36559] = {
-					[-20] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 160000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-				},
-				[9292] = {
-					[1201] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 400000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
+					["price"] = 20000,
+					["listings"] = 3,
 				},
 				[6545] = {
 					[97] = {
@@ -28413,13 +28427,6 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[41128] = {
-					["items"] = 7,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 520000,
-					["listings"] = 7,
-				},
 				[25843] = {
 					["items"] = 8,
 					["time"] = 1306730451,
@@ -28434,33 +28441,33 @@ AuctionLiteDB = {
 					["price"] = 2497500,
 					["listings"] = 8,
 				},
+				[41128] = {
+					["items"] = 7,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 520000,
+					["listings"] = 7,
+				},
+				[32749] = {
+					["items"] = 2,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 810000,
+					["listings"] = 2,
+				},
+				[67123] = {
+					["items"] = 2,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 2500000,
+					["listings"] = 2,
+				},
 				[20950] = {
 					["items"] = 2,
 					["time"] = 1306730451,
 					["scans"] = 1,
 					["price"] = 25000,
 					["listings"] = 2,
-				},
-				[34767] = {
-					["items"] = 100,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 9900,
-					["listings"] = 5,
-				},
-				[42408] = {
-					["items"] = 17,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 1329999,
-					["listings"] = 15,
-				},
-				[25649] = {
-					["items"] = 830,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 4505,
-					["listings"] = 100,
 				},
 				[24873] = {
 					[-8] = {
@@ -28472,12 +28479,33 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
+				[42408] = {
+					["items"] = 17,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 1329999,
+					["listings"] = 15,
+				},
 				[14507] = {
 					["items"] = 2,
 					["time"] = 1306730451,
 					["scans"] = 1,
 					["price"] = 7450000,
 					["listings"] = 2,
+				},
+				[55069] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 29000000,
+					["listings"] = 1,
+				},
+				[13931] = {
+					["items"] = 5,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 20000,
+					["listings"] = 1,
 				},
 				[43432] = {
 					["items"] = 11,
@@ -28486,15 +28514,12 @@ AuctionLiteDB = {
 					["price"] = 100000,
 					["listings"] = 11,
 				},
-				[35995] = {
-					[-37] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 40000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
+				[67487] = {
+					["items"] = 9,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 190000,
+					["listings"] = 9,
 				},
 				[39969] = {
 					["items"] = 3,
@@ -28503,12 +28528,12 @@ AuctionLiteDB = {
 					["price"] = 101257,
 					["listings"] = 3,
 				},
-				[67487] = {
-					["items"] = 9,
+				[40012] = {
+					["items"] = 2,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 190000,
-					["listings"] = 9,
+					["price"] = 2249998,
+					["listings"] = 2,
 				},
 				[36265] = {
 					[-7] = {
@@ -28544,12 +28569,22 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[40012] = {
-					["items"] = 2,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 2249998,
-					["listings"] = 2,
+				[56482] = {
+					[-134] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 990000,
+						["listings"] = 1,
+					},
+					[-131] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 544500,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[34769] = {
 					["items"] = 18,
@@ -28572,22 +28607,12 @@ AuctionLiteDB = {
 					["price"] = 602998,
 					["listings"] = 22,
 				},
-				[55710] = {
-					[-114] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 1050501,
-						["listings"] = 1,
-					},
-					[-37] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 314870,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
+				[59462] = {
+					["items"] = 4,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 89990000,
+					["listings"] = 4,
 				},
 				[723] = {
 					["items"] = 106,
@@ -28596,26 +28621,29 @@ AuctionLiteDB = {
 					["price"] = 3700,
 					["listings"] = 28,
 				},
-				[34765] = {
-					["items"] = 71,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 3900,
-					["listings"] = 4,
-				},
-				[59462] = {
-					["items"] = 4,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 89990000,
-					["listings"] = 4,
-				},
 				[6716] = {
 					["items"] = 3,
 					["time"] = 1306730451,
 					["scans"] = 1,
 					["price"] = 1950000,
 					["listings"] = 3,
+				},
+				[24811] = {
+					[-19] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 412651,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
+				},
+				[62670] = {
+					["items"] = 1842,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 31370.65,
+					["listings"] = 99,
 				},
 				[55463] = {
 					[-118] = {
@@ -28686,30 +28714,6 @@ AuctionLiteDB = {
 					["price"] = 243774,
 					["listings"] = 2,
 				},
-				[36387] = {
-					[-31] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 405000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-				},
-				[16215] = {
-					["items"] = 1,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 500000,
-					["listings"] = 1,
-				},
-				[12204] = {
-					["items"] = 2,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 10000,
-					["listings"] = 2,
-				},
 				[6268] = {
 					[18] = {
 						["items"] = 1,
@@ -28734,19 +28738,36 @@ AuctionLiteDB = {
 					["price"] = 380000000,
 					["listings"] = 1,
 				},
-				[41385] = {
-					["items"] = 1,
+				[12204] = {
+					["items"] = 2,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 990000,
-					["listings"] = 1,
+					["price"] = 10000,
+					["listings"] = 2,
 				},
-				[791] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 600000,
-					["listings"] = 1,
+				[25006] = {
+					[-33] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 139103,
+						["listings"] = 1,
+					},
+					[-44] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 245197,
+						["listings"] = 1,
+					},
+					[-5] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 139103,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[67404] = {
 					["items"] = 9,
@@ -28754,6 +28775,30 @@ AuctionLiteDB = {
 					["scans"] = 1,
 					["price"] = 6435,
 					["listings"] = 4,
+				},
+				[41385] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 990000,
+					["listings"] = 1,
+				},
+				[25302] = {
+					[-9] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 166017,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
+				},
+				[783] = {
+					["items"] = 29,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 9600,
+					["listings"] = 10,
 				},
 				[25174] = {
 					[-13] = {
@@ -28765,15 +28810,12 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[25302] = {
-					[-9] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 166017,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
+				[791] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 600000,
+					["listings"] = 1,
 				},
 				[62582] = {
 					["items"] = 1,
@@ -28789,12 +28831,15 @@ AuctionLiteDB = {
 					["price"] = 9999,
 					["listings"] = 1,
 				},
-				[23576] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 50000,
-					["listings"] = 1,
+				[36004] = {
+					[-8] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 249447,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[43433] = {
 					["items"] = 1,
@@ -28851,25 +28896,19 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[36004] = {
-					[-8] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 249447,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
+				[33470] = {
+					["items"] = 760,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 35000,
+					["listings"] = 44,
 				},
-				[36682] = {
-					[-44] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 260000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
+				[9293] = {
+					["items"] = 1,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 200000,
+					["listings"] = 1,
 				},
 				[18519] = {
 					["items"] = 2,
@@ -28892,32 +28931,38 @@ AuctionLiteDB = {
 					["price"] = 359997,
 					["listings"] = 23,
 				},
-				[33470] = {
-					["items"] = 760,
+				[36682] = {
+					[-44] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 260000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
+				},
+				[41527] = {
+					["items"] = 27,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 35000,
-					["listings"] = 44,
+					["price"] = 412997,
+					["listings"] = 27,
 				},
-				[9293] = {
-					["items"] = 1,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 200000,
-					["listings"] = 1,
+				[24679] = {
+					[-35] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 85521,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
-				[30419] = {
+				[38948] = {
 					["items"] = 2,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 205000,
-					["listings"] = 2,
-				},
-				[6663] = {
-					["items"] = 2,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 110000,
+					["price"] = 3947500,
 					["listings"] = 2,
 				},
 				[863] = {
@@ -28930,16 +28975,6 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[24679] = {
-					[-35] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 85521,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-				},
 				[871] = {
 					["items"] = 1,
 					["time"] = 1306730451,
@@ -28947,38 +28982,24 @@ AuctionLiteDB = {
 					["price"] = 4829223,
 					["listings"] = 1,
 				},
-				[38948] = {
-					["items"] = 2,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 3947500,
-					["listings"] = 2,
-				},
-				[55544] = {
-					[-7] = {
-						["items"] = 2,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 400000,
-						["listings"] = 2,
-					},
-					[-132] = {
+				[55720] = {
+					[-8] = {
 						["items"] = 1,
 						["time"] = 1306730451,
 						["scans"] = 1,
-						["price"] = 2220000,
+						["price"] = 880000,
 						["listings"] = 1,
 					},
 					["suffix"] = true,
 				},
-				[40106] = {
-					["items"] = 12,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 699995,
-					["listings"] = 12,
-				},
 				[55348] = {
+					[-91] = {
+						["items"] = 1,
+						["time"] = 1306730452,
+						["scans"] = 1,
+						["price"] = 400000,
+						["listings"] = 1,
+					},
 					[-135] = {
 						["items"] = 1,
 						["time"] = 1306730451,
@@ -28993,13 +29014,6 @@ AuctionLiteDB = {
 						["price"] = 2300000,
 						["listings"] = 1,
 					},
-					[-91] = {
-						["items"] = 1,
-						["time"] = 1306730452,
-						["scans"] = 1,
-						["price"] = 400000,
-						["listings"] = 1,
-					},
 					["suffix"] = true,
 				},
 				[11139] = {
@@ -29008,6 +29022,13 @@ AuctionLiteDB = {
 					["scans"] = 1,
 					["price"] = 1445,
 					["listings"] = 73,
+				},
+				[40106] = {
+					["items"] = 12,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 699995,
+					["listings"] = 12,
 				},
 				[25301] = {
 					[-6] = {
@@ -29026,19 +29047,33 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[8186] = {
+				[62247] = {
 					["items"] = 1,
 					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 20000,
+					["price"] = 50252,
 					["listings"] = 1,
 				},
-				[27860] = {
-					["items"] = 26,
+				[52163] = {
+					["items"] = 5,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 9900,
+					["listings"] = 5,
+				},
+				[43013] = {
+					["items"] = 454,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 27815,
-					["listings"] = 3,
+					["price"] = 1480,
+					["listings"] = 24,
+				},
+				[25669] = {
+					["items"] = 0,
+					["time"] = 0,
+					["scans"] = 0,
+					["price"] = 0,
+					["listings"] = 0,
 				},
 				[33451] = {
 					["items"] = 17,
@@ -29054,12 +29089,12 @@ AuctionLiteDB = {
 					["price"] = 19800,
 					["listings"] = 3,
 				},
-				[43013] = {
-					["items"] = 454,
-					["time"] = 1306730451,
+				[62245] = {
+					["items"] = 3,
+					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 1480,
-					["listings"] = 24,
+					["price"] = 9879999,
+					["listings"] = 3,
 				},
 				[42410] = {
 					["items"] = 8,
@@ -29068,20 +29103,6 @@ AuctionLiteDB = {
 					["price"] = 139500,
 					["listings"] = 8,
 				},
-				[25669] = {
-					["items"] = 0,
-					["time"] = 0,
-					["scans"] = 0,
-					["price"] = 0,
-					["listings"] = 0,
-				},
-				[62245] = {
-					["items"] = 3,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 9879999,
-					["listings"] = 3,
-				},
 				[21885] = {
 					["items"] = 19,
 					["time"] = 1306730452,
@@ -29089,26 +29110,12 @@ AuctionLiteDB = {
 					["price"] = 386100,
 					["listings"] = 19,
 				},
-				[43434] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 1890000,
-					["listings"] = 1,
-				},
 				[45756] = {
 					["items"] = 18,
 					["time"] = 1306730452,
 					["scans"] = 1,
 					["price"] = 549996,
 					["listings"] = 18,
-				},
-				[943] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 5000000,
-					["listings"] = 1,
 				},
 				[24774] = {
 					[-16] = {
@@ -29127,12 +29134,26 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
+				[43434] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 1890000,
+					["listings"] = 1,
+				},
 				[23742] = {
 					["items"] = 5,
 					["time"] = 1306730451,
 					["scans"] = 1,
 					["price"] = 142100,
 					["listings"] = 5,
+				},
+				[943] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 5000000,
+					["listings"] = 1,
 				},
 				[36105] = {
 					[-17] = {
@@ -29144,13 +29165,6 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[44970] = {
-					["items"] = 2,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 19000000,
-					["listings"] = 2,
-				},
 				[44732] = {
 					[-90] = {
 						["items"] = 1,
@@ -29160,6 +29174,27 @@ AuctionLiteDB = {
 						["listings"] = 1,
 					},
 					["suffix"] = true,
+				},
+				[45604] = {
+					["items"] = 10,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 261499,
+					["listings"] = 10,
+				},
+				[44970] = {
+					["items"] = 2,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 19000000,
+					["listings"] = 2,
+				},
+				[55074] = {
+					["items"] = 16,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 2736248,
+					["listings"] = 16,
 				},
 				[2455] = {
 					["items"] = 16,
@@ -29182,20 +29217,6 @@ AuctionLiteDB = {
 					["price"] = 359000,
 					["listings"] = 2,
 				},
-				[55074] = {
-					["items"] = 16,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 2736248,
-					["listings"] = 16,
-				},
-				[44261] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 2206107,
-					["listings"] = 1,
-				},
 				[31892] = {
 					["items"] = 3,
 					["time"] = 1306730452,
@@ -29216,6 +29237,23 @@ AuctionLiteDB = {
 					["scans"] = 1,
 					["price"] = 350000,
 					["listings"] = 4,
+				},
+				[24903] = {
+					[-12] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 185913,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
+				},
+				[8932] = {
+					["items"] = 8,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 7549,
+					["listings"] = 1,
 				},
 				[39339] = {
 					["items"] = 1,
@@ -29252,12 +29290,29 @@ AuctionLiteDB = {
 					["price"] = 8333.33333333333,
 					["listings"] = 7,
 				},
-				[8932] = {
-					["items"] = 8,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 7549,
-					["listings"] = 1,
+				[55330] = {
+					[-134] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 1063036,
+						["listings"] = 1,
+					},
+					[-91] = {
+						["items"] = 1,
+						["time"] = 1306730452,
+						["scans"] = 1,
+						["price"] = 785000,
+						["listings"] = 1,
+					},
+					[-40] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 590000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[36391] = {
 					[-9] = {
@@ -29324,33 +29379,12 @@ AuctionLiteDB = {
 					["price"] = 210000,
 					["listings"] = 44,
 				},
-				[40102] = {
-					["items"] = 4,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 3499998,
-					["listings"] = 4,
-				},
-				[45732] = {
-					["items"] = 17,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 395498,
-					["listings"] = 17,
-				},
 				[43105] = {
 					["items"] = 12,
 					["time"] = 1306730451,
 					["scans"] = 1,
 					["price"] = 28000,
 					["listings"] = 12,
-				},
-				[4407] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 250000,
-					["listings"] = 1,
 				},
 				[24598] = {
 					[-8] = {
@@ -29362,22 +29396,19 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[9854] = {
-					[383] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 37500,
-						["listings"] = 1,
-					},
-					[287] = {
-						["items"] = 1,
-						["time"] = 1306730452,
-						["scans"] = 1,
-						["price"] = 38974,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
+				[2251] = {
+					["items"] = 5,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 10040,
+					["listings"] = 2,
+				},
+				[4407] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 250000,
+					["listings"] = 1,
 				},
 				[4371] = {
 					["items"] = 75,
@@ -29402,6 +29433,23 @@ AuctionLiteDB = {
 						["listings"] = 1,
 					},
 					["suffix"] = true,
+				},
+				[24831] = {
+					[-13] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 137302,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
+				},
+				[3609] = {
+					["items"] = 5,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 4788,
+					["listings"] = 5,
 				},
 				[4567] = {
 					[845] = {
@@ -29434,15 +29482,12 @@ AuctionLiteDB = {
 					["price"] = 309.1,
 					["listings"] = 2,
 				},
-				[24831] = {
-					[-13] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 137302,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
+				[58198] = {
+					["items"] = 3,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 37990000,
+					["listings"] = 3,
 				},
 				[4695] = {
 					["items"] = 1,
@@ -29465,22 +29510,19 @@ AuctionLiteDB = {
 					["price"] = 900000,
 					["listings"] = 1,
 				},
-				[12996] = {
-					["items"] = 1,
+				[38981] = {
+					["items"] = 2,
 					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 900000,
-					["listings"] = 1,
+					["price"] = 761912,
+					["listings"] = 2,
 				},
-				[25046] = {
-					[-16] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 150000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
+				[52772] = {
+					["items"] = 2,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 2785703,
+					["listings"] = 2,
 				},
 				[1206] = {
 					["items"] = 93,
@@ -29489,12 +29531,12 @@ AuctionLiteDB = {
 					["price"] = 69000,
 					["listings"] = 76,
 				},
-				[38981] = {
-					["items"] = 2,
-					["time"] = 1306730452,
+				[9294] = {
+					["items"] = 1,
+					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 761912,
-					["listings"] = 2,
+					["price"] = 400000,
+					["listings"] = 1,
 				},
 				[55466] = {
 					[-137] = {
@@ -29516,12 +29558,12 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[52772] = {
-					["items"] = 2,
-					["time"] = 1306730451,
+				[66973] = {
+					["items"] = 1,
+					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 2785703,
-					["listings"] = 2,
+					["price"] = 4000000,
+					["listings"] = 1,
 				},
 				[9965] = {
 					[384] = {
@@ -29540,19 +29582,19 @@ AuctionLiteDB = {
 					["price"] = 60000,
 					["listings"] = 2,
 				},
-				[9294] = {
-					["items"] = 1,
+				[62666] = {
+					["items"] = 740,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 400000,
-					["listings"] = 1,
+					["price"] = 43998.9,
+					["listings"] = 37,
 				},
-				[66973] = {
-					["items"] = 1,
-					["time"] = 1306730452,
+				[45606] = {
+					["items"] = 2,
+					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 4000000,
-					["listings"] = 1,
+					["price"] = 59990000,
+					["listings"] = 2,
 				},
 				[55716] = {
 					[-6] = {
@@ -29571,27 +29613,6 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[45606] = {
-					["items"] = 2,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 59990000,
-					["listings"] = 2,
-				},
-				[19288] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 990000,
-					["listings"] = 1,
-				},
-				[10413] = {
-					["items"] = 2,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 1949996,
-					["listings"] = 2,
-				},
 				[45912] = {
 					["items"] = 12,
 					["time"] = 1306730451,
@@ -29606,19 +29627,29 @@ AuctionLiteDB = {
 					["price"] = 1896853,
 					["listings"] = 1,
 				},
-				[42412] = {
-					["items"] = 7,
+				[10413] = {
+					["items"] = 2,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 200671,
-					["listings"] = 7,
+					["price"] = 1949996,
+					["listings"] = 2,
 				},
-				[52178] = {
-					["items"] = 431,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 66000,
-					["listings"] = 121,
+				[9814] = {
+					[1016] = {
+						["items"] = 1,
+						["time"] = 1306730452,
+						["scans"] = 1,
+						["price"] = 129999,
+						["listings"] = 1,
+					},
+					[592] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 70000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[4569] = {
 					[1547] = {
@@ -29630,12 +29661,33 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
+				[42412] = {
+					["items"] = 7,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 200671,
+					["listings"] = 7,
+				},
 				[34722] = {
 					["items"] = 130,
 					["time"] = 1306730451,
 					["scans"] = 1,
 					["price"] = 2500,
 					["listings"] = 13,
+				},
+				[52178] = {
+					["items"] = 431,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 66000,
+					["listings"] = 121,
+				},
+				[40152] = {
+					["items"] = 2,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 1000000,
+					["listings"] = 2,
 				},
 				[43436] = {
 					["items"] = 1,
@@ -29644,19 +29696,19 @@ AuctionLiteDB = {
 					["price"] = 1893750,
 					["listings"] = 1,
 				},
-				[36905] = {
-					["items"] = 480,
+				[62243] = {
+					["items"] = 4,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 37900,
-					["listings"] = 24,
+					["price"] = 9800000,
+					["listings"] = 4,
 				},
-				[40152] = {
-					["items"] = 2,
-					["time"] = 1306730452,
+				[55077] = {
+					["items"] = 6,
+					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 1000000,
-					["listings"] = 2,
+					["price"] = 3373050,
+					["listings"] = 6,
 				},
 				[5527] = {
 					["items"] = 6,
@@ -29692,40 +29744,15 @@ AuctionLiteDB = {
 					["price"] = 19457,
 					["listings"] = 1,
 				},
-				[62243] = {
-					["items"] = 4,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 9800000,
-					["listings"] = 4,
-				},
-				[16251] = {
-					["items"] = 4,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 899999,
-					["listings"] = 4,
-				},
-				[45740] = {
-					["items"] = 26,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 579997,
-					["listings"] = 26,
-				},
-				[44554] = {
-					["items"] = 5,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 980000,
-					["listings"] = 5,
-				},
-				[54443] = {
-					["items"] = 37,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 2400000,
-					["listings"] = 37,
+				[55646] = {
+					[-131] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 300000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[4345] = {
 					["items"] = 1,
@@ -29734,19 +29761,33 @@ AuctionLiteDB = {
 					["price"] = 100000,
 					["listings"] = 1,
 				},
-				[23448] = {
-					["items"] = 15,
-					["time"] = 1306730451,
+				[45740] = {
+					["items"] = 26,
+					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 620000,
-					["listings"] = 15,
+					["price"] = 579997,
+					["listings"] = 26,
 				},
-				[40177] = {
-					["items"] = 1,
+				[16251] = {
+					["items"] = 4,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 899999,
+					["listings"] = 4,
+				},
+				[54443] = {
+					["items"] = 37,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 3500000,
-					["listings"] = 1,
+					["price"] = 2400000,
+					["listings"] = 37,
+				},
+				[44554] = {
+					["items"] = 5,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 980000,
+					["listings"] = 5,
 				},
 				[23447] = {
 					["items"] = 38,
@@ -29754,6 +29795,20 @@ AuctionLiteDB = {
 					["scans"] = 1,
 					["price"] = 40000,
 					["listings"] = 16,
+				},
+				[16864] = {
+					["items"] = 4,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 600000,
+					["listings"] = 4,
+				},
+				[40177] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 3500000,
+					["listings"] = 1,
 				},
 				[55723] = {
 					[-6] = {
@@ -29779,12 +29834,15 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[16864] = {
-					["items"] = 4,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 600000,
-					["listings"] = 4,
+				[25303] = {
+					[-15] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 120000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[62568] = {
 					["items"] = 2,
@@ -29799,23 +29857,6 @@ AuctionLiteDB = {
 					["scans"] = 1,
 					["price"] = 7800,
 					["listings"] = 1,
-				},
-				[25303] = {
-					[-15] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 120000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-				},
-				[42409] = {
-					["items"] = 28,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 229499,
-					["listings"] = 28,
 				},
 				[31891] = {
 					["items"] = 1,
@@ -29843,6 +29884,20 @@ AuctionLiteDB = {
 						["listings"] = 1,
 					},
 					["suffix"] = true,
+				},
+				[55085] = {
+					["items"] = 2,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 2992497,
+					["listings"] = 2,
+				},
+				[39338] = {
+					["items"] = 30,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 20000,
+					["listings"] = 30,
 				},
 				[33454] = {
 					["items"] = 23,
@@ -29872,37 +29927,6 @@ AuctionLiteDB = {
 					["price"] = 499999,
 					["listings"] = 30,
 				},
-				[39338] = {
-					["items"] = 30,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 20000,
-					["listings"] = 30,
-				},
-				[6391] = {
-					["items"] = 5,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 247500,
-					["listings"] = 5,
-				},
-				[25048] = {
-					[-28] = {
-						["items"] = 1,
-						["time"] = 1306730452,
-						["scans"] = 1,
-						["price"] = 550000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-				},
-				[43437] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 1893750,
-					["listings"] = 1,
-				},
 				[55737] = {
 					[-6] = {
 						["items"] = 1,
@@ -29923,6 +29947,37 @@ AuctionLiteDB = {
 						["time"] = 1306730451,
 						["scans"] = 1,
 						["price"] = 294999,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
+				},
+				[6391] = {
+					["items"] = 5,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 247500,
+					["listings"] = 5,
+				},
+				[22309] = {
+					["items"] = 3,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 2490000,
+					["listings"] = 3,
+				},
+				[43437] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 1893750,
+					["listings"] = 1,
+				},
+				[25048] = {
+					[-28] = {
+						["items"] = 1,
+						["time"] = 1306730452,
+						["scans"] = 1,
+						["price"] = 550000,
 						["listings"] = 1,
 					},
 					["suffix"] = true,
@@ -29968,19 +30023,29 @@ AuctionLiteDB = {
 					["price"] = 31499999,
 					["listings"] = 1,
 				},
-				[52140] = {
-					["items"] = 5,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 41200,
-					["listings"] = 5,
+				[25176] = {
+					[-10] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 160366,
+						["listings"] = 1,
+					},
+					[-45] = {
+						["items"] = 1,
+						["time"] = 1306730452,
+						["scans"] = 1,
+						["price"] = 264603,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
-				[62665] = {
-					["items"] = 354,
+				[14482] = {
+					["items"] = 2,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 35000,
-					["listings"] = 23,
+					["price"] = 1000000,
+					["listings"] = 2,
 				},
 				[45741] = {
 					["items"] = 28,
@@ -30017,19 +30082,12 @@ AuctionLiteDB = {
 					["price"] = 1749000,
 					["listings"] = 3,
 				},
-				[25176] = {
-					[-10] = {
+				[25008] = {
+					[-45] = {
 						["items"] = 1,
 						["time"] = 1306730451,
 						["scans"] = 1,
-						["price"] = 160366,
-						["listings"] = 1,
-					},
-					[-45] = {
-						["items"] = 1,
-						["time"] = 1306730452,
-						["scans"] = 1,
-						["price"] = 264603,
+						["price"] = 149942,
 						["listings"] = 1,
 					},
 					["suffix"] = true,
@@ -30068,30 +30126,6 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[14482] = {
-					["items"] = 2,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 1000000,
-					["listings"] = 2,
-				},
-				[25008] = {
-					[-45] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 149942,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-				},
-				[40110] = {
-					["items"] = 0,
-					["time"] = 0,
-					["scans"] = 0,
-					["price"] = 0,
-					["listings"] = 0,
-				},
 				[30283] = {
 					["items"] = 1,
 					["time"] = 1306730451,
@@ -30106,6 +30140,13 @@ AuctionLiteDB = {
 					["price"] = 70000,
 					["listings"] = 1,
 				},
+				[40110] = {
+					["items"] = 0,
+					["time"] = 0,
+					["scans"] = 0,
+					["price"] = 0,
+					["listings"] = 0,
+				},
 				[4766] = {
 					["items"] = 3,
 					["time"] = 1306730452,
@@ -30113,26 +30154,12 @@ AuctionLiteDB = {
 					["price"] = 11500,
 					["listings"] = 3,
 				},
-				[7191] = {
-					["items"] = 15,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 120000,
-					["listings"] = 3,
-				},
-				[55414] = {
-					[-43] = {
+				[31160] = {
+					[-12] = {
 						["items"] = 1,
 						["time"] = 1306730452,
 						["scans"] = 1,
-						["price"] = 1113127,
-						["listings"] = 1,
-					},
-					[-91] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 1000000,
+						["price"] = 650000,
 						["listings"] = 1,
 					},
 					["suffix"] = true,
@@ -30142,6 +30169,13 @@ AuctionLiteDB = {
 					["time"] = 1306730451,
 					["scans"] = 1,
 					["price"] = 18915,
+					["listings"] = 3,
+				},
+				[7191] = {
+					["items"] = 15,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 120000,
 					["listings"] = 3,
 				},
 				[58279] = {
@@ -30158,6 +30192,23 @@ AuctionLiteDB = {
 					["price"] = 2997499,
 					["listings"] = 4,
 				},
+				[23426] = {
+					["items"] = 102,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 142857.142857143,
+					["listings"] = 42,
+				},
+				[36120] = {
+					[-6] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 154768,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
+				},
 				[42414] = {
 					["items"] = 27,
 					["time"] = 1306730452,
@@ -30172,12 +30223,12 @@ AuctionLiteDB = {
 					["price"] = 99900,
 					["listings"] = 5,
 				},
-				[31319] = {
-					["items"] = 1,
-					["time"] = 1306730451,
+				[41552] = {
+					["items"] = 19,
+					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 3997500,
-					["listings"] = 1,
+					["price"] = 490501,
+					["listings"] = 19,
 				},
 				[7447] = {
 					[153] = {
@@ -30196,19 +30247,19 @@ AuctionLiteDB = {
 					["price"] = 1896000,
 					["listings"] = 1,
 				},
-				[52164] = {
-					["items"] = 5,
-					["time"] = 1306730452,
+				[23449] = {
+					["items"] = 12,
+					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 15000,
-					["listings"] = 5,
+					["price"] = 901875,
+					["listings"] = 7,
 				},
-				[41552] = {
-					["items"] = 19,
-					["time"] = 1306730452,
+				[23104] = {
+					["items"] = 45,
+					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 490501,
-					["listings"] = 19,
+					["price"] = 9900,
+					["listings"] = 45,
 				},
 				[15149] = {
 					[253] = {
@@ -30230,27 +30281,6 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[23449] = {
-					["items"] = 12,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 901875,
-					["listings"] = 7,
-				},
-				[44974] = {
-					["items"] = 7,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 49970100,
-					["listings"] = 7,
-				},
-				[43554] = {
-					["items"] = 13,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 29800,
-					["listings"] = 13,
-				},
 				[24985] = {
 					[-6] = {
 						["items"] = 1,
@@ -30260,6 +30290,27 @@ AuctionLiteDB = {
 						["listings"] = 1,
 					},
 					["suffix"] = true,
+				},
+				[44974] = {
+					["items"] = 7,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 49970100,
+					["listings"] = 7,
+				},
+				[2453] = {
+					["items"] = 115,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 14000,
+					["listings"] = 33,
+				},
+				[60839] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 3220718,
+					["listings"] = 1,
 				},
 				[45742] = {
 					["items"] = 23,
@@ -30282,19 +30333,19 @@ AuctionLiteDB = {
 					["price"] = 1947500,
 					["listings"] = 4,
 				},
-				[2453] = {
-					["items"] = 115,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 14000,
-					["listings"] = 33,
-				},
-				[60839] = {
+				[12988] = {
 					["items"] = 1,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 302274,
+					["listings"] = 1,
+				},
+				[13111] = {
+					["items"] = 3,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 3220718,
-					["listings"] = 1,
+					["price"] = 400000,
+					["listings"] = 3,
 				},
 				[1982] = {
 					["items"] = 6,
@@ -30303,22 +30354,19 @@ AuctionLiteDB = {
 					["price"] = 1350000,
 					["listings"] = 6,
 				},
+				[52777] = {
+					["items"] = 9,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 8750900,
+					["listings"] = 9,
+				},
 				[7991] = {
 					["items"] = 1,
 					["time"] = 1306730451,
 					["scans"] = 1,
 					["price"] = 5000000,
 					["listings"] = 1,
-				},
-				[55725] = {
-					[-42] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 1990000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
 				},
 				[16045] = {
 					["items"] = 1,
@@ -30341,12 +30389,12 @@ AuctionLiteDB = {
 					["price"] = 1312499,
 					["listings"] = 9,
 				},
-				[52777] = {
-					["items"] = 9,
-					["time"] = 1306730451,
+				[43381] = {
+					["items"] = 23,
+					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 8750900,
-					["listings"] = 9,
+					["price"] = 469992,
+					["listings"] = 23,
 				},
 				[52137] = {
 					["items"] = 1,
@@ -30362,12 +30410,12 @@ AuctionLiteDB = {
 					["price"] = 50000,
 					["listings"] = 4,
 				},
-				[43381] = {
-					["items"] = 23,
-					["time"] = 1306730452,
+				[41812] = {
+					["items"] = 29,
+					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 469992,
-					["listings"] = 23,
+					["price"] = 1395,
+					["listings"] = 6,
 				},
 				[24898] = {
 					[-11] = {
@@ -30379,12 +30427,12 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[41812] = {
-					["items"] = 29,
+				[3611] = {
+					["items"] = 1,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 1395,
-					["listings"] = 6,
+					["price"] = 450000,
+					["listings"] = 1,
 				},
 				[25049] = {
 					[-13] = {
@@ -30410,33 +30458,12 @@ AuctionLiteDB = {
 					["price"] = 788999,
 					["listings"] = 26,
 				},
-				[55790] = {
-					["items"] = 5,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 700000,
-					["listings"] = 5,
-				},
-				[3611] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 450000,
-					["listings"] = 1,
-				},
 				[55082] = {
 					["items"] = 13,
 					["time"] = 1306730451,
 					["scans"] = 1,
 					["price"] = 899899,
 					["listings"] = 13,
-				},
-				[43439] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 1892500,
-					["listings"] = 1,
 				},
 				[55736] = {
 					[-39] = {
@@ -30447,6 +30474,27 @@ AuctionLiteDB = {
 						["listings"] = 1,
 					},
 					["suffix"] = true,
+				},
+				[67484] = {
+					["items"] = 10,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 250000,
+					["listings"] = 10,
+				},
+				[43439] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 1892500,
+					["listings"] = 1,
+				},
+				[12824] = {
+					["items"] = 1,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 140000000,
+					["listings"] = 1,
 				},
 				[52142] = {
 					["items"] = 11,
@@ -30493,12 +30541,12 @@ AuctionLiteDB = {
 					["price"] = 1990,
 					["listings"] = 13,
 				},
-				[12824] = {
-					["items"] = 1,
+				[27854] = {
+					["items"] = 91,
 					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 140000000,
-					["listings"] = 1,
+					["price"] = 1028,
+					["listings"] = 11,
 				},
 				[45743] = {
 					["items"] = 22,
@@ -30507,12 +30555,12 @@ AuctionLiteDB = {
 					["price"] = 521999,
 					["listings"] = 22,
 				},
-				[24291] = {
-					["items"] = 13,
-					["time"] = 1306730451,
+				[23736] = {
+					["items"] = 20,
+					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 1500,
-					["listings"] = 1,
+					["price"] = 18753,
+					["listings"] = 20,
 				},
 				[54446] = {
 					["items"] = 14,
@@ -30521,26 +30569,26 @@ AuctionLiteDB = {
 					["price"] = 2595000,
 					["listings"] = 14,
 				},
-				[27854] = {
-					["items"] = 91,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 1028,
-					["listings"] = 11,
-				},
-				[23736] = {
-					["items"] = 20,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 18753,
-					["listings"] = 20,
-				},
 				[61993] = {
 					["items"] = 4,
 					["time"] = 1306730451,
 					["scans"] = 1,
 					["price"] = 11450000,
 					["listings"] = 4,
+				},
+				[13488] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 25009755,
+					["listings"] = 1,
+				},
+				[42901] = {
+					["items"] = 23,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 518982,
+					["listings"] = 23,
 				},
 				[55470] = {
 					[-43] = {
@@ -30562,19 +30610,19 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[13488] = {
-					["items"] = 1,
+				[20520] = {
+					["items"] = 5,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 25009755,
-					["listings"] = 1,
+					["price"] = 10000,
+					["listings"] = 3,
 				},
-				[42901] = {
-					["items"] = 23,
+				[4233] = {
+					["items"] = 14,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 518982,
-					["listings"] = 23,
+					["price"] = 54999,
+					["listings"] = 4,
 				},
 				[56494] = {
 					[-132] = {
@@ -30607,20 +30655,6 @@ AuctionLiteDB = {
 						["listings"] = 2,
 					},
 				},
-				[20520] = {
-					["items"] = 5,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 10000,
-					["listings"] = 3,
-				},
-				[4233] = {
-					["items"] = 14,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 54999,
-					["listings"] = 4,
-				},
 				[39343] = {
 					["items"] = 105,
 					["time"] = 1306730451,
@@ -30628,26 +30662,12 @@ AuctionLiteDB = {
 					["price"] = 25555.5555555556,
 					["listings"] = 7,
 				},
-				[10286] = {
-					["items"] = 6,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 24600,
-					["listings"] = 5,
-				},
 				[58146] = {
 					["items"] = 101,
 					["time"] = 1306730451,
 					["scans"] = 1,
 					["price"] = 49800,
 					["listings"] = 54,
-				},
-				[33457] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 2031,
-					["listings"] = 1,
 				},
 				[36026] = {
 					[-39] = {
@@ -30666,11 +30686,32 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
+				[10286] = {
+					["items"] = 6,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 24600,
+					["listings"] = 5,
+				},
 				[52152] = {
 					["items"] = 1,
 					["time"] = 1306730451,
 					["scans"] = 1,
 					["price"] = 48500,
+					["listings"] = 1,
+				},
+				[33457] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 2031,
+					["listings"] = 1,
+				},
+				[13007] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 741999,
 					["listings"] = 1,
 				},
 				[10606] = {
@@ -30687,13 +30728,6 @@ AuctionLiteDB = {
 					["price"] = 503996,
 					["listings"] = 7,
 				},
-				[13007] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 741999,
-					["listings"] = 1,
-				},
 				[60842] = {
 					["items"] = 3,
 					["time"] = 1306730451,
@@ -30708,29 +30742,19 @@ AuctionLiteDB = {
 					["price"] = 437580,
 					["listings"] = 1,
 				},
-				[9796] = {
-					[849] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 20000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-				},
-				[52143] = {
-					["items"] = 3,
+				[6349] = {
+					["items"] = 4,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 50000,
-					["listings"] = 3,
+					["price"] = 1402500,
+					["listings"] = 4,
 				},
-				[69798] = {
-					["items"] = 6,
-					["time"] = 1306730451,
+				[4347] = {
+					["items"] = 1,
+					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 3550000,
-					["listings"] = 6,
+					["price"] = 229900,
+					["listings"] = 1,
 				},
 				[4251] = {
 					["items"] = 22,
@@ -30738,6 +30762,13 @@ AuctionLiteDB = {
 					["scans"] = 1,
 					["price"] = 19900,
 					["listings"] = 22,
+				},
+				[52143] = {
+					["items"] = 3,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 50000,
+					["listings"] = 3,
 				},
 				[25054] = {
 					[-36] = {
@@ -30770,33 +30801,12 @@ AuctionLiteDB = {
 					["price"] = 1455187,
 					["listings"] = 10,
 				},
-				[54447] = {
-					["items"] = 14,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 599000,
-					["listings"] = 14,
-				},
-				[45744] = {
-					["items"] = 42,
+				[13135] = {
+					["items"] = 3,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 558499,
-					["listings"] = 42,
-				},
-				[37809] = {
-					["items"] = 1,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 1039020,
-					["listings"] = 1,
-				},
-				[31321] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 3200000,
-					["listings"] = 1,
+					["price"] = 300000,
+					["listings"] = 3,
 				},
 				[6587] = {
 					[1806] = {
@@ -30822,19 +30832,33 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[2924] = {
-					["items"] = 13,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 100,
-					["listings"] = 7,
-				},
 				[35799] = {
 					["items"] = 9,
 					["time"] = 1306730452,
 					["scans"] = 1,
 					["price"] = 60000,
 					["listings"] = 7,
+				},
+				[45744] = {
+					["items"] = 42,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 558499,
+					["listings"] = 42,
+				},
+				[37809] = {
+					["items"] = 1,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 1039020,
+					["listings"] = 1,
+				},
+				[54447] = {
+					["items"] = 14,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 599000,
+					["listings"] = 14,
 				},
 				[4235] = {
 					["items"] = 21,
@@ -30843,19 +30867,22 @@ AuctionLiteDB = {
 					["price"] = 50000,
 					["listings"] = 16,
 				},
-				[2972] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 216,
-					["listings"] = 1,
-				},
-				[42955] = {
-					["items"] = 9,
+				[2924] = {
+					["items"] = 13,
 					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 189898,
-					["listings"] = 9,
+					["price"] = 100,
+					["listings"] = 7,
+				},
+				[24828] = {
+					[-31] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 261466,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[45998] = {
 					["items"] = 3,
@@ -30863,6 +30890,27 @@ AuctionLiteDB = {
 					["scans"] = 1,
 					["price"] = 49990000,
 					["listings"] = 3,
+				},
+				[2972] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 216,
+					["listings"] = 1,
+				},
+				[766] = {
+					["items"] = 1,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 9999,
+					["listings"] = 1,
+				},
+				[43435] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 1890000,
+					["listings"] = 1,
 				},
 				[56495] = {
 					[-132] = {
@@ -30916,32 +30964,12 @@ AuctionLiteDB = {
 					["price"] = 10000,
 					["listings"] = 4,
 				},
-				[766] = {
+				[940] = {
 					["items"] = 1,
-					["time"] = 1306730452,
+					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 9999,
+					["price"] = 2000000,
 					["listings"] = 1,
-				},
-				[36341] = {
-					[-16] = {
-						["items"] = 1,
-						["time"] = 1306730452,
-						["scans"] = 1,
-						["price"] = 110000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-				},
-				[36313] = {
-					[-10] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 122384,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
 				},
 				[55561] = {
 					[-40] = {
@@ -30952,6 +30980,20 @@ AuctionLiteDB = {
 						["listings"] = 2,
 					},
 					["suffix"] = true,
+				},
+				[59521] = {
+					["items"] = 2,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 115000000,
+					["listings"] = 2,
+				},
+				[56540] = {
+					["items"] = 13,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 7230000,
+					["listings"] = 13,
 				},
 				[33458] = {
 					["items"] = 12,
@@ -30987,12 +31029,12 @@ AuctionLiteDB = {
 					["price"] = 338983,
 					["listings"] = 14,
 				},
-				[59521] = {
-					["items"] = 2,
-					["time"] = 1306730452,
+				[63538] = {
+					["items"] = 5,
+					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 115000000,
-					["listings"] = 2,
+					["price"] = 25000000,
+					["listings"] = 5,
 				},
 				[3196] = {
 					[845] = {
@@ -31039,20 +31081,6 @@ AuctionLiteDB = {
 						["listings"] = 1,
 					},
 				},
-				[56540] = {
-					["items"] = 13,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 7230000,
-					["listings"] = 13,
-				},
-				[63538] = {
-					["items"] = 5,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 25000000,
-					["listings"] = 5,
-				},
 				[55762] = {
 					[-41] = {
 						["items"] = 1,
@@ -31062,13 +31090,6 @@ AuctionLiteDB = {
 						["listings"] = 1,
 					},
 					["suffix"] = true,
-				},
-				[52144] = {
-					["items"] = 5,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 143550,
-					["listings"] = 5,
 				},
 				[4363] = {
 					["items"] = 40,
@@ -31084,6 +31105,27 @@ AuctionLiteDB = {
 					["price"] = 950000,
 					["listings"] = 1,
 				},
+				[52144] = {
+					["items"] = 5,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 143550,
+					["listings"] = 5,
+				},
+				[37769] = {
+					["items"] = 1,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 390000,
+					["listings"] = 1,
+				},
+				[37771] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 150000,
+					["listings"] = 1,
+				},
 				[36530] = {
 					[-41] = {
 						["items"] = 1,
@@ -31093,6 +31135,27 @@ AuctionLiteDB = {
 						["listings"] = 1,
 					},
 					["suffix"] = true,
+				},
+				[54472] = {
+					["items"] = 8,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 978000,
+					["listings"] = 8,
+				},
+				[45745] = {
+					["items"] = 18,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 343997,
+					["listings"] = 18,
+				},
+				[3356] = {
+					["items"] = 940,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 7400,
+					["listings"] = 139,
 				},
 				[13486] = {
 					["items"] = 2,
@@ -31108,27 +31171,6 @@ AuctionLiteDB = {
 					["price"] = 367255,
 					["listings"] = 1,
 				},
-				[3356] = {
-					["items"] = 940,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 7400,
-					["listings"] = 139,
-				},
-				[45745] = {
-					["items"] = 18,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 343997,
-					["listings"] = 18,
-				},
-				[3388] = {
-					["items"] = 30,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 1490,
-					["listings"] = 2,
-				},
 				[3404] = {
 					["items"] = 3,
 					["time"] = 1306730451,
@@ -31143,19 +31185,22 @@ AuctionLiteDB = {
 					["price"] = 401000,
 					["listings"] = 11,
 				},
-				[40913] = {
-					["items"] = 42,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 269995,
-					["listings"] = 42,
+				[55630] = {
+					[-5] = {
+						["items"] = 2,
+						["time"] = 1306730452,
+						["scans"] = 1,
+						["price"] = 600000,
+						["listings"] = 2,
+					},
+					["suffix"] = true,
 				},
-				[54472] = {
-					["items"] = 8,
+				[13125] = {
+					["items"] = 3,
 					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 978000,
-					["listings"] = 8,
+					["price"] = 1490000,
+					["listings"] = 3,
 				},
 				[13870] = {
 					["items"] = 1,
@@ -31188,23 +31233,6 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[55630] = {
-					[-5] = {
-						["items"] = 2,
-						["time"] = 1306730452,
-						["scans"] = 1,
-						["price"] = 600000,
-						["listings"] = 2,
-					},
-					["suffix"] = true,
-				},
-				[67032] = {
-					["items"] = 1,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 949500,
-					["listings"] = 1,
-				},
 				[6546] = {
 					[1185] = {
 						["items"] = 1,
@@ -31236,18 +31264,11 @@ AuctionLiteDB = {
 					["price"] = 17000,
 					["listings"] = 25,
 				},
-				[158377] = {
-					["items"] = 99,
-					["time"] = 1534896630,
-					["scans"] = 1,
-					["price"] = 1782500,
-					["listings"] = 99,
-				},
-				[3612] = {
-					["items"] = 2,
+				[2863] = {
+					["items"] = 12,
 					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 199500,
+					["price"] = 26,
 					["listings"] = 2,
 				},
 				[14510] = {
@@ -31257,6 +31278,27 @@ AuctionLiteDB = {
 					["price"] = 19000000,
 					["listings"] = 1,
 				},
+				[33459] = {
+					["items"] = 8,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 1280,
+					["listings"] = 8,
+				},
+				[3612] = {
+					["items"] = 2,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 199500,
+					["listings"] = 2,
+				},
+				[158377] = {
+					["items"] = 99,
+					["time"] = 1534896630,
+					["scans"] = 1,
+					["price"] = 1782500,
+					["listings"] = 99,
+				},
 				[20955] = {
 					["items"] = 22,
 					["time"] = 1306730451,
@@ -31264,12 +31306,12 @@ AuctionLiteDB = {
 					["price"] = 10000,
 					["listings"] = 22,
 				},
-				[2863] = {
-					["items"] = 12,
+				[40165] = {
+					["items"] = 1,
 					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 26,
-					["listings"] = 2,
+					["price"] = 3500000,
+					["listings"] = 1,
 				},
 				[13053] = {
 					["items"] = 2,
@@ -31284,57 +31326,6 @@ AuctionLiteDB = {
 					["scans"] = 1,
 					["price"] = 10000000,
 					["listings"] = 1,
-				},
-				[25284] = {
-					[-16] = {
-						["items"] = 1,
-						["time"] = 1306730452,
-						["scans"] = 1,
-						["price"] = 126300,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-				},
-				[55727] = {
-					[-36] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 190000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-					[-8] = {
-						["items"] = 2,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 180000,
-						["listings"] = 2,
-					},
-					[-39] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 546360,
-						["listings"] = 1,
-					},
-					[-6] = {
-						["items"] = 3,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 330000,
-						["listings"] = 3,
-					},
-				},
-				[3740] = {
-					[1182] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 20000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
 				},
 				[54448] = {
 					["items"] = 21,
@@ -31353,19 +31344,15 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[44210] = {
-					["items"] = 4,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 700000,
-					["listings"] = 4,
-				},
-				[44466] = {
-					["items"] = 2,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 2992274,
-					["listings"] = 2,
+				[3740] = {
+					[1182] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 20000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[1608] = {
 					[596] = {
@@ -31384,13 +31371,6 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[3836] = {
-					["items"] = 4,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 156106,
-					["listings"] = 4,
-				},
 				[56502] = {
 					["items"] = 49,
 					["time"] = 1306730452,
@@ -31398,12 +31378,50 @@ AuctionLiteDB = {
 					["price"] = 780000,
 					["listings"] = 49,
 				},
+				[44210] = {
+					["items"] = 4,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 700000,
+					["listings"] = 4,
+				},
+				[44466] = {
+					["items"] = 2,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 2992274,
+					["listings"] = 2,
+				},
 				[62244] = {
 					["items"] = 9,
 					["time"] = 1306730451,
 					["scans"] = 1,
 					["price"] = 9990000,
 					["listings"] = 9,
+				},
+				[3836] = {
+					["items"] = 4,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 156106,
+					["listings"] = 4,
+				},
+				[36660] = {
+					[-26] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 242000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
+				},
+				[5634] = {
+					["items"] = 7,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 100000,
+					["listings"] = 7,
 				},
 				[45746] = {
 					["items"] = 24,
@@ -31429,20 +31447,6 @@ AuctionLiteDB = {
 					["price"] = 750000,
 					["listings"] = 25,
 				},
-				[11039] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 50000,
-					["listings"] = 1,
-				},
-				[13017] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 750000,
-					["listings"] = 1,
-				},
 				[67151] = {
 					["items"] = 1,
 					["time"] = 1306730452,
@@ -31456,6 +31460,20 @@ AuctionLiteDB = {
 					["scans"] = 1,
 					["price"] = 7248000,
 					["listings"] = 8,
+				},
+				[32667] = {
+					["items"] = 5,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 2000,
+					["listings"] = 1,
+				},
+				[37093] = {
+					["items"] = 5,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 555,
+					["listings"] = 4,
 				},
 				[55729] = {
 					[-39] = {
@@ -31480,20 +31498,6 @@ AuctionLiteDB = {
 						["listings"] = 1,
 					},
 					["suffix"] = true,
-				},
-				[32667] = {
-					["items"] = 5,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 2000,
-					["listings"] = 1,
-				},
-				[37093] = {
-					["items"] = 5,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 555,
-					["listings"] = 4,
 				},
 				[7434] = {
 					[187] = {
@@ -31529,6 +31533,23 @@ AuctionLiteDB = {
 					["price"] = 500000,
 					["listings"] = 3,
 				},
+				[14161] = {
+					[841] = {
+						["items"] = 2,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 30000,
+						["listings"] = 2,
+					},
+					["suffix"] = true,
+				},
+				[60403] = {
+					["items"] = 8,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 370000,
+					["listings"] = 8,
+				},
 				[41395] = {
 					["items"] = 1,
 					["time"] = 1306730451,
@@ -31553,22 +31574,19 @@ AuctionLiteDB = {
 					["price"] = 471,
 					["listings"] = 7,
 				},
-				[14161] = {
-					[841] = {
-						["items"] = 2,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 30000,
-						["listings"] = 2,
-					},
-					["suffix"] = true,
-				},
-				[60403] = {
-					["items"] = 8,
+				[52232] = {
+					["items"] = 74,
 					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 370000,
-					["listings"] = 8,
+					["price"] = 96913,
+					["listings"] = 74,
+				},
+				[38415] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 490000,
+					["listings"] = 1,
 				},
 				[25307] = {
 					[-19] = {
@@ -31580,12 +31598,12 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[52232] = {
-					["items"] = 74,
+				[55037] = {
+					["items"] = 2,
 					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 96913,
-					["listings"] = 74,
+					["price"] = 900000,
+					["listings"] = 2,
 				},
 				[4344] = {
 					["items"] = 9,
@@ -31594,11 +31612,11 @@ AuctionLiteDB = {
 					["price"] = 20000,
 					["listings"] = 9,
 				},
-				[10045] = {
+				[2750] = {
 					["items"] = 1,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 2000,
+					["price"] = 119265,
 					["listings"] = 1,
 				},
 				[4408] = {
@@ -31608,12 +31626,15 @@ AuctionLiteDB = {
 					["price"] = 250000,
 					["listings"] = 2,
 				},
-				[55037] = {
-					["items"] = 2,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 900000,
-					["listings"] = 2,
+				[36150] = {
+					[-19] = {
+						["items"] = 1,
+						["time"] = 1306730452,
+						["scans"] = 1,
+						["price"] = 207012,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[52146] = {
 					["items"] = 3,
@@ -31622,12 +31643,12 @@ AuctionLiteDB = {
 					["price"] = 10000,
 					["listings"] = 3,
 				},
-				[2750] = {
-					["items"] = 1,
-					["time"] = 1306730451,
+				[62677] = {
+					["items"] = 58,
+					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 119265,
-					["listings"] = 1,
+					["price"] = 20000,
+					["listings"] = 17,
 				},
 				[44467] = {
 					["items"] = 3,
@@ -31636,12 +31657,12 @@ AuctionLiteDB = {
 					["price"] = 3089999,
 					["listings"] = 3,
 				},
-				[13056] = {
-					["items"] = 1,
-					["time"] = 1306730451,
+				[22850] = {
+					["items"] = 17,
+					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 467514,
-					["listings"] = 1,
+					["price"] = 18238.5,
+					["listings"] = 9,
 				},
 				[4600] = {
 					["items"] = 4,
@@ -31650,12 +31671,12 @@ AuctionLiteDB = {
 					["price"] = 4875,
 					["listings"] = 1,
 				},
-				[62677] = {
-					["items"] = 58,
-					["time"] = 1306730452,
+				[19231] = {
+					["items"] = 3,
+					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 20000,
-					["listings"] = 17,
+					["price"] = 750000,
+					["listings"] = 3,
 				},
 				[9327] = {
 					["items"] = 4,
@@ -31670,27 +31691,6 @@ AuctionLiteDB = {
 					["scans"] = 1,
 					["price"] = 359000,
 					["listings"] = 1,
-				},
-				[22850] = {
-					["items"] = 17,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 18238.5,
-					["listings"] = 9,
-				},
-				[54450] = {
-					["items"] = 9,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 4287498,
-					["listings"] = 9,
-				},
-				[19231] = {
-					["items"] = 3,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 750000,
-					["listings"] = 3,
 				},
 				[55606] = {
 					[-134] = {
@@ -31715,6 +31715,13 @@ AuctionLiteDB = {
 						["listings"] = 1,
 					},
 					["suffix"] = true,
+				},
+				[54450] = {
+					["items"] = 9,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 4287498,
+					["listings"] = 9,
 				},
 				[43123] = {
 					["items"] = 51,
@@ -31754,19 +31761,26 @@ AuctionLiteDB = {
 					["price"] = 35000000,
 					["listings"] = 1,
 				},
-				[25228] = {
-					[-44] = {
-						["items"] = 2,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 150000,
-						["listings"] = 2,
-					},
-					[-11] = {
+				[44265] = {
+					["items"] = 1,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 1188000,
+					["listings"] = 1,
+				},
+				[843] = {
+					["items"] = 1,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 9999,
+					["listings"] = 1,
+				},
+				[7537] = {
+					[1199] = {
 						["items"] = 1,
-						["time"] = 1306730451,
+						["time"] = 1306730452,
 						["scans"] = 1,
-						["price"] = 228864,
+						["price"] = 2350000,
 						["listings"] = 1,
 					},
 					["suffix"] = true,
@@ -31781,23 +31795,6 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[10044] = {
-					["items"] = 21,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 62500,
-					["listings"] = 21,
-				},
-				[7537] = {
-					[1199] = {
-						["items"] = 1,
-						["time"] = 1306730452,
-						["scans"] = 1,
-						["price"] = 2350000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-				},
 				[52302] = {
 					["items"] = 7,
 					["time"] = 1306730452,
@@ -31805,26 +31802,15 @@ AuctionLiteDB = {
 					["price"] = 1937500,
 					["listings"] = 7,
 				},
-				[66989] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 4999999,
-					["listings"] = 1,
-				},
-				[41396] = {
-					["items"] = 2,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 1080000,
-					["listings"] = 2,
-				},
-				[20828] = {
-					["items"] = 26,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 8000,
-					["listings"] = 26,
+				[24740] = {
+					[-40] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 90000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[24761] = {
 					[-11] = {
@@ -31843,12 +31829,19 @@ AuctionLiteDB = {
 					["price"] = 289000,
 					["listings"] = 3,
 				},
-				[42420] = {
-					["items"] = 14,
+				[41396] = {
+					["items"] = 2,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 17500,
-					["listings"] = 14,
+					["price"] = 1080000,
+					["listings"] = 2,
+				},
+				[20828] = {
+					["items"] = 26,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 8000,
+					["listings"] = 26,
 				},
 				[7992] = {
 					["items"] = 2,
@@ -31864,12 +31857,33 @@ AuctionLiteDB = {
 					["price"] = 1260675,
 					["listings"] = 3,
 				},
+				[42420] = {
+					["items"] = 14,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 17500,
+					["listings"] = 14,
+				},
 				[43975] = {
 					["items"] = 1,
 					["time"] = 1306730451,
 					["scans"] = 1,
 					["price"] = 1990000,
 					["listings"] = 1,
+				},
+				[69802] = {
+					["items"] = 6,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 10000000,
+					["listings"] = 6,
+				},
+				[36783] = {
+					["items"] = 13,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 25200,
+					["listings"] = 13,
 				},
 				[43444] = {
 					["items"] = 1,
@@ -31885,22 +31899,19 @@ AuctionLiteDB = {
 					["price"] = 59500,
 					["listings"] = 12,
 				},
-				[7435] = {
-					[773] = {
-						["items"] = 1,
-						["time"] = 1306730452,
-						["scans"] = 1,
-						["price"] = 83300,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-				},
-				[36783] = {
-					["items"] = 13,
-					["time"] = 1306730451,
+				[52495] = {
+					["items"] = 1,
+					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 25200,
-					["listings"] = 13,
+					["price"] = 1650000,
+					["listings"] = 1,
+				},
+				[58090] = {
+					["items"] = 127,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 138500,
+					["listings"] = 46,
 				},
 				[36277] = {
 					[-9] = {
@@ -31912,12 +31923,12 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[52495] = {
-					["items"] = 1,
+				[9233] = {
+					["items"] = 60,
 					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 1650000,
-					["listings"] = 1,
+					["price"] = 1170,
+					["listings"] = 6,
 				},
 				[44980] = {
 					["items"] = 1,
@@ -31933,19 +31944,12 @@ AuctionLiteDB = {
 					["price"] = 390000000,
 					["listings"] = 4,
 				},
-				[39927] = {
-					["items"] = 6,
+				[5007] = {
+					["items"] = 1,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 149500,
-					["listings"] = 6,
-				},
-				[9233] = {
-					["items"] = 60,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 1170,
-					["listings"] = 6,
+					["price"] = 10500,
+					["listings"] = 1,
 				},
 				[46004] = {
 					["items"] = 4,
@@ -31954,19 +31958,12 @@ AuctionLiteDB = {
 					["price"] = 850000,
 					["listings"] = 4,
 				},
-				[5007] = {
+				[37813] = {
 					["items"] = 1,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 10500,
+					["price"] = 2050000,
 					["listings"] = 1,
-				},
-				[31901] = {
-					["items"] = 3,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 1312500,
-					["listings"] = 3,
 				},
 				[14097] = {
 					[757] = {
@@ -31995,6 +31992,23 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
+				[31901] = {
+					["items"] = 3,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 1312500,
+					["listings"] = 3,
+				},
+				[24787] = {
+					[-41] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 174527,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
+				},
 				[56550] = {
 					["items"] = 19,
 					["time"] = 1306730451,
@@ -32012,12 +32026,12 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[24787] = {
-					[-41] = {
+				[9802] = {
+					[1020] = {
 						["items"] = 1,
 						["time"] = 1306730451,
 						["scans"] = 1,
-						["price"] = 174527,
+						["price"] = 129999,
 						["listings"] = 1,
 					},
 					["suffix"] = true,
@@ -32036,11 +32050,11 @@ AuctionLiteDB = {
 					["price"] = 10098,
 					["listings"] = 15,
 				},
-				[33462] = {
+				[7753] = {
 					["items"] = 3,
 					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 1541,
+					["price"] = 909999,
 					["listings"] = 3,
 				},
 				[12207] = {
@@ -32050,15 +32064,12 @@ AuctionLiteDB = {
 					["price"] = 1966.66666666667,
 					["listings"] = 74,
 				},
-				[25052] = {
-					[-37] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 110000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
+				[33462] = {
+					["items"] = 3,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 1541,
+					["listings"] = 3,
 				},
 				[24668] = {
 					[-36] = {
@@ -32094,19 +32105,15 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[16861] = {
-					["items"] = 4,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 2640000,
-					["listings"] = 4,
-				},
-				[42421] = {
-					["items"] = 7,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 10000,
-					["listings"] = 7,
+				[25052] = {
+					[-37] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 110000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[25308] = {
 					[-19] = {
@@ -32125,19 +32132,12 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[45631] = {
-					["items"] = 4,
+				[12655] = {
+					["items"] = 49,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 1750000,
+					["price"] = 4995,
 					["listings"] = 4,
-				},
-				[7753] = {
-					["items"] = 3,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 909999,
-					["listings"] = 3,
 				},
 				[2287] = {
 					["items"] = 2,
@@ -32145,6 +32145,30 @@ AuctionLiteDB = {
 					["scans"] = 1,
 					["price"] = 100,
 					["listings"] = 1,
+				},
+				[20858] = {
+					["items"] = 21,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 4500,
+					["listings"] = 5,
+				},
+				[6552] = {
+					[761] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 40000,
+						["listings"] = 1,
+					},
+					[248] = {
+						["items"] = 1,
+						["time"] = 1306730452,
+						["scans"] = 1,
+						["price"] = 30000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[44213] = {
 					["items"] = 4,
@@ -32184,12 +32208,15 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[43987] = {
-					["items"] = 5,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 3244950,
-					["listings"] = 5,
+				[36409] = {
+					[-40] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 385000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[55350] = {
 					[-136] = {
@@ -32222,23 +32249,6 @@ AuctionLiteDB = {
 					["price"] = 9750,
 					["listings"] = 1,
 				},
-				[45623] = {
-					["items"] = 38,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 633993,
-					["listings"] = 38,
-				},
-				[24688] = {
-					[-15] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 880000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-				},
 				[52363] = {
 					["items"] = 6,
 					["time"] = 1306730451,
@@ -32252,6 +32262,20 @@ AuctionLiteDB = {
 					["scans"] = 1,
 					["price"] = 23800,
 					["listings"] = 4,
+				},
+				[3771] = {
+					["items"] = 10,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 4633.33333333333,
+					["listings"] = 3,
+				},
+				[42954] = {
+					["items"] = 17,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 436997,
+					["listings"] = 17,
 				},
 				[13935] = {
 					["items"] = 20,
@@ -32298,27 +32322,6 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[3771] = {
-					["items"] = 10,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 4633.33333333333,
-					["listings"] = 3,
-				},
-				[19933] = {
-					["items"] = 35,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 3000,
-					["listings"] = 13,
-				},
-				[42954] = {
-					["items"] = 17,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 436997,
-					["listings"] = 17,
-				},
 				[36389] = {
 					[-8] = {
 						["items"] = 1,
@@ -32328,6 +32331,13 @@ AuctionLiteDB = {
 						["listings"] = 1,
 					},
 					["suffix"] = true,
+				},
+				[19933] = {
+					["items"] = 35,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 3000,
+					["listings"] = 13,
 				},
 				[1395] = {
 					["items"] = 1,
@@ -32350,6 +32360,23 @@ AuctionLiteDB = {
 					["price"] = 8950000,
 					["listings"] = 1,
 				},
+				[24688] = {
+					[-15] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 880000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
+				},
+				[45623] = {
+					["items"] = 38,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 633993,
+					["listings"] = 38,
+				},
 				[41398] = {
 					["items"] = 1,
 					["time"] = 1306730451,
@@ -32371,15 +32398,12 @@ AuctionLiteDB = {
 					["price"] = 97019,
 					["listings"] = 3,
 				},
-				[36409] = {
-					[-40] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 385000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
+				[43987] = {
+					["items"] = 5,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 3244950,
+					["listings"] = 5,
 				},
 				[21213] = {
 					["items"] = 54,
@@ -32387,30 +32411,6 @@ AuctionLiteDB = {
 					["scans"] = 1,
 					["price"] = 80000,
 					["listings"] = 54,
-				},
-				[6552] = {
-					[761] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 40000,
-						["listings"] = 1,
-					},
-					[248] = {
-						["items"] = 1,
-						["time"] = 1306730452,
-						["scans"] = 1,
-						["price"] = 30000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-				},
-				[20858] = {
-					["items"] = 21,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 4500,
-					["listings"] = 5,
 				},
 				[25331] = {
 					[-16] = {
@@ -32422,11 +32422,25 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[12655] = {
-					["items"] = 49,
+				[42421] = {
+					["items"] = 7,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 4995,
+					["price"] = 10000,
+					["listings"] = 7,
+				},
+				[16861] = {
+					["items"] = 4,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 2640000,
+					["listings"] = 4,
+				},
+				[45631] = {
+					["items"] = 4,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 1750000,
 					["listings"] = 4,
 				},
 				[21853] = {
@@ -32443,15 +32457,12 @@ AuctionLiteDB = {
 					["price"] = 606747,
 					["listings"] = 2,
 				},
-				[9802] = {
-					[1020] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 129999,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
+				[23424] = {
+					["items"] = 988,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 34500,
+					["listings"] = 53,
 				},
 				[36279] = {
 					[-35] = {
@@ -32473,12 +32484,12 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[23424] = {
-					["items"] = 988,
+				[49632] = {
+					["items"] = 49,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 34500,
-					["listings"] = 53,
+					["price"] = 110000,
+					["listings"] = 4,
 				},
 				[15407] = {
 					["items"] = 30,
@@ -32487,26 +32498,12 @@ AuctionLiteDB = {
 					["price"] = 14799,
 					["listings"] = 13,
 				},
-				[49632] = {
-					["items"] = 49,
+				[39927] = {
+					["items"] = 6,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 110000,
-					["listings"] = 4,
-				},
-				[37813] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 2050000,
-					["listings"] = 1,
-				},
-				[31196] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 790000,
-					["listings"] = 1,
+					["price"] = 149500,
+					["listings"] = 6,
 				},
 				[40153] = {
 					["items"] = 3,
@@ -32515,12 +32512,32 @@ AuctionLiteDB = {
 					["price"] = 1000000,
 					["listings"] = 3,
 				},
-				[58090] = {
-					["items"] = 127,
-					["time"] = 1306730452,
+				[31196] = {
+					["items"] = 1,
+					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 138500,
-					["listings"] = 46,
+					["price"] = 790000,
+					["listings"] = 1,
+				},
+				[7435] = {
+					[773] = {
+						["items"] = 1,
+						["time"] = 1306730452,
+						["scans"] = 1,
+						["price"] = 83300,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
+				},
+				[3210] = {
+					[517] = {
+						["items"] = 0,
+						["time"] = 0,
+						["scans"] = 0,
+						["price"] = 0,
+						["listings"] = 0,
+					},
+					["suffix"] = true,
 				},
 				[31580] = {
 					[-41] = {
@@ -32546,22 +32563,19 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[3210] = {
-					[517] = {
-						["items"] = 0,
-						["time"] = 0,
-						["scans"] = 0,
-						["price"] = 0,
-						["listings"] = 0,
-					},
-					["suffix"] = true,
-				},
-				[69802] = {
-					["items"] = 6,
-					["time"] = 1306730452,
+				[4348] = {
+					["items"] = 3,
+					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 10000000,
-					["listings"] = 6,
+					["price"] = 1249000,
+					["listings"] = 3,
+				},
+				[43542] = {
+					["items"] = 10,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 258999,
+					["listings"] = 10,
 				},
 				[55733] = {
 					[-6] = {
@@ -32587,26 +32601,12 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[4348] = {
-					["items"] = 3,
+				[66989] = {
+					["items"] = 1,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 1249000,
-					["listings"] = 3,
-				},
-				[43542] = {
-					["items"] = 10,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 258999,
-					["listings"] = 10,
-				},
-				[40119] = {
-					["items"] = 0,
-					["time"] = 0,
-					["scans"] = 0,
-					["price"] = 0,
-					["listings"] = 0,
+					["price"] = 4999999,
+					["listings"] = 1,
 				},
 				[45621] = {
 					["items"] = 3,
@@ -32615,12 +32615,33 @@ AuctionLiteDB = {
 					["price"] = 1590,
 					["listings"] = 1,
 				},
-				[24740] = {
-					[-40] = {
+				[40119] = {
+					["items"] = 0,
+					["time"] = 0,
+					["scans"] = 0,
+					["price"] = 0,
+					["listings"] = 0,
+				},
+				[10044] = {
+					["items"] = 21,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 62500,
+					["listings"] = 21,
+				},
+				[25228] = {
+					[-44] = {
+						["items"] = 2,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 150000,
+						["listings"] = 2,
+					},
+					[-11] = {
 						["items"] = 1,
 						["time"] = 1306730451,
 						["scans"] = 1,
-						["price"] = 90000,
+						["price"] = 228864,
 						["listings"] = 1,
 					},
 					["suffix"] = true,
@@ -32641,20 +32662,6 @@ AuctionLiteDB = {
 						["listings"] = 1,
 					},
 					["suffix"] = true,
-				},
-				[843] = {
-					["items"] = 1,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 9999,
-					["listings"] = 1,
-				},
-				[44265] = {
-					["items"] = 1,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 1188000,
-					["listings"] = 1,
 				},
 				[19236] = {
 					["items"] = 1,
@@ -32708,11 +32715,11 @@ AuctionLiteDB = {
 					["price"] = 848999,
 					["listings"] = 34,
 				},
-				[43447] = {
+				[13056] = {
 					["items"] = 1,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 1895000,
+					["price"] = 467514,
 					["listings"] = 1,
 				},
 				[37889] = {
@@ -32722,21 +32729,18 @@ AuctionLiteDB = {
 					["price"] = 221000,
 					["listings"] = 2,
 				},
-				[36150] = {
-					[-19] = {
-						["items"] = 1,
-						["time"] = 1306730452,
-						["scans"] = 1,
-						["price"] = 207012,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-				},
-				[44215] = {
+				[43447] = {
 					["items"] = 1,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 319100,
+					["price"] = 1895000,
+					["listings"] = 1,
+				},
+				[10045] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 2000,
 					["listings"] = 1,
 				},
 				[6037] = {
@@ -32746,11 +32750,11 @@ AuctionLiteDB = {
 					["price"] = 19800,
 					["listings"] = 39,
 				},
-				[38415] = {
+				[44215] = {
 					["items"] = 1,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 490000,
+					["price"] = 319100,
 					["listings"] = 1,
 				},
 				[31903] = {
@@ -32867,6 +32871,20 @@ AuctionLiteDB = {
 					["price"] = 739999,
 					["listings"] = 32,
 				},
+				[13017] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 750000,
+					["listings"] = 1,
+				},
+				[11039] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 50000,
+					["listings"] = 1,
+				},
 				[55734] = {
 					[-131] = {
 						["items"] = 1,
@@ -32887,30 +32905,6 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[5634] = {
-					["items"] = 7,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 100000,
-					["listings"] = 7,
-				},
-				[40120] = {
-					["items"] = 13,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 1020000,
-					["listings"] = 13,
-				},
-				[36660] = {
-					[-26] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 242000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-				},
 				[55749] = {
 					[-42] = {
 						["items"] = 1,
@@ -32921,12 +32915,60 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
+				[40120] = {
+					["items"] = 13,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 1020000,
+					["listings"] = 13,
+				},
 				[61990] = {
 					["items"] = 9,
 					["time"] = 1306730451,
 					["scans"] = 1,
 					["price"] = 5950000,
 					["listings"] = 9,
+				},
+				[55727] = {
+					[-36] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 190000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
+					[-8] = {
+						["items"] = 2,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 180000,
+						["listings"] = 2,
+					},
+					[-39] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 546360,
+						["listings"] = 1,
+					},
+					[-6] = {
+						["items"] = 3,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 330000,
+						["listings"] = 3,
+					},
+				},
+				[25284] = {
+					[-16] = {
+						["items"] = 1,
+						["time"] = 1306730452,
+						["scans"] = 1,
+						["price"] = 126300,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[10288] = {
 					[1810] = {
@@ -32958,20 +33000,6 @@ AuctionLiteDB = {
 					["scans"] = 1,
 					["price"] = 40000,
 					["listings"] = 11,
-				},
-				[40165] = {
-					["items"] = 1,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 3500000,
-					["listings"] = 1,
-				},
-				[33459] = {
-					["items"] = 8,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 1280,
-					["listings"] = 8,
 				},
 				[15250] = {
 					[1198] = {
@@ -33035,12 +33063,12 @@ AuctionLiteDB = {
 						["listings"] = 1,
 					},
 				},
-				[21854] = {
-					["items"] = 2,
-					["time"] = 1306730451,
+				[67032] = {
+					["items"] = 1,
+					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 700000,
-					["listings"] = 2,
+					["price"] = 949500,
+					["listings"] = 1,
 				},
 				[40070] = {
 					["items"] = 93,
@@ -33049,12 +33077,12 @@ AuctionLiteDB = {
 					["price"] = 7019.05263157895,
 					["listings"] = 17,
 				},
-				[13125] = {
-					["items"] = 3,
-					["time"] = 1306730452,
+				[21854] = {
+					["items"] = 2,
+					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 1490000,
-					["listings"] = 3,
+					["price"] = 700000,
+					["listings"] = 2,
 				},
 				[55627] = {
 					[-131] = {
@@ -33065,6 +33093,20 @@ AuctionLiteDB = {
 						["listings"] = 1,
 					},
 					["suffix"] = true,
+				},
+				[3388] = {
+					["items"] = 30,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 1490,
+					["listings"] = 2,
+				},
+				[40913] = {
+					["items"] = 42,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 269995,
+					["listings"] = 42,
 				},
 				[11184] = {
 					["items"] = 23,
@@ -33079,20 +33121,6 @@ AuctionLiteDB = {
 					["scans"] = 1,
 					["price"] = 39985000,
 					["listings"] = 4,
-				},
-				[37771] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 150000,
-					["listings"] = 1,
-				},
-				[37769] = {
-					["items"] = 1,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 390000,
-					["listings"] = 1,
 				},
 				[36683] = {
 					[-6] = {
@@ -33132,6 +33160,13 @@ AuctionLiteDB = {
 					["listings"] = 25,
 				},
 				[55597] = {
+					[-132] = {
+						["items"] = 1,
+						["time"] = 1306730452,
+						["scans"] = 1,
+						["price"] = 2220000,
+						["listings"] = 1,
+					},
 					[-40] = {
 						["items"] = 1,
 						["time"] = 1306730451,
@@ -33146,13 +33181,6 @@ AuctionLiteDB = {
 						["price"] = 2220000,
 						["listings"] = 1,
 					},
-					[-132] = {
-						["items"] = 1,
-						["time"] = 1306730452,
-						["scans"] = 1,
-						["price"] = 2220000,
-						["listings"] = 1,
-					},
 					["suffix"] = true,
 				},
 				[40112] = {
@@ -33161,6 +33189,26 @@ AuctionLiteDB = {
 					["scans"] = 1,
 					["price"] = 890000,
 					["listings"] = 13,
+				},
+				[36313] = {
+					[-10] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 122384,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
+				},
+				[36341] = {
+					[-16] = {
+						["items"] = 1,
+						["time"] = 1306730452,
+						["scans"] = 1,
+						["price"] = 110000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[55479] = {
 					[-39] = {
@@ -33196,26 +33244,12 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[940] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 2000000,
-					["listings"] = 1,
-				},
-				[43435] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 1890000,
-					["listings"] = 1,
-				},
-				[56503] = {
-					["items"] = 8,
+				[42955] = {
+					["items"] = 9,
 					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 529900,
-					["listings"] = 8,
+					["price"] = 189898,
+					["listings"] = 9,
 				},
 				[43491] = {
 					["items"] = 10,
@@ -33224,15 +33258,12 @@ AuctionLiteDB = {
 					["price"] = 25000,
 					["listings"] = 10,
 				},
-				[24828] = {
-					[-31] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 261466,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
+				[56503] = {
+					["items"] = 8,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 529900,
+					["listings"] = 8,
 				},
 				[55084] = {
 					["items"] = 4,
@@ -33240,6 +33271,20 @@ AuctionLiteDB = {
 					["scans"] = 1,
 					["price"] = 5739999,
 					["listings"] = 4,
+				},
+				[31321] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 3200000,
+					["listings"] = 1,
+				},
+				[52718] = {
+					["items"] = 52,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 99900,
+					["listings"] = 21,
 				},
 				[24670] = {
 					[-19] = {
@@ -33251,19 +33296,19 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[52718] = {
-					["items"] = 52,
+				[67152] = {
+					["items"] = 1,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 99900,
-					["listings"] = 21,
+					["price"] = 2000000,
+					["listings"] = 1,
 				},
-				[13135] = {
-					["items"] = 3,
+				[69798] = {
+					["items"] = 6,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 300000,
-					["listings"] = 3,
+					["price"] = 3550000,
+					["listings"] = 6,
 				},
 				[12528] = {
 					["items"] = 1,
@@ -33272,12 +33317,15 @@ AuctionLiteDB = {
 					["price"] = 1000000,
 					["listings"] = 1,
 				},
-				[67152] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 2000000,
-					["listings"] = 1,
+				[9796] = {
+					[849] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 20000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[25310] = {
 					[-16] = {
@@ -33303,20 +33351,6 @@ AuctionLiteDB = {
 					["price"] = 39000,
 					["listings"] = 12,
 				},
-				[4347] = {
-					["items"] = 1,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 229900,
-					["listings"] = 1,
-				},
-				[6349] = {
-					["items"] = 4,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 1402500,
-					["listings"] = 4,
-				},
 				[45771] = {
 					["items"] = 22,
 					["time"] = 1306730451,
@@ -33329,20 +33363,6 @@ AuctionLiteDB = {
 					["time"] = 1306730451,
 					["scans"] = 1,
 					["price"] = 225867,
-					["listings"] = 2,
-				},
-				[13040] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 590000,
-					["listings"] = 1,
-				},
-				[44217] = {
-					["items"] = 2,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 300000,
 					["listings"] = 2,
 				},
 				[10361] = {
@@ -33358,6 +33378,20 @@ AuctionLiteDB = {
 					["scans"] = 1,
 					["price"] = 5695000,
 					["listings"] = 1,
+				},
+				[13040] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 590000,
+					["listings"] = 1,
+				},
+				[44217] = {
+					["items"] = 2,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 300000,
+					["listings"] = 2,
 				},
 				[56490] = {
 					[-136] = {
@@ -33389,13 +33423,6 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[45753] = {
-					["items"] = 30,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 616996,
-					["listings"] = 30,
-				},
 				[31912] = {
 					["items"] = 2,
 					["time"] = 1306730451,
@@ -33420,6 +33447,13 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
+				[45753] = {
+					["items"] = 30,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 616996,
+					["listings"] = 30,
+				},
 				[54471] = {
 					["items"] = 16,
 					["time"] = 1306730451,
@@ -33427,11 +33461,11 @@ AuctionLiteDB = {
 					["price"] = 549000,
 					["listings"] = 16,
 				},
-				[19295] = {
-					["items"] = 1,
+				[24291] = {
+					["items"] = 13,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 2763860,
+					["price"] = 1500,
 					["listings"] = 1,
 				},
 				[2316] = {
@@ -33440,6 +33474,20 @@ AuctionLiteDB = {
 					["scans"] = 1,
 					["price"] = 19800,
 					["listings"] = 12,
+				},
+				[19295] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 2763860,
+					["listings"] = 1,
+				},
+				[43117] = {
+					["items"] = 90,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 17500,
+					["listings"] = 48,
 				},
 				[55480] = {
 					[-42] = {
@@ -33472,19 +33520,19 @@ AuctionLiteDB = {
 					["price"] = 350000,
 					["listings"] = 1,
 				},
-				[43117] = {
-					["items"] = 90,
+				[55790] = {
+					["items"] = 5,
 					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 17500,
-					["listings"] = 48,
+					["price"] = 700000,
+					["listings"] = 5,
 				},
-				[67484] = {
-					["items"] = 10,
+				[16858] = {
+					["items"] = 2,
 					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 250000,
-					["listings"] = 10,
+					["price"] = 1500000,
+					["listings"] = 2,
 				},
 				[56504] = {
 					[-132] = {
@@ -33496,20 +33544,6 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[16858] = {
-					["items"] = 2,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 1500000,
-					["listings"] = 2,
-				},
-				[14256] = {
-					["items"] = 20,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 60000,
-					["listings"] = 1,
-				},
 				[6570] = {
 					[1017] = {
 						["items"] = 1,
@@ -33520,12 +33554,12 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[41146] = {
-					["items"] = 2,
+				[14256] = {
+					["items"] = 20,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 400000,
-					["listings"] = 2,
+					["price"] = 60000,
+					["listings"] = 1,
 				},
 				[23482] = {
 					["items"] = 3,
@@ -33533,6 +33567,23 @@ AuctionLiteDB = {
 					["scans"] = 1,
 					["price"] = 129800,
 					["listings"] = 3,
+				},
+				[41146] = {
+					["items"] = 2,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 400000,
+					["listings"] = 2,
+				},
+				[55725] = {
+					[-42] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 1990000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[14512] = {
 					["items"] = 6,
@@ -33548,25 +33599,25 @@ AuctionLiteDB = {
 					["price"] = 450000,
 					["listings"] = 36,
 				},
-				[13111] = {
-					["items"] = 3,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 400000,
-					["listings"] = 3,
-				},
-				[12988] = {
-					["items"] = 1,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 302274,
-					["listings"] = 1,
-				},
 				[40167] = {
 					["items"] = 2,
 					["time"] = 1306730451,
 					["scans"] = 1,
 					["price"] = 3499996,
+					["listings"] = 2,
+				},
+				[43554] = {
+					["items"] = 13,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 29800,
+					["listings"] = 13,
+				},
+				[54483] = {
+					["items"] = 2,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 299999,
 					["listings"] = 2,
 				},
 				[34747] = {
@@ -33576,19 +33627,19 @@ AuctionLiteDB = {
 					["price"] = 454.545454545455,
 					["listings"] = 1,
 				},
-				[54483] = {
-					["items"] = 2,
+				[52164] = {
+					["items"] = 5,
 					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 299999,
-					["listings"] = 2,
+					["price"] = 15000,
+					["listings"] = 5,
 				},
-				[23104] = {
-					["items"] = 45,
+				[31319] = {
+					["items"] = 1,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 9900,
-					["listings"] = 45,
+					["price"] = 3997500,
+					["listings"] = 1,
 				},
 				[21855] = {
 					["items"] = 1,
@@ -33611,23 +33662,6 @@ AuctionLiteDB = {
 					["price"] = 700000,
 					["listings"] = 2,
 				},
-				[36120] = {
-					[-6] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 154768,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-				},
-				[23426] = {
-					["items"] = 102,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 142857.142857143,
-					["listings"] = 42,
-				},
 				[9817] = {
 					[1189] = {
 						["items"] = 2,
@@ -33645,12 +33679,22 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[15408] = {
-					["items"] = 17,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 160400,
-					["listings"] = 16,
+				[55414] = {
+					[-43] = {
+						["items"] = 1,
+						["time"] = 1306730452,
+						["scans"] = 1,
+						["price"] = 1113127,
+						["listings"] = 1,
+					},
+					[-91] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 1000000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[52208] = {
 					["items"] = 94,
@@ -33659,15 +33703,12 @@ AuctionLiteDB = {
 					["price"] = 315291,
 					["listings"] = 94,
 				},
-				[31160] = {
-					[-12] = {
-						["items"] = 1,
-						["time"] = 1306730452,
-						["scans"] = 1,
-						["price"] = 650000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
+				[15408] = {
+					["items"] = 17,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 160400,
+					["listings"] = 16,
 				},
 				[45777] = {
 					["items"] = 18,
@@ -33700,6 +33741,20 @@ AuctionLiteDB = {
 					["price"] = 329000,
 					["listings"] = 6,
 				},
+				[62665] = {
+					["items"] = 354,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 35000,
+					["listings"] = 23,
+				},
+				[52140] = {
+					["items"] = 5,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 41200,
+					["listings"] = 5,
+				},
 				[63416] = {
 					["items"] = 16,
 					["time"] = 1306730452,
@@ -33708,13 +33763,6 @@ AuctionLiteDB = {
 					["listings"] = 16,
 				},
 				[55481] = {
-					[-37] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 400000,
-						["listings"] = 1,
-					},
 					[-130] = {
 						["items"] = 2,
 						["time"] = 1306730452,
@@ -33722,6 +33770,7 @@ AuctionLiteDB = {
 						["price"] = 2217500,
 						["listings"] = 2,
 					},
+					["suffix"] = true,
 					[-8] = {
 						["items"] = 1,
 						["time"] = 1306730451,
@@ -33743,7 +33792,13 @@ AuctionLiteDB = {
 						["price"] = 2220000,
 						["listings"] = 1,
 					},
-					["suffix"] = true,
+					[-37] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 400000,
+						["listings"] = 1,
+					},
 				},
 				[23775] = {
 					["items"] = 3,
@@ -33759,12 +33814,12 @@ AuctionLiteDB = {
 					["price"] = 5900,
 					["listings"] = 7,
 				},
-				[22309] = {
-					["items"] = 3,
+				[13118] = {
+					["items"] = 1,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 2490000,
-					["listings"] = 3,
+					["price"] = 1490000,
+					["listings"] = 1,
 				},
 				[56505] = {
 					[-132] = {
@@ -33818,20 +33873,6 @@ AuctionLiteDB = {
 						["listings"] = 1,
 					},
 				},
-				[13118] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 1490000,
-					["listings"] = 1,
-				},
-				[55085] = {
-					["items"] = 2,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 2992497,
-					["listings"] = 2,
-				},
 				[44147] = {
 					["items"] = 5,
 					["time"] = 1306730452,
@@ -33839,15 +33880,12 @@ AuctionLiteDB = {
 					["price"] = 59499,
 					["listings"] = 5,
 				},
-				[24671] = {
-					[-19] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 292530,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
+				[42409] = {
+					["items"] = 28,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 229499,
+					["listings"] = 28,
 				},
 				[56491] = {
 					[-136] = {
@@ -33879,6 +33917,23 @@ AuctionLiteDB = {
 						["price"] = 260000,
 						["listings"] = 4,
 					},
+				},
+				[24671] = {
+					[-19] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 292530,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
+				},
+				[44328] = {
+					["items"] = 2,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 14800,
+					["listings"] = 1,
 				},
 				[24927] = {
 					[-36] = {
@@ -33914,12 +33969,12 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[44328] = {
-					["items"] = 2,
-					["time"] = 1306730452,
+				[23448] = {
+					["items"] = 15,
+					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 14800,
-					["listings"] = 1,
+					["price"] = 620000,
+					["listings"] = 15,
 				},
 				[25311] = {
 					[-15] = {
@@ -33959,22 +34014,19 @@ AuctionLiteDB = {
 					["price"] = 39204,
 					["listings"] = 4,
 				},
-				[55646] = {
-					[-131] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 300000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-				},
-				[55077] = {
-					["items"] = 6,
+				[36905] = {
+					["items"] = 480,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 3373050,
-					["listings"] = 6,
+					["price"] = 37900,
+					["listings"] = 24,
+				},
+				[7067] = {
+					["items"] = 31,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 195000,
+					["listings"] = 28,
 				},
 				[44219] = {
 					["items"] = 2,
@@ -33983,12 +34035,12 @@ AuctionLiteDB = {
 					["price"] = 300000,
 					["listings"] = 2,
 				},
-				[7067] = {
-					["items"] = 31,
+				[56537] = {
+					["items"] = 1,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 195000,
-					["listings"] = 28,
+					["price"] = 39999900,
+					["listings"] = 1,
 				},
 				[36540] = {
 					[-36] = {
@@ -34007,36 +34059,12 @@ AuctionLiteDB = {
 					["price"] = 1232,
 					["listings"] = 1,
 				},
-				[56537] = {
+				[19288] = {
 					["items"] = 1,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 39999900,
+					["price"] = 990000,
 					["listings"] = 1,
-				},
-				[9814] = {
-					[1016] = {
-						["items"] = 1,
-						["time"] = 1306730452,
-						["scans"] = 1,
-						["price"] = 129999,
-						["listings"] = 1,
-					},
-					[592] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 70000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-				},
-				[45755] = {
-					["items"] = 25,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 449997,
-					["listings"] = 25,
 				},
 				[38995] = {
 					["items"] = 6,
@@ -34045,12 +34073,12 @@ AuctionLiteDB = {
 					["price"] = 1495000,
 					["listings"] = 6,
 				},
-				[62649] = {
-					["items"] = 350,
+				[45755] = {
+					["items"] = 25,
 					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 130000,
-					["listings"] = 55,
+					["price"] = 449997,
+					["listings"] = 25,
 				},
 				[52492] = {
 					["items"] = 12,
@@ -34059,12 +34087,12 @@ AuctionLiteDB = {
 					["price"] = 539999,
 					["listings"] = 12,
 				},
-				[62666] = {
-					["items"] = 740,
-					["time"] = 1306730451,
+				[62649] = {
+					["items"] = 350,
+					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 43998.9,
-					["listings"] = 37,
+					["price"] = 130000,
+					["listings"] = 55,
 				},
 				[9809] = {
 					[602] = {
@@ -34085,6 +34113,23 @@ AuctionLiteDB = {
 						["listings"] = 1,
 					},
 					["suffix"] = true,
+				},
+				[25046] = {
+					[-16] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 150000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
+				},
+				[12996] = {
+					["items"] = 1,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 900000,
+					["listings"] = 1,
 				},
 				[55738] = {
 					[-42] = {
@@ -34120,20 +34165,6 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[58198] = {
-					["items"] = 3,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 37990000,
-					["listings"] = 3,
-				},
-				[3609] = {
-					["items"] = 5,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 4788,
-					["listings"] = 5,
-				},
 				[16250] = {
 					["items"] = 1,
 					["time"] = 1306730451,
@@ -34141,12 +34172,22 @@ AuctionLiteDB = {
 					["price"] = 1314446,
 					["listings"] = 1,
 				},
-				[40892] = {
-					["items"] = 2,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 112000,
-					["listings"] = 2,
+				[9854] = {
+					[383] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 37500,
+						["listings"] = 1,
+					},
+					[287] = {
+						["items"] = 1,
+						["time"] = 1306730452,
+						["scans"] = 1,
+						["price"] = 38974,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[24790] = {
 					[-14] = {
@@ -34158,12 +34199,26 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[2251] = {
-					["items"] = 5,
+				[40892] = {
+					["items"] = 2,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 112000,
+					["listings"] = 2,
+				},
+				[45732] = {
+					["items"] = 17,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 10040,
-					["listings"] = 2,
+					["price"] = 395498,
+					["listings"] = 17,
+				},
+				[40102] = {
+					["items"] = 4,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 3499998,
+					["listings"] = 4,
 				},
 				[20832] = {
 					["items"] = 4,
@@ -34193,29 +34248,12 @@ AuctionLiteDB = {
 					["price"] = 54546,
 					["listings"] = 1,
 				},
-				[55330] = {
-					[-134] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 1063036,
-						["listings"] = 1,
-					},
-					[-91] = {
-						["items"] = 1,
-						["time"] = 1306730452,
-						["scans"] = 1,
-						["price"] = 785000,
-						["listings"] = 1,
-					},
-					[-40] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 590000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
+				[62664] = {
+					["items"] = 43,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 14900,
+					["listings"] = 9,
 				},
 				[34749] = {
 					["items"] = 18,
@@ -34224,28 +34262,25 @@ AuctionLiteDB = {
 					["price"] = 1800,
 					["listings"] = 1,
 				},
-				[62664] = {
-					["items"] = 43,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 14900,
-					["listings"] = 9,
-				},
-				[24903] = {
-					[-12] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 185913,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-				},
 				[31297] = {
 					["items"] = 2,
 					["time"] = 1306730451,
 					["scans"] = 1,
 					["price"] = 1599900,
+					["listings"] = 2,
+				},
+				[44261] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 2206107,
+					["listings"] = 1,
+				},
+				[67134] = {
+					["items"] = 2,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 263240250,
 					["listings"] = 2,
 				},
 				[52155] = {
@@ -34255,12 +34290,12 @@ AuctionLiteDB = {
 					["price"] = 319000,
 					["listings"] = 2,
 				},
-				[67134] = {
-					["items"] = 2,
-					["time"] = 1306730451,
+				[67135] = {
+					["items"] = 3,
+					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 263240250,
-					["listings"] = 2,
+					["price"] = 147500000,
+					["listings"] = 3,
 				},
 				[60858] = {
 					["items"] = 24,
@@ -34276,33 +34311,12 @@ AuctionLiteDB = {
 					["price"] = 6366.66666666667,
 					["listings"] = 1,
 				},
-				[67135] = {
-					["items"] = 3,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 147500000,
-					["listings"] = 3,
-				},
-				[45604] = {
-					["items"] = 10,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 261499,
-					["listings"] = 10,
-				},
 				[15084] = {
 					["items"] = 15,
 					["time"] = 1306730451,
 					["scans"] = 1,
 					["price"] = 59900,
 					["listings"] = 15,
-				},
-				[66931] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 80000000,
-					["listings"] = 1,
 				},
 				[36238] = {
 					[-40] = {
@@ -34320,6 +34334,13 @@ AuctionLiteDB = {
 					["scans"] = 1,
 					["price"] = 58500,
 					["listings"] = 12,
+				},
+				[66931] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 80000000,
+					["listings"] = 1,
 				},
 				[55329] = {
 					[-5] = {
@@ -34340,6 +34361,20 @@ AuctionLiteDB = {
 						["listings"] = 1,
 					},
 					["suffix"] = true,
+				},
+				[27860] = {
+					["items"] = 26,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 27815,
+					["listings"] = 3,
+				},
+				[8186] = {
+					["items"] = 1,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 20000,
+					["listings"] = 1,
 				},
 				[38845] = {
 					["items"] = 2,
@@ -34386,20 +34421,6 @@ AuctionLiteDB = {
 						["listings"] = 1,
 					},
 				},
-				[52163] = {
-					["items"] = 5,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 9900,
-					["listings"] = 5,
-				},
-				[62247] = {
-					["items"] = 1,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 50252,
-					["listings"] = 1,
-				},
 				[21991] = {
 					["items"] = 60,
 					["time"] = 1306730452,
@@ -34407,12 +34428,22 @@ AuctionLiteDB = {
 					["price"] = 4000,
 					["listings"] = 3,
 				},
-				[40125] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 1440000,
-					["listings"] = 1,
+				[55544] = {
+					[-7] = {
+						["items"] = 2,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 400000,
+						["listings"] = 2,
+					},
+					[-132] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 2220000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[58276] = {
 					["items"] = 4,
@@ -34421,15 +34452,26 @@ AuctionLiteDB = {
 					["price"] = 17800,
 					["listings"] = 4,
 				},
-				[55720] = {
-					[-8] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 880000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
+				[40125] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 1440000,
+					["listings"] = 1,
+				},
+				[6663] = {
+					["items"] = 2,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 110000,
+					["listings"] = 2,
+				},
+				[30419] = {
+					["items"] = 2,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 205000,
+					["listings"] = 2,
 				},
 				[49084] = {
 					["items"] = 22,
@@ -34448,12 +34490,12 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[41527] = {
-					["items"] = 27,
-					["time"] = 1306730451,
+				[44692] = {
+					["items"] = 1,
+					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 412997,
-					["listings"] = 27,
+					["price"] = 970000,
+					["listings"] = 1,
 				},
 				[24928] = {
 					[-15] = {
@@ -34475,11 +34517,11 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[44692] = {
+				[23576] = {
 					["items"] = 1,
-					["time"] = 1306730452,
+					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 970000,
+					["price"] = 50000,
 					["listings"] = 1,
 				},
 				[42429] = {
@@ -34503,43 +34545,29 @@ AuctionLiteDB = {
 					["price"] = 10000,
 					["listings"] = 1,
 				},
-				[783] = {
-					["items"] = 29,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 9600,
-					["listings"] = 10,
-				},
-				[25006] = {
-					[-33] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 139103,
-						["listings"] = 1,
-					},
-					[-44] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 245197,
-						["listings"] = 1,
-					},
-					[-5] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 139103,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-				},
 				[33444] = {
 					["items"] = 4,
 					["time"] = 1306730451,
 					["scans"] = 1,
 					["price"] = 1232,
 					["listings"] = 1,
+				},
+				[16215] = {
+					["items"] = 1,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 500000,
+					["listings"] = 1,
+				},
+				[36387] = {
+					[-31] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 405000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[52156] = {
 					["items"] = 1,
@@ -34578,19 +34606,26 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[62670] = {
-					["items"] = 1842,
-					["time"] = 1306730452,
+				[34765] = {
+					["items"] = 71,
+					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 31370.65,
-					["listings"] = 99,
+					["price"] = 3900,
+					["listings"] = 4,
 				},
-				[24811] = {
-					[-19] = {
+				[55710] = {
+					[-114] = {
 						["items"] = 1,
 						["time"] = 1306730451,
 						["scans"] = 1,
-						["price"] = 412651,
+						["price"] = 1050501,
+						["listings"] = 1,
+					},
+					[-37] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 314870,
 						["listings"] = 1,
 					},
 					["suffix"] = true,
@@ -34623,22 +34658,12 @@ AuctionLiteDB = {
 					["price"] = 3700,
 					["listings"] = 4,
 				},
-				[56482] = {
-					[-134] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 990000,
-						["listings"] = 1,
-					},
-					[-131] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 544500,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
+				[12429] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 499000,
+					["listings"] = 1,
 				},
 				[38590] = {
 					["items"] = 2,
@@ -34647,12 +34672,15 @@ AuctionLiteDB = {
 					["price"] = 989000,
 					["listings"] = 2,
 				},
-				[12429] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 499000,
-					["listings"] = 1,
+				[35995] = {
+					[-37] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 40000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[55484] = {
 					[-129] = {
@@ -34695,19 +34723,19 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[13931] = {
-					["items"] = 5,
+				[25649] = {
+					["items"] = 830,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 20000,
-					["listings"] = 1,
+					["price"] = 4505,
+					["listings"] = 100,
 				},
-				[55069] = {
-					["items"] = 1,
+				[34767] = {
+					["items"] = 100,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 29000000,
-					["listings"] = 1,
+					["price"] = 9900,
+					["listings"] = 5,
 				},
 				[56508] = {
 					[-132] = {
@@ -34747,20 +34775,6 @@ AuctionLiteDB = {
 					["price"] = 33.6666666666667,
 					["listings"] = 1,
 				},
-				[67123] = {
-					["items"] = 2,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 2500000,
-					["listings"] = 2,
-				},
-				[32749] = {
-					["items"] = 2,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 810000,
-					["listings"] = 2,
-				},
 				[31185] = {
 					[-8] = {
 						["items"] = 1,
@@ -34785,12 +34799,15 @@ AuctionLiteDB = {
 					["price"] = 1499999,
 					["listings"] = 31,
 				},
-				[20961] = {
-					["items"] = 41,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 14000,
-					["listings"] = 41,
+				[9292] = {
+					[1201] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 400000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[8188] = {
 					["items"] = 1,
@@ -34798,6 +34815,20 @@ AuctionLiteDB = {
 					["scans"] = 1,
 					["price"] = 30000,
 					["listings"] = 1,
+				},
+				[20961] = {
+					["items"] = 41,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 14000,
+					["listings"] = 41,
+				},
+				[42910] = {
+					["items"] = 21,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 190000,
+					["listings"] = 21,
 				},
 				[42430] = {
 					["items"] = 9,
@@ -34827,29 +34858,12 @@ AuctionLiteDB = {
 					["price"] = 546000,
 					["listings"] = 2,
 				},
-				[15932] = {
-					[227] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 20000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-				},
-				[20407] = {
-					["items"] = 6,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 19500,
-					["listings"] = 6,
-				},
-				[52157] = {
-					["items"] = 1,
+				[20855] = {
+					["items"] = 7,
 					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 297000,
-					["listings"] = 1,
+					["price"] = 400000,
+					["listings"] = 7,
 				},
 				[54476] = {
 					["items"] = 13,
@@ -34858,12 +34872,12 @@ AuctionLiteDB = {
 					["price"] = 119999,
 					["listings"] = 13,
 				},
-				[45773] = {
-					["items"] = 7,
-					["time"] = 1306730451,
+				[52157] = {
+					["items"] = 1,
+					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 2957500,
-					["listings"] = 7,
+					["price"] = 297000,
+					["listings"] = 1,
 				},
 				[2143] = {
 					["items"] = 1,
@@ -34893,6 +34907,23 @@ AuctionLiteDB = {
 					["price"] = 52000,
 					["listings"] = 111,
 				},
+				[24992] = {
+					[-18] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 180000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
+				},
+				[54482] = {
+					["items"] = 19,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 175999,
+					["listings"] = 19,
+				},
 				[37567] = {
 					["items"] = 60,
 					["time"] = 1306730451,
@@ -34914,19 +34945,22 @@ AuctionLiteDB = {
 					["price"] = 1696.5,
 					["listings"] = 5,
 				},
-				[54482] = {
+				[38992] = {
 					["items"] = 19,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 175999,
-					["listings"] = 19,
-				},
-				[67394] = {
-					["items"] = 1,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 500000,
-					["listings"] = 1,
+					["price"] = 880000,
+					["listings"] = 19,
+				},
+				[24726] = {
+					[-40] = {
+						["items"] = 1,
+						["time"] = 1306730452,
+						["scans"] = 1,
+						["price"] = 250000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[63420] = {
 					["items"] = 29,
@@ -35049,26 +35083,29 @@ AuctionLiteDB = {
 						["listings"] = 2,
 					},
 				},
-				[5573] = {
-					["items"] = 2,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 2500,
-					["listings"] = 2,
-				},
-				[15781] = {
-					["items"] = 2,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 8000000,
-					["listings"] = 2,
-				},
 				[10424] = {
 					["items"] = 1,
 					["time"] = 1306730451,
 					["scans"] = 1,
 					["price"] = 200000,
 					["listings"] = 1,
+				},
+				[52378] = {
+					["items"] = 2,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 850000,
+					["listings"] = 2,
+				},
+				[15018] = {
+					[135] = {
+						["items"] = 1,
+						["time"] = 1306730452,
+						["scans"] = 1,
+						["price"] = 30000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[24673] = {
 					[-16] = {
@@ -35097,19 +35134,19 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[58195] = {
+				[16055] = {
 					["items"] = 1,
-					["time"] = 1306730452,
+					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 36000000,
+					["price"] = 99996878,
 					["listings"] = 1,
 				},
-				[55065] = {
-					["items"] = 1,
-					["time"] = 1306730452,
+				[31914] = {
+					["items"] = 2,
+					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 60000000,
-					["listings"] = 1,
+					["price"] = 9000000,
+					["listings"] = 2,
 				},
 				[42175] = {
 					["items"] = 1,
@@ -35128,20 +35165,6 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[16851] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 150000,
-					["listings"] = 1,
-				},
-				[34752] = {
-					["items"] = 60,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 7800,
-					["listings"] = 3,
-				},
 				[36563] = {
 					[-7] = {
 						["items"] = 1,
@@ -35152,12 +35175,12 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[20818] = {
-					["items"] = 25,
-					["time"] = 1306730451,
+				[34752] = {
+					["items"] = 60,
+					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 19000,
-					["listings"] = 25,
+					["price"] = 7800,
+					["listings"] = 3,
 				},
 				[7062] = {
 					["items"] = 14,
@@ -35235,12 +35258,12 @@ AuctionLiteDB = {
 					["price"] = 280800,
 					["listings"] = 1,
 				},
-				[18658] = {
-					["items"] = 1,
-					["time"] = 1306730451,
+				[42737] = {
+					["items"] = 14,
+					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 3750000,
-					["listings"] = 1,
+					["price"] = 1007499,
+					["listings"] = 14,
 				},
 				[45733] = {
 					["items"] = 24,
@@ -35248,6 +35271,20 @@ AuctionLiteDB = {
 					["scans"] = 1,
 					["price"] = 294999,
 					["listings"] = 24,
+				},
+				[18658] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 3750000,
+					["listings"] = 1,
+				},
+				[56528] = {
+					["items"] = 4,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 1992500,
+					["listings"] = 4,
 				},
 				[37824] = {
 					["items"] = 1,
@@ -35263,12 +35300,15 @@ AuctionLiteDB = {
 					["price"] = 9352,
 					["listings"] = 11,
 				},
-				[52747] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 1300000,
-					["listings"] = 1,
+				[25172] = {
+					[-19] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 304500,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[38592] = {
 					["items"] = 4,
@@ -35277,12 +35317,15 @@ AuctionLiteDB = {
 					["price"] = 333135,
 					["listings"] = 4,
 				},
-				[6342] = {
-					["items"] = 2,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 1897500,
-					["listings"] = 2,
+				[25296] = {
+					[-8] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 350000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[55486] = {
 					[-41] = {
@@ -35391,23 +35434,6 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[15512] = {
-					[929] = {
-						["items"] = 1,
-						["time"] = 1306730452,
-						["scans"] = 1,
-						["price"] = 70000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-				},
-				[16850] = {
-					["items"] = 2,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 349000,
-					["listings"] = 2,
-				},
 				[36080] = {
 					[-19] = {
 						["items"] = 1,
@@ -35449,12 +35475,22 @@ AuctionLiteDB = {
 						["listings"] = 1,
 					},
 				},
-				[40896] = {
-					["items"] = 11,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 145499,
-					["listings"] = 11,
+				[44697] = {
+					[-36] = {
+						["items"] = 1,
+						["time"] = 1306730452,
+						["scans"] = 1,
+						["price"] = 850000,
+						["listings"] = 1,
+					},
+					[-88] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 520000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[36379] = {
 					[-35] = {
@@ -35465,6 +35501,20 @@ AuctionLiteDB = {
 						["listings"] = 1,
 					},
 					["suffix"] = true,
+				},
+				[40896] = {
+					["items"] = 11,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 145499,
+					["listings"] = 11,
+				},
+				[41483] = {
+					["items"] = 2,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 300000,
+					["listings"] = 2,
 				},
 				[2589] = {
 					["items"] = 1038,
@@ -35480,20 +35530,6 @@ AuctionLiteDB = {
 					["price"] = 89000,
 					["listings"] = 5,
 				},
-				[27516] = {
-					["items"] = 2,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 51500,
-					["listings"] = 2,
-				},
-				[62566] = {
-					["items"] = 1,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 3220718,
-					["listings"] = 1,
-				},
 				[4238] = {
 					["items"] = 1,
 					["time"] = 1306730451,
@@ -35508,12 +35544,15 @@ AuctionLiteDB = {
 					["price"] = 150000,
 					["listings"] = 1,
 				},
-				[34753] = {
-					["items"] = 25,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 19500,
-					["listings"] = 6,
+				[24956] = {
+					[-20] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 90000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[55635] = {
 					[-136] = {
@@ -35525,15 +35564,12 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[55368] = {
-					[-132] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 5300000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
+				[34753] = {
+					["items"] = 25,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 19500,
+					["listings"] = 6,
 				},
 				[4765] = {
 					["items"] = 1,
@@ -35548,16 +35584,6 @@ AuctionLiteDB = {
 					["scans"] = 1,
 					["price"] = 1954569,
 					["listings"] = 6,
-				},
-				[36033] = {
-					[-15] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 156046,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
 				},
 				[11970] = {
 					[1455] = {
@@ -35575,6 +35601,16 @@ AuctionLiteDB = {
 					["scans"] = 1,
 					["price"] = 170000,
 					["listings"] = 14,
+				},
+				[36033] = {
+					[-15] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 156046,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[13065] = {
 					["items"] = 1,
@@ -35596,6 +35632,23 @@ AuctionLiteDB = {
 					["scans"] = 1,
 					["price"] = 7300,
 					["listings"] = 9,
+				},
+				[4566] = {
+					[1180] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 20000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
+				},
+				[1288] = {
+					["items"] = 1,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 30000,
+					["listings"] = 1,
 				},
 				[45760] = {
 					["items"] = 21,
@@ -35621,43 +35674,26 @@ AuctionLiteDB = {
 					["price"] = 50000,
 					["listings"] = 6,
 				},
-				[62235] = {
-					["items"] = 7,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 3000000,
-					["listings"] = 7,
-				},
-				[55382] = {
-					[-137] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 2220000,
-						["listings"] = 1,
-					},
-					[-122] = {
-						["items"] = 1,
-						["time"] = 1306730452,
-						["scans"] = 1,
-						["price"] = 2220000,
-						["listings"] = 1,
-					},
-					[-5] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 2220000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-				},
 				[43414] = {
 					["items"] = 21,
 					["time"] = 1306730451,
 					["scans"] = 1,
 					["price"] = 169500,
 					["listings"] = 21,
+				},
+				[54485] = {
+					["items"] = 2,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 1297500,
+					["listings"] = 2,
+				},
+				[33048] = {
+					["items"] = 54,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 1255,
+					["listings"] = 4,
 				},
 				[2957] = {
 					["items"] = 1,
@@ -35697,12 +35733,12 @@ AuctionLiteDB = {
 					["price"] = 10000,
 					["listings"] = 1,
 				},
-				[45775] = {
-					["items"] = 23,
-					["time"] = 1306730452,
+				[12425] = {
+					["items"] = 25,
+					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 140000,
-					["listings"] = 23,
+					["price"] = 108500,
+					["listings"] = 25,
 				},
 				[3021] = {
 					["items"] = 4,
@@ -35711,19 +35747,19 @@ AuctionLiteDB = {
 					["price"] = 704000,
 					["listings"] = 4,
 				},
-				[12425] = {
-					["items"] = 25,
+				[12410] = {
+					["items"] = 10,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 108500,
-					["listings"] = 25,
+					["price"] = 449900,
+					["listings"] = 10,
 				},
-				[69799] = {
-					["items"] = 11,
+				[16710] = {
+					["items"] = 1,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 8800000,
-					["listings"] = 11,
+					["price"] = 1067976,
+					["listings"] = 1,
 				},
 				[32737] = {
 					["items"] = 1,
@@ -35742,11 +35778,11 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[16710] = {
+				[7989] = {
 					["items"] = 1,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 1067976,
+					["price"] = 2000000,
 					["listings"] = 1,
 				},
 				[66940] = {
@@ -35756,22 +35792,19 @@ AuctionLiteDB = {
 					["price"] = 4560000,
 					["listings"] = 1,
 				},
-				[36375] = {
-					[-67] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 192035,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-				},
-				[7989] = {
+				[22739] = {
 					["items"] = 1,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 2000000,
+					["price"] = 1500000,
 					["listings"] = 1,
+				},
+				[52115] = {
+					["items"] = 18,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 58410,
+					["listings"] = 18,
 				},
 				[25314] = {
 					[-19] = {
@@ -35790,12 +35823,12 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[52115] = {
-					["items"] = 18,
-					["time"] = 1306730452,
+				[23793] = {
+					["items"] = 10,
+					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 58410,
-					["listings"] = 18,
+					["price"] = 195000,
+					["listings"] = 2,
 				},
 				[34754] = {
 					["items"] = 49,
@@ -35804,25 +35837,25 @@ AuctionLiteDB = {
 					["price"] = 4900,
 					["listings"] = 4,
 				},
-				[2450] = {
-					["items"] = 341,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 12500,
-					["listings"] = 139,
-				},
-				[23793] = {
-					["items"] = 10,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 195000,
-					["listings"] = 2,
-				},
 				[32508] = {
 					["items"] = 1,
 					["time"] = 1306730452,
 					["scans"] = 1,
 					["price"] = 1500000,
+					["listings"] = 1,
+				},
+				[19279] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 1654170,
+					["listings"] = 1,
+				},
+				[21949] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 198030,
 					["listings"] = 1,
 				},
 				[43969] = {
@@ -35832,12 +35865,12 @@ AuctionLiteDB = {
 					["price"] = 579000,
 					["listings"] = 2,
 				},
-				[21949] = {
-					["items"] = 1,
+				[3531] = {
+					["items"] = 77,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 198030,
-					["listings"] = 1,
+					["price"] = 100,
+					["listings"] = 8,
 				},
 				[44481] = {
 					["items"] = 7,
@@ -35846,39 +35879,29 @@ AuctionLiteDB = {
 					["price"] = 570000,
 					["listings"] = 7,
 				},
-				[25329] = {
-					[-7] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 185000,
-						["listings"] = 1,
-					},
-					[-41] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 148400,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-				},
-				[55373] = {
-					[-138] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 3000000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-				},
 				[41245] = {
 					["items"] = 16,
 					["time"] = 1306730451,
 					["scans"] = 1,
 					["price"] = 168000,
 					["listings"] = 16,
+				},
+				[15936] = {
+					[776] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 880000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
+				},
+				[27857] = {
+					["items"] = 2,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 5215,
+					["listings"] = 1,
 				},
 				[3357] = {
 					["items"] = 94,
@@ -35894,20 +35917,6 @@ AuctionLiteDB = {
 					["price"] = 2890000,
 					["listings"] = 3,
 				},
-				[27857] = {
-					["items"] = 2,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 5215,
-					["listings"] = 1,
-				},
-				[62655] = {
-					["items"] = 75,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 39400,
-					["listings"] = 20,
-				},
 				[22834] = {
 					["items"] = 2,
 					["time"] = 1306730452,
@@ -35915,11 +35924,11 @@ AuctionLiteDB = {
 					["price"] = 30000,
 					["listings"] = 2,
 				},
-				[43539] = {
-					["items"] = 20,
-					["time"] = 1306730452,
+				[62655] = {
+					["items"] = 75,
+					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 399994,
+					["price"] = 39400,
 					["listings"] = 20,
 				},
 				[62680] = {
@@ -35938,6 +35947,20 @@ AuctionLiteDB = {
 						["listings"] = 1,
 					},
 					["suffix"] = true,
+				},
+				[38878] = {
+					["items"] = 6,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 7490000,
+					["listings"] = 6,
+				},
+				[869] = {
+					["items"] = 2,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 5800000,
+					["listings"] = 2,
 				},
 				[55744] = {
 					[-6] = {
@@ -35962,20 +35985,6 @@ AuctionLiteDB = {
 						["listings"] = 1,
 					},
 					["suffix"] = true,
-				},
-				[869] = {
-					["items"] = 2,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 5800000,
-					["listings"] = 2,
-				},
-				[16218] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 997000,
-					["listings"] = 1,
 				},
 				[36501] = {
 					[-12] = {
@@ -36028,13 +36037,6 @@ AuctionLiteDB = {
 					["price"] = 2000000,
 					["listings"] = 4,
 				},
-				[66942] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 8500000,
-					["listings"] = 1,
-				},
 				[6581] = {
 					[589] = {
 						["items"] = 1,
@@ -36045,11 +36047,18 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[42178] = {
+				[845] = {
 					["items"] = 1,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 3950000,
+					["price"] = 9999,
+					["listings"] = 1,
+				},
+				[66942] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 8500000,
 					["listings"] = 1,
 				},
 				[20404] = {
@@ -36059,19 +36068,19 @@ AuctionLiteDB = {
 					["price"] = 73500,
 					["listings"] = 32,
 				},
-				[41107] = {
-					["items"] = 18,
+				[42178] = {
+					["items"] = 1,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 338990,
-					["listings"] = 18,
+					["price"] = 3950000,
+					["listings"] = 1,
 				},
-				[34755] = {
-					["items"] = 93,
+				[68789] = {
+					["items"] = 4,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 5000,
-					["listings"] = 10,
+					["price"] = 64990000,
+					["listings"] = 4,
 				},
 				[22459] = {
 					["items"] = 1,
@@ -36080,18 +36089,32 @@ AuctionLiteDB = {
 					["price"] = 900000,
 					["listings"] = 1,
 				},
-				[42466] = {
-					["items"] = 21,
+				[34755] = {
+					["items"] = 93,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 380995,
-					["listings"] = 21,
+					["price"] = 5000,
+					["listings"] = 10,
 				},
 				[45099] = {
 					["items"] = 1,
 					["time"] = 1306730452,
 					["scans"] = 1,
 					["price"] = 9990000,
+					["listings"] = 1,
+				},
+				[25676] = {
+					["items"] = 11,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 134622,
+					["listings"] = 11,
+				},
+				[41489] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 295605,
 					["listings"] = 1,
 				},
 				[52161] = {
@@ -36108,12 +36131,12 @@ AuctionLiteDB = {
 					["price"] = 4150000,
 					["listings"] = 2,
 				},
-				[9834] = {
-					[599] = {
+				[25029] = {
+					[-36] = {
 						["items"] = 1,
 						["time"] = 1306730451,
 						["scans"] = 1,
-						["price"] = 220000,
+						["price"] = 880000,
 						["listings"] = 1,
 					},
 					["suffix"] = true,
@@ -36125,12 +36148,12 @@ AuctionLiteDB = {
 					["price"] = 86624,
 					["listings"] = 12,
 				},
-				[25029] = {
-					[-36] = {
+				[12040] = {
+					[513] = {
 						["items"] = 1,
 						["time"] = 1306730451,
 						["scans"] = 1,
-						["price"] = 880000,
+						["price"] = 20000,
 						["listings"] = 1,
 					},
 					["suffix"] = true,
@@ -36173,20 +36196,6 @@ AuctionLiteDB = {
 					["price"] = 1500,
 					["listings"] = 7,
 				},
-				[41490] = {
-					["items"] = 2,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 30000,
-					["listings"] = 2,
-				},
-				[43109] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 30000,
-					["listings"] = 1,
-				},
 				[55566] = {
 					[-5] = {
 						["items"] = 3,
@@ -36196,6 +36205,20 @@ AuctionLiteDB = {
 						["listings"] = 3,
 					},
 					["suffix"] = true,
+				},
+				[12360] = {
+					["items"] = 21,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 390000,
+					["listings"] = 21,
+				},
+				[54477] = {
+					["items"] = 7,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 647000,
+					["listings"] = 7,
 				},
 				[55489] = {
 					[-37] = {
@@ -36224,22 +36247,19 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[23436] = {
-					["items"] = 2,
+				[7967] = {
+					["items"] = 20,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 70000,
-					["listings"] = 2,
+					["price"] = 225000,
+					["listings"] = 20,
 				},
-				[2075] = {
-					[2027] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 40000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
+				[11134] = {
+					["items"] = 26,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 1845,
+					["listings"] = 10,
 				},
 				[56513] = {
 					[-132] = {
@@ -36279,20 +36299,6 @@ AuctionLiteDB = {
 					["price"] = 40000,
 					["listings"] = 1,
 				},
-				[11134] = {
-					["items"] = 26,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 1845,
-					["listings"] = 10,
-				},
-				[40899] = {
-					["items"] = 25,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 427495,
-					["listings"] = 25,
-				},
 				[13083] = {
 					["items"] = 1,
 					["time"] = 1306730451,
@@ -36300,12 +36306,12 @@ AuctionLiteDB = {
 					["price"] = 400000,
 					["listings"] = 1,
 				},
-				[42971] = {
-					["items"] = 24,
-					["time"] = 1306730452,
+				[40899] = {
+					["items"] = 25,
+					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 302993,
-					["listings"] = 24,
+					["price"] = 427495,
+					["listings"] = 25,
 				},
 				[31178] = {
 					["items"] = 1,
@@ -36338,6 +36344,20 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
+				[13457] = {
+					["items"] = 5,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 11491,
+					["listings"] = 1,
+				},
+				[2673] = {
+					["items"] = 61,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 1000,
+					["listings"] = 4,
+				},
 				[4314] = {
 					["items"] = 6,
 					["time"] = 1306730452,
@@ -36366,12 +36386,12 @@ AuctionLiteDB = {
 					["price"] = 279999,
 					["listings"] = 3,
 				},
-				[31882] = {
-					["items"] = 3,
-					["time"] = 1306730452,
+				[785] = {
+					["items"] = 16,
+					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 386000,
-					["listings"] = 3,
+					["price"] = 10909,
+					["listings"] = 16,
 				},
 				[52162] = {
 					["items"] = 3,
@@ -36397,12 +36417,12 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[785] = {
-					["items"] = 16,
-					["time"] = 1306730451,
+				[12821] = {
+					["items"] = 1,
+					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 10909,
-					["listings"] = 16,
+					["price"] = 140000000,
+					["listings"] = 1,
 				},
 				[44739] = {
 					["items"] = 16,
@@ -36411,20 +36431,6 @@ AuctionLiteDB = {
 					["price"] = 36600,
 					["listings"] = 12,
 				},
-				[8959] = {
-					["items"] = 12,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 7916,
-					["listings"] = 2,
-				},
-				[12821] = {
-					["items"] = 1,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 140000000,
-					["listings"] = 1,
-				},
 				[52340] = {
 					["items"] = 5,
 					["time"] = 1306730451,
@@ -36432,12 +36438,12 @@ AuctionLiteDB = {
 					["price"] = 19800,
 					["listings"] = 5,
 				},
-				[9395] = {
-					["items"] = 1,
-					["time"] = 1306730452,
+				[10998] = {
+					["items"] = 74,
+					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 890123,
-					["listings"] = 1,
+					["price"] = 6761,
+					["listings"] = 35,
 				},
 				[13889] = {
 					["items"] = 20,
@@ -36446,11 +36452,11 @@ AuctionLiteDB = {
 					["price"] = 45000,
 					["listings"] = 1,
 				},
-				[62657] = {
-					["items"] = 15,
-					["time"] = 1306730451,
+				[9395] = {
+					["items"] = 1,
+					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 11484,
+					["price"] = 890123,
 					["listings"] = 1,
 				},
 				[4597] = {
@@ -36460,11 +36466,11 @@ AuctionLiteDB = {
 					["price"] = 9000000,
 					["listings"] = 2,
 				},
-				[67136] = {
-					["items"] = 1,
+				[62657] = {
+					["items"] = 15,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 273721066,
+					["price"] = 11484,
 					["listings"] = 1,
 				},
 				[54478] = {
@@ -36473,6 +36479,20 @@ AuctionLiteDB = {
 					["scans"] = 1,
 					["price"] = 1500000,
 					["listings"] = 3,
+				},
+				[52203] = {
+					["items"] = 9,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 123380,
+					["listings"] = 9,
+				},
+				[23098] = {
+					["items"] = 17,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 3712,
+					["listings"] = 17,
 				},
 				[9779] = {
 					[19] = {
@@ -36515,26 +36535,26 @@ AuctionLiteDB = {
 						["listings"] = 1,
 					},
 				},
-				[21371] = {
-					["items"] = 7,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 199000,
-					["listings"] = 7,
-				},
-				[52108] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 10000,
-					["listings"] = 1,
-				},
 				[44684] = {
 					["items"] = 11,
 					["time"] = 1306730452,
 					["scans"] = 1,
 					["price"] = 249998,
 					["listings"] = 11,
+				},
+				[18257] = {
+					["items"] = 2,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 950000,
+					["listings"] = 2,
+				},
+				[69843] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 550000000,
+					["listings"] = 1,
 				},
 				[10099] = {
 					[787] = {
@@ -36546,20 +36566,6 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[69843] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 550000000,
-					["listings"] = 1,
-				},
-				[40900] = {
-					["items"] = 16,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 399997,
-					["listings"] = 16,
-				},
 				[36367] = {
 					[-43] = {
 						["items"] = 1,
@@ -36570,12 +36576,12 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[4593] = {
-					["items"] = 7,
+				[40900] = {
+					["items"] = 16,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 11729,
-					["listings"] = 1,
+					["price"] = 399997,
+					["listings"] = 16,
 				},
 				[29960] = {
 					["items"] = 1,
@@ -36583,6 +36589,20 @@ AuctionLiteDB = {
 					["scans"] = 1,
 					["price"] = 104329736,
 					["listings"] = 1,
+				},
+				[15302] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 11600,
+					["listings"] = 1,
+				},
+				[56523] = {
+					["items"] = 13,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 4442625,
+					["listings"] = 13,
 				},
 				[20964] = {
 					[1197] = {
@@ -36671,35 +36691,11 @@ AuctionLiteDB = {
 						["listings"] = 1,
 					},
 				},
-				[56523] = {
-					["items"] = 13,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 4442625,
-					["listings"] = 13,
-				},
-				[55562] = {
-					[-131] = {
-						["items"] = 1,
-						["time"] = 1306730452,
-						["scans"] = 1,
-						["price"] = 2220000,
-						["listings"] = 1,
-					},
-					[-40] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 1006505,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-				},
-				[29539] = {
+				[43973] = {
 					["items"] = 1,
-					["time"] = 1306730452,
+					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 253070,
+					["price"] = 1990000,
 					["listings"] = 1,
 				},
 				[31304] = {
@@ -36709,12 +36705,12 @@ AuctionLiteDB = {
 					["price"] = 803884,
 					["listings"] = 1,
 				},
-				[2865] = {
-					["items"] = 13,
-					["time"] = 1306730451,
+				[29539] = {
+					["items"] = 1,
+					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 18500,
-					["listings"] = 13,
+					["price"] = 253070,
+					["listings"] = 1,
 				},
 				[36901] = {
 					["items"] = 431,
@@ -36729,6 +36725,20 @@ AuctionLiteDB = {
 					["scans"] = 1,
 					["price"] = 250000,
 					["listings"] = 1,
+				},
+				[23100] = {
+					["items"] = 11,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 17000,
+					["listings"] = 11,
+				},
+				[43121] = {
+					["items"] = 70,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 44999,
+					["listings"] = 42,
 				},
 				[43972] = {
 					["items"] = 1,
@@ -36746,20 +36756,6 @@ AuctionLiteDB = {
 						["listings"] = 1,
 					},
 					["suffix"] = true,
-				},
-				[23100] = {
-					["items"] = 11,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 17000,
-					["listings"] = 11,
-				},
-				[43121] = {
-					["items"] = 70,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 44999,
-					["listings"] = 42,
 				},
 				[36085] = {
 					[-40] = {
@@ -36787,6 +36783,20 @@ AuctionLiteDB = {
 						["listings"] = 1,
 					},
 					["suffix"] = true,
+				},
+				[4594] = {
+					["items"] = 6,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 5527,
+					["listings"] = 1,
+				},
+				[41534] = {
+					["items"] = 16,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 379995,
+					["listings"] = 16,
 				},
 				[45764] = {
 					["items"] = 27,
@@ -36819,25 +36829,35 @@ AuctionLiteDB = {
 					["price"] = 37400,
 					["listings"] = 5,
 				},
-				[40171] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 3500000,
-					["listings"] = 1,
-				},
-				[62012] = {
-					["items"] = 2,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 19970000,
-					["listings"] = 2,
-				},
 				[23529] = {
 					["items"] = 10,
 					["time"] = 1306730452,
 					["scans"] = 1,
 					["price"] = 95000,
+					["listings"] = 1,
+				},
+				[4562] = {
+					[1182] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 10000,
+						["listings"] = 1,
+					},
+					[587] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 30000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
+				},
+				[40439] = {
+					["items"] = 1,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 4300000,
 					["listings"] = 1,
 				},
 				[55491] = {
@@ -36857,12 +36877,12 @@ AuctionLiteDB = {
 					["price"] = 85800,
 					["listings"] = 8,
 				},
-				[40439] = {
-					["items"] = 1,
+				[52365] = {
+					["items"] = 3,
 					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 4300000,
-					["listings"] = 1,
+					["price"] = 135000,
+					["listings"] = 3,
 				},
 				[32227] = {
 					["items"] = 3,
@@ -36878,26 +36898,12 @@ AuctionLiteDB = {
 					["price"] = 1550000,
 					["listings"] = 9,
 				},
-				[52365] = {
-					["items"] = 3,
+				[45622] = {
+					["items"] = 9,
 					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 135000,
-					["listings"] = 3,
-				},
-				[23103] = {
-					["items"] = 11,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 13800,
-					["listings"] = 11,
-				},
-				[40901] = {
-					["items"] = 11,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 50000,
-					["listings"] = 11,
+					["price"] = 120000,
+					["listings"] = 9,
 				},
 				[6566] = {
 					["items"] = 1,
@@ -36906,15 +36912,26 @@ AuctionLiteDB = {
 					["price"] = 99999,
 					["listings"] = 1,
 				},
-				[55696] = {
-					[-132] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 1250000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
+				[40901] = {
+					["items"] = 11,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 50000,
+					["listings"] = 11,
+				},
+				[4498] = {
+					["items"] = 0,
+					["time"] = 0,
+					["scans"] = 0,
+					["price"] = 0,
+					["listings"] = 0,
+				},
+				[7026] = {
+					["items"] = 3,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 10000,
+					["listings"] = 3,
 				},
 				[24932] = {
 					[-17] = {
@@ -36943,29 +36960,12 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[44685] = {
-					[-90] = {
-						["items"] = 1,
-						["time"] = 1306730452,
-						["scans"] = 1,
-						["price"] = 167727,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-				},
-				[4265] = {
-					["items"] = 90,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 1400,
-					["listings"] = 77,
-				},
-				[6362] = {
-					["items"] = 24,
+				[1645] = {
+					["items"] = 57,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 8000,
-					["listings"] = 2,
+					["price"] = 490,
+					["listings"] = 4,
 				},
 				[15169] = {
 					[777] = {
@@ -36977,18 +36977,18 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[54506] = {
-					["items"] = 3,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 29940000,
-					["listings"] = 3,
-				},
-				[43461] = {
-					["items"] = 1,
+				[6362] = {
+					["items"] = 24,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 1000000,
+					["price"] = 8000,
+					["listings"] = 2,
+				},
+				[22914] = {
+					["items"] = 1,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 8950000,
 					["listings"] = 1,
 				},
 				[43552] = {
@@ -36997,6 +36997,20 @@ AuctionLiteDB = {
 					["scans"] = 1,
 					["price"] = 80000,
 					["listings"] = 27,
+				},
+				[43461] = {
+					["items"] = 1,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 1000000,
+					["listings"] = 1,
+				},
+				[62236] = {
+					["items"] = 11,
+					["time"] = 1306730452,
+					["scans"] = 1,
+					["price"] = 1950000,
+					["listings"] = 11,
 				},
 				[6522] = {
 					["items"] = 6,
@@ -37035,38 +37049,11 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[25210] = {
-					[-15] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 181418,
-						["listings"] = 1,
-					},
-					[-41] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 207326,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-				},
-				[1613] = {
-					[335] = {
-						["items"] = 1,
-						["time"] = 1306730452,
-						["scans"] = 1,
-						["price"] = 500000,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-				},
-				[18661] = {
+				[6044] = {
 					["items"] = 3,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 999998,
+					["price"] = 1490000,
 					["listings"] = 3,
 				},
 				[24770] = {
@@ -37079,19 +37066,19 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[52093] = {
-					["items"] = 14,
+				[18661] = {
+					["items"] = 3,
 					["time"] = 1306730451,
 					["scans"] = 1,
-					["price"] = 8200,
-					["listings"] = 14,
+					["price"] = 999998,
+					["listings"] = 3,
 				},
-				[62659] = {
-					["items"] = 135,
+				[52095] = {
+					["items"] = 6,
 					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 7295,
-					["listings"] = 12,
+					["price"] = 10000,
+					["listings"] = 6,
 				},
 				[15779] = {
 					["items"] = 2,
@@ -37100,12 +37087,12 @@ AuctionLiteDB = {
 					["price"] = 891000,
 					["listings"] = 2,
 				},
-				[59477] = {
-					["items"] = 3,
-					["time"] = 1306730451,
+				[62659] = {
+					["items"] = 135,
+					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 989000,
-					["listings"] = 3,
+					["price"] = 7295,
+					["listings"] = 12,
 				},
 				[44157] = {
 					["items"] = 9,
@@ -37114,12 +37101,19 @@ AuctionLiteDB = {
 					["price"] = 120000,
 					["listings"] = 9,
 				},
-				[55492] = {
-					[-14] = {
+				[55420] = {
+					[-41] = {
 						["items"] = 1,
-						["time"] = 1306730452,
+						["time"] = 1306730451,
 						["scans"] = 1,
-						["price"] = 550000,
+						["price"] = 399000,
+						["listings"] = 1,
+					},
+					[-118] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 1300000,
 						["listings"] = 1,
 					},
 					["suffix"] = true,
@@ -37131,12 +37125,15 @@ AuctionLiteDB = {
 					["price"] = 3188510,
 					["listings"] = 2,
 				},
-				[19813] = {
-					["items"] = 1,
-					["time"] = 1306730452,
-					["scans"] = 1,
-					["price"] = 11110000,
-					["listings"] = 1,
+				[55492] = {
+					[-14] = {
+						["items"] = 1,
+						["time"] = 1306730452,
+						["scans"] = 1,
+						["price"] = 550000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[24901] = {
 					[-26] = {
@@ -37148,12 +37145,12 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[56516] = {
-					["items"] = 42,
-					["time"] = 1306730451,
+				[19813] = {
+					["items"] = 1,
+					["time"] = 1306730452,
 					["scans"] = 1,
-					["price"] = 230000,
-					["listings"] = 9,
+					["price"] = 11110000,
+					["listings"] = 1,
 				},
 				[41814] = {
 					["items"] = 200,
@@ -37161,6 +37158,23 @@ AuctionLiteDB = {
 					["scans"] = 1,
 					["price"] = 25000,
 					["listings"] = 10,
+				},
+				[56516] = {
+					["items"] = 42,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 230000,
+					["listings"] = 9,
+				},
+				[55570] = {
+					[-5] = {
+						["items"] = 1,
+						["time"] = 1306730452,
+						["scans"] = 1,
+						["price"] = 2500000,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[14259] = {
 					[864] = {
@@ -37178,23 +37192,6 @@ AuctionLiteDB = {
 					["scans"] = 1,
 					["price"] = 232606,
 					["listings"] = 14,
-				},
-				[35974] = {
-					[-37] = {
-						["items"] = 1,
-						["time"] = 1306730451,
-						["scans"] = 1,
-						["price"] = 187995,
-						["listings"] = 1,
-					},
-					["suffix"] = true,
-				},
-				[49284] = {
-					["items"] = 1,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 7500000000,
-					["listings"] = 1,
 				},
 				[153623] = {
 					["items"] = 22,
@@ -37217,12 +37214,15 @@ AuctionLiteDB = {
 					["price"] = 1909900,
 					["listings"] = 76,
 				},
-				[42438] = {
-					["items"] = 2,
-					["time"] = 1306730451,
-					["scans"] = 1,
-					["price"] = 552772,
-					["listings"] = 2,
+				[9805] = {
+					[89] = {
+						["items"] = 1,
+						["time"] = 1306730451,
+						["scans"] = 1,
+						["price"] = 55569,
+						["listings"] = 1,
+					},
+					["suffix"] = true,
 				},
 				[154120] = {
 					["items"] = 234,
@@ -37230,6 +37230,20 @@ AuctionLiteDB = {
 					["scans"] = 1,
 					["price"] = 9990000,
 					["listings"] = 93,
+				},
+				[42438] = {
+					["items"] = 2,
+					["time"] = 1306730451,
+					["scans"] = 1,
+					["price"] = 552772,
+					["listings"] = 2,
+				},
+				[164302] = {
+					["items"] = 1,
+					["time"] = 1534981590,
+					["scans"] = 1,
+					["price"] = 1999999999,
+					["listings"] = 1,
 				},
 				[7418] = {
 					[218] = {
@@ -37241,26 +37255,26 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[164302] = {
-					["items"] = 1,
-					["time"] = 1534981590,
-					["scans"] = 1,
-					["price"] = 1999999999,
-					["listings"] = 1,
-				},
-				[164325] = {
-					["items"] = 1,
-					["time"] = 1534981590,
-					["scans"] = 1,
-					["price"] = 899989999,
-					["listings"] = 1,
-				},
 				[153624] = {
 					["items"] = 24,
 					["time"] = 1534921960,
 					["scans"] = 1,
 					["price"] = 138969999,
 					["listings"] = 24,
+				},
+				[153442] = {
+					["items"] = 96,
+					["time"] = 1536249726,
+					["scans"] = 1,
+					["price"] = 139890000,
+					["listings"] = 96,
+				},
+				[164368] = {
+					["items"] = 3,
+					["time"] = 1534981590,
+					["scans"] = 1,
+					["price"] = 1449989999,
+					["listings"] = 3,
 				},
 				[43974] = {
 					["items"] = 1,
@@ -37300,12 +37314,12 @@ AuctionLiteDB = {
 					},
 					["suffix"] = true,
 				},
-				[2696] = {
-					["items"] = 1,
-					["time"] = 1568324483,
+				[153711] = {
+					["items"] = 1320,
+					["time"] = 1571680237,
 					["scans"] = 1,
-					["price"] = 37890000,
-					["listings"] = 1,
+					["price"] = 138500,
+					["listings"] = 80,
 				},
 			},
 		},
@@ -37315,19 +37329,19 @@ AuctionLiteDB = {
 	},
 	["profiles"] = {
 		["Default"] = {
+			["getAll"] = true,
 			["bidUndercut"] = 0,
 			["fastScanAd2"] = true,
-			["defaultStacks"] = "b_full",
-			["openBags"] = true,
-			["getAll"] = true,
-			["method"] = 2,
 			["minProfit"] = 0,
 			["showDisenchant"] = "c_no",
+			["method"] = 2,
 			["startTab"] = "b_buy",
 			["showStackPrice"] = false,
+			["defaultStacks"] = "b_full",
 			["defaultSize"] = "c_full",
 			["showAuction"] = "a_yes",
 			["buyoutUndercut"] = 0,
+			["openBags"] = true,
 			["minDiscount"] = 0.02,
 		},
 	},

@@ -200,7 +200,13 @@ do
 		end
 	end
 	function core:RegisterEnableMob(module, ...) add(module.moduleName, enablemobs, ...) end
-	function core:GetEnableMobs() return enablemobs end
+	function core:GetEnableMobs()
+		local t = {}
+		for k,v in next, enablemobs do
+			t[k] = v
+		end
+		return t
+	end
 end
 
 -------------------------------------------------------------------------------
@@ -230,24 +236,37 @@ do
 		end
 	end
 
+	local blockPrint = false
+	local lastSpell = 1
+	local lastTest = 1
 	function core:Test()
 		if not callbackRegistered then
 			LibStub("LibCandyBar-3.0").RegisterCallback(core, "LibCandyBar_Stop", barStopped)
 			callbackRegistered = true
 		end
 
-		local spell, icon
-		local _, _, offset, numSpells = GetSpellTabInfo(2) -- Main spec
-		for i = offset + 1, offset + numSpells do
-			spell = GetSpellBookItemName(i, "spell")
-			icon = GetSpellBookItemTexture(i, "spell")
-			if not messages[spell] then break end
+		local msg = CL.count:format(L.test, lastTest)
+		local icon = GetSpellTexture(lastSpell)
+		while not icon or icon == 136243 do -- 136243 = cogwheel
+			lastSpell = lastSpell + 1
+			icon = GetSpellTexture(lastSpell)
 		end
+		lastSpell = lastSpell + 1
+		lastTest = lastTest + 1
 
 		local time = random(11, 30)
-		messages[spell] = icon
+		messages[msg] = icon
 
-		core:SendMessage("BigWigs_StartBar", core, spell, spell, time, icon)
+		core:SendMessage("BigWigs_StartBar", core, msg, msg, time, icon)
+
+		local guid = UnitGUID("target")
+		if guid then
+			if not blockPrint then
+				blockPrint = true
+				core:Print(L.testNameplate)
+			end
+			core:SendMessage("BigWigs_StartNameplateBar", core, msg, msg, time, icon, false, guid)
+		end
 	end
 end
 
@@ -526,7 +545,7 @@ end
 do
 	local GetSpellInfo, C_EncounterJournal_GetSectionInfo = GetSpellInfo, C_EncounterJournal.GetSectionInfo
 	local C = core.C -- Set from Constants.lua
-	local standardFlag = C.BAR + C.CASTBAR + C.MESSAGE + C.ICON + C.SOUND + C.SAY + C.SAY_COUNTDOWN + C.PROXIMITY + C.FLASH + C.ALTPOWER + C.VOICE + C.INFOBOX
+	local standardFlag = C.BAR + C.CASTBAR + C.MESSAGE + C.ICON + C.SOUND + C.SAY + C.SAY_COUNTDOWN + C.PROXIMITY + C.FLASH + C.ALTPOWER + C.VOICE + C.INFOBOX + C.NAMEPLATEBAR
 	local defaultToggles = setmetatable({
 		berserk = C.BAR + C.MESSAGE + C.SOUND,
 		proximity = C.PROXIMITY,

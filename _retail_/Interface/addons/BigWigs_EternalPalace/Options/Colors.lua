@@ -128,7 +128,7 @@ BigWigs:AddColors("Queen Azshara", {
 	[301431] = "red",
 	[302999] = "blue",
 	[303657] = {"blue","yellow"},
-	[303982] = {"blue","yellow"},
+	[303986] = {"blue","yellow"},
 	[304475] = "cyan",
 	["stages"] = {"cyan","green"},
 })

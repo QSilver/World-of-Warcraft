@@ -564,3 +564,5 @@ BigWigs_BattleOfDazaralor: enabled
 BigWigs_CrucibleOfStorms: enabled
 WeakAurasCompanion: enabled
 BigWigs_EternalPalace: enabled
+BigWigs_Nyalotha: enabled
+WeakAurasArchive: enabled

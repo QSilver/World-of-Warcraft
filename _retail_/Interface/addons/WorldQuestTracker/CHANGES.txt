@@ -1,8 +1,14 @@
-Changes since tag v8.2.0.381
+lightweight tag 404ab852b45c52e73dd45d5be216f5427f1022e0 v8.3.0.390
+Author:	Tercio Jose <terciob19@hotmail.com>
+Date:	Thu Feb 13 17:23:49 2020 -0300
 
-commit 03a23bdc0f5357877d5123ae0f559ffe5aa8ddc3
+commit 404ab852b45c52e73dd45d5be216f5427f1022e0
 Author: Tercio Jose <terciob19@hotmail.com>
-Date:   Mon Sep 9 13:00:56 2019 -0300
+Date:   Thu Feb 13 17:23:49 2020 -0300
 
-    Git Ignore localization files
+    Fixed world bosses not poping up the group finder window
+    
+    - Framework update to latest version v170.
+    - Some comment translation to english.
+    - Fixed errors where the 8.3 invasions was trigering before the Player_Entering_World event.
 

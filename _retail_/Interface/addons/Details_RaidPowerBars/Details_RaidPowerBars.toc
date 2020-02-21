@@ -1,4 +1,4 @@
-## Interface: 80200
+## Interface: 80300
 ## Title: Details Raid Power Bars (plugin)
 ## Notes: Plugin for Details
 ## SavedVariablesPerCharacter: _detalhes_databaseRaidPowerBar

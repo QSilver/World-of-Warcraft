@@ -15,6 +15,7 @@ local string, gsub, strmatch, tonumber, format, date, time, strsplit = string, g
 -- @param unitguid The UnitGUID
 -- @return creatureID (string) or nil if nonexistant
 function Utils:ExtractCreatureID (unitguid)
+   if not unitguid then return nil end
    local id = unitguid:match(".+(%b--)")
    return id and (id:gsub("-", "")) or nil
 end
@@ -88,7 +89,7 @@ end
 function Utils:GetNumberOfDaysFromNow(oldDate)
 	local d, m, y = strsplit("/", oldDate, 3)
 	local sinceEpoch = time({year = "20"..y, month = m, day = d, hour = 0}) -- convert from string to seconds since epoch
-	local diff = date("*t", time() - sinceEpoch) -- get the difference as a table
+	local diff = date("*t", math.abs(time() - sinceEpoch)) -- get the difference as a table
 	-- Convert to number of d/m/y
 	return diff.day - 1, diff.month - 1, diff.year - 1970
 end
@@ -139,4 +140,22 @@ function Utils:IsItemBlacklisted(item)
       end
    end
    return false
+end
+
+--- Checks for outdated versions.
+-- Will prioritise test versions, so if the version contains a test version, the normal version test will be skipped.
+function Utils:CheckOutdatedVersion (baseVersion, newVersion, basetVersion, newtVersion)
+   baseVersion = baseVersion or addon.version
+
+   if strfind(newVersion, "%a+") then return self:Debug("Someone's tampering with version?", newVersion) end
+
+   if addon:VersionCompare(baseVersion,newVersion) and (not (basetVersion or newtVersion)) then
+		return addon.VER_CHECK_CODES[2] -- Outdated
+
+	elseif basetVersion and newtVersion and basetVersion < newtVersion then
+		return addon.VER_CHECK_CODES[3] -- tVersion outdated
+
+   else
+      return addon.VER_CHECK_CODES[1] -- All fine
+	end
 end

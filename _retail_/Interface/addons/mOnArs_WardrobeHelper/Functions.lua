@@ -1,19 +1,23 @@
-function cmpAlphabetical(a, b)
-   local patt = '^(.-)%s*(%d+)$'
-   local _,_, col1, num1 = a:find(patt)
-   local _,_, col2, num2 = b:find(patt)
-   if (col1 and col2) and col1 == col2 then
-      return tonumber(num1) < tonumber(num2)
-   end
-   return a < b
+function cmpAlphabetical(a, b, reverse)
+    local patt = "^(.-)%s*(%d+)$"
+    local _, _, col1, num1 = a:find(patt)
+    local _, _, col2, num2 = b:find(patt)
+    if (col1 and col2) and col1 == col2 then
+        return tonumber(num1) < tonumber(num2)
+    end
+    if reverse then
+        return a > b
+    else
+        return a < b
+    end
 end
 
-function __genOrderedIndex( t )
+function __genOrderedIndex(t)
     local orderedIndex = {}
     for key in pairs(t) do
-        table.insert( orderedIndex, key )
+        table.insert(orderedIndex, key)
     end
-    table.sort( orderedIndex )
+    table.sort(orderedIndex)
     return orderedIndex
 end
 
@@ -26,13 +30,13 @@ function orderedNext(t, state)
     --print("orderedNext: state = "..tostring(state) )
     if state == nil then
         -- the first time, generate the index
-        t.__orderedIndex = __genOrderedIndex( t )
+        t.__orderedIndex = __genOrderedIndex(t)
         key = t.__orderedIndex[1]
     else
         -- fetch the next value
-        for i = 1,table.getn(t.__orderedIndex) do
+        for i = 1, table.getn(t.__orderedIndex) do
             if t.__orderedIndex[i] == state then
-                key = t.__orderedIndex[i+1]
+                key = t.__orderedIndex[i + 1]
             end
         end
     end
@@ -53,14 +57,14 @@ function orderedPairs(t)
 end
 
 function string:explodePHP(delimiter)
-  local result = { }
-  local from  = 1
-  local delim_from, delim_to = string.find( self, delimiter, from  )
-  while delim_from do
-    table.insert( result, string.sub( self, from , delim_from-1 ) )
-    from  = delim_to + 1
-    delim_from, delim_to = string.find( self, delimiter, from  )
-  end
-  table.insert( result, string.sub( self, from  ) )
-  return result
+    local result = {}
+    local from = 1
+    local delim_from, delim_to = string.find(self, delimiter, from)
+    while delim_from do
+        table.insert(result, string.sub(self, from, delim_from - 1))
+        from = delim_to + 1
+        delim_from, delim_to = string.find(self, delimiter, from)
+    end
+    table.insert(result, string.sub(self, from))
+    return result
 end

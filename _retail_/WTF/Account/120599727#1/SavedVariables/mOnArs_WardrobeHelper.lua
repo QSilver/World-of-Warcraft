@@ -2,17 +2,19 @@
 mOnWDSave = {
 	["onlyMiniList"] = false,
 	["miniListScale"] = 1,
+	["blacklist"] = {
+	},
 	["reloadOnStart"] = false,
+	["favoriteInstances"] = {
+	},
 	["minimap"] = {
 		["hide"] = true,
 	},
 	["disableConfirmation"] = false,
-	["favoriteInstances"] = {
-	},
+	["sortColumn"] = 0,
 	["completionistMode"] = false,
-	["blacklist"] = {
-	},
 	["hideList"] = false,
+	["sortDirection"] = 1,
 	["miniListRowCount"] = 16,
 	["disableProgress"] = false,
 	["hideCompletedInstances"] = false,

@@ -1664,7 +1664,7 @@ function VUHDO_loadDefaultConfig()
 ----		250191, -- Conflagration
 ----		254181, -- Seared Skin
 ----		248255, -- Infernal Rockets
---		-- Kinï¿½garoth
+--		-- Kin’garoth
 ----		254919, -- Forging Strike
 --		249535, -- Demolished (M)
 --		246706, -- Demolish
@@ -1696,7 +1696,7 @@ function VUHDO_loadDefaultConfig()
 ----		250757, -- Cosmic Glare (M)
 --		-- Aggramar
 ----		244291, -- Foe Breaker
-----		245990, -- Taeschalachï¿½s Reach
+----		245990, -- Taeschalach’s Reach
 --		245994, -- Scorching Blaze
 ----		246014, -- Searing Tempest
 ----		244736, -- Wake of Flame
@@ -1717,7 +1717,7 @@ function VUHDO_loadDefaultConfig()
 ----		258646, -- Gift of the Sky
 ----		255199, -- Avatar of Aggramar
 --		250669, -- Soulburst
-----		255200, -- Aggramarï¿½s Boon
+----		255200, -- Aggramar’s Boon
 ----		257299, -- Ember of Rage
 ----		252729, -- Cosmic Ray
 ----		252634, -- Cosmic Smash
@@ -1948,6 +1948,80 @@ function VUHDO_loadDefaultConfig()
 		300492, -- Static Shock
 		297907  -- Cursed Heart
 	);
+
+	-- 8.3.0 - Battle for Azeroth - Visions of N'Zoth
+	VUHDO_addCustomSpellIds(46,
+		-- [[ Ny'alotha, The Waking City ]]
+		-- Wrathion
+		306163, -- Incineration
+		314347, -- Noxious Choke
+		-- Maut
+		307806, -- Devour Magic
+		-- The Prophet Skitra
+		308059, -- ShadowShockApplied
+		307950, -- Shred Psyche
+		308065, -- Shred Psyche
+		-- Dark Inquisitor Xanesh
+		313198, -- Void-Touched
+		312406, -- Voidwoken
+		309569, -- Voidwoken
+		-- Vexiona
+		307314, -- Encroaching Shadows
+		307359, -- Despair
+		310323, -- Desolation
+		-- The Hivemind
+		313461, -- Corrosion
+		313129, -- Mindless
+		313460, -- Nullification
+		-- Ra-den
+		313227, -- Decaying Wound
+		310019, -- Charged Bonds
+		310022, -- Charged Bonds
+		313077, -- Unstable Nightmare
+		315252, -- Dread Inferno Fixate
+		316065, -- Corrupted Existence
+		-- Shad'har the Insatiable
+		307358, -- Debilitating Spit
+		307945, -- Umbral Eruption
+		306929, -- Bubbling Breath
+		307260, -- Fixate
+		-- Drest'agath
+		310552, -- Mind Flay
+		310358, -- Muttering Insanity
+		-- Il'gynoth
+		275269, -- Fixate
+		311159, -- Cursed Blood
+		-- Carapice of N'Zoth
+		307008, -- Breed Madness
+		306973, -- Madness Bomb
+		306984, -- Insanity Bomb
+		-- N'Zoth
+		308885, -- Mind Flay
+		317112, -- Evoke Anguish
+		309980, -- Paranoia
+		316541, -- Paranoia
+		316542  -- Paranoia
+	);
+
+	-- 8.3.0 - Battle for Azeroth - Visions of N'Zoth part 2
+	VUHDO_addCustomSpellIds(47,
+		-- [[ Ny'alotha, The Waking City ]]
+		-- Wrathion
+		-- Maut
+		-- The Prophet Skitra
+		-- Dark Inquisitor Xanesh
+		306311, -- Soul Flay
+		-- Vexiona
+		-- The Hivemind
+		-- Ra-den
+		306184  -- Unleashed Void
+		-- Shad'har the Insatiable
+		-- Drest'agath
+		-- Il'gynoth
+		-- Carapice of N'Zoth
+		-- N'Zoth
+	);
+
 
 	local debuffRemovalList = {};
 
@@ -2323,7 +2397,8 @@ local VUHDO_DEFAULT_PER_PANEL_SETUP = {
 	},
 
 	["ID_TEXT"] = {
-		["showName"] = true,
+		["showName"] = true, 
+		["showNickname"] = false,
 		["showClass"] = false,
 		["showTags"] = true,
 		["showPetOwners"] = true,

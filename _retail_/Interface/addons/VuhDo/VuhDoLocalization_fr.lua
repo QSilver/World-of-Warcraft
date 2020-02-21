@@ -1,18 +1,18 @@
 if (GetLocale() ~= "frFR") then
 	return;
 end
--- ï¿½ = \195\160
--- ï¿½ = \195\162
--- ï¿½ = \195\166
--- ï¿½ = \195\167
--- ï¿½ = \195\168
--- ï¿½ = \195\169
--- ï¿½ = \195\170
--- ï¿½ = \195\175
--- ï¿½ = \195\180
--- ï¿½ = \195\185
--- ï¿½ = \197\146
--- ï¿½ = \197\147
+-- à = \195\160
+-- â = \195\162
+-- æ = \195\166
+-- ç = \195\167
+-- è = \195\168
+-- é = \195\169
+-- ê = \195\170
+-- ï = \195\175
+-- ô = \195\180
+-- ù = \195\185
+-- Œ = \197\146
+-- œ = \197\147
 -- @EXACT = true: Translation has to be the exact(!) match in the clients language,
 --                beacause it carries technical semantics
 -- @EXACT = false: Translation can be done freely, because text is only descriptive
@@ -127,7 +127,7 @@ VUHDO_I18N_BUFFC_SKIN = "Peau";
 -- Mage
 VUHDO_I18N_BUFFC_ARMOR_MAGE = "Armure";
 -- Death Knight
-VUHDO_BUFFC_PRESENCE    = "Prï¿½sence";
+VUHDO_BUFFC_PRESENCE    = "Présence";
 -- Warrior
 VUHDO_I18N_BUFFC_SHOUT = "Cri";
 -- Hunter

@@ -1,5 +1,5 @@
 local o = mOnWardrobe
 
 o.blacklist = {
-  5254,   -- Rugged Spaulders
+  5254 -- Rugged Spaulders
 }

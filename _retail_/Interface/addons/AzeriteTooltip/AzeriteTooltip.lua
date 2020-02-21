@@ -1,8 +1,8 @@
 AzeriteTooltip = LibStub("AceAddon-3.0"):NewAddon("AzeriteTooltip", "AceEvent-3.0", "AceHook-3.0")
 
 local locationIDs = {
-	["Head"] = 1, 
-	["Shoulder"] = 3, 
+	["Head"] = 1,
+	["Shoulder"] = 3,
 	["Chest"] = 5,
 }
 
@@ -39,7 +39,8 @@ local defaults_settings = {
         onlyspec = false,
         compact = false,
         bags = true,
-        paperdoll = true,                       
+		icon_anchor = "BOTTOMLEFT",
+        paperdoll = true,
     }
 }
 
@@ -137,6 +138,23 @@ function AzeriteTooltip:SetupOptions()
                 end,
                 get = function(info) return self.settings.paperdoll end
             },
+			icon_anchor = {
+				type = "select",
+				name = "Icon Anchor",
+				style = "dropdown",
+				values = {
+					["TOPLEFT"] = "TOP", -- 0
+					["BOTTOMLEFT"] = "BOTTOM", -- 1
+
+				},
+				order = 9,
+				set = function(info,val)
+					self.settings.icon_anchor = val
+				end,
+				get = function(info)
+					return self.settings.icon_anchor
+				end
+			},
 		}
 	}
 
@@ -149,19 +167,17 @@ function AzeriteTooltip:OnEnable()
     self:SecureHook('ContainerFrame_Update')
 
     if IsAddOnLoaded("Bagnon") then
-    	hooksecurefunc(Bagnon.ItemSlot, "Update", function(self)
+    	hooksecurefunc(Bagnon.Item, "Update", function(self)
     		if not AzeriteTooltip.db.profile.bags then return end
-    		 
-    		AzeriteTooltip:SetContainerAzerite(self) 
+
+    		AzeriteTooltip:SetContainerAzerite(self)
     	end)
     end
 
     self:SecureHookScript(GameTooltip, 'OnTooltipSetItem', 'OnTooltipSetItem')
     self:SecureHookScript(ItemRefTooltip, 'OnTooltipSetItem', 'OnTooltipSetItem')
     self:SecureHookScript(ShoppingTooltip1, 'OnTooltipSetItem', 'OnTooltipSetItem')
-    --self:SecureHookScript(WorldMapTooltip, 'OnTooltipSetItem', 'OnTooltipSetItem')
-    --self:SecureHookScript(WorldMapCompareTooltip1, 'OnTooltipSetItem', 'OnTooltipSetItem')
-    self:SecureHookScript(EmbeddedItemTooltip, 'OnTooltipSetItem', 'OnTooltipSetItem')    
+    self:SecureHookScript(EmbeddedItemTooltip, 'OnTooltipSetItem', 'OnTooltipSetItem')
 end
 
 function AzeriteTooltip:GetSpellID(powerID)
@@ -215,7 +231,7 @@ function AzeriteTooltip:GetAzeriteLevel()
 		level = 0
 	end
 	return level
-end		
+end
 
 function AzeriteTooltip:ClearBlizzardText(tooltip)
 	local textLeft = tooltip.textLeft
@@ -230,7 +246,7 @@ function AzeriteTooltip:ClearBlizzardText(tooltip)
 	end
 	for i = 7, tooltip:NumLines() do
 		if textLeft then
-			local line = textLeft[i]		
+			local line = textLeft[i]
 			local text = line:GetText()
 			local r, g, b = line:GetTextColor()
 			if text then
@@ -238,8 +254,8 @@ function AzeriteTooltip:ClearBlizzardText(tooltip)
 				local AzeritePowers = strsplit("(0/%d)", TOOLTIP_AZERITE_UNLOCK_LEVELS) -- Azerite Powers (0/%d)
 				local AzeriteUnlock = strsplit("%d", AZERITE_POWER_UNLOCKED_AT_LEVEL) -- Unlocked at Heart of Azeroth Level %d
 				local Durability = strsplit("%d / %d", DURABILITY_TEMPLATE)
-				local ReqLevel = strsplit("%d", ITEM_MIN_LEVEL) 
-				
+				local ReqLevel = strsplit("%d", ITEM_MIN_LEVEL)
+
 				if text:match(NEW_AZERITE_POWER_AVAILABLE) then
 					line:SetText("")
 				end
@@ -285,8 +301,8 @@ function AzeriteTooltip:RemovePowerText(tooltip, powerName)
 	for i = 7, tooltip:NumLines() do
 		if textLeft then
 			local enchanted = strsplit("%d", ENCHANTED_TOOLTIP_LINE)
-			local use = strsplit("%d", ITEM_SPELL_TRIGGER_ONUSE)			 
-			local line = textLeft[i]		
+			local use = strsplit("%d", ITEM_SPELL_TRIGGER_ONUSE)
+			local line = textLeft[i]
 			local text = line:GetText()
 			local r, g, b = line:GetTextColor()
 			local newText
@@ -297,7 +313,7 @@ function AzeriteTooltip:RemovePowerText(tooltip, powerName)
 			if powerName:find("-") then
 				newPowerName = string.gsub(powerName, "-", " ")
 			end
-			if text then				
+			if text then
 				if text:match(CURRENTLY_SELECTED_AZERITE_POWERS_INSPECT) then return end
 				if text:find("- "..powerName) then
 					line:SetText("")
@@ -319,7 +335,7 @@ function AzeriteTooltip:BuildTooltip(self)
   	if C_AzeriteEmpoweredItem.IsAzeriteEmpoweredItemByID(link) then
 
   		addText = ""
-		
+
 		local currentLevel = AzeriteTooltip:GetAzeriteLevel()
 
 		local specID = GetSpecializationInfo(GetSpecialization())
@@ -342,8 +358,8 @@ function AzeriteTooltip:BuildTooltip(self)
 				local azeriteTooltipText = " "
 				for i, _ in pairs(allTierInfo[j]["azeritePowerIDs"]) do
 					local azeritePowerID = allTierInfo[j]["azeritePowerIDs"][i]
-					local azeriteSpellID = AzeriteTooltip:GetSpellID(azeritePowerID)				
-					local azeritePowerName, _, icon = GetSpellInfo(azeriteSpellID)	
+					local azeriteSpellID = AzeriteTooltip:GetSpellID(azeritePowerID)
+					local azeritePowerName, _, icon = GetSpellInfo(azeriteSpellID)
 
 					if tierLevel <= currentLevel then
 						if AzeriteTooltip:ScanSelectedTraits(self, azeritePowerName) then
@@ -359,29 +375,29 @@ function AzeriteTooltip:BuildTooltip(self)
 							local azeriteIcon = '|T'..icon..':24:24:0:0:64:64:4:60:4:60:150:150:150|t'
 							azeriteTooltipText = azeriteTooltipText.."  "..azeriteIcon
 						end
-					elseif C_AzeriteEmpoweredItem.IsPowerAvailableForSpec(azeritePowerID, specID) then						
+					elseif C_AzeriteEmpoweredItem.IsPowerAvailableForSpec(azeritePowerID, specID) then
 						local azeriteIcon = '|T'..icon..':24:24:0:0:64:64:4:60:4:60:150:150:150|t'
 						azeriteTooltipText = azeriteTooltipText.."  "..azeriteIcon
 					elseif not AzeriteTooltip.db.profile.onlyspec or IsControlKeyDown() then
 						local azeriteIcon = '|T'..icon..':24:24:0:0:64:64:4:60:4:60:150:150:150|t'
 						azeriteTooltipText = azeriteTooltipText.."  "..azeriteIcon
-					end				
+					end
 				end
 
 				if tierLevel <= currentLevel then
-					if j > 1 then 
+					if j > 1 then
 						addText = addText.."\n \n|cFFffcc00Level "..tierLevel..azeriteTooltipText.."|r"
 					else
 						addText = addText.."\n|cFFffcc00Level "..tierLevel..azeriteTooltipText.."|r"
 					end
 				else
-					if j > 1 then 
+					if j > 1 then
 						addText = addText.."\n \n|cFF7a7a7aLevel "..tierLevel..azeriteTooltipText.."|r"
 					else
 						addText = addText.."\n|cFF7a7a7aLevel "..tierLevel..azeriteTooltipText.."|r"
 					end
 				end
-				
+
 			end
 		else
 			for j=1, 5 do
@@ -401,7 +417,7 @@ function AzeriteTooltip:BuildTooltip(self)
                 end
 
                 local rgb = ("ff%.2x%.2x%.2x"):format(r*255, g*255, b*255)
-                
+
                 if j > 1 then
 					addText = addText.. "\n\n|c" .. rgb .. format(" Level %d", tierLevel) .. "|r\n"
 				else
@@ -411,17 +427,17 @@ function AzeriteTooltip:BuildTooltip(self)
 				for i, v in pairs(allTierInfo[j]["azeritePowerIDs"]) do
 					local azeritePowerID = allTierInfo[j]["azeritePowerIDs"][i]
 					local azeriteSpellID = AzeriteTooltip:GetSpellID(azeritePowerID)
-						
+
 					local azeritePowerName, _, icon = GetSpellInfo(azeriteSpellID)
 					local azeriteIcon = '|T'..icon..':20:20:0:0:64:64:4:60:4:60|t'
 					local azeriteTooltipText = "  "..azeriteIcon.."  "..azeritePowerName
-  
+
 					if tierLevel <= currentLevel then
 						if AzeriteTooltip:ScanSelectedTraits(self, azeritePowerName) then
 							tinsert(activePowers, {name = azeritePowerName})
-							activeAzeriteTrait = true	
+							activeAzeriteTrait = true
 
-							addText = addText.."\n|cFF00FF00"..azeriteTooltipText.."|r"			
+							addText = addText.."\n|cFF00FF00"..azeriteTooltipText.."|r"
 						elseif C_AzeriteEmpoweredItem.IsPowerAvailableForSpec(azeritePowerID, specID) then
 							addText = addText.."\n|cFFFFFFFF"..azeriteTooltipText.."|r"
 						elseif not AzeriteTooltip.db.profile.onlyspec or IsControlKeyDown()  then
@@ -431,8 +447,8 @@ function AzeriteTooltip:BuildTooltip(self)
 						addText = addText.."\n|cFF7a7a7a"..azeriteTooltipText.."|r"
 					elseif not AzeriteTooltip.db.profile.onlyspec or IsControlKeyDown() then
 						addText = addText.."\n|cFF7a7a7a"..azeriteTooltipText.."|r"
-					end	
-				end	
+					end
+				end
 			end
 		end
 
@@ -455,9 +471,11 @@ function AzeriteTooltip:CreateAzeriteIcons(button, azeriteEmpoweredItemLocation)
 	if C_AzeriteEmpoweredItem.IsAzeriteEmpoweredItem(azeriteEmpoweredItemLocation) then
 	    if not button.azerite then
 	        button.azerite = CreateFrame("Frame", "$parent.azerite", button);
-	        button.azerite:SetPoint("BOTTOMLEFT", button, "BOTTOMLEFT")
+	        button.azerite:SetPoint(AzeriteTooltip.db.profile.icon_anchor, button, AzeriteTooltip.db.profile.icon_anchor)
 	        button.azerite:SetSize(37, 18)
 	    else
+			button.azerite:ClearAllPoints()
+			button.azerite:SetPoint(AzeriteTooltip.db.profile.icon_anchor, button, AzeriteTooltip.db.profile.icon_anchor)
 			button.azerite:Show()
 		end
 
@@ -471,51 +489,38 @@ function AzeriteTooltip:CreateAzeriteIcons(button, azeriteEmpoweredItemLocation)
 
 			if not allTierInfo[1]["azeritePowerIDs"][1] then return end
 
-			if button.azerite[j] then
-				button.azerite[j]:Hide()
-				button.azerite[j].overlay:Hide()
-			end	
-
 			for i, _ in pairs(allTierInfo[k]["azeritePowerIDs"]) do
 				local azeritePowerID = allTierInfo[k]["azeritePowerIDs"][i]
-				local azeriteSpellID = AzeriteTooltip:GetSpellID(azeritePowerID)				
-				local azeritePowerName, _, icon = GetSpellInfo(azeriteSpellID)	
+				local azeriteSpellID = AzeriteTooltip:GetSpellID(azeritePowerID)
+				local azeritePowerName, _, icon = GetSpellInfo(azeriteSpellID)
 
 				if C_AzeriteEmpoweredItem.IsPowerSelected(azeriteEmpoweredItemLocation, azeritePowerID) then
 					noneSelected = false
 					if not button.azerite[j] then
+						button.azerite[j] = button.azerite:CreateTexture("$parent."..j, "OVERLAY", nil, button.azerite)
 						if j == 1 then
-							button.azerite[j] = button.azerite:CreateTexture("$parent."..j, "OVERLAY", nil, button.azerite)
-							button.azerite[j]:SetPoint("LEFT", button.azerite, "LEFT")
-							button.azerite[j]:SetSize(16, 16)
-							button.azerite[j]:SetTexture(icon)
-							-- Border
-					        button.azerite[j].overlay = button.azerite:CreateTexture(nil, "ARTWORK", nil, 7)
-					        button.azerite[j].overlay:SetTexture([[Interface\TargetingFrame\UI-TargetingFrame-Stealable]])
-					        button.azerite[j].overlay:SetVertexColor(0.7,0.7,0.7,0.8)
-					        button.azerite[j].overlay:SetPoint("TOPLEFT", button.azerite[j], -3, 3)
-					        button.azerite[j].overlay:SetPoint("BOTTOMRIGHT", button.azerite[j], 3, -3)
-					        button.azerite[j].overlay:SetBlendMode("ADD")
+							button.azerite[j]:SetPoint(AzeriteTooltip.db.profile.icon_anchor, button, AzeriteTooltip.db.profile.icon_anchor)
 						else
-							button.azerite[j] = button.azerite:CreateTexture("$parent."..j, "OVERLAY", nil, button.azerite)
 							button.azerite[j]:SetPoint("BOTTOMLEFT", button.azerite[j-1], "BOTTOMRIGHT", 4, 0)
-							button.azerite[j]:SetSize(16, 16)
-							button.azerite[j]:SetTexture(icon)
-							-- Border
-							button.azerite[j].overlay = button.azerite:CreateTexture(nil, "ARTWORK", nil, 7)
-					        button.azerite[j].overlay:SetTexture([[Interface\TargetingFrame\UI-TargetingFrame-Stealable]])
-					        button.azerite[j].overlay:SetVertexColor(0.7,0.7,0.7,0.8)
-					        button.azerite[j].overlay:SetPoint("TOPLEFT", button.azerite[j], -3, 3)
-					        button.azerite[j].overlay:SetPoint("BOTTOMRIGHT", button.azerite[j], 3, -3)
-					        button.azerite[j].overlay:SetBlendMode("ADD")
 						end
+						button.azerite[j]:SetSize(16, 16)
+						button.azerite[j]:SetTexture(icon)
+						-- Border
+				        button.azerite[j].overlay = button.azerite:CreateTexture(nil, "ARTWORK", nil, 7)
+				        button.azerite[j].overlay:SetTexture([[Interface\TargetingFrame\UI-TargetingFrame-Stealable]])
+				        button.azerite[j].overlay:SetVertexColor(0.7,0.7,0.7,0.8)
+				        button.azerite[j].overlay:SetPoint("TOPLEFT", button.azerite[j], -3, 3)
+				        button.azerite[j].overlay:SetPoint("BOTTOMRIGHT", button.azerite[j], 3, -3)
+				        button.azerite[j].overlay:SetBlendMode("ADD")
 					else
-	  					button.azerite[j]:Show()
-						button.azerite[j].overlay:Show()
+						if j == 1 then
+							button.azerite[j]:ClearAllPoints()
+							button.azerite[j]:SetPoint(AzeriteTooltip.db.profile.icon_anchor, button, AzeriteTooltip.db.profile.icon_anchor)
+						end
 	  					button.azerite[j]:SetTexture(icon)
-					end;
-				end	
-			end					
+					end
+				end
+			end
 		end
 		if noneSelected	then button.azerite:Hide() end
 	else
@@ -534,7 +539,7 @@ function AzeriteTooltip:SetContainerAzerite(self)
 
 	    if not button then
 	        return
-	    end;	    
+	    end;
 
 		if link then
 			local azeriteEmpoweredItemLocation = ItemLocation:CreateFromBagAndSlot(self:GetID(), button:GetID())
@@ -622,4 +627,4 @@ SLASH_AZERITETOOLTIP2 = "/at"
 SlashCmdList["AZERITETOOLTIP"] = function()
     InterfaceOptionsFrame_OpenToCategory("AzeriteTooltip")
     InterfaceOptionsFrame_OpenToCategory("AzeriteTooltip")
-end 
+end

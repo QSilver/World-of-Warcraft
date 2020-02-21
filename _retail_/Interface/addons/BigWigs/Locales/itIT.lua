@@ -7,6 +7,8 @@ if not L then return end
 
 --L.gitHubDesc = "BigWigs is open source software hosted on GitHub. We are always looking for new people to help us out and everyone is welcome to inspect our code, make contributions and submit bug reports. BigWigs is as great as it is today largely in part to the great WoW community helping us out."
 
+--L.testNameplate = "Target detected, creating a test nameplate bar over target nameplate."
+
 --L.options = "Options"
 --L.raidBosses = "Raid Bosses"
 --L.dungeonBosses = "Dungeon Bosses"
@@ -126,6 +128,8 @@ L.zoneMessagesDesc = "Disabilitando questa opzione BigWigs non mostrerà più i 
 --L.SAY_COUNTDOWN_desc = "Chat bubbles are easy to spot. BigWigs will use multiple say messages counting down to alert people nearby that an ability on you is about to expire."
 --L.ME_ONLY_EMPHASIZE = "Emphasize (me only)"
 --L.ME_ONLY_EMPHASIZE_desc = "Enabling this will emphasize any messages associated with this ability ONLY if it is casted on you, making them larger and more visible."
+-- L.NAMEPLATEBAR = "Nameplate Bars"
+-- L.NAMEPLATEBAR_desc = "Bars are sometimes attached to nameplates when more than one mob casts the same spell. If this ability is accompanied by a nameplate bar that you want to hide, disable this option."
 
 -- Media.lua
 L.Beware = "Attenti! (Algalon)"

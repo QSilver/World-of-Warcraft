@@ -619,7 +619,7 @@ VUHDO_I18N_TT.K553 = "Make the selected profile the default for all new characte
 VUHDO_I18N_TT.K554 = "Make the selected key layout the default for all new characters on this account.";
 VUHDO_I18N_TT.K555 = "Check to allow the VuhDo menu command to be bound even when using Clique compatibility mode.";
 VUHDO_I18N_TT.K556 = "Check this to have an extra panel for boss encounter NPCs (eg. shards on Tectus, mushrooms on Brackenspore).";
-VUHDO_I18N_TT.K557 = "Body of the custom flag function. Must return true or false. Example: return (\"YOURNAME\" == VUHDO_unitInfo\[\"name\"\])";
+VUHDO_I18N_TT.K557 = "Body of the custom flag function. Must return true or false. Example: return (\"YOURNAME\" == VUHDO_unitInfo[\"name\"])";
 VUHDO_I18N_TT.K558 = "Hide buff watch while out of combat.";
 VUHDO_I18N_TT.K559 = "Click to select focus bar color.";
 VUHDO_I18N_TT.K560 = "Click to select astral power bar color.";
@@ -643,6 +643,7 @@ VUHDO_I18N_TT.K577 = "Click to display a glow on the bar while active.";
 VUHDO_I18N_TT.K578 = "Select a color for the icon glow.";
 VUHDO_I18N_TT.K579 = "Select a color for the bar glow.";
 VUHDO_I18N_TT.K580 = "Select a modifier key to use with the right mouse button to blacklist debuff icons."
+VUHDO_I18N_TT.K581 = "Check to show player nickname on bars.";
 
 VUHDO_I18N_DEFAULT_PROFILE = "Default Profile";
 VUHDO_I18N_DEFAULT_LAYOUT = "Default Layout";
@@ -1152,4 +1153,6 @@ VUHDO_I18N_TRAIL_OF_LIGHT = "Trail of\nLight";
 VUHDO_I18N_BAR_GLOW_COLOR = "Bar Glow";
 VUHDO_I18N_ICON_GLOW_COLOR = "Icon Glow";
 VUHDO_I18N_BLACKLIST_KEY_MODIFIES = "Ignore List Modifier Key";
+
+VUHDO_I18N_NICKNAME = "Details!\nNickname"
 

@@ -1,7 +1,6 @@
-changeset:   67:11f105be09e2
-tag:         v8.2.0.067
-user:        Tercioo
-date:        Mon Jul 22 15:48:17 2019 -0300
-summary:     - fixed an issue where all segments was shown in the segment list, new behavior is to show only segments the has a chart to show will be shown as option.
+commit c5202204fe1a82f54c53506c9c930bc71acbe2ca
+Author: Tercio Jose <terciob19@hotmail.com>
+Date:   Tue Oct 29 22:27:25 2019 -0300
 
+    First commit
 

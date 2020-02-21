@@ -1,7 +1,18 @@
-changeset:   106:695c1d0551a3
-tag:         v8.2.0.106
-user:        Tercioo
-date:        Mon Jul 22 17:56:36 2019 -0300
-summary:     - Minor bug fixes and 8.2 issues fix.
+commit 6af85f1e2f433b0283670d0fa4a3e8d688f78298
+Author: Tercio Jose <terciob19@hotmail.com>
+Date:   Tue Oct 29 20:37:11 2019 -0300
 
+    Toc Update
+
+commit 161b9392c9efb4b7e27b6300aa82c358b625dd5e
+Author: Tercio Jose <terciob19@hotmail.com>
+Date:   Sun Oct 6 18:55:24 2019 -0300
+
+    first commit
+
+commit 2a83cc8edc8d4e6c5ff691c6aa5b9cb498c981af
+Author: Tercio Jose <terciob19@hotmail.com>
+Date:   Sun Oct 6 18:09:20 2019 -0300
+
+    Initial commit
 

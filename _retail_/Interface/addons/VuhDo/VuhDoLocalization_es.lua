@@ -1,25 +1,25 @@
 if (GetLocale() ~= "esES") then
 	return;
 end
--- ï¿½ = \195\161
--- ï¿½ = \195\169
--- ï¿½ = \195\173
--- ï¿½ = \195\179
--- ï¿½ = \195\186
--- ï¿½ = \195\177
--- ï¿½ = \195\170
--- ï¿½ = \195\175
--- ï¿½ = \195\180
--- ï¿½ = \195\185
--- ï¿½ = \197\146
--- ï¿½ = \197\147
+-- á = \195\161
+-- é = \195\169
+-- í = \195\173
+-- ó = \195\179
+-- ú = \195\186
+-- ñ = \195\177
+-- ê = \195\170
+-- ï = \195\175
+-- ô = \195\180
+-- ù = \195\185
+-- Œ = \197\146
+-- œ = \197\147
 -- @EXACT = true: Translation has to be the exact(!) match in the clients language,
 --                beacause it carries technical semantics
 -- @EXACT = false: Translation can be done freely, because text is only descriptive
 -- Class Names
 -- @EXACT = false
 VUHDO_I18N_WARRIORS="Guerreros"
-VUHDO_I18N_ROGUES = "Pï¿½caros";
+VUHDO_I18N_ROGUES = "Pícaros";
 VUHDO_I18N_HUNTERS = "Cazadores";
 VUHDO_I18N_PALADINS = "Paladines";
 VUHDO_I18N_MAGES = "Magos";

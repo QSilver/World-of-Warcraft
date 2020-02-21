@@ -28,3 +28,4 @@ MSBTOptions: enabled
 ShadowedUF_Options: enabled
 SexyMap: enabled
 VuhDo: enabled
+Bagnon: enabled

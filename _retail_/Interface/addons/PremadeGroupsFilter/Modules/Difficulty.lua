@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 -- Premade Groups Filter
 -------------------------------------------------------------------------------
--- Copyright (C) 2015 Elotheon-Arthas-EU
+-- Copyright (C) 2020 Elotheon-Arthas-EU
 --
 -- This program is free software; you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -211,10 +211,19 @@ PGF.ACTIVITY_TO_DIFFICULTY = {
     [668] = C.NORMAL,     -- Crucible of Storms
     
     [669] = C.MYTHIC,     -- Operation: Mechagon
-    
+
     [670] = C.MYTHIC,     -- The Eternal Palace
     [671] = C.HEROIC,     -- The Eternal Palace
     [672] = C.NORMAL,     -- The Eternal Palace
+
+    [679] = C.MYTHICPLUS, -- Operation: Mechagon - Junkyard
+    [682] = C.HEROIC,     -- Operation: Mechagon - Junkyard
+    [683] = C.MYTHICPLUS, -- Operation: Mechagon - Workshop
+    [684] = C.HEROIC,     -- Operation: Mechagon - Workshop
+
+    [685] = C.MYTHIC,     -- Ny’alotha, the Waking City
+    [686] = C.HEROIC,     -- Ny’alotha, the Waking City
+    [687] = C.NORMAL,     -- Ny’alotha, the Waking City
 }
 
 -- maps localized shortNames from C_LFGList.GetActivityInfo() to difficulties

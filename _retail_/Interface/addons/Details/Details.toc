@@ -1,4 +1,4 @@
-## Interface: 80200
+## Interface: 80300
 ## Title: Details! Damage Meter
 ## Notes: Essential tool to impress that chick in your raid.
 ## SavedVariables: _detalhes_global
@@ -44,6 +44,7 @@ functions\report.lua
 functions\rowanimation.lua
 functions\raidinfo.lua
 functions\dungeon.lua
+functions\pack.lua
 
 core\timemachine.lua
 

@@ -14,9 +14,12 @@ if mOnAr_OptionsFrameGeneral then
 	f.ButtonOptions:SetWidth(100)
 	f.ButtonOptions:SetHeight(25)
 	f.ButtonOptions:SetPoint("TOPLEFT", 16, -43)
-	f.ButtonOptions:SetScript("OnClick", function()
-		mOnWardrobe.GUIshowOptions()
-	end)
+	f.ButtonOptions:SetScript(
+		"OnClick",
+		function()
+			mOnWardrobe.GUIshowOptions()
+		end
+	)
 
 	InterfaceOptions_AddCategory(f)
 end

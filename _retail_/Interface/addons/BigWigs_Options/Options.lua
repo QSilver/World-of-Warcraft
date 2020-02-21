@@ -357,9 +357,9 @@ local function getSlaveToggle(label, desc, key, module, flag, master, icon)
 	local toggle = AceGUI:Create("CheckBox")
 	toggle:SetLabel(label)
 	-- Flags to have at half width
-	if flag == C.PULSE or flag == C.CASTBAR then
+	if flag == C.PULSE then
 		toggle:SetRelativeWidth(0.5)
-	elseif flag == C.ME_ONLY or flag == C.ME_ONLY_EMPHASIZE then
+	elseif flag == C.ME_ONLY or flag == C.ME_ONLY_EMPHASIZE or flag == C.CASTBAR then
 		toggle:SetRelativeWidth(0.4)
 	else
 		toggle:SetRelativeWidth(0.3)
@@ -396,6 +396,7 @@ local icons = {
 	SAY = 2056011, -- Interface\\Icons\\UI_Chat
 	SAY_COUNTDOWN = 2056011, -- Interface\\Icons\\UI_Chat
 	VOICE = 589118, -- Interface\\Icons\\Warrior_DisruptingShout
+	NAMEPLATEBAR = 134377, -- Interface\\Icons\\inv_misc_pocketwatch_02
 }
 
 local function hasOptionFlag(dbKey, module, key)
@@ -432,6 +433,10 @@ local function advancedToggles(dbKey, module, check)
 		advancedOptions[7] = getSlaveToggle(L.BAR, L.BAR_desc, dbKey, module, C.BAR, check)
 		advancedOptions[8] = getSlaveToggle(L.CASTBAR, L.CASTBAR_desc, dbKey, module, C.CASTBAR, check)
 		--
+	end
+
+	if bit.band(dbv, C.NAMEPLATEBAR) == C.NAMEPLATEBAR and hasOptionFlag(dbKey, module, "NAMEPLATEBAR") then
+		advancedOptions[#advancedOptions + 1] = getSlaveToggle(L.NAMEPLATEBAR, L.NAMEPLATEBAR_desc, dbKey, module, C.NAMEPLATEBAR, check, icons["NAMEPLATEBAR"])
 	end
 
 	-- Flash & Pulse
@@ -672,7 +677,7 @@ local function getDefaultToggleOption(scrollFrame, dropdown, module, bossOption)
 	local showFlags = {
 		"TANK_HEALER", "TANK", "HEALER", "DISPEL",
 		"EMPHASIZE", "ME_ONLY", "ME_ONLY_EMPHASIZE", "COUNTDOWN", "FLASH", "ICON", "SAY", "SAY_COUNTDOWN",
-		"PROXIMITY", "INFOBOX", "ALTPOWER",
+		"PROXIMITY", "INFOBOX", "ALTPOWER", "NAMEPLATEBAR",
 	}
 	for i = 1, #showFlags do
 		local key = showFlags[i]

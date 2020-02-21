@@ -13,6 +13,9 @@ end
 local UnitAura = UnitAura
 -- Unit Aura functions that return info about the first Aura matching the spellName or spellID given on the unit.
 local WA_GetUnitAura = function(unit, spell, filter)
+  if filter and not filter:upper():find("FUL") then
+      filter = filter.."|HELPFUL"
+  end
   for i = 1, 255 do
     local name, _, _, _, _, _, _, _, _, spellId = UnitAura(unit, i, filter)
     if not name then return end
@@ -38,6 +41,7 @@ if WeakAuras.IsClassic() then
 end
 
 local WA_GetUnitBuff = function(unit, spell, filter)
+  filter = filter and filter.."|HELPFUL" or "HELPFUL"
   return WA_GetUnitAura(unit, spell, filter)
 end
 
@@ -135,10 +139,13 @@ local overrideFunctions = {
 }
 
 local aura_environments = {}
+-- nil == Not initiliazed
+-- 1 == config initialized
+-- 2 == fully initialized
 local environment_initialized = {}
 
 function WeakAuras.IsEnvironmentInitialized(id)
-  return environment_initialized[id]
+  return environment_initialized[id] == 2
 end
 
 function WeakAuras.DeleteAuraEnvironment(id)
@@ -155,10 +162,10 @@ local current_aura_env = nil
 local aura_env_stack = {} -- Stack of of aura environments, allows use of recursive aura activations through calls to WeakAuras.ScanEvents().
 
 function WeakAuras.ClearAuraEnvironment(id)
-  environment_initialized[id] = false;
+  environment_initialized[id] = nil;
 end
 
-function WeakAuras.ActivateAuraEnvironment(id, cloneId, state, states)
+function WeakAuras.ActivateAuraEnvironment(id, cloneId, state, states, onlyConfig)
   local data = WeakAuras.GetData(id)
   local region = WeakAuras.GetRegion(id, cloneId)
   if not data then
@@ -166,20 +173,35 @@ function WeakAuras.ActivateAuraEnvironment(id, cloneId, state, states)
     tremove(aura_env_stack)
     current_aura_env = aura_env_stack[#aura_env_stack] or nil
   else
-    if environment_initialized[id] then
+    -- Existing config is initialized to a high enough value
+    if environment_initialized[id] == 2 or (onlyConfig and environment_initialized[id] == 1) then
       -- Point the current environment to the correct table
       current_aura_env = aura_environments[id]
       current_aura_env.id = id
       current_aura_env.cloneId = cloneId
       current_aura_env.state = state
       current_aura_env.states = states
-      current_aura_env.region = WeakAuras.GetRegion(id, cloneId)
+      current_aura_env.region = region
       -- Push the new environment onto the stack
       tinsert(aura_env_stack, current_aura_env)
+    elseif onlyConfig then
+      environment_initialized[id] = 1
+      aura_environments[id] = {}
+      current_aura_env = aura_environments[id]
+      current_aura_env.id = id
+      current_aura_env.cloneId = cloneId
+      current_aura_env.state = state
+      current_aura_env.states = states
+      current_aura_env.region = region
+      tinsert(aura_env_stack, current_aura_env)
+
+      if not data.controlledChildren then
+        current_aura_env.config = CopyTable(data.config)
+      end
     else
       -- Either this aura environment has not yet been initialized, or it was reset via an edit in WeakaurasOptions
-      environment_initialized[id] = true
-      aura_environments[id] = {}
+      environment_initialized[id] = 2
+      aura_environments[id] = aura_environments[id] or {}
       current_aura_env = aura_environments[id]
       current_aura_env.id = id
       current_aura_env.cloneId = cloneId
@@ -202,9 +224,13 @@ function WeakAuras.ActivateAuraEnvironment(id, cloneId, state, states)
           end
         end
       else
-        current_aura_env.config = CopyTable(data.config)
+        if environment_initialized[id] == 1 then
+          -- Already done
+        else
+          current_aura_env.config = CopyTable(data.config)
+        end
       end
-      -- Finally, un the init function if supplied
+      -- Finally, run the init function if supplied
       local actions = data.actions.init
       if(actions and actions.do_custom and actions.custom) then
         local func = WeakAuras.customActionsFunctions[id]["init"]
@@ -246,7 +272,7 @@ function WeakAuras.LoadFunction(string, id, inTrigger)
   if function_cache[string] then
     return function_cache[string]
   else
-    local loadedFunction, errorString = loadstring("--[[ Error in '" .. (id or "Unknown") .. (inTrigger and ("':'".. inTrigger) or "") .."' ]] " .. string)
+    local loadedFunction, errorString = loadstring("--[==[ Error in '" .. (id or "Unknown") .. (inTrigger and ("':'".. inTrigger) or "") .."' ]==] " .. string)
     if errorString then
       print(errorString)
     else

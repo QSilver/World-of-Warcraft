@@ -1,27 +1,40 @@
-lightweight tag 3c777808ddf4f3f0295f2cdf76919f6afcd12bfe 1.31
+lightweight tag f46dd4fb1993ee6f05883bf0d60b1875bfb0760e 1.33
 Author:	Bernhard Saumweber <b.saumweber@gmail.com>
-Date:	Tue Sep 17 20:39:44 2019 +0200
+Date:	Sun Feb 9 12:18:52 2020 +0100
 
-commit 3c777808ddf4f3f0295f2cdf76919f6afcd12bfe
+commit f46dd4fb1993ee6f05883bf0d60b1875bfb0760e
 Author: Bernhard Saumweber <b.saumweber@gmail.com>
-Date:   Tue Sep 17 20:39:44 2019 +0200
+Date:   Sun Feb 9 12:12:45 2020 +0100
 
-    Fixes #24 by adding keywords rionormalprogress, rioheroicprogress, riomythicprogress, riomainprogress, rionormalkills, rioheroickills, riomythickills and rioraidbosscount
+    Added a new table 'boss' that maps the localized boss name to a bool (true if encounter has been completed, false otherwise). This matches exactly the red colored encounter names in the group tooltip.
 
-commit b49ee919717b831f4843c2249f7ce3de06acae3a
-Author: romdeau23 <43295566+romdeau23@users.noreply.github.com>
-Date:   Mon Sep 16 23:40:00 2019 +0200
-
-    More filter expressions: myilvl and partyfit (#26)
-    
-    * Implement myilvl, rolefit and partyfit advanced expressions
-    * Apply suggestions from code review
-    Co-Authored-By: Bernhard Saumweber <b.saumweber@gmail.com>
-    * Remove rolefit, add translations
-
-commit c2c9e21c47b0d4598e04fcbd4c15ef1c13d2686a
+commit 256deb928de7dfde35bde01432ae7b53eda7a003
 Author: Bernhard Saumweber <b.saumweber@gmail.com>
-Date:   Sun Sep 8 17:08:23 2019 +0200
+Date:   Sun Feb 9 11:48:28 2020 +0100
 
-    Set version to next release version: 1.31
+    Updated help tooltip and rearranged code fragments in Main.lua
+
+commit bbe381906a230d77d7dfc48a9a83ec4286a4f7e1
+Author: Bernhard Saumweber <b.saumweber@gmail.com>
+Date:   Sun Feb 9 11:43:10 2020 +0100
+
+    Moved PremadeRegions and RaiderIO functions to own files
+
+commit 0ca81c4489782a1284e5b4df26623b592a84d195
+Author: Bernhard Saumweber <b.saumweber@gmail.com>
+Date:   Sun Feb 9 11:40:45 2020 +0100
+
+    Update copyright header to year 2020
+
+commit 90f3a1d530f6272bc9e4d153657b5e05f214d13c
+Author: Bernhard Saumweber <b.saumweber@gmail.com>
+Date:   Tue Feb 4 22:08:18 2020 +0100
+
+    Made the PGF window 2px smaller to be more exactly like the LFG window
+
+commit d3943c33fa614539702d82f43154397341841ec6
+Author: Bernhard Saumweber <b.saumweber@gmail.com>
+Date:   Thu Jan 16 22:35:39 2020 +0100
+
+    Set version to next release version: 1.33
 

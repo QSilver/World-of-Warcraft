@@ -1,4 +1,4 @@
-local Indicators = {list = {"status", "pvp", "leader", "resurrect", "masterLoot", "raidTarget", "ready", "role", "lfdRole", "class", "phase", "questBoss", "petBattle", "arenaSpec"}}
+local Indicators = {list = {"status", "pvp", "leader", "resurrect", "sumPending", "masterLoot", "raidTarget", "ready", "role", "lfdRole", "class", "phase", "questBoss", "petBattle", "arenaSpec"}}
 
 ShadowUF:RegisterModule(Indicators, "indicators", ShadowUF.L["Indicators"])
 
@@ -50,6 +50,31 @@ function Indicators:UpdateResurrect(frame)
         frame.indicators.resurrect:Hide()
     end
 end
+
+function Indicators:SummonPending(frame)
+	if( not frame.indicators.sumPending or not frame.indicators.sumPending.enabled ) then return end
+
+	if( C_IncomingSummon.HasIncomingSummon(frame.unit) ) then
+		if( C_IncomingSummon.IncomingSummonStatus(frame.unit) == 1 ) then
+			frame.indicators.sumPending:SetTexture("Interface\\RaidFrame\\RaidFrameSummon")
+			frame.indicators.sumPending:SetTexCoord(0.539062, 0.789062, 0.015625, 0.515625)
+			frame.indicators.sumPending:Show()
+		elseif( C_IncomingSummon.IncomingSummonStatus(frame.unit) == 2 ) then
+			frame.indicators.sumPending:SetTexture("Interface\\RaidFrame\\RaidFrameSummon")
+			frame.indicators.sumPending:SetTexCoord(0.0078125, 0.257812, 0.015625, 0.515625)
+			frame.indicators.sumPending:Show()
+		elseif( C_IncomingSummon.IncomingSummonStatus(frame.unit) == 3 ) then
+			frame.indicators.sumPending:SetTexture("Interface\\RaidFrame\\RaidFrameSummon")
+			frame.indicators.sumPending:SetTexCoord(0.273438, 0.523438, 0.015625, 0.515625)
+			frame.indicators.sumPending:Show()
+		else
+			frame.indicators.sumPending:Hide()
+		end
+	else
+		frame.indicators.sumPending:Hide()
+	end
+end
+
 
 function Indicators:UpdateMasterLoot(frame)
 	if( not frame.indicators.masterLoot or not frame.indicators.masterLoot.enabled ) then return end
@@ -129,7 +154,7 @@ end
 function Indicators:UpdateLeader(frame)
 	if( not frame.indicators.leader or not frame.indicators.leader.enabled ) then return end
 
-	if( UnitIsGroupLeader(frame.unit) ) then
+	if( UnitIsGroupLeader(frame.unit) or (frame.unit == "target" and UnitLeadsAnyGroup(frame.unit)) ) then
 		if( HasLFGRestrictions() ) then
 			frame.indicators.leader:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-PORTRAITROLES")
 			frame.indicators.leader:SetTexCoord(0, 0.296875, 0.015625, 0.3125)
@@ -293,6 +318,11 @@ function Indicators:UpdateReadyCheck(frame, event)
 	frame.indicators.ready:Show()
 end
 
+function Indicators:UpdateFlags(frame)
+	self:UpdateLeader(frame)
+	self:UpdatePVPFlag(frame)
+end
+
 function Indicators:OnEnable(frame)
 	-- Forces the indicators to be above the bars/portraits/etc
 	if( not frame.indicators ) then
@@ -345,8 +375,15 @@ function Indicators:OnEnable(frame)
 	    frame.indicators.resurrect:SetTexture("Interface\\RaidFrame\\Raid-Icon-Rez")
 	end
 
+	if( config.indicators.sumPending and config.indicators.sumPending.enabled ) then
+		frame:RegisterNormalEvent("INCOMING_SUMMON_CHANGED", self, "SummonPending")
+		frame:RegisterUpdateFunc(self, "SummonPending")
+
+		frame.indicators.sumPending = frame.indicators.sumPending or frame.indicators:CreateTexture(nil, "OVERLAY")
+		frame.indicators.sumPending:SetTexture("Interface\\RaidFrame\\RaidFrameSummon")
+	end
+
 	if( config.indicators.pvp and config.indicators.pvp.enabled ) then
-		frame:RegisterUnitEvent("PLAYER_FLAGS_CHANGED", self, "UpdatePVPFlag")
 		frame:RegisterUnitEvent("UNIT_FACTION", self, "UpdatePVPFlag")
 		frame:RegisterUpdateFunc(self, "UpdatePVPFlag")
 
@@ -421,6 +458,10 @@ function Indicators:OnEnable(frame)
 	-- As they all share the function, register it as long as one is active
 	if( frame.indicators.leader or frame.indicators.masterLoot or frame.indicators.role or ( frame.unit ~= "player" and frame.indicators.lfdRole ) ) then
 		frame:RegisterNormalEvent("GROUP_ROSTER_UPDATE", self, "GroupRosterUpdate")
+	end
+
+	if( frame.indicators.leader or frame.indicators.pvp ) then
+		frame:RegisterUnitEvent("PLAYER_FLAGS_CHANGED", self, "UpdateFlags")
 	end
 end
 

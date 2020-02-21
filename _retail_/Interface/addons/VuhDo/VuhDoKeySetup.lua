@@ -116,7 +116,7 @@ local function _VUHDO_setupHealButtonAttributes(aModiKey, aButtonId, anAction, a
 			elseif UnitIsUnit(tUnit, "target") then
 				sDropdown = TargetFrameDropDown;
 			--[[elseif (UnitIsUnit(tUnit, "focus")) then
-				sDropdown = FocusFrameDropDown;]] -- Problem, wenn Fokus lï¿½schen
+				sDropdown = FocusFrameDropDown;]] -- Problem, wenn Fokus löschen
 			elseif UnitIsUnit(tUnit, "pet") then
 				sDropdown = PetFrameDropDown;
 			else

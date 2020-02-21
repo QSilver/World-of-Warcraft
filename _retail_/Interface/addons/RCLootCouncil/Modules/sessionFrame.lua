@@ -42,6 +42,7 @@ function RCSessionFrame:OnDisable()
 	self.frame.rows = {}
 	self:UnregisterMessage("RCLootStatusReceived")
 	awardLater = false
+	addon:DebugLog("RCSessionFrame", "disabled")
 end
 
 function RCSessionFrame:Show(data, disableAwardLater)
@@ -52,6 +53,16 @@ function RCSessionFrame:Show(data, disableAwardLater)
 	self.frame = self:GetFrame()
 	self.frame:Show()
 	scheduledToShowAgain = false
+
+	if disableAwardLater then
+		self.frame.toggle:Disable()
+		getglobal(self.frame.toggle:GetName().."Text"):SetTextColor(0.7, 0.7, 0.7)
+		awardLater = false
+	else
+		awardLater = addon:Getdb().awardLater
+		self.frame.toggle:Enable()
+		getglobal(self.frame.toggle:GetName().."Text"):SetTextColor(1, 1, 1)
+	end
 
 	if data then
 		loadingItems = false
@@ -64,14 +75,6 @@ function RCSessionFrame:Show(data, disableAwardLater)
 		self:ExtractData(data)
 		self.frame.st:SetData(self.frame.rows)
 		self:Update()
-	end
-	if disableAwardLater then
-		self.frame.toggle:Disable()
-		getglobal(self.frame.toggle:GetName().."Text"):SetTextColor(0.7, 0.7, 0.7)
-		awardLater = false
-	else
-		self.frame.toggle:Enable()
-		getglobal(self.frame.toggle:GetName().."Text"):SetTextColor(1, 1, 1)
 	end
 end
 
@@ -213,7 +216,7 @@ function RCSessionFrame:GetFrame()
 			if not addon.candidates[addon.playerName] or #addon.council == 0 then
 				addon:Print(L["Please wait a few seconds until all data has been synchronized."])
 				return addon:Debug("Data wasn't ready", addon.candidates[addon.playerName], #addon.council)
-			elseif InCombatLockdown() then
+			elseif InCombatLockdown() and not addon.db.profile.skipCombatLockdown then
 				return addon:Print(L["You can't start a loot session while in combat."])
 			--elseif ml.running then
 				--return addon:Print(L["You're already running a session."])

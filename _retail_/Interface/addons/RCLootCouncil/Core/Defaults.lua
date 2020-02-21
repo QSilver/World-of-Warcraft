@@ -38,6 +38,7 @@ addon.defaults = {
       verTestCandidates = {}, -- Stores received verTests
    },
    profile = {
+      skipCombatLockdown = false,
 
       baggedItems = {}, -- Items that are stored in MLs inventory for award later.
                      -- i = { {link=link, winner=winner, addedTime=sec between UTC epoch to when the item is added to lootInBags, }, bop=Item is BOP?}
@@ -88,6 +89,9 @@ addon.defaults = {
       sortItems = true, -- Sort sessions by item type and item level
       rejectTrade = false, -- Can candidates choose not to give loot to the council
       autoTrade = false,
+      awardLater = false, -- Auto check award later
+
+      chatFrameName = "DEFAULT_CHAT_FRAME", -- The chat frame to use for :Print()s
 
       UI = { -- stores all ui information
          ['**'] = { -- Defaults
@@ -174,6 +178,7 @@ addon.defaults = {
 
       enableHistory = true,
       sendHistory = true,
+      sendHistoryToGuildChannel = false,
 
       minRank = -1,
       council = {},

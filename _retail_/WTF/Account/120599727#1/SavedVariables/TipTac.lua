@@ -73,11 +73,11 @@ TipTac_Config = {
 	["classification_worldboss"] = "%s|r (Boss) ",
 	["colorNameByClass"] = true,
 	["showPlayerGender"] = true,
-	["classification_rareelite"] = "+%s|r (Rare) ",
+	["colSameGuild"] = "|cffff32ff",
 	["showTalents"] = true,
 	["if_iconSize"] = 16,
 	["iconClass"] = false,
-	["classColoredBorder"] = true,
+	["classification_rareelite"] = "+%s|r (Rare) ",
 	["backdropInsets"] = 0,
 	["healthBarColor"] = {
 		0.3, -- [1]
@@ -85,7 +85,7 @@ TipTac_Config = {
 		0.3, -- [3]
 		1, -- [4]
 	},
-	["colSameGuild"] = "|cffff32ff",
+	["classColoredBorder"] = true,
 	["hideUFTipsInCombat"] = false,
 	["classification_normal"] = "%s ",
 	["optionsBottom"] = 397.0519409179688,

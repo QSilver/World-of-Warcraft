@@ -1,6 +1,6 @@
 -- HereBeDragons is a data API for the World of Warcraft mapping system
 
-local MAJOR, MINOR = "HereBeDragons-2.0", 9
+local MAJOR, MINOR = "HereBeDragons-2.0", 13
 assert(LibStub, MAJOR .. " requires LibStub")
 
 local HereBeDragons, oldversion = LibStub:NewLibrary(MAJOR, MINOR)
@@ -61,10 +61,20 @@ local instanceIDOverrides = {
     [1498] = 1220, -- Havoc Demon Hunter Artifact Scenario (Suramar)
     [1502] = 1220, -- Dalaran Underbelly
     [1533] = 0,    -- Karazhan Artifact Scenario
+    [1539] = 0,    -- Arm Warrior Artifact Tirisfal Scenario
     [1612] = 1220, -- Feral Druid Artifact Scenario (Suramar)
     [1626] = 1220, -- Suramar Withered Scenario
     [1662] = 1220, -- Suramar Invasion Scenario
+    -- BfA
+    [2241] = 1,    -- Uldum N'zoth assault
+    [2275] = 870,  -- Vale of Eternal Blossoms N'zoth Minor Vision
 }
+
+local dynamicInstanceIDOverrides = {}
+instanceIDOverrides = setmetatable(instanceIDOverrides, { __index = dynamicInstanceIDOverrides })
+
+-- debug only
+HereBeDragons.___DIIDO = dynamicInstanceIDOverrides
 
 -- gather map info, but only if this isn't an upgrade (or the upgrade version forces a re-map)
 if not oldversion or oldversion < 7 then
@@ -238,13 +248,23 @@ local function applyCoordinateTransforms(x, y, instanceID)
 end
 
 local StartUpdateTimer
-local function UpdateCurrentPosition()
+local function UpdateCurrentPosition(instanceCheck)
     -- retrieve current zone
     local uiMapID = C_Map.GetBestMapForUnit("player")
 
+    -- try to override the instance if possible
+    if instanceCheck then
+        local _x, _y, instance = HereBeDragons:GetPlayerWorldPosition()
+        if instance and mapData[uiMapID] and mapData[uiMapID].instance ~= instance and uiMapID ~= -1 and not instanceIDOverrides[instance] and not instanceIDOverrides[mapData[uiMapID].instance] then
+            dynamicInstanceIDOverrides[instance] = mapData[uiMapID].instance
+        end
+    end
+
     if uiMapID ~= currentPlayerUIMapID then
-        -- update upvalues and signal callback
+        -- update location upvalues
         currentPlayerUIMapID, currentPlayerUIMapType = uiMapID, mapData[uiMapID] and mapData[uiMapID].mapType or 0
+
+        -- signal callback
         HereBeDragons.callbacks:Fire("PlayerZoneChanged", currentPlayerUIMapID, currentPlayerUIMapType)
     end
 
@@ -275,7 +295,7 @@ function StartUpdateTimer()
 end
 
 local function OnEvent(frame, event, ...)
-    UpdateCurrentPosition()
+    UpdateCurrentPosition(true)
 end
 
 HereBeDragons.eventFrame:SetScript("OnEvent", OnEvent)
@@ -288,7 +308,7 @@ HereBeDragons.eventFrame:RegisterEvent("PLAYER_ENTERING_WORLD")
 
 -- if we're loading after entering the world (ie. on demand), update position now
 if IsLoggedIn() then
-    UpdateCurrentPosition()
+    UpdateCurrentPosition(true)
 end
 
 --- Return the localized zone name for a given uiMapID

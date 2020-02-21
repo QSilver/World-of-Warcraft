@@ -7,6 +7,8 @@ L.warnSeveralReleases = "|cffff0000你的 BigWigs 已过期%d发行版！！我�
 
 L.gitHubDesc = "BigWigs 是一个在 GitHub 上的开源软件。我们一直在寻找新的朋友帮助我们和欢迎任何人检测我们的代码，做出贡献和提交错误报告。BigWigs 今天的伟大很大程度上一部分因为伟大的魔兽世界社区帮助我们。"
 
+--L.testNameplate = "Target detected, creating a test nameplate bar over target nameplate."
+
 L.options = "选项"
 L.raidBosses = "团队首领"
 L.dungeonBosses = "地下城首领"
@@ -126,6 +128,8 @@ L.SAY_COUNTDOWN = "说话冷却"
 L.SAY_COUNTDOWN_desc = "聊天泡泡很容易被发现。BigWigs 将使用多个说话消息倒计时提醒附近的人身上的技能即将到期。"
 L.ME_ONLY_EMPHASIZE = "醒目（自身）"
 L.ME_ONLY_EMPHASIZE_desc = "启用此选项将醒目如只作用于自身相关技能的任一信息，使它们更大更明显。"
+L.NAMEPLATEBAR = "姓名板条"
+L.NAMEPLATEBAR_desc = "当多个怪物施放相同的法术时，有时会在姓名板上附加条。如果此技能要伴随姓名板条隐藏，则禁用此选项。"
 
 -- Media.lua
 L.Beware = "当心（奥尔加隆）"

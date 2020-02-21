@@ -34,6 +34,12 @@ DejaCharacterStatsDB = {
 		["dejacharacterstatsShowDuraChecked"] = {
 			["ShowDuraSetChecked"] = false,
 		},
+		["dejacharacterstatsLoginCounter"] = {
+			["Count"] = 0,
+		},
+		["dejacharacterstatsShowClassicChecked"] = {
+			["SetChecked"] = false,
+		},
 		["DCS_TableRelevantStatsChecked"] = {
 			["RelevantStatsSetChecked"] = false,
 		},
@@ -1477,8 +1483,8 @@ DCS_ClassSpecDB = {
 		}, -- [47]
 		{
 			["statKey"] = "STAGGER",
-			["hidden"] = true,
 			["hideAt"] = 0,
+			["hidden"] = true,
 			["roles"] = {
 				"TANK", -- [1]
 			},
@@ -2059,8 +2065,8 @@ DCS_ClassSpecDB = {
 			["roles"] = {
 				"TANK", -- [1]
 			},
-			["hidden"] = true,
 			["hideAt"] = 0,
+			["hidden"] = true,
 		}, -- [48]
 		{
 			["statKey"] = "SPEED_RATING",
@@ -2068,9 +2074,24 @@ DCS_ClassSpecDB = {
 			["hidden"] = true,
 		}, -- [49]
 		{
-			["statKey"] = "DCS_MOVESPEED",
+			["statKey"] = "CR_CORRUPTION_RESISTANCE",
+			["hideAt"] = 0,
 			["hidden"] = true,
 		}, -- [50]
+		{
+			["statKey"] = "CR_CORRUPTION",
+			["hideAt"] = 0,
+			["hidden"] = true,
+		}, -- [51]
+		{
+			["statKey"] = "CorruptionCategory",
+			["hidden"] = true,
+		}, -- [52]
+		{
+			["statKey"] = "CR_TOTAL_CORRUPTION",
+			["hideAt"] = 0,
+			["hidden"] = true,
+		}, -- [53]
 		["uniqueKey"] = "Qsilver:Silvermoon:1",
 	},
 	["Simroth:Silvermoon:1"] = {

@@ -128,7 +128,7 @@ BigWigs:AddSounds("Queen Azshara", {
 	[301431] = "warning",
 	[302999] = "alarm",
 	[303657] = "warning",
-	[303982] = {"alarm","alert"},
+	[303986] = {"alarm","alert"},
 	[304475] = "info",
 	["stages"] = "long",
 })

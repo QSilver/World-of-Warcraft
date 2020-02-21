@@ -1,6 +1,7 @@
 # Shadowed Unit Frames
 
-## [v4.2.7](https://github.com/Nevcairiel/ShadowedUnitFrames/tree/v4.2.7) (2019-09-25)
-[Full Changelog](https://github.com/Nevcairiel/ShadowedUnitFrames/compare/v4.2.6...v4.2.7)
+## [v4.2.9](https://github.com/Nevcairiel/ShadowedUnitFrames/tree/v4.2.9) (2020-01-28)
+[Full Changelog](https://github.com/Nevcairiel/ShadowedUnitFrames/compare/v4.2.8...v4.2.9)
 
-- Update TOC for 8.2.5  
+- Update TOC for 8.3  
+- Allow the party leader indicator on "target" to show for any party leader  

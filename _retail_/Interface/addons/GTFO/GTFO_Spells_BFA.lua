@@ -3,9 +3,9 @@
 --------------------------------------------------------------------------
 --[[
 GTFO Spell List - Battle for Azeroth
-Author: Zensunim of Malygos
 ]]--
 
+if (not GTFO.ClassicMode) then
 
 --- ******************************
 --- * Battle for Azeroth (World) *
@@ -270,6 +270,101 @@ GTFO.SpellID["302524"] = {
 
 GTFO.SpellID["302521"] = {
   --desc = "Dark Orb (Grip of Horror)";
+  sound = 1;
+};
+
+GTFO.SpellID["318391"] = {
+  --desc = "Great Worm's Foul Stench (Great Worm From Beyond)";
+  applicationOnly = true;
+  sound = 2;
+};
+
+GTFO.SpellID["315161"] = {
+  --desc = "Eye of Corruption";
+  sound = 2;
+  category = "EyeOfCorruption";
+};
+
+GTFO.SpellID["315197"] = {
+  --desc = "Grand Delusions (Thing From Beyond)";
+  sound = 3;
+};
+
+GTFO.SpellID["314579"] = {
+  --desc = "Shadow Wreath (Shadowy Nexus)";
+  sound = 1;
+};
+
+GTFO.SpellID["312687"] = {
+  --desc = "Shadow Crash (Black Warden Rhothkozz)";
+  sound = 1;
+};
+
+GTFO.SpellID["314956"] = {
+  --desc = "Fragmented Halo (Black Warden Rhothkozz)";
+  sound = 1;
+};
+
+GTFO.SpellID["302390"] = {
+  --desc = "Twilight Flames (Vexiona)";
+  sound = 1;
+};
+
+GTFO.SpellID["313017"] = {
+  --desc = "Solar Orb";
+  sound = 1;
+};
+
+GTFO.SpellID["314718"] = {
+  --desc = "Concentrated Sunlight (Watcher Rehu)";
+  sound = 1;
+};
+
+GTFO.SpellID["313190"] = {
+  --desc = "Deep Water (Depths Monstrosity)";
+  sound = 1;
+};
+
+GTFO.SpellID["313281"] = {
+  --desc = "Hurled Void (Squidtail Screamer)";
+  sound = 1;
+};
+
+GTFO.SpellID["303864"] = {
+  --desc = "Electrified";
+  sound = 1;
+};
+
+GTFO.SpellID["303867"] = {
+  --desc = "Burning";
+  applicationOnly = true;
+  sound = 1;
+};
+
+GTFO.SpellID["310832"] = {
+  --desc = "Void Tear";
+  sound = 1;
+  alwaysAlert = true;
+};
+
+GTFO.SpellID["296733"] = {
+  --desc = "Dark Smash (Faceless Destroyer)";
+  sound = 1;
+};
+
+GTFO.SpellID["301516"] = {
+  --desc = "Unsettling Mist";
+  sound = 1;
+  alwaysAlert = true;
+};
+
+GTFO.SpellID["312682"] = {
+  --desc = "Shadow Crash (Faceless Ruiner)";
+  sound = 1;
+};
+
+GTFO.SpellID["316258"] = {
+  --desc = "Bile (Aqir Goliath)";
   sound = 1;
 };
 
@@ -1057,3 +1152,62 @@ GTFO.SpellID["298569"] = {
   minimumStacks = 5;
 };
 
+-- *************
+-- * Ny'alotha *
+-- *************
+
+-- TODO: Crackling Shard (Wrathion) -- Alert when NOT afflicated with Burning Madness
+-- TODO: Acidic Blood (Ka'zir) -- Mythic only, avoidable?
+-- TODO: Mycelial Growth (Carapace of N'Zoth) 
+-- TODO: Infinite Void (Carapace of N'Zoth) 
+-- TODO: Paranoia (N'Zoth) -- FF, complicated mechanic to track?
+-- TODO: Devour Thoughts (N'Zoth) -- FF
+-- TODO: Contempt (N'Zoth) -- Low damage?
+
+GTFO.SpellID["306824"] = {
+  --desc = "Molten Pool (Wrathion)";
+  sound = 1;
+};
+
+GTFO.SpellID["313959"] = {
+  --desc = "Scorching Blisters (Wrathion)";
+  sound = 1;
+};
+
+GTFO.SpellID["307053"] = {
+  --desc = "Lava Pools (Wrathion)";
+  sound = 1;
+};
+
+GTFO.SpellID["305575"] = {
+  --desc = "Ritual Field (Dark Inquisitor Xanesh)";
+  sound = 1;
+};
+
+GTFO.SpellID["310322"] = {
+  --desc = "Morass of Corruption (Il'gynoth, Corruption Reborn)";
+  sound = 1;
+};
+
+GTFO.SpellID["307343"] = {
+  --desc = "Shadowy Residue (Vexiona)";
+  sound = 1;
+};
+
+GTFO.SpellID["307250"] = {
+  --desc = "Twilight Decimator (Vexiona)";
+  sound = 1;
+};
+
+GTFO.SpellID["309991"] = {
+  --desc = "Anguish (N'Zoth)";
+  sound = 1;
+};
+
+GTFO.SpellID["307421"] = {
+  --desc = "Annihilation (Void Ascendant)";
+  sound = 1;
+  tankSound = 0;
+};
+
+end

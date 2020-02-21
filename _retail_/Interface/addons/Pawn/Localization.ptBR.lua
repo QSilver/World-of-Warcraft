@@ -1,6 +1,6 @@
 ﻿-- Pawn by Vger-Azjol-Nerub
 -- www.vgermods.com
--- © 2006-2019 Green Eclipse.  This mod is released under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 license.
+-- © 2006-2020 Green Eclipse.  This mod is released under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 license.
 -- See Readme.htm for more information.
 
 -- 
@@ -80,15 +80,53 @@ Para mais informações sobre personalizar o Pawn, favor veja o arquivo de ajuda
 	["VisibleScalesHeader"] = "Escalas de %s",
 	["Stats"] = {
 		["AgilityInfo"] = "Agilidade. Aumenta o poder das habilidades de algumas classes.",
+		--[[Translation missing --]]
+		["ApInfo"] = "Attack Power.  Increases the damage of physical attacks.  Does not include attack power gained from strength and agility.",
+		--[[Translation missing --]]
+		["ArcaneResistInfo"] = "Arcane Resistance.  Reduces the damage taken from arcane-based attacks.",
+		["ArcaneSpellDamage"] = "Dano Arcano",
+		--[[Translation missing --]]
+		["ArcaneSpellDamageInfo"] = "Arcane damage.  Increases the damage dealt by your arcane spells.",
 		["ArmorInfo"] = "Armadura. Reduz o dano físico recebido.",
 		["ArmorTypes"] = "Tipos de armaduras",
 		["AvoidanceInfo"] = "Evasiva. Reduz o dano que você recebe de ataques de área.",
+		--[[Translation missing --]]
+		["BlockRatingInfo"] = "Block chance.  Increases the chances of a successful shield block.",
+		--[[Translation missing --]]
+		["BlockValueInfo"] = "Shield block value.  Increases the damage that a shield absorbs when it successfully blocks.",
 		["Cloth"] = "Tecido",
 		["ClothInfo"] = "Pontos para distribuir se o item for tecido.",
+		["CorruptionInfo"] = "Corruption of N'Zoth.  A negative value for Corruption will remove points from an item's score based on the level of corruption.",
 		["Crit"] = "Crítico",
 		["CritInfo"] = "Ataque crítico. Aumenta a chance de seus ataques e magias de cura acertem com maior potência.",
+		--[[Translation missing --]]
+		["DefenseInfo"] = "Defense skill.  Decreases the chance that you'll be hit by boss attacks.",
+		--[[Translation missing --]]
+		["DodgeInfo"] = "Dodge.  Increases the chance that you'll dodge attacks entirely.",
 		["DpsInfo"] = "Dano por segundo da arma. (Se você quiser valorizar DPS diferentes para diferentes tipos de armas, veja a seção \"Atributos especiais de armas\".)",
+		--[[Translation missing --]]
+		["FeralApInfo"] = "Feral Attack Power.  Increases the damage of druid attacks when in feral forms.  Does not include attack power gained from strength and agility.",
+		--[[Translation missing --]]
+		["FireResistInfo"] = "Fire Resistance.  Reduces the damage taken from fire-based attacks.",
+		["FireSpellDamage"] = "Dano de Fogo",
+		--[[Translation missing --]]
+		["FireSpellDamageInfo"] = "Fire damage.  Increases the damage dealt by your fire spells.",
+		--[[Translation missing --]]
+		["FrostResistInfo"] = "Frost Resistance.  Reduces the damage taken from frost-based attacks.",
+		["FrostSpellDamage"] = "Dano de Gelo",
+		--[[Translation missing --]]
+		["FrostSpellDamageInfo"] = "Frost damage.  Increases the damage dealt by your frost spells.",
 		["HasteInfo"] = "Aceleração. Aumenta a velocidade em que suas magias são lançadas e seus recursos regeneram.",
+		["Healing"] = "Feitiços de Cura",
+		--[[Translation missing --]]
+		["HealingInfo"] = "Spell healing.  Increases the power of your healing spells.",
+		--[[Translation missing --]]
+		["HitInfo"] = "Hit.  Increases the chance that your physical attacks hit the target, especially bosses.",
+		["HolySpellDamage"] = "Dano de Sagrados",
+		--[[Translation missing --]]
+		["HolySpellDamageInfo"] = "Holy damage.  Increases the damage dealt by your holy spells.",
+		--[[Translation missing --]]
+		["Hp5Info"] = "Health regeneration per 5 seconds.  Increases the rate at which you regenerate health.",
 		["IndestructibleInfo"] = "Indestrutível. Previne que seu equipamento tome dano de durabilidade.",
 		["IndestructibleIs"] = "Ser|cffffffffindestrutível|r vale:",
 		["IntellectInfo"] = "Intelecto. Aumenta o poder das habilidades de algumas classes.",
@@ -100,8 +138,25 @@ Para mais informações sobre personalizar o Pawn, favor veja o arquivo de ajuda
 		["MasteryInfo"] = "Maestria.  Melhora o bônus único da especialização da sua classe",
 		["MinorStats"] = "Atributos menores",
 		["MovementSpeedInfo"] = "Velocidade de movimento. Faz com que o seu personagem corra mais rápido.",
+		["Mp5"] = "Mana a cada 5",
+		--[[Translation missing --]]
+		["Mp5Info"] = "Mana regeneration per 5 seconds.  Affects your mana regeneration even when in combat.",
+		--[[Translation missing --]]
+		["NatureResistInfo"] = "Nature Resistance.  Reduces the damage taken from nature-based attacks.",
+		["NatureSpellDamage"] = "Dano de Natureza",
+		--[[Translation missing --]]
+		["NatureSpellDamageInfo"] = "Nature damage.  Increases the damage dealt by your nature spells.",
+		--[[Translation missing --]]
+		["ParryInfo"] = "Parry.  Increases the chance that you'll parry enemy attacks.",
 		["Plate"] = "Placas",
 		["PlateInfo"] = "Pontos para distribuir se o item for de placas.",
+		--[[Translation missing --]]
+		["RapInfo"] = "Ranged Attack Power.  Increases the damage of ranged physical attacks.  Does not include attack power gained from agility.",
+		--[[Translation missing --]]
+		["ShadowResistInfo"] = "Shadow Resistance.  Reduces the damage taken from shadow-based attacks.",
+		["ShadowSpellDamage"] = "Dano de Sombra",
+		--[[Translation missing --]]
+		["ShadowSpellDamageInfo"] = "Shadow damage.  Increases the damage dealt by your shadow spells.",
 		["Shield"] = "Escudo",
 		["ShieldInfo"] = "Pontos para distribuir se o item for um escudo.",
 		["Sockets"] = "Engastes",
@@ -111,6 +166,15 @@ Para mais informações sobre personalizar o Pawn, favor veja o arquivo de ajuda
 		["SpeedBaselineIs"] = "|cffffffffVelocidade base|r é:",
 		["SpeedInfo"] = "Velocidade da arma, em golpes por segundo. (Se você prefere armas mais rápidas, este número deve ser negativo. Veja também: \"velocidade base\" na seção \"Atributos especiais de armas\".)",
 		["SpeedIs"] = "1 segundo |cffffffffvelocidade do golpe|r vale:",
+		--[[Translation missing --]]
+		["SpellCritInfo"] = "Spell critical strike.  Increases the chance that your spells will hit with increased potency.",
+		["SpellDamage"] = "Dano Mágico",
+		--[[Translation missing --]]
+		["SpellDamageInfo"] = "Spell damage.  Increases the damage dealt by your offensive spells.",
+		--[[Translation missing --]]
+		["SpellHitInfo"] = "Spell Hit.  Increases the chance that your damaging spells hit the target, especially bosses.",
+		--[[Translation missing --]]
+		["SpiritInfo"] = "Spirit.  Affects your out-of-combat mana regeneration.",
 		["StaminaInfo"] = "Vigor. Aumenta sua vida.",
 		["StrengthInfo"] = "Força. Aumenta o poder das habilidades de algumas classes.",
 		["VersatilityInfo"] = "Versatilidade. Aumenta o dano causado para personagens de dano, aumenta a cura realizada para personagens de cura, e reduz o dano recebido para personagens tanque.",
@@ -204,45 +268,66 @@ Para mais informações sobre personalizar o Pawn, favor veja o arquivo de ajuda
 		["WeaponTypeWarglaiveInfo"] = "Pontos para distribuir se o item for uma glaive de guerra.",
 	},
 	["TooltipParsing"] = {
-		["Agility"] = "^%+?([-%d%.,]+) d?e? ?Agilidade$",
-		["AllStats"] = "^%+?([%d%.,]+) em Todos os [aA]tributos$",
-		["Ap"] = "^%+?([%d%.,]+) d?e? ?Poder de ataque$",
-		["Armor"] = "^%+?([%d%.,]+) Armadura$",
-		["Armor2"] = "^%+?([%d%.,]+) de Armadura$",
-		["Avoidance"] = "^%+([%d%.,]+) Evasiva$",
+		["Agility"] = "^%+?# d?e? ?Agilidade$",
+		["AllStats"] = "^%+?# em Todos os [aA]tributos$",
+		["Ap"] = "^%+?# d?e? ?Poder de [aA]taque$",
+		["Ap2"] = "^Equipado: %+# de Poder de Ataque%.$",
+		["ArcaneResist"] = "^%+?# de resistência a Arcano$",
+		["ArcaneSpellDamage"] = "^%+# Dano Mágico Arcano$",
+		["ArcaneSpellDamage2"] = "^Equipado: Aumenta em até # o dano causado por feitiços e efeitos Arcanos%.$",
+		["Armor"] = "^%+?# Armadura$",
+		["Armor2"] = "^%+?# de Armadura$",
+		["Avoidance"] = "^%+# Evasiva$",
 		["Axe"] = "^Machado$",
 		["BagSlots"] = "^%d+ Compartimento .+$",
+		["Block"] = "^Bloqueio de #$",
+		["BlockPercent"] = "^Equipado: Aumenta em #%% a chance de bloquear ataques com o escudo%.$",
+		["BlockValue"] = "^Equipado: Aumenta em # o valor de bloqueio do seu escudo%.$",
 		["Bow"] = "^Arco$",
 		["ChanceOnHit"] = "Chance ao acertar:",
 		["Charges"] = "^.+ Cargas?$",
 		["Cloth"] = "^Tecido$",
 		["CooldownRemaining"] = "^Tempo de recarga restante:",
-		["Crit"] = "^%+?([%d%.,]+) Acerto Crítico%.?$",
-		["Crit2"] = "^%+?([%d%.,]+) de Acerto Crítico%.?$",
+		["Corruption"] = "^%+?# Corrupção$",
+		["Crit"] = "^%+?# Acerto Crítico%.?$",
+		["Crit2"] = "^%+?# de Acerto Crítico%.?$",
+		["CritPercent"] = "^Equipado: Aumenta em #%% a chance de realizar acertos críticos%.$",
 		["Crossbow"] = "^Besta$",
 		["Dagger"] = "^Adaga$",
+		["DefenseSkill"] = "^Equipado: Defesa aumentada em #%.$",
+		["DefenseSkillSimple"] = "^%+?# Defesa$",
 		["DisenchantingRequires"] = "^Desencantamento necessita",
-		["Dodge"] = "^%+?([%d%.,]+) Esquiva$",
-		["Dodge2"] = "^%+?([%d%.,]+) de Esquiva$",
-		["Dps"] = "^%(([%d%.,]+) d?e? ?dano por segundo%)$",
-		["DpsAdd"] = "^Adiciona ([%d%.,]+) dano por segundo$",
+		["Dodge"] = "^%+?#%%? Esquiva$",
+		["Dodge2"] = "^%+?# de Esquiva$",
+		["DodgePercent"] = "^Equipado: Aumenta em #%% a chance de esquivar%-se de ataques%.$",
+		["Dps"] = "^%(# d?e? ?dano por segundo%)$",
+		["DpsAdd"] = "^Adiciona # dano por segundo$",
 		["Duration"] = "^Dura%ç%ão:",
 		["Elite"] = "^Elite$",
-		["EnchantmentArmorKit"] = "^Armadura %(%+([%d%.,]+) Refor%çada%)$",
-		["EnchantmentCounterweight"] = "^Contrapeso %(%+([%d%.,]+) Acelera&ç&ão%)",
+		["EnchantmentArmorKit"] = "^Armadura %(%+# Refor%çada%)$",
+		["EnchantmentCounterweight"] = "^Contrapeso %(%+# Acelera&ç&ão%)",
 		["EnchantmentFieryWeapon"] = "^Arma Ígnea$",
-		["EnchantmentHealth"] = "^%+([%d%.,]+) Vida$",
-		["EnchantmentHealth2"] = "^%+([%d%.,]+) de Vida$",
+		["EnchantmentHealth"] = "^%+# Vida$",
+		["EnchantmentHealth2"] = "^%+# de Vida$",
 		["EnchantmentLivingSteelWeaponChain"] = "^Corrente de Arma de Aço Viva$",
 		["EnchantmentPyriumWeaponChain"] = "^Corrente de Arma de Pírio$",
 		["EnchantmentTitaniumWeaponChain"] = "^Corrente de Arma de Titânico$",
-		["Equip"] = "Equipar:",
+		["Equip"] = "Equipado:",
+		["FeralAp"] = "^Equipado: %+# de Poder de Ataque sob forma de Felino, Urso e Urso Hediondo%.$",
+		["FireResist"] = "^%+?# de resistência a Fogo$",
+		["FireSpellDamage"] = "^%+# Dano Mágico de Fogo$",
+		["FireSpellDamage2"] = "^Equipado: Aumenta em até # o dano causado por feitiços e efeitos de Fogo%.$",
 		["FistWeapon"] = "^Arma de Punho$",
 		["Flexible"] = "^Flexivel$",
+		["FrostResist"] = "^%+?# de resistência a Gelo$",
+		["FrostSpellDamage"] = "^%+# Dano Mágico de Gelo$",
+		["FrostSpellDamage2"] = "^Equipado: Aumenta em até # o dano causado por feitiços e efeitos de Gelo%.$",
 		["Gun"] = "^Arma$",
-		["Haste"] = "^%+?([%d%.,]+) Aceleração$",
-		["Haste2"] = "^%+?([%d%.,]+) de Aceleração$",
+		["Haste"] = "^%+?# Aceleração$",
+		["Haste2"] = "^%+?# de Aceleração$",
 		["HaventCollectedAppearance"] = "^Você não coletou essa aparência$",
+		["Healing"] = "^%+# Feitiços de Cura$",
+		["Healing2"] = "^Equipado: Aumenta em até # a cura realizada por feitiços e efeitos mágicos%.$",
 		["HeirloomLevelRange"] = "^Requer nível entre %d+ e (%d+)",
 		["HeirloomXpBoost"] = "^Equipado: Experiência obtida",
 		["HeirloomXpBoost2"] = "^UNUSED$",
@@ -250,72 +335,90 @@ Para mais informações sobre personalizar o Pawn, favor veja o arquivo de ajuda
 		["HeroicElite"] = "^Heroico de Elite$",
 		["HeroicThunderforged"] = "^Forjado pelo Trovão Heroico$",
 		["HeroicWarforged"] = "^Forjado para a Guerra Heroico$",
-		["Hp5"] = "^Equipado: Restaura ([%d%.,]+) pontos de vida a cada 5 s%.$",
-		["Hp52"] = "^Equipado: Recupera ([%d%.,]+) pontos de vida a cada 5 s%.$",
-		["Hp53"] = "^Recupera %+?([%d%.,]+) [pP]ontos [dD]e [vV]ida [aA] [cC]ada 5 [sS]%.?$",
+		["Hit"] = "^Equipado: Aumenta em #%% a chance de acerto%.$",
+		["Hit2"] = "^UNUSED$",
+		["HolySpellDamage"] = "^%+# Dano Mágico Sagrados$",
+		["HolySpellDamage2"] = "^Equipado: Aumenta em até # o dano causado por feitiços e efeitos Sagrados%.$",
+		["Hp5"] = "^Equipado: Restaura # pontos de vida a cada 5 s%.$",
+		["Hp52"] = "^Equipado: Recupera # pontos de vida a cada 5 s%.$",
+		["Hp53"] = "^Recupera %+?# [pP]ontos [dD]e [vV]ida [aA] [cC]ada 5 [sS]%.?$",
 		["Hp54"] = "^UNUSED$",
-		["Intellect"] = "^%+?([-%d%.,]+) d?e? ?Intelecto$",
+		["Intellect"] = "^%+?# d?e? ?Intelecto$",
 		["Leather"] = "^Couro$",
-		["Leech"] = "^%+([%d%.,]+) Sorver$",
+		["Leech"] = "^%+# Sorver$",
 		["Mace"] = "^Maça$",
 		["Mail"] = "^Malha$",
-		["Mastery"] = "^%+?([%d%.,]+) Maestria$",
-		["Mastery2"] = "^%+?([%d%.,]+) de Maestria$",
+		["Mastery"] = "^%+?# Maestria$",
+		["Mastery2"] = "^%+?# de Maestria$",
 		["MetaGemRequirements"] = "|cff%x%x%x%x%x%xRequer",
-		["MovementSpeed"] = "^%+([%d%.,]+) Velocidade$",
+		["MovementSpeed"] = "^%+# Velocidade$",
+		["Mp5"] = "^Equipado: Restaura # de mana a cada 5 s%.$",
+		["Mp52"] = "^%+?# Mana a cada 5 s$",
 		["MultiStatHeading"] = "^Atributos Múltiplos$",
 		["MultiStatSeparator1"] = "e",
-		["Multistrike"] = "^%+([%d%.,]+) Golpes Múltiplos$",
+		["Multistrike"] = "^%+# Golpes Múltiplos$",
+		["NatureResist"] = "^%+?# de resistência a Natureza$",
+		["NatureSpellDamage"] = "^%+# Dano Mágico de Natureza$",
+		["NatureSpellDamage2"] = "^Equipado: Aumenta em até # o dano causado por feitiços e efeitos de Natureza%.$",
 		["NormalizationEnchant"] = "^Encantado: (.*)$",
-		["Parry"] = "^%+?([%d%.,]+) Aparo$",
-		["Parry2"] = "^%+?([%d%.,]+) de Aparo$",
+		["Parry"] = "^%+?# Aparo$",
+		["Parry2"] = "^%+?# de Aparo$",
 		["Plate"] = "^Placas$",
 		["Polearm"] = "^Arma de Haste$",
-		["PvPPower"] = "^%+?([%d%.,]+) d?e? ?Poder JxJ$",
+		["PvPPower"] = "^%+?# d?e? ?Poder JxJ$",
 		["RaidFinder"] = "^Localizador de Raides$",
+		["Rap"] = "^Equipado: %+# de Poder de Ataque de Longo Alcance%.$",
 		["Requires2"] = "^UNUSED$",
-		["Resilience"] = "^%+?([%d%.,]+) Resiliência JxJ$",
-		["Resilience2"] = "^%+?([%d%.,]+) de Resiliência JxJ$",
-		["Scope"] = "^Mira %(%+([%d%.,]+) de Dano%)$",
-		["ScopeCrit"] = "^Mira %(%+([%d%.,]+) Acerto Crítico%)$",
-		["ScopeRangedCrit"] = "^%+?([%d%.,]+) Acerto Crítico de Longo Alcance$",
+		["Resilience"] = "^%+?# Resiliência JxJ$",
+		["Resilience2"] = "^%+?# de Resiliência JxJ$",
+		["Scope"] = "^Mira %(%+# de Dano%)$",
+		["ScopeCrit"] = "^Mira %(%+# Acerto Crítico%)$",
+		["ScopeRangedCrit"] = "^%+?# Acerto Crítico de Longo Alcance$",
+		["ShadowResist"] = "^%+?# de resistência a Sombra$",
+		["ShadowSpellDamage"] = "^%+# Dano Mágico de Sombra$",
+		["ShadowSpellDamage2"] = "^Equipado: Aumenta em até # o dano causado por feitiços e efeitos de Sombra%.$",
 		["Shield"] = "^Escudo$",
 		["SocketBonusPrefix"] = "Bônus de engaste: ",
-		["Speed"] = "^Velocidade ([%d%.,]+)$",
+		["Speed"] = "^Velocidade #$",
 		["Speed2"] = "^UNUSED$",
-		["SpellPower"] = "^%+?([%d%.,]+) d?e? ?Poder [mM]ágico$",
-		["Spirit"] = "^%+?([-%d%.,]+) d?e? ?Espírito$",
+		["SpellCrit"] = "^Equipado: Aumenta em #%% a chance de realizar acertos críticos com feitiços%.$",
+		["SpellDamage"] = "^%+# Dano Mágico$",
+		["SpellDamage2"] = "^Equipado: Aumenta em até # o dano causado e a cura realizada por feitiços e efeitos mágicos.$",
+		["SpellHit"] = "^Equipado: Aumenta em #%% sua chance de acertar com feitiços%.$",
+		["SpellPower"] = "^%+?# d?e? ?Poder [mM]ágico$",
+		["Spirit"] = "^%+?# d?e? ?Espírito$",
 		["Staff"] = "^Cajado$",
-		["Stamina"] = "^%+?([-%d%.,]+) d?e? ?Vigor$",
-		["Strength"] = "^%+?([-%d%.,]+) d?e? ?Força$",
+		["Stamina"] = "^%+?# d?e? ?Vigor$",
+		["Strength"] = "^%+?# d?e? ?Força$",
 		["Sword"] = "^Espada$",
 		["TemporaryBuffMinutes"] = "^.+%(%d+ min%)$",
 		["TemporaryBuffSeconds"] = "^.+%(%d+ s%)$",
+		["Thrown"] = "^Thrown$",
 		["Thunderforged"] = "^Forjado pelo Trovão$",
 		["Timeless"] = "^Perene$",
 		["Titanforged"] = "^Forja Titânica$",
 		["UpgradeLevel"] = "^Nível de aprimoramento:",
 		["Use"] = "Uso:",
-		["Versatility"] = "^%+([%d%.,]+) Versatilidade$",
+		["Versatility"] = "^%+# Versatilidade$",
 		["Wand"] = "^Varinha$",
 		["Warforged"] = "^Forjado para a Guerra$",
 		["Warglaives"] = "^Glaives de Guerra$",
-		["WeaponDamage"] = "^([%d%.,]+) %- ([%d%.,]+) d?e? ?Dano$",
-		["WeaponDamageArcane"] = "^%+?([%d%.,]+) %- ([%d%.,]+) [aA]rcano [dD]e [dD]ano$",
-		["WeaponDamageArcaneExact"] = "^%+?([%d%.,]+) [aA]rcano [dD]e [dD]ano$",
-		["WeaponDamageEnchantment"] = "^%+?([%d%.,]+) [dD]ano de [aA]rma$",
-		["WeaponDamageEquip"] = "^%+?([%d%.,]+) [dD]ano de [aA]rma%.$",
-		["WeaponDamageExact"] = "^%+?([%d%.,]+) Dano$",
-		["WeaponDamageFire"] = "^%+?([%d%.,]+) %- ([%d%.,]+) [fF]ogo [dD]e [dD]ano$",
-		["WeaponDamageFireExact"] = "^%+?([%d%.,]+) [fF]ogo [dD]e [dD]ano$",
-		["WeaponDamageFrost"] = "^%+?([%d%.,]+) %- ([%d%.,]+) [gG]elo [dD]e [dD]ano$",
-		["WeaponDamageFrostExact"] = "^%+?([%d%.,]+) [gG]elo [dD]e [dD]ano$",
-		["WeaponDamageHoly"] = "^%+?([%d%.,]+) %- ([%d%.,]+) [sS]agrado [dD]e [dD]ano$",
-		["WeaponDamageHolyExact"] = "^%+?([%d%.,]+) [sS]agrado [dD]e [dD]ano$",
-		["WeaponDamageNature"] = "^%+?([%d%.,]+) %- ([%d%.,]+) [nN]atureza [dD]e [dD]ano$",
-		["WeaponDamageNatureExact"] = "^%+?([%d%.,]+) [nN]atureza [dD]e [dD]ano$",
-		["WeaponDamageShadow"] = "^%+?([%d%.,]+) %- ([%d%.,]+) [sS]ombra [dD]e [dD]ano$",
-		["WeaponDamageShadowExact"] = "^%+?([%d%.,]+) [sS]ombra [dD]e [dD]ano$",
+		["WeaponDamage"] = "^# %- # d?e? ?[dD]ano$",
+		["WeaponDamageArcane"] = "^%+?# %- # [aA]rcano [dD]e [dD]ano$",
+		["WeaponDamageArcaneExact"] = "^%+?# [aA]rcano [dD]e [dD]ano$",
+		["WeaponDamageEnchantment"] = "^%+?# [dD]ano de [aA]rma$",
+		["WeaponDamageEquip"] = "^%+?# [dD]ano de [aA]rma%.$",
+		["WeaponDamageExact"] = "^%+?# Dano$",
+		["WeaponDamageFire"] = "^%+?# %- # [fF]ogo [dD]e [dD]ano$",
+		["WeaponDamageFireExact"] = "^%+?# [fF]ogo [dD]e [dD]ano$",
+		["WeaponDamageFrost"] = "^%+?# %- # [gG]elo [dD]e [dD]ano$",
+		["WeaponDamageFrostExact"] = "^%+?# [gG]elo [dD]e [dD]ano$",
+		["WeaponDamageHoly"] = "^%+?# %- # [sS]agrado [dD]e [dD]ano$",
+		["WeaponDamageHolyExact"] = "^%+?# [sS]agrado [dD]e [dD]ano$",
+		["WeaponDamageNature"] = "^%+?# %- # [nN]atureza [dD]e [dD]ano$",
+		["WeaponDamageNatureExact"] = "^%+?# [nN]atureza [dD]e [dD]ano$",
+		["WeaponDamageShadow"] = "^%+?# %- # [sS]ombra [dD]e [dD]ano$",
+		["WeaponDamageShadowExact"] = "^%+?# [sS]ombra [dD]e [dD]ano$",
 	},
 	["UI"] = {
 		["AboutHeader"] = "Sobre o Pawn",
@@ -365,7 +468,7 @@ Por exemplo, se for definido com "463", o Pawn irá mostrar gemas apropriadas pa
 
 Quando você ganhar recompensas de missões ou saques de masmorras que possam ser melhores que o seu equipamento atual, o Pawn te informará com um ícone de seta verde.
 
-    |cff8ec3e6Fogo:|r  |TInterface\AddOns\Pawn\Textures\UpgradeArrow:0|t |cff00ff00+10% de melhoria|r
+	|cff8ec3e6Fogo:|r  |TInterface\AddOns\Pawn\Textures\UpgradeArrow:0|t |cff00ff00+10% de melhoria|r
 
 
 
@@ -442,7 +545,9 @@ Todos os itens no World of Warcraft possui um número de ID associado a ele. Ess
 		["OptionsResetUpgradesTooltip"] = [=[O Pawn irá esquecer o que sabe sobre os melhores itens que você equipou e reescanear seu equipamento de forma a providenciar informações de melhorias mais atualizadas no futuro.
 
 Use essa funcionalidade se você perceber que o Pawn está sugerindo melhorias incorretas como resultado de itens que você vendeu, destruiu ou não utiliza mais. Isso vai afetar todos os seus personagens que usam o Pawn.]=],
+		--[[Translation missing --]]
 		["OptionsShowItemLevelUpgrades"] = "Show item level upgrades",
+		--[[Translation missing --]]
 		["OptionsShowItemLevelUpgradesTooltip"] = "Pawn will show you items that are of a higher item level than what you've previously equipped in that slot in addition to normal upgrades.",
 		["OptionsShowRelicUpgrades"] = "Mostrar melhorias de relíquias",
 		["OptionsShowRelicUpgradesTooltip"] = "O Pawn irá mostrar quando uma relíquia poderia aumentar o nível do item de uma de suas armas  artefato. (Isso funciona diferente de outras funcionalidades de melhoria, uma vez que é baseada somente no nível do item, e não nos atributos.)",
@@ -533,6 +638,7 @@ Atalho: Shift+clique em uma escala]=],
 		["ValuesFollowSpecialization"] = "Mostrar melhorias para o meu melhor tipo de armadura somente após o nível 50",
 		["ValuesFollowSpecializationTooltip"] = "Ative essa opção para esconder melhorias para armaduras que a sua classe não pode se especializar no nível 50. Por exemplo, no nível 50 paladinos sagrados aprendem Especialização em Armadura de Placas, a qual aumenta o seu intelecto em 5% enquanto usarem apenas armadura de placas. Quando essa opção é escolhida o Pawn nunca vai considerar tecido, couro ou malha para serem melhorias para paladinos sagrados de nível 50 ou mais.",
 		["ValuesHeader"] = "Valores de atributos para %s",
+		["ValuesIgnoreItemType"] = "Items com isso não são usáveis",
 		["ValuesIgnoreStat"] = "Items com isso não são usáveis",
 		["ValuesIgnoreStatTooltip"] = "Ative essa opção para fazer com que qualquer item com esse atributo não tenha valor para essa escala. Por exemplo, xamãs não podem vestir placas, então uma escala designada para um xamã pode marcar placas como não utilizáveis para que armaduras de placa não tenham valor para essa escala.",
 		["ValuesNormalize"] = "Normalizar valores (como o Wowhead)",
@@ -547,6 +653,97 @@ Para mais informação nessa opção, veja o arquivo readme.]=],
 		["ValuesWelcomeReadOnly"] = "Essa escala interna não pode ser alterada. Se você quiser customizar os valores, vá para a aba Escalas, ative o modo Manual, e faça uma cópia dessa escala.",
 	}
 }
+
+PawnLocal.Specs =
+{
+	[1] = {
+		{ Name="Armas", Icon=132355, Role="DAMAGER" },
+		{ Name="Fúria", Icon=132347, Role="DAMAGER" },
+		{ Name="Proteção", Icon=132341, Role="TANK" },
+	},
+	[2] = {
+		{ Name="Sagrado", Icon=135920, Role="HEALER" },
+		{ Name="Proteção", Icon=236264, Role="TANK" },
+		{ Name="Retribuição", Icon=135873, Role="DAMAGER" },
+	},
+	[3] = {
+		{ Name="Domínio das Feras", Icon=461112, Role="DAMAGER" },
+		{ Name="Precisão", Icon=236179, Role="DAMAGER" },
+		{ Name="Sobrevivência", Icon=461113, Role="DAMAGER" },
+	},
+	[4] = {
+		{ Name="Assassinato", Icon=236270, Role="DAMAGER" },
+		{ Name="Fora da Lei", Icon=236286, Role="DAMAGER" },
+		{ Name="Subterfúgio", Icon=132320, Role="DAMAGER" },
+	},
+	[5] = {
+		{ Name="Disciplina", Icon=135940, Role="HEALER" },
+		{ Name="Sagrado", Icon=237542, Role="HEALER" },
+		{ Name="Sombra", Icon=136207, Role="DAMAGER" },
+	},
+	[6] = {
+		{ Name="Sangue", Icon=135770, Role="TANK" },
+		{ Name="Gélido", Icon=135773, Role="DAMAGER" },
+		{ Name="Profano", Icon=135775, Role="DAMAGER" },
+	},
+	[7] = {
+		{ Name="Elemental", Icon=136048, Role="DAMAGER" },
+		{ Name="Aperfeiçoamento", Icon=237581, Role="DAMAGER" },
+		{ Name="Restauração", Icon=136052, Role="HEALER" },
+	},
+	[8] = {
+		{ Name="Arcano", Icon=135932, Role="DAMAGER" },
+		{ Name="Fogo", Icon=135810, Role="DAMAGER" },
+		{ Name="Gélido", Icon=135846, Role="DAMAGER" },
+	},
+	[9] = {
+		{ Name="Suplício", Icon=136145, Role="DAMAGER" },
+		{ Name="Demonologia", Icon=136172, Role="DAMAGER" },
+		{ Name="Destruição", Icon=136186, Role="DAMAGER" },
+	},
+	[10] = {
+		{ Name="Mestre Cervejeiro", Icon=608951, Role="TANK" },
+		{ Name="Tecelão da Névoa", Icon=608952, Role="HEALER" },
+		{ Name="Andarilho do Vento", Icon=608953, Role="DAMAGER" },
+	},
+	[11] = {
+		{ Name="Equilíbrio", Icon=136096, Role="DAMAGER" },
+		{ Name="Feral", Icon=132115, Role="DAMAGER" },
+		{ Name="Guardião", Icon=132276, Role="TANK" },
+		{ Name="Restauração", Icon=136041, Role="HEALER" },
+	},
+	[12] = {
+		{ Name="Devastação", Icon=1247264, Role="DAMAGER" },
+		{ Name="Vingança", Icon=1247265, Role="TANK" },
+	},
+}
+
+-- Special case: wands actually use different text on live versus classic.
+-- So, patch things up here.
+if VgerCore.IsClassic then
+
+	local TooltipParsing_Classic =
+	{
+		["WeaponDamageArcane"] = "^%+?# %- # de dano tipo [aA]rcano$",
+		["WeaponDamageArcaneExact"] = "^%+?# de dano tipo [aA]rcano$",
+		["WeaponDamageFire"] = "^%+?# %- # de dano tipo [fF]ogo$",
+		["WeaponDamageFireExact"] = "^%+?# de dano tipo [fF]ogo$",
+		["WeaponDamageFrost"] = "^%+?# %- # de dano tipo [gG]elo$",
+		["WeaponDamageFrostExact"] = "^%+?# de dano tipo [gG]elo$",
+		["WeaponDamageHoly"] = "^%+?# %- # de dano tipo [sS]agrado$",
+		["WeaponDamageHolyExact"] = "^%+?# de dano tipo [sS]agrado$",
+		["WeaponDamageNature"] = "^%+?# %- # de dano tipo [nN]atureza$",
+		["WeaponDamageNatureExact"] = "^%+?# de dano tipo [nN]atureza$",
+		["WeaponDamageShadow"] = "^%+?# %- # de dano tipo [sS]ombra$",
+		["WeaponDamageShadowExact"] = "^%+?# de dano tipo [sS]ombra$",
+	}
+
+	local Key, NewString
+	for Key, NewString in pairs(TooltipParsing_Classic) do
+		PawnLocal.TooltipParsing[Key] = NewString
+	end
+end
+
 end
 
 if GetLocale() == "ptBR" then

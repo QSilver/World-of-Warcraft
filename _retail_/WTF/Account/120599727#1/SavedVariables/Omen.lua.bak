@@ -2,19 +2,19 @@
 Omen3DB = {
 	["profileKeys"] = {
 		["Alyara - Silvermoon"] = "Qsilver - Silvermoon",
-		["Simroth - Silvermoon"] = "Qsilver - Silvermoon",
 		["Linela - Silvermoon"] = "Qsilver - Silvermoon",
-		["Myvanna - Silvermoon"] = "Qsilver - Silvermoon",
+		["Simroth - Silvermoon"] = "Qsilver - Silvermoon",
+		["Bjornson - Silvermoon"] = "Bjornson - Silvermoon",
 		["Flaville - Silvermoon"] = "Flaville - Silvermoon",
 		["Kjerstina - Silvermoon"] = "Qsilver - Silvermoon",
 		["Stephanna - Argent Dawn"] = "Stephanna - Argent Dawn",
-		["Thagmarr - Silvermoon"] = "Qsilver - Silvermoon",
-		["Bjornson - Silvermoon"] = "Bjornson - Silvermoon",
-		["Lachrymas - Silvermoon"] = "Qsilver - Silvermoon",
+		["Siluna - Silvermoon"] = "Qsilver - Silvermoon",
 		["Tenderbreeze - Silvermoon"] = "Qsilver - Silvermoon",
+		["Lachrymas - Silvermoon"] = "Qsilver - Silvermoon",
+		["Myvanna - Silvermoon"] = "Qsilver - Silvermoon",
 		["Spinhoof - Ragnaros"] = "Qsilver - Silvermoon",
 		["Dotyou - Silvermoon"] = "Dotyou - Silvermoon",
-		["Siluna - Silvermoon"] = "Qsilver - Silvermoon",
+		["Thagmarr - Silvermoon"] = "Qsilver - Silvermoon",
 		["Qsilver - Silvermoon"] = "Qsilver - Silvermoon",
 	},
 	["profiles"] = {
@@ -25,10 +25,6 @@ Omen3DB = {
 			["PositionX"] = 1900.51306152344,
 			["PositionH"] = 82.0000076293945,
 		},
-		["Simroth - Silvermoon"] = {
-			["PositionX"] = 570.5,
-			["PositionY"] = 459,
-		},
 		["Linela - Silvermoon"] = {
 			["VGrip2"] = 96.0250189952836,
 			["PositionY"] = 271.999969482422,
@@ -38,10 +34,13 @@ Omen3DB = {
 			["PositionX"] = 1199,
 			["PositionH"] = 82.0000152587891,
 		},
-		["Myvanna - Silvermoon"] = {
-			["Shown"] = true,
-			["PositionY"] = 615.845092773438,
-			["PositionX"] = 849.002380371094,
+		["Simroth - Silvermoon"] = {
+			["PositionX"] = 570.5,
+			["PositionY"] = 459,
+		},
+		["Bjornson - Silvermoon"] = {
+			["PositionX"] = 570.5,
+			["PositionY"] = 459,
 		},
 		["Flaville - Silvermoon"] = {
 			["MinimapIcon"] = {
@@ -71,19 +70,8 @@ Omen3DB = {
 			["PositionY"] = 665.769226074219,
 			["PositionX"] = 937.756469726562,
 		},
-		["Thagmarr - Silvermoon"] = {
-			["PositionY"] = 323.341125488281,
-			["PositionW"] = 200.000076293945,
+		["Siluna - Silvermoon"] = {
 			["Shown"] = true,
-			["PositionX"] = 1856.7255859375,
-			["PositionH"] = 82.0000076293945,
-		},
-		["Bjornson - Silvermoon"] = {
-			["PositionX"] = 570.5,
-			["PositionY"] = 459,
-		},
-		["Lachrymas - Silvermoon"] = {
-			["Shown"] = false,
 			["PositionY"] = 665.769226074219,
 			["PositionX"] = 937.756469726562,
 		},
@@ -91,6 +79,16 @@ Omen3DB = {
 			["Shown"] = true,
 			["PositionY"] = 665.769226074219,
 			["PositionX"] = 937.756469726562,
+		},
+		["Lachrymas - Silvermoon"] = {
+			["Shown"] = false,
+			["PositionY"] = 665.769226074219,
+			["PositionX"] = 937.756469726562,
+		},
+		["Myvanna - Silvermoon"] = {
+			["Shown"] = true,
+			["PositionY"] = 615.845092773438,
+			["PositionX"] = 849.002380371094,
 		},
 		["Spinhoof - Ragnaros"] = {
 			["PositionY"] = 339.751892089844,
@@ -109,10 +107,12 @@ Omen3DB = {
 			["PositionW"] = 200.000015258789,
 			["PositionH"] = 82.0000152587891,
 		},
-		["Siluna - Silvermoon"] = {
+		["Thagmarr - Silvermoon"] = {
+			["PositionY"] = 323.341125488281,
+			["PositionW"] = 200.000076293945,
 			["Shown"] = true,
-			["PositionY"] = 665.769226074219,
-			["PositionX"] = 937.756469726562,
+			["PositionX"] = 1856.7255859375,
+			["PositionH"] = 82.0000076293945,
 		},
 		["Qsilver - Silvermoon"] = {
 			["PositionW"] = 186.612197875977,
@@ -139,8 +139,8 @@ Omen3DB = {
 			["TitleBar"] = {
 				["ShowTitleBar"] = false,
 			},
-			["PositionX"] = 1872.3291015625,
 			["Shown"] = true,
+			["PositionX"] = 1872.3291015625,
 			["Bar"] = {
 				["ShowHeadings"] = false,
 				["ShowTPS"] = false,

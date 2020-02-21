@@ -1,9 +1,9 @@
 ﻿-- VgerCore  by Vger-Azjol-Nerub
 -- www.vgermods.com
--- © 2006-2019 Green Eclipse.  This mod is released under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 license.
+-- © 2006-2020 Green Eclipse.  This mod is released under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 license.
 -- 
--- Version 1.0.10 -- Throttle and Delay
-local VgerCoreThisVersion = 1.10
+-- Version 1.0.11 -- IsClassic
+local VgerCoreThisVersion = 1.11
 -- 
 -- VgerCore contains functionality that is shared by Vger's mods.
 -- It can be used as a standalone add-on, or embedded within other mods.
@@ -17,6 +17,9 @@ if InitializeOrUpgrade then
 
 VgerCore = {}
 VgerCore.Version = VgerCoreThisVersion
+
+-- Is this WoW Classic?
+VgerCore.IsClassic = (WOW_PROJECT_ID == WOW_PROJECT_CLASSIC)
 
 -- Common colors
 VgerCore.Color = {}

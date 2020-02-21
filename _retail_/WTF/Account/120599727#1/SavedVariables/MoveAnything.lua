@@ -41,7 +41,7 @@ MADB = {
 						"TOPRIGHT", -- [1]
 						"MinimapCluster", -- [2]
 						"BOTTOMRIGHT", -- [3]
-						-0, -- [4]
+						-400, -- [4]
 						0, -- [5]
 					},
 					["name"] = "UIWidgetBelowMinimapContainerFrame",
@@ -101,7 +101,7 @@ MADB = {
 						"UIErrorsFrame", -- [2]
 						"BOTTOM", -- [3]
 						0.000152587890625, -- [4]
-						-0, -- [5]
+						0, -- [5]
 					},
 				},
 				["GameMenuFrame"] = {
@@ -152,7 +152,7 @@ MADB = {
 						"BT4BarZoneAbilityBar", -- [2]
 						"TOPLEFT", -- [3]
 						6.103515625e-05, -- [4]
-						-0, -- [5]
+						0, -- [5]
 					},
 				},
 				["BossBanner"] = {
@@ -185,7 +185,7 @@ MADB = {
 						"BOTTOMRIGHT", -- [1]
 						"UIParent", -- [2]
 						"BOTTOMRIGHT", -- [3]
-						-0, -- [4]
+						0, -- [4]
 						84.0000152587891, -- [5]
 					},
 				},
@@ -202,8 +202,8 @@ MADB = {
 						"TOPLEFT", -- [1]
 						"BT4BarExtraActionBar", -- [2]
 						"TOPLEFT", -- [3]
-						-0, -- [4]
-						-0, -- [5]
+						0, -- [4]
+						0, -- [5]
 					},
 				},
 				["PlayerFrameAlternateManaBar"] = {

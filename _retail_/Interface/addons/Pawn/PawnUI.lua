@@ -1,6 +1,6 @@
 ﻿-- Pawn by Vger-Azjol-Nerub
 -- www.vgermods.com
--- © 2006-2019 Green Eclipse.  This mod is released under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 license.
+-- © 2006-2020 Green Eclipse.  This mod is released under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 license.
 -- See Readme.htm for more information.
 --
 -- User interface code
@@ -16,6 +16,9 @@ PawnUICurrentScale = nil
 PawnUICurrentTabNumber = nil
 PawnUICurrentListIndex = 0
 PawnUICurrentStatIndex = 0
+
+-- The currently-active string dialog.
+local PawnUIStringDialog
 
 -- An array with indices 1 and 2 for the left and right compare items, respectively; each one is of the type returned by GetItemData.
 local PawnUIComparisonItems = {}
@@ -243,7 +246,7 @@ end
 function PawnUIFrame_ScaleSelector_UpdateAuto()
 	local Scale = PawnCommon.Scales[PawnUICurrentScale]
 	if Scale and Scale.ClassID and Scale.SpecID then
-		local _, LocalizedSpecName, _, IconTexturePath = GetSpecializationInfoForClassID(Scale.ClassID, Scale.SpecID)
+		local _, LocalizedSpecName, _, IconTexturePath = PawnGetSpecializationInfoForClassID(Scale.ClassID, Scale.SpecID)
 		PawnUIFrame_ScaleSelector_SpecLabel:SetText(LocalizedSpecName)
 		PawnUIFrame_ScaleSelector_SpecIcon:SetTexture(IconTexturePath)
 	else
@@ -288,7 +291,8 @@ end
 -- Selects a scale in the scales list.
 function PawnUI_SelectScale(ScaleName)
 	-- Close popup UI as necessary.
-	PawnUIStringDialog:Hide()
+	PawnUIStringDialogSingleLine:Hide()
+	PawnUIStringDialogMultiLine:Hide()
 	ColorPickerFrame:Hide()
 	-- Select the scale.
 	PawnUICurrentScale = ScaleName
@@ -449,7 +453,7 @@ end
 function PawnUIExportScale(ScaleName)
 	local ScaleTag = PawnGetScaleTag(ScaleName)
 	if ScaleTag then
-		PawnUIShowCopyableString(format(PawnLocal.ExportScaleMessage, PawnGetScaleLocalizedName(PawnUICurrentScale)), ScaleTag)
+		PawnUIShowCopyableString(format(PawnLocal.ExportScaleMessage, PawnGetScaleLocalizedName(PawnUICurrentScale)), ScaleTag, nil, true)
 		return true
 	else
 		return false
@@ -464,7 +468,7 @@ function PawnUIExportAllScales()
 		if not PawnScaleIsReadOnly(ScaleName) then ScaleTags = ScaleTags .. PawnGetScaleTag(ScaleName) .. "    " end
 	end
 	if ScaleTags and ScaleTags ~= "" then
-		PawnUIShowCopyableString(PawnLocal.ExportAllScalesMessage, ScaleTags)
+		PawnUIShowCopyableString(PawnLocal.ExportAllScalesMessage, ScaleTags, nil, true)
 		return true
 	else
 		return false
@@ -474,7 +478,7 @@ end
 -- Shows a dialog where the user can paste a scale tag from the clipboard.
 -- Immediately returns.
 function PawnUIImportScale()
-	PawnUIGetString(PawnLocal.ImportScaleMessage, "", PawnUIImportScaleCallback)
+	PawnUIGetString(PawnLocal.ImportScaleMessage, "", PawnUIImportScaleCallback, nil, true)
 end
 
 -- Callback function for PawnUIImportScale.
@@ -498,7 +502,7 @@ function PawnUIImportScaleCallback(ScaleTag)
 	end
 	if Status == PawnImportScaleResultTagError then
 		-- Don't use the tag that was pasted as the default value; it makes it harder to paste.
-		PawnUIGetString(PawnLocal.ImportScaleTagErrorMessage, "", PawnUIImportScaleCallback)
+		PawnUIGetString(PawnLocal.ImportScaleTagErrorMessage, "", PawnUIImportScaleCallback, nil, true)
 		return
 	end
 	
@@ -566,7 +570,12 @@ function PawnUIFrame_DeleteScaleButton_OnOK(ConfirmationText)
 end
 
 function PawnUI_ScalesTab_SelectFrame()
-	if PawnOptions.AutoSelectScales then
+	if VgerCore.IsClassic then
+		PawnUIFrame_AutoSelectScalesOnButton:Hide()
+		PawnUIFrame_AutoSelectScalesOffButton.SelectedTexture:Show()
+		PawnUIScalesTab_AutoFrame:Hide()
+		PawnUIScalesTab_ManualFrame:Show()
+	elseif PawnOptions.AutoSelectScales then
 		PawnUIFrame_AutoSelectScalesOnButton.SelectedTexture:Show()
 		PawnUIScalesTab_AutoFrame:Show()
 		PawnUIFrame_AutoSelectScalesOffButton.SelectedTexture:Hide()
@@ -751,12 +760,15 @@ function PawnUIFrame_StatsList_SelectStat(Index)
 			end
 		end
 		PawnUIFrame_IgnoreStatCheck:SetChecked(ThisStatIsIgnored)
-		if (not ThisScaleIsReadOnly) and (not PawnStats[Index][4]) then
+		local TypeOfStat = PawnStats[Index][4]
+		if (not ThisScaleIsReadOnly) and (TypeOfStat ~= PawnStatUnignorable) then
 			-- Shown and editable: scale is editable and stat is not unignorable
+			PawnUIFrame_IgnoreStatCheck_Label:SetText(TypeOfStat == PawnStatItemType and PawnLocal.UI.ValuesIgnoreItemType or PawnLocal.UI.ValuesIgnoreStat)
 			PawnUIFrame_IgnoreStatCheck:Show()
 			PawnUIFrame_IgnoreStatCheck:Enable()
 		elseif ThisScaleIsReadOnly and (ThisStatIsIgnored) then
 			-- Shown but not editable: scale is not editable and stat is currently ignored
+			PawnUIFrame_IgnoreStatCheck_Label:SetText(TypeOfStat == PawnStatItemType and PawnLocal.UI.ValuesIgnoreItemType or PawnLocal.UI.ValuesIgnoreStat)
 			PawnUIFrame_IgnoreStatCheck:Show()
 			PawnUIFrame_IgnoreStatCheck:Disable()
 		else
@@ -777,7 +789,7 @@ function PawnUIFrame_StatsList_SelectStat(Index)
 		else
 			PawnUIFrame_NoUpgradesCheck:Show()
 		end
-		if ThisStat == "IsCloth" or ThisStat == "IsLeather" or ThisStat == "IsMail" or ThisStat == "IsPlate" then
+		if (not VgerCore.IsClassic) and (ThisStat == "IsCloth" or ThisStat == "IsLeather" or ThisStat == "IsMail" or ThisStat == "IsPlate") then
 			PawnUIFrame_FollowSpecializationCheck:Show()
 		else
 			PawnUIFrame_FollowSpecializationCheck:Hide()
@@ -990,7 +1002,7 @@ function PawnUI_SetCompareItem(Index, ItemLink)
 		VgerCore.Fail("Index must be 1 or 2.")
 		return
 	end
-	
+
 	-- Get the item data for this item link; we can't do a comparison without it.
 	local Item
 	if ItemLink then
@@ -1002,7 +1014,14 @@ function PawnUI_SetCompareItem(Index, ItemLink)
 				VgerCore.Fail("Second parameter must be an item link or item data from PawnGetItemData.")
 				return
 			end
+		elseif type(ItemLink) == "number" or tonumber(ItemLink) ~= nil then
+			ItemLink = "item:" .. ItemLink
+			Item = PawnGetItemData(ItemLink)
+			-- If Item is nil, then that item isn't actually a valid item with stats, so we shouldn't allow it in the compare UI.
+			if not Item then return end
 		else
+			-- Check to make sure it's an item link and not, say, a battle pet.
+			if PawnGetHyperlinkType(ItemLink) ~= "item" then return end
 			-- Unenchant the item link.
 			ItemLink = PawnUnenchantItemLink(ItemLink, true)
 			Item = PawnGetItemData(ItemLink)
@@ -1069,12 +1088,6 @@ end
 
 -- Same as PawnUI_SetCompareItem, but shows the Pawn Compare UI if not already visible.
 function PawnUI_SetCompareItemAndShow(Index, ItemLink)
-	if Index ~= 1 and Index ~= 2 then
-		VgerCore.Fail("Index must be 1 or 2.")
-		return
-	end
-	if not ItemLink or PawnGetHyperlinkType(ItemLink) ~= "item" then return end
-	
 	-- Set this as a compare item.
 	local Success = PawnUI_SetCompareItem(Index, ItemLink)
 	if Success then
@@ -1208,7 +1221,7 @@ end
 
 -- Performs an item comparison.  If the item in either index 1 or index 2 is currently empty, no
 -- item comparison is made and the function silently exits.
-function PawnUI_CompareItems()
+function PawnUI_CompareItems(IsAutomatedRefresh)
 	-- Before doing anything else, clear out the existing comparison data.
 	PawnUICompareItemScore1:SetText("")
 	PawnUICompareItemScore2:SetText("")
@@ -1385,6 +1398,18 @@ function PawnUI_CompareItems()
 			PawnUICompareItemScoreArrow2:Show()
 		end
 	end
+
+	-- Hack for WoW Classic: after a moment, refresh the whole thing, because we might have gotten
+	-- incomplete data from the tooltip the first time.
+	if not IsAutomatedRefresh and VgerCore.IsClassic then
+		local AutomatedRefresh = function()
+			if PawnUIComparisonItems[1] then PawnUIComparisonItems[1] = PawnGetItemData(PawnUIComparisonItems[1].Link) end
+			if PawnUIComparisonItems[2] then PawnUIComparisonItems[2] = PawnGetItemData(PawnUIComparisonItems[2].Link) end
+			PawnUI_CompareItems(true)
+		end
+		C_Timer.After(0.5, AutomatedRefresh)
+		C_Timer.After(1.0, AutomatedRefresh)
+	end
 end
 
 -- Deletes all comparison stat and header lines.
@@ -1486,6 +1511,33 @@ function PawnUILinkItemInChat(Item)
 	end
 end
 
+-- Gets all of the text from an item tooltip and then puts it into a box where it can be copied.
+function PawnUIGetAllTextForItem(Item)
+	if not Item or not Item.Link then return end
+	local Tooltip = _G[PawnPrivateTooltipName]
+	VgerCore.Assert(Tooltip, "Failed to find the private tooltip.")
+
+	Tooltip:SetHyperlink(Item.Link)
+
+	local NumLines = Tooltip:NumLines()
+	local i
+	local AllText = ""
+	for i = 1, NumLines do
+		local LeftLine = _G[PawnPrivateTooltipName .. "TextLeft" .. i]
+		AllText = AllText .. LeftLine:GetText() .. "\n"
+		local RightLine = _G[PawnPrivateTooltipName .. "TextRight" .. i]
+		if RightLine then
+			local RightText = RightLine:GetText()
+			if RightText and RightText ~= "" then
+				AllText = AllText .. "    " .. RightText .. "\n"
+			end
+		end
+	end
+	AllText = AllText .. "\n/pawn compare " .. PawnGetItemIDsForDisplay(Item.Link, false)
+
+	PawnUIShowCopyableString(Item.Name, AllText, nil, true)
+end
+
 -- Called when one of the two upper item slots are clicked.
 function PawnUICompareItemIcon_OnClick(Index)
 	PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON)
@@ -1514,6 +1566,13 @@ function PawnUICompareItemIcon_OnClick(Index)
 		if Index == 2 then PawnUI_AutoCompare() end
 		return
 	end
+
+	-- Are they holding down Alt to copy and paste text from the item?
+	if PawnUIComparisonItems[Index] and IsAltKeyDown() then
+		PawnUIGetAllTextForItem(PawnUIComparisonItems[Index])
+		return
+	end
+
 end
 
 -- Shows the tooltip for an item comparison slot.
@@ -1760,7 +1819,12 @@ function PawnUIOptionsTabPage_OnShow()
 	PawnUIFrame_UpgradeTrackingList_UpdateSelection()
 
 	-- Advisor options
-	PawnUIFrame_ShowBagUpgradeAdvisorCheck:SetChecked(PawnCommon.ShowBagUpgradeAdvisor)
+	if VgerCore.IsClassic then
+		-- The bag upgrade advisor isn't supported on Classic.
+		PawnUIFrame_ShowBagUpgradeAdvisorCheck:Hide()
+	else
+		PawnUIFrame_ShowBagUpgradeAdvisorCheck:SetChecked(PawnCommon.ShowBagUpgradeAdvisor)
+	end
 	PawnUIFrame_ShowLootUpgradeAdvisorCheck:SetChecked(PawnCommon.ShowLootUpgradeAdvisor)
 	PawnUIFrame_ShowQuestUpgradeAdvisorCheck:SetChecked(PawnCommon.ShowQuestUpgradeAdvisor)
 	PawnUIFrame_ShowSocketingAdvisorCheck:SetChecked(PawnCommon.ShowSocketingAdvisor)
@@ -1897,6 +1961,12 @@ function PawnUIAboutTabPage_OnShow()
 	local Version = GetAddOnMetadata("Pawn", "Version")
 	if Version then 
 		PawnUIFrame_AboutVersionLabel:SetText(format(PawnUIFrame_AboutVersionLabel_Text, Version))
+	end
+	if VgerCore.IsClassic then
+		-- WoW Classic doesn't use the Mr. Robot scales, so hide that logo and information.
+		PawnUIFrame_MrRobotLogo:Hide()
+		PawnUIFrame_MrRobotLabel:SetPoint("TOPLEFT", 25, -210)
+		PawnUIFrame_MrRobotLabel:SetText("Special thanks to HawsJon for collecting the stat weights used in the starter scales.")
 	end
 end
 
@@ -2300,7 +2370,8 @@ function PawnUISwitchToTab(Tab)
 	if ReloadingSameTab then return end
 	
 	-- Hide popup UI.
-	PawnUIStringDialog:Hide()
+	PawnUIStringDialogSingleLine:Hide()
+	PawnUIStringDialogMultiLine:Hide()
 	ColorPickerFrame:Hide()
 	
 	-- Then, update the tabstrip itself.
@@ -2342,6 +2413,14 @@ function PawnUI_EnsureLoaded()
 		PawnUIOpenedYet = true
 		PawnUIFrame_ScaleSelector_Refresh()
 		PawnUIFrame_ShowScaleCheck_Label:SetText(format(PawnUIFrame_ShowScaleCheck_Label_Text, UnitName("player")))
+		if VgerCore.IsClassic then
+			-- WoW Classic doesn't have gems or specs.
+			PawnUIFrameTab4:Hide()
+			PawnUIFrame_IgnoreGemsWhileLevelingCheck:Hide()
+			PawnUIFrame_ShowSocketingAdvisorCheck:Hide()
+
+			PawnUIFrame_ShowSpecIconsCheck:Hide()
+		end
 		if not PawnCommon then
 			VgerCore.Fail("Pawn UI OnShow handler was called before PawnCommon was initialized.")
 			PawnUISwitchToTab(PawnUIHelpTabPage)
@@ -2393,34 +2472,46 @@ end
 -- Shows a dialog containing given prompt text, asking the user for a string.
 -- Calls OKCallbackFunction with the typed string as the only input if the user clicked OK.
 -- Calls CancelCallbackFunction if the user clicked Cancel.
-function PawnUIGetString(Prompt, DefaultValue, OKCallbackFunction, CancelCallbackFunction)
-	PawnUIGetStringCore(Prompt, DefaultValue, true, OKCallbackFunction, CancelCallbackFunction)
+function PawnUIGetString(Prompt, DefaultValue, OKCallbackFunction, CancelCallbackFunction, IsMultiLine)
+	PawnUIGetStringCore(Prompt, DefaultValue, true, OKCallbackFunction, CancelCallbackFunction, IsMultiLine)
 end
 
 -- Shows a dialog with a copyable string.
 -- Calls CallbackFunction when the user closes the dialog.
 -- Note: Successfully tested with strings of about 900 characters.
-function PawnUIShowCopyableString(Prompt, Value, CallbackFunction)
-	PawnUIGetStringCore(Prompt, Value, false, CallbackFunction, nil)
+function PawnUIShowCopyableString(Prompt, Value, CallbackFunction, IsMultiLine)
+	PawnUIGetStringCore(Prompt, Value, false, CallbackFunction, nil, IsMultiLine)
+	PawnUIStringDialog.TextBox:HighlightText()
 end
 
 -- Core function called by PawnUIGetString.
-function PawnUIGetStringCore(Prompt, DefaultValue, Cancelable, OKCallbackFunction, CancelCallbackFunction)
-	PawnUIStringDialog_PromptText:SetText(Prompt)
-	PawnUIStringDialog_TextBox:SetText("") -- Causes the insertion point to move to the end on the next SetText
-	PawnUIStringDialog_TextBox:SetText(DefaultValue)
-	if Cancelable then
-		PawnUIStringDialog_OKButton:Show()
-		PawnUIStringDialog_OKButton:SetText(OKAY)
-		PawnUIStringDialog_CancelButton:SetText(CANCEL)
+function PawnUIGetStringCore(Prompt, DefaultValue, Cancelable, OKCallbackFunction, CancelCallbackFunction, IsMultiLine)
+	if PawnUIStringDialog and PawnUIStringDialog:IsVisible() then
+		PawnUIStringDialog_CancelButton_OnClick()
+	end
+	if IsMultiLine then
+		PawnUIStringDialog = PawnUIStringDialogMultiLine
 	else
-		PawnUIStringDialog_OKButton:Hide()
-		PawnUIStringDialog_CancelButton:SetText(CLOSE)
+		PawnUIStringDialog = PawnUIStringDialogSingleLine
+	end
+
+	PawnUIStringDialog.PromptText:SetText(Prompt)
+	PawnUIStringDialog.TextBox:SetText("") -- Causes the insertion point to move to the end on the next SetText
+	PawnUIStringDialog.TextBox:SetText(DefaultValue)
+
+	if Cancelable then
+		PawnUIStringDialog.OKButton:Show()
+		PawnUIStringDialog.OKButton:SetText(OKAY)
+		PawnUIStringDialog.CancelButton:SetText(CANCEL)
+	else
+		PawnUIStringDialog.OKButton:Hide()
+		PawnUIStringDialog.CancelButton:SetText(CLOSE)
 	end
 	PawnUIStringDialog.OKCallbackFunction = OKCallbackFunction
 	PawnUIStringDialog.CancelCallbackFunction = CancelCallbackFunction
+
 	PawnUIStringDialog:Show()
-	PawnUIStringDialog_TextBox:SetFocus()
+	PawnUIStringDialog.TextBox:SetFocus()
 end
 
 -- Cancels the string dialog if it's open.
@@ -2431,7 +2522,7 @@ end
 
 function PawnUIStringDialog_OKButton_OnClick()
 	PawnUIStringDialog:Hide()
-	if PawnUIStringDialog.OKCallbackFunction then PawnUIStringDialog.OKCallbackFunction(PawnUIStringDialog_TextBox:GetText()) end
+	if PawnUIStringDialog.OKCallbackFunction then PawnUIStringDialog.OKCallbackFunction(PawnUIStringDialog.TextBox:GetText()) end
 end
 
 function PawnUIStringDialog_CancelButton_OnClick()
@@ -2440,10 +2531,10 @@ function PawnUIStringDialog_CancelButton_OnClick()
 end
 
 function PawnUIStringDialog_TextBox_OnTextChanged()
-	if PawnUIStringDialog_TextBox:GetText() ~= "" then
-		PawnUIStringDialog_OKButton:Enable()
+	if PawnUIStringDialog.TextBox:GetText() ~= "" then
+		PawnUIStringDialog.OKButton:Enable()
 	else
-		PawnUIStringDialog_OKButton:Disable()
+		PawnUIStringDialog.OKButton:Disable()
 	end
 end
 

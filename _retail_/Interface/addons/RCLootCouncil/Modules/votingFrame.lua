@@ -47,6 +47,7 @@ function RCVotingFrame:OnInitialize()
 		{ name = L["Vote"],		DoCellUpdate = RCVotingFrame.SetCellVote,			colName = "vote",		sortnext = 10,		width = 60, align = "CENTER", },				-- 11 Vote button
 		{ name = L["Notes"],		DoCellUpdate = RCVotingFrame.SetCellNote,			colName = "note",								width = 50, align = "CENTER", },				-- 12 Note icon
 		{ name = _G.ROLL,			DoCellUpdate = RCVotingFrame.SetCellRoll, 		colName = "roll",		sortnext = 10,		width = 50, align = "CENTER", },				-- 13 Roll
+		{ name = "",				DoCellUpdate = RCVotingFrame.SetCellCorruption, colName = "corruption", sortnext = 10, width = 30, align = "CENTER",},				-- 14 Corruption (Patch 8.3)
 	}
 	-- The actual table being worked on, new entries should be added to this table "tinsert(RCVotingFrame.scrollCols, data)"
 	-- If you want to add or remove columns, you should do so on your OnInitialize. See RCVotingFrame:RemoveColumn() for removal.
@@ -157,15 +158,32 @@ end
 -- if succesful, or nil if not. Should be called before any session begins.
 function RCVotingFrame:RemoveColumn(id)
 	addon:Debug("Removing Column", id)
+	local removedCol, remvoedIndex
 	if type(id) == "number" then
-		return tremove(self.scrollCols, id)
+		removedIndex = id
+		removedCol = tremove(self.scrollCols, id)
 	else
-		for i, col in ipairs(self.scrollCols) do
-			if col.colName == id then
-				return tremove(self.scrollCols, i)
-			end
-		end
+		removedIndex = self:GetColumnIndexFromName(id)
+		assert(removedIndex, "ID is not a valid column name")
+		removedCol = tremove(self.scrollCols, removedIndex)
 	end
+	-- Fix sortnext as they could be broken with the removal
+	if removedCol then
+	 	for i,col in ipairs(self.scrollCols) do
+	 		if col.sortnext and col.sortnext > removedIndex then
+				col.sortnext = col.sortnext - 1
+			end
+	 	end
+		return removedCol
+	end
+end
+
+function RCVotingFrame:GetColumnIndexFromName (name)
+	for i,v in ipairs(self.scrollCols) do
+      if v.colName == name then
+         return i
+      end
+   end
 end
 
 function RCVotingFrame:OnCommReceived(prefix, serializedMsg, distri, sender)
@@ -176,7 +194,7 @@ function RCVotingFrame:OnCommReceived(prefix, serializedMsg, distri, sender)
 
 		if test then
 			if command == "vote" then
-				if addon:IsCouncil(sender) then
+				if addon:CouncilContains(sender) then
 					local s, name, vote = unpack(data)
 					self:HandleVote(s, name, vote, sender)
 				else
@@ -192,8 +210,9 @@ function RCVotingFrame:OnCommReceived(prefix, serializedMsg, distri, sender)
 
 			elseif command == "lootAck" then
 				-- v2.7.4: Extended to contain playerName, specID, ilvl, data
+				-- v2.17.0: Added CorruptionData table
 				-- data contains: diff, gear1[, gear2, response] - each a table for each session
-				local name, specID, ilvl, sessionData = unpack(data)
+				local name, specID, ilvl, sessionData, corruptionData = unpack(data)
 				if not specID then -- Old lootAck
 					for i = 1, #lootTable do
 						self:SetCandidateData(i, name, "response", "WAIT")
@@ -207,6 +226,13 @@ function RCVotingFrame:OnCommReceived(prefix, serializedMsg, distri, sender)
 					for i = 1, #lootTable do
 						self:SetCandidateData(i, name, "specID", specID)
 						self:SetCandidateData(i, name, "ilvl", ilvl)
+						if corruptionData then
+							local corruption, corruptionResistance = unpack(corruptionData)
+							local totalCorruption = math.max(corruption - corruptionResistance, 0);
+							self:SetCandidateData(i, name, "corruption", corruption)
+							self:SetCandidateData(i, name, "corruptionResistance", corruptionResistance)
+							self:SetCandidateData(i, name, "totalCorruption", totalCorruption)
+						end
 						if not sessionData.response[i] then
 							-- We might already have an response, so don't override unless it's announced
 							if self:GetCandidateData(i, name, "response") == "ANNOUNCED" then
@@ -237,8 +263,9 @@ function RCVotingFrame:OnCommReceived(prefix, serializedMsg, distri, sender)
 					end
 				end
 				lootTable[s].awarded = winner
-				if addon.isMasterLooter and session ~= #lootTable then -- ML should move to the next item on award
-					self:SwitchSession(session + 1)
+				local nextSession = self:FetchUnawardedSession()
+				if addon.isMasterLooter and nextSession then -- ML should move to the next item on award
+					self:SwitchSession(nextSession)
 				else
 					self:SwitchSession(session) -- Use switch session to update awardstring
 				end
@@ -310,11 +337,15 @@ function RCVotingFrame:OnCommReceived(prefix, serializedMsg, distri, sender)
 				self:UpdatePeopleToVote()
 
 			elseif command == "lt_add" and addon:UnitIsUnit(sender, addon.masterLooter) then
+				local oldLenght = #lootTable
 				for k,v in pairs(unpack(data)) do
 					lootTable[k] = v
-					self:SetupSession(k, v)
+				end
+				-- Add the sessions in order to avoid messing with SessionButtons
+				for i = oldLenght + 1, #lootTable do
+					self:SetupSession(i, lootTable[i])
 					if addon.isMasterLooter and db.autoAddRolls then
-						self:DoAllRandomRolls() -- REVIEW This will overwrite "old" entries if new entries are added
+						self:DoRandomRolls(i)
 					end
 				end
 				self:SwitchSession(session)
@@ -347,6 +378,7 @@ function RCVotingFrame:GetCandidateData(session, candidate, data)
 end
 
 -- TODO: DEPRECATED - use RCLootCouncil:GetLootTable()
+-- REVIEW: This is not in sync with the replacement.
 function RCVotingFrame:GetLootTable()
 	return lootTable
 end
@@ -358,6 +390,15 @@ end
 -- @usage RCLootCouncil:RegisterMessage("RCSessionChangedPost", --your_function--) (see AceEvent-3.0 for more.)
 function RCVotingFrame:GetCurrentSession()
 	return session
+end
+
+--- Find an unawarded session.
+-- @return number|nil Number of the first session with an un-awarded item, or nil if everything is awarded.
+function RCVotingFrame:FetchUnawardedSession ()
+	for k,v in ipairs(lootTable) do
+		if not v.awarded then return k end
+	end
+	return nil
 end
 
 function RCVotingFrame:SetupSession(session, t)
@@ -406,18 +447,14 @@ function RCVotingFrame:Setup(table)
 end
 
 function RCVotingFrame:HandleVote(session, name, vote, voter)
+	voter = addon:UnitName(voter)
 	-- Do the vote
 	lootTable[session].candidates[name].votes = lootTable[session].candidates[name].votes + vote
 	-- And update voters names
 	if vote == 1 then
-		tinsert(lootTable[session].candidates[name].voters, addon.Ambiguate(voter))
+		tinsert(lootTable[session].candidates[name].voters, voter)
 	else
-		for i, n in ipairs(lootTable[session].candidates[name].voters) do
-			if addon:UnitIsUnit(voter, n) then
-				tremove(lootTable[session].candidates[name].voters, i)
-				break
-			end
-		end
+		tDeleteItem(lootTable[session].candidates[name].voters, voter)
 	end
 	self.frame.st:Refresh()
 	self:UpdatePeopleToVote()
@@ -677,6 +714,10 @@ function RCVotingFrame:GetFrame()
 					MSA_ToggleDropDownMenu(1, nil, menuFrame, cellFrame, 0, 0);
 				elseif button == "LeftButton" and row then -- Update more info
 					self:UpdateMoreInfo(realrow, data)
+					if IsAltKeyDown() then
+						local name = data[realrow].name
+						LibDialog:Spawn("RCLOOTCOUNCIL_CONFIRM_AWARD", self:GetAwardPopupData(session, name, lootTable[session].candidates[name]))
+					end
 				end
 				-- Return false to have the default OnClick handler take care of left clicks
 				return false
@@ -701,6 +742,15 @@ function RCVotingFrame:GetFrame()
 		st:EnableSelection(true)
 		f.st = st
 		f:SetWidth(f.st.frame:GetWidth() + 20)
+
+		-- Set texture for corruption header, if present
+		local corruptionHeaderID = self:GetColumnIndexFromName("corruption")
+		if corruptionHeaderID then
+			local tex = st.head.cols[corruptionHeaderID]:CreateTexture()
+			tex:SetAtlas("Nzoth-tooltip-topper")
+			tex:SetAllPoints(st.head.cols[corruptionHeaderID])
+			tex:SetTexCoord(0.28,0.72,0,1)
+		end
 	end
 	f.UpdateSt()
 
@@ -896,7 +946,7 @@ end
 
 function RCVotingFrame:UpdateLootStatus()
 	if not self.frame then return end -- Might not be created yet
-	if not addon:IsCouncil(addon.playerName) then return end
+	if not addon:CouncilContains(addon.playerName) then return end
 
 	local status, list = addon:GetLootStatusData()
 	self.frame.lootStatus:SetText(L["Loot Status"] .. ": " .. status)
@@ -925,29 +975,46 @@ function RCVotingFrame:UpdateLootStatus()
 end
 
 function RCVotingFrame:UpdatePeopleToVote()
-	local voters = {}
+	local hasVoted = {}
+	local shouldVote = CopyTable(addon.council)
+
 	-- Find out who have voted
 	for name in pairs(lootTable[session].candidates) do
 		for _, voter in pairs(lootTable[session].candidates[name].voters) do
-			if not tContains(voters, voter) then
-				tinsert(voters, voter)
+			if not tContains(hasVoted, voter) then
+				tinsert(hasVoted, voter)
+				tDeleteItem(shouldVote, voter)
 			end
 		end
 	end
 	if #councilInGroup == 0 then
 		self.frame.rollResult.text:SetText(L["Couldn't find any councilmembers in the group"])
 		self.frame.rollResult.text:SetTextColor(1,0,0,1) -- Red
-	elseif #voters == #councilInGroup then
+	elseif #shouldVote == 0 then
 		self.frame.rollResult.text:SetText(L["Everyone have voted"])
 		self.frame.rollResult.text:SetTextColor(0,1,0,1) -- Green
-	elseif #voters < #councilInGroup then
-		self.frame.rollResult.text:SetText(format(L["x out of x have voted"], #voters, #councilInGroup))
+	elseif #shouldVote > 0 then
+		self.frame.rollResult.text:SetText(format(L["x out of x have voted"], #hasVoted, #councilInGroup))
 		self.frame.rollResult.text:SetTextColor(1,1,0,1) -- Yellow
 	else
 		addon:Debug("#voters > #councilInGroup ?")
 	end
+	-- Sort the lists
+	table.sort(hasVoted)
+	table.sort(shouldVote)
 	self.frame.rollResult:SetScript("OnEnter", function()
-		addon:CreateTooltip(L["The following council members have voted"], unpack(voters))
+		GameTooltip:SetOwner(UIParent, "ANCHOR_CURSOR")
+		GameTooltip:AddLine(L["The following council members have voted"])
+		for _,name in ipairs(hasVoted) do
+			GameTooltip:AddLine(addon:GetUnitClassColoredName(name))
+		end
+		if #shouldVote > 0 then
+			GameTooltip:AddLine(L["Missing votes from:"])
+			for _,name in ipairs(shouldVote) do
+				GameTooltip:AddLine(addon:GetUnitClassColoredName(name))
+			end
+		end
+		GameTooltip:Show()
 	end)
 	self.frame.rollResult:SetWidth(self.frame.rollResult.text:GetStringWidth())
 end
@@ -1058,7 +1125,7 @@ end
 function RCVotingFrame.SetCellRank(rowFrame, frame, data, cols, row, realrow, column, fShow, table, ...)
 	local name = data[realrow].name
 	frame.text:SetText(lootTable[session].candidates[name].rank)
-	frame.text:SetTextColor(addon:GetResponseColor(lootTable[session].equipLoc, lootTable[session].candidates[name].response))
+	frame.text:SetTextColor(addon:GetResponseColor(lootTable[session].typeCode or lootTable[session].equipLoc, lootTable[session].candidates[name].response))
 	data[realrow].cols[column].value = lootTable[session].candidates[name].rank or ""
 end
 
@@ -1066,13 +1133,13 @@ function RCVotingFrame.SetCellRole(rowFrame, frame, data, cols, row, realrow, co
 	local name = data[realrow].name
 	local role = addon:TranslateRole(lootTable[session].candidates[name].role)
 	frame.text:SetText(role)
-	frame.text:SetTextColor(addon:GetResponseColor(lootTable[session].equipLoc, lootTable[session].candidates[name].response))
+	frame.text:SetTextColor(addon:GetResponseColor(lootTable[session].typeCode or lootTable[session].equipLoc, lootTable[session].candidates[name].response))
 	data[realrow].cols[column].value = role or ""
 end
 
 function RCVotingFrame.SetCellResponse(rowFrame, frame, data, cols, row, realrow, column, fShow, table, ...)
 	local name = data[realrow].name
-	local response = addon:GetResponse(lootTable[session].equipLoc, lootTable[session].candidates[name].response)
+	local response = addon:GetResponse(lootTable[session].typeCode or lootTable[session].equipLoc, lootTable[session].candidates[name].response)
 	local text = response.text
 	if (IsInInstance() and select(4, UnitPosition("player")) ~= select(4, UnitPosition(Ambiguate(name, "short"))))
 		-- Mark as out of instance if the current player is in an instance and the raider is in other instancemap
@@ -1123,7 +1190,14 @@ function RCVotingFrame.SetCellVotes(rowFrame, frame, data, cols, row, realrow, c
 	frame:SetScript("OnEnter", function()
 		if not addon.mldb.anonymousVoting or (db.showForML and addon.isMasterLooter) then
 			if not addon.mldb.hideVotes or (addon.mldb.hideVotes and lootTable[session].haveVoted) then
-				addon:CreateTooltip(L["Voters"], unpack(lootTable[session].candidates[name].voters))
+				addon:CreateTooltip(L["Voters"], unpack((function ()
+					local ret = {}
+					for i,name in ipairs(lootTable[session].candidates[name].voters) do
+						ret[i] = addon:GetUnitClassColoredName(name)
+					end
+					return ret
+				end)()
+			))
 			end
 		end
 	end)
@@ -1215,10 +1289,89 @@ function RCVotingFrame.SetCellRoll(rowFrame, frame, data, cols, row, realrow, co
 	data[realrow].cols[column].value = lootTable[session].candidates[name].roll or ""
 end
 
+
+
+local function CorruptionCellOnEnter (player)
+	-- Use cached data if available
+	if not RCVotingFrame.corruptionEffects then
+		-- Cache some corruption related data
+		local corruptionEffects = GetNegativeCorruptionEffectInfo()
+		table.sort(corruptionEffects, function(a, b)
+			return a.minCorruption < b.minCorruption
+		end)
+		RCVotingFrame.corruptionEffects = corruptionEffects
+	end
+	local corruption = RCVotingFrame:GetCandidateData(session, player, "corruption")
+	if not corruption then return end
+	local corruptionResistance = RCVotingFrame:GetCandidateData(session, player, "corruptionResistance")
+	local totalCorruption = RCVotingFrame:GetCandidateData(session, player, "totalCorruption")
+
+	-- Setup corruption tooltip
+	GameTooltip_SetBackdropStyle(GameTooltip, _G.GAME_TOOLTIP_BACKDROP_STYLE_CORRUPTED_ITEM);
+	GameTooltip:SetOwner(RCVotingFrame.frame.content, "ANCHOR_RIGHT");
+	GameTooltip:SetMinimumWidth(250);
+	GameTooltip:AddLine(addon:GetUnitClassColoredName(player))
+	GameTooltip:AddLine("")
+	GameTooltip_AddColoredDoubleLine(GameTooltip, _G.CORRUPTION_TOOLTIP_LINE, corruption, _G.HIGHLIGHT_FONT_COLOR, _G.HIGHLIGHT_FONT_COLOR);
+	GameTooltip_AddColoredDoubleLine(GameTooltip, _G.CORRUPTION_RESISTANCE_TOOLTIP_LINE, corruptionResistance, _G.HIGHLIGHT_FONT_COLOR, _G.HIGHLIGHT_FONT_COLOR);
+	GameTooltip_AddColoredDoubleLine(GameTooltip, _G.TOTAL_CORRUPTION_TOOLTIP_LINE, totalCorruption, _G.CORRUPTION_COLOR, _G.CORRUPTION_COLOR)
+	local newTotalCorruption = totalCorruption
+	if IsCorruptedItem(lootTable[session].link) then
+		GameTooltip_AddBlankLineToTooltip(GameTooltip);
+		local currentItemCorruption = 0
+		currentItemCorruption = addon:GetCorruptionFromTooltip(lootTable[session].link)
+		newTotalCorruption = math.max(0, corruption - corruptionResistance + currentItemCorruption)
+		GameTooltip_AddColoredDoubleLine(GameTooltip, lootTable[session].link, currentItemCorruption == 0 and 0 or "+"..currentItemCorruption, _G.WHITE_FONT_COLOR, _G.CORRUPTION_COLOR)
+		GameTooltip_AddColoredDoubleLine(GameTooltip, L["Corruption if awarded:"], newTotalCorruption, _G.WHITE_FONT_COLOR, _G.CORRUPTION_COLOR)
+	end
+	GameTooltip_AddBlankLineToTooltip(GameTooltip);
+
+	-- Corruption info - Mostly copied from CharacterFrame.lua
+	for i, corruptionInfo in ipairs(RCVotingFrame.corruptionEffects) do
+		if i > 1 then
+			GameTooltip_AddBlankLineToTooltip(GameTooltip);
+		end
+		-- We only show 1 effect above the player's current corruption.
+		local lastEffect = (corruptionInfo.minCorruption > newTotalCorruption)
+		local newEffect = corruptionInfo.minCorruption > totalCorruption
+		GameTooltip_AddColoredLine(GameTooltip, _G.CORRUPTION_EFFECT_HEADER:format(corruptionInfo.name, corruptionInfo.minCorruption), lastEffect and _G.GRAY_FONT_COLOR or newEffect and _G.YELLOW_FONT_COLOR or  _G.HIGHLIGHT_FONT_COLOR);
+		GameTooltip_AddColoredLine(GameTooltip, corruptionInfo.description, lastEffect and _G.GRAY_FONT_COLOR or _G.CORRUPTION_COLOR, true, 10);
+		if lastEffect then
+			break;
+		end
+	end
+	GameTooltip:SetAnchorType("ANCHOR_RIGHT", 0, -GameTooltip:GetHeight())
+	GameTooltip:Show()
+end
+
+function RCVotingFrame.SetCellCorruption(rowFrame, frame, data, cols, row, realrow, column, fShow, table, ...)
+	local name = data[realrow].name
+	local corruption = RCVotingFrame:GetCandidateData(session, name, "totalCorruption") or ""
+	frame.text:SetText(corruption)
+	if _G.CORRUPTION_COLOR then
+		frame.text:SetTextColor(_G.CORRUPTION_COLOR:GetRGBA())
+	end
+	data[realrow].cols[column].value = corruption
+
+	-- Tooltip
+	frame:SetScript("OnEnter", function()
+		CorruptionCellOnEnter(name)
+	end)
+	frame:SetScript("OnLeave", function() addon:HideTooltip() end)
+	frame:SetScript("OnClick", function() PlaySound(SOUNDKIT.NZOTH_EYE_SQUISH) end) -- Bonus :)
+end
+
 function RCVotingFrame.filterFunc(table, row)
 	if not db.modules["RCVotingFrame"].filters then return true end -- db hasn't been initialized, so just show it
 	local name = row.name
 	local rank = lootTable[session].candidates[name].rank
+
+	if db.modules["RCVotingFrame"].filters.alwaysShowOwner then
+		if addon:UnitIsUnit(name, lootTable[session].owner) then
+			return true
+		end
+	end
+
 	if rank and guildRanks[rank] then
 		if not db.modules["RCVotingFrame"].filters.ranks[guildRanks[rank]] then
 			return false
@@ -1245,8 +1398,8 @@ end
 function ResponseSort(table, rowa, rowb, sortbycol)
 	local column = table.cols[sortbycol]
 	local a, b = table:GetRow(rowa), table:GetRow(rowb);
-	a, b = addon:GetResponse(lootTable[session].equipLoc, lootTable[session].candidates[a.name].response).sort,
-	 		 addon:GetResponse(lootTable[session].equipLoc, lootTable[session].candidates[b.name].response).sort
+	a, b = addon:GetResponse(lootTable[session].typeCode or lootTable[session].equipLoc, lootTable[session].candidates[a.name].response).sort,
+	 		 addon:GetResponse(lootTable[session].typeCode or lootTable[session].equipLoc, lootTable[session].candidates[b.name].response).sort
 	if a == b then
 		if column.sortnext then
 			local nextcol = table.cols[column.sortnext];
@@ -1314,7 +1467,8 @@ function RCVotingFrame:GetAwardPopupData(session, name, data, reason)
 		isToken		= lootTable[session].token,
 		note		= data.note,
 		equipLoc		= lootTable[session].equipLoc,
-		texture 		= lootTable[session].texture
+		texture 		= lootTable[session].texture,
+		typeCode 	= lootTable[session].typeCode,
 	}
 end
 
@@ -1333,6 +1487,7 @@ function RCVotingFrame:GetRerollData(session, isRoll, noAutopass)
 		isRoll = isRoll,
 		noAutopass = noAutopass,
 		owner = v.owner,
+		typeCode 	= lootTable[session].typeCode,
 	}
 end
 
@@ -1414,8 +1569,8 @@ do
 		elseif category == "ROLL" or MSA_DROPDOWNMENU_MENU_VALUE:find("_ROLL$") then
 			text = _G.ROLL..": "..(lootTable[session].candidates[candidateName].roll or "")
 		elseif category == "RESPONSE" or MSA_DROPDOWNMENU_MENU_VALUE:find("_RESPONSE$") then
-			text = L["Response"]..": ".."|cff"..(addon:RGBToHex(unpack(addon:GetResponse(lootTable[session].equipLoc, lootTable[session].candidates[candidateName].response).color))
-			or "ffffff")..(addon:GetResponse(lootTable[session].equipLoc, lootTable[session].candidates[candidateName].response).text or "").."|r"
+			text = L["Response"]..": ".."|cff"..(addon:RGBToHex(unpack(addon:GetResponse(lootTable[session].typeCode or lootTable[session].equipLoc, lootTable[session].candidates[candidateName].response).color))
+			or "ffffff")..(addon:GetResponse(lootTable[session].typeCode or lootTable[session].equipLoc, lootTable[session].candidates[candidateName].response).text or "").."|r"
 		else
 			addon:Debug("Unexpected category or dropdown menu value: "..tostring(category).." ,"..tostring(MSA_DROPDOWNMENU_MENU_VALUE))
 		end
@@ -1652,8 +1807,8 @@ do
 				end
 			elseif value == "CHANGE_RESPONSE" and entry.special == value then
 				local v;
-				for i = 1, addon:GetNumButtons(lootTable[session].equipLoc) do
-					v = addon:GetResponse(lootTable[session].equipLoc, i)
+				for i = 1, addon:GetNumButtons(lootTable[session].typeCode or lootTable[session].equipLoc) do
+					v = addon:GetResponse(lootTable[session].typeCode or lootTable[session].equipLoc, i)
 					info.text = v.text
 					info.colorCode = "|cff"..addon:RGBToHex(unpack(v.color))
 					info.notCheckable = true
@@ -1709,6 +1864,16 @@ do
 			info.isTitle = true
 			info.notCheckable = true
 			info.disabled = true
+			MSA_DropDownMenu_AddButton(info, level)
+
+			info = MSA_DropDownMenu_CreateInfo()
+			info.text = L["Always show owner"]
+			info.func = function()
+				addon:Debug("Update Filter")
+				db.modules["RCVotingFrame"].filters.alwaysShowOwner = not db.modules["RCVotingFrame"].filters.alwaysShowOwner
+				RCVotingFrame:Update(true)
+			end
+			info.checked = db.modules["RCVotingFrame"].filters.alwaysShowOwner
 			MSA_DropDownMenu_AddButton(info, level)
 
 			info = MSA_DropDownMenu_CreateInfo()

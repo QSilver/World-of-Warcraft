@@ -41,7 +41,7 @@ MADB = {
 						"TOPRIGHT", -- [1]
 						"MinimapCluster", -- [2]
 						"BOTTOMRIGHT", -- [3]
-						-0, -- [4]
+						-400, -- [4]
 						0, -- [5]
 					},
 					["name"] = "UIWidgetBelowMinimapContainerFrame",

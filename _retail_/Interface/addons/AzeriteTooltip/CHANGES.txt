@@ -1,16 +1,10 @@
-lightweight tag cb73bb469a40ac38e39a98657245865ed95c9aba 2.0.6
-Author:	Solal Dunckel <tomsize@iMac-Pro.local>
-Date:	Thu Jun 27 23:46:13 2019 +0200
+lightweight tag 4cce91d3447aee8c95baf158f81c6bea71df39b0 2.0.8
+Author:	solaldunckel <solaldunckel@gmail.com>
+Date:	Sat Jan 18 04:47:04 2020 +0100
 
-commit cb73bb469a40ac38e39a98657245865ed95c9aba
-Author: Solal Dunckel <tomsize@iMac-Pro.local>
-Date:   Thu Jun 27 23:46:13 2019 +0200
+commit 4cce91d3447aee8c95baf158f81c6bea71df39b0
+Author: solaldunckel <solaldunckel@gmail.com>
+Date:   Sat Jan 18 04:47:04 2020 +0100
 
-    ver update
-
-commit 8dbe0f8984489f4139715b31b6de7d81f3788161
-Author: Solal Dunckel <tomsize@iMac-Pro.local>
-Date:   Thu Jun 27 23:43:52 2019 +0200
-
-    .toc update
+    8.3 tag + Bagnon fix + Icon Anchor option
 

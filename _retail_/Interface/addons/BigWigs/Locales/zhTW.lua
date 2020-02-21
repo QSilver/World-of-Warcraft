@@ -7,6 +7,8 @@ L.warnSeveralReleases = "|cffff0000你的 BigWigs 已過期%d發行版！！我�
 
 L.gitHubDesc = "BigWigs 是一個在 GitHub 上的開源軟體。我們一直在尋找新的朋友幫助我們和歡迎任何人檢測我們的代碼，做出貢獻和提交錯誤報告。BigWigs 今天的偉大很大程度上一部分因為偉大的魔獸世界社區幫助我們。"
 
+--L.testNameplate = "Target detected, creating a test nameplate bar over target nameplate."
+
 L.options = "選項"
 L.raidBosses = "團隊首領"
 L.dungeonBosses = "地城首領"
@@ -126,6 +128,8 @@ L.SAY_COUNTDOWN = "倒數報數"
 L.SAY_COUNTDOWN_desc = "聊天泡泡十分醒目，利用此特性，BigWigs 以倒數計時的說話消息來提醒附近的人技能即將到期。"
 L.ME_ONLY_EMPHASIZE = "強調 (只有我)"
 L.ME_ONLY_EMPHASIZE_desc = "啟用後會強調所有只施放在你的技能相關的訊息，使它們更大和更容易看到。"
+L.NAMEPLATEBAR = "名條計時條"
+L.NAMEPLATEBAR_desc = "當多個敵方單位施放相同的法術時，在名條上方顯示各自的計時條。如果不想要名條上依附的計時條，請禁用此項。"
 
 -- Media.lua
 L.Beware = "當心（艾爾加隆）"

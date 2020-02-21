@@ -10,7 +10,7 @@ local sUserDialogTimeout = 15;
 local sMaxReceiveSize = 100000;
 
 local sFieldSeparator = "!";
-local sCommandSeparator = "ï¿½";
+local sCommandSeparator = "§";
 
 local sPrefixCommand = "cmd";
 local sPrefixRequest = "rqu";

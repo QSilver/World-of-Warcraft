@@ -425,7 +425,9 @@ end
 
 function module.main:ADDON_LOADED()
 	VExRT = _G.VExRT
-	VExRT.Timers = VExRT.Timers or {}
+	VExRT.Timers = VExRT.Timers or {
+		Type = 2,
+	}
 
 	if VExRT.Timers.Left and VExRT.Timers.Top then 
 		module.frame:ClearAllPoints()
@@ -532,7 +534,7 @@ function module:UpdateView(t)
 		self.txt:Size(29+4,27):Point("LEFT",-4,0):Right():Font(ExRT.F.defFont,20):Color():Shadow():Outline()
 		self.txt_s:Size(25,27):Point("LEFT",25,0):Left():Font(ExRT.F.defFont,20):Color():Shadow():Outline()
 		self.txt_ms:Size(0,27):Point("LEFT",45,-3):Left():Font(ExRT.F.defFont,12):Color():Shadow():Outline()
-		self.killTime:Size(77,27):Point("TOP",self,"BOTTOM",0,0):Top():Center():Font(ExRT.F.defFont,14):Color():Shadow():Outline()
+		self.killTime:Size(77,27):Point("TOP",self,"BOTTOM",0,3):Top():Center():Font(ExRT.F.defFont,14):Color():Shadow():Outline()
 		
 	end
 end
@@ -594,7 +596,7 @@ do
 						local dps = diff / time
 						
 						local t = dps ~= 0 and nowHP / dps or 0
-						if t < 0 or t > 600 then
+						if t <= 0 or t > 600 then
 							module.frame.killTime:SetText("")
 						elseif t >= 60 then
 							module.frame.killTime:SetFormattedText("%d:%02d",floor(t/60),t % 60)
@@ -662,7 +664,7 @@ do
 						local dps = diff / time
 						
 						local t = dps ~= 0 and nowHP / dps or 0
-						if t < 0 or t > 600 then
+						if t <= 0 or t > 600 then
 							module.frame.killTime:SetText("")
 						elseif t >= 60 then
 							module.frame.killTime:SetFormattedText("%d:%02d",floor(t/60),t % 60)

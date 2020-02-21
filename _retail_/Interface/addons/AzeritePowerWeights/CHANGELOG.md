@@ -1,3 +1,75 @@
+### 8.3.4
+- Added missing Retribution Paladin Default-scales.
+   - Thanks to both Retribution Paladin -players who actually read the change log and didn't report me them missing!
+
+### 8.3.3
+- Added missing Protection Warrior -scales (SimulationCraft 830-02 for World of Warcraft 8.3.0 Live (wow build 33051))
+   - Still missing Retribution Paladin Default-scale
+- Updated all Defensive -scales without external source (SimulationCraft 830-02 for World of Warcraft 8.3.0 Live (wow build 33051))
+  - Protection Warrior one is even more all over the place than other classes, so don't trust that.
+
+### 8.3.2
+
+- Updated Default-scales (SimulationCraft 830-01 for World of Warcraft 8.3.0 Live (wow build 33051))
+   - Missing Retribution Paladin and Protection Warrior scales
+
+### 8.3.1
+
+- Fix missing changelog from previous update, once again... (Apparetnly it is still too hard for me to press the 'Save'-button in editor before pushing to the Github)
+- Fix the addon not loading because of broken if-then-else -evaluation [Issue #50](https://www.curseforge.com/wow/addons/azeritepowerweights/issues/50). Thanks to ganksmacker1 for reporting this.
+
+### 8.3.0
+
+- TOC update
+- Added new 8.3 Azerite Traits and Azerite Essences
+
+### 8.2.17
+
+- Updated Default-scales (SimulationCraft 820-02 for World of Warcraft 8.2.0 Live (wow build 31478))
+
+### 8.2.16
+
+- Update Russian translations
+
+### 8.2.15
+
+- Maybe this time we fix the [Issue #47](https://www.curseforge.com/wow/addons/azeritepowerweights/issues/47) for real?
+   - There is new setting which is on by default and the addon works like previously prefering the highest scored major essence and selecting best minor essences after that.
+   - When the new setting is disabled, the addon will calculate overall scores for couple different high scored major essences and pick the highest scored overall combination.
+   - With the introduction of this new setting, there is two more strings for translators at [Curseforge Localization tool](https://www.curseforge.com/wow/addons/azeritepowerweights/localization).
+- The addon is now coloring the best traits and essences for you.
+   - For azerite traits the addon will color the highest scored trait(s) for every tier with heirloom-color to help you see them faster.
+   - For azerite essences the addon will color the highest scored major essence(s) with legendary-color and the minors with heirloom-color to help you see them faster.
+
+### 8.2.14
+
+- Last update didn't solve [Issue #47](https://www.curseforge.com/wow/addons/azeritepowerweights/issues/47) so I'm updating some debug tools to help me find the source of the bug.
+
+### 8.2.13
+
+- Fix bug where minor essences got wrong value in potential and maximum calculations. This should fix [Issue #47](https://www.curseforge.com/wow/addons/azeritepowerweights/issues/47)
+- Show both major and minor values in the major slot instead of combined value in EssenceUI.
+
+### 8.2.12
+
+- Update Russian translations
+- Fix missing changelog from last update
+
+### 8.2.11
+
+- Updated Default-scales (SimulationCraft 820-02 for World of Warcraft 8.2.0 Live (wow build 31478))
+- At least Traditional Chinese translations have been updated
+- Minor version TOC bump because it was bothering someone
+
+### 8.2.10
+
+- Fixed a bug where slash-sign ('/') in scales name would make the scale unselectable in the scales list. This solves [Issue #46](https://www.curseforge.com/wow/addons/azeritepowerweights/issues/46)
+- New feature: There is a button in scale editor to switch between Trait-weights and Essence-weights of the scale.
+   - This adds two new strings for translators to translate at [Curseforge Localization tool](https://www.curseforge.com/wow/addons/azeritepowerweights/localization)
+- Updated one API call to match todays standards.
+- Changing Github Webhook to BigWigs packager -script
+- No changes to the Default-scales. They will follow in another update soon(tm) when I have time to run them first.
+
 ### 8.2.9
 
 - Updated Default-scales (SimulationCraft 820-02 for World of Warcraft 8.2.0 Live (wow build 31429))

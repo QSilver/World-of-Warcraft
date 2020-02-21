@@ -13,6 +13,8 @@ L["A tab delimited output for Excel. Might work with other spreadsheets."] = "Un
 L["Abort"] = "Cancelar"
 L["Accept Whispers"] = "Aceptar Susurros"
 L["accept_whispers_desc"] = "Permite a los jugadores susurrar su(s) objeto(s) actual (s) para que puedan tenerse en cuenta en la votación."
+--[[Translation missing --]]
+--[[ L["Accepted imports: 'Player Export' and 'CSV'"] = ""--]] 
 L["Active"] = "Activar"
 L["active_desc"] = "Desactive la opcion para desactivar RCLootCouncil. Esto es útil si estas en un grupo de banda, pero no participas en el reparto de botín. Nota: Esto se restablece cada cierre de sesión."
 L["Add Item"] = "Añadir un objeto"
@@ -41,6 +43,8 @@ L["All items"] = "Todos los objetos"
 L["Alt click Looting"] = "Pulsar ALT para Repartir"
 L["alt_click_looting_desc"] = "Activar el clic de ALT para repartir el loot, es decir, se inicia una sesión de reparto del loot manteniendo pulsada la tecla Alt (izquierdo) y haciendo clic en un objeto."
 L["Alternatively, flag the loot as award later."] = "Alternativamente, marcar el loot para premiar más tarde."
+--[[Translation missing --]]
+--[[ L["Always show owner"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["Always use RCLootCouncil with Personal Loot"] = ""--]] 
 --[[Translation missing --]]
@@ -206,6 +210,8 @@ L["confirm_usage_text"] = [=[|cFF87CEFA RCLootCouncil |r
 ¿Te gustaría usar RCLootCouncil con este grupo?]=]
 --[[Translation missing --]]
 --[[ L["Conqueror Token"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["Corruption if awarded:"] = ""--]] 
 L["Could not Auto Award i because the Loot Threshold is too high!"] = "No se pudo Autopremiar %s debido a que el limite de botin es demasiado alto!"
 L["Could not find 'player' in the group."] = "No se pudo encontrar a %s en el grupo"
 L["Couldn't find any councilmembers in the group"] = "No se pudo encontrar ningún miembro del concilio en el grupo"
@@ -275,7 +281,15 @@ L["ignore_input_desc"] = "Introduzca la ID de un objeto para añadirlo a lista d
 L["ignore_input_usage"] = "Esta funcion solo acepta ItemIDs (numero identificador del objeto)"
 L["ignore_list_desc"] = "Articulo esta siendo ignorado por RCLootCouncil.Haga clic en un elemento para eliminarlo."
 L["ignore_options_desc"] = "Control de los objetos que RCLootCouncil debe ignorar. Si se agrega un objeto que no se almacena en cache, es necesario cambiar a otra ventana y regresar a la misma para que lo vea en la lista."
+--[[Translation missing --]]
+--[[ L["Import aborted"] = ""--]] 
 L["import_desc"] = "Pega los datos aqui. Solo se mostraran los primeros 2500 caracteres para evitar que el juego se congele"
+--[[Translation missing --]]
+--[[ L["import_malformed"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["import_malformed_header"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["import_not_supported"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["Invalid selection"] = ""--]] 
 L["Item"] = "Objeto"
@@ -325,6 +339,8 @@ L["Message for each item"] = "Mensaje para cada objeto"
 L["message_desc"] = "El mensaje a enviar al canal seleccionado."
 L["Minimize in combat"] = "Minimizar en combate"
 L["Minor Upgrade"] = "Mejora Menor"
+--[[Translation missing --]]
+--[[ L["Missing votes from:"] = ""--]] 
 L["ML sees voting"] = "MS ve la votacion"
 L["ml_sees_voting_desc"] = "Permitir al Maestro Despojador ver quien vota por quien."
 --[[Translation missing --]]
@@ -387,7 +403,11 @@ L["Opens the synchronizer"] = "Abrir el sincronizador"
 --[[Translation missing --]]
 --[[ L["opt_autoTrade_desc"] = ""--]] 
 --[[Translation missing --]]
+--[[ L["opt_award_later_desc"] = ""--]] 
+--[[Translation missing --]]
 --[[ L["opt_buttonsGroup_desc"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_chatFrameName_desc"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["opt_deleteDate_confirm"] = ""--]] 
 --[[Translation missing --]]
@@ -400,6 +420,10 @@ L["Opens the synchronizer"] = "Abrir el sincronizador"
 --[[ L["opt_deletePatch_confirm"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["opt_deletePatch_desc"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_deleteRaid_confirm"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_deleteRaid_desc"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["opt_moreButtons_desc"] = ""--]] 
 --[[Translation missing --]]
@@ -494,7 +518,11 @@ L["save_skin_desc"] = "Introduce el nombre de la apariencia y presiona Ok para g
 L["Self Vote"] = "Voto Propio"
 L["self_vote_desc"] = "Permite a los votantes votar por si mismos"
 L["Send History"] = "Enviar historia"
+--[[Translation missing --]]
+--[[ L["Send to Guild"] = ""--]] 
 L["send_history_desc"] = "Enviar datos a todo el mundo de la banda,sin importar si inicia sesion usted mismo. RCLootCouncil solo enviara datos si usted es el Maestro despojador"
+--[[Translation missing --]]
+--[[ L["send_to_guild_desc"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["Sending 'type' to 'player'..."] = ""--]] 
 L["Sent whisper help to 'player'"] = "Susurro ayuda enviada a %s"
@@ -527,6 +555,8 @@ L["Something went wrong :'("] = "Algo salio mal :("
 --[[Translation missing --]]
 --[[ L["sort_items_desc"] = ""--]] 
 L["Standard .csv output."] = "Exportar en .csv estándar."
+--[[Translation missing --]]
+--[[ L["Standard JSON output."] = ""--]] 
 L["Status texts"] = "Textos de estado"
 --[[Translation missing --]]
 --[[ L["Store in bag and award later"] = ""--]] 

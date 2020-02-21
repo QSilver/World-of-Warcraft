@@ -677,6 +677,7 @@ DF.CrowdControlSpells = {
 	[217832] = "DEMONHUNTER", --Imprison
 	[200166] = "DEMONHUNTER", --Metamorphosis
 	[207685] = "DEMONHUNTER", --Sigil of Misery
+	[211881] = "DEMONHUNTER", -- Fel Eruption
 }
 
 DF.SpecIds = {
@@ -789,6 +790,13 @@ DF.FlaskIDs = {
 	[251837] = true, -- Flask of Endless Fathoms intellect
 	[251838] = true, -- Flask of the Vast Horizon stamina
 	[251839] = true, -- Flask of the Undertow strength
+
+	------------------------------------------------------------------------
+	--revision ny nullKomplex july 07 2019
+	[298836] = true, -- Greater Flask of the Currents agility
+	[298837] = true, -- Greater Flask of Endless Fathoms intellect
+	[298839] = true, -- Greater Flask of the Vast Horizon stamina
+	[298841] = true, -- Greater Flask of the Undertow strength
 }
 
 DF.FoodIDs = {
@@ -811,6 +819,31 @@ DF.FoodIDs = {
 	[259455] = 100, --Bountiful Captain's Feast intellect
 	[259457] = 100, --Bountiful Captain's Feast stamina
 	[257427] = 100, --Bountiful Captain's Feast strength
+	
+	------------------------------------------------------------------------
+	--revision ny nullKomplex july 07 2019
+	[288074] = 113, -- Wild Berry Bread stamina (maybe fake it as 41?)
+
+	[285721] = 60, -- Druid Rebirth trait agility
+	[285719] = 60, -- Druid Rebirth trait intellect
+	[285720] = 60, -- Druid Rebirth trait strength
+
+	-- Put in 70 section:
+	[288075] = 150, -- Seasoned Steak and Potatoes (70?)
+
+	[290467] = 85, -- Boralus Blood Sausage agility
+	[290468] = 85, -- Boralus Blood Sausage intellect
+	[290469] = 85, -- Boralus Blood Sausage strength
+
+	[297037] =  93, -- Bil'Tong versatility
+	[297034] =  93, -- Baked Port Tato haste
+	[297035] =  93, -- Abyssal-Fried Rissole mastery
+	[297039] =  93, -- Mech-Dowel's "Big Mech" critical
+	[297040] =  198, -- Fragrant Kakavia stamina (93?)
+
+	[297116] = 131, -- Famine Evaluator And Snack Table agility
+	[297117] = 131, -- Famine Evaluator And Snack Table intellect
+	[297118] = 131, -- Famine Evaluator And Snack Table strength
 }
 
 DF.PotionIDs = {
@@ -822,6 +855,19 @@ DF.PotionIDs = {
 	[269853] = true, --Potion of Rising Death (range)
 	[251316] = true, --Potion of Bursting Blood (melee)
 	[251231] = true, --Steelskin Potion (tank)
+	
+	------------------------------------------------------------------------
+	--revision ny nullKomplex july 07 2019
+	[298146] = true, -- Superior Battle Potion of Agility
+	[298152] = true, -- Superior Battle Potion of Intellect
+	[298153] = true, -- Superior Battle Potion of Stamina
+	[298154] = true, -- Superior Battle Potion of Strength
+
+	[298317] = true, -- Potion of Focused Resolve (crit)
+	[300714] = true, -- Potion of Unbridled Fury (fire damage)
+	[298225] = true, -- Potion of Empowered Proximity (main stat per enemy)
+	[298155] = true, -- Superior Steelskin Potion (tank)
+	[300741] = true, -- Potion of Wild Mending (healer)
 }
 
 DF.RuneIDs = {
@@ -833,8 +879,8 @@ DF.RuneIDs = {
 
 function DF:GetSpellsForEncounterFromJournal (instanceEJID, encounterEJID)
 
-	EJ_SelectInstance (instanceEJID) 
-	local name, description, encounterID, rootSectionID, link = EJ_GetEncounterInfo (encounterEJID) --taloc (primeiro boss de Uldir)
+	DetailsFramework.EncounterJournal.EJ_SelectInstance (instanceEJID) 
+	local name, description, encounterID, rootSectionID, link = DetailsFramework.EncounterJournal.EJ_GetEncounterInfo (encounterEJID) --taloc (primeiro boss de Uldir)
 	
 	if (not name) then
 		print ("DetailsFramework: Encounter Info Not Found!", instanceEJID, encounterEJID)
@@ -872,7 +918,57 @@ function DF:GetSpellsForEncounterFromJournal (instanceEJID, encounterEJID)
 	return spellIDs
 end
 
+--default spells to use in the range check
+DF.SpellRangeCheckListBySpec = {
+	-- 185245 spellID for Torment, it is always failing to check range with IsSpellInRange()
+	[577] = 278326, --> havoc demon hunter - Consume Magic
+	[581] = 278326, --> vengeance demon hunter - Consume Magic
 
+	[250] = 56222, --> blood dk - dark command
+	[251] = 56222, --> frost dk - dark command
+	[252] = 56222, --> unholy dk - dark command
+	
+	[102] = 8921, -->  druid balance - Moonfire (45 yards)
+	[103] = 8921, -->  druid feral - Moonfire (40 yards)
+	[104] = 6795, -->  druid guardian - Growl
+	[105] = 8921, -->  druid resto - Moonfire (40 yards)
+
+	[253] = 193455, -->  hunter bm - Cobra Shot
+	[254] = 19434, --> hunter marks - Aimed Shot
+	[255] = 271788, --> hunter survivor - Serpent Sting
+	
+	[62] = 227170, --> mage arcane - arcane blast
+	[63] = 133, --> mage fire - fireball
+	[64] = 228597, --> mage frost - frostbolt
+	
+	[268] = 115546 , --> monk bm - Provoke
+	[269] = 117952, --> monk ww - Crackling Jade Lightning (40 yards)
+	[270] = 117952, --> monk mw - Crackling Jade Lightning (40 yards)
+	
+	[65] = 20473, --> paladin holy - Holy Shock (40 yards)
+	[66] = 62124, --> paladin protect - Hand of Reckoning
+	[70] = 62124, --> paladin ret - Hand of Reckoning
+	
+	[256] = 585, --> priest disc - Smite
+	[257] = 585, --> priest holy - Smite
+	[258] = 8092, --> priest shadow - Mind Blast
+	
+	[259] = 185565, --> rogue assassination - Poisoned Knife (30 yards)
+	[260] = 185763, --> rogue outlaw - Pistol Shot (20 yards)
+	[261] = 114014, --> rogue sub - Shuriken Toss (30 yards)
+
+	[262] = 188196, --> shaman elemental - Lightning Bolt
+	[263] = 187837, --> shaman enhancement - Lightning Bolt (instance cast)
+	[264] = 403, --> shaman resto - Lightning Bolt
+
+	[265] = 686, --> warlock aff - Shadow Bolt
+	[266] = 686, --> warlock demo - Shadow Bolt
+	[267] = 116858, --> warlock destro - Chaos Bolt
+	
+	[71] = 355, --> warrior arms - Taunt
+	[72] = 355, --> warrior fury - Taunt
+	[73] = 355, --> warrior protect - Taunt
+}
 
 
 

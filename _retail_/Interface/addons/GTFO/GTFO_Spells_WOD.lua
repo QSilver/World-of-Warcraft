@@ -3,8 +3,9 @@
 --------------------------------------------------------------------------
 --[[
 GTFO Spell List - Warlords of Draenor
-Author: Zensunim of Malygos
 ]]--
+
+if (not GTFO.ClassicMode) then
 
 -- ***********
 -- * Draenor *
@@ -727,6 +728,7 @@ GTFO.SpellID["175643"] = {
 GTFO.SpellID["159686"] = {
 	--desc = "Acidback Puddle (Darkshard Acidback)";
 	sound = 1;
+	trivialLevelApplication = 120;
 };
 
 GTFO.SpellID["159520"] = {
@@ -744,6 +746,7 @@ GTFO.SpellID["175605"] = {
 GTFO.SpellID["173192"] = {
 	--desc = "Cave In (Gruul)";
 	sound = 1;
+	trivialLevelApplication = 120;
 };
 
 GTFO.SpellID["156203"] = {
@@ -764,6 +767,7 @@ GTFO.SpellID["156932"] = {
 GTFO.SpellID["155743"] = {
 	--desc = "Slag Pool (Heart of the Mountain)";
 	sound = 1;
+	trivialLevelApplication = 120;
 };
 
 GTFO.SpellID["155223"] = {
@@ -872,6 +876,7 @@ GTFO.SpellID["174773"] = {
 GTFO.SpellID["165195"] = {
 	--desc = "Prototype Pulse Grenade (Operator Thogar)";
 	sound = 1;
+	trivialLevelApplication = 120;
 };
 
 GTFO.SpellID["156932"] = {
@@ -959,6 +964,7 @@ GTFO.SpellID["175642"] = {
 GTFO.SpellID["175654"] = {
 	--desc = "Rune of Disintegration";
 	sound = 1;
+	ignoreApplication = true;
 };
 
 GTFO.SpellID["161635"] = {
@@ -1005,6 +1011,7 @@ GTFO.SpellID["172069"] = {
 GTFO.SpellID["162370"] = {
 	--desc = "Crystalline Barrage (Tectus)";
 	sound = 1;
+	trivialLevelApplication = 120;
 };
 
 GTFO.SpellID["173232"] = {
@@ -1015,6 +1022,7 @@ GTFO.SpellID["173232"] = {
 GTFO.SpellID["163590"] = {
 	--desc = "Creeping Moss (Brackenspore)";
 	sound = 1;
+	trivialLevelApplication = 120;
 };
 
 GTFO.SpellID["159220"] = {
@@ -1055,16 +1063,19 @@ GTFO.SpellID["158241"] = {
 	--desc = "Blaze (Phemos)";
 	sound = 1;
 	applicationOnly = true;
+	trivialLevelApplication = 120;
 };
 
 GTFO.SpellID["173827"] = {
 	--desc = "Wild Flames";
 	sound = 1;
+	trivialLevelApplication = 120;
 };
 
 GTFO.SpellID["172917"] = {
 	--desc = "Expel Magic: Fel (Ko'rgah, Mythic)";
 	sound = 1;
+	trivialLevelApplication = 120;
 };
 
 GTFO.SpellID["175056"] = {
@@ -1115,6 +1126,12 @@ GTFO.SpellID["157353"] = {
 			return 1;
 		end
 	end;
+};
+
+GTFO.SpellID["176533"] = {
+  --desc = "Growing Shadows (Cho'gall)";
+  sound = 1;
+  trivialLevelApplication = 120;
 };
 
 GTFO.SpellID["174405"] = {
@@ -1188,21 +1205,25 @@ GTFO.SpellID["188072"] = {
 GTFO.SpellID["187103"] = {
 	--desc = "Residual Shadows (Shadow Infuser)";
 	sound = 1;
+	trivialLevelApplication = 120;
 };
 
 GTFO.SpellID["185521"] = {
 	--desc = "Foul Globule (Kormrok)";
 	sound = 1;
+	trivialLevelApplication = 120;
 };
 
 GTFO.SpellID["185519"] = {
 	--desc = "Fiery Globule (Kormrok)";
 	sound = 1;
+	trivialLevelApplication = 120;
 };
 
 GTFO.SpellID["180270"] = {
 	--desc = "Shadow Globule (Kormrok)";
 	sound = 1;
+	trivialLevelApplication = 120;
 };
 
 GTFO.SpellID["186560"] = {
@@ -1223,16 +1244,19 @@ GTFO.SpellID["181082"] = {
 GTFO.SpellID["185686"] = {
 	--desc = "Fiery Residue (Kormrok - Mythic)";
 	sound = 1;
+	trivialLevelApplication = 120;
 };
 
 GTFO.SpellID["185687"] = {
 	--desc = "Foul Residue (Kormrok - Mythic)";
 	sound = 1;
+	trivialLevelApplication = 120;
 };
 
 GTFO.SpellID["181208"] = {
 	--desc = "Shadow Residue (Kormrok - Mythic)";
 	sound = 1;
+	trivialLevelApplication = 120;
 };
 
 GTFO.SpellID["180246"] = {
@@ -1279,12 +1303,14 @@ GTFO.SpellID["186770"] = {
 GTFO.SpellID["182600"] = {
 	--desc = "Fel Fire (Shadow-Lord Iskar)";
 	sound = 1;
+	trivialLevelApplication = 120;
 };
 
 GTFO.SpellID["182218"] = {
 	--desc = "Felblaze Residue (Socrethar)";
 	sound = 1;
 	vehicle = true;
+	trivialLevelApplication = 120;
 };
 
 GTFO.SpellID["181653"] = {
@@ -1328,12 +1354,14 @@ GTFO.SpellID["181192"] = {
 GTFO.SpellID["182171"] = {
 	--desc = "Blood of Mannoroth (Mannoroth)";
 	sound = 1;
+	trivialLevelApplication = 120;
 };
 
 GTFO.SpellID["183586"] = {
 	--desc = "Doomfire (Archimonde)";
 	sound = 1;
 	applicationOnly = true;
+	trivialLevelApplication = 120;
 };
 
 GTFO.SpellID["187255"] = {
@@ -1354,4 +1382,8 @@ GTFO.SpellID["186510"] = {
 GTFO.SpellID["189550"] = {
 	--desc = "Rain of Fire (Azgalor)";
 	sound = 1;
+	trivialLevelApplication = 120;
 };
+
+
+end

@@ -1,10 +1,16 @@
-lightweight tag 0205a567422fed480a93815a817352ceb499e978 v1.4.3
+lightweight tag 319bfe48c2218087f4575b38674f4835da1d7874 v1.4.4
 Author:	Ketho <sghs17@outlook.com>
-Date:	Wed Apr 24 15:21:41 2019 +0200
+Date:	Thu Nov 28 07:23:26 2019 +0100
 
-commit 0205a567422fed480a93815a817352ceb499e978
+commit 319bfe48c2218087f4575b38674f4835da1d7874
 Author: Ketho <sghs17@outlook.com>
-Date:   Wed Apr 24 15:21:41 2019 +0200
+Date:   Thu Nov 28 07:23:26 2019 +0100
 
-    Forgot to bump TOC
+    Update TOC
+
+commit 4842c121d295de2ab6af4ce5fd3cab68a870e8dd
+Author: Ketho <sghs17@outlook.com>
+Date:   Sun Nov 24 06:56:40 2019 +0100
+
+    8.3.0 (32593)
 

@@ -1,6 +1,116 @@
 
+OmniCCDB = {
+	["global"] = {
+		["addonVersion"] = "8.3.5",
+		["dbVersion"] = 5,
+	},
+	["profileKeys"] = {
+		["Qsilver - Silvermoon"] = "Default",
+	},
+	["profiles"] = {
+		["Default"] = {
+			["rules"] = {
+				{
+					["patterns"] = {
+						"LossOfControl", -- [1]
+						"TotemFrame", -- [2]
+					},
+					["id"] = "Ignore",
+					["priority"] = 1,
+					["theme"] = "Ignore",
+				}, -- [1]
+				{
+					["patterns"] = {
+						"PlaterMainAuraIcon", -- [1]
+						"PlaterSecondaryAuraIcon", -- [2]
+						"ExtraIconRowIcon", -- [3]
+					},
+					["id"] = "Plater Nameplates Rule",
+					["priority"] = 2,
+					["theme"] = "Plater Nameplates Theme",
+				}, -- [2]
+			},
+			["themes"] = {
+				["Plater Nameplates Theme"] = {
+					["textStyles"] = {
+						["seconds"] = {
+						},
+						["soon"] = {
+						},
+						["minutes"] = {
+						},
+					},
+					["enableText"] = false,
+				},
+				["Default"] = {
+					["textStyles"] = {
+						["soon"] = {
+							["scale"] = 1.50000001490116,
+						},
+						["seconds"] = {
+							["scale"] = 1.00000000745058,
+						},
+						["minutes"] = {
+							["scale"] = 1.00000000745058,
+						},
+						["hours"] = {
+							["scale"] = 0.700000002980232,
+						},
+						["charging"] = {
+							["r"] = 1,
+							["scale"] = 0.650000002235174,
+							["g"] = 0.98,
+							["b"] = 0.4,
+						},
+						["controlled"] = {
+							["scale"] = 1.50000001490116,
+						},
+					},
+					["tenthsDuration"] = 5,
+					["fontOutline"] = "THICKOUTLINE",
+					["minSize"] = 0,
+					["mmSSDuration"] = 900,
+					["spiralOpacity"] = 1.00999997742474,
+					["minEffectDuration"] = 0,
+					["fontSize"] = 15,
+				},
+				["Ignore"] = {
+					["textStyles"] = {
+						["soon"] = {
+							["scale"] = 1.50000001490116,
+						},
+						["seconds"] = {
+							["scale"] = 1.00000000745058,
+						},
+						["minutes"] = {
+							["scale"] = 1.00000000745058,
+						},
+						["hours"] = {
+							["scale"] = 0.700000002980232,
+						},
+						["charging"] = {
+							["r"] = 1,
+							["scale"] = 0.650000002235174,
+							["g"] = 0.98,
+							["b"] = 0.4,
+						},
+						["controlled"] = {
+							["scale"] = 1.50000001490116,
+						},
+					},
+					["tenthsDuration"] = 5,
+					["fontOutline"] = "THICKOUTLINE",
+					["mmSSDuration"] = 900,
+					["enableText"] = false,
+					["spiralOpacity"] = 1.00999997742474,
+					["minEffectDuration"] = 0,
+					["fontSize"] = 15,
+				},
+			},
+		},
+	},
+}
 OmniCC4Config = {
-	["engine"] = "ScriptUpdater",
 	["groups"] = {
 		{
 			["id"] = "Ignore",
@@ -11,23 +121,25 @@ OmniCC4Config = {
 			["enabled"] = true,
 		}, -- [1]
 	},
+	["engine"] = "ScriptUpdater",
+	["version"] = "8.2.5",
 	["groupSettings"] = {
 		["base"] = {
 			["enabled"] = true,
 			["fontFace"] = "Fonts\\FRIZQT__.TTF",
 			["fontSize"] = 15,
 			["effect"] = "pulse",
-			["minDuration"] = 2,
+			["scaleText"] = true,
 			["minEffectDuration"] = 0,
 			["minSize"] = 0,
 			["spiralOpacity"] = 1.00999997742474,
-			["yOff"] = 0,
+			["minDuration"] = 2,
 			["xOff"] = 0,
 			["tenthsDuration"] = 5,
 			["fontOutline"] = "THICKOUTLINE",
 			["anchor"] = "CENTER",
 			["mmSSDuration"] = 900,
-			["scaleText"] = true,
+			["yOff"] = 0,
 			["styles"] = {
 				["soon"] = {
 					["a"] = 1,
@@ -113,19 +225,18 @@ OmniCC4Config = {
 				},
 			},
 			["effect"] = "pulse",
-			["scaleText"] = true,
+			["yOff"] = 0,
 			["mmSSDuration"] = 900,
 			["anchor"] = "CENTER",
 			["spiralOpacity"] = 1.00999997742474,
-			["minDuration"] = 2,
+			["scaleText"] = true,
 			["xOff"] = 0,
 			["tenthsDuration"] = 5,
 			["fontOutline"] = "THICKOUTLINE",
 			["minSize"] = 0.5,
 			["minEffectDuration"] = 0,
-			["yOff"] = 0,
+			["minDuration"] = 2,
 			["fontSize"] = 15,
 		},
 	},
-	["version"] = "8.2.4",
 }

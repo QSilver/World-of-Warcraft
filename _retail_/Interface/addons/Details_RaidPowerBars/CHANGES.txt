@@ -1,7 +1,10 @@
-changeset:   44:1a709231d237
-tag:         v8.2.0.044
-user:        Tercioo
-date:        Fri Jun 28 19:53:06 2019 -0300
-summary:     - ToC Update for Patch 8.2
+lightweight tag b6e0e25d61a6916be2787fe1ad0c26c585da608f v8.3.0.047
+Author:	Tercio Jose <terciob19@hotmail.com>
+Date:	Mon Feb 17 16:41:30 2020 -0300
 
+commit b6e0e25d61a6916be2787fe1ad0c26c585da608f
+Author: Tercio Jose <terciob19@hotmail.com>
+Date:   Mon Feb 17 16:41:30 2020 -0300
+
+    ToC Update patch 8.3
 

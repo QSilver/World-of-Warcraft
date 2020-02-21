@@ -23,13 +23,13 @@ local UnitClass = UnitClass
 local SharedMedia = LibStub:GetLibrary ("LibSharedMedia-3.0")
 
 --> Create the plugin Object
-local RaidPowerBars = _detalhes:NewPluginObject ("Details_PowerBar")
+local RaidPowerBars = _detalhes:NewPluginObject ("Details_RaidPowerBars")
 --> Main Frame
 local RaidPowerBarsFrame = RaidPowerBars.Frame
 
 RaidPowerBars:SetPluginDescription (Loc ["STRING_PLUGIN_DESC"])
 
-RaidPowerBars.version_string = "v1.9"
+RaidPowerBars.version_string = "46"
 local TrackingDebuff = false
 
 local function CreatePluginFrames (data)
@@ -444,9 +444,9 @@ end
 
 function RaidPowerBars:OnEvent (_, event, ...)
 
-	
-	if (event == "ADDON_LOADED") then
+	if (event == "ADDON_LOADED") then --this event is overloaded inside the plugin object creation in Details!
 		local AddonName = select (1, ...)
+
 		if (AddonName == "Details_RaidPowerBars") then
 			
 			if (_G._detalhes) then
@@ -470,7 +470,7 @@ function RaidPowerBars:OnEvent (_, event, ...)
 				_G._detalhes:RegisterEvent (RaidPowerBars, "DETAILS_INSTANCE_STARTSTRETCH")
 				_G._detalhes:RegisterEvent (RaidPowerBars, "DETAILS_INSTANCE_ENDSTRETCH")
 				_G._detalhes:RegisterEvent (RaidPowerBars, "DETAILS_OPTIONS_MODIFIED")
-				
+
 			end
 		end
 

@@ -1,3 +1,149 @@
+# v2.17.1
+## Changes
+### Corruption
+The corruption column will now show a candidate's effective corruption (corruption - resistance) instead of the total corruption.
+When awarding a corruption item, the tooltip showing the new total corruption now takes corruption resistance into consideration.
+Corruption Effects in the tooltip are now colored yellow if an award would make a player exceed its threshold.
+
+### Item Registration
+Changed the detection of looted items to ensure better reliability with high latencies (Classic#9).
+
+## Bugfixes
+* *Mousing over an empty corruption column will no longer result in an error.*
+* *CSV importing data with date and time and no id will now properly add the time part to the history.*
+
+
+#### Dev
+Deprecated `:IsCouncil(name)` with `:CouncilContains(name)`. Former function will be removed in a couple of months.
+
+# v2.17.0
+## Changes
+Updated for patch 8.3.
+
+## Additions
+### Corruption
+Added a new button group for corrupted items.
+This group supersedes all other button groups, regardless of their specificity.
+
+Added a new column in the Voting Frame containing candidates' corruption info.
+Mouse over the value to see a tooltip containing even more info.
+It may also be clickable, N'Zoth wills it..
+
+### Ny'alotha the Waking City
+Added auto pass data for the new trinkets.
+Added both patch 8.3 and the raid as history mass deletion options.
+
+### JSON Export
+Sebastianbassen kindly created a JSON export which is now included (#180).
+
+
+## Bugfixes
+* *Fixed issue with CSV importing responses without button groups (CurseClassic#25).*
+
+# v2.16.1
+## Changes
+
+#### Chat Frame
+`/rc reset` now also resets the chosen chat frame.
+The chat frame is also automatically reset to default if the selected chat frame becomes invalid.
+
+
+## Bugfixes
+* *Time calculations with raid members in different timezones now works properly (CurseClassic#22).*
+* *The TradeUI now detects reawards when a session has ended.*
+* *Bags are now properly ignored by the Auto Award system.*
+
+# v2.16.0
+
+## Additions
+
+### Alt-click Awarding
+ML's can now Award items by Alt-clicking a candidate row, saving you a right-click.
+
+### CSV Import/Export
+Added support for importing custom history through CSV.  
+See the wiki for more info.  
+*Note: The CSV export has changed fields to comply with the new import system. This also means old CSV exports cannot be imported!*
+
+### Frame Options
+Added an option to select which chat frame RCLootCouncil will print to.
+
+### Loot History
+Added "Send to guild" option.  
+Checking this will send history entries to your guild instead of your group.
+
+### Looting Options
+Added "Award Later" option.  
+When enabled, this option will automatically check "Award Later" in the Session Frame.
+
+## Changes
+
+### Loot History
+The history is now sortable by class. Just click the class icon header.
+
+### Options
+
+#### Council
+Current Council list is now sorted alphabetically.
+
+### Voting Frame
+
+#### Awarding
+When Master Looter, awarding an item will now switch session to the first unawarded session instead of simply the next numerical session (i.e. session + 1).
+
+#### Vote Status
+The list is now sorted alphabetically and colored according to the candidates' class.  
+Added councilmembers that haven't yet voted to the list.  
+The names now respects the "Append realm name" option.
+
+#### Votes Column
+Voter names are now class colored.  
+The names now respects the "Append realm name" option.
+
+
+## Bugfixes
+* *Added a potential fix to the occasional false "Full bags" blame.*
+* *Added a history patch for broken "Award Reasons".*
+
+
+### v2.15.1
+---
+###### Bugfixes
+* *Fixed error when council members reconnect during session (Curse#398).*
+* *Fixed error with 'whisper guide' being too long to send in some locales (#177).*
+* *The 'Keep Loot' popup is now only used in raids to avoid it unintentionally popping up in dungeons. This is a temporary fix, as a proper fix needs way more work (Curse#396).*
+* *Adding items to a session will no longer reset rolls on existing items when "Add Rolls" is enabled.*
+* *Adding more than one item to a session could sometimes mess up and make a session switch button disappear.*
+* *Items awarded with "Award Reasons" would retain their original response when filtering the Loot History (CurseClassic#9).*
+
+
+### v2.15.0
+---
+* **Auto Award**  
+* Auto Awards can now only happen on equip able items. #Classic.
+
+
+* **Filters**  
+* Added the option to always show the owner of an item in the voting frame.
+* Enabled by default.
+
+
+###### Bugfixes
+* *The explanation on how to use the whisper system was wrong.*
+* *The whisper system didn't work properly with responses..*
+* *The whisper help system was also broken...*
+
+###### Dev
+* Added `typeCode` to `lootTable`. Used to determine butons/responses for a session. Still backwards compatible with old system.
+* Changed the entire system of adding new button groups. Refer to `ML:GetTypeCodeForItem`.
+* Updated `:PrepareLootTable` to add info from `GetItemInfo` for future comms update.
+* Added "Constants.lua" and moved certain constants there.
+* Added `itemClassID` and `itemSubClassID` to loot history.
+* `RCVotingFrame:RemoveColumn` now automatically updates old sortnext values.
+* Overhauled "TrinketData.lua" with new format and classic trinkets.
+
+
+
 ### v2.14.0
 ---
 * **Voting Frame**  

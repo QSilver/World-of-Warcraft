@@ -2,10 +2,10 @@
 ErrorMonsterDB = {
 	["profileKeys"] = {
 		["Linela - Silvermoon"] = "Default",
-		["Alyara - Silvermoon"] = "Default",
 		["Simroth - Silvermoon"] = "Default",
+		["Alyara - Silvermoon"] = "Default",
 		["Thagmarr - Silvermoon"] = "Default",
-		["Erdanii - Silvermoon"] = "Default",
+		["Flaville - Silvermoon"] = "Default",
 		["Spinhoof - Ragnaros"] = "Default",
 		["Stephanna - Argent Dawn"] = "Default",
 		["Siluna - Silvermoon"] = "Default",
@@ -14,7 +14,7 @@ ErrorMonsterDB = {
 		["Tenderbreeze - Silvermoon"] = "Default",
 		["Kjerstina - Silvermoon"] = "Default",
 		["Dotyou - Silvermoon"] = "Default",
-		["Flaville - Silvermoon"] = "Default",
+		["Erdanii - Silvermoon"] = "Default",
 		["Qsilver - Silvermoon"] = "Default",
 	},
 	["profiles"] = {

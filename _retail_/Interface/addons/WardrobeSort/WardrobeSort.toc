@@ -1,5 +1,5 @@
-## Interface: 80100
-## Version: v1.4.3
+## Interface: 80205
+## Version: v1.4.4
 ## Title: WardrobeSort
 ## Notes: Sorts the Wardrobe
 ## Author: Ketho @ EU-Boulderfist

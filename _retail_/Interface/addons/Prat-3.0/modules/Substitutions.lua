@@ -373,10 +373,8 @@ PL:AddLocale(PRAT_MODULE, "itIT", L)
 
 L = {
 	["Substitutions"] = {
-		--[[Translation missing --]]
-		["%d total user defined substitutions"] = "%d total user defined substitutions",
-		--[[Translation missing --]]
-		["|cffff0000warning:|r subtitution \"%s\" already defined as \"%s\", overwriting"] = "|cffff0000warning:|r subtitution \"%s\" already defined as \"%s\", overwriting",
+		["%d total user defined substitutions"] = "%d substituições definidas pelo usuário",
+		["|cffff0000warning:|r subtitution \"%s\" already defined as \"%s\", overwriting"] = "|cffff0000warning:|r substituindo. \"%s\" já definido como\"%s\", sobrescrevendo",
 		--[[Translation missing --]]
 		["<noguild>"] = "<noguild>",
 		--[[Translation missing --]]
@@ -520,12 +518,9 @@ Click to paste into the chat.]=],
 		["unknown sex"] = "unknown sex",
 		--[[Translation missing --]]
 		["user defined substition \"%s\" not found"] = "user defined substition \"%s\" not found",
-		--[[Translation missing --]]
-		["User defined substitutions"] = "User defined substitutions",
-		--[[Translation missing --]]
-		["user substitutions index (usersubs_idx) doesn't exist! oh dear."] = "user substitutions index (usersubs_idx) doesn't exist! oh dear.",
-		--[[Translation missing --]]
-		["usersub_"] = "usersub_",
+		["User defined substitutions"] = "Substituições definidas pelo usuário",
+		["user substitutions index (usersubs_idx) doesn't exist! oh dear."] = "índice de substituição do úsuario (usersubs_idx) não existe! Oh não!",
+		["usersub_"] = true,
 	}
 }
 
@@ -1416,7 +1411,7 @@ end
     local pat = self:InfoToPattern(info)
     pat = pat and pat.pattern or ""
     local e = ChatEdit_GetActiveWindow()
-    if not e:IsVisible() then
+    if not e or not e:IsVisible() then
       return
     end
 
@@ -1440,6 +1435,10 @@ end
 
     local function Loc(...)
       return prat_match(GetMinimapZoneText())
+    end
+
+    local function GetPlayerMapPosition(unit)
+      return C_Map.GetPlayerMapPosition(C_Map.GetBestMapForUnit(unit), unit):GetXY()
     end
 
     local function Pos()
@@ -1477,20 +1476,20 @@ end
     end
 
     local function PlayerCurrentMana()
-      return prat_match(UnitMana("player"))
+      return prat_match(UnitPower("player"))
     end
 
     local function PlayerMaxMana()
-      return prat_match(UnitManaMax("player"))
+      return prat_match(UnitPowerMax("player"))
     end
 
     local function PlayerPercentMana()
       return prat_match(string.format("%.0f%%%%",
-        floor(100 * (UnitMana("player") / UnitManaMax("player")))))
+        floor(100 * (UnitPower("player") / UnitPowerMax("player")))))
     end
 
     local function PlayerManaDeficit()
-      return prat_match(UnitManaMax("player") - UnitMana("player"))
+      return prat_match(UnitPowerMax("player") - UnitPower("player"))
     end
 
 
@@ -1525,7 +1524,7 @@ end
     local function TargetManaDeficit()
       local str = PL["<notarget>"]
       if UnitExists("target") then
-        str = UnitManaMax("target") - UnitMana("target")
+        str = UnitPowerMax("target") - UnitPower("target")
       end
 
       return prat_match(str)
@@ -1745,7 +1744,7 @@ end
       { pattern = "(%%mp)", matchfunc = PlayerPercentMana, optname = PL["PlayerPercentMana"], type = "OUTBOUND" },
       { pattern = "(%%pmd)", matchfunc = PlayerManaDeficit, optname = PL["PlayerManaDeficit"], type = "OUTBOUND" },
 
-      { pattern = "(%%ail)", matchfunc = PlayerAverageItemLevel, optname = PL["PlayerAverageItemLevel"],
+      GetAverageItemLevel and { pattern = "(%%ail)", matchfunc = PlayerAverageItemLevel, optname = PL["PlayerAverageItemLevel"],
         type = "OUTBOUND" },
 
       { pattern = "(%%tn)", matchfunc = TargetName, optname = PL["TargetName"], type = "OUTBOUND" },

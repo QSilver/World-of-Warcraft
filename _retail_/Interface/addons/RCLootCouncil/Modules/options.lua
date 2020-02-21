@@ -22,14 +22,14 @@ local function createNewButtonSet(path, name, order)
 	-- Create the group
 	path[name] = {
 		order = order,
-		name = name == "AZERITE" and L["Azerite Armor"] or _G[name],
+		name = addon.OPT_MORE_BUTTONS_VALUES[name],
 		desc = "",
 		type = "group",
 		inline = true,
 		args = {
 			optionsDesc = {
 				order = 0,
-				name = format(L["opt_buttonsGroup_desc"], name == "AZERITE" and L["Azerite Armor"] or _G[name]) ,
+				name = format(L["opt_buttonsGroup_desc"], addon.OPT_MORE_BUTTONS_VALUES[name]),
 				type = "description",
 				width = "double",
 			},
@@ -298,7 +298,25 @@ function addon:OptionsTable()
 										name = L["Show Spec Icon"],
 										desc = L["show_spec_icon_desc"],
 										type = "toggle",
+									},
+									chatFrameName = {
+										order = 3,
+										name = _G.CHAT,
+										desc = L["opt_chatFrameName_desc"],
+										type = "select",
+										values = function ()
+											local ret = {}
+											for _, v in ipairs(getglobal("CHAT_FRAMES")) do
+												ret[v] = getglobal(v).name
+											end
+											return ret
+										end,
+										set = function (info, val)
+											DBSet(info, val)
+											addon:DoChatHook()
+										end
 									}
+
 								}
 							},
 							lootHistoryOptions = {
@@ -323,6 +341,13 @@ function addon:OptionsTable()
 										name = L["Send History"],
 										desc = L["send_history_desc"],
 										type = "toggle",
+									},
+									sendHistoryToGuildChannel = {
+										order = 3.1,
+										name = L["Send to Guild"],
+										desc = L["send_to_guild_desc"],
+										type = "toggle",
+										disabled = function() return not self.db.profile.sendHistory end,
 									},
 									header = {
 										order = 4,
@@ -439,6 +464,8 @@ function addon:OptionsTable()
 										type = "select",
 										width = "double",
 										values = {
+											[1579593600] = "Ny'alotha the Waking City raid",
+											[1578988800] = "Patch 8.3.0 (Visions of N'Zoth)",
 											[1562644800] = "Azshara's Eternal Palace raid",
 											[1561521600] = "Patch 8.2.0 (Rise of Azshara)",
 											[1544515200] = "Patch 8.1.0",
@@ -840,7 +867,13 @@ function addon:OptionsTable()
 										name = L["opt_rejectTrade_Name"],
 										desc = L["opt_rejectTrade_Desc"],
 										type = "toggle",
-									}
+									},
+									awardLater = {
+										order = 11,
+										name = L["Award later"],
+										desc = L["opt_award_later_desc"],
+										type = "toggle"
+									},
 								},
 							},
 							voteOptions = {
@@ -1253,23 +1286,8 @@ function addon:OptionsTable()
 										width = "double",
 										name = L["Slot"],
 										type = "select",
-										values = {
-											AZERITE = L["Azerite Armor"],
-											INVTYPE_HEAD = _G.INVTYPE_HEAD,
-											INVTYPE_NECK = _G.INVTYPE_NECK,
-											INVTYPE_SHOULDER = _G.INVTYPE_SHOULDER,
-											INVTYPE_CLOAK = _G.INVTYPE_CLOAK,
-											INVTYPE_CHEST = _G.INVTYPE_CHEST,
-											INVTYPE_WRIST = _G.INVTYPE_WRIST,
-											INVTYPE_HAND = _G.INVTYPE_HAND,
-											INVTYPE_WAIST =_G.INVTYPE_WAIST,
-											INVTYPE_LEGS = _G.INVTYPE_LEGS,
-											INVTYPE_FEET = _G.INVTYPE_FEET,
-											INVTYPE_FINGER = _G.INVTYPE_FINGER,
-											INVTYPE_TRINKET = _G.INVTYPE_TRINKET,
-											WEAPON = _G.WEAPON,
-										},
-										get = function () return selections.AddMoreButtons or "AZERITE" end,
+										values = self.OPT_MORE_BUTTONS_VALUES,
+										get = function () return selections.AddMoreButtons or "INVTYPE_HEAD" end,
 										set = function(i,v) selections.AddMoreButtons = v end,
 									},
 									addBtn = {
@@ -1278,11 +1296,12 @@ function addon:OptionsTable()
 										desc = L["opt_addButton_desc"],
 										type = "execute",
 										func = function()
-											db.enabledButtons[selections.AddMoreButtons or "AZERITE"] = true
+											local selection = selections.AddMoreButtons or "INVTYPE_HEAD"
+											db.enabledButtons[selection] = true
 											-- Also setup default options
 											for i = 1, self.db.profile.maxButtons do
-												if not db.buttons[selections.AddMoreButtons or "AZERITE"][i] then
-													db.buttons[selections.AddMoreButtons or "AZERITE"][i] = {text = L["Button"]}
+												if not db.buttons[selection][i] then
+													db.buttons[selection][i] = {text = L["Button"]}
 												end
 											end
 										end,
@@ -1409,12 +1428,16 @@ function addon:OptionsTable()
 										name = "",
 										values = function()
 											local t = {}
-											for k,v in ipairs(self.db.profile.council) do t[k] = self.Ambiguate(v) end
+											for k,v in ipairs(self.db.profile.council) do t[v] = self.Ambiguate(v) end
+											table.sort(t)
 											return t;
 										end,
 										width = "full",
 										get = function() return true end,
-										set = function(m,key) tremove(self.db.profile.council,key); addon:CouncilChanged() end,
+										set = function(m,key)
+											tDeleteItem(self.db.profile.council, key)
+										 	addon:CouncilChanged()
+										end,
 									},
 									removeAll = {
 										order = 3,

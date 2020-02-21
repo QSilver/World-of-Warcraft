@@ -162,8 +162,7 @@ PL:AddLocale(PRAT_MODULE, "itIT", L)
 
 L = {
 	["CopyChat"] = {
-		--[[Translation missing --]]
-		[" Text"] = " Text",
+		[" Text"] = "Texto",
 		--[[Translation missing --]]
 		["BBCode"] = "BBCode",
 		--[[Translation missing --]]
@@ -204,8 +203,7 @@ L = {
 		["TOPLEFT"] = "Top, Left",
 		--[[Translation missing --]]
 		["TOPRIGHT"] = "Top, Right",
-		--[[Translation missing --]]
-		["Wowace.com Forums"] = "Wowace.com Forums",
+		["Wowace.com Forums"] = "Wowace.com Fóruns",
 	}
 }
 

@@ -1,7 +1,8 @@
 # LittleWigs
 
-## [v8.2.14](https://github.com/BigWigsMods/LittleWigs/tree/v8.2.14) (2019-09-02)
-[Full Changelog](https://github.com/BigWigsMods/LittleWigs/compare/v8.2.13...v8.2.14)
+## [v8.3.6](https://github.com/BigWigsMods/LittleWigs/tree/v8.3.6) (2020-02-11)
+[Full Changelog](https://github.com/BigWigsMods/LittleWigs/compare/v8.3.5...v8.3.6)
 
-- Bfa: Keep trash modules enabled when bosses are engaged  
-- BfA/Mechagon/TrixieNaeno: Fix Mega Taze timer.  
+- Update deDE (#506)  
+- BfA: Add Horrific Vision of Stormwind (#505)  
+- Update ruRU (#503)  

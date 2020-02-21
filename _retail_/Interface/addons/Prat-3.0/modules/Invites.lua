@@ -172,18 +172,12 @@ Prat:AddModuleToLoad(function()
     
   L = {
 	["Invites"] = {
-		--[[Translation missing --]]
-		["Enable Alt-Invite"] = "Enable Alt-Invite",
-		--[[Translation missing --]]
-		["Enable Invite Links"] = "Enable Invite Links",
-		--[[Translation missing --]]
-		["module_desc"] = "Options for easy inviting of players to groups",
-		--[[Translation missing --]]
-		["module_name"] = "Invites",
-		--[[Translation missing --]]
-		["Toggle group invites by alt-clicking hyperlinked keywords like 'invite'."] = "Toggle group invites by alt-clicking hyperlinked keywords like 'invite'.",
-		--[[Translation missing --]]
-		["Toggle group invites by alt-clicking on player name."] = "Toggle group invites by alt-clicking on player name.",
+		["Enable Alt-Invite"] = "启用Alt-调出",
+		["Enable Invite Links"] = "启用调出链接",
+		["module_desc"] = "便捷邀请玩家加入队伍的选项",
+		["module_name"] = "邀请",
+		["Toggle group invites by alt-clicking hyperlinked keywords like 'invite'."] = "通过按住Alt键单击超链接的关键字（如“邀请”）来切换组队邀请。",
+		["Toggle group invites by alt-clicking on player name."] = "通过按住Alt键点击玩家名字来切换组队邀请。",
 	}
 }
 

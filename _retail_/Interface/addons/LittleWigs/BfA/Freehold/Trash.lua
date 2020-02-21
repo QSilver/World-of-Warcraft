@@ -98,7 +98,7 @@ function mod:GetOptions()
 		-- Soggy Shiprat
 		274555, -- Scabrous Bite
 		-- Irontide Crusher
-		258181, -- Boulder Throw
+		{258181, "NAMEPLATEBAR"}, -- Boulder Throw
 		258199, -- Ground Shatter
 		-- Irontide Buccaneer
 		257870, -- Blade Barrage
@@ -349,6 +349,7 @@ end
 function mod:BoulderThrow(args)
 	self:Message2(args.spellId, "orange")
 	self:PlaySound(args.spellId, "alarm")
+	self:NameplateCDBar(args.spellId, 14, args.sourceGUID)
 end
 
 function mod:GroundShatter(args)

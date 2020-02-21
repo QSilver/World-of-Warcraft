@@ -1,34 +1,46 @@
 ------------------------------------------------------------------------
-r245 | tuhljin | 2019-07-11 08:12:47 +0000 (Thu, 11 Jul 2019) | 4 lines
+r250 | tuhljin | 2020-01-21 23:51:12 +0000 (Tue, 21 Jan 2020) | 10 lines
 Changed paths:
    M /trunk/GameTip.lua
    M /trunk/Overachiever.toc
    M /trunk/Overachiever_Cache/Overachiever_Cache.toc
    M /trunk/Overachiever_Tabs/Overachiever_Tabs.toc
+   M /trunk/Overachiever_Tabs/Suggestions.lua
+   M /trunk/Overachiever_Tabs/build.lua
    M /trunk/Overachiever_Trade/Overachiever_Trade.toc
-   M /trunk/libs
-   M /trunk/libs/TjSharedMediaDropDown/TjSharedMediaDropDown.lua
+   M /trunk/readme.txt
+
+- Updated TOC for WoW patch 8.3.
+- Suggestions Tab:
+-- Added suggestions for Chamber of Heart.
+-- Added suggestions related to Black Empire Assaults on Uldum and Vale of Eternal Blossoms.
+-- Added suggestion for Mardivas's Laboratory.
+-- Added "The Fourth War" to War Campaign Ships suggestions.
+-- Added "Scrappy's Best Friend" to Mechagon Island suggestions.
+-- Added suggestions for the Battle for Darkshore warfront.
+-- Added suggestions for the Battle for Stromgarde heroic warfront.
+-- Added suggestion for revamped Deepwind Gorge battleground.
+------------------------------------------------------------------------
+r249 | tuhljin | 2019-11-27 06:06:01 +0000 (Wed, 27 Nov 2019) | 4 lines
+Changed paths:
+   M /trunk/AchieveTip.lua
+   M /trunk/GameTip.lua
+   M /trunk/Options.lua
+   M /trunk/Overachiever.lua
+   M /trunk/Overachiever.toc
+   M /trunk/Overachiever_Cache/Overachiever_Cache.toc
+   M /trunk/Overachiever_Tabs/Overachiever_Tabs.toc
+   M /trunk/Overachiever_Tabs/Suggestions.lua
+   M /trunk/Overachiever_Tabs/build.lua
+   M /trunk/Overachiever_Trade/Overachiever_Trade.toc
+   M /trunk/libs/TjAchieve.lua
+   M /trunk/libs/TjCalendar.lua
    M /trunk/localization.lua
    M /trunk/readme.txt
 
-- Corrected references to Blizzard sound files.
-- Reminder sound selection dropdown:
--- Now divides sounds from other addons into alphabetical groups to better handle large numbers of sounds.
--- Added a few more Blizzard sounds.
-------------------------------------------------------------------------
-r244 | tuhljin | 2019-07-07 21:23:10 +0000 (Sun, 07 Jul 2019) | 1 line
-Changed paths:
-   M /trunk/.pkgmeta
-
-- Fix PackageMeta to grab correct subfolders.
-------------------------------------------------------------------------
-r243 | tuhljin | 2019-07-07 21:05:57 +0000 (Sun, 07 Jul 2019) | 1 line
-Changed paths:
-   M /trunk/.pkgmeta
-   M /trunk/Overachiever.toc
-   M /trunk/libs/TjSharedMediaDropDown/CallbackHandler-1.0.lua
-   M /trunk/libs/TjSharedMediaDropDown/LibSharedMedia-3.0.lua
-
-- Update libraries used by TjSharedMediaDropDown and set up external references to them in .pkgmeta.
+- Fix missing tooltip textures for achievement reminders and missing checkmark texture for completed achievements in various places (recent reminders, series list, meta requirements).
+- Add options to show reminder text for kill-criteria achievements and the "Azeroth at War..." (mission table) achievements when the achievement is complete.
+- Suggestions Tab: Fix Mechagon Island suggestions not appearing. (Now listed under "Mechagon.")
+- Fix other variables leaking into global scope.
 ------------------------------------------------------------------------
 
