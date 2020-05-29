@@ -95,6 +95,10 @@ do
     module_defaults[type(module) == "table" and module.name or module] = defaults
   end
 
+  function GetModuleDefaults(self, module, defaults)
+    return module_defaults[type(module) == "table" and module.name or module]
+  end
+
   local module_init = {}
   function SetModuleInit(self, module, init)
     module_init[type(module) == "table" and module.name or module or "null"] = init
@@ -172,10 +176,10 @@ do
 
 
   local function onEnable(self) -- ==> INITIALIZED/DISABLED -> ENABLED
---    Print("onEnable() "..self.name)
+    --    Print("onEnable() "..self.name)
     local pats = GetModulePatterns(self)
     if pats then
-      for _,v in ipairs(pats) do
+      for _, v in ipairs(pats) do
         RegisterPattern(v, self.name)
       end
     end
@@ -185,9 +189,10 @@ do
   end
 
   local function onDisable(self) -- ==>INITIALIZED/ENABLED -> DISABLED
---    Print("onDisable() "..self.name)
+    --    Print("onDisable() "..self.name)
     UnregisterAllPatterns(self.name)
     self:OnModuleDisable()
+    UnregisterAllChatEvents(self)
     Modules[self.name] = "DISABLED"
   end
 
@@ -272,7 +277,7 @@ do
   --	end
 
   function Addon:OnModuleCreated(module) -- EXISTS -> INSTALLED
-  --[===[@debug@
+    --[===[@debug@
     _G[module.moduleName:lower()] = module
     --@end-debug@]===]
     Modules[module.name], Modules[module.moduleName] = "INSTALLED"
@@ -338,7 +343,7 @@ do
   end
 
   function LoadModules()
-    for i=1,#modules_toload,1 do
+    for i = 1, #modules_toload, 1 do
       local success, ret = pcall(modules_toload[i])
       if not success then
         _G.geterrorhandler()(ret)
@@ -347,7 +352,7 @@ do
     end
     modules_toload = nil
 
-    for i=1,#extensions_toload,1 do
+    for i = 1, #extensions_toload, 1 do
       local success, ret = pcall(extensions_toload[i])
       if not success then
         _G.geterrorhandler()(ret)

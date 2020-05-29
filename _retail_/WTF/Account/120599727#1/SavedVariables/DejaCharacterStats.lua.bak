@@ -415,15 +415,18 @@ DCS_ClassSpecDB = {
 		}, -- [2]
 		{
 			["statKey"] = "HEALTH",
+			["hidden"] = true,
 		}, -- [3]
 		{
 			["statKey"] = "DCS_POWER",
 		}, -- [4]
 		{
 			["statKey"] = "DCS_ALTERNATEMANA",
+			["hidden"] = true,
 		}, -- [5]
 		{
 			["statKey"] = "ARMOR",
+			["hidden"] = true,
 		}, -- [6]
 		{
 			["statKey"] = "STRENGTH",
@@ -441,15 +444,19 @@ DCS_ClassSpecDB = {
 		}, -- [10]
 		{
 			["statKey"] = "ATTACK_DAMAGE",
+			["hidden"] = false,
 		}, -- [11]
 		{
 			["statKey"] = "ATTACK_AP",
+			["hidden"] = true,
 		}, -- [12]
 		{
 			["statKey"] = "DCS_ATTACK_ATTACKSPEED",
+			["hidden"] = true,
 		}, -- [13]
 		{
 			["statKey"] = "WEAPON_DPS",
+			["hidden"] = true,
 		}, -- [14]
 		{
 			["statKey"] = "SPELLPOWER",
@@ -480,6 +487,7 @@ DCS_ClassSpecDB = {
 		}, -- [22]
 		{
 			["statKey"] = "REPAIR_COST",
+			["hidden"] = true,
 		}, -- [23]
 		{
 			["statKey"] = "EnhancementsCategory",
@@ -524,64 +532,102 @@ DCS_ClassSpecDB = {
 			["hidden"] = true,
 		}, -- [33]
 		{
+			["statKey"] = "RatingCategory",
+			["hidden"] = false,
+		}, -- [34]
+		{
 			["statKey"] = "CRITCHANCE_RATING",
 			["hideAt"] = 0,
-			["hidden"] = true,
-		}, -- [34]
+			["hidden"] = false,
+		}, -- [35]
 		{
 			["statKey"] = "HASTE_RATING",
 			["hideAt"] = 0,
-			["hidden"] = true,
-		}, -- [35]
+			["hidden"] = false,
+		}, -- [36]
 		{
 			["statKey"] = "VERSATILITY_RATING",
 			["hideAt"] = 0,
-			["hidden"] = true,
-		}, -- [36]
+			["hidden"] = false,
+		}, -- [37]
 		{
 			["statKey"] = "MASTERY_RATING",
 			["hideAt"] = 0,
-			["hidden"] = true,
-		}, -- [37]
+			["hidden"] = false,
+		}, -- [38]
 		{
 			["statKey"] = "LIFESTEAL_RATING",
 			["hideAt"] = 0,
 			["hidden"] = true,
-		}, -- [38]
+		}, -- [39]
 		{
 			["statKey"] = "AVOIDANCE_RATING",
 			["hideAt"] = 0,
 			["hidden"] = true,
-		}, -- [39]
+		}, -- [40]
 		{
 			["statKey"] = "DODGE_RATING",
 			["hideAt"] = 0,
 			["hidden"] = true,
-		}, -- [40]
+		}, -- [41]
 		{
 			["statKey"] = "PARRY_RATING",
 			["hideAt"] = 0,
 			["hidden"] = true,
-		}, -- [41]
+		}, -- [42]
 		{
 			["statKey"] = "ITEMLEVEL",
 			["hidden"] = true,
-		}, -- [42]
-		{
-			["statKey"] = "RatingCategory",
 		}, -- [43]
 		{
 			["statKey"] = "OffenseCategory",
+			["hidden"] = true,
 		}, -- [44]
 		{
 			["statKey"] = "GeneralCategory",
+			["hidden"] = true,
 		}, -- [45]
 		{
 			["statKey"] = "DefenseCategory",
+			["hidden"] = true,
 		}, -- [46]
 		{
 			["statKey"] = "SPEED",
+			["hideAt"] = 0,
+			["hidden"] = true,
 		}, -- [47]
+		{
+			["statKey"] = "STAGGER",
+			["roles"] = {
+				"TANK", -- [1]
+			},
+			["hidden"] = true,
+			["hideAt"] = 0,
+		}, -- [48]
+		{
+			["statKey"] = "CR_CORRUPTION_RESISTANCE",
+			["hideAt"] = 0,
+			["hidden"] = true,
+		}, -- [49]
+		{
+			["statKey"] = "CR_CORRUPTION",
+			["hideAt"] = 0,
+			["hidden"] = true,
+		}, -- [50]
+		{
+			["statKey"] = "CorruptionCategory",
+			["hidden"] = true,
+		}, -- [51]
+		{
+			["statKey"] = "CR_TOTAL_CORRUPTION",
+			["hideAt"] = 0,
+			["hidden"] = true,
+		}, -- [52]
+		{
+			["statKey"] = "SPEED_RATING",
+			["hideAt"] = 0,
+			["hidden"] = true,
+		}, -- [53]
 		["uniqueKey"] = "Qsilver:Silvermoon:3",
 	},
 	["Flaville:Silvermoon:2"] = {
@@ -1495,8 +1541,20 @@ DCS_ClassSpecDB = {
 			["hidden"] = true,
 		}, -- [49]
 		{
-			["statKey"] = "DCS_MOVESPEED",
+			["statKey"] = "CR_CORRUPTION_RESISTANCE",
+			["hideAt"] = 0,
 		}, -- [50]
+		{
+			["statKey"] = "CR_CORRUPTION",
+			["hideAt"] = 0,
+		}, -- [51]
+		{
+			["statKey"] = "CorruptionCategory",
+		}, -- [52]
+		{
+			["statKey"] = "CR_TOTAL_CORRUPTION",
+			["hideAt"] = 0,
+		}, -- [53]
 		["uniqueKey"] = "Qsilver:Silvermoon:2",
 	},
 	["Alyara:Silvermoon:2"] = {
@@ -1905,11 +1963,11 @@ DCS_ClassSpecDB = {
 		}, -- [11]
 		{
 			["statKey"] = "ATTACK_AP",
-			["hidden"] = false,
+			["hidden"] = true,
 		}, -- [12]
 		{
 			["statKey"] = "DCS_ATTACK_ATTACKSPEED",
-			["hidden"] = true,
+			["hidden"] = false,
 		}, -- [13]
 		{
 			["statKey"] = "WEAPON_DPS",

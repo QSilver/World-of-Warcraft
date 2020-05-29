@@ -13,14 +13,15 @@ local _G = _G
 
 local ROW_HEIGHT = 30
 local db
-local time_remaining_timer, update_targets_timer
+local update_targets_timer
 local TIME_REMAINING_INTERVAL = 300 -- 5 min
 local TIME_REMAINING_WARNING = 1200 -- 20 min
 local UPDATE_TIME_INTERVAL = 1 -- 1 sec
+local TRADE_ADD_DELAY = 0.100 -- sec
 
 -- lua
-local select, GetItemInfoInstant, pairs, ipairs,  unpack, tinsert, wipe, tremove, format, table, GetTime, CheckInteractDistance, InitiateTrade
-    = select, GetItemInfoInstant, pairs, ipairs,  unpack, tinsert, wipe, tremove, format, table, GetTime, CheckInteractDistance, InitiateTrade
+local select, GetItemInfoInstant, pairs, ipairs,  unpack, tinsert, wipe, format, GetTime, CheckInteractDistance, InitiateTrade
+    = select, GetItemInfoInstant, pairs, ipairs,  unpack, tinsert, wipe, format, GetTime, CheckInteractDistance, InitiateTrade
 -- GLOBALS: GetContainerNumSlots, ClickTradeButton, PickupContainerItem, ClearCursor, GetContainerItemInfo, GetContainerItemLink, GetTradePlayerItemInfo,
 -- GLOBALS: IsModifiedClick, HandleModifiedItemClick, GetTradePlayerItemLink, Ambiguate
 
@@ -48,7 +49,7 @@ function TradeUI:OnEnable()
    self:RegisterEvent("TRADE_ACCEPT_UPDATE", "OnEvent_TRADE_ACCEPT_UPDATE")
    self:RegisterEvent("UI_INFO_MESSAGE", "OnEvent_UI_INFO_MESSAGE")
    self:CheckTimeRemaining()
-   time_remaining_timer = self:ScheduleRepeatingTimer("CheckTimeRemaining", TIME_REMAINING_INTERVAL)
+   self:ScheduleRepeatingTimer("CheckTimeRemaining", TIME_REMAINING_INTERVAL)
 end
 
 function TradeUI:OnDisable() -- Shouldn't really happen
@@ -94,9 +95,30 @@ function TradeUI:OnCommReceived(prefix, serializedMsg, distri, sender)
 	if prefix == "RCLootCouncil" then
 		local test, command, data = addon:Deserialize(serializedMsg)
 		if addon:HandleXRealmComms(self, command, data, sender) then return end
-		if test and command == "awarded" then
-         self:OnAwardReceived(unpack(data))
+		if test then
+         if command == "awarded" then
+            self:OnAwardReceived(unpack(data))
+         elseif command == "do_trade" then
+            self:OnDoTrade(unpack(data))
+         end
       end
+   end
+end
+
+function TradeUI:OnDoTrade (trader, item, winner)
+   if addon:UnitIsUnit(trader, "player") then
+      -- Item should be registered
+      local Item = addon.ItemStorage:GetItem(item, "temp")
+      if not Item then
+         addon:DebugLog("<ERROR>", "Couldn't find item for 'DoTrade'", item, winner)
+         return addon:Print(format("Couldn't find %s to trade to %s",tostring(item), tostring(winner)))
+      end
+      Item.type = "to_trade"
+      Item.args.recipient = winner
+      if Item and addon:UnitIsUnit(winner, "player") and not (addon.testMode or addon.nnp) then
+         addon.ItemStorage:RemoveItem(Item)
+      end
+      self:Show()
    end
 end
 
@@ -106,15 +128,21 @@ function TradeUI:OnAwardReceived (session, winner, trader)
       local Item
       -- Session might have ended, meaning the lootTable is cleared
       local lootSession = addon:GetLootTable()[session]
+      addon:Debug("OnAwardReceived", lootSession, session, winner, trader)
       if lootSession then
-         Item = addon.ItemStorage:GetItem(lootSession.link) -- Update our temp item
-         if Item then
-            Item.type = "to_trade"
-            Item.args.recipient = winner
-            Item.args.session = session
-         else -- Maybe we don't have a temp item; can be caused by manually adding it.
-            Item = addon.ItemStorage:New(lootSession.link, "to_trade", {recipient = winner, session = session}):Store()
+         Item = addon.ItemStorage:GetItem(lootSession.link, "temp") -- Update our temp item
+         addon:Debug("Found item as temp")
+         if not Item then -- No temp item - maybe a changed award?
+            -- In that case we should have the item registered as "to_trade"
+            Item = addon.ItemStorage:GetItem(lootSession.link, "to_trade")
+            if not Item then
+               -- If we still don't have, then create a new
+               Item = addon.ItemStorage:New(lootSession.link, "to_trade", {recipient = winner, session = session}):Store()
+            end
          end
+         Item.type = "to_trade"
+         Item.args.recipient = winner
+         Item.args.session = session
       else
          -- If the session has ended and we receive another award, it's got to be a reaward. Fetch the item based on the session:
          local Items = self:GetStoredItemBySession(session)
@@ -152,7 +180,7 @@ function TradeUI:CheckTimeRemaining()
       for i, Item in pairs(Items) do
          addon:Print(i, Item)
       end
-      for i, Item in pairs(Items) do
+      for _, Item in pairs(Items) do
          if Item.time_remaining <= 0 and Item:SafeToRemove() then
             addon:DebugLog("TradeUI - removed", Item, "due to <= 0 time remaining")
             addon.ItemStorage:RemoveItem(Item)
@@ -233,8 +261,25 @@ function TradeUI:GetStoredItemBySession (session)
    end, true)
 end
 
+local function addItemToTradeWindow (tradeBtn, Item)
+   addon:Debug("addItemToTradeWindow", tradeBtn, Item)
+   local c,s = addon.ItemStorage:GetItemContainerSlot(Item)
+   if not c then -- Item is gone?!
+      addon:Print(L["trade_item_to_trade_not_found"])
+      return addon:Debug("Error TradeUI:", "Item missing when attempting to trade", Item.link, TradeUI.tradeTarget)
+   end
+   local _, _, _, _, _, _, link = GetContainerItemInfo(c, s)
+   if addon:ItemIsItem(link, Item.link) then -- Extra check, probably also redundant
+      addon:Debug("Trading", link, c,s)
+      ClearCursor()
+      PickupContainerItem(c, s)
+      ClickTradeButton(tradeBtn)
+   else -- Shouldn't happen
+      return addon:Debug("<ERROR><TradeUI> Item link mismatch", link, Item.link)
+   end
+end
+
 function TradeUI:AddAwardedInBagsToTradeWindow()
-   local tradeIndex = 1
    local items = addon.ItemStorage:GetAllItemsMultiPred(
       funcTradeTargetIsRecipient, funcItemHasMoreTimeLeft, funcStorageTypeIsToTrade
    )
@@ -243,19 +288,10 @@ function TradeUI:AddAwardedInBagsToTradeWindow()
       if k > _G.MAX_TRADE_ITEMS - 1 then -- All available slots used (The last trade slot is "Will not be traded" slot).
 			break
 		end
-      local c,s = addon.ItemStorage:GetItemContainerSlot(Item)
-      if not c then -- Item is gone?!
-         addon:Print(L["trade_item_to_trade_not_found"])
-         return addon:Debug("Error TradeUI:", "Item missing when attempting to trade", Item.link, self.tradeTarget)
-      end
       if self.isTrading then
-         addon:Debug("#Trading", k)
-         local _, _, locked, _, _, _, link = GetContainerItemInfo(c, s)
-         if addon:ItemIsItem(link, Item.link) then -- Extra check, probably also redundant
-            ClearCursor()
-				PickupContainerItem(c, s)
-				ClickTradeButton(k)
-         end
+         addon:Debug("<TradeUI> Scheduling trade add timer for #", k)
+         -- Delay the adding of items, as we can't add them all at once
+         self:ScheduleTimer(addItemToTradeWindow, TRADE_ADD_DELAY * k, k, Item)
       end
    end
    -- TradeFrameTradeButton:Click() REVIEW When calling this, it seems trade is accepted and then immediately unaccepted. Called it through a timer yield ADDON_ACTION_BLOCKED error.

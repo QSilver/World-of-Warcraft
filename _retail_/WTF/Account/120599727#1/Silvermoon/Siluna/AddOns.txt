@@ -200,7 +200,7 @@ SpellFlash: disabled
 SpellFlashCore: disabled
 BetterQuest: enabled
 ButtonFacade_Renaitre: enabled
-Gladius: disabled
+Gladius: enabled
 GridStatusRole: enabled
 Healers-Have-To-Die: enabled
 Killshot: enabled

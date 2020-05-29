@@ -1,4 +1,4 @@
-﻿## Interface: 80200
+﻿## Interface: 80300
 ## Title: Raid|cff7fff7fAchievement|r - Cataclysm raids
 ## Title-ruRU: Raid|cff7fff7fAchievement|r - Рейды Катаклизма
 ## Author: Shurshik

@@ -498,9 +498,12 @@ PLATER_DEFAULT_SETTINGS = {
 		--plater resources bar
 		plater_resources_show = false, --if the resource bar from plater is enabled
 		plater_resources_personal_bar = false, --if the resource bar shows in the personal bar intead of the current target
-		plater_resources_anchor = {side = 4, x = 0, y = 0},
-		--plater_resources_height = 20, --it'll take the width from the nameplate
-		plater_resources_scale = 1.0,
+		plater_resources_align = "horizontal", --combo points are horizontal alignment
+		plater_resources_grow_direction = "center",
+		plater_resources_show_depleted = false,
+		plater_resources_show_number = false,
+		plater_resources_anchor = {side = 8, x = 0, y = 40},
+		plater_resources_scale = 0.8,
 		plater_resources_padding = 2,
 
 		--transparency control
@@ -569,6 +572,10 @@ PLATER_DEFAULT_SETTINGS = {
 		pet_height_scale = 0.95,
 		minor_width_scale = 0.9,
 		minor_height_scale = 0.95,
+		
+		--> widget settings
+		widget_bar_scale = 0.75,
+		widget_bar_anchor = {side = 4, x = 0, y = 0},
 		
 		no_spellname_length_limit = false,
 		
@@ -681,6 +688,10 @@ PLATER_DEFAULT_SETTINGS = {
 		extra_icon_show_purge_border = {0, .925, 1, 1},
 		extra_icon_show_enrage = false, --extra frame show purge
 		extra_icon_show_enrage_border = {0.85, 0.2, 0.1, 1},
+		extra_icon_show_offensive = false,
+		extra_icon_show_offensive_border = {0, .65, .1, 1},
+		extra_icon_show_defensive = false,
+		extra_icon_show_defensive_border = {.85, .45, .1, 1},
 		
 		extra_icon_auras = {}, --auras for buff special tab
 		extra_icon_auras_mine = {}, --auras in the buff special that are only cast by the player
@@ -696,12 +707,18 @@ PLATER_DEFAULT_SETTINGS = {
 		aura_show_aura_by_the_player = true,
 		aura_show_buff_by_the_unit = true,
 		aura_border_colors_by_type = false,
+		aura_show_crowdcontrol = false,
+		aura_show_offensive_cd = false,
+		aura_show_defensive_cd = false,
 		
 		aura_border_colors = {
 			steal_or_purge = {0, .5, .98, 1},
 			enrage = {0.85, 0.2, 0.1, 1},
 			is_buff = {0, .65, .1, 1},
 			is_show_all = {.7, .1, .1, 1},
+			defensive = {.85, .45, .1, 1},
+			offensive = {0, .65, .1, 1},
+			crowdcontrol = {.3, .2, .2, 1},
 		},
 		
 		--store a table with spell name keys and with a value of a table with all spell IDs that has that exact name
@@ -735,6 +752,12 @@ PLATER_DEFAULT_SETTINGS = {
 			buff_tracked = {},
 			debuff_tracked = {},
 		},
+		
+		bossmod_support_enabled = true,
+		bossmod_aura_height = 32,
+		bossmod_aura_width = 32,
+		bossmod_cooldown_text_size = 16,
+		bossmod_icons_anchor = {side = 8, x = 0, y = 30},
 		
 		not_affecting_combat_enabled = false,
 		not_affecting_combat_alpha = 0.6,

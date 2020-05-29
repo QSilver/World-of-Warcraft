@@ -29,8 +29,7 @@ L["add_ranks_desc2"] = [=[在上方选择一个会阶，添加该会阶以及高
 
 点击"当前议会成员"页来查看你所选择的成员。]=]
 L["add_rolls_desc"] = "自动给所有会话添加1-100的掷点。"
---[[Translation missing --]]
---[[ L["Additional Buttons"] = ""--]] 
+L["Additional Buttons"] = "额外按钮"
 L["All items"] = "所有物品"
 --[[Translation missing --]]
 --[[ L["All items have been awarded and the loot session concluded"] = ""--]] 
@@ -209,6 +208,8 @@ L["Diff"] = "提升"
 --[[ L["Discord friendly output."] = ""--]] 
 L["disenchant_desc"] = "当通过'分解'按钮分配物品时使用该理由"
 --[[Translation missing --]]
+--[[ L["Do you want to keep %s for yourself or trade?"] = ""--]] 
+--[[Translation missing --]]
 --[[ L["Do you want to keep %s for yourself?"] = ""--]] 
 L["Done syncing"] = "同步完成"
 L["Double click to delete this entry."] = "双击删除此项"
@@ -274,6 +275,8 @@ L["Item(s) replaced:"] = "被替换的物品："
 L["item_in_bags_low_trade_time_remaining_reminder"] = "你的背包中的以下在稍后分配列表的物品剩余交易时间不足%s。如果你想避免此提示，交易该物品，使用‘/rc remove [index]’将物品从列表中移除，使用‘/rc clear’清空列表，或者装备该物品使其无法被交易。"
 L["Items stored in the loot master's bag for award later cannot be awarded later."] = "存放在战利品分配者背包内的物品无法被稍后分配。"
 L["Items under consideration:"] = "在考虑中的物品："
+--[[Translation missing --]]
+--[[ L["Keep"] = ""--]] 
 L["Latest item(s) won"] = "最近获得的物品"
 L["Length"] = "长度"
 L["Log"] = "记录"
@@ -294,6 +297,10 @@ L["loot_history_desc"] = [=[RCLootCouncil 将自动记录分配相关信息。
 --[[ L["Looted"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["Looted by:"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["lootFrame_error_note_required"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["lootHistory_moreInfo_winnersOfItem"] = ""--]] 
 L["Looting options"] = "拾取选项"
 L["Lower Quality Limit"] = "最低品质限定"
 L["lower_quality_limit_desc"] = [=[选择自动分配时物品的最低品质限定 (含此品质！)。
@@ -398,6 +405,20 @@ L["Opens the synchronizer"] = "打开同步界面"
 --[[Translation missing --]]
 --[[ L["opt_rejectTrade_Name"] = ""--]] 
 --[[Translation missing --]]
+--[[ L["opt_saveBonusRolls_Desc"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_saveBonusRolls_Name"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["options_autoAwardBoE_desc"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["options_autoAwardBoE_name"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["options_ml_outOfRaid_desc"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["options_ml_outOfRaid_name"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["options_requireNotes_desc"] = ""--]] 
+--[[Translation missing --]]
 --[[ L["Original Owner"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["Out of instance"] = ""--]] 
@@ -440,6 +461,8 @@ L["Remove All"] = "移除所有"
 L["Remove from consideration"] = "从待定中移除"
 L["remove_all_desc"] = "移除所有议会成员。"
 L["Requested rolls for 'item' from 'target'"] = "已要求 %2$s 对 %1$s 掷点"
+--[[Translation missing --]]
+--[[ L["Require Notes"] = ""--]] 
 L["Reset Skin"] = "重置皮肤"
 L["Reset skins"] = "重置皮肤"
 L["reset_announce_to_default_desc"] = "重置所有通告选项"

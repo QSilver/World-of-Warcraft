@@ -92,9 +92,9 @@ BigWigs:AddColors("Vexiona", {
 	[307403] = "yellow",
 	[307639] = "red",
 	[307729] = "orange",
-	[309882] = "red",
 	[310323] = {"blue","yellow"},
 	[315762] = "red",
+	[315932] = "red",
 	["stages"] = "cyan",
 })
 

@@ -1,8 +1,10 @@
 # LittleWigs
 
-## [v8.3.6](https://github.com/BigWigsMods/LittleWigs/tree/v8.3.6) (2020-02-11)
-[Full Changelog](https://github.com/BigWigsMods/LittleWigs/compare/v8.3.5...v8.3.6)
+## [v8.3.11](https://github.com/BigWigsMods/LittleWigs/tree/v8.3.11) (2020-03-08)
+[Full Changelog](https://github.com/BigWigsMods/LittleWigs/compare/v8.3.10...v8.3.11)
 
-- Update deDE (#506)  
-- BfA: Add Horrific Vision of Stormwind (#505)  
-- Update ruRU (#503)  
+- Update ruRU (#519)  
+- Update ruRU (#518)  
+- Update ruRU (#516)  
+- Update ruRU (#514)  
+- BfA/WaycrestManor/Heartsbane: Improve timers (#517)  

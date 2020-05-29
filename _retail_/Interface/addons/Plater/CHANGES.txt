@@ -1,107 +1,16 @@
-lightweight tag 395704ed504e7bb06e77d7e3cbc87eb706d71fd0 Plater-v8.3.0.287-Retail
-Author:	Tercio Jose <terciob19@hotmail.com>
-Date:	Fri Feb 7 23:26:38 2020 -0300
+lightweight tag 30ed4c1a6e87a68ba8444d7426ff2af0314273c6 Plater-v8.3.0.295-Retail
+Author:	Continuity <continuity@gmx.net>
+Date:	Mon May 11 10:06:02 2020 +0200
 
-commit 395704ed504e7bb06e77d7e3cbc87eb706d71fd0
-Author: Tercio Jose <terciob19@hotmail.com>
-Date:   Fri Feb 7 23:26:38 2020 -0300
-
-    [Resources] more progress on Plater Resources
-
-commit c6df1df3f07f2adc6cf023da919910c47b39a391
+commit 30ed4c1a6e87a68ba8444d7426ff2af0314273c6
 Author: Continuity <continuity@gmx.net>
-Date:   Thu Feb 6 14:24:26 2020 +0100
+Date:   Mon May 11 10:06:02 2020 +0200
 
-    - fixing INIT calls on re-compile
-    
-    Ensure mod/script INIT calls do not happen every re-compile, but just on saving or login.
+    - only show widget bar on your units
 
-commit f5d6f2e4e4b59202221c49f171c3e35f12d02173
-Author: Tercio Jose <terciob19@hotmail.com>
-Date:   Tue Feb 4 23:51:09 2020 -0300
-
-    Resource bar working on Monk WW
-
-commit f5d6f2e4e4b59202221c49f171c3e35f12d02173
-Author: Tercio Jose <terciob19@hotmail.com>
-Date:   Tue Feb 4 23:51:09 2020 -0300
-
-    Resource bar working on Monk WW
-
-commit 3a8859cd22a7ff56349e21048db0d776ee284b73
+commit ffc9b14128915a6c1b50ba30c408f4fffa4cdaa9
 Author: Continuity <continuity@gmx.net>
-Date:   Tue Feb 4 15:50:13 2020 +0100
+Date:   Sat May 9 12:29:58 2020 +0200
 
-    - DF lib update
-
-commit c8b4968e88f613eb15778b53552b943599cf57e3
-Author: Continuity <continuity@gmx.net>
-Date:   Mon Feb 3 00:39:28 2020 +0100
-
-    - adding mod/script-global "modTable"/"scriptTable" and "Initialization" fucntions for mods and scripts
-    
-    Mods now have 'modTable' as a mod-global table shared about all nameplates the mod runs on. Same for scripts with 'scriptTable'. This environment is cleared durcing compilation (saving, login, reload, etc.).
-    The new 'Initialization' function for mods and scripts can be used to initialize the global env table. This function is run once during compile time of the script/mod (saving, logging in, reload).
-
-commit 4595ac6279c1e35856bcd6d279d39d514b796fd1
-Author: Continuity <continuity@gmx.net>
-Date:   Sun Feb 2 21:19:32 2020 +0100
-
-    - DF version bumb
-
-commit b72e5a7644638b132e2003b37433e2822ee04039
-Author: Tercio Jose <terciob19@hotmail.com>
-Date:   Sat Feb 1 18:59:17 2020 -0300
-
-    [Resources] check if the resource frame exists before trying to hide it
-
-commit 1f719042e678e6a4487fcbeada1d74068d269239
-Author: Tercio Jose <terciob19@hotmail.com>
-Date:   Sat Feb 1 12:46:36 2020 -0300
-
-    [Resources] do not create the main resource frame if the option is disabled
-
-commit c4506403926caee5a19f9f3662e27a9446a708b5
-Author: Tercio Jose <terciob19@hotmail.com>
-Date:   Fri Jan 31 18:17:42 2020 -0300
-
-    Plater Resources - more development
-
-commit 22e0c42b31098f8b6648cf9344d54630a7bb6220
-Author: Tercio Jose <terciob19@hotmail.com>
-Date:   Fri Jan 31 18:06:52 2020 -0300
-
-    Plater Resources - more development
-
-commit 97ab6303f1378f92201805f6defd570700de4ab7
-Author: Tercio Jose <terciob19@hotmail.com>
-Date:   Thu Jan 30 19:42:32 2020 -0300
-
-    More development on Plater Resources
-    
-    Also framework updates.
-
-commit 1a8d53dce141de1f9f4516523132ee5357114980
-Author: Continuity <continuity@gmx.net>
-Date:   Wed Jan 29 21:18:36 2020 +0100
-
-    - fixing "In-Range/Target Alpha" option
-
-commit 07eacd96660cc97ad413545f0c889f62b882f317
-Author: Tercio Jose <terciob19@hotmail.com>
-Date:   Tue Jan 28 17:06:39 2020 -0300
-
-    Framework update
-
-commit 07eacd96660cc97ad413545f0c889f62b882f317
-Author: Tercio Jose <terciob19@hotmail.com>
-Date:   Tue Jan 28 17:06:39 2020 -0300
-
-    Framework update
-
-commit 8ef060e3deeb592af50c6e457c72e733a6fbe80a
-Author: Continuity <continuity@gmx.net>
-Date:   Tue Jan 28 15:52:53 2020 +0100
-
-    - DF lib update
+    - fixing absorb/health not being updated properly sometimes
 

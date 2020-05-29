@@ -3,6 +3,7 @@
 ## Notes: Nameplate addon designed for advanced users.
 ## SavedVariables: PlaterDB
 ## SavedVariablesPerCharacter: PlaterDBChr
+## Version: Plater-v8.3.0.295-Retail
 
 #@no-lib-strip@
 libs\libs.xml
@@ -31,3 +32,4 @@ Plater_AnimationEditor.lua
 Plater_Designer.lua
 Plater_ChangeLog.lua
 Plater_Docs.lua
+Plater_BossModsSupport.lua

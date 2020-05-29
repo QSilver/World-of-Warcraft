@@ -77,6 +77,15 @@ local Plater = DF:CreateAddOn ("Plater", "PlaterDB", PLATER_DEFAULT_SETTINGS, { 
 		
 	}
 })
+Plater.versionString = GetAddOnMetadata("Plater", "Version") or GetAddOnMetadata("Plater_dev", "Version")
+Plater.fullVersionInfo = Plater.versionString .. " - DetailsFramework v" .. select(2,LibStub:GetLibrary("DetailsFramework-1.0"))
+function Plater.GetVersionInfo(printOut)
+	-- update, just in case...
+	Plater.versionString = GetAddOnMetadata("Plater", "Version") or GetAddOnMetadata("Plater_dev", "Version")
+	Plater.fullVersionInfo = Plater.versionString .. " - DetailsFramework v" .. select(2,LibStub:GetLibrary("DetailsFramework-1.0"))
+	if printOut then print("Plater version info:\n" .. Plater.fullVersionInfo) end
+	return Plater.fullVersionInfo
+end
 
 --> when a hook script is compiled, it increases the build version, so the handler for running scripts will notice in the change and update the script in real time
 local PLATER_HOOK_BUILD = 1
@@ -157,7 +166,6 @@ Plater.CanOverride_Functions = {
 	
 	AnimateLeftWithAccel = true, --move the health bar to left when health animation is enabled
 	AnimateRightWithAccel = true, --move the health bar to right when health animation is enabled
-	UpdateMaxCastbarTextLength = true, --update the length allowed for the spell name text in the cast bar
 	IsQuestObjective = true, --check if the npc from the nameplate is a quest mob
 
 }
@@ -333,7 +341,7 @@ Plater.BorderLessIconCoords = {.1, .9, .1, .9} --used in extra icons frame,const
 --note: regular icons has their texcoords automatically adjusted
 
 --> limit the cast bar text to this (this is dynamically adjusted at run time)
-Plater.MaxCastBarTextLength = 200
+Plater.MaxCastBarTextLength = nil -- global overwrite
 --> auras 
 Plater.MaxAurasPerRow = 10 --can change during runtime
 
@@ -896,16 +904,35 @@ Plater.DefaultSpellRangeList = {
 
 		--value when the unit is in range
 		local inRangeAlpha = Plater.db.profile.range_check_in_range_or_target_alpha
+		local unitFrame = plateFrame.unitFrame
+		local castBarFade = unitFrame.castBar.fadeOutAnimation:IsPlaying() --and Plater.db.profile.cast_statusbar_use_fade_effects
 
 		--if is using the no combat alpha and the unit isn't in combat, ignore the range check, no combat alpha is disabled by default
 		if (plateFrame [MEMBER_NOCOMBAT]) then
+			--unitFrame:SetAlpha (Plater.db.profile.not_affecting_combat_alpha) -- already set if necessary
+			unitFrame.healthBar:SetAlpha (1)
+			if not castBarFade then
+				unitFrame.castBar:SetAlpha (1)
+			end
+			unitFrame.powerBar:SetAlpha (1)
+			unitFrame.BuffFrame:SetAlpha (1)
+			unitFrame.BuffFrame2:SetAlpha (1)
+			
 			return
 		
 		--the unit is friendly or not using range check and non targets alpha
 		elseif (plateFrame [MEMBER_REACTION] >= 5 or (not DB_USE_RANGE_CHECK and not DB_USE_NON_TARGETS_ALPHA)) then
-			plateFrame.unitFrame:SetAlpha (inRangeAlpha)
+			unitFrame:SetAlpha (1)
+			unitFrame.healthBar:SetAlpha (1)
+			if not castBarFade then
+				unitFrame.castBar:SetAlpha (1)
+			end
+			unitFrame.powerBar:SetAlpha (1)
+			unitFrame.BuffFrame:SetAlpha (1)
+			unitFrame.BuffFrame2:SetAlpha (1)
+			
 			plateFrame [MEMBER_RANGE] = true
-			plateFrame.unitFrame [MEMBER_RANGE] = true
+			unitFrame [MEMBER_RANGE] = true
 			return
 		end
 
@@ -922,7 +949,6 @@ Plater.DefaultSpellRangeList = {
 		local buffFrames_rangeCheckAlpha = Plater.db.profile.range_check_buffs_alpha
 		local powerBar_rangeCheckAlpha = Plater.db.profile.range_check_power_bar_alpha
 
-		local unitFrame = plateFrame.unitFrame
 		local healthBar = unitFrame.healthBar
 		local castBar = unitFrame.castBar
 		local powerBar = unitFrame.powerBar
@@ -1459,8 +1485,6 @@ Plater.DefaultSpellRangeList = {
 		DB_SHOW_PURGE_IN_EXTRA_ICONS = profile.extra_icon_show_purge
 		DB_SHOW_ENRAGE_IN_EXTRA_ICONS = profile.extra_icon_show_enrage
 		
-		--refresh cast bar text max size
-		Plater.UpdateMaxCastbarTextLength()
 		
 		--refresh lists
 		Plater.RefreshDBLists()
@@ -1575,6 +1599,28 @@ Plater.DefaultSpellRangeList = {
 			end
 		end
 		
+		--build the offensive cd list
+		if (profile.extra_icon_show_offensive) then
+			for spellId, _ in pairs (DF.CooldownsAttack) do
+				local spellName = GetSpellInfo (spellId)
+				if (spellName) then
+					--SPECIAL_AURAS_AUTO_ADDED [spellName] = true
+					SPECIAL_AURAS_AUTO_ADDED [spellId] = true
+				end
+			end
+		end
+		
+		--build the defensive cd list
+		if (profile.extra_icon_show_defensive) then
+			for spellId, _ in pairs (DF.CooldownsAllDeffensive) do
+				local spellName = GetSpellInfo (spellId)
+				if (spellName) then
+					--SPECIAL_AURAS_AUTO_ADDED [spellName] = true
+					SPECIAL_AURAS_AUTO_ADDED [spellId] = true
+				end
+			end
+		end
+		
 		--> add auras added by the player into the special aura container
 		for index, spellId in ipairs (profile.extra_icon_auras) do
 			local spellName = GetSpellInfo (spellId)
@@ -1677,6 +1723,39 @@ Plater.DefaultSpellRangeList = {
 				if (spellName) then
 					AUTO_TRACKING_EXTRA_DEBUFFS [spellName] = true
 					CAN_TRACK_EXTRA_DEBUFFS = true
+				end
+			end
+			
+			if (Plater.db.profile.aura_show_crowdcontrol and DF.CrowdControlSpells) then
+				for spellId, _ in pairs (DF.CrowdControlSpells) do
+					local spellName = GetSpellInfo (spellId)
+					if (spellName) then
+						AUTO_TRACKING_EXTRA_BUFFS [spellName] = true
+						--AUTO_TRACKING_EXTRA_BUFFS [spellId] = true
+						CAN_TRACK_EXTRA_BUFFS = true
+					end
+				end
+			end
+			
+			if (Plater.db.profile.aura_show_offensive_cd and DF.CooldownsAttack) then
+				for spellId, _ in pairs (DF.CooldownsAttack) do
+					local spellName = GetSpellInfo (spellId)
+					if (spellName) then
+						--AUTO_TRACKING_EXTRA_BUFFS [spellName] = true
+						AUTO_TRACKING_EXTRA_BUFFS [spellId] = true
+						CAN_TRACK_EXTRA_BUFFS = true
+					end
+				end
+			end
+			
+			if (Plater.db.profile.aura_show_defensive_cd and DF.CooldownsAllDeffensive) then
+				for spellId, _ in pairs (DF.CooldownsAllDeffensive) do
+					local spellName = GetSpellInfo (spellId)
+					if (spellName) then
+						--AUTO_TRACKING_EXTRA_BUFFS [spellName] = true
+						AUTO_TRACKING_EXTRA_BUFFS [spellId] = true
+						CAN_TRACK_EXTRA_BUFFS = true
+					end
 				end
 			end
 
@@ -1895,7 +1974,7 @@ Plater.DefaultSpellRangeList = {
 		end,
 		
 		UNIT_FACTION = function (_, unit)
-			if (unit == "player" or not UnitIsPlayer (unit)) then
+			if (unit == "player") then
 				return
 			end
 			
@@ -2132,11 +2211,6 @@ Plater.DefaultSpellRangeList = {
 			local name, instanceType, difficultyID, difficultyName, maxPlayers, dynamicDifficulty, isDynamic, instanceMapID, instanceGroupSize = GetInstanceInfo()
 			Plater.ZoneInstanceType = instanceType
 			
-			--run hooks on load screen
-			if (HOOK_LOAD_SCREEN.ScriptAmount > 0) then
-				Plater.PlayerEnteringWorld = true
-			end
-			
 			--> ensure resource on target consistency after login:
 			local resourcesOnTarget = GetCVar ("nameplateResourceOnTarget") == CVAR_ENABLED
 			if resourcesOnTarget then
@@ -2145,9 +2219,18 @@ Plater.DefaultSpellRangeList = {
 					SetCVar ("nameplateResourceOnTarget", CVAR_DISABLED) -- reset this to false always, as it conflicts
 				end
 			end
+			
+			if Plater.db.profile.plate_config.friendlynpc.quest_enabled and not InCombatLockdown() then
+				SetCVar("showQuestTrackingTooltips", 1) -- ensure it is turned on...
+			end
 
 			--create the frame to hold the plater resoruce bar
 			Plater.CreatePlaterResourceFrame() --~resource
+			
+			--run hooks on load screen
+			if (HOOK_LOAD_SCREEN.ScriptAmount > 0) then
+				Plater.PlayerEnteringWorld = true
+			end
 		end,
 
 		PLAYER_LOGOUT = function()
@@ -2221,7 +2304,7 @@ Plater.DefaultSpellRangeList = {
 					
 					newUnitFrame.IsUIParent = true --expose to scripts the unitFrame is a UIParent child
 				else
-					newUnitFrame = DF:CreateUnitFrame (plateFrame, plateFrame:GetName() .. "PlaterUnitFrame", unitFrameOptions, healthBarOptions, castBarOptions)
+					newUnitFrame = DF:CreateUnitFrame (plateFrame, plateFrame:GetName() .. "PlaterUnitFrame", unitFrameOptions, healthBarOptions, castBarOptions, powerBarOptions)
 				end
 
 				plateFrame.unitFrame = newUnitFrame
@@ -2242,6 +2325,8 @@ Plater.DefaultSpellRangeList = {
 				
 				--register details framework hooks
 				newUnitFrame.castBar:SetHook ("OnShow", Plater.CastBarOnShow_Hook)
+				hooksecurefunc (newUnitFrame.castBar, "OnEvent", Plater.CastBarOnEvent_Hook)
+				hooksecurefunc (newUnitFrame.castBar, "OnTick", Plater.CastBarOnTick_Hook)
 				
 				newUnitFrame.HasHooksRegistered = true
 				
@@ -2291,6 +2376,9 @@ Plater.DefaultSpellRangeList = {
 			--> store the secondary anchor inside the regular buff container for speed
 			plateFrame.unitFrame.BuffFrame.BuffFrame2 = plateFrame.unitFrame.BuffFrame2
 			plateFrame.unitFrame.BuffFrame2.BuffFrame1 = plateFrame.unitFrame.BuffFrame
+			
+			--> unit aura cache
+			plateFrame.unitFrame.AuraCache = {}
 			
 			local healthBar = plateFrame.unitFrame.healthBar
 			
@@ -2532,6 +2620,9 @@ Plater.DefaultSpellRangeList = {
 				--> cache the extra icon frame inside the buff frame for speed
 				plateFrame.unitFrame.BuffFrame.ExtraIconFrame = plateFrame.unitFrame.ExtraIconFrame
 			
+			--> Support for DBM and BigWigs Nameplate Auras
+				Plater.CreateBossModAuraFrame(plateFrame.unitFrame)
+			
 			--> 3D model frame
 				plateFrame.Top3DFrame = CreateFrame ("playermodel", plateFrame:GetName() .. "3DFrame", plateFrame, "ModelWithControlsTemplate")
 				plateFrame.Top3DFrame:SetPoint ("bottom", plateFrame, "top", 0, -100)
@@ -2646,6 +2737,12 @@ Plater.DefaultSpellRangeList = {
 				plateFrame.unitFrame.aggroGlowLower:SetBlendMode ("ADD")
 				plateFrame.unitFrame.aggroGlowLower:SetHeight (4)
 				plateFrame.unitFrame.aggroGlowLower:Hide()
+				
+			--> widget container
+				plateFrame.unitFrame.WidgetContainer = CreateFrame("frame", nil, plateFrame.unitFrame, "UIWidgetContainerTemplate")
+				Plater.SetAnchor (plateFrame.unitFrame.WidgetContainer, Plater.db.profile.widget_bar_anchor, plateFrame.unitFrame)
+				plateFrame.unitFrame.WidgetContainer:SetScale(Plater.db.profile.widget_bar_scale)
+				plateFrame.unitFrame.WidgetContainer:UnregisterForWidgetSet()
 			
 			--> name plate created hook
 				if (HOOK_NAMEPLATE_CREATED.ScriptAmount > 0) then
@@ -2709,6 +2806,7 @@ Plater.DefaultSpellRangeList = {
 			
 			--powerbar are disabled by default in the settings table, called SetUnit will make the framework hide the power bar
 			--SetPowerBarSize() will show the power bar or the personal resource bar update also will show it
+			unitFrame.Settings.ShowCastBar = true -- reset to default, clearing later.
 			unitFrame:SetUnit (unitID)
 			
 			--show unit name, the frame work will hide it due to ShowUnitName is set to false
@@ -2843,12 +2941,22 @@ Plater.DefaultSpellRangeList = {
 					unitFrame.Settings.ShowUnitName = false
 					unitFrame.unitName:Hide()
 					
+					--setup castbar
+					unitFrame.Settings.ShowCastBar = DB_PLATE_CONFIG.player.castbar_enabled
+					if (not DB_PLATE_CONFIG.player.castbar_enabled) then
+						CastingBarFrame_SetUnit (castBar, nil, nil, nil)
+					end
+					
 					plateFrame.PlateConfig = DB_PLATE_CONFIG.player
 					Plater.UpdatePlateFrame (plateFrame, ACTORTYPE_PLAYER, nil, true)
 					Plater.OnUpdateHealth (healthBar)
 					
 				else
 					--> regular nameplate
+					
+					plateFrame.PlayerCannotAttack = not UnitCanAttack ("player", unitID)
+					unitFrame.PlayerCannotAttack = plateFrame.PlayerCannotAttack --expose to scripts
+					
 					if (UnitIsPlayer (unitID)) then
 						--unit is a player
 						plateFrame.playerGuildName = GetGuildInfo (unitID)
@@ -2858,6 +2966,7 @@ Plater.DefaultSpellRangeList = {
 							plateFrame.PlateConfig = DB_PLATE_CONFIG.friendlyplayer
 							Plater.UpdatePlateFrame (plateFrame, ACTORTYPE_FRIENDLY_PLAYER, nil, true)
 							actorType = ACTORTYPE_FRIENDLY_PLAYER
+							unitFrame.Settings.ShowCastBar = not DB_CASTBAR_HIDE_FRIENDLY
 							if (DB_CASTBAR_HIDE_FRIENDLY) then
 								CastingBarFrame_SetUnit (castBar, nil, nil, nil)
 							end
@@ -2866,6 +2975,7 @@ Plater.DefaultSpellRangeList = {
 							plateFrame.PlateConfig = DB_PLATE_CONFIG.enemyplayer
 							Plater.UpdatePlateFrame (plateFrame, ACTORTYPE_ENEMY_PLAYER, nil, true)
 							actorType = ACTORTYPE_ENEMY_PLAYER
+							unitFrame.Settings.ShowCastBar = not DB_CASTBAR_HIDE_ENEMIES
 							if (DB_CASTBAR_HIDE_ENEMIES) then
 								CastingBarFrame_SetUnit (castBar, nil, nil, nil)
 							end
@@ -2879,13 +2989,12 @@ Plater.DefaultSpellRangeList = {
 							plateFrame.PlateConfig = DB_PLATE_CONFIG.friendlynpc
 							Plater.UpdatePlateFrame (plateFrame, ACTORTYPE_FRIENDLY_NPC, nil, true)
 							actorType = ACTORTYPE_FRIENDLY_NPC
+							unitFrame.Settings.ShowCastBar = not DB_CASTBAR_HIDE_FRIENDLY
 							if (DB_CASTBAR_HIDE_FRIENDLY) then
 								CastingBarFrame_SetUnit (castBar, nil, nil, nil)
 							end
 						else
 							--includes neutral npcs
-							plateFrame.PlayerCannotAttack = not UnitCanAttack ("player", unitID)
-							unitFrame.PlayerCannotAttack = plateFrame.PlayerCannotAttack --expose to scripts
 							
 							--add the npc in the npcid cache
 							if (not DB_NPCIDS_CACHE [plateFrame [MEMBER_NPCID]] and not IS_IN_OPEN_WORLD and not Plater.ZonePvpType and plateFrame [MEMBER_NPCID]) then
@@ -2898,6 +3007,7 @@ Plater.DefaultSpellRangeList = {
 							plateFrame.PlateConfig = DB_PLATE_CONFIG.enemynpc
 							Plater.UpdatePlateFrame (plateFrame, ACTORTYPE_ENEMY_NPC, nil, true)
 							actorType = ACTORTYPE_ENEMY_NPC
+							unitFrame.Settings.ShowCastBar = not DB_CASTBAR_HIDE_ENEMIES
 							if (DB_CASTBAR_HIDE_ENEMIES) then
 								CastingBarFrame_SetUnit (castBar, nil, nil, nil)
 							end
@@ -2921,6 +3031,16 @@ Plater.DefaultSpellRangeList = {
 			--esconde os glow de aggro
 			unitFrame.aggroGlowUpper:Hide()
 			unitFrame.aggroGlowLower:Hide()
+			
+			--widget container update
+			Plater.SetAnchor (unitFrame.WidgetContainer, Plater.db.profile.widget_bar_anchor, unitFrame)
+			plateFrame.unitFrame.WidgetContainer:SetScale(Plater.db.profile.widget_bar_scale)
+			unitFrame.WidgetContainer:UnregisterForWidgetSet()
+			local widgetSetId = UnitWidgetSet(unitID)
+		    if widgetSetId and UnitPlayerControlled(unitID) and not UnitIsOwnerOrControllerOfUnit('player', unitID) then
+				unitFrame.WidgetContainer:RegisterForWidgetSet(widgetSetId)
+				unitFrame.WidgetContainer:ProcessAllWidgets()
+			end
 			
 			--can check aggro
 			unitFrame.CanCheckAggro = unitFrame.displayedUnit == unitID and actorType == ACTORTYPE_ENEMY_NPC
@@ -3113,6 +3233,7 @@ function Plater.OnInit() --private
 			Plater.Masque.AuraFrame1 = Masque:Group ("Plater Nameplates", "Aura Frame 1")
 			Plater.Masque.AuraFrame2 = Masque:Group ("Plater Nameplates", "Aura Frame 2")
 			Plater.Masque.BuffSpecial = Masque:Group ("Plater Nameplates", "Buff Special")
+			Plater.Masque.BossModIconFrame = Masque:Group ("Plater Nameplates", "Boss Mod Icons")
 		end
 	
 	--set some cvars that we want to set
@@ -3143,8 +3264,6 @@ function Plater.OnInit() --private
 	
 	--refresh the color overrider
 		Plater.RefreshColorOverride()
-	--update how long the spell name text can be
-		Plater.UpdateMaxCastbarTextLength()
 	
 	--update the current zone
 		local _, zoneType = GetInstanceInfo()
@@ -3729,10 +3848,7 @@ function Plater.OnInit() --private
 					self.FrameOverlay:SetBackdropBorderColor (0, 0, 0, 0)
 					
 					--cut the spell name text to fit within the castbar
-					local textLenght = self.Text:GetStringWidth()
-					if (textLenght > Plater.MaxCastBarTextLength) then
-						Plater.UpdateSpellNameSize (self.Text)
-					end
+					Plater.UpdateSpellNameSize (self.Text, self.unitFrame.ActorType)
 
 					Plater.UpdateCastbarTargetText (self)
 					shouldRunCastStartHook = true
@@ -3892,10 +4008,6 @@ function Plater.OnInit() --private
 				end
 			end
 		end
-		
-	--register hooks
-		hooksecurefunc (DF.CastFrameFunctions, "OnEvent", Plater.CastBarOnEvent_Hook)
-		hooksecurefunc (DF.CastFrameFunctions, "OnTick", Plater.CastBarOnTick_Hook)
 		
 	--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	--> health frame
@@ -4107,6 +4219,7 @@ end
 			Plater.Masque.AuraFrame1:ReSkin()
 			Plater.Masque.AuraFrame2:ReSkin()
 			Plater.Masque.BuffSpecial:ReSkin()
+			Plater.Masque.BossModIconFrame:ReSkin()
 		end
 	end
 	
@@ -4123,18 +4236,18 @@ end
 		
 		for i = 1, amountFramesShown do
 			local iconFrame = iconFrameContainer [i]
-			local auraName = iconFrame.SpellName
+			local texture = iconFrame.texture
 			
-			if (aurasDuplicated [auraName]) then
-				tinsert (aurasDuplicated [auraName], {iconFrame, iconFrame.RemainingTime})
+			if (aurasDuplicated [texture]) then
+				tinsert (aurasDuplicated [texture], {iconFrame, iconFrame.RemainingTime})
 			else
-				aurasDuplicated [auraName] = {
+				aurasDuplicated [texture] = {
 					{iconFrame, iconFrame.RemainingTime}
 				}
 			end
 		end
 
-		for auraName, iconFramesTable in pairs (aurasDuplicated) do
+		for texture, iconFramesTable in pairs (aurasDuplicated) do
 			--how many auras with the same name the unit has
 			local amountOfSimilarAuras = #iconFramesTable
 			
@@ -4500,6 +4613,7 @@ end
 			
 			--> update members
 			auraIconFrame.spellId = spellId
+			auraIconFrame.texture = texture
 			auraIconFrame.layoutIndex = auraIconFrame.ID
 			auraIconFrame.IsShowingBuff = false
 			auraIconFrame.CanStealOrPurge = false
@@ -4624,6 +4738,18 @@ end
 		elseif (actualAuraType == AURA_TYPE_ENRAGE) then 
 			--> enrage effects
 			auraIconFrame:SetBackdropBorderColor (unpack (profile.aura_border_colors.enrage))
+		
+		elseif (DF.CrowdControlSpells and DF.CrowdControlSpells [spellId]) then 
+			--> CC effects
+			auraIconFrame:SetBackdropBorderColor (unpack (profile.aura_border_colors.crowdcontrol))
+		
+		elseif (DF.CooldownsAttack and DF.CooldownsAttack [spellId]) then 
+			--> offensive CDs
+			auraIconFrame:SetBackdropBorderColor (unpack (profile.aura_border_colors.offensive))
+		
+		elseif (DF.CooldownsAllDeffensive and DF.CooldownsAllDeffensive [spellId]) then 
+			--> defensive CDs
+			auraIconFrame:SetBackdropBorderColor (unpack (profile.aura_border_colors.defensive))
 		
 		elseif (isShowAll) then
 			auraIconFrame:SetBackdropBorderColor (unpack (profile.aura_border_colors.is_show_all))
@@ -4769,6 +4895,14 @@ end
 			--> enrage effects
 			borderColor = Plater.db.profile.extra_icon_show_enrage_border
 		
+		elseif (DF.CooldownsAllDeffensive and DF.CooldownsAllDeffensive[spellName]) then 
+			--> defensive effects
+			borderColor = Plater.db.profile.extra_icon_show_defensive_border
+		
+		elseif (DF.CooldownsAttack and DF.CooldownsAttack[spellName]) then 
+			--> offensive effects
+			borderColor = Plater.db.profile.extra_icon_show_offensive_border
+		
 		else
 			borderColor = Plater.db.profile.extra_icon_border_color
 			
@@ -4828,6 +4962,7 @@ end
 		wipe (self.AuraCache)
 		wipe (self.BuffFrame2.AuraCache)
 		wipe (self.ExtraIconFrame.AuraCache)
+		wipe (self.unitFrame.AuraCache)
 		
 	end
 
@@ -4837,6 +4972,8 @@ end
 	--used when the user selects manual aura tracking
 	function Plater.TrackSpecificAuras (self, unit, isBuff, aurasToCheck, isPersonal, noSpecial)
 
+		local unitAuraCache = self.unitFrame.AuraCache
+
 		if (isBuff) then
 			--> buffs
 			for i = 1, BUFF_MAX_DISPLAY do
@@ -4844,6 +4981,11 @@ end
 				if (not name) then
 					break
 				else
+					unitAuraCache[name] = true
+					unitAuraCache[spellId] = true
+					unitAuraCache.canStealOrPurge = unitAuraCache.canStealOrPurge or canStealOrPurge
+					unitAuraCache.hasEnrage = unitAuraCache.hasEnrage or actualAuraType == AURA_TYPE_ENRAGE
+					
 					local auraType = "BUFF"
 					--verify is this aura is in the table passed
 					if (aurasToCheck [name]) then
@@ -4856,7 +4998,7 @@ end
 						--> check for special auras auto added by setting like 'show crowd control' or 'show dispellable'
 						--> SPECIAL_AURAS_AUTO_ADDED has a list of crowd control not do not have a list of dispellable, so check if canStealOrPurge.
 						--> in addition, we want to check if enrage tracking is enabled and show enrage effects
-						if (SPECIAL_AURAS_AUTO_ADDED [name] or (DB_SHOW_PURGE_IN_EXTRA_ICONS and canStealOrPurge) or (DB_SHOW_ENRAGE_IN_EXTRA_ICONS and actualAuraType == AURA_TYPE_ENRAGE)) then
+						if (SPECIAL_AURAS_AUTO_ADDED [name] or SPECIAL_AURAS_AUTO_ADDED [spellId] or (DB_SHOW_PURGE_IN_EXTRA_ICONS and canStealOrPurge) or (DB_SHOW_ENRAGE_IN_EXTRA_ICONS and actualAuraType == AURA_TYPE_ENRAGE)) then
 							Plater.AddExtraIcon (self, name, texture, count, actualAuraType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId)
 						
 						--> check for special auras added by the user it self
@@ -4876,6 +5018,11 @@ end
 				if (not name) then
 					break
 				else
+					unitAuraCache[name] = true
+					unitAuraCache[spellId] = true
+					unitAuraCache.canStealOrPurge = unitAuraCache.canStealOrPurge or canStealOrPurge
+					unitAuraCache.hasEnrage = unitAuraCache.hasEnrage or actualAuraType == AURA_TYPE_ENRAGE
+					
 					local auraType = "DEBUFF"
 					--checking here if the debuff is placed by the player
 					--if (caster and aurasToCheck [name] and UnitIsUnit (caster, "player")) then --this doesn't track the pet, so auras like freeze from mage frost elemental won't show
@@ -4890,7 +5037,7 @@ end
 						--> check for special auras auto added by setting like 'show crowd control' or 'show dispellable'
 						--> SPECIAL_AURAS_AUTO_ADDED has a list of crowd control not do not have a list of dispellable, so check if canStealOrPurge
 						--> in addition, we want to check if enrage tracking is enabled and show enrage effects
-						if (SPECIAL_AURAS_AUTO_ADDED [name] or (DB_SHOW_PURGE_IN_EXTRA_ICONS and canStealOrPurge) or (DB_SHOW_ENRAGE_IN_EXTRA_ICONS and actualAuraType == AURA_TYPE_ENRAGE)) then
+						if (SPECIAL_AURAS_AUTO_ADDED [name] or SPECIAL_AURAS_AUTO_ADDED [spellId] or (DB_SHOW_PURGE_IN_EXTRA_ICONS and canStealOrPurge) or (DB_SHOW_ENRAGE_IN_EXTRA_ICONS and actualAuraType == AURA_TYPE_ENRAGE)) then
 							Plater.AddExtraIcon (self, name, texture, count, actualAuraType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId)
 						
 						--> check for special auras added by the user it self
@@ -4919,6 +5066,7 @@ end
 	--> track auras automatically when the user has automatic aura tracking selected in the options panel
 	function Plater.UpdateAuras_Automatic (self, unit)
 		Plater.ResetAuraContainer (self)
+		local unitAuraCache = self.unitFrame.AuraCache
 		
 		--> debuffs
 			for i = 1, BUFF_MAX_DISPLAY do
@@ -4931,9 +5079,15 @@ end
 				
 				if (not name) then
 					break
+				end
+				
+				unitAuraCache[name] = true
+				unitAuraCache[spellId] = true
+				unitAuraCache.canStealOrPurge = unitAuraCache.canStealOrPurge or canStealOrPurge
+				unitAuraCache.hasEnrage = unitAuraCache.hasEnrage or actualAuraType == AURA_TYPE_ENRAGE
 				
 				--check if the debuff isn't filtered out
-				elseif (not DB_DEBUFF_BANNED [name]) then
+				if (not DB_DEBUFF_BANNED [name]) then
 			
 					--> if true it'll show all auras - this can be called from scripts to debug aura things
 					if (Plater.DebugAuras) then
@@ -4958,7 +5112,7 @@ end
 					--> check for special auras auto added by setting like 'show crowd control' or 'show dispellable'
 					--> SPECIAL_AURAS_AUTO_ADDED has a list of crowd control not do not have a list of dispellable, so check if canStealOrPurge
 					--> in addition, we want to check if enrage tracking is enabled and show enrage effects
-					if (SPECIAL_AURAS_AUTO_ADDED [name] or (DB_SHOW_PURGE_IN_EXTRA_ICONS and canStealOrPurge) or (DB_SHOW_ENRAGE_IN_EXTRA_ICONS and actualAuraType == AURA_TYPE_ENRAGE)) then
+					if (SPECIAL_AURAS_AUTO_ADDED [name] or SPECIAL_AURAS_AUTO_ADDED [spellId] or (DB_SHOW_PURGE_IN_EXTRA_ICONS and canStealOrPurge) or (DB_SHOW_ENRAGE_IN_EXTRA_ICONS and actualAuraType == AURA_TYPE_ENRAGE)) then
 						Plater.AddExtraIcon (self, name, texture, count, actualAuraType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId)
 						can_show_this_debuff = false
 					end
@@ -4986,6 +5140,11 @@ end
 					break
 				end
 				
+				unitAuraCache[name] = true
+				unitAuraCache[spellId] = true
+				unitAuraCache.canStealOrPurge = unitAuraCache.canStealOrPurge or canStealOrPurge
+				unitAuraCache.hasEnrage = unitAuraCache.hasEnrage or actualAuraType == AURA_TYPE_ENRAGE
+				
 				--> check for special auras added by the user it self
 				if (((SPECIAL_AURAS_USER_LIST [name] or SPECIAL_AURAS_USER_LIST [spellId]) and not (SPECIAL_AURAS_USER_LIST_MINE [name] or SPECIAL_AURAS_USER_LIST_MINE [spellId])) or ((SPECIAL_AURAS_USER_LIST_MINE [name] or SPECIAL_AURAS_USER_LIST_MINE [spellId]) and caster and (UnitIsUnit (caster, "player") or UnitIsUnit (caster, "pet")))) then
 					Plater.AddExtraIcon (self, name, texture, count, actualAuraType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId)
@@ -5003,7 +5162,7 @@ end
 					--> check for special auras auto added by setting like 'show crowd control' or 'show dispellable'
 					--> SPECIAL_AURAS_AUTO_ADDED has a list of crowd control not do not have a list of dispellable, so check if canStealOrPurge
 					--> in addition, we want to check if enrage tracking is enabled and show enrage effects
-					if (SPECIAL_AURAS_AUTO_ADDED [name] or (DB_SHOW_PURGE_IN_EXTRA_ICONS and canStealOrPurge) or (DB_SHOW_ENRAGE_IN_EXTRA_ICONS and actualAuraType == AURA_TYPE_ENRAGE)) then
+					if (SPECIAL_AURAS_AUTO_ADDED [name] or SPECIAL_AURAS_AUTO_ADDED [spellId] or (DB_SHOW_PURGE_IN_EXTRA_ICONS and canStealOrPurge) or (DB_SHOW_ENRAGE_IN_EXTRA_ICONS and actualAuraType == AURA_TYPE_ENRAGE)) then
 						Plater.AddExtraIcon (self, name, texture, count, actualAuraType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId)
 					else
 						--> important aura
@@ -5032,7 +5191,7 @@ end
 							Plater.AddAura (buffFrame, auraIconFrame, i, name, texture, count, auraType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId, true, nil, nil, nil, actualAuraType)
 						
 						--> user added this buff to track in the buff tracking tab
-						elseif (AUTO_TRACKING_EXTRA_BUFFS [name]) then
+						elseif (AUTO_TRACKING_EXTRA_BUFFS [name] or AUTO_TRACKING_EXTRA_BUFFS [spellId]) then
 							local auraIconFrame, buffFrame = Plater.GetAuraIcon (self, true)
 							Plater.AddAura (buffFrame, auraIconFrame, i, name, texture, count, auraType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId, true, nil, nil, nil, actualAuraType)
 							
@@ -5048,6 +5207,7 @@ end
 
 	function Plater.UpdateAuras_Self_Automatic (self)
 		Plater.ResetAuraContainer (self)
+		local unitAuraCache = self.unitFrame.AuraCache
 		
 		--> debuffs
 		if (Plater.db.profile.aura_show_debuffs_personal) then
@@ -5057,15 +5217,21 @@ end
 				
 				if (not name) then
 					break
+				end
+				
+				unitAuraCache[name] = true
+				unitAuraCache[spellId] = true
+				unitAuraCache.canStealOrPurge = unitAuraCache.canStealOrPurge or canStealOrPurge
+				unitAuraCache.hasEnrage = unitAuraCache.hasEnrage or actualAuraType == AURA_TYPE_ENRAGE
 					
-				elseif (not DB_DEBUFF_BANNED [name]) then
+				if (not DB_DEBUFF_BANNED [name]) then
 					local auraIconFrame, buffFrame = Plater.GetAuraIcon (self)
 					Plater.AddAura (buffFrame, auraIconFrame, i, name, texture, count, auraType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId, false, false, true, true, actualAuraType)
 					
 					--> check for special auras auto added by setting like 'show crowd control' or 'show dispellable'
 					--> SPECIAL_AURAS_AUTO_ADDED has a list of crowd control not do not have a list of dispellable, so check if canStealOrPurge
 					--> in addition, we want to check if enrage tracking is enabled and show enrage effects
-					if (SPECIAL_AURAS_AUTO_ADDED [name] or (DB_SHOW_PURGE_IN_EXTRA_ICONS and canStealOrPurge) or (DB_SHOW_ENRAGE_IN_EXTRA_ICONS and actualAuraType == AURA_TYPE_ENRAGE)) then
+					if (SPECIAL_AURAS_AUTO_ADDED [name] or SPECIAL_AURAS_AUTO_ADDED [spellId] or (DB_SHOW_PURGE_IN_EXTRA_ICONS and canStealOrPurge) or (DB_SHOW_ENRAGE_IN_EXTRA_ICONS and actualAuraType == AURA_TYPE_ENRAGE)) then
 						Plater.AddExtraIcon (self, name, texture, count, actualAuraType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId)
 					end
 				end
@@ -5086,9 +5252,15 @@ end
 				
 				if (not name) then
 					break
-					
+				end
+
+				unitAuraCache[name] = true
+				unitAuraCache[spellId] = true
+				unitAuraCache.canStealOrPurge = unitAuraCache.canStealOrPurge or canStealOrPurge
+				unitAuraCache.hasEnrage = unitAuraCache.hasEnrage or actualAuraType == AURA_TYPE_ENRAGE
+				
 				--> only show buffs casted by the player it self and less than 1 minute in duration
-				elseif (not DB_BUFF_BANNED [name] and (duration and (duration > 0 and duration < 60)) and (caster and UnitIsUnit (caster, "player"))) then
+				if (not DB_BUFF_BANNED [name] and (duration and (duration > 0 and duration < 60)) and (caster and UnitIsUnit (caster, "player"))) then
 					local auraIconFrame, buffFrame = Plater.GetAuraIcon (self, true)
 					Plater.AddAura (buffFrame, auraIconFrame, i, name, texture, count, auraType, duration, expirationTime, caster, canStealOrPurge, nameplateShowPersonal, spellId, false, false, false, true, actualAuraType)
 
@@ -5405,6 +5577,10 @@ end
 			
 			buffFrame2:ClearAllPoints()
 			PixelUtil.SetPoint (buffFrame2, "bottom", unitFrame, "top", Plater.db.profile.aura2_x_offset,  plateConfigs.buff_frame_y_offset + Plater.db.profile.aura2_y_offset)
+			
+		if (Plater.db.profile.show_health_prediction or Plater.db.profile.show_shield_prediction) and healthBar.displayedUnit then
+			healthBar:UpdateHealPrediction() -- ensure health prediction is updated properly
+		end
 	end
 	
 	--debug function to print the size of the anchor for each aura container
@@ -5609,6 +5785,8 @@ end
 				tickFrame.BuffFrame:SetAlpha (DB_AURA_ALPHA)
 				tickFrame.BuffFrame2:SetAlpha (DB_AURA_ALPHA)
 			end
+			-- update DBM and BigWigs nameplate auras
+			Plater.UpdateBossModAuras(unitFrame)
 			
 			--set the delay to perform another update
 			tickFrame.ThrottleUpdate = DB_TICK_THROTTLE
@@ -5753,7 +5931,7 @@ end
 	function Plater.UpdateNameplateThread (self) --self = unitFrame
 
 		--make sure there's a unitID in the unit frame
-		if (not self.displayedUnit) then
+		if (not self.displayedUnit or not self.CanCheckAggro) then
 			return
 		end
 		
@@ -6012,6 +6190,8 @@ end
 		else
 			plateFrame.FocusIndicator:Hide()
 		end
+		
+		plateFrame.unitFrame.WidgetContainer:UnregisterForWidgetSet()
 
 		if (UnitIsUnit (plateFrame.unitFrame [MEMBER_UNITID], "target")) then
 			plateFrame [MEMBER_TARGET] = true
@@ -6050,8 +6230,11 @@ end
 			
 			Plater.UpdateResourceFrame()
 			
-			--plater resource bar
-			Plater.CanUsePlaterResourceFrame() --~resource
+			local widgetSetId = UnitWidgetSet(plateFrame.unitFrame [MEMBER_UNITID])
+		    if widgetSetId and UnitPlayerControlled(unitID) and not UnitIsOwnerOrControllerOfUnit('player', unitID) then
+				plateFrame.unitFrame.WidgetContainer:RegisterForWidgetSet(widgetSetId)
+				plateFrame.unitFrame.WidgetContainer:ProcessAllWidgets()
+			end
 			
 		else
 			plateFrame.TargetNeonUp:Hide()
@@ -6109,6 +6292,8 @@ end
 				end
 			end
 		end
+
+		Plater.CanUsePlaterResourceFrame() --~resource
 	end
 
 	function Plater.UpdateTargetHighlight (plateFrame)
@@ -6381,7 +6566,7 @@ end
 					local subTitle = Plater.GetActorSubName (plateFrame)
 					if (subTitle and subTitle ~= "" and not subTitle:match ("%d")) then
 						plateFrame.ActorTitleSpecial:Show()
-						subTitle = DF:RemoveRealmName (subTitle)
+						--subTitle = DF:RemoveRealmName (subTitle) -- why are removing real names on npc titles? e.g. <T-Shirt Scalper> Skin-Me-Own-Coat-Dibblefur gets broken to <T>.
 						plateFrame.ActorTitleSpecial:SetText ("<" .. subTitle .. ">")
 						plateFrame.ActorTitleSpecial:ClearAllPoints()
 						PixelUtil.SetPoint (plateFrame.ActorTitleSpecial, "top", plateFrame.ActorNameSpecial, "bottom", 0, -2)
@@ -6409,7 +6594,7 @@ end
 					local subTitle = Plater.GetActorSubName (plateFrame)
 					if (subTitle and subTitle ~= "" and not subTitle:match ("%d")) then
 						plateFrame.ActorTitleSpecial:Show()
-						subTitle = DF:RemoveRealmName (subTitle)
+						--subTitle = DF:RemoveRealmName (subTitle)
 						plateFrame.ActorTitleSpecial:SetText ("<" .. subTitle .. ">")
 						plateFrame.ActorTitleSpecial:ClearAllPoints()
 						PixelUtil.SetPoint (plateFrame.ActorTitleSpecial, "top", plateFrame.ActorNameSpecial, "bottom", 0, -2)
@@ -6429,7 +6614,7 @@ end
 					if (not subTitle:match ("%d")) then --isn't level
 
 						plateFrame.ActorTitleSpecial:Show()
-						subTitle = DF:RemoveRealmName (subTitle)
+						--subTitle = DF:RemoveRealmName (subTitle)
 						plateFrame.ActorTitleSpecial:SetText ("<" .. subTitle .. ">")
 						plateFrame.ActorTitleSpecial:ClearAllPoints()
 						PixelUtil.SetPoint (plateFrame.ActorTitleSpecial, "top", plateFrame.ActorNameSpecial, "bottom", 0, -2)
@@ -6685,10 +6870,20 @@ end
 		end
 	end
 
-	function Plater.UpdateSpellNameSize (nameString)
+	function Plater.UpdateSpellNameSize (nameString, actorType, cutOff)
 		local spellName = nameString:GetText()
+		local maxLength = Plater.MaxCastBarTextLength or 500
+		cutOff = cutOff or 40
+		actorType = actorType or "enemynpc"
 		
-		while (nameString:GetStringWidth() > Plater.MaxCastBarTextLength) do
+		if (not Plater.db.profile.no_spellname_length_limit) then
+			local castKey = Plater.GetHashKey()
+			if Plater.db.profile.plate_config[actorType][castKey] then
+				maxLength = Plater.db.profile.plate_config[actorType][castKey][1] - cutOff
+			end
+		end
+		
+		while (nameString:GetStringWidth() > maxLength) do
 			spellName = strsub (spellName, 1, #spellName - 1)
 			nameString:SetText (spellName)
 			if (string.len (spellName) <= 1) then
@@ -6779,7 +6974,7 @@ end
 		unitFrame.actorType = actorType
 		unitFrame.ActorType = actorType --exposed to scripts
 		
-		local shouldForceRefresh = false
+		local shouldForceRefresh = justAdded or forceUpdate
 		if (plateFrame.IsNpcWithoutHealthBar or plateFrame.IsFriendlyPlayerWithoutHealthBar) then
 			shouldForceRefresh = true
 			plateFrame.IsNpcWithoutHealthBar = false
@@ -6938,6 +7133,9 @@ end
 					else
 						Plater.ChangeHealthBarColor_Internal (healthBar, unpack (DB_PLATE_CONFIG [actorType].fixed_class_color))
 					end
+				else
+					-- could be a pet
+					Plater.ForceFindPetOwner (plateFrame [MEMBER_GUID])
 				end
 			end
 
@@ -7020,6 +7218,9 @@ end
 			if (unitFrame.healthBar.unit) then
 				unitFrame.healthBar:UNIT_HEALTH()
 			end
+			
+			Plater.SetAnchor (unitFrame.WidgetContainer, profile.widget_bar_anchor, unitFrame)
+			plateFrame.unitFrame.WidgetContainer:SetScale(Plater.db.profile.widget_bar_scale)
 		end
 		
 		--update the plate size for this unit
@@ -7063,6 +7264,9 @@ end
 			--> update refresh ID
 			unitFrame.ExtraIconFrame.RefreshID = PLATER_REFRESH_ID
 		end
+		
+		--update options in the boss mods icons frame
+		Plater.UpdateBossModAuraFrameSettings(unitFrame, PLATER_REFRESH_ID)
 		
 		--> details! integration
 		if (IS_USING_DETAILS_INTEGRATION) then
@@ -7877,13 +8081,8 @@ end
 		end
 	end
 	
-	function Plater.UpdateMaxCastbarTextLength()
-		if (Plater.db.profile.no_spellname_length_limit) then
-			Plater.MaxCastBarTextLength = 500
-		else
-			local barWidth = Plater.db.profile.plate_config.enemynpc.cast_incombat
-			Plater.MaxCastBarTextLength = Plater.db.profile.plate_config.enemynpc.cast_incombat[1] - 40
-		end
+	function Plater.UpdateMaxCastbarTextLength(newGlobalSize)
+		Plater.MaxCastBarTextLength = newGlobalSize
 	end
 
 	function Plater.GetNpcIDFromGUID (guid) --private
@@ -8086,6 +8285,7 @@ end
 		tooltipFrame:SetHyperlink ("unit:" .. serial or "")
 		
 		local isPlayerPet = false
+		local isOtherPet = false
 		
 		local line1 = _G ["PlaterPetOwnerFinderTextLeft2"]
 		local text1 = line1 and line1:GetText()
@@ -8094,10 +8294,12 @@ end
 			local playerName = pName:gsub ("%-.*", "") --remove realm name
 			if (text1:find (playerName)) then
 				isPlayerPet = true
+			elseif (string.match(text1, string.gsub(UNITNAME_TITLE_PET, "%%s", "(%.*)")) or string.match(text1, string.gsub(UNITNAME_TITLE_MINION, "%%s", "(%.*)"))) then
+				isOtherPet = true
 			end
 		end
 		
-		if (not isPlayerPet) then
+		if (not isPlayerPet and not isOtherPet) then
 			local line2 = _G ["PlaterPetOwnerFinderTextLeft3"]
 			local text2 = line2 and line2:GetText()
 			if (text2 and text2 ~= "") then
@@ -8105,15 +8307,19 @@ end
 				local playerName = pName:gsub ("%-.*", "") --remove realm name
 				if (text2:find (playerName)) then
 					isPlayerPet = true
+				elseif (string.match(text2, string.gsub(UNITNAME_TITLE_PET, "%%s", "(%.*)")) or string.match(text2, string.gsub(UNITNAME_TITLE_MINION, "%%s", "(%.*)"))) then
+					isOtherPet = true
 				end
 			end
 		end
 		
-		if (not isPlayerPet) then
-			Plater.NpcBlackList [serial] = true
-		else
+		if (isPlayerPet) then
 			PET_CACHE [serial] = time()
 			Plater.PlayerPetCache [serial] = time()
+		elseif (isOtherPet) then
+			PET_CACHE [serial] = time()
+		else
+			Plater.NpcBlackList [serial] = true
 		end
 	end
 	
@@ -8398,6 +8604,7 @@ end
 
 					local buffFrame = plateFrame.unitFrame.BuffFrame
 					local buffFrame2 = plateFrame.unitFrame.BuffFrame2
+					local unitAuraCache = plateFrame.unitFrame.AuraCache
 					
 					buffFrame:SetAlpha (DB_AURA_ALPHA)
 					buffFrame2:SetAlpha (DB_AURA_ALPHA)
@@ -8419,6 +8626,9 @@ end
 								Plater.AddAura (buffFrame, auraIconFrame, index, auraTable.SpellName, auraTable.SpellTexture, auraTable.Count, "DEBUFF", auraTable.Duration, auraTable.ApplyTime+auraTable.Duration, "player", false, false, auraTable.SpellID, false, false, true, true, auraTable.Type)
 							end
 							
+							unitAuraCache[auraTable.SpellName] = true
+							unitAuraCache[auraTable.SpellID] = true
+							
 							Plater.UpdateIconAspecRatio (auraIconFrame)
 						end
 						
@@ -8433,6 +8643,9 @@ end
 							else
 								Plater.AddAura (buffFrame, auraIconFrame, index, auraTable.SpellName, auraTable.SpellTexture, auraTable.Count, "DEBUFF", auraTable.Duration, auraTable.ApplyTime+auraTable.Duration, "player", false, false, auraTable.SpellID, false, false, false, true, auraTable.Type)
 							end
+							
+							unitAuraCache[auraTable.SpellName] = true
+							unitAuraCache[auraTable.SpellID] = true
 							
 							Plater.UpdateIconAspecRatio (auraIconFrame)
 						end
@@ -8460,6 +8673,10 @@ end
 							else
 								Plater.AddAura (buffFrame, auraIconFrame, index, auraTable.SpellName, auraTable.SpellTexture, auraTable.Count, "DEBUFF", auraTable.Duration, auraTable.ApplyTime+auraTable.Duration, "player", false, false, auraTable.SpellID, false, false, true, true, auraTable.Type)
 							end
+							
+							unitAuraCache[auraTable.SpellName] = true
+							unitAuraCache[auraTable.SpellID] = true
+							unitAuraCache.hasEnrage = unitAuraCache.hasEnrage or auraTable.Type == AURA_TYPE_ENRAGE
 						end
 						
 						for index, auraTable in ipairs (auraOptionsFrame.AuraTesting.BUFF) do
@@ -8474,6 +8691,10 @@ end
 								Plater.AddAura (frame, auraIconFrame, index, auraTable.SpellName, auraTable.SpellTexture, auraTable.Count, "BUFF", auraTable.Duration, auraTable.ApplyTime+auraTable.Duration, "player", false, false, auraTable.SpellID, true, false, false, false, auraTable.Type)
 								--Plater.AddAura (frame, auraIconFrame, index, auraTable.SpellName, auraTable.SpellTexture, auraTable.Count, "BUFF", auraTable.Duration, auraTable.ApplyTime+auraTable.Duration, "player", false, false, auraTable.SpellID, false, false, false, true, auraTable.Type)
 							end
+							
+							unitAuraCache[auraTable.SpellName] = true
+							unitAuraCache[auraTable.SpellID] = true
+							unitAuraCache.hasEnrage = unitAuraCache.hasEnrage or auraTable.Type == AURA_TYPE_ENRAGE
 						end
 					end
 					
@@ -8680,6 +8901,21 @@ end
 	--return if the nameplate is showing an aura
 	function Plater.NameplateHasAura (unitFrame, aura)
 		return unitFrame.BuffFrame.AuraCache [aura] or unitFrame.BuffFrame2.AuraCache [aura] or unitFrame.ExtraIconFrame.AuraCache [aura]
+	end
+	
+	--return if the unit has a specific aura
+	function Plater.UnitHasAura (unitFrame, aura)
+		return unitFrame and unitFrame.AuraCache and aura and unitFrame.AuraCache [aura]
+	end
+	
+	--return if the unit has an enrage effect
+	function Plater.UnitHasEnrage (unitFrame)
+		return unitFrame and unitFrame.AuraCache and unitFrame.AuraCache.hasEnrage
+	end
+	
+	--return if the unit has a dispellable effect
+	function Plater.UnitHasDispellable (unitFrame)
+		return unitFrame and unitFrame.AuraCache and  unitFrame.AuraCache.canStealOrPurge
 	end
 	
 	--get npc color set in the colors tab
@@ -9039,12 +9275,10 @@ end
 					local unitReaction = unitFrame.PlateFrame [MEMBER_REACTION]
 					if (unitReaction == 4 and not UnitAffectingCombat (unitFrame.unit)) then
 						Plater.FindAndSetNameplateColor (unitFrame, true)
+					elseif (DB_AGGRO_CHANGE_HEALTHBAR_COLOR and unitFrame.CanCheckAggro and unitReaction <= 4) then
+						Plater.UpdateNameplateThread (unitFrame)
 					else
-						if (unitReaction <= 4 and DB_AGGRO_CHANGE_HEALTHBAR_COLOR) then
-							Plater.UpdateNameplateThread (unitFrame)
-						else
-							Plater.FindAndSetNameplateColor (unitFrame)
-						end
+						Plater.FindAndSetNameplateColor (unitFrame)
 					end
 				else
 					Plater.FindAndSetNameplateColor (unitFrame)
@@ -9596,7 +9830,7 @@ end
 			for scriptId, scriptObject in ipairs (Plater.GetAllScriptsAsPrioSortedCopy ("script")) do
 				if (scriptObject.Enabled) then
 					if not noHotReload then
-						PLATER_GLOBAL_MOD_ENV [scriptObject.Name] = nil
+						PLATER_GLOBAL_SCRIPT_ENV [scriptObject.Name] = nil
 					end
 					Plater.CompileScript (scriptObject)
 				end
@@ -10073,9 +10307,9 @@ end
 		
 		--init modEnv if necessary
 		local needsInitCall = false
-		if not PLATER_GLOBAL_MOD_ENV [scriptObject.Name] then
+		if not PLATER_GLOBAL_SCRIPT_ENV [scriptObject.Name] then
 			needsInitCall = true
-			PLATER_GLOBAL_MOD_ENV [scriptObject.Name] = {}
+			PLATER_GLOBAL_SCRIPT_ENV [scriptObject.Name] = {}
 		end
 
 		--compile
@@ -10292,9 +10526,23 @@ end
 	--check the type of indexes in the indexScriptTable to determine which type of script is this
 	--this is done to avoid sending an extra index just to tell which type of script is the string
 	function Plater.GetDecodedScriptType (indexScriptTable)
-		if (type (indexScriptTable [9]) == "table") then --hook
+
+		-- newer versions
+		if indexScriptTable.type == "hook" then
 			return "hook"
-		elseif (type (indexScriptTable [9]) == "number") then --script
+		elseif indexScriptTable.type == "script" then
+			return "script"
+		elseif indexScriptTable.type == "npc_colors" then
+			return "npc_colors"
+		end
+	
+		-- fallback for old versions
+		indexScriptTable = Plater.MigrateScriptModImport (indexScriptTable) -- just to make sure this works as intended...
+		if (indexScriptTable.NpcColor) then
+			return "npc_colors"
+		elseif (type (indexScriptTable ["9"]) == "table") then --hook
+			return "hook"
+		elseif (type (indexScriptTable ["9"]) == "number") then --script
 			return "script"
 		end
 	end
@@ -10339,11 +10587,36 @@ end
 			--table.wipe (PlaterScriptLibrary)
 		end
 	end
+	
+	-- migrate imports to string-based indexes
+	function Plater.MigrateScriptModImport (indexScriptTable)
+		local newindexScriptTable = {}
+		
+		if not indexScriptTable or type(indexScriptTable) ~= "table" then
+			return newindexScriptTable
+		end
+		
+		-- generate a keys list and a tmpTable with all string keys
+		for k,v in pairs(indexScriptTable) do
+			newindexScriptTable[k .. ""] = v
+		end
+		
+		-- if index 2 or 5 are empty, fill them (icons for mods/scripts)
+		if not newindexScriptTable["2"] then
+			--newindexScriptTable["2"] = 134400
+		end
+		if not newindexScriptTable["5"] then
+			--newindexScriptTable["5"] = 134400
+		end
+		
+		--print(DF.table.dump(newindexScriptTable))
+		return newindexScriptTable
+	end
 
 	--import a string from any source with more options than the convencional importer
 	--this is used when importing scripts from the library and when the user inserted the wrong script type in the import box at hook or script, e.g. imported a hook in the script import box
 	--guarantee to always receive a 'print' type of encode
-	function Plater.ImportScriptString (text, ignoreRevision, overrideTriggers, showDebug)
+	function Plater.ImportScriptString (text, ignoreRevision, overrideTriggers, showDebug, keepExisting)
 		if (not text or type (text) ~= "string") then
 			return
 		end
@@ -10352,6 +10625,8 @@ end
 		
 		local indexScriptTable = Plater.DecompressData (text, "print")
 		if (indexScriptTable and type (indexScriptTable) == "table") then
+		
+			indexScriptTable = Plater.MigrateScriptModImport (indexScriptTable)
 
 			--get the script type, if is a hook or regular script
 			local scriptType = Plater.GetDecodedScriptType (indexScriptTable)
@@ -10364,48 +10639,52 @@ end
 					local alreadyExists = false
 					local scriptDB = Plater.GetScriptDB (scriptType)
 					
-					for i = 1, #Plater.db.profile.script_data do
-						local scriptObject = scriptDB [i]
-						if (scriptObject.Name == scriptName) then
-							--the script already exists
-							if (not ignoreRevision) then
-								if (scriptObject.Revision >= newScript.Revision) then
-									if (showDebug) then
-										Plater:Msg ("Your version of this script is newer or is the same version.")
-										return false
+					if not keepExisting then
+						for i = 1, #scriptDB do
+							local scriptObject = scriptDB [i]
+							if (scriptObject.Name == scriptName) then
+								--the script already exists
+								if (not ignoreRevision) then
+									if (scriptObject.Revision >= newScript.Revision) then
+										if (showDebug) then
+											Plater:Msg ("Your version of this script is newer or is the same version.")
+											return false
+										end
 									end
 								end
-							end
-							
-							--add to the new script object, triggers that the current script has, since the user might have added some
-							if (not overrideTriggers) then
-								if (newScript.ScriptType == 0x1 or newScript.ScriptType == 0x2) then
-									--aura or cast trigger
-									for index, trigger in ipairs (scriptObject.SpellIds) do
-										DF.table.addunique (newScript.SpellIds, trigger)
-									end
-								else
-									--npc trigger
-									for index, trigger in ipairs (scriptObject.NpcNames) do
-										DF.table.addunique (newScript.SpellIds, trigger)
+								
+								--copy triggers that the current script has to the new script object since the user might have modified the list
+								if (not overrideTriggers) then
+									if (newScript.ScriptType == 0x1 or newScript.ScriptType == 0x2) then
+										--aura or cast trigger
+										newScript.SpellIds = {}
+										for index, trigger in ipairs (scriptObject.SpellIds) do
+											DF.table.addunique (newScript.SpellIds, trigger)
+										end
+									else
+										--npc trigger
+										newScript.NpcNames = {}
+										for index, trigger in ipairs (scriptObject.NpcNames) do
+											DF.table.addunique (newScript.NpcNames, trigger)
+										end
 									end
 								end
+								
+								--keep the enabled state
+								newScript.Enabled = scriptObject.Enabled
+								
+								--replace the old script with the new one
+								tremove (scriptDB, i)
+								tinsert (scriptDB, i, newScript)
+								objectAdded = newScript
+								
+								if (showDebug) then
+									Plater:Msg ("Script replaced by a newer version.")
+								end
+								
+								alreadyExists = true
+								break
 							end
-							
-							--keep the enabled state
-							newScript.Enabled = scriptObject.Enabled
-							
-							--replace the old script with the new one
-							tremove (scriptDB, i)
-							tinsert (scriptDB, i, newScript)
-							objectAdded = newScript
-							
-							if (showDebug) then
-								Plater:Msg ("Script replaced by a newer one.")
-							end
-							
-							alreadyExists = true
-							break
 						end
 					end
 					
@@ -10423,33 +10702,35 @@ end
 					local alreadyExists = false
 					local scriptDB = Plater.GetScriptDB (scriptType)
 					
-					for i = 1, #Plater.db.profile.hook_data do
-						local scriptObject = scriptDB [i]
-						if (scriptObject.Name == scriptName) then
-							--the script already exists
-							if (not ignoreRevision) then
-								if (scriptObject.Revision >= newScript.Revision) then
-									if (showDebug) then
-										Plater:Msg ("Your version of this script is newer or is the same version.")
-										return false
+					if not keepExisting then
+						for i = 1, #scriptDB do
+							local scriptObject = scriptDB [i]
+							if (scriptObject.Name == scriptName) then
+								--the script already exists
+								if (not ignoreRevision) then
+									if (scriptObject.Revision >= newScript.Revision) then
+										if (showDebug) then
+											Plater:Msg ("Your version of this script is newer or is the same version.")
+											return false
+										end
 									end
 								end
+								
+								--keep the enabled state
+								newScript.Enabled = scriptObject.Enabled
+								
+								--replace the old script with the new one
+								tremove (scriptDB, i)
+								tinsert (scriptDB, i, newScript)
+								objectAdded = newScript
+								
+								if (showDebug) then
+									Plater:Msg ("Mod replaced by a newer version.")
+								end
+								
+								alreadyExists = true
+								break
 							end
-							
-							--keep the enabled state
-							newScript.Enabled = scriptObject.Enabled
-							
-							--replace the old script with the new one
-							tremove (scriptDB, i)
-							tinsert (scriptDB, i, newScript)
-							objectAdded = newScript
-							
-							if (showDebug) then
-								Plater:Msg ("Script replaced by a newer one.")
-							end
-							
-							alreadyExists = true
-							break
 						end
 					end
 					
@@ -10466,6 +10747,8 @@ end
 				--check if the user in importing a profile in the scripting tab
 				if (indexScriptTable.plate_config) then
 					DF:ShowErrorMessage ("Invalid Script or Mod.\n\nImport profiles at the Profiles tab.")
+				elseif (indexScriptTable.NpcColor) then
+					DF:ShowErrorMessage ("Invalid Script or Mod.\n\nImport NpcColors at the Npc Colors tab.")
 				end
 				errortext = "Cannot import: data imported is invalid"
 			end
@@ -10521,22 +10804,26 @@ end
 		if (scriptType == "hook") then
 			local scriptObject = {}
 			scriptObject.Enabled 		= true --imported scripts are always enabled
-			scriptObject.Name		= indexTable [1]
-			scriptObject.Icon			= indexTable [2]
-			scriptObject.Desc		= indexTable [3]
-			scriptObject.Author		= indexTable [4]
-			scriptObject.Time			= indexTable [5]
-			scriptObject.Revision		= indexTable [6]
-			scriptObject.PlaterCore		= indexTable [7]
-			scriptObject.LoadConditions	= indexTable [8]
+			scriptObject.Name		= indexTable ["1"]
+			scriptObject.Icon			= indexTable ["2"]
+			scriptObject.Desc		= indexTable ["3"]
+			scriptObject.Author		= indexTable ["4"]
+			scriptObject.Time			= indexTable ["5"]
+			scriptObject.Revision		= indexTable ["6"]
+			scriptObject.PlaterCore		= indexTable ["7"]
+			scriptObject.LoadConditions	= indexTable ["8"]
 
 			scriptObject.Hooks = {}
 			scriptObject.HooksTemp = {}
 			scriptObject.LastHookEdited = ""
 			
-			for hookName, hookCode in pairs (indexTable [9]) do
+			for hookName, hookCode in pairs (indexTable ["9"]) do
 				scriptObject.Hooks [hookName] = hookCode
 			end
+
+			scriptObject.url         = indexTable.url or ""
+			scriptObject.version = indexTable.version or -1
+			scriptObject.semver  = indexTable.semver or ""
 			
 			return scriptObject
 			
@@ -10544,20 +10831,23 @@ end
 			local scriptObject = {}
 			
 			scriptObject.Enabled 		= true --imported scripts are always enabled
-			scriptObject.ScriptType 	= indexTable [1]
-			scriptObject.Name  		= indexTable [2]
-			scriptObject.SpellIds  		= indexTable [3]
-			scriptObject.NpcNames  	= indexTable [4]
-			scriptObject.Icon  		= indexTable [5]
-			scriptObject.Desc  		= indexTable [6]
-			scriptObject.Author  		= indexTable [7]
-			scriptObject.Time  		= indexTable [8]
-			scriptObject.Revision  		= indexTable [9]
-			scriptObject.PlaterCore  	= indexTable [10]
+			scriptObject.ScriptType 	= indexTable ["1"]
+			scriptObject.Name  		= indexTable ["2"]
+			scriptObject.SpellIds  		= indexTable ["3"]
+			scriptObject.NpcNames  	= indexTable ["4"]
+			scriptObject.Icon  		= indexTable ["5"]
+			scriptObject.Desc  		= indexTable ["6"]
+			scriptObject.Author  		= indexTable ["7"]
+			scriptObject.Time  		= indexTable ["8"]
+			scriptObject.Revision  		= indexTable ["9"]
+			scriptObject.PlaterCore  	= indexTable ["10"]
+			scriptObject.url  	 = indexTable.url or ""
+			scriptObject.version = indexTable.version or -1
+			scriptObject.semver  = indexTable.semver or ""
 			
 			for i = 1, #Plater.CodeTypeNames do
 				local memberName = Plater.CodeTypeNames [i]
-				scriptObject [memberName] = indexTable [10 + i]
+				scriptObject [memberName] = indexTable [(10 + i)..""]
 			end
 			
 			return scriptObject
@@ -10623,6 +10913,60 @@ end
 				local memberName = Plater.CodeTypeNames [i]
 				t [#t + 1] = scriptObject [memberName]
 			end
+			
+			return t
+		end
+	end
+	
+	function Plater.PrepareTableToExportStringIndexes (scriptObject)
+	--function Plater.PrepareTableToExport (scriptObject)
+		
+		if (scriptObject.Hooks) then
+			--script for hooks
+			local t = {}
+			
+			t ["1"] = scriptObject.Name
+			t ["2"] = scriptObject.Icon
+			t ["3"] = scriptObject.Desc
+			t ["4"] = scriptObject.Author
+			t ["5"] = scriptObject.Time
+			t ["6"] = scriptObject.Revision
+			t ["7"] = scriptObject.PlaterCore
+			t ["8"] = scriptObject.LoadConditions
+			t ["9"] = {}
+
+			for hookName, hookCode in pairs (scriptObject.Hooks) do
+				t ["9"] [hookName] = hookCode
+			end
+			
+			t["options"] = scriptObject.Options or {}
+			
+			t ["type"] = "hook"
+			
+			return t
+		else
+			--regular script for aura cast or unitID
+			local t = {}
+			
+			t ["1"] = scriptObject.ScriptType
+			t ["2"] = scriptObject.Name
+			t ["3"] = scriptObject.SpellIds
+			t ["4"] = scriptObject.NpcNames
+			t ["5"] = scriptObject.Icon
+			t ["6"] = scriptObject.Desc
+			t ["7"] = scriptObject.Author
+			t ["8"] = scriptObject.Time
+			t ["9"] = scriptObject.Revision
+			t ["10"] = scriptObject.PlaterCore
+			
+			for i = 1, #Plater.CodeTypeNames do
+				local memberName = Plater.CodeTypeNames [i]
+				t [(10 + i)..""] = scriptObject [memberName]
+			end
+			
+			t["options"] = scriptObject.Options or {}
+			
+			t ["type"] = "script"
 			
 			return t
 		end

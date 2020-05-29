@@ -28,8 +28,8 @@ Prat3DB = {
 						},
 						["general"] = {
 							["r"] = 1,
-							["g"] = 0.752941250801086,
-							["b"] = 0.752941250801086,
+							["g"] = 0.7529412508010864,
+							["b"] = 0.7529412508010864,
 						},
 						["wqp50847"] = {
 							["r"] = 1,
@@ -215,19 +215,21 @@ Prat3DB = {
 		},
 		["Prat_Font"] = {
 		},
+		["Prat_Bubbles"] = {
+		},
 		["Prat_ChannelNames"] = {
 		},
 		["Prat_KeyBindings"] = {
 		},
-		["Prat_Bubbles"] = {
+		["Prat_ChatLog"] = {
 		},
 		["Prat_Scroll"] = {
 		},
-		["Prat_ChatLog"] = {
-		},
 		["Prat_Paragraph"] = {
 		},
-		["Prat_Achievements"] = {
+		["Prat_Mentions"] = {
+		},
+		["Prat_ChannelSticky"] = {
 		},
 		["Prat_Alias"] = {
 		},
@@ -235,13 +237,13 @@ Prat3DB = {
 		},
 		["Prat_Highlight"] = {
 		},
-		["Prat_ChannelSticky"] = {
+		["Prat_Sounds"] = {
 		},
 		["Prat_PopupMessage"] = {
 		},
 		["Prat_Invites"] = {
 		},
-		["Prat_Sounds"] = {
+		["Prat_Achievements"] = {
 		},
 		["Prat_CopyChat"] = {
 		},
@@ -289,6 +291,7 @@ Prat3DB = {
 		["Default"] = {
 			["modules"] = {
 				["Alias"] = 2,
+				["Mentions"] = 2,
 				["PopupMessage"] = 2,
 				["AltNames"] = 2,
 				["Sounds"] = 2,

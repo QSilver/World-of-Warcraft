@@ -122,6 +122,67 @@ local function GSUB_Encounter(list,msg)
 	end
 end
 
+local classList = {
+	[L.classLocalizate.WARRIOR:lower()] = 1,
+	[L.classLocalizate.PALADIN:lower()] = 2,
+	[L.classLocalizate.HUNTER:lower()] = 3,
+	[L.classLocalizate.ROGUE:lower()] = 4,
+	[L.classLocalizate.PRIEST:lower()] = 5,
+	[L.classLocalizate.DEATHKNIGHT:lower()] = 6,
+	[L.classLocalizate.SHAMAN:lower()] = 7,
+	[L.classLocalizate.MAGE:lower()] = 8,
+	[L.classLocalizate.WARLOCK:lower()] = 9,
+	[L.classLocalizate.MONK:lower()] = 10,
+	[L.classLocalizate.DRUID:lower()] = 11,
+	[L.classLocalizate.DEMONHUNTER:lower()] = 12,
+	["warrior"] = 1,
+	["paladin"] = 2,
+	["hunter"] = 3,
+	["rogue"] = 4,
+	["priest"] = 5,
+	["deathknight"] = 6,
+	["shaman"] = 7,
+	["mage"] = 8,
+	["warlock"] = 9,
+	["monk"] = 10,
+	["druid"] = 11,
+	["demonhunter"] = 12,
+	["war"] = 1,
+	["pal"] = 2,
+	["hun"] = 3,
+	["rog"] = 4,
+	["pri"] = 5,
+	["dk"] = 6,
+	["sham"] = 7,
+	["lock"] = 9,
+	["dru"] = 11,
+	["dh"] = 12,
+	["1"] = 1,
+	["2"] = 2,
+	["3"] = 3,
+	["4"] = 4,
+	["5"] = 5,
+	["6"] = 6,
+	["7"] = 7,
+	["8"] = 7,
+	["9"] = 9,
+	["10"] = 10,
+	["11"] = 11,
+	["12"] = 12,
+}
+
+local function GSUB_Class(list,msg)
+	list = {strsplit(",",list)}
+	local myClassIndex = select(3,UnitClass("player"))
+	for i=1,#list do
+		list[i] = list[i]:gsub("|c........",""):gsub("|r",""):lower()
+		if classList[ list[i] ] == myClassIndex then
+			return msg
+		end
+	end
+	return ""
+end
+
 --[[
 formats:
 {time:75}
@@ -231,6 +292,8 @@ local function txtWithIcons(t)
 	if not isDD then t = string_gsub(t,"{[Dd]}.-{/[Dd]}","") end
 	t = string_gsub(t,"{0}.-{/0}","")
 
+	t = string_gsub(t,"{[Cc]:([^}]+)}(.-){/[Cc]}",GSUB_Class)
+
 	t = string_gsub(t.."\n","{time:([0-9:]+[^{}]*)}(.-)\n",GSUB_Time)
 	t = string_gsub(t, "\n$", "")
 
@@ -244,7 +307,7 @@ function module.options:Load()
 	self:CreateTilte()
 
 	module.db.otherIconsAdditionalList = ExRT.isClassic and {} or {
-		31821,62618,97462,98008,115310,64843,740,265202,108280,204150,31884,196718,15286,64901,47536,246287,0,
+		31821,62618,97462,98008,115310,64843,740,265202,108280,204150,31884,196718,15286,64901,47536,246287,33891,0,
 		47788,33206,6940,102342,114030,1022,116849,633,204018,207399,0,
 		2825,32182,80353,0,
 		106898,192077,46968,119381,179057,192058,30283,0,
@@ -828,7 +891,19 @@ function module.options:Load()
 			text = text:gsub("||c........","")
 			text = text:gsub("||r","")
 			text = text:gsub("||T.-:0||t ","")
-			text = text:gsub("%b{}","")
+			for i=1,8 do
+				text = text:gsub(module.db.iconsLocalizatedNames[i],"{rt"..i.."}")
+				for _,lang in pairs(iconsLangs) do
+					text = text:gsub(module.db["icons"..lang.."Names"][i],"{rt"..i.."}")
+				end
+			end
+			text = text:gsub("%b{}",function(p)
+				if p and p:match("^{rt%d}$") then
+					return p
+				else
+					return ""
+				end
+			end)
 			
 			local lines = {strsplit("\n", text)}
 			for i=1,#lines do
@@ -1045,10 +1120,10 @@ function module.options:Load()
 		self.html:SetShadowColor(0, 0, 0, 1)
 	end
 	self.raidnames = {}
-	for i=1,35 do
+	for i=1,40 do
 		self.raidnames[i] = CreateFrame("Button", nil,self.tab.tabs[1])
-		self.raidnames[i]:SetSize(105,14)
-		self.raidnames[i]:SetPoint("TOPLEFT", 5+math.floor((i-1)/5)*108,-55-14*((i-1)%5))
+		self.raidnames[i]:SetSize(93,14)
+		self.raidnames[i]:SetPoint("TOPLEFT", 5+math.floor((i-1)/5)*95,-55-14*((i-1)%5))
 
 		self.raidnames[i].html = ELib:Text(self.raidnames[i],"",11):Color()
 		self.raidnames[i].html:SetAllPoints()
@@ -1288,6 +1363,7 @@ function module.options:Load()
 		"|n|cffffff00{self}|r - "..L.NoteHelp4..
 		"|n|cffffff00{p:|r|cff00ff00JaneD|r|cffffff00,|r|cff00ff00JennyB-HowlingFjord|r|cffffff00}|r...|cffffff00{/p}|r - "..L.NoteHelp5..
 		"|n|cffffff00{icon:|r|cff00ff00Interface/Icons/inv_hammer_unique_sulfuras|r|cffffff00}|r - "..L.NoteHelp6..
+		"|n|cffffff00{c:|r|cff00ff00Paladin,Priest|r|cffffff00}|r...|cffffff00{/c}|r - "..L.NoteHelp8..
 		"|n|cffffff00{time:|r|cff00ff002:45|r|cffffff00}|r - "..L.NoteHelp7
 	):Point("TOPLEFT",5,-20):Point("TOPRIGHT",-5,-20):Color()
 
@@ -1747,7 +1823,7 @@ function module.main:GROUP_ROSTER_UPDATE()
 	for i=1,8 do gruevent[i] = 0 end
 	if IsInRaid() then
 		local n = GetNumGroupMembers() or 0
-		local gMax = 7
+		local gMax = 8
 		for i=1,n do
 			local name,_,subgroup,_,_,class = GetRaidRosterInfo(i)
 			if name and subgroup <= gMax and gruevent[subgroup] then
@@ -1789,7 +1865,7 @@ function module.main:GROUP_ROSTER_UPDATE()
 			end
 		end		
 	end
-	for i=1,7 do
+	for i=1,8 do
 		for j=(gruevent[i]+1),5 do
 			local frame = module.options.raidnames[(i-1)*5+j]
 			frame.iconText = ""

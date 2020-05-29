@@ -6,6 +6,8 @@ E_AZERITE_POWER = 5
 E_SPELLID = 6
 E_DESC = 7
 E_REFID = 8
+E_REFSPELL = 9
+E_RANK = 10
 AdvancedTooltips.Items = {
 	[870] = {
 		[1] = {
@@ -1071,11 +1073,11 @@ AdvancedTooltips.Items = {
 	},
 	[50035] = {
 		[1] = {
-			[E_CHANCE] = 3,
-			[E_RPPM] = 0,
-			[E_NAME] = "Item - Icecrown 25 Normal Slow Melee Weapon Proc",
+			[E_CHANCE] = 2,
+			[E_RPPM] = 1,
+			[E_NAME] = "Black Bruise",
 			[E_ICD] = 0,
-			[E_SPELLID] = 71876,
+			[E_SPELLID] = 309563,
 		},
 	},
 	[50179] = {
@@ -1296,11 +1298,11 @@ AdvancedTooltips.Items = {
 	},
 	[50692] = {
 		[1] = {
-			[E_CHANCE] = 3,
-			[E_RPPM] = 0,
-			[E_NAME] = "Item - Icecrown 25 Heroic Slow Melee Weapon Proc",
+			[E_CHANCE] = 2,
+			[E_RPPM] = 1,
+			[E_NAME] = "Black Bruise",
 			[E_ICD] = 0,
-			[E_SPELLID] = 71878,
+			[E_SPELLID] = 309563,
 		},
 	},
 	[50708] = {
@@ -13690,6 +13692,15 @@ AdvancedTooltips.Items = {
 			[E_SPELLID] = 268566,
 		},
 	},
+	[161374] = {
+		[1] = {
+			[E_CHANCE] = 1.25,
+			[E_RPPM] = 1,
+			[E_NAME] = "Augmented Ruthlessness",
+			[E_ICD] = 0,
+			[E_SPELLID] = 278831,
+		},
+	},
 	[161376] = {
 		[1] = {
 			[E_CHANCE] = 1,
@@ -13735,6 +13746,15 @@ AdvancedTooltips.Items = {
 			[E_SPELLID] = 278224,
 		},
 	},
+	[161414] = {
+		[1] = {
+			[E_CHANCE] = 8,
+			[E_RPPM] = 1,
+			[E_NAME] = "Avian Tempest",
+			[E_ICD] = 0,
+			[E_SPELLID] = 278251,
+		},
+	},
 	[161415] = {
 		[1] = {
 			[E_CHANCE] = 1.5,
@@ -13742,6 +13762,15 @@ AdvancedTooltips.Items = {
 			[E_NAME] = "Razorleaf Tempest",
 			[E_ICD] = 0,
 			[E_SPELLID] = 278248,
+		},
+	},
+	[161416] = {
+		[1] = {
+			[E_CHANCE] = 1,
+			[E_RPPM] = 1,
+			[E_NAME] = "Turbo-Chaged",
+			[E_ICD] = 12000,
+			[E_SPELLID] = 278864,
 		},
 	},
 	[161419] = {
@@ -13960,6 +13989,60 @@ AdvancedTooltips.Items = {
 			[E_SPELLID] = 295427,
 		},
 	},
+	[167379] = {
+		[1] = {
+			[E_CHANCE] = 1.5,
+			[E_RPPM] = 1,
+			[E_NAME] = "Gladiator\'s Insignia",
+			[E_ICD] = 0,
+			[E_SPELLID] = 277182,
+		},
+	},
+	[167527] = {
+		[1] = {
+			[E_CHANCE] = 1.5,
+			[E_RPPM] = 1,
+			[E_NAME] = "Gladiator\'s Insignia",
+			[E_ICD] = 0,
+			[E_SPELLID] = 277182,
+		},
+	},
+	[167758] = {
+		[1] = {
+			[E_CHANCE] = 1.5,
+			[E_RPPM] = 1,
+			[E_NAME] = "Exploding Pufferfish",
+			[E_ICD] = 0,
+			[E_SPELLID] = 303133,
+		},
+	},
+	[167766] = {
+		[1] = {
+			[E_CHANCE] = 1.5,
+			[E_RPPM] = 1,
+			[E_NAME] = "Exploding Pufferfish",
+			[E_ICD] = 0,
+			[E_SPELLID] = 303133,
+		},
+	},
+	[167774] = {
+		[1] = {
+			[E_CHANCE] = 1.5,
+			[E_RPPM] = 1,
+			[E_NAME] = "Exploding Pufferfish",
+			[E_ICD] = 0,
+			[E_SPELLID] = 303133,
+		},
+	},
+	[167783] = {
+		[1] = {
+			[E_CHANCE] = 1.5,
+			[E_RPPM] = 1,
+			[E_NAME] = "Exploding Pufferfish",
+			[E_ICD] = 0,
+			[E_SPELLID] = 303133,
+		},
+	},
 	[167838] = {
 		[1] = {
 			[E_CHANCE] = 1,
@@ -13998,7 +14081,7 @@ AdvancedTooltips.Items = {
 	},
 	[167864] = {
 		[1] = {
-			[E_CHANCE] = 2,
+			[E_CHANCE] = 3,
 			[E_RPPM] = 1,
 			[E_NAME] = "Custody of the Deep",
 			[E_ICD] = 0,
@@ -14012,6 +14095,689 @@ AdvancedTooltips.Items = {
 			[E_NAME] = "Oblivion Spear",
 			[E_ICD] = 0,
 			[E_SPELLID] = 295391,
+		},
+	},
+	[168273] = {
+		[1] = {
+			[E_CHANCE] = 3,
+			[E_RPPM] = 1,
+			[E_NAME] = "Venomous Bolt",
+			[E_ICD] = 0,
+			[E_SPELLID] = 303358,
+		},
+	},
+	[168275] = {
+		[1] = {
+			[E_CHANCE] = 5,
+			[E_RPPM] = 1,
+			[E_NAME] = "Prodigy\'s Potency",
+			[E_ICD] = 0,
+			[E_SPELLID] = 302986,
+		},
+	},
+	[168306] = {
+		[1] = {
+			[E_CHANCE] = 3,
+			[E_RPPM] = 1,
+			[E_NAME] = "Shivering Lance",
+			[E_ICD] = 0,
+			[E_SPELLID] = 303361,
+		},
+	},
+	[168674] = {
+		[1] = {
+			[E_CHANCE] = 1,
+			[E_RPPM] = 1,
+			[E_NAME] = "Infernal Alchemist Stone",
+			[E_ICD] = 0,
+			[E_SPELLID] = 188026,
+		},
+	},
+	[168675] = {
+		[1] = {
+			[E_CHANCE] = 1,
+			[E_RPPM] = 1,
+			[E_NAME] = "Infernal Alchemist Stone",
+			[E_ICD] = 0,
+			[E_SPELLID] = 188026,
+		},
+	},
+	[168676] = {
+		[1] = {
+			[E_CHANCE] = 1,
+			[E_RPPM] = 1,
+			[E_NAME] = "Infernal Alchemist Stone",
+			[E_ICD] = 0,
+			[E_SPELLID] = 188026,
+		},
+	},
+	[168900] = {
+		[1] = {
+			[E_CHANCE] = 1,
+			[E_RPPM] = 1,
+			[E_NAME] = "Bioelectric Charge",
+			[E_ICD] = 0,
+			[E_SPELLID] = 303353,
+		},
+	},
+	[168905] = {
+		[1] = {
+			[E_CHANCE] = 10,
+			[E_RPPM] = 1,
+			[E_NAME] = "Shiver Venom",
+			[E_ICD] = 0,
+			[E_SPELLID] = 301576,
+		},
+	},
+	[168957] = {
+		[1] = {
+			[E_CHANCE] = 1,
+			[E_RPPM] = 0,
+			[E_NAME] = "Gladiatorial Echoes",
+			[E_ICD] = 0,
+			[E_SPELLID] = 301641,
+		},
+	},
+	[168963] = {
+		[1] = {
+			[E_CHANCE] = 4,
+			[E_RPPM] = 1,
+			[E_NAME] = "Fusion Burn",
+			[E_ICD] = 0,
+			[E_SPELLID] = 299906,
+		},
+	},
+	[169035] = {
+		[1] = {
+			[E_CHANCE] = 4,
+			[E_RPPM] = 1,
+			[E_NAME] = "Tessellated Lightning",
+			[E_ICD] = 0,
+			[E_SPELLID] = 301753,
+		},
+	},
+	[169058] = {
+		[1] = {
+			[E_CHANCE] = 4,
+			[E_RPPM] = 1,
+			[E_NAME] = "Fusion Burn",
+			[E_ICD] = 0,
+			[E_SPELLID] = 299906,
+		},
+	},
+	[169068] = {
+		[1] = {
+			[E_CHANCE] = 1,
+			[E_RPPM] = 1,
+			[E_NAME] = "Salvaged Mekacycle Shielding",
+			[E_ICD] = 0,
+			[E_SPELLID] = 302258,
+		},
+	},
+	[169301] = {
+		[1] = {
+			[E_CHANCE] = 6,
+			[E_RPPM] = 1,
+			[E_NAME] = "Swirling Tides",
+			[E_ICD] = 0,
+			[E_SPELLID] = 300805,
+		},
+	},
+	[169302] = {
+		[1] = {
+			[E_CHANCE] = 6,
+			[E_RPPM] = 1,
+			[E_NAME] = "Mystical Bulwark",
+			[E_ICD] = 0,
+			[E_SPELLID] = 300813,
+		},
+	},
+	[169304] = {
+		[1] = {
+			[E_CHANCE] = 20,
+			[E_RPPM] = 1,
+			[E_NAME] = "Leviathan Chomp",
+			[E_ICD] = 0,
+			[E_SPELLID] = 302773,
+		},
+		[2] = {
+			[E_CHANCE] = 2,
+			[E_RPPM] = 1,
+			[E_NAME] = "Luminous Algae",
+			[E_ICD] = 0,
+			[E_SPELLID] = 302776,
+		},
+	},
+	[169306] = {
+		[1] = {
+			[E_CHANCE] = 1.5,
+			[E_RPPM] = 1,
+			[E_NAME] = "Void Negotiation",
+			[E_ICD] = 0,
+			[E_SPELLID] = 302696,
+		},
+	},
+	[169309] = {
+		[1] = {
+			[E_CHANCE] = 3,
+			[E_RPPM] = 1,
+			[E_NAME] = "Summon Zoatroid",
+			[E_ICD] = 0,
+			[E_SPELLID] = 302918,
+		},
+	},
+	[169312] = {
+		[1] = {
+			[E_CHANCE] = 3,
+			[E_RPPM] = 1,
+			[E_NAME] = "Luminous Jellyweed",
+			[E_ICD] = 0,
+			[E_SPELLID] = 303696,
+		},
+	},
+	[169313] = {
+		[1] = {
+			[E_CHANCE] = 1,
+			[E_RPPM] = 1,
+			[E_NAME] = "Arcane Tempest",
+			[E_ICD] = 0,
+			[E_SPELLID] = 304471,
+		},
+	},
+	[169317] = {
+		[1] = {
+			[E_CHANCE] = 1,
+			[E_RPPM] = 1,
+			[E_NAME] = "Enthraller\'s Influence",
+			[E_ICD] = 0,
+			[E_SPELLID] = 303937,
+		},
+	},
+	[169319] = {
+		[1] = {
+			[E_CHANCE] = 8,
+			[E_RPPM] = 1,
+			[E_NAME] = "Conductive Ink",
+			[E_ICD] = 0,
+			[E_SPELLID] = 296963,
+		},
+	},
+	[169321] = {
+		[1] = {
+			[E_CHANCE] = 10,
+			[E_RPPM] = 1,
+			[E_NAME] = "Highborne Compendium of Sundering",
+			[E_ICD] = 0,
+			[E_SPELLID] = 300830,
+		},
+	},
+	[169328] = {
+		[1] = {
+			[E_CHANCE] = 6,
+			[E_RPPM] = 1,
+			[E_NAME] = "Highborne Compendium of Storms",
+			[E_ICD] = 0,
+			[E_SPELLID] = 300913,
+		},
+	},
+	[170111] = {
+		[1] = {
+			[E_CHANCE] = 3,
+			[E_RPPM] = 1,
+			[E_NAME] = "Eel-ectrified Defenses",
+			[E_ICD] = 0,
+			[E_SPELLID] = 303919,
+		},
+	},
+	[170121] = {
+		[1] = {
+			[E_CHANCE] = 3,
+			[E_RPPM] = 1,
+			[E_NAME] = "Eel-ectrified Defenses",
+			[E_ICD] = 0,
+			[E_SPELLID] = 303919,
+		},
+	},
+	[170122] = {
+		[1] = {
+			[E_CHANCE] = 3,
+			[E_RPPM] = 1,
+			[E_NAME] = "Eel-ectrified Defenses",
+			[E_ICD] = 0,
+			[E_SPELLID] = 303919,
+		},
+	},
+	[170123] = {
+		[1] = {
+			[E_CHANCE] = 3,
+			[E_RPPM] = 1,
+			[E_NAME] = "Eel-ectrified Defenses",
+			[E_ICD] = 0,
+			[E_SPELLID] = 303919,
+		},
+	},
+	[170133] = {
+		[1] = {
+			[E_CHANCE] = 1,
+			[E_RPPM] = 1,
+			[E_NAME] = "Carnivore of the Deep",
+			[E_ICD] = 0,
+			[E_SPELLID] = 303893,
+		},
+	},
+	[170134] = {
+		[1] = {
+			[E_CHANCE] = 1,
+			[E_RPPM] = 1,
+			[E_NAME] = "Carnivore of the Deep",
+			[E_ICD] = 0,
+			[E_SPELLID] = 303893,
+		},
+	},
+	[170135] = {
+		[1] = {
+			[E_CHANCE] = 1,
+			[E_RPPM] = 1,
+			[E_NAME] = "Carnivore of the Deep",
+			[E_ICD] = 0,
+			[E_SPELLID] = 303893,
+		},
+	},
+	[170136] = {
+		[1] = {
+			[E_CHANCE] = 1,
+			[E_RPPM] = 1,
+			[E_NAME] = "Carnivore of the Deep",
+			[E_ICD] = 0,
+			[E_SPELLID] = 303893,
+		},
+	},
+	[170273] = {
+		[1] = {
+			[E_CHANCE] = 3,
+			[E_RPPM] = 1,
+			[E_NAME] = "Rusty Scrap",
+			[E_ICD] = 0,
+			[E_SPELLID] = 304110,
+		},
+	},
+	[170303] = {
+		[1] = {
+			[E_CHANCE] = 1.5,
+			[E_RPPM] = 1,
+			[E_NAME] = "Frost Blast",
+			[E_ICD] = 0,
+			[E_SPELLID] = 304640,
+		},
+	},
+	[170304] = {
+		[1] = {
+			[E_CHANCE] = 1.5,
+			[E_RPPM] = 1,
+			[E_NAME] = "Frost Blast",
+			[E_ICD] = 0,
+			[E_SPELLID] = 304640,
+		},
+	},
+	[170305] = {
+		[1] = {
+			[E_CHANCE] = 1.5,
+			[E_RPPM] = 1,
+			[E_NAME] = "Frost Blast",
+			[E_ICD] = 0,
+			[E_SPELLID] = 304640,
+		},
+	},
+	[170306] = {
+		[1] = {
+			[E_CHANCE] = 1.5,
+			[E_RPPM] = 1,
+			[E_NAME] = "Frost Blast",
+			[E_ICD] = 0,
+			[E_SPELLID] = 304640,
+		},
+	},
+	[170328] = {
+		[1] = {
+			[E_CHANCE] = 2,
+			[E_RPPM] = 1,
+			[E_NAME] = "Sharp Fins",
+			[E_ICD] = 0,
+			[E_SPELLID] = 304711,
+		},
+	},
+	[170329] = {
+		[1] = {
+			[E_CHANCE] = 2,
+			[E_RPPM] = 1,
+			[E_NAME] = "Sharp Fins",
+			[E_ICD] = 0,
+			[E_SPELLID] = 304711,
+		},
+	},
+	[170330] = {
+		[1] = {
+			[E_CHANCE] = 2,
+			[E_RPPM] = 1,
+			[E_NAME] = "Sharp Fins",
+			[E_ICD] = 0,
+			[E_SPELLID] = 304711,
+		},
+	},
+	[170331] = {
+		[1] = {
+			[E_CHANCE] = 2,
+			[E_RPPM] = 1,
+			[E_NAME] = "Sharp Fins",
+			[E_ICD] = 0,
+			[E_SPELLID] = 304711,
+		},
+	},
+	[170333] = {
+		[1] = {
+			[E_CHANCE] = 3,
+			[E_RPPM] = 1,
+			[E_NAME] = "Tidal Droplet",
+			[E_ICD] = 0,
+			[E_SPELLID] = 304715,
+		},
+		[2] = {
+			[E_CHANCE] = 3,
+			[E_RPPM] = 1,
+			[E_NAME] = "Tidal Droplet",
+			[E_ICD] = 0,
+			[E_SPELLID] = 305271,
+		},
+	},
+	[170334] = {
+		[1] = {
+			[E_CHANCE] = 3,
+			[E_RPPM] = 1,
+			[E_NAME] = "Tidal Droplet",
+			[E_ICD] = 0,
+			[E_SPELLID] = 304715,
+		},
+		[2] = {
+			[E_CHANCE] = 3,
+			[E_RPPM] = 1,
+			[E_NAME] = "Tidal Droplet",
+			[E_ICD] = 0,
+			[E_SPELLID] = 305271,
+		},
+	},
+	[170335] = {
+		[1] = {
+			[E_CHANCE] = 3,
+			[E_RPPM] = 1,
+			[E_NAME] = "Tidal Droplet",
+			[E_ICD] = 0,
+			[E_SPELLID] = 304715,
+		},
+		[2] = {
+			[E_CHANCE] = 3,
+			[E_RPPM] = 1,
+			[E_NAME] = "Tidal Droplet",
+			[E_ICD] = 0,
+			[E_SPELLID] = 305271,
+		},
+	},
+	[170336] = {
+		[1] = {
+			[E_CHANCE] = 3,
+			[E_RPPM] = 1,
+			[E_NAME] = "Tidal Droplet",
+			[E_ICD] = 0,
+			[E_SPELLID] = 304715,
+		},
+		[2] = {
+			[E_CHANCE] = 3,
+			[E_RPPM] = 1,
+			[E_NAME] = "Tidal Droplet",
+			[E_ICD] = 0,
+			[E_SPELLID] = 305271,
+		},
+	},
+	[170367] = {
+		[1] = {
+			[E_CHANCE] = 1.5,
+			[E_RPPM] = 1,
+			[E_NAME] = "Conch Strike",
+			[E_ICD] = 0,
+			[E_SPELLID] = 304697,
+		},
+	},
+	[170368] = {
+		[1] = {
+			[E_CHANCE] = 1.5,
+			[E_RPPM] = 1,
+			[E_NAME] = "Conch Strike",
+			[E_ICD] = 0,
+			[E_SPELLID] = 304697,
+		},
+	},
+	[170369] = {
+		[1] = {
+			[E_CHANCE] = 1.5,
+			[E_RPPM] = 1,
+			[E_NAME] = "Conch Strike",
+			[E_ICD] = 0,
+			[E_SPELLID] = 304697,
+		},
+	},
+	[170370] = {
+		[1] = {
+			[E_CHANCE] = 1.5,
+			[E_RPPM] = 1,
+			[E_NAME] = "Conch Strike",
+			[E_ICD] = 0,
+			[E_SPELLID] = 304697,
+		},
+	},
+	[170375] = {
+		[1] = {
+			[E_CHANCE] = 2,
+			[E_RPPM] = 1,
+			[E_NAME] = "Waveblade Discipline",
+			[E_ICD] = 0,
+			[E_SPELLID] = 304628,
+		},
+	},
+	[170376] = {
+		[1] = {
+			[E_CHANCE] = 2,
+			[E_RPPM] = 1,
+			[E_NAME] = "Waveblade Discipline",
+			[E_ICD] = 0,
+			[E_SPELLID] = 304628,
+		},
+	},
+	[170377] = {
+		[1] = {
+			[E_CHANCE] = 2,
+			[E_RPPM] = 1,
+			[E_NAME] = "Waveblade Discipline",
+			[E_ICD] = 0,
+			[E_SPELLID] = 304628,
+		},
+	},
+	[170378] = {
+		[1] = {
+			[E_CHANCE] = 2,
+			[E_RPPM] = 1,
+			[E_NAME] = "Waveblade Discipline",
+			[E_ICD] = 0,
+			[E_SPELLID] = 304628,
+		},
+	},
+	[171085] = {
+		[1] = {
+			[E_CHANCE] = 1,
+			[E_RPPM] = 1,
+			[E_NAME] = "Infernal Alchemist Stone",
+			[E_ICD] = 0,
+			[E_SPELLID] = 188026,
+		},
+	},
+	[171087] = {
+		[1] = {
+			[E_CHANCE] = 1,
+			[E_RPPM] = 1,
+			[E_NAME] = "Infernal Alchemist Stone",
+			[E_ICD] = 0,
+			[E_SPELLID] = 188026,
+		},
+	},
+	[171088] = {
+		[1] = {
+			[E_CHANCE] = 1,
+			[E_RPPM] = 1,
+			[E_NAME] = "Infernal Alchemist Stone",
+			[E_ICD] = 0,
+			[E_SPELLID] = 188026,
+		},
+	},
+	[171631] = {
+		[1] = {
+			[E_CHANCE] = 10,
+			[E_RPPM] = 0,
+			[E_NAME] = "Item - Proc Haste Rating",
+			[E_ICD] = 75000,
+			[E_SPELLID] = 92125,
+		},
+	},
+	[171645] = {
+		[1] = {
+			[E_CHANCE] = 10,
+			[E_RPPM] = 0,
+			[E_NAME] = "Eye of Blazing Power",
+			[E_ICD] = 45000,
+			[E_SPELLID] = 96967,
+		},
+	},
+	[171646] = {
+		[1] = {
+			[E_CHANCE] = 20,
+			[E_RPPM] = 0,
+			[E_NAME] = "Matrix Restabilizer",
+			[E_ICD] = 105000,
+			[E_SPELLID] = 96976,
+		},
+	},
+	[171852] = {
+		[1] = {
+			[E_CHANCE] = 10,
+			[E_RPPM] = 0,
+			[E_NAME] = "Item - Proc Versatility",
+			[E_ICD] = 75000,
+			[E_SPELLID] = 91186,
+		},
+	},
+	[172114] = {
+		[1] = {
+			[E_CHANCE] = 1.5,
+			[E_RPPM] = 1,
+			[E_NAME] = "Frost Blast",
+			[E_ICD] = 0,
+			[E_SPELLID] = 308690,
+		},
+	},
+	[172115] = {
+		[1] = {
+			[E_CHANCE] = 1.5,
+			[E_RPPM] = 1,
+			[E_NAME] = "Lightning Bolt",
+			[E_ICD] = 0,
+			[E_SPELLID] = 308688,
+		},
+	},
+	[172136] = {
+		[2] = {
+			[E_CHANCE] = 1,
+			[E_RPPM] = 1,
+			[E_NAME] = "Stun",
+			[E_ICD] = 0,
+			[E_SPELLID] = 308811,
+		},
+	},
+	[172137] = {
+		[1] = {
+			[E_CHANCE] = 0.5,
+			[E_RPPM] = 1,
+			[E_NAME] = "Brain Damage",
+			[E_ICD] = 0,
+			[E_SPELLID] = 308776,
+		},
+	},
+	[172668] = {
+		[1] = {
+			[E_CHANCE] = 1.5,
+			[E_RPPM] = 1,
+			[E_NAME] = "Gladiator\'s Insignia",
+			[E_ICD] = 0,
+			[E_SPELLID] = 277182,
+		},
+	},
+	[172848] = {
+		[1] = {
+			[E_CHANCE] = 1.5,
+			[E_RPPM] = 1,
+			[E_NAME] = "Gladiator\'s Insignia",
+			[E_ICD] = 0,
+			[E_SPELLID] = 277182,
+		},
+	},
+	[173943] = {
+		[2] = {
+			[E_CHANCE] = 12,
+			[E_RPPM] = 1,
+			[E_NAME] = "Torment in a Jar",
+			[E_ICD] = 0,
+			[E_SPELLID] = 313087,
+		},
+	},
+	[174044] = {
+		[2] = {
+			[E_CHANCE] = 3,
+			[E_RPPM] = 1,
+			[E_NAME] = "Dragon\'s Flight - Cover",
+			[E_ICD] = 0,
+			[E_SPELLID] = 313568,
+		},
+	},
+	[174060] = {
+		[2] = {
+			[E_CHANCE] = 3,
+			[E_RPPM] = 1,
+			[E_NAME] = "Psyche Shredder",
+			[E_ICD] = 10000,
+			[E_SPELLID] = 313640,
+		},
+	},
+	[174180] = {
+		[2] = {
+			[E_CHANCE] = 1.5,
+			[E_RPPM] = 1,
+			[E_NAME] = "Oozing Coagulum",
+			[E_ICD] = 0,
+			[E_SPELLID] = 314070,
+		},
+	},
+	[174500] = {
+		[2] = {
+			[E_CHANCE] = 1,
+			[E_RPPM] = 1,
+			[E_NAME] = "Vita Charged",
+			[E_ICD] = 15000,
+			[E_SPELLID] = 315586,
+		},
+	},
+	[174528] = {
+		[2] = {
+			[E_CHANCE] = 1,
+			[E_RPPM] = 1,
+			[E_NAME] = "Void Charged",
+			[E_ICD] = 15000,
+			[E_SPELLID] = 315736,
 		},
 	},
 }
@@ -14704,10 +15470,6 @@ AdvancedTooltips.SpellData = {
 			},
 			[10368] = {
 			},
-			[10370] = {
-				[E_RPPM] = 0,
-				[E_CHANCE] = 101,
-			},
 			[10373] = {
 			},
 			[10444] = {
@@ -14815,8 +15577,6 @@ AdvancedTooltips.SpellData = {
 			[12938] = {
 			},
 			[12950] = {
-				[E_RPPM] = 0,
-				[E_CHANCE] = 100,
 			},
 			[12975] = {
 			},
@@ -14992,6 +15752,10 @@ AdvancedTooltips.SpellData = {
 			},
 			[13810] = {
 			},
+			[13812] = {
+			},
+			[13813] = {
+			},
 			[13815] = {
 			},
 			[13817] = {
@@ -15079,11 +15843,12 @@ AdvancedTooltips.SpellData = {
 				[E_CHANCE] = 100,
 			},
 			[14189] = {
-				[E_RPPM] = 0,
-				[E_CHANCE] = 101,
 			},
 			[14190] = {
-},			[14530] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[14530] = {
 			},
 			[14537] = {
 			},
@@ -15804,18 +16569,6 @@ AdvancedTooltips.SpellData = {
 			[22568] = {
 			},
 			[22570] = {
-			},
-			[22593] = {
-			},
-			[22594] = {
-			},
-			[22596] = {
-			},
-			[22597] = {
-			},
-			[22598] = {
-			},
-			[22599] = {
 			},
 			[22639] = {
 				[E_RPPM] = 0,
@@ -17116,41 +17869,7 @@ AdvancedTooltips.SpellData = {
 			},
 			[35353] = {
 			},
-			[35355] = {
-			},
 			[35395] = {
-			},
-			[35402] = {
-			},
-			[35403] = {
-			},
-			[35404] = {
-			},
-			[35405] = {
-			},
-			[35406] = {
-			},
-			[35407] = {
-			},
-			[35417] = {
-			},
-			[35432] = {
-			},
-			[35433] = {
-			},
-			[35434] = {
-			},
-			[35435] = {
-			},
-			[35436] = {
-			},
-			[35437] = {
-			},
-			[35438] = {
-			},
-			[35439] = {
-			},
-			[35441] = {
 			},
 			[35442] = {
 			},
@@ -18138,10 +18857,7 @@ AdvancedTooltips.SpellData = {
 				[E_CHANCE] = 101,
 			},
 			[51128] = {
-				[E_RPPM] = 1,
-				[E_CHANCE] = 4.5,
-			},
-			[51271] = {
+},			[51271] = {
 				[E_RPPM] = 0,
 				[E_CHANCE] = 101,
 			},
@@ -18214,10 +18930,6 @@ AdvancedTooltips.SpellData = {
 			[51533] = {
 			},
 			[51564] = {
-				[E_RPPM] = 0,
-				[E_CHANCE] = 100,
-			},
-			[51667] = {
 				[E_RPPM] = 0,
 				[E_CHANCE] = 100,
 			},
@@ -18851,8 +19563,6 @@ AdvancedTooltips.SpellData = {
 			},
 			[59757] = {
 			},
-			[59771] = {
-			},
 			[59773] = {
 			},
 			[59787] = {
@@ -18879,22 +19589,6 @@ AdvancedTooltips.SpellData = {
 			[59915] = {
 				[E_RPPM] = 0,
 				[E_CHANCE] = 100,
-			},
-			[59927] = {
-			},
-			[59928] = {
-			},
-			[59929] = {
-			},
-			[59932] = {
-			},
-			[59934] = {
-			},
-			[59936] = {
-			},
-			[59937] = {
-			},
-			[59941] = {
 			},
 			[60054] = {
 			},
@@ -19269,8 +19963,6 @@ AdvancedTooltips.SpellData = {
 			[62256] = {
 			},
 			[62257] = {
-			},
-			[62384] = {
 			},
 			[62458] = {
 			},
@@ -19984,22 +20676,6 @@ AdvancedTooltips.SpellData = {
 				[E_RPPM] = 0,
 				[E_CHANCE] = 37,
 			},
-			[71875] = {
-				[E_RPPM] = 0,
-				[E_CHANCE] = 100,
-			},
-			[71876] = {
-				[E_RPPM] = 0,
-				[E_CHANCE] = 3,
-			},
-			[71877] = {
-				[E_RPPM] = 0,
-				[E_CHANCE] = 100,
-			},
-			[71878] = {
-				[E_RPPM] = 0,
-				[E_CHANCE] = 3,
-			},
 			[71880] = {
 				[E_RPPM] = 0,
 				[E_CHANCE] = 100,
@@ -20494,6 +21170,8 @@ AdvancedTooltips.SpellData = {
 				[E_RPPM] = 0,
 				[E_CHANCE] = 101,
 			},
+			[82910] = {
+			},
 			[83242] = {
 			},
 			[83243] = {
@@ -20636,22 +21314,6 @@ AdvancedTooltips.SpellData = {
 				[E_CHANCE] = 101,
 			},
 			[86704] = {
-			},
-			[86847] = {
-			},
-			[86854] = {
-			},
-			[86898] = {
-			},
-			[86899] = {
-			},
-			[86900] = {
-			},
-			[86901] = {
-			},
-			[86907] = {
-			},
-			[86909] = {
 			},
 			[86949] = {
 			},
@@ -21552,12 +22214,6 @@ AdvancedTooltips.SpellData = {
 			[96173] = {
 			},
 			[96231] = {
-			},
-			[96249] = {
-			},
-			[96250] = {
-			},
-			[96251] = {
 			},
 			[96261] = {
 			},
@@ -22597,7 +23253,7 @@ AdvancedTooltips.SpellData = {
 			},
 			[108558] = {
 				[E_RPPM] = 1,
-				[E_CHANCE] = 3,
+				[E_CHANCE] = 4,
 			},
 			[108839] = {
 				[E_RPPM] = 0,
@@ -22606,6 +23262,8 @@ AdvancedTooltips.SpellData = {
 			[108843] = {
 			},
 			[108853] = {
+			},
+			[108968] = {
 			},
 			[109078] = {
 				[E_RPPM] = 0,
@@ -23001,67 +23659,11 @@ AdvancedTooltips.SpellData = {
 			},
 			[111860] = {
 			},
-			[111861] = {
-			},
-			[111862] = {
-			},
-			[111863] = {
-			},
-			[111864] = {
-			},
-			[111865] = {
-			},
-			[111866] = {
-			},
-			[111867] = {
-			},
 			[111868] = {
-			},
-			[111869] = {
-			},
-			[111870] = {
-			},
-			[111871] = {
-			},
-			[111872] = {
-			},
-			[111873] = {
-			},
-			[111874] = {
-			},
-			[111875] = {
 			},
 			[111876] = {
 			},
-			[111877] = {
-			},
-			[111878] = {
-			},
-			[111879] = {
-			},
-			[111880] = {
-			},
-			[111881] = {
-			},
-			[111882] = {
-			},
-			[111883] = {
-			},
 			[111884] = {
-			},
-			[111885] = {
-			},
-			[111886] = {
-			},
-			[111887] = {
-			},
-			[111888] = {
-			},
-			[111889] = {
-			},
-			[111890] = {
-			},
-			[111891] = {
 			},
 			[111895] = {
 			},
@@ -23423,8 +24025,6 @@ AdvancedTooltips.SpellData = {
 			[117013] = {
 			},
 			[117014] = {
-			},
-			[117198] = {
 			},
 			[117216] = {
 			},
@@ -25338,8 +25938,6 @@ AdvancedTooltips.SpellData = {
 			[137015] = {
 			},
 			[137016] = {
-				[E_RPPM] = 0,
-				[E_CHANCE] = 100,
 			},
 			[137017] = {
 			},
@@ -26174,8 +26772,6 @@ AdvancedTooltips.SpellData = {
 				[E_RPPM] = 0,
 				[E_CHANCE] = 100,
 			},
-			[146885] = {
-			},
 			[146939] = {
 			},
 			[146959] = {
@@ -26326,6 +26922,8 @@ AdvancedTooltips.SpellData = {
 			[148596] = {
 			},
 			[148597] = {
+			},
+			[148628] = {
 			},
 			[148720] = {
 			},
@@ -28190,6 +28788,8 @@ AdvancedTooltips.SpellData = {
 			},
 			[169291] = {
 			},
+			[169340] = {
+			},
 			[169356] = {
 				[E_RPPM] = 0,
 				[E_CHANCE] = 101,
@@ -29224,8 +29824,6 @@ AdvancedTooltips.SpellData = {
 			[176944] = {
 				[E_RPPM] = 1,
 				[E_CHANCE] = 0.92,
-			},
-			[176945] = {
 			},
 			[176974] = {
 			},
@@ -30463,6 +31061,8 @@ AdvancedTooltips.SpellData = {
 			},
 			[185763] = {
 			},
+			[185786] = {
+			},
 			[185789] = {
 				[E_RPPM] = 0,
 				[E_CHANCE] = 20,
@@ -30797,8 +31397,6 @@ AdvancedTooltips.SpellData = {
 			[187158] = {
 				[E_RPPM] = 0,
 				[E_CHANCE] = 10,
-			},
-			[187224] = {
 			},
 			[187267] = {
 			},
@@ -31172,6 +31770,8 @@ AdvancedTooltips.SpellData = {
 				[E_RPPM] = 0,
 				[E_CHANCE] = 101,
 			},
+			[188036] = {
+			},
 			[188046] = {
 			},
 			[188070] = {
@@ -31487,8 +32087,6 @@ AdvancedTooltips.SpellData = {
 			[190336] = {
 			},
 			[190356] = {
-				[E_RPPM] = 0,
-				[E_CHANCE] = 100,
 			},
 			[190357] = {
 			},
@@ -31771,6 +32369,8 @@ AdvancedTooltips.SpellData = {
 			[191384] = {
 			},
 			[191427] = {
+			},
+			[191433] = {
 			},
 			[191464] = {
 				[E_RPPM] = 0,
@@ -32646,12 +33246,6 @@ AdvancedTooltips.SpellData = {
 				[E_RPPM] = 0,
 				[E_CHANCE] = 101,
 			},
-			[195347] = {
-			},
-			[195357] = {
-			},
-			[195366] = {
-			},
 			[195386] = {
 			},
 			[195399] = {
@@ -32660,10 +33254,6 @@ AdvancedTooltips.SpellData = {
 				[E_CHANCE] = 101,
 			},
 			[195405] = {
-			},
-			[195423] = {
-			},
-			[195424] = {
 			},
 			[195452] = {
 			},
@@ -32723,6 +33313,8 @@ AdvancedTooltips.SpellData = {
 			[195707] = {
 			},
 			[195708] = {
+			},
+			[195710] = {
 			},
 			[195750] = {
 			},
@@ -32956,8 +33548,6 @@ AdvancedTooltips.SpellData = {
 			},
 			[196449] = {
 			},
-			[196493] = {
-			},
 			[196528] = {
 			},
 			[196545] = {
@@ -32965,8 +33555,6 @@ AdvancedTooltips.SpellData = {
 			[196555] = {
 			},
 			[196586] = {
-			},
-			[196593] = {
 			},
 			[196606] = {
 				[E_RPPM] = 0,
@@ -32986,21 +33574,11 @@ AdvancedTooltips.SpellData = {
 			},
 			[196659] = {
 			},
-			[196664] = {
-			},
 			[196684] = {
 				[E_RPPM] = 0,
 				[E_CHANCE] = 20,
 			},
 			[196685] = {
-			},
-			[196691] = {
-			},
-			[196697] = {
-			},
-			[196698] = {
-			},
-			[196701] = {
 			},
 			[196704] = {
 			},
@@ -33105,6 +33683,10 @@ AdvancedTooltips.SpellData = {
 			[196980] = {
 			},
 			[196985] = {
+			},
+			[197000] = {
+			},
+			[197003] = {
 			},
 			[197045] = {
 				[E_RPPM] = 0,
@@ -33257,9 +33839,13 @@ AdvancedTooltips.SpellData = {
 			},
 			[198103] = {
 			},
+			[198111] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
 			[198137] = {
 			},
-			[198234] = {
+			[198144] = {
 			},
 			[198299] = {
 			},
@@ -33303,6 +33889,14 @@ AdvancedTooltips.SpellData = {
 			[198793] = {
 			},
 			[198813] = {
+			},
+			[198817] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[198819] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
 			},
 			[198838] = {
 			},
@@ -33444,6 +34038,8 @@ AdvancedTooltips.SpellData = {
 				[E_RPPM] = 0,
 				[E_CHANCE] = 100,
 			},
+			[199542] = {
+			},
 			[199547] = {
 			},
 			[199552] = {
@@ -33576,8 +34172,6 @@ AdvancedTooltips.SpellData = {
 			},
 			[200390] = {
 			},
-			[200392] = {
-			},
 			[200452] = {
 			},
 			[200466] = {
@@ -33607,11 +34201,6 @@ AdvancedTooltips.SpellData = {
 			[200758] = {
 			},
 			[200759] = {
-			},
-			[200802] = {
-},			[200803] = {
-				[E_RPPM] = 0,
-				[E_CHANCE] = 101,
 			},
 			[200806] = {
 			},
@@ -33993,6 +34582,14 @@ AdvancedTooltips.SpellData = {
 			},
 			[202095] = {
 			},
+			[202110] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[202126] = {
+			},
+			[202127] = {
+			},
 			[202131] = {
 			},
 			[202135] = {
@@ -34106,6 +34703,8 @@ AdvancedTooltips.SpellData = {
 			[202688] = {
 			},
 			[202719] = {
+			},
+			[202727] = {
 			},
 			[202743] = {
 				[E_RPPM] = 0,
@@ -34296,9 +34895,13 @@ AdvancedTooltips.SpellData = {
 			},
 			[203650] = {
 			},
+			[203651] = {
+			},
 			[203720] = {
 			},
 			[203724] = {
+			},
+			[203728] = {
 			},
 			[203747] = {
 			},
@@ -34390,9 +34993,17 @@ AdvancedTooltips.SpellData = {
 			},
 			[204157] = {
 			},
+			[204160] = {
+			},
+			[204165] = {
+			},
+			[204167] = {
+			},
 			[204197] = {
 				[E_RPPM] = 0,
 				[E_CHANCE] = 101,
+			},
+			[204206] = {
 			},
 			[204213] = {
 				[E_RPPM] = 0,
@@ -34409,6 +35020,8 @@ AdvancedTooltips.SpellData = {
 			[204301] = {
 			},
 			[204304] = {
+			},
+			[204366] = {
 			},
 			[204475] = {
 			},
@@ -34525,21 +35138,7 @@ AdvancedTooltips.SpellData = {
 			},
 			[205247] = {
 			},
-			[205248] = {
-			},
-			[205250] = {
-			},
-			[205251] = {
-			},
-			[205252] = {
-			},
 			[205253] = {
-			},
-			[205254] = {
-			},
-			[205255] = {
-			},
-			[205256] = {
 			},
 			[205260] = {
 			},
@@ -34609,6 +35208,10 @@ AdvancedTooltips.SpellData = {
 			},
 			[205589] = {
 			},
+			[205625] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
 			[205636] = {
 			},
 			[205658] = {
@@ -34646,8 +35249,6 @@ AdvancedTooltips.SpellData = {
 			[205816] = {
 			},
 			[206315] = {
-			},
-			[206320] = {
 			},
 			[206332] = {
 			},
@@ -34701,8 +35302,6 @@ AdvancedTooltips.SpellData = {
 			[206940] = {
 				[E_RPPM] = 0,
 				[E_CHANCE] = 100,
-			},
-			[206945] = {
 			},
 			[206967] = {
 			},
@@ -35123,6 +35722,8 @@ AdvancedTooltips.SpellData = {
 				[E_RPPM] = 0,
 				[E_CHANCE] = 100,
 			},
+			[208770] = {
+			},
 			[208776] = {
 			},
 			[208782] = {
@@ -35238,8 +35839,6 @@ AdvancedTooltips.SpellData = {
 			[209122] = {
 			},
 			[209202] = {
-			},
-			[209207] = {
 			},
 			[209228] = {
 				[E_RPPM] = 0,
@@ -35373,6 +35972,8 @@ AdvancedTooltips.SpellData = {
 			},
 			[209700] = {
 			},
+			[209780] = {
+			},
 			[209782] = {
 			},
 			[209783] = {
@@ -35394,6 +35995,8 @@ AdvancedTooltips.SpellData = {
 			[209818] = {
 			},
 			[209819] = {
+			},
+			[209885] = {
 			},
 			[209997] = {
 			},
@@ -35428,6 +36031,8 @@ AdvancedTooltips.SpellData = {
 			[210191] = {
 			},
 			[210291] = {
+			},
+			[210294] = {
 			},
 			[210510] = {
 			},
@@ -35924,6 +36529,8 @@ AdvancedTooltips.SpellData = {
 			},
 			[212283] = {
 			},
+			[212295] = {
+			},
 			[212329] = {
 			},
 			[212400] = {
@@ -36033,6 +36640,10 @@ AdvancedTooltips.SpellData = {
 			},
 			[213557] = {
 			},
+			[213610] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
 			[213634] = {
 			},
 			[213644] = {
@@ -36064,6 +36675,12 @@ AdvancedTooltips.SpellData = {
 			[213786] = {
 			},
 			[213804] = {
+			},
+			[213857] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[213858] = {
 			},
 			[213887] = {
 				[E_RPPM] = 0,
@@ -36539,8 +37156,6 @@ AdvancedTooltips.SpellData = {
 			},
 			[215296] = {
 			},
-			[215329] = {
-			},
 			[215404] = {
 				[E_RPPM] = 1,
 				[E_CHANCE] = 2,
@@ -36678,6 +37293,10 @@ AdvancedTooltips.SpellData = {
 				[E_CHANCE] = 2,
 			},
 			[216099] = {
+			},
+			[216113] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
 			},
 			[216140] = {
 			},
@@ -38147,6 +38766,10 @@ AdvancedTooltips.SpellData = {
 			},
 			[227953] = {
 			},
+			[228048] = {
+			},
+			[228049] = {
+			},
 			[228132] = {
 			},
 			[228136] = {
@@ -38443,6 +39066,7 @@ AdvancedTooltips.SpellData = {
 			[230236] = {
 				[E_RPPM] = 1,
 				[E_CHANCE] = 1.69,
+[E_RPPMTYPE] = "HASTE",
 			},
 			[230241] = {
 				[E_RPPM] = 1,
@@ -38678,6 +39302,8 @@ AdvancedTooltips.SpellData = {
 			[232494] = {
 			},
 			[232495] = {
+			},
+			[232559] = {
 			},
 			[232633] = {
 			},
@@ -39015,6 +39641,8 @@ AdvancedTooltips.SpellData = {
 			},
 			[235870] = {
 			},
+			[235893] = {
+			},
 			[235940] = {
 				[E_RPPM] = 0,
 				[E_CHANCE] = 100,
@@ -39103,11 +39731,21 @@ AdvancedTooltips.SpellData = {
 				[E_RPPM] = 0,
 				[E_CHANCE] = 100,
 			},
+			[236696] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
 			[236716] = {
 			},
 			[236757] = {
 				[E_RPPM] = 0,
 				[E_CHANCE] = 101,
+			},
+			[236775] = {
+			},
+			[236776] = {
+			},
+			[236777] = {
 			},
 			[236820] = {
 			},
@@ -39180,8 +39818,6 @@ AdvancedTooltips.SpellData = {
 			[237875] = {
 			},
 			[237876] = {
-			},
-			[238040] = {
 			},
 			[238062] = {
 				[E_RPPM] = 0,
@@ -40528,6 +41164,14 @@ AdvancedTooltips.SpellData = {
 			[247066] = {
 			},
 			[247121] = {
+			},
+			[247151] = {
+			},
+			[247152] = {
+			},
+			[247153] = {
+			},
+			[247154] = {
 			},
 			[247226] = {
 				[E_RPPM] = 0,
@@ -42165,6 +42809,8 @@ AdvancedTooltips.SpellData = {
 			},
 			[256092] = {
 			},
+			[256132] = {
+			},
 			[256148] = {
 			},
 			[256153] = {
@@ -43131,6 +43777,7 @@ AdvancedTooltips.SpellData = {
 			[263987] = {
 				[E_RPPM] = 1,
 				[E_CHANCE] = 1,
+[E_RPPMTYPE] = "HASTE",
 				[E_AZERITE_POWER] = 22,
 			},
 			[264000] = {
@@ -43298,6 +43945,7 @@ AdvancedTooltips.SpellData = {
 			[265057] = {
 				[E_RPPM] = 1,
 				[E_CHANCE] = 1.69,
+[E_RPPMTYPE] = "HASTE",
 			},
 			[265066] = {
 				[E_RPPM] = 1,
@@ -43561,6 +44209,8 @@ AdvancedTooltips.SpellData = {
 			},
 			[265931] = {
 			},
+			[265937] = {
+			},
 			[265946] = {
 			},
 			[265953] = {
@@ -43601,11 +44251,13 @@ AdvancedTooltips.SpellData = {
 			[266936] = {
 				[E_RPPM] = 1,
 				[E_CHANCE] = 6,
+[E_RPPMTYPE] = "HASTE",
 				[E_AZERITE_POWER] = 462,
 			},
 			[266937] = {
 				[E_RPPM] = 1,
 				[E_CHANCE] = 10,
+[E_RPPMTYPE] = "HASTE",
 				[E_AZERITE_POWER] = 31,
 			},
 			[267081] = {
@@ -43810,6 +44462,7 @@ AdvancedTooltips.SpellData = {
 			[267882] = {
 				[E_RPPM] = 1,
 				[E_CHANCE] = 3,
+[E_RPPMTYPE] = "HASTE",
 				[E_AZERITE_POWER] = 103,
 			},
 			[267883] = {
@@ -43821,6 +44474,7 @@ AdvancedTooltips.SpellData = {
 			[267884] = {
 				[E_RPPM] = 1,
 				[E_CHANCE] = 1,
+[E_RPPMTYPE] = "HASTE",
 				[E_AZERITE_POWER] = 104,
 			},
 			[267886] = {
@@ -43829,6 +44483,7 @@ AdvancedTooltips.SpellData = {
 			[267889] = {
 				[E_RPPM] = 1,
 				[E_CHANCE] = 5,
+[E_RPPMTYPE] = "HASTE",
 				[E_AZERITE_POWER] = 463,
 			},
 			[267892] = {
@@ -44476,28 +45131,6 @@ AdvancedTooltips.SpellData = {
 			},
 			[270117] = {
 			},
-			[270195] = {
-				[E_RPPM] = 0,
-				[E_CHANCE] = 100,
-			},
-			[270196] = {
-			},
-			[270197] = {
-			},
-			[270198] = {
-				[E_RPPM] = 0,
-				[E_CHANCE] = 101,
-			},
-			[270199] = {
-			},
-			[270200] = {
-			},
-			[270201] = {
-			},
-			[270202] = {
-			},
-			[270209] = {
-			},
 			[270232] = {
 				[E_RPPM] = 0,
 				[E_CHANCE] = 100,
@@ -44505,10 +45138,6 @@ AdvancedTooltips.SpellData = {
 			[270233] = {
 				[E_RPPM] = 0,
 				[E_CHANCE] = 101,
-			},
-			[270235] = {
-			},
-			[270236] = {
 			},
 			[270323] = {
 			},
@@ -44532,15 +45161,7 @@ AdvancedTooltips.SpellData = {
 				[E_RPPM] = 0,
 				[E_CHANCE] = 101,
 			},
-			[270366] = {
-			},
 			[270372] = {
-			},
-			[270387] = {
-			},
-			[270390] = {
-				[E_RPPM] = 0,
-				[E_CHANCE] = 100,
 			},
 			[270394] = {
 			},
@@ -44548,25 +45169,9 @@ AdvancedTooltips.SpellData = {
 				[E_RPPM] = 0,
 				[E_CHANCE] = 100,
 			},
-			[270397] = {
-				[E_RPPM] = 0,
-				[E_CHANCE] = 100,
-			},
-			[270398] = {
-			},
-			[270399] = {
-			},
-			[270402] = {
-			},
-			[270403] = {
-				[E_RPPM] = 0,
-				[E_CHANCE] = 100,
-			},
 			[270413] = {
 			},
 			[270417] = {
-			},
-			[270429] = {
 			},
 			[270481] = {
 			},
@@ -44608,8 +45213,6 @@ AdvancedTooltips.SpellData = {
 				[E_RPPM] = 0,
 				[E_CHANCE] = 100,
 			},
-			[270655] = {
-			},
 			[270656] = {
 			},
 			[270658] = {
@@ -44617,8 +45220,6 @@ AdvancedTooltips.SpellData = {
 				[E_CHANCE] = 100,
 			},
 			[270659] = {
-			},
-			[270660] = {
 			},
 			[270661] = {
 			},
@@ -44802,6 +45403,7 @@ AdvancedTooltips.SpellData = {
 			[271546] = {
 				[E_RPPM] = 1,
 				[E_CHANCE] = 1,
+[E_RPPMTYPE] = "HASTE",
 				[E_AZERITE_POWER] = 100,
 			},
 			[271547] = {
@@ -45011,6 +45613,7 @@ AdvancedTooltips.SpellData = {
 			[272792] = {
 				[E_RPPM] = 1,
 				[E_CHANCE] = 2.5,
+[E_RPPMTYPE] = "HASTE",
 				[E_AZERITE_POWER] = 116,
 			},
 			[272797] = {
@@ -45323,6 +45926,7 @@ AdvancedTooltips.SpellData = {
 			[273367] = {
 				[E_RPPM] = 1,
 				[E_CHANCE] = 2.5,
+[E_RPPMTYPE] = "HASTE",
 				[E_AZERITE_POWER] = 173,
 			},
 			[273389] = {
@@ -45330,7 +45934,6 @@ AdvancedTooltips.SpellData = {
 				[E_CHANCE] = 2.5,
 			},
 			[273409] = {
-				[E_ICD] = 10000,
 				[E_AZERITE_POWER] = 174,
 			},
 			[273412] = {
@@ -45451,6 +46054,7 @@ AdvancedTooltips.SpellData = {
 			[273790] = {
 				[E_RPPM] = 1,
 				[E_CHANCE] = 2,
+[E_RPPMTYPE] = "HASTE",
 				[E_AZERITE_POWER] = 157,
 			},
 			[273794] = {
@@ -45482,6 +46086,7 @@ AdvancedTooltips.SpellData = {
 			[273834] = {
 				[E_RPPM] = 1,
 				[E_CHANCE] = 2,
+[E_RPPMTYPE] = "HASTE",
 				[E_AZERITE_POWER] = 194,
 			},
 			[273835] = {
@@ -45545,6 +46150,7 @@ AdvancedTooltips.SpellData = {
 			[274070] = {
 				[E_RPPM] = 1,
 				[E_CHANCE] = 2,
+[E_RPPMTYPE] = "HASTE",
 			},
 			[274071] = {
 				[E_RPPM] = 1,
@@ -46157,6 +46763,8 @@ AdvancedTooltips.SpellData = {
 			},
 			[276970] = {
 			},
+			[276972] = {
+			},
 			[276976] = {
 			},
 			[276977] = {
@@ -46221,6 +46829,7 @@ AdvancedTooltips.SpellData = {
 			[277666] = {
 				[E_RPPM] = 1,
 				[E_CHANCE] = 6,
+[E_RPPMTYPE] = "HASTE",
 				[E_AZERITE_POWER] = 447,
 			},
 			[277667] = {
@@ -46294,8 +46903,6 @@ AdvancedTooltips.SpellData = {
 },			[277904] = {
 				[E_RPPM] = 0,
 				[E_CHANCE] = 101,
-			},
-			[277914] = {
 			},
 			[277925] = {
 			},
@@ -46456,6 +47063,18 @@ AdvancedTooltips.SpellData = {
 			},
 			[278249] = {
 			},
+			[278251] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 8,
+			},
+			[278253] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[278260] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
 			[278267] = {
 				[E_RPPM] = 0,
 				[E_CHANCE] = 101,
@@ -46493,6 +47112,12 @@ AdvancedTooltips.SpellData = {
 			[278365] = {
 			},
 			[278367] = {
+			},
+			[278376] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[278377] = {
 			},
 			[278378] = {
 				[E_RPPM] = 1,
@@ -46560,6 +47185,7 @@ AdvancedTooltips.SpellData = {
 			[278501] = {
 				[E_RPPM] = 1,
 				[E_CHANCE] = 1.5,
+[E_RPPMTYPE] = "HASTE",
 				[E_AZERITE_POWER] = 355,
 			},
 			[278502] = {
@@ -46707,6 +47333,8 @@ AdvancedTooltips.SpellData = {
 				[E_RPPM] = 0,
 				[E_CHANCE] = 100,
 			},
+			[278712] = {
+			},
 			[278713] = {
 				[E_AZERITE_POWER] = 422,
 			},
@@ -46746,6 +47374,7 @@ AdvancedTooltips.SpellData = {
 				[E_ICD] = 3000,
 				[E_RPPM] = 1,
 				[E_CHANCE] = 1.5,
+[E_RPPMTYPE] = "HASTE",
 				[E_AZERITE_POWER] = 434,
 			},
 			[278752] = {
@@ -46799,6 +47428,10 @@ AdvancedTooltips.SpellData = {
 			},
 			[278826] = {
 			},
+			[278831] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1.25,
+			},
 			[278840] = {
 				[E_RPPM] = 0,
 				[E_CHANCE] = 100,
@@ -46810,6 +47443,18 @@ AdvancedTooltips.SpellData = {
 				[E_CHANCE] = 2,
 			},
 			[278862] = {
+			},
+			[278864] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1,
+			},
+			[278865] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[278869] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
 			},
 			[278872] = {
 			},
@@ -46842,10 +47487,6 @@ AdvancedTooltips.SpellData = {
 				[E_CHANCE] = 1.25,
 			},
 			[278898] = {
-			},
-			[278902] = {
-				[E_RPPM] = 0,
-				[E_CHANCE] = 100,
 			},
 			[278903] = {
 			},
@@ -46940,6 +47581,8 @@ AdvancedTooltips.SpellData = {
 			[279141] = {
 				[E_RPPM] = 0,
 				[E_CHANCE] = 100,
+			},
+			[279142] = {
 			},
 			[279151] = {
 			},
@@ -47062,8 +47705,6 @@ AdvancedTooltips.SpellData = {
 			[279303] = {
 				[E_RPPM] = 0,
 				[E_CHANCE] = 101,
-			},
-			[279308] = {
 			},
 			[279312] = {
 			},
@@ -47428,6 +48069,8 @@ AdvancedTooltips.SpellData = {
 			},
 			[279934] = {
 			},
+			[279943] = {
+			},
 			[279955] = {
 				[E_RPPM] = 1,
 				[E_CHANCE] = 6,
@@ -47483,21 +48126,15 @@ AdvancedTooltips.SpellData = {
 			},
 			[280037] = {
 			},
-			[280049] = {
-			},
 			[280050] = {
 			},
 			[280051] = {
 			},
 			[280053] = {
 			},
-			[280056] = {
-			},
 			[280058] = {
 			},
 			[280059] = {
-			},
-			[280061] = {
 			},
 			[280064] = {
 			},
@@ -47515,21 +48152,9 @@ AdvancedTooltips.SpellData = {
 			},
 			[280080] = {
 			},
-			[280081] = {
-			},
-			[280082] = {
-			},
 			[280084] = {
 			},
 			[280091] = {
-			},
-			[280106] = {
-			},
-			[280107] = {
-			},
-			[280108] = {
-			},
-			[280123] = {
 			},
 			[280128] = {
 },			[280132] = {
@@ -47705,6 +48330,7 @@ AdvancedTooltips.SpellData = {
 			[280380] = {
 				[E_RPPM] = 1,
 				[E_CHANCE] = 6,
+[E_RPPMTYPE] = "HASTE",
 				[E_AZERITE_POWER] = 482,
 			},
 			[280383] = {
@@ -47792,6 +48418,7 @@ AdvancedTooltips.SpellData = {
 				[E_ICD] = 5000,
 				[E_RPPM] = 1,
 				[E_CHANCE] = 2,
+[E_RPPMTYPE] = "HASTE",
 				[E_AZERITE_POWER] = 485,
 			},
 			[280573] = {
@@ -47813,11 +48440,13 @@ AdvancedTooltips.SpellData = {
 				[E_ICD] = 10000,
 				[E_RPPM] = 1,
 				[E_CHANCE] = 1,
+[E_RPPMTYPE] = "HASTE",
 				[E_AZERITE_POWER] = 491,
 			},
 			[280582] = {
 				[E_RPPM] = 1,
 				[E_CHANCE] = 1,
+[E_RPPMTYPE] = "HASTE",
 				[E_AZERITE_POWER] = 488,
 			},
 			[280583] = {
@@ -47857,6 +48486,7 @@ AdvancedTooltips.SpellData = {
 			[280627] = {
 				[E_RPPM] = 1,
 				[E_CHANCE] = 1,
+[E_RPPMTYPE] = "HASTE",
 				[E_AZERITE_POWER] = 494,
 			},
 			[280628] = {
@@ -47919,8 +48549,6 @@ AdvancedTooltips.SpellData = {
 			[280713] = {
 				[E_RPPM] = 0,
 				[E_CHANCE] = 101,
-			},
-			[280714] = {
 			},
 			[280716] = {
 			},
@@ -48065,10 +48693,6 @@ AdvancedTooltips.SpellData = {
 			[281001] = {
 			},
 			[281036] = {
-			},
-			[281123] = {
-				[E_RPPM] = 0,
-				[E_CHANCE] = 101,
 			},
 			[281178] = {
 				[E_RPPM] = 0,
@@ -48334,8 +48958,6 @@ AdvancedTooltips.SpellData = {
 			},
 			[282473] = {
 			},
-			[282539] = {
-			},
 			[282553] = {
 			},
 			[282720] = {
@@ -48418,6 +49040,10 @@ AdvancedTooltips.SpellData = {
 			},
 			[283403] = {
 			},
+			[283499] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
 			[283511] = {
 },			[283810] = {
 				[E_RPPM] = 0,
@@ -48426,8 +49052,6 @@ AdvancedTooltips.SpellData = {
 			[283915] = {
 			},
 			[283916] = {
-			},
-			[283938] = {
 			},
 			[284292] = {
 			},
@@ -48557,6 +49181,8 @@ AdvancedTooltips.SpellData = {
 			},
 			[285927] = {
 			},
+			[285933] = {
+			},
 			[285958] = {
 				[E_AZERITE_POWER] = 382,
 			},
@@ -48594,15 +49220,13 @@ AdvancedTooltips.SpellData = {
 				[E_RPPM] = 0,
 				[E_CHANCE] = 100,
 			},
+			[286232] = {
+			},
 			[286277] = {
 			},
 			[286341] = {
 			},
 			[286342] = {
-			},
-			[286348] = {
-			},
-			[286349] = {
 			},
 			[286351] = {
 			},
@@ -48610,6 +49234,7 @@ AdvancedTooltips.SpellData = {
 				[E_ICD] = 2000,
 				[E_RPPM] = 1,
 				[E_CHANCE] = 2,
+[E_RPPMTYPE] = "HASTE",
 				[E_AZERITE_POWER] = 453,
 			},
 			[286392] = {
@@ -48619,8 +49244,6 @@ AdvancedTooltips.SpellData = {
 			[286393] = {
 				[E_RPPM] = 0,
 				[E_CHANCE] = 101,
-			},
-			[286410] = {
 			},
 			[286438] = {
 			},
@@ -48644,6 +49267,7 @@ AdvancedTooltips.SpellData = {
 			[286585] = {
 				[E_RPPM] = 1,
 				[E_CHANCE] = 2,
+[E_RPPMTYPE] = "HASTE",
 				[E_AZERITE_POWER] = 391,
 			},
 			[286586] = {
@@ -48925,6 +49549,8 @@ AdvancedTooltips.SpellData = {
 				[E_CHANCE] = 8,
 				[E_AZERITE_POWER] = 530,
 			},
+			[287771] = {
+			},
 			[287773] = {
 				[E_AZERITE_POWER] = 200,
 			},
@@ -49069,8 +49695,6 @@ AdvancedTooltips.SpellData = {
 			},
 			[288194] = {
 			},
-			[288202] = {
-			},
 			[288204] = {
 },			[288227] = {
 			},
@@ -49206,13 +49830,16 @@ AdvancedTooltips.SpellData = {
 				[E_ICD] = 500,
 				[E_RPPM] = 1,
 				[E_CHANCE] = 1,
+[E_RPPMTYPE] = "HASTE",
 				[E_AZERITE_POWER] = 561,
 			},
 			[288754] = {
 				[E_AZERITE_POWER] = 220,
 			},
 			[288755] = {
-},			[288757] = {
+},			[288756] = {
+			},
+			[288757] = {
 				[E_RPPM] = 1,
 				[E_CHANCE] = 1,
 			},
@@ -49295,6 +49922,7 @@ AdvancedTooltips.SpellData = {
 			},
 			[288973] = {
 },			[288979] = {
+				[E_ICD] = 100,
 				[E_AZERITE_POWER] = 180,
 			},
 			[288981] = {
@@ -49461,6 +50089,10 @@ AdvancedTooltips.SpellData = {
 			},
 			[290121] = {
 			},
+			[290183] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
 			[290219] = {
 			},
 			[290224] = {
@@ -49482,6 +50114,8 @@ AdvancedTooltips.SpellData = {
 			[290247] = {
 			},
 			[290249] = {
+			},
+			[290254] = {
 			},
 			[290255] = {
 			},
@@ -49512,6 +50146,8 @@ AdvancedTooltips.SpellData = {
 			[290371] = {
 			},
 			[290372] = {
+			},
+			[290461] = {
 			},
 			[290464] = {
 			},
@@ -49590,9 +50226,21 @@ AdvancedTooltips.SpellData = {
 			},
 			[291223] = {
 			},
+			[291301] = {
+			},
+			[291304] = {
+			},
+			[291305] = {
+			},
+			[291309] = {
+			},
+			[291310] = {
+			},
 			[291417] = {
 			},
 			[291513] = {
+			},
+			[291514] = {
 			},
 			[291515] = {
 			},
@@ -49622,13 +50270,23 @@ AdvancedTooltips.SpellData = {
 			},
 			[291622] = {
 			},
+			[291624] = {
+			},
 			[291628] = {
 				[E_RPPM] = 0,
 				[E_CHANCE] = 101,
 			},
+			[291784] = {
+			},
+			[291786] = {
+			},
+			[291843] = {
+			},
 			[291944] = {
 			},
 			[292012] = {
+			},
+			[292187] = {
 			},
 			[292320] = {
 			},
@@ -49658,6 +50316,20 @@ AdvancedTooltips.SpellData = {
 			},
 			[292380] = {
 			},
+			[292408] = {
+			},
+			[292409] = {
+			},
+			[292410] = {
+			},
+			[292423] = {
+			},
+			[292424] = {
+			},
+			[292425] = {
+			},
+			[292440] = {
+			},
 			[292463] = {
 			},
 			[292473] = {
@@ -49668,9 +50340,13 @@ AdvancedTooltips.SpellData = {
 			},
 			[292486] = {
 			},
+			[292493] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
 			[292650] = {
 				[E_RPPM] = 1,
-				[E_CHANCE] = 2,
+				[E_CHANCE] = 3,
 			},
 			[292653] = {
 				[E_RPPM] = 0,
@@ -49710,9 +50386,37 @@ AdvancedTooltips.SpellData = {
 				[E_RPPM] = 1,
 				[E_CHANCE] = 0.25,
 			},
+			[293019] = {
+			},
+			[293030] = {
+			},
+			[293031] = {
+			},
+			[293032] = {
+			},
 			[293076] = {
 			},
+			[293136] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1,
+			},
+			[293142] = {
+			},
+			[293404] = {
+			},
+			[293491] = {
+			},
+			[293512] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
 			[293642] = {
+			},
+			[293664] = {
+			},
+			[293671] = {
+			},
+			[293698] = {
 			},
 			[293795] = {
 			},
@@ -49744,6 +50448,10 @@ AdvancedTooltips.SpellData = {
 			},
 			[294257] = {
 			},
+			[294361] = {
+			},
+			[294365] = {
+			},
 			[294406] = {
 			},
 			[294408] = {
@@ -49770,7 +50478,17 @@ AdvancedTooltips.SpellData = {
 			},
 			[294630] = {
 			},
+			[294650] = {
+			},
+			[294653] = {
+			},
+			[294655] = {
+			},
 			[294666] = {
+			},
+			[294668] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
 			},
 			[294671] = {
 			},
@@ -49780,23 +50498,226 @@ AdvancedTooltips.SpellData = {
 			},
 			[294680] = {
 			},
+			[294685] = {
+			},
+			[294687] = {
+			},
+			[294688] = {
+			},
+			[294689] = {
+			},
 			[294702] = {
+			},
+			[294703] = {
 			},
 			[294704] = {
 			},
 			[294705] = {
 			},
+			[294718] = {
+			},
+			[294749] = {
+			},
+			[294750] = {
+			},
+			[294752] = {
+			},
+			[294753] = {
+			},
+			[294755] = {
+			},
+			[294756] = {
+			},
+			[294758] = {
+			},
+			[294759] = {
+			},
+			[294761] = {
+			},
+			[294762] = {
+			},
+			[294764] = {
+			},
+			[294765] = {
+			},
+			[294767] = {
+			},
+			[294768] = {
+			},
+			[294770] = {
+			},
+			[294771] = {
+			},
+			[294773] = {
+			},
+			[294774] = {
+			},
+			[294776] = {
+			},
+			[294777] = {
+			},
+			[294779] = {
+			},
+			[294780] = {
+			},
+			[294782] = {
+			},
+			[294783] = {
+			},
+			[294785] = {
+			},
+			[294786] = {
+			},
+			[294788] = {
+			},
+			[294789] = {
+			},
+			[294791] = {
+			},
+			[294792] = {
+			},
+			[294794] = {
+			},
+			[294795] = {
+			},
+			[294797] = {
+			},
+			[294798] = {
+			},
+			[294800] = {
+			},
+			[294801] = {
+			},
+			[294803] = {
+			},
+			[294804] = {
+			},
+			[294806] = {
+			},
+			[294807] = {
+			},
+			[294809] = {
+			},
+			[294810] = {
+			},
+			[294812] = {
+			},
+			[294813] = {
+			},
+			[294815] = {
+			},
+			[294816] = {
+			},
+			[294818] = {
+			},
+			[294819] = {
+			},
+			[294821] = {
+			},
+			[294822] = {
+			},
+			[294824] = {
+			},
+			[294825] = {
+			},
+			[294827] = {
+			},
+			[294828] = {
+			},
+			[294830] = {
+			},
+			[294831] = {
+			},
+			[294833] = {
+			},
+			[294834] = {
+			},
+			[294836] = {
+			},
+			[294837] = {
+			},
+			[294839] = {
+			},
+			[294840] = {
+			},
+			[294842] = {
+			},
+			[294843] = {
+			},
+			[294845] = {
+			},
+			[294846] = {
+			},
+			[294906] = {
+			},
+			[294907] = {
+			},
+			[294908] = {
+			},
+			[294909] = {
+			},
+			[294910] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[294912] = {
+			},
+			[294919] = {
+			},
+			[294920] = {
+			},
+			[294922] = {
+			},
+			[294926] = {
+			},
 			[294936] = {
+			},
+			[294945] = {
+			},
+			[294946] = {
+			},
+			[294951] = {
+			},
+			[294964] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[294966] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[294969] = {
+			},
+			[294970] = {
+},			[294972] = {
 			},
 			[295017] = {
 			},
 			[295037] = {
 			},
-			[295042] = {
+			[295044] = {
+			},
+			[295046] = {
+			},
+			[295047] = {
+			},
+			[295048] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[295078] = {
+			},
+			[295098] = {
 			},
 			[295101] = {
 			},
 			[295102] = {
+			},
+			[295114] = {
+			},
+			[295119] = {
+			},
+			[295129] = {
 			},
 			[295131] = {
 				[E_RPPM] = 0,
@@ -49808,11 +50729,25 @@ AdvancedTooltips.SpellData = {
 			},
 			[295134] = {
 			},
+			[295137] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
 			[295141] = {
 			},
 			[295154] = {
 				[E_RPPM] = 0,
 				[E_CHANCE] = 101,
+			},
+			[295160] = {
+			},
+			[295164] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[295165] = {
+			},
+			[295166] = {
 			},
 			[295174] = {
 			},
@@ -49824,19 +50759,55 @@ AdvancedTooltips.SpellData = {
 			},
 			[295179] = {
 			},
+			[295186] = {
+			},
 			[295193] = {
 				[E_RPPM] = 0,
 				[E_CHANCE] = 101,
 			},
 			[295198] = {
 			},
+			[295206] = {
+			},
+			[295208] = {
+			},
+			[295209] = {
+			},
+			[295210] = {
+			},
 			[295221] = {
 				[E_RPPM] = 0,
 				[E_CHANCE] = 101,
 			},
+			[295246] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[295248] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[295251] = {
+			},
+			[295252] = {
+			},
+			[295253] = {
+			},
 			[295254] = {
 				[E_RPPM] = 1,
 				[E_CHANCE] = 3,
+			},
+			[295257] = {
+			},
+			[295258] = {
+			},
+			[295261] = {
+			},
+			[295262] = {
+			},
+			[295263] = {
+			},
+			[295264] = {
 			},
 			[295271] = {
 			},
@@ -49848,6 +50819,80 @@ AdvancedTooltips.SpellData = {
 				[E_RPPM] = 0,
 				[E_CHANCE] = 100,
 			},
+			[295293] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 2,
+			},
+			[295305] = {
+			},
+			[295306] = {
+			},
+			[295307] = {
+			},
+			[295308] = {
+			},
+			[295309] = {
+			},
+			[295310] = {
+			},
+			[295333] = {
+			},
+			[295337] = {
+			},
+			[295338] = {
+			},
+			[295339] = {
+			},
+			[295349] = {
+			},
+			[295351] = {
+			},
+			[295352] = {
+			},
+			[295353] = {
+			},
+			[295354] = {
+			},
+			[295358] = {
+			},
+			[295363] = {
+			},
+			[295364] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[295365] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 3,
+			},
+			[295366] = {
+			},
+			[295367] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[295368] = {
+			},
+			[295369] = {
+			},
+			[295372] = {
+			},
+			[295373] = {
+			},
+			[295374] = {
+			},
+			[295376] = {
+			},
+			[295377] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[295379] = {
+			},
+			[295380] = {
+			},
+			[295381] = {
+			},
 			[295391] = {
 				[E_RPPM] = 1,
 				[E_CHANCE] = 1.5,
@@ -49857,6 +50902,10 @@ AdvancedTooltips.SpellData = {
 			[295393] = {
 			},
 			[295395] = {
+			},
+			[295402] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
 			},
 			[295408] = {
 			},
@@ -49872,11 +50921,15 @@ AdvancedTooltips.SpellData = {
 				[E_RPPM] = 1,
 				[E_CHANCE] = 4,
 			},
+			[295428] = {
+			},
 			[295430] = {
 				[E_RPPM] = 1,
 				[E_CHANCE] = 2,
 			},
 			[295431] = {
+			},
+			[295440] = {
 			},
 			[295446] = {
 			},
@@ -49900,17 +50953,195 @@ AdvancedTooltips.SpellData = {
 			},
 			[295689] = {
 			},
+			[295726] = {
+			},
+			[295746] = {
+			},
+			[295747] = {
+			},
+			[295748] = {
+			},
+			[295749] = {
+			},
+			[295750] = {
+			},
 			[295809] = {
+			},
+			[295811] = {
 			},
 			[295812] = {
 				[E_RPPM] = 1,
 				[E_CHANCE] = 1,
 			},
+			[295834] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 2,
+			},
+			[295835] = {
+			},
+			[295836] = {
+			},
+			[295837] = {
+			},
+			[295838] = {
+			},
+			[295839] = {
+			},
+			[295840] = {
+			},
+			[295841] = {
+			},
+			[295842] = {
+			},
+			[295843] = {
+			},
+			[295844] = {
+			},
+			[295845] = {
+			},
+			[295846] = {
+			},
+			[295851] = {
+			},
+			[295855] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[295856] = {
+			},
+			[295858] = {
+			},
+			[295872] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[295883] = {
+			},
+			[295892] = {
+			},
 			[295950] = {
 			},
 			[295962] = {
 			},
+			[295996] = {
+			},
+			[296004] = {
+			},
+			[296031] = {
+			},
+			[296032] = {
+			},
+			[296036] = {
+			},
+			[296038] = {
+			},
+			[296050] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1.75,
+			},
+			[296059] = {
+			},
+			[296061] = {
+			},
+			[296062] = {
+			},
+			[296067] = {
+			},
+			[296072] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[296074] = {
+			},
+			[296075] = {
+			},
+			[296081] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 10,
+			},
+			[296086] = {
+			},
+			[296089] = {
+			},
+			[296091] = {
+			},
+			[296094] = {
+			},
+			[296101] = {
+			},
+			[296102] = {
+			},
+			[296103] = {
+			},
+			[296104] = {
+			},
+			[296136] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[296144] = {
+			},
+			[296148] = {
+			},
 			[296154] = {
+			},
+			[296192] = {
+			},
+			[296193] = {
+			},
+			[296197] = {
+			},
+			[296200] = {
+			},
+			[296201] = {
+			},
+			[296203] = {
+			},
+			[296207] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 15,
+			},
+			[296211] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[296213] = {
+			},
+			[296214] = {
+			},
+			[296220] = {
+			},
+			[296221] = {
+			},
+			[296230] = {
+			},
+			[296231] = {
+			},
+			[296232] = {
+			},
+			[296320] = {
+			},
+			[296321] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1,
+			},
+			[296322] = {
+			},
+			[296324] = {
+			},
+			[296325] = {
+			},
+			[296326] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1,
+			},
+			[296328] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1,
+			},
+			[296330] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1,
 			},
 			[296357] = {
 			},
@@ -49920,7 +51151,3356 @@ AdvancedTooltips.SpellData = {
 			},
 			[296379] = {
 			},
+			[296453] = {
+			},
+			[296455] = {
+			},
 			[296456] = {
+			},
+			[296750] = {
+			},
+			[296962] = {
+			},
+			[296963] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 8,
+			},
+			[296964] = {
+			},
+			[296971] = {
+			},
+			[297034] = {
+			},
+			[297035] = {
+			},
+			[297036] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[297037] = {
+			},
+			[297039] = {
+			},
+			[297040] = {
+			},
+			[297042] = {
+			},
+			[297043] = {
+			},
+			[297044] = {
+			},
+			[297045] = {
+			},
+			[297048] = {
+			},
+			[297050] = {
+			},
+			[297061] = {
+			},
+			[297074] = {
+			},
+			[297080] = {
+			},
+			[297083] = {
+			},
+			[297086] = {
+			},
+			[297089] = {
+			},
+			[297098] = {
+			},
+			[297104] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[297106] = {
+			},
+			[297107] = {
+			},
+			[297108] = {
+			},
+			[297116] = {
+			},
+			[297117] = {
+			},
+			[297118] = {
+			},
+			[297119] = {
+			},
+			[297120] = {
+			},
+			[297122] = {
+			},
+			[297126] = {
+			},
+			[297147] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[297162] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[297168] = {
+			},
+			[297177] = {
+			},
+			[297178] = {
+			},
+			[297289] = {
+			},
+			[297321] = {
+			},
+			[297365] = {
+			},
+			[297375] = {
+			},
+			[297384] = {
+			},
+			[297411] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[297412] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[297542] = {
+			},
+			[297544] = {
+			},
+			[297546] = {
+			},
+			[297547] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[297736] = {
+			},
+			[297737] = {
+			},
+			[297738] = {
+			},
+			[297739] = {
+			},
+			[297745] = {
+			},
+			[297850] = {
+			},
+			[297866] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 0.95,
+			},
+			[297868] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 0.95,
+			},
+			[297869] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 0.95,
+			},
+			[297941] = {
+			},
+			[297961] = {
+			},
+			[297964] = {
+			},
+			[297965] = {
+			},
+			[297969] = {
+			},
+			[297970] = {
+			},
+			[297971] = {
+			},
+			[297989] = {
+			},
+			[297991] = {
+			},
+			[297993] = {
+			},
+			[297994] = {
+			},
+			[297995] = {
+			},
+			[297999] = {
+			},
+			[298001] = {
+			},
+			[298002] = {
+			},
+			[298009] = {
+			},
+			[298010] = {
+			},
+			[298011] = {
+			},
+			[298016] = {
+			},
+			[298080] = {
+			},
+			[298081] = {
+			},
+			[298082] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[298083] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[298084] = {
+			},
+			[298143] = {
+			},
+			[298146] = {
+			},
+			[298152] = {
+			},
+			[298153] = {
+			},
+			[298154] = {
+			},
+			[298155] = {
+			},
+			[298157] = {
+			},
+			[298168] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[298169] = {
+			},
+			[298174] = {
+			},
+			[298182] = {
+			},
+			[298183] = {
+			},
+			[298184] = {
+			},
+			[298185] = {
+			},
+			[298186] = {
+			},
+			[298193] = {
+			},
+			[298196] = {
+			},
+			[298197] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[298204] = {
+			},
+			[298221] = {
+			},
+			[298225] = {
+			},
+			[298268] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[298273] = {
+			},
+			[298274] = {
+			},
+			[298275] = {
+			},
+			[298277] = {
+			},
+			[298278] = {
+			},
+			[298279] = {
+			},
+			[298280] = {
+			},
+			[298281] = {
+			},
+			[298282] = {
+			},
+			[298284] = {
+			},
+			[298286] = {
+			},
+			[298287] = {
+			},
+			[298288] = {
+			},
+			[298292] = {
+			},
+			[298302] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[298304] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[298309] = {
+			},
+			[298312] = {
+			},
+			[298317] = {
+},			[298337] = {
+			},
+			[298339] = {
+			},
+			[298343] = {
+			},
+			[298351] = {
+			},
+			[298352] = {
+			},
+			[298353] = {
+			},
+			[298357] = {
+			},
+			[298358] = {
+			},
+			[298373] = {
+			},
+			[298376] = {
+			},
+			[298377] = {
+			},
+			[298378] = {
+			},
+			[298404] = {
+			},
+			[298405] = {
+			},
+			[298407] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 20,
+			},
+			[298409] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[298412] = {
+			},
+			[298414] = {
+			},
+			[298415] = {
+			},
+			[298416] = {
+			},
+			[298418] = {
+			},
+			[298419] = {
+			},
+			[298420] = {
+			},
+			[298431] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[298433] = {
+			},
+			[298437] = {
+			},
+			[298438] = {
+			},
+			[298439] = {
+			},
+			[298440] = {
+			},
+			[298441] = {
+			},
+			[298442] = {
+			},
+			[298448] = {
+			},
+			[298449] = {
+			},
+			[298450] = {
+			},
+			[298452] = {
+			},
+			[298453] = {
+			},
+			[298455] = {
+			},
+			[298456] = {
+			},
+			[298457] = {
+			},
+			[298461] = {
+			},
+			[298466] = {
+			},
+			[298512] = {
+			},
+			[298515] = {
+			},
+			[298601] = {
+			},
+			[298603] = {
+			},
+			[298604] = {
+			},
+			[298605] = {
+			},
+			[298606] = {
+			},
+			[298607] = {
+			},
+			[298609] = {
+			},
+			[298611] = {
+			},
+			[298614] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[298618] = {
+			},
+			[298620] = {
+			},
+			[298621] = {
+			},
+			[298623] = {
+			},
+			[298625] = {
+			},
+			[298627] = {
+			},
+			[298628] = {
+			},
+			[298629] = {
+			},
+			[298639] = {
+			},
+			[298647] = {
+			},
+			[298648] = {
+			},
+			[298668] = {
+			},
+			[298700] = {
+			},
+			[298703] = {
+			},
+			[298710] = {
+			},
+			[298717] = {
+			},
+			[298719] = {
+			},
+			[298721] = {
+			},
+			[298722] = {
+			},
+			[298728] = {
+			},
+			[298731] = {
+			},
+			[298736] = {
+			},
+			[298740] = {
+			},
+			[298743] = {
+			},
+			[298746] = {
+			},
+			[298749] = {
+			},
+			[298752] = {
+			},
+			[298823] = {
+			},
+			[298836] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[298837] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[298839] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[298841] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[298845] = {
+			},
+			[298848] = {
+			},
+			[298852] = {
+			},
+			[298855] = {
+			},
+			[298859] = {
+			},
+			[298861] = {
+			},
+			[298864] = {
+			},
+			[298869] = {
+			},
+			[298926] = {
+			},
+			[298930] = {
+			},
+			[298948] = {
+			},
+			[298950] = {
+			},
+			[298996] = {
+			},
+			[298997] = {
+			},
+			[298999] = {
+			},
+			[299000] = {
+			},
+			[299002] = {
+			},
+			[299003] = {
+			},
+			[299005] = {
+			},
+			[299006] = {
+			},
+			[299008] = {
+			},
+			[299009] = {
+			},
+			[299011] = {
+			},
+			[299012] = {
+			},
+			[299014] = {
+			},
+			[299015] = {
+			},
+			[299017] = {
+			},
+			[299018] = {
+			},
+			[299020] = {
+			},
+			[299021] = {
+			},
+			[299023] = {
+			},
+			[299024] = {
+			},
+			[299026] = {
+			},
+			[299027] = {
+			},
+			[299029] = {
+			},
+			[299030] = {
+			},
+			[299032] = {
+			},
+			[299033] = {
+			},
+			[299035] = {
+			},
+			[299036] = {
+			},
+			[299039] = {
+			},
+			[299042] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[299047] = {
+			},
+			[299053] = {
+},			[299054] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[299062] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[299064] = {
+			},
+			[299065] = {
+			},
+			[299083] = {
+			},
+			[299084] = {
+			},
+			[299087] = {
+			},
+			[299099] = {
+			},
+			[299149] = {
+			},
+			[299237] = {
+			},
+			[299238] = {
+			},
+			[299239] = {
+			},
+			[299240] = {
+			},
+			[299273] = {
+			},
+			[299274] = {
+			},
+			[299275] = {
+			},
+			[299277] = {
+			},
+			[299296] = {
+			},
+			[299297] = {
+			},
+			[299298] = {
+			},
+			[299299] = {
+			},
+			[299300] = {
+			},
+			[299302] = {
+			},
+			[299304] = {
+			},
+			[299305] = {
+			},
+			[299306] = {
+			},
+			[299307] = {
+			},
+			[299309] = {
+			},
+			[299310] = {
+			},
+			[299312] = {
+			},
+			[299313] = {
+			},
+			[299314] = {
+			},
+			[299315] = {
+			},
+			[299316] = {
+			},
+			[299317] = {
+			},
+			[299318] = {
+			},
+			[299320] = {
+			},
+			[299321] = {
+			},
+			[299322] = {
+			},
+			[299323] = {
+			},
+			[299324] = {
+			},
+			[299333] = {
+			},
+			[299334] = {
+			},
+			[299335] = {
+},			[299336] = {
+			},
+			[299337] = {
+},			[299338] = {
+			},
+			[299343] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 2,
+			},
+			[299345] = {
+			},
+			[299346] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 2,
+			},
+			[299347] = {
+			},
+			[299348] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1.25,
+			},
+			[299349] = {
+			},
+			[299350] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1.25,
+			},
+			[299353] = {
+			},
+			[299354] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 2,
+			},
+			[299355] = {
+			},
+			[299357] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 2,
+			},
+			[299358] = {
+			},
+			[299367] = {
+			},
+			[299368] = {
+			},
+			[299369] = {
+			},
+			[299370] = {
+			},
+			[299371] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[299372] = {
+			},
+			[299373] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[299374] = {
+			},
+			[299375] = {
+},			[299376] = {
+			},
+			[299377] = {
+},			[299378] = {
+			},
+			[299396] = {
+},			[299453] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1,
+			},
+			[299455] = {
+			},
+			[299464] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1,
+			},
+			[299467] = {
+			},
+			[299506] = {
+			},
+			[299507] = {
+			},
+			[299508] = {
+			},
+			[299509] = {
+			},
+			[299510] = {
+			},
+			[299511] = {
+			},
+			[299512] = {
+			},
+			[299513] = {
+			},
+			[299514] = {
+			},
+			[299515] = {
+			},
+			[299516] = {
+			},
+			[299517] = {
+			},
+			[299518] = {
+			},
+			[299519] = {
+			},
+			[299520] = {
+			},
+			[299521] = {
+			},
+			[299522] = {
+			},
+			[299523] = {
+			},
+			[299524] = {
+			},
+			[299526] = {
+			},
+			[299527] = {
+			},
+			[299528] = {
+			},
+			[299529] = {
+			},
+			[299530] = {
+			},
+			[299538] = {
+			},
+			[299539] = {
+			},
+			[299540] = {
+			},
+			[299541] = {
+			},
+			[299542] = {
+			},
+			[299544] = {
+			},
+			[299550] = {
+			},
+			[299551] = {
+			},
+			[299552] = {
+			},
+			[299554] = {
+			},
+			[299559] = {
+			},
+			[299560] = {
+			},
+			[299624] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[299664] = {
+			},
+			[299665] = {
+			},
+			[299668] = {
+			},
+			[299671] = {
+			},
+			[299672] = {
+			},
+			[299673] = {
+			},
+			[299869] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[299875] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[299876] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[299878] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1.75,
+			},
+			[299879] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1.75,
+			},
+			[299882] = {
+			},
+			[299883] = {
+			},
+			[299885] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 10,
+			},
+			[299887] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 10,
+			},
+			[299905] = {
+			},
+			[299906] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 4,
+			},
+			[299909] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[299910] = {
+			},
+			[299932] = {
+			},
+			[299933] = {
+			},
+			[299935] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[299936] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[299939] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 15,
+			},
+			[299940] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 15,
+			},
+			[299943] = {
+			},
+			[299944] = {
+			},
+			[299945] = {
+			},
+			[299958] = {
+			},
+			[299959] = {
+			},
+			[299984] = {
+			},
+			[299988] = {
+			},
+			[299989] = {
+			},
+			[299991] = {
+			},
+			[300002] = {
+			},
+			[300003] = {
+			},
+			[300004] = {
+			},
+			[300005] = {
+			},
+			[300009] = {
+			},
+			[300010] = {
+			},
+			[300012] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[300013] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[300015] = {
+			},
+			[300016] = {
+			},
+			[300018] = {
+			},
+			[300020] = {
+			},
+			[300025] = {
+			},
+			[300091] = {
+			},
+			[300120] = {
+			},
+			[300123] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[300124] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[300125] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[300126] = {
+			},
+			[300127] = {
+			},
+			[300128] = {
+			},
+			[300134] = {
+			},
+			[300135] = {
+			},
+			[300140] = {
+			},
+			[300142] = {
+			},
+			[300143] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[300145] = {
+			},
+			[300168] = {
+				[E_AZERITE_POWER] = 568,
+			},
+			[300169] = {
+			},
+			[300170] = {
+				[E_ICD] = 59000,
+},			[300173] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[300174] = {
+			},
+			[300346] = {
+			},
+			[300349] = {
+			},
+			[300367] = {
+			},
+			[300438] = {
+			},
+			[300470] = {
+			},
+			[300539] = {
+			},
+			[300573] = {
+				[E_AZERITE_POWER] = 570,
+			},
+			[300575] = {
+				[E_AZERITE_POWER] = 571,
+			},
+			[300576] = {
+				[E_AZERITE_POWER] = 572,
+			},
+			[300577] = {
+				[E_AZERITE_POWER] = 573,
+			},
+			[300612] = {
+			},
+			[300690] = {
+			},
+			[300691] = {
+			},
+			[300692] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[300693] = {
+			},
+			[300714] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 20,
+			},
+			[300717] = {
+			},
+			[300718] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 3,
+			},
+			[300741] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 20,
+			},
+			[300744] = {
+			},
+			[300751] = {
+			},
+			[300754] = {
+			},
+			[300761] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[300762] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[300769] = {
+			},
+			[300770] = {
+			},
+			[300786] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 3,
+			},
+			[300788] = {
+			},
+			[300789] = {
+			},
+			[300795] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 3,
+			},
+			[300797] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 3,
+			},
+			[300800] = {
+			},
+			[300801] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[300802] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[300805] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 6,
+			},
+			[300806] = {
+			},
+			[300809] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[300813] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 6,
+			},
+			[300814] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[300830] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 10,
+			},
+			[300832] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[300835] = {
+			},
+			[300893] = {
+			},
+			[300907] = {
+			},
+			[300913] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 6,
+			},
+			[300917] = {
+			},
+			[300919] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[300932] = {
+			},
+			[300934] = {
+			},
+			[300939] = {
+			},
+			[300940] = {
+			},
+			[300948] = {
+			},
+			[300949] = {
+				[E_AZERITE_POWER] = 574,
+			},
+			[300968] = {
+			},
+			[300969] = {
+			},
+			[300970] = {
+			},
+			[300971] = {
+			},
+			[300974] = {
+			},
+			[301013] = {
+},			[301014] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[301015] = {
+			},
+			[301020] = {
+			},
+			[301021] = {
+			},
+			[301022] = {
+			},
+			[301023] = {
+			},
+			[301024] = {
+			},
+			[301025] = {
+			},
+			[301026] = {
+			},
+			[301027] = {
+			},
+			[301028] = {
+			},
+			[301029] = {
+			},
+			[301030] = {
+			},
+			[301031] = {
+			},
+			[301032] = {
+			},
+			[301033] = {
+			},
+			[301034] = {
+			},
+			[301035] = {
+			},
+			[301036] = {
+			},
+			[301037] = {
+			},
+			[301038] = {
+			},
+			[301039] = {
+			},
+			[301040] = {
+			},
+			[301041] = {
+			},
+			[301042] = {
+			},
+			[301043] = {
+			},
+			[301044] = {
+			},
+			[301045] = {
+			},
+			[301046] = {
+			},
+			[301047] = {
+			},
+			[301048] = {
+			},
+			[301049] = {
+			},
+			[301050] = {
+			},
+			[301051] = {
+			},
+			[301052] = {
+			},
+			[301053] = {
+			},
+			[301054] = {
+			},
+			[301055] = {
+			},
+			[301056] = {
+			},
+			[301076] = {
+			},
+			[301136] = {
+			},
+			[301137] = {
+			},
+			[301162] = {
+			},
+			[301308] = {
+			},
+			[301312] = {
+			},
+			[301358] = {
+			},
+			[301392] = {
+			},
+			[301522] = {
+			},
+			[301531] = {
+			},
+			[301554] = {
+			},
+			[301564] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[301576] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 10,
+			},
+			[301624] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[301641] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 1,
+			},
+			[301753] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 4,
+			},
+			[301754] = {
+			},
+			[301768] = {
+			},
+			[301834] = {
+			},
+			[301886] = {
+			},
+			[301887] = {
+			},
+			[302010] = {
+			},
+			[302015] = {
+			},
+			[302150] = {
+			},
+			[302258] = {
+				[E_ICD] = 100,
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1,
+			},
+			[302262] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[302273] = {
+			},
+			[302307] = {
+			},
+			[302308] = {
+			},
+			[302311] = {
+			},
+			[302312] = {
+			},
+			[302331] = {
+			},
+			[302348] = {
+			},
+			[302356] = {
+			},
+			[302357] = {
+			},
+			[302358] = {
+			},
+			[302359] = {
+			},
+			[302360] = {
+			},
+			[302380] = {
+			},
+			[302381] = {
+			},
+			[302382] = {
+			},
+			[302383] = {
+			},
+			[302385] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[302459] = {
+			},
+			[302491] = {
+			},
+			[302496] = {
+			},
+			[302499] = {
+			},
+			[302502] = {
+			},
+			[302550] = {
+			},
+			[302555] = {
+			},
+			[302565] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[302579] = {
+			},
+			[302580] = {
+			},
+			[302597] = {
+			},
+			[302645] = {
+			},
+			[302656] = {
+			},
+			[302696] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1.5,
+			},
+			[302702] = {
+			},
+			[302731] = {
+			},
+			[302763] = {
+			},
+			[302769] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[302773] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 20,
+			},
+			[302774] = {
+			},
+			[302775] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[302776] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 2,
+			},
+			[302778] = {
+			},
+			[302780] = {
+			},
+			[302864] = {
+			},
+			[302910] = {
+			},
+			[302916] = {
+			},
+			[302917] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[302918] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 3,
+			},
+			[302932] = {
+			},
+			[302933] = {
+			},
+			[302935] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[302952] = {
+			},
+			[302953] = {
+			},
+			[302957] = {
+			},
+			[302960] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[302961] = {
+			},
+			[302962] = {
+			},
+			[302982] = {
+			},
+			[302983] = {
+			},
+			[302984] = {
+			},
+			[302985] = {
+			},
+			[302986] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 5,
+			},
+			[302988] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[302995] = {
+			},
+			[303006] = {
+},			[303007] = {
+				[E_AZERITE_POWER] = 576,
+			},
+			[303008] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 6,
+[E_RPPMTYPE] = "HASTE",
+				[E_AZERITE_POWER] = 575,
+			},
+			[303011] = {
+			},
+			[303017] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[303020] = {
+			},
+			[303023] = {
+			},
+			[303028] = {
+			},
+			[303036] = {
+			},
+			[303040] = {
+			},
+			[303041] = {
+			},
+			[303042] = {
+			},
+			[303044] = {
+			},
+			[303074] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[303104] = {
+			},
+			[303133] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1.5,
+			},
+			[303134] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[303137] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[303209] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[303210] = {
+			},
+			[303211] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[303212] = {
+			},
+			[303250] = {
+},			[303277] = {
+			},
+			[303342] = {
+			},
+			[303344] = {
+			},
+			[303347] = {
+			},
+			[303349] = {
+			},
+			[303350] = {
+			},
+			[303351] = {
+			},
+			[303353] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1,
+			},
+			[303356] = {
+},			[303358] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 3,
+			},
+			[303361] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 3,
+			},
+			[303365] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[303388] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 6,
+			},
+			[303389] = {
+			},
+			[303390] = {
+			},
+			[303399] = {
+			},
+			[303412] = {
+			},
+			[303431] = {
+			},
+			[303438] = {
+			},
+			[303448] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 15,
+			},
+			[303455] = {
+			},
+			[303460] = {
+			},
+			[303463] = {
+			},
+			[303472] = {
+			},
+			[303474] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 15,
+			},
+			[303476] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 15,
+			},
+			[303499] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[303520] = {
+			},
+			[303541] = {
+			},
+			[303558] = {
+			},
+			[303559] = {
+			},
+			[303560] = {
+			},
+			[303562] = {
+			},
+			[303564] = {
+			},
+			[303565] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 6,
+			},
+			[303568] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[303570] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[303572] = {
+			},
+			[303573] = {
+			},
+			[303580] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[303583] = {
+			},
+			[303584] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[303590] = {
+			},
+			[303591] = {
+			},
+			[303592] = {
+			},
+			[303595] = {
+			},
+			[303596] = {
+			},
+			[303608] = {
+			},
+			[303621] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[303628] = {
+			},
+			[303634] = {
+			},
+			[303696] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 3,
+			},
+			[303718] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[303722] = {
+			},
+			[303723] = {
+			},
+			[303724] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[303725] = {
+			},
+			[303726] = {
+			},
+			[303731] = {
+			},
+			[303732] = {
+			},
+			[303733] = {
+			},
+			[303734] = {
+			},
+			[303735] = {
+			},
+			[303753] = {
+			},
+			[303788] = {
+			},
+			[303823] = {
+			},
+			[303824] = {
+			},
+			[303834] = {
+			},
+			[303835] = {
+			},
+			[303836] = {
+			},
+			[303837] = {
+			},
+			[303854] = {
+			},
+			[303855] = {
+			},
+			[303868] = {
+			},
+			[303872] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[303892] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[303893] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1,
+			},
+			[303894] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[303895] = {
+			},
+			[303897] = {
+			},
+			[303919] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 3,
+			},
+			[303929] = {
+			},
+			[303937] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1,
+			},
+			[303943] = {
+			},
+			[303953] = {
+			},
+			[303988] = {
+			},
+			[303989] = {
+			},
+			[304014] = {
+			},
+			[304015] = {
+			},
+			[304016] = {
+			},
+			[304017] = {
+			},
+			[304018] = {
+			},
+			[304019] = {
+			},
+			[304020] = {
+			},
+			[304021] = {
+			},
+			[304022] = {
+			},
+			[304023] = {
+			},
+			[304030] = {
+			},
+			[304033] = {
+			},
+			[304036] = {
+			},
+			[304038] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[304042] = {
+			},
+			[304055] = {
+			},
+			[304056] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[304081] = {
+},			[304086] = {
+},			[304088] = {
+			},
+			[304089] = {
+			},
+			[304108] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[304109] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[304110] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 3,
+			},
+			[304111] = {
+			},
+			[304112] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[304113] = {
+			},
+			[304114] = {
+			},
+			[304115] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[304116] = {
+			},
+			[304117] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 2,
+			},
+			[304118] = {
+			},
+			[304120] = {
+			},
+			[304121] = {
+			},
+			[304122] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[304123] = {
+			},
+			[304124] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[304125] = {
+			},
+			[304126] = {
+			},
+			[304129] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[304134] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[304139] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[304146] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[304151] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[304372] = {
+			},
+			[304373] = {
+			},
+			[304375] = {
+			},
+			[304413] = {
+			},
+			[304414] = {
+			},
+			[304416] = {
+			},
+			[304417] = {
+			},
+			[304419] = {
+			},
+			[304420] = {
+			},
+			[304422] = {
+			},
+			[304423] = {
+			},
+			[304425] = {
+			},
+			[304426] = {
+			},
+			[304428] = {
+			},
+			[304429] = {
+			},
+			[304431] = {
+			},
+			[304432] = {
+			},
+			[304434] = {
+			},
+			[304435] = {
+			},
+			[304437] = {
+			},
+			[304438] = {
+			},
+			[304440] = {
+			},
+			[304441] = {
+			},
+			[304443] = {
+			},
+			[304444] = {
+			},
+			[304471] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1,
+			},
+			[304482] = {
+			},
+			[304502] = {
+			},
+			[304504] = {
+			},
+			[304505] = {
+			},
+			[304533] = {
+			},
+			[304540] = {
+			},
+			[304541] = {
+			},
+			[304542] = {
+			},
+			[304543] = {
+			},
+			[304544] = {
+			},
+			[304545] = {
+			},
+			[304550] = {
+			},
+			[304559] = {
+			},
+			[304560] = {
+			},
+			[304561] = {
+			},
+			[304562] = {
+			},
+			[304563] = {
+			},
+			[304564] = {
+			},
+			[304566] = {
+			},
+			[304567] = {
+			},
+			[304569] = {
+			},
+			[304570] = {
+			},
+			[304572] = {
+			},
+			[304573] = {
+			},
+			[304575] = {
+			},
+			[304576] = {
+			},
+			[304578] = {
+			},
+			[304579] = {
+			},
+			[304581] = {
+			},
+			[304582] = {
+			},
+			[304603] = {
+			},
+			[304604] = {
+			},
+			[304605] = {
+			},
+			[304606] = {
+			},
+			[304609] = {
+			},
+			[304615] = {
+			},
+			[304616] = {
+			},
+			[304620] = {
+			},
+			[304621] = {
+			},
+			[304627] = {
+			},
+			[304628] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 2,
+			},
+			[304633] = {
+			},
+			[304637] = {
+			},
+			[304640] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1.5,
+			},
+			[304645] = {
+			},
+			[304660] = {
+			},
+			[304661] = {
+			},
+			[304662] = {
+			},
+			[304663] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[304664] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[304665] = {
+},			[304666] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[304668] = {
+			},
+			[304672] = {
+			},
+			[304673] = {
+			},
+			[304675] = {
+			},
+			[304685] = {
+			},
+			[304687] = {
+			},
+			[304688] = {
+			},
+			[304689] = {
+			},
+			[304690] = {
+			},
+			[304692] = {
+			},
+			[304693] = {
+			},
+			[304697] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1.5,
+			},
+			[304698] = {
+			},
+			[304699] = {
+			},
+			[304701] = {
+			},
+			[304711] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 2,
+			},
+			[304712] = {
+			},
+			[304715] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 3,
+			},
+			[304716] = {
+			},
+			[304720] = {
+			},
+			[304722] = {
+			},
+			[304724] = {
+			},
+			[304727] = {
+			},
+			[304730] = {
+			},
+			[304732] = {
+			},
+			[304734] = {
+			},
+			[304738] = {
+			},
+			[304741] = {
+			},
+			[304775] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[304877] = {
+			},
+			[304922] = {
+			},
+			[304923] = {
+			},
+			[305066] = {
+			},
+			[305129] = {
+			},
+			[305148] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 10,
+			},
+			[305170] = {
+			},
+			[305171] = {
+			},
+			[305180] = {
+			},
+			[305188] = {
+			},
+			[305190] = {
+			},
+			[305191] = {
+			},
+			[305249] = {
+			},
+			[305251] = {
+			},
+			[305252] = {
+			},
+			[305271] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 3,
+			},
+			[305286] = {
+			},
+			[305290] = {
+			},
+			[305314] = {
+			},
+			[305315] = {
+			},
+			[305350] = {
+			},
+			[305352] = {
+			},
+			[305388] = {
+			},
+			[305391] = {
+			},
+			[305392] = {
+			},
+			[305394] = {
+			},
+			[305483] = {
+			},
+			[305485] = {
+			},
+			[305496] = {
+			},
+			[305497] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[305498] = {
+			},
+			[305500] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[305670] = {
+			},
+			[305694] = {
+			},
+			[305723] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[305795] = {
+			},
+			[305796] = {
+			},
+			[305798] = {
+			},
+			[305799] = {
+			},
+			[305800] = {
+			},
+			[305801] = {
+			},
+			[305802] = {
+			},
+			[305803] = {
+			},
+			[305804] = {
+			},
+			[305805] = {
+			},
+			[305806] = {
+			},
+			[305807] = {
+			},
+			[305838] = {
+			},
+			[305839] = {
+			},
+			[305840] = {
+			},
+			[305841] = {
+			},
+			[305842] = {
+			},
+			[305843] = {
+			},
+			[305844] = {
+			},
+			[305845] = {
+			},
+			[305846] = {
+			},
+			[305847] = {
+			},
+			[305848] = {
+			},
+			[305849] = {
+			},
+			[305850] = {
+			},
+			[305851] = {
+			},
+			[305852] = {
+			},
+			[305853] = {
+			},
+			[305858] = {
+			},
+			[305859] = {
+			},
+			[305861] = {
+			},
+			[305862] = {
+			},
+			[305937] = {
+			},
+			[305938] = {
+			},
+			[305940] = {
+			},
+			[305941] = {
+			},
+			[305942] = {
+			},
+			[305943] = {
+			},
+			[305944] = {
+			},
+			[305945] = {
+			},
+			[305946] = {
+			},
+			[305947] = {
+			},
+			[305948] = {
+			},
+			[305949] = {
+			},
+			[305950] = {
+			},
+			[305951] = {
+			},
+			[305953] = {
+			},
+			[305954] = {
+			},
+			[305980] = {
+			},
+			[305981] = {
+			},
+			[305982] = {
+			},
+			[305992] = {
+			},
+			[305993] = {
+			},
+			[305994] = {
+			},
+			[306078] = {
+			},
+			[306079] = {
+			},
+			[306080] = {
+			},
+			[306081] = {
+			},
+			[306082] = {
+			},
+			[306083] = {
+			},
+			[306084] = {
+			},
+			[306085] = {
+			},
+			[306086] = {
+			},
+			[306087] = {
+			},
+			[306146] = {
+			},
+			[306242] = {
+			},
+			[306310] = {
+			},
+			[306312] = {
+			},
+			[306393] = {
+			},
+			[306402] = {
+			},
+			[306403] = {
+			},
+			[306404] = {
+			},
+			[306405] = {
+			},
+			[306406] = {
+			},
+			[306407] = {
+			},
+			[306409] = {
+			},
+			[306410] = {
+			},
+			[306474] = {
+			},
+			[306481] = {
+			},
+			[306482] = {
+			},
+			[306483] = {
+			},
+			[306498] = {
+			},
+			[306506] = {
+			},
+			[307026] = {
+			},
+			[307135] = {
+			},
+			[307264] = {
+			},
+			[308188] = {
+			},
+			[308189] = {
+			},
+			[308687] = {
+			},
+			[308688] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1.5,
+			},
+			[308689] = {
+			},
+			[308690] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1.5,
+			},
+			[308773] = {
+			},
+			[308774] = {
+			},
+			[308776] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 0.5,
+			},
+			[308810] = {
+			},
+			[308811] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1,
+			},
+			[308844] = {
+			},
+			[308911] = {
+			},
+			[308912] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[308913] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[308914] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[308915] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[308917] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[309047] = {
+			},
+			[309328] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[309352] = {
+			},
+			[309366] = {
+			},
+			[309443] = {
+			},
+			[309516] = {
+			},
+			[309519] = {
+			},
+			[309522] = {
+			},
+			[309563] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 2,
+			},
+			[309566] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[309567] = {
+			},
+			[310362] = {
+			},
+			[310422] = {
+			},
+			[310425] = {
+			},
+			[310426] = {
+			},
+			[310442] = {
+			},
+			[310479] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[310530] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[310549] = {
+			},
+			[310592] = {
+			},
+			[310595] = {
+			},
+			[310597] = {
+			},
+			[310599] = {
+			},
+			[310600] = {
+			},
+			[310601] = {
+			},
+			[310602] = {
+			},
+			[310603] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[310605] = {
+			},
+			[310606] = {
+			},
+			[310607] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[310608] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[310609] = {
+			},
+			[310690] = {
+			},
+			[310705] = {
+			},
+			[310710] = {
+			},
+			[310711] = {
+			},
+			[310712] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 10,
+			},
+			[311166] = {
+			},
+			[311167] = {
+			},
+			[311177] = {
+			},
+			[311185] = {
+			},
+			[311186] = {
+			},
+			[311187] = {
+			},
+			[311188] = {
+			},
+			[311192] = {
+			},
+			[311194] = {
+			},
+			[311195] = {
+			},
+			[311197] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 10,
+			},
+			[311198] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 10,
+			},
+			[311201] = {
+			},
+			[311202] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[311203] = {
+			},
+			[311206] = {
+			},
+			[311207] = {
+			},
+			[311209] = {
+			},
+			[311210] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 3,
+			},
+			[311211] = {
+			},
+			[311212] = {
+			},
+			[311213] = {
+			},
+			[311214] = {
+			},
+			[311215] = {
+			},
+			[311216] = {
+			},
+			[311217] = {
+			},
+			[311270] = {
+			},
+			[311302] = {
+			},
+			[311303] = {
+			},
+			[311304] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 4,
+			},
+			[311306] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 4,
+			},
+			[311308] = {
+			},
+			[311309] = {
+			},
+			[311310] = {
+			},
+			[311311] = {
+			},
+			[312029] = {
+			},
+			[312030] = {
+			},
+			[312049] = {
+			},
+			[312058] = {
+			},
+			[312130] = {
+			},
+			[312198] = {
+			},
+			[312215] = {
+			},
+			[312365] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[312370] = {
+			},
+			[312372] = {
+			},
+			[312411] = {
+			},
+			[312425] = {
+			},
+			[312643] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[312647] = {
+			},
+			[312725] = {
+			},
+			[312734] = {
+			},
+			[312764] = {
+			},
+			[312768] = {
+			},
+			[312770] = {
+			},
+			[312771] = {
+			},
+			[312773] = {
+			},
+			[312774] = {
+			},
+			[312775] = {
+			},
+			[312793] = {
+			},
+			[312794] = {
+			},
+			[312795] = {
+			},
+			[312796] = {
+			},
+			[312890] = {
+			},
+			[312896] = {
+			},
+			[312915] = {
+			},
+			[312916] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[312920] = {
+			},
+			[312922] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[312923] = {
+			},
+			[312924] = {
+			},
+			[312927] = {
+				[E_AZERITE_POWER] = 578,
+			},
+			[312928] = {
+				[E_AZERITE_POWER] = 579,
+			},
+			[313010] = {
+			},
+			[313015] = {
+			},
+			[313033] = {
+			},
+			[313055] = {
+			},
+			[313060] = {
+			},
+			[313087] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 12,
+			},
+			[313088] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[313089] = {
+			},
+			[313113] = {
+			},
+			[313148] = {
+			},
+			[313162] = {
+			},
+			[313168] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[313171] = {
+			},
+			[313172] = {
+			},
+			[313188] = {
+			},
+			[313194] = {
+			},
+			[313211] = {
+			},
+			[313212] = {
+			},
+			[313216] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[313246] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[313267] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[313272] = {
+			},
+			[313301] = {
+			},
+			[313310] = {
+			},
+			[313321] = {
+			},
+			[313333] = {
+			},
+			[313377] = {
+			},
+			[313379] = {
+			},
+			[313448] = {
+			},
+			[313514] = {
+			},
+			[313531] = {
+			},
+			[313532] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[313534] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[313568] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 3,
+			},
+			[313571] = {
+			},
+			[313627] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[313640] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 3,
+			},
+			[313643] = {
+			},
+			[313663] = {
+			},
+			[313917] = {
+			},
+			[313918] = {
+			},
+			[313919] = {
+			},
+			[313920] = {
+			},
+			[313921] = {
+			},
+			[313922] = {
+			},
+			[313948] = {
+			},
+			[314040] = {
+			},
+			[314042] = {
+			},
+			[314070] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1.5,
+			},
+			[314071] = {
+			},
+			[314517] = {
+			},
+			[314572] = {
+			},
+			[314573] = {
+			},
+			[314576] = {
+			},
+			[314585] = {
+			},
+			[314621] = {
+			},
+			[314624] = {
+			},
+			[314626] = {
+			},
+			[314627] = {
+			},
+			[314631] = {
+			},
+			[314959] = {
+			},
+			[314960] = {
+			},
+			[314961] = {
+			},
+			[314962] = {
+			},
+			[314963] = {
+			},
+			[315104] = {
+			},
+			[315221] = {
+			},
+			[315225] = {
+			},
+			[315229] = {
+			},
+			[315231] = {
+			},
+			[315270] = {
+			},
+			[315277] = {
+			},
+			[315281] = {
+			},
+			[315282] = {
+			},
+			[315285] = {
+			},
+			[315287] = {
+			},
+			[315290] = {
+			},
+			[315297] = {
+			},
+			[315298] = {
+			},
+			[315301] = {
+			},
+			[315302] = {
+			},
+			[315303] = {
+			},
+			[315304] = {
+			},
+			[315322] = {
+			},
+			[315327] = {
+			},
+			[315335] = {
+			},
+			[315339] = {
+			},
+			[315344] = {
+			},
+			[315353] = {
+			},
+			[315355] = {
+			},
+			[315357] = {
+			},
+			[315360] = {
+			},
+			[315362] = {
+			},
+			[315363] = {
+			},
+			[315364] = {
+			},
+			[315367] = {
+			},
+			[315370] = {
+			},
+			[315371] = {
+			},
+			[315372] = {
+			},
+			[315391] = {
+			},
+			[315434] = {
+			},
+			[315529] = {
+			},
+			[315530] = {
+			},
+			[315531] = {
+			},
+			[315544] = {
+			},
+			[315545] = {
+			},
+			[315546] = {
+			},
+			[315549] = {
+			},
+			[315552] = {
+			},
+			[315553] = {
+			},
+			[315554] = {
+			},
+			[315557] = {
+			},
+			[315558] = {
+			},
+			[315573] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[315574] = {
+				[E_ICD] = 100,
+				[E_RPPM] = 1,
+				[E_CHANCE] = 2,
+			},
+			[315586] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1,
+			},
+			[315590] = {
+			},
+			[315591] = {
+			},
+			[315592] = {
+			},
+			[315607] = {
+			},
+			[315608] = {
+			},
+			[315609] = {
+			},
+			[315736] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1,
+			},
+			[315763] = {
+			},
+			[315774] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[315787] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1,
+			},
+			[315793] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1,
+			},
+			[315858] = {
+			},
+			[316008] = {
+			},
+			[316019] = {
+			},
+			[316052] = {
+			},
+			[316053] = {
+			},
+			[316101] = {
+			},
+			[316243] = {
+			},
+			[316319] = {
+			},
+			[316330] = {
+			},
+			[316335] = {
+			},
+			[316342] = {
+			},
+			[316389] = {
+			},
+			[316522] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 100,
+			},
+			[316615] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 25,
+			},
+			[316617] = {
+			},
+			[316627] = {
+			},
+			[316628] = {
+			},
+			[316629] = {
+			},
+			[316651] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[316661] = {
+			},
+			[316698] = {
+},			[316703] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[316704] = {
+			},
+			[316717] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 2.5,
+			},
+			[316736] = {
+			},
+			[316738] = {
+			},
+			[316739] = {
+			},
+			[316740] = {
+			},
+			[316741] = {
+			},
+			[316744] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[316780] = {
+},			[316782] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[316799] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1,
+			},
+			[316801] = {
+			},
+			[316814] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1,
+			},
+			[316815] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1,
+			},
+			[316818] = {
+			},
+			[316823] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[316835] = {
+			},
+			[316863] = {
+			},
+			[316870] = {
+			},
+			[316871] = {
+			},
+			[316991] = {
+			},
+			[317014] = {
+},			[317020] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[317022] = {
+			},
+			[317029] = {
+			},
+			[317057] = {
+			},
+			[317059] = {
+			},
+			[317065] = {
+			},
+			[317137] = {
+				[E_AZERITE_POWER] = 582,
+			},
+			[317147] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1,
+			},
+			[317155] = {
+			},
+			[317159] = {
+			},
+			[317204] = {
+			},
+			[317210] = {
+			},
+			[317217] = {
+			},
+			[317219] = {
+			},
+			[317257] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 2,
+			},
+			[317260] = {
+			},
+			[317262] = {
+			},
+			[317265] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[317290] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 2,
+			},
+			[317388] = {
+			},
+			[317389] = {
+			},
+			[317407] = {
+			},
+			[317408] = {
+			},
+			[317409] = {
+			},
+			[317410] = {
+			},
+			[317411] = {
+			},
+			[317412] = {
+			},
+			[317413] = {
+			},
+			[317414] = {
+			},
+			[317415] = {
+			},
+			[317416] = {
+			},
+			[317417] = {
+			},
+			[317418] = {
+			},
+			[317419] = {
+			},
+			[317420] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[317700] = {
+			},
+			[317741] = {
+			},
+			[317742] = {
+			},
+			[317795] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 2,
+			},
+			[317859] = {
+			},
+			[317860] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1.25,
+			},
+			[317938] = {
+			},
+			[318086] = {
+			},
+			[318179] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 4,
+			},
+			[318187] = {
+			},
+			[318211] = {
+			},
+			[318212] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 2,
+			},
+			[318214] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 3,
+			},
+			[318216] = {
+			},
+			[318218] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 5,
+			},
+			[318219] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[318220] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 5,
+			},
+			[318227] = {
+			},
+			[318239] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 2,
+			},
+			[318266] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 5,
+			},
+			[318268] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 5,
+			},
+			[318269] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 3,
+			},
+			[318270] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 2,
+			},
+			[318272] = {
+				[E_ICD] = 100,
+				[E_RPPM] = 1,
+				[E_CHANCE] = 4,
+[E_RPPMTYPE] = "HASTE",
+			},
+			[318274] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 2,
+[E_RPPMTYPE] = "HASTE",
+			},
+			[318276] = {
+				[E_ICD] = 4000,
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1,
+[E_RPPMTYPE] = "HASTE",
+			},
+			[318280] = {
+				[E_ICD] = 700,
+},			[318286] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1,
+			},
+			[318293] = {
+				[E_ICD] = 100,
+},			[318294] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 25,
+			},
+			[318299] = {
+				[E_ICD] = 10000,
+				[E_RPPM] = 1,
+				[E_CHANCE] = 2.5,
+			},
+			[318300] = {
+			},
+			[318303] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1,
+			},
+			[318378] = {
+			},
+			[318407] = {
+			},
+			[318427] = {
+			},
+			[318428] = {
+			},
+			[318429] = {
+			},
+			[318430] = {
+			},
+			[318452] = {
+			},
+			[318453] = {
+			},
+			[318477] = {
+				[E_ICD] = 4000,
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1,
+[E_RPPMTYPE] = "HASTE",
+			},
+			[318478] = {
+				[E_ICD] = 4000,
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1,
+[E_RPPMTYPE] = "HASTE",
+			},
+			[318479] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1,
+			},
+			[318480] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1,
+			},
+			[318481] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1,
+			},
+			[318482] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1,
+			},
+			[318483] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1,
+			},
+			[318484] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 1,
+			},
+			[318485] = {
+				[E_ICD] = 700,
+},			[318486] = {
+				[E_ICD] = 700,
+},			[318487] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 2,
+[E_RPPMTYPE] = "HASTE",
+			},
+			[318488] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 2,
+[E_RPPMTYPE] = "HASTE",
+			},
+			[318492] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 5,
+			},
+			[318493] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 5,
+			},
+			[318494] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 3,
+			},
+			[318495] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 2,
+			},
+			[318496] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 5,
+			},
+			[318497] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 5,
+			},
+			[318498] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 3,
+			},
+			[318499] = {
+				[E_RPPM] = 1,
+				[E_CHANCE] = 2,
+			},
+			[319278] = {
+			},
+			[320249] = {
+			},
+			[320253] = {
+			},
+			[320257] = {
+			},
+			[320259] = {
+			},
+			[320261] = {
+			},
+			[320297] = {
+				[E_RPPM] = 0,
+				[E_CHANCE] = 101,
+			},
+			[321689] = {
+			},
+			[321883] = {
 			},
 			[0] = {
 			},
@@ -50335,16 +54915,16 @@ AdvancedTooltips.EnchantData = {
 		[32399] = 40,
 		[2841] = 7,
 		[44968] = 7,
-		[2933] = 35,
-		[33992] = 35,
+		[2933] = 0,
+		[33992] = 0,
 		[2934] = 32,
 		[33993] = 32,
 		[2935] = 32,
 		[33994] = 32,
 		[2937] = 45,
 		[33997] = 45,
-		[2938] = 57,
-		[34003] = 57,
+		[2938] = 71,
+		[34003] = 71,
 		[2939] = 24090,
 		[34007] = 24090,
 		[2940] = 24090,
@@ -50391,8 +54971,8 @@ AdvancedTooltips.EnchantData = {
 		[35447] = 45,
 		[3003] = 38,
 		[35452] = 38,
-		[3004] = 35,
-		[35453] = 35,
+		[3004] = 0,
+		[35453] = 0,
 		[3005] = 3,
 		[35454] = 3,
 		[3006] = 6,
@@ -50425,8 +55005,8 @@ AdvancedTooltips.EnchantData = {
 		[42974] = 42976,
 		[3228] = 38,
 		[44119] = 38,
-		[3229] = 35,
-		[44383] = 35,
+		[3229] = 0,
+		[44383] = 0,
 		[3231] = 36,
 		[44484] = 36,
 		[3232] = 24090,
@@ -50443,12 +55023,12 @@ AdvancedTooltips.EnchantData = {
 		[44524] = 44525,
 		[3241] = 44578,
 		[44576] = 44578,
-		[3243] = 57,
-		[44582] = 57,
+		[3243] = 71,
+		[44582] = 71,
 		[3244] = 7,
 		[44584] = 7,
-		[3245] = 35,
-		[44588] = 35,
+		[3245] = 0,
+		[44588] = 0,
 		[3246] = 45,
 		[44592] = 45,
 		[3247] = 44594,
@@ -50625,8 +55205,8 @@ AdvancedTooltips.EnchantData = {
 		[62257] = 7,
 		[3852] = 7,
 		[62384] = 7,
-		[3853] = 35,
-		[62447] = 35,
+		[3853] = 0,
+		[62447] = 0,
 		[3854] = 45,
 		[62948] = 45,
 		[3855] = 45,
@@ -50651,8 +55231,8 @@ AdvancedTooltips.EnchantData = {
 		[74189] = 7,
 		[4063] = 74190,
 		[74191] = 74190,
-		[4064] = 57,
-		[74192] = 57,
+		[4064] = 71,
+		[74192] = 71,
 		[4065] = 36,
 		[74193] = 36,
 		[4066] = 74194,
@@ -50677,8 +55257,8 @@ AdvancedTooltips.EnchantData = {
 		[74212] = 4,
 		[4076] = 3,
 		[74213] = 3,
-		[4077] = 35,
-		[74214] = 35,
+		[4077] = 0,
+		[74214] = 0,
 		[4082] = 36,
 		[74220] = 36,
 		[4083] = 74221,
@@ -50849,8 +55429,8 @@ AdvancedTooltips.EnchantData = {
 		[104390] = 4,
 		[4416] = 3,
 		[104391] = 3,
-		[4417] = 35,
-		[104392] = 35,
+		[4417] = 0,
+		[104392] = 0,
 		[4418] = 40,
 		[104393] = 40,
 		[4419] = 104335,
@@ -51047,8 +55627,8 @@ AdvancedTooltips.EnchantData = {
 		[131862] = 5,
 		[5004] = 5,
 		[131863] = 5,
-		[5035] = 57,
-		[139631] = 57,
+		[5035] = 71,
+		[139631] = 71,
 		[5124] = 142536,
 		[142469] = 142536,
 		[5125] = 0,
@@ -51331,4 +55911,64 @@ AdvancedTooltips.EnchantData = {
 		[279183] = 269559,
 		[6089] = 269558,
 		[279184] = 269558,
+		[6108] = 32,
+		[298009] = 32,
+		[6109] = 36,
+		[297989] = 36,
+		[6110] = 49,
+		[297995] = 49,
+		[6111] = 40,
+		[297991] = 40,
+		[6112] = 300718,
+		[298433] = 300718,
+		[6148] = 300795,
+		[298439] = 300795,
+		[6149] = 300786,
+		[298437] = 300786,
+		[6150] = 300797,
+		[298441] = 300797,
+		[6158] = 0,
+		[307414] = 0,
+		[6162] = 0,
+		[308398] = 0,
+		[6185] = 0,
+		[307418] = 0,
+}AdvancedTooltips.CorruptionEffects = {
+[6537] = {[E_REFSPELL] = 318276, [E_RANK] = "I"},
+        [6538] = { [E_REFSPELL] = 318477, [E_RANK] = "II" },
+        [6539] = { [E_REFSPELL] = 318478, [E_RANK] = "III" },
+        [6540] = { [E_REFSPELL] = 318286, [E_RANK] = "I" },
+        [6541] = { [E_REFSPELL] = 318479, [E_RANK] = "II" },
+        [6542] = { [E_REFSPELL] = 318480, [E_RANK] = "III" },
+        [6543] = { [E_REFSPELL] = 318481, [E_RANK] = "I" },
+        [6544] = { [E_REFSPELL] = 318482, [E_RANK] = "II" },
+        [6545] = { [E_REFSPELL] = 318483, [E_RANK] = "III" },
+        [6546] = { [E_REFSPELL] = 318239, [E_RANK] = "I" },
+        [6547] = { [E_REFSPELL] = 318303, [E_RANK] = "I" },
+        [6548] = { [E_REFSPELL] = 318484, [E_RANK] = "II" },
+        [6549] = { [E_REFSPELL] = 318280, [E_RANK] = "I" },
+        [6550] = { [E_REFSPELL] = 318485, [E_RANK] = "II" },
+        [6551] = { [E_REFSPELL] = 318486, [E_RANK] = "III" },
+        [6552] = { [E_REFSPELL] = 318274, [E_RANK] = "I" },
+        [6553] = { [E_REFSPELL] = 318487, [E_RANK] = "II" },
+        [6554] = { [E_REFSPELL] = 318488, [E_RANK] = "III" },
+        [6555] = { [E_REFSPELL] = 318266, [E_RANK] = "I" },
+        [6556] = { [E_REFSPELL] = 318268, [E_RANK] = "I" },
+        [6557] = { [E_REFSPELL] = 318269, [E_RANK] = "I" },
+        [6558] = { [E_REFSPELL] = 318270, [E_RANK] = "I" },
+        [6559] = { [E_REFSPELL] = 318492, [E_RANK] = "II" },
+        [6560] = { [E_REFSPELL] = 318496, [E_RANK] = "III" },
+        [6561] = { [E_REFSPELL] = 318493, [E_RANK] = "II" },
+        [6562] = { [E_REFSPELL] = 318497, [E_RANK] = "III" },
+        [6563] = { [E_REFSPELL] = 318494, [E_RANK] = "II" },
+        [6564] = { [E_REFSPELL] = 318498, [E_RANK] = "III" },
+        [6565] = { [E_REFSPELL] = 318495, [E_RANK] = "II" },
+        [6566] = { [E_REFSPELL] = 318499, [E_RANK] = "III" },
+        [6567] = { [E_REFSPELL] = 318294, [E_RANK] = "I" },
+        [6568] = { [E_REFSPELL] = 316780, [E_RANK] = "I" },
+        [6569] = { [E_REFSPELL] = 317290, [E_RANK] = "I" },
+        [6570] = { [E_REFSPELL] = 318299, [E_RANK] = "I" },
+        [6571] = { [E_REFSPELL] = 318293, [E_RANK] = "I" },
+        [6572] = { [E_REFSPELL] = 316651, [E_RANK] = "I" },
+        [6573] = { [E_REFSPELL] = 318272, [E_RANK] = "I" },
 }

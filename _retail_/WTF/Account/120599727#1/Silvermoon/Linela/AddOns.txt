@@ -211,7 +211,7 @@ Bagnon_GuildBank: enabled
 Bagnon_VoidStorage: enabled
 Masque_Caith: enabled
 XLootGroup: enabled
-Gladius: disabled
+Gladius: enabled
 Atlas_BurningCrusade: disabled
 Atlas_Cataclysm: disabled
 Atlas_ClassicWoW: disabled

@@ -889,19 +889,19 @@ Bartender4DB = {
 							["version"] = 3,
 							["position"] = {
 								["y"] = -2.99999117851257,
-								["growVertical"] = "UP",
-								["point"] = "BOTTOMLEFT",
 								["x"] = 391.414825439453,
+								["point"] = "BOTTOMLEFT",
+								["growVertical"] = "UP",
 							},
 						}, -- [1]
 						{
 							["rows"] = 2,
 							["version"] = 3,
 							["position"] = {
-								["y"] = 80.0000152587891,
+								["growHorizontal"] = "LEFT",
 								["x"] = -338.053833007813,
 								["point"] = "BOTTOMRIGHT",
-								["growHorizontal"] = "LEFT",
+								["y"] = 80.0000152587891,
 							},
 						}, -- [2]
 						{

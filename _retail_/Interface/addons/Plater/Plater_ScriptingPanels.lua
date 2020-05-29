@@ -263,7 +263,162 @@ Plater.TriggerDefaultMembers = {
 	},
 }
 
+local openURL = function(url)
+
+	if (not PlaterURLFrameHelper) then
+		local f = DF:CreateSimplePanel (UIParent, 460, 90, "URL", "PlaterURLFrameHelper")
+		f:SetFrameStrata ("TOOLTIP")
+		f:SetPoint ("center", UIParent, "center")
+		
+		DF:CreateBorder (f)
+		
+		local LinkBox = DF:CreateTextEntry (f, function()end, 380, 20, "ExportLinkBox", _, _, DF:GetTemplate ("dropdown", "OPTIONS_DROPDOWN_TEMPLATE"))
+		LinkBox:SetPoint ("center", f, "center", 0, -10)
+		PlaterURLFrameHelper.linkBox = LinkBox
+		
+		f:SetScript ("OnShow", function()
+			C_Timer.After (.1, function()
+				LinkBox:SetFocus (true)
+				LinkBox:HighlightText()
+			end)
+		end)
+		
+		f:Hide()
+	end
+
+	PlaterURLFrameHelper.linkBox:SetText(url)
+	PlaterURLFrameHelper:Show()
+	
+end
+Plater.OpenCopyUrlDialog = openURL
+
+
 --shared functions between all script tabs
+	local do_script_or_hook_import = function (text, scriptType, keepExisting)
+		if (scriptType == "hook") then
+			--the user inserted a string for a hook
+			--call the external function to import this script with ignoreRevision, overrideExisting and showDebug
+			local importSuccess, newObject = Plater.ImportScriptString (text, true, true, true, keepExisting)
+			if (importSuccess) then
+				PlaterOptionsPanelContainer:SelectIndex (Plater, PLATER_OPTIONS_HOOKING_TAB)
+				local mainFrame = PlaterOptionsPanelContainer
+				local hookFrame = mainFrame.AllFrames [PLATER_OPTIONS_HOOKING_TAB]
+				hookFrame.EditScript (newObject)
+				hookFrame.ScriptSelectionScrollBox:Refresh()
+			end
+		elseif (scriptType == "script") then
+			local importSuccess, newObject = Plater.ImportScriptString (text, true, true, true, keepExisting)
+			if (importSuccess) then
+				PlaterOptionsPanelContainer:SelectIndex (Plater, PLATER_OPTIONS_SCRIPTING_TAB)
+				local mainFrame = PlaterOptionsPanelContainer
+				local scriptingFrame = mainFrame.AllFrames [PLATER_OPTIONS_SCRIPTING_TAB]
+				scriptingFrame.EditScript (newObject)
+				scriptingFrame.ScriptSelectionScrollBox:Refresh()
+			end
+		else
+			Plater:Msg ("Cannot import: data imported is invalid")
+		end
+		Plater.UpdateOptionsTabUpdateState()
+	end
+
+	local import_mod_or_script = function (text)
+		--cleanup the text removing extra spaces and break lines
+		text = DF:Trim (text)
+		
+		if (string.len (text) > 0) then
+		
+			local indexScriptTable = Plater.DecompressData (text, "print")
+			--print(DF.table.dump(indexScriptTable))
+			
+			if (indexScriptTable and type (indexScriptTable) == "table") then
+				
+				indexScriptTable = Plater.MigrateScriptModImport (indexScriptTable)
+				--print(DF.table.dump(indexScriptTable))
+				
+				--check if the user in importing a profile in the scripting tab
+				if (indexScriptTable.plate_config) then
+					DF:ShowErrorMessage ("Invalid Script or Mod.\n\nImport profiles at the Profiles tab.")
+					return
+				elseif (indexScriptTable.NpcColor) then
+					DF:ShowErrorMessage ("Invalid Script or Mod.\n\nImport NpcColors at the Npc Colors tab.")
+					return
+				end
+			
+				local scriptType = Plater.GetDecodedScriptType (indexScriptTable)
+				
+				local promptToOverwrite = false
+				local scriptDB = Plater.GetScriptDB (scriptType) or {}
+				local newScript = Plater.BuildScriptObjectFromIndexTable (indexScriptTable, scriptType) or {}
+				for i = 1, #scriptDB do
+					local scriptObject = scriptDB [i]
+					if (scriptObject.Name == newScript.Name) then
+						promptToOverwrite = true
+					end
+				end
+				
+				if promptToOverwrite then
+					DF:ShowPromptPanel ("This Mod/Script already exists. Do you want to overwrite it?\nClicking 'No' will create a copy instead.\nTo cancel close this window wiht the 'x'.", function() do_script_or_hook_import (text, scriptType, false) end, function() do_script_or_hook_import (text, scriptType, true) end, true, 550)
+				else
+					do_script_or_hook_import (text, scriptType, true)
+				end
+			else
+				Plater:Msg ("Cannot import: data imported is invalid")
+			end
+		end
+	end
+	
+	local has_wago_update = function (scriptObject)
+		if WeakAurasCompanion and WeakAurasCompanion.Plater and WeakAurasCompanion.Plater.slugs and scriptObject and scriptObject.url then
+			local url = scriptObject.url
+			local id = url:match("wago.io/([^/]+)/([0-9]+)") or url:match("wago.io/([^/]+)$")
+			if id and WeakAurasCompanion.Plater.slugs[id] then
+				local update = WeakAurasCompanion.Plater.slugs[id]
+				local companionVersion = tonumber(update.wagoVersion)
+				return companionVersion > (scriptObject.version or 0)
+			end
+		end
+	
+		return false
+	end
+	Plater.HasWagoUpdate = has_wago_update
+	
+	local update_from_wago = function (scriptObject)
+		if not has_wago_update(scriptObject) then return end
+		
+		local url = scriptObject.url
+		local id = url:match("wago.io/([^/]+)/([0-9]+)") or url:match("wago.io/([^/]+)$")
+		if id and WeakAurasCompanion.Plater.slugs[id] then
+			local update = WeakAurasCompanion.Plater.slugs[id]
+			import_mod_or_script(update.encoded)
+		end
+		
+	end
+	
+	function Plater.CheckWagoUpdates(silent)
+		local countScripts = 0
+		for _, scriptObject in pairs(Plater.db.profile.script_data) do
+			countScripts = countScripts + (has_wago_update(scriptObject) and 1 or 0)
+		end
+		
+		local countMods = 0
+		for _, scriptObject in pairs(Plater.db.profile.hook_data) do
+			countMods = countMods + (has_wago_update(scriptObject) and 1 or 0)
+		end
+		
+		if not silent and (countMods > 0 or countScripts > 0) then
+			Plater:Msg ("There are " .. countMods .. " new mod and " .. countScripts .. " new script updates available from wago.io.")
+		end
+		
+		local hasProfileUpdate = false
+		if has_wago_update(Plater.db.profile) then
+			hasProfileUpdate = true
+			if not silent then
+				Plater:Msg ("Your current profile has an update available from wago.io.")
+			end
+		end
+		
+		return countMods, countScripts, hasProfileUpdate
+	end
 
 	local onclick_menu_scroll_line = function (self, scriptId, option, mainFrame)
 		if (option == "editscript") then
@@ -277,6 +432,10 @@ Plater.TriggerDefaultMembers = {
 			
 		elseif (option == "export") then
 			mainFrame.ExportScript (scriptId)
+
+		elseif (option == "url") then
+			local url = mainFrame
+			openURL(url)
 		
 		elseif (option == "sendtogroup") then
 			if (not IsInGroup()) then
@@ -284,6 +443,9 @@ Plater.TriggerDefaultMembers = {
 				return
 			end
 			Plater.ExportScriptToGroup (scriptId, mainFrame.ScriptType)
+		elseif (option == "wago_update") then
+			local scriptObject = mainFrame
+			update_from_wago(scriptObject)
 		end
 		
 		GameCooltip:Hide()
@@ -370,6 +532,26 @@ Plater.TriggerDefaultMembers = {
 			GameCooltip:AddMenu (1, onclick_menu_scroll_line, "remove", mainFrame)
 			GameCooltip:AddIcon ([[Interface\AddOns\Plater\images\icons]], 1, 1, 16, 16, 3/512, 21/512, 235/512, 257/512)
 			
+			local scriptObject = mainFrame.GetScriptObject (self.ScriptId)
+
+			GameCooltip:AddLine ("$div")
+			
+			if (has_wago_update(scriptObject)) then
+				GameCooltip:AddLine ("Update from Wago.io")
+				GameCooltip:AddMenu (1, onclick_menu_scroll_line, "wago_update", scriptObject)
+				GameCooltip:AddIcon ([[Interface\AddOns\Plater\images\wagologo.tga]], 1, 1, 16, 10)
+			end
+
+			if (scriptObject.url) then
+				GameCooltip:AddLine ("Copy Wago.io URL")
+				GameCooltip:AddMenu (1, onclick_menu_scroll_line, "url", scriptObject.url)
+				GameCooltip:AddIcon ([[Interface\AddOns\Plater\images\wagologo.tga]], 1, 1, 16, 10)
+				
+			else
+				GameCooltip:AddLine ("no wago.io url found", "", 1, "gray")
+			end
+
+			GameCooltip:SetOption("SubFollowButton", true)
 			GameCooltip:Show()
 		end
 	end
@@ -387,7 +569,14 @@ Plater.TriggerDefaultMembers = {
 		self.ScriptType:SetText (scriptTypeName)
 		
 		self.EnabledCheckbox:SetValue (data.Enabled)
+
 		self.EnabledCheckbox:SetFixedParameter (script_id)
+		
+		if has_wago_update(data) then
+			self.UpdateIcon:Show()
+		else
+			self.UpdateIcon:Hide()
+		end
 	end
 	
 	local onclick_remove_script = function (self)
@@ -417,6 +606,18 @@ Plater.TriggerDefaultMembers = {
 		GameCooltip:AddLine ("Trigger Type:", scriptTypeName)
 		
 		GameCooltip:AddLine ("Author:", scriptObject.Author or "--x--x--")
+
+		if (scriptObject.url and scriptObject.url ~= "") then
+			GameCooltip:AddLine (scriptObject.url, "", 1, "gold")
+			if (scriptObject.semver and scriptObject.semver ~= "") then
+				GameCooltip:AddLine ("Wago-Version", scriptObject.semver, 1, "gold")
+			end
+			if (scriptObject.version and scriptObject.version > 0) then
+				GameCooltip:AddLine ("Wago-Revision", scriptObject.version, 1, "gold")
+			end
+		else
+			GameCooltip:AddLine ("no wago.io url found", "", 1, "gray")
+		end
 		
 		if (scriptObject.Desc and scriptObject.Desc ~= "") then
 			GameCooltip:AddLine (scriptObject.Desc, "", 1, "gray")
@@ -471,6 +672,10 @@ Plater.TriggerDefaultMembers = {
 		local icon = line:CreateTexture ("$parentIcon", "overlay")
 		icon:SetSize (scrollbox_line_height-4, scrollbox_line_height-4)
 		
+		local updateIcon = line:CreateTexture ("$parentIcon", "overlay")
+		updateIcon:SetSize (16, 10)
+		updateIcon:SetTexture([[Interface\AddOns\Plater\images\wagologo.tga]])
+		
 		local script_name = DF:CreateLabel (line, "", DF:GetTemplate ("font", "PLATER_SCRIPTS_NAME"))
 		local script_type = DF:CreateLabel (line, "", DF:GetTemplate ("font", "PLATER_SCRIPTS_TYPE"))
 		
@@ -496,8 +701,10 @@ Plater.TriggerDefaultMembers = {
 		script_name:SetPoint ("topleft", icon, "topright", 2, -2)
 		script_type:SetPoint ("topleft", script_name, "bottomleft", 0, 0)
 		enabled_checkbox:SetPoint ("right", line, "right", -2, 0)
+		updateIcon:SetPoint ("bottomright", line, "bottomright", -enabled_checkbox:GetWidth()-6, 2)
 		
 		line.Icon = icon
+		line.UpdateIcon = updateIcon
 		line.ScriptName = script_name
 		line.ScriptType = script_type
 		line.EnabledCheckbox = enabled_checkbox
@@ -777,7 +984,8 @@ Plater.TriggerDefaultMembers = {
 	end
 	
 	local create_code_editor = function (parent, mainFrame)
-		local code_editor = DF:NewSpecialLuaEditorEntry (parent, edit_script_size[1], edit_script_size[2], "CodeEditor", "$parentCodeEditor")
+		local code_editor = DF:NewSpecialLuaEditorEntry (parent, edit_script_size[1], edit_script_size[2], "CodeEditor", "$parentCodeEditor", false, true)
+		--need to make the scroll of line numbers be mouse off (enablemouse(false))
 		
 		code_editor.scroll:SetBackdrop (nil)
 		code_editor.editbox:SetBackdrop (nil)
@@ -1237,53 +1445,7 @@ function Plater.CreateHookingPanel()
 	
 		local text = hookFrame.ImportTextEditor:GetText()
 
-		--cleanup the text removing extra spaces and break lines
-		text = DF:Trim (text)
-		
-		if (string.len (text) > 0) then
-		
-			local indexScriptTable = Plater.DecompressData (text, "print")
-
-			if (indexScriptTable and type (indexScriptTable) == "table") then
-			
-				local scriptType = Plater.GetDecodedScriptType (indexScriptTable)
-				if (scriptType ~= "hook") then
-					--the user inserted a string for a script into the hook import
-					--call the external function to import this script with ignoreRevision, overrideExisting and showDebug
-					local importSuccess, newObject = Plater.ImportScriptString (text, true, true, true)
-					if (importSuccess) then
-						PlaterOptionsPanelContainer:SelectIndex (Plater, PLATER_OPTIONS_SCRIPTING_TAB)
-						local mainFrame = PlaterOptionsPanelContainer
-						local scriptingFrame = mainFrame.AllFrames [PLATER_OPTIONS_SCRIPTING_TAB]
-						scriptingFrame.EditScript (newObject)
-						scriptingFrame.ScriptSelectionScrollBox:Refresh()
-					end
-					
-					hookFrame.ImportTextEditor.IsImporting = nil
-					hookFrame.ImportTextEditor:Hide()
-					
-					return
-				end
-				
-				local newScript = Plater.BuildScriptObjectFromIndexTable (indexScriptTable, "hook")
-				if (newScript) then
-					tinsert (Plater.db.profile.hook_data, newScript)
-					hookFrame.ScriptSelectionScrollBox:Refresh()
-					hookFrame.EditScript (#Plater.db.profile.hook_data)
-					--refresh the script selection scrollbox
-					hookFrame.ScriptSelectionScrollBox:Refresh()
-				else
-					--check if the user in importing a profile in the scripting tab
-					if (indexScriptTable.plate_config) then
-						DF:ShowErrorMessage ("Invalid Script or Mod.\n\nImport profiles at the Profiles tab.")
-					end
-					Plater:Msg ("Cannot import: data imported is invalid")
-				end
-			else
-				Plater:Msg ("Cannot import: data imported is invalid")
-			end
-
-		end
+		import_mod_or_script (text)
 		
 		hookFrame.ImportTextEditor.IsImporting = nil
 		hookFrame.ImportTextEditor:Hide()
@@ -1458,7 +1620,7 @@ function Plater.CreateHookingPanel()
 		f:Hide()
 		f:Show()
 	end
-	
+
 	function hookFrame.AddHookToScript (hookName)
 		local scriptObject = hookFrame.GetCurrentScriptObject()
 		if (not scriptObject) then
@@ -2442,48 +2604,7 @@ function Plater.CreateScriptingPanel()
 	
 		local text = scriptingFrame.ImportTextEditor:GetText()
 
-		--cleanup the text removing extra spaces and break lines
-		text = DF:Trim (text)
-		
-		if (string.len (text) > 0) then
-		
-			local indexScriptTable = Plater.DecompressData (text, "print")
-			
-			if (indexScriptTable and type (indexScriptTable) == "table") then
-			
-				local scriptType = Plater.GetDecodedScriptType (indexScriptTable)
-				if (scriptType ~= "script") then
-					--the user inserted a string for a hook into the script import
-					--call the external function to import this script with ignoreRevision, overrideExisting and showDebug
-					local importSuccess, newObject = Plater.ImportScriptString (text, true, true, true)
-					if (importSuccess) then
-						PlaterOptionsPanelContainer:SelectIndex (Plater, PLATER_OPTIONS_HOOKING_TAB)
-						local mainFrame = PlaterOptionsPanelContainer
-						local hookFrame = mainFrame.AllFrames [PLATER_OPTIONS_HOOKING_TAB]
-						hookFrame.EditScript (newObject)
-						hookFrame.ScriptSelectionScrollBox:Refresh()
-					end
-					
-					scriptingFrame.ImportTextEditor.IsImporting = nil
-					scriptingFrame.ImportTextEditor:Hide()
-					
-					return
-				end
-			
-				local newScript = Plater.BuildScriptObjectFromIndexTable (indexScriptTable, "script")
-				if (newScript) then
-					tinsert (Plater.db.profile.script_data, newScript)
-					scriptingFrame.ScriptSelectionScrollBox:Refresh()
-					scriptingFrame.EditScript (#Plater.db.profile.script_data)
-					--refresh the script selection scrollbox
-					scriptingFrame.ScriptSelectionScrollBox:Refresh()
-				else
-					Plater:Msg ("Cannot import: data imported is invalid")
-				end
-			else
-				Plater:Msg ("Cannot import: data imported is invalid")
-			end
-		end
+		import_mod_or_script (text)
 		
 		scriptingFrame.ImportTextEditor.IsImporting = nil
 		scriptingFrame.ImportTextEditor:Hide()

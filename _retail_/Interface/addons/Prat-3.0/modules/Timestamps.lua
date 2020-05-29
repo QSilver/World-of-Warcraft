@@ -24,7 +24,12 @@
 --
 -------------------------------------------------------------------------------
 Prat:AddModuleToLoad(function()
+  local function dbg(...) end
 
+  --[===[@debug@
+  function dbg(...) Prat:PrintLiteral(...) end
+
+  --@end-debug@]===]
 
   local PRAT_MODULE = Prat:RequestModuleName("Timestamps")
 
@@ -60,6 +65,7 @@ Prat:AddModuleToLoad(function()
     ["HH:MM:SS AM (12-hour)"] = true,
     ["HH:MM:SS (12-hour)"] = true,
     ["HH:MM:SS (24-hour)"] = true,
+    ["HH:MM AM (12-hour)"] = true,
     ["HH:MM (12-hour)"] = true,
     ["HH:MM (24-hour)"] = true,
     ["MM:SS"] = true,
@@ -83,6 +89,7 @@ L = {
 		["Format All Timestamps"] = true,
 		["HH:MM (12-hour)"] = true,
 		["HH:MM (24-hour)"] = true,
+		["HH:MM AM (12-hour)"] = true,
 		["HH:MM:SS (12-hour)"] = true,
 		["HH:MM:SS (24-hour)"] = true,
 		["HH:MM:SS AM (12-hour)"] = true,
@@ -119,6 +126,8 @@ L = {
 		["Format All Timestamps"] = "Formatage de l'heure",
 		["HH:MM (12-hour)"] = "HH:MM (12 heures)",
 		["HH:MM (24-hour)"] = "HH:MM (24 heures)",
+		--[[Translation missing --]]
+		["HH:MM AM (12-hour)"] = "HH:MM AM (12-hour)",
 		["HH:MM:SS (12-hour)"] = "HH:MM:SS (12 heures)",
 		["HH:MM:SS (24-hour)"] = "HH:MM:SS (24 heures)",
 		["HH:MM:SS AM (12-hour)"] = "HH:MM:SS AM (12 heures)",
@@ -155,10 +164,11 @@ L = {
 		["Format All Timestamps"] = "Formatiere alle Zeitstempel",
 		["HH:MM (12-hour)"] = "HH:MM (12-Stunden)",
 		["HH:MM (24-hour)"] = "HH:MM (24-Stunden)",
+		["HH:MM AM (12-hour)"] = "HH:MM AM (12-Stunden)",
 		["HH:MM:SS (12-hour)"] = "HH:MM:SS (12-Stunden)",
 		["HH:MM:SS (24-hour)"] = "HH:MM:SS (24-Stunden)",
 		["HH:MM:SS AM (12-hour)"] = "HH:MM:SS AM (12-Stunden)",
-		["localtime_desc"] = "Verwendung der Ortszeitein- und ausschalten.",
+		["localtime_desc"] = "Verwendung der Ortszeit ein- und ausschalten.",
 		["localtime_name"] = "Ortszeit verwenden",
 		["MM:SS"] = true,
 		["Post-Timestamp"] = "Nach-Zeitstempel",
@@ -166,7 +176,7 @@ L = {
 		["Set the timestamp format"] = "Format für Zeitstempel einstellen",
 		["Set Timestamp Color"] = "Farbe für Zeitstempel einstellen",
 		["Sets the color of the timestamp."] = "Stellt die Farbe des Zeitstempels ein.",
-		["Show Timestamp"] = "Teitstempel anzeigen",
+		["Show Timestamp"] = "Zeitstempel anzeigen",
 		["show_desc"] = "Anzeige des Zeitstempels für jedes Fenster ein- und ausschalten.",
 		["show_name"] = "Zeitstempel anzeigen",
 		["space_desc"] = "Das Einfügen eines Leerzeichens nach dem Zeitstempel ein- und ausschalten.",
@@ -191,6 +201,8 @@ L = {
 		["Format All Timestamps"] = "모든 시간 표시 형식",
 		["HH:MM (12-hour)"] = "HH:MM (12시간제)",
 		["HH:MM (24-hour)"] = "HH:MM (24시간제)",
+		--[[Translation missing --]]
+		["HH:MM AM (12-hour)"] = "HH:MM AM (12-hour)",
 		["HH:MM:SS (12-hour)"] = "HH:MM:SS (12시간제)",
 		["HH:MM:SS (24-hour)"] = "HH:MM:SS (24시간제)",
 		["HH:MM:SS AM (12-hour)"] = "HH:MM:SS AM (12시간제)",
@@ -233,6 +245,8 @@ L = {
 		["HH:MM (12-hour)"] = "HH:MM (12-hour)",
 		--[[Translation missing --]]
 		["HH:MM (24-hour)"] = "HH:MM (24-hour)",
+		--[[Translation missing --]]
+		["HH:MM AM (12-hour)"] = "HH:MM AM (12-hour)",
 		--[[Translation missing --]]
 		["HH:MM:SS (12-hour)"] = "HH:MM:SS (12-hour)",
 		--[[Translation missing --]]
@@ -289,6 +303,8 @@ L = {
 		["Format All Timestamps"] = "Формат всего времени",
 		["HH:MM (12-hour)"] = "HH:MM (12-ч)",
 		["HH:MM (24-hour)"] = "HH:MM (24-ч)",
+		--[[Translation missing --]]
+		["HH:MM AM (12-hour)"] = "HH:MM AM (12-hour)",
 		["HH:MM:SS (12-hour)"] = "HH:MM:SS (12-ч)",
 		["HH:MM:SS (24-hour)"] = "HH:MM:SS (24-ч)",
 		["HH:MM:SS AM (12-hour)"] = "HH:MM:SS AM (12-ч)",
@@ -325,6 +341,8 @@ L = {
 		["Format All Timestamps"] = "所有时间戳格式",
 		["HH:MM (12-hour)"] = "时:分 (12-小时)",
 		["HH:MM (24-hour)"] = "时:分 (24-小时)",
+		--[[Translation missing --]]
+		["HH:MM AM (12-hour)"] = "HH:MM AM (12-hour)",
 		["HH:MM:SS (12-hour)"] = "时:分:秒 (12-小时)",
 		["HH:MM:SS (24-hour)"] = "时:分:秒 (24-小时)",
 		["HH:MM:SS AM (12-hour)"] = "时:分:秒 上午(12-小时)",
@@ -361,6 +379,8 @@ L = {
 		["Format All Timestamps"] = "Formatear Todas las Mascaras de Tiempo",
 		["HH:MM (12-hour)"] = "HH:MM (12-horas)",
 		["HH:MM (24-hour)"] = "HH:MM (24-horas)",
+		--[[Translation missing --]]
+		["HH:MM AM (12-hour)"] = "HH:MM AM (12-hour)",
 		["HH:MM:SS (12-hour)"] = "HH:MM:SS (12-horas)",
 		["HH:MM:SS (24-hour)"] = "HH:MM:SS (24-horas)",
 		["HH:MM:SS AM (12-hour)"] = "HH:MM:SS AM (12-horas)",
@@ -397,6 +417,8 @@ L = {
 		["Format All Timestamps"] = "所有時間戳格式",
 		["HH:MM (12-hour)"] = "HH:MM (12時制)",
 		["HH:MM (24-hour)"] = "HH:MM (24時制)",
+		--[[Translation missing --]]
+		["HH:MM AM (12-hour)"] = "HH:MM AM (12-hour)",
 		["HH:MM:SS (12-hour)"] = "HH:MM:SS (12時制)",
 		["HH:MM:SS (24-hour)"] = "HH:MM:SS (24時制)",
 		["HH:MM:SS AM (12-hour)"] = "HH:MM:SS AM (12時制)",
@@ -436,6 +458,7 @@ L = {
     ["%I:%M:%S %p"] = PL["HH:MM:SS AM (12-hour)"],
     ["%I:%M:%S"] = PL["HH:MM:SS (12-hour)"],
     ["%X"] = PL["HH:MM:SS (24-hour)"],
+    ["%I:%M %p"] = PL["HH:MM AM (12-hour)"],
     ["%I:%M"] = PL["HH:MM (12-hour)"],
     ["%H:%M"] = PL["HH:MM (24-hour)"],
     ["%M:%S"] = PL["MM:SS"],
@@ -538,16 +561,23 @@ L = {
     },
   })
 
-  function module:OnModuleEnable()
-    -- For this module to work, it must hook before Prat
-    for _, v in pairs(Prat.HookedFrames) do
-      self:RawHook(v, "AddMessage", true)
+  Prat:SetModuleInit(module, function()
+    -- Disable blizz timestamps if possible
+    if issecurevariable("ChatFrame_MessageEventHandler") then
+      local proxy = { CHAT_TIMESTAMP_FORMAT = false } -- nil would defer to __index
+      local CF_MEH_env = setmetatable(proxy, { __index = _G, __newindex = _G })
+      setfenv(ChatFrame_MessageEventHandler, CF_MEH_env)
+    else
+      -- An addon has modified ChatFrame_MessageEventHandler and likely
+      -- replaced / hooked it, so we can't setfenv the original function.
+      -- TODO Print a warning
     end
+  end)
 
-    -- Disable blizz timestamps
-    self:RawHook("ChatFrame_MessageEventHandler", true)
-
-    self:RawHook("ChatChannelDropDown_PopOutChat", true)
+  function module:OnModuleEnable()
+    for _, v in pairs(Prat.HookedFrames) do
+      self:SecureHook(v, "AddMessage")
+    end
 
     self.secondsDifference = 0
     self.lastMinute = select(2, GetGameTime())
@@ -562,18 +592,10 @@ L = {
 
   local hookedFrames = {}
 
-  function module:ChatFrame_MessageEventHandler(...)
-    local ctsf = CHAT_TIMESTAMP_FORMAT
-    CHAT_TIMESTAMP_FORMAT = nil
-    local ret = self.hooks["ChatFrame_MessageEventHandler"](...)
-    CHAT_TIMESTAMP_FORMAT = ctsf
-    return ret
-  end
-
   function module:Prat_FramesUpdated(info, name, chatFrame, ...)
     if not hookedFrames[chatFrame:GetName()] then
       hookedFrames[chatFrame:GetName()] = true
-      self:RawHook(chatFrame, "AddMessage", true)
+      self:SecureHook(chatFrame, "AddMessage")
     end
   end
 
@@ -584,20 +606,14 @@ L = {
     end
   end
 
-  function module:ChatChannelDropDown_PopOutChat(...)
-    Prat.loading = true
-    self.hooks["ChatChannelDropDown_PopOutChat"](...)
-    Prat.loading = nil
-  end
-
   --[[------------------------------------------------
       Core Functions
   ------------------------------------------------]] --
   function module:AddMessage(frame, text, ...)
     if self.db.profile.show and self.db.profile.show[frame:GetName()] and not Prat.loading then
-      text = text and self:InsertTimeStamp(text, frame)
+      frame:TransformMessages(function(message, ...) return message == text end,
+            function(message, ...) return self:InsertTimeStamp(message, frame), ... end)
     end
-    self.hooks[frame].AddMessage(frame, text, ...)
   end
 
   function module:IsTimestampPlain()

@@ -1,11 +1,13 @@
-## Interface: 80205
-## Version: v1.4.4
+## Interface: 80300
+## Version: v1.4.5
 ## Title: WardrobeSort
 ## Notes: Sorts the Wardrobe
 ## Author: Ketho @ EU-Boulderfist
 ## SavedVariables: WardrobeSortDB
 ## LoadOnDemand: 1
 ## LoadWith: Blizzard_Collections
+## X-Curse-Project-ID: 101102
+## X-WoWI-ID: 24003
 
 UIDropDownMenu.lua
 WardrobeSort.lua

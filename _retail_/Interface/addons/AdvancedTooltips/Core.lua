@@ -64,6 +64,9 @@ E_AZERITE_POWER = 5
 E_SPELLID = 6
 E_DESC = 7
 E_REFID = 8
+E_REFSPELL = 9
+E_RANK = 10
+E_RPPMTYPE = 11
 
 -----------------
 -- Addon Setup --
@@ -227,7 +230,13 @@ local function ProcessItem(itemLink, tooltip)
 
 				-- Check for RPPM
 				if item[i][E_RPPM] == 1 then
-					strRight = strRight..string.format("RPPM: %.2f (%.2f)", item[i][E_CHANCE], item[i][E_CHANCE] * (1 + UnitSpellHaste("player")/100))
+					-- check if haste modified
+					if item[i][E_RPPMTYPE] ~= nil and item[i][E_RPPMTYPE] == "HASTE" then
+						strRight = strRight..string.format("RPPM: %.2f (%.2f)", item[i][E_CHANCE], item[i][E_CHANCE] * (1 + UnitSpellHaste("player")/100))
+					else
+						strRight = strRight..string.format("RPPM: %.2f", item[i][E_CHANCE])
+					end
+
 				else
 					strRight = strRight..string.format("%.2f%%", item[i][E_CHANCE])
 				end
@@ -367,17 +376,28 @@ function GetSpellChanceInfo(rank)
 	str = ""
 	str2 = ""
 
-    data = AdvancedTooltips.SpellData[rank]
+	data = AdvancedTooltips.SpellData[rank]
+	
+	-- EV is hidden, modeled manually in simc
+	if rank == 318280 or rank == 318485 or rank == 318486 then 
+		data[E_CHANCE] = 0.15
+		data[E_RPPM] = 1
+	end
 
 	if data[E_CHANCE] ~= nil and data[E_CHANCE] < 100.0 then
 		str = select(1, GetSpellInfo(rank))
+		-- EV is doesn't return a spell name
+		if rank == 318280 or rank == 318485 or rank == 318486 then 
+			str = "Echoing Void"
+		end
 		if data[E_RPPM] == 1 then
 			str2 = "RPPM: "..string.format("%.2f", data[E_CHANCE])
-
-			-- Get haste % to calc "actual" rppm
-			local actualRPPM = data[E_CHANCE] * (1 + UnitSpellHaste("player")/100)
-			local actualRPPMString = string.format("%.2f", actualRPPM)
-			str2 = str2.." ("..actualRPPMString..")"
+				if data[E_RPPMTYPE] ~= nil and data[E_RPPMTYPE] == "HASTE" then
+				-- Get haste % to calc "actual" rppm
+				local actualRPPM = data[E_CHANCE] * (1 + UnitSpellHaste("player")/100)
+				local actualRPPMString = string.format("%.2f", actualRPPM)
+				str2 = str2.." ("..actualRPPMString..")"
+			end
 		else
 			str2 = string.format("%.2f%%", data[E_CHANCE])
 		end
@@ -622,14 +642,16 @@ function ProcessOneOffs(rank, tooltip, full)
 	end
 end
 
-function SpellTooltip(rank, tooltip)
+function SpellTooltip(rank, tooltip, nameRank)
 	str = ""
 	str2 = ""
 	Header = false
 	if AdvancedTooltips.SpellData[rank] ~= nil then
 		local str = GetSpellChanceInfo(rank)["proc_name"]
         local str2 = GetSpellChanceInfo(rank)["proc_info"]
-        local str3 = GetSpellChanceInfo(rank)["proc_icd"]
+		local str3 = GetSpellChanceInfo(rank)["proc_icd"]
+		
+		if nameRank ~= nil then str = str .. " " .. nameRank end
 		
 		-- work around the talent bug (calls OnSetTooltipSpell twice)
         if str2 ~= "" and alreadyAdded(str2, tooltip) then
@@ -649,10 +671,21 @@ function SpellTooltip(rank, tooltip)
 			tooltip:AddDoubleLine(str, str2, AdvancedTooltips_Config.R, AdvancedTooltips_Config.G, AdvancedTooltips_Config.B, AdvancedTooltips_Config.R, AdvancedTooltips_Config.G, AdvancedTooltips_Config.B)
         end
         
-        if str3 ~= "" then
+		if str3 ~= "" then
+			-- special case here for EV, which has an ICD but no proc chance (all abilities)
             tooltip:AddDoubleLine(" ", str3, AdvancedTooltips_Config.R, AdvancedTooltips_Config.G, AdvancedTooltips_Config.B, AdvancedTooltips_Config.R, AdvancedTooltips_Config.G, AdvancedTooltips_Config.B)
         end
 	end
+
+	-- Add explanatory note on EV
+	if rank == 318280 or rank == 318485 or rank == 318486 then 
+		-- Special note here for how EV works
+		tooltip:AddLine(" ")
+		tooltip:AddLine("Echoing Void builds a stack on all active abilities.\nThe RPPM for this corruption is the chance for\nthe void to collapse and start deailing damage.", AdvancedTooltips_Config.R, AdvancedTooltips_Config.G, AdvancedTooltips_Config.B)	
+	end
+
+	-- bail out early in the case of corrupted items, so we do not scan stats twice
+	if nameRank ~= nil then return end
 	
 	-- Archive and Laser Matrix
 	if rank == 280555 or rank == 280559 then
@@ -739,6 +772,31 @@ function ProcessItemOneOffs(id, header, tooltip)
 
 end
 
+function scanCorrupted(itemLink, tooltip)
+	local _, itemID, enchantID, gemID1, gemID2, gemID3, gemID4, 
+	suffixID, uniqueID, linkLevel, specializationID, upgradeTypeID, instanceDifficultyID, numBonusIDs = strsplit(":", itemLink)
+  local tempString, unknown1, unknown2, unknown3 = strmatch(itemLink, "item:[-%d]-:[-%d]-:[-%d]-:[-%d]-:[-%d]-:[-%d]-:[-%d]-:[-%d]-:[-%d]-:[-%d]-:[-%d]-:[-%d]-:[-%d]-:([-:%d]+):([-%d]-):([-%d]-):([-%d]-)|")
+  local bonusIDs, upgradeValue
+  if tempString == nil then return end
+  if upgradeTypeID and upgradeTypeID ~= "" then
+	  upgradeValue = tempString:match("[-:%d]+:([-%d]+)")
+	  strchk = tempString:match("([-:%d]+):")
+	  if strchk == nil then return end
+	  bonusIDs = {strsplit(":", strchk)}
+  else
+	  bonusIDs = {strsplit(":", tempString)}
+  end
+
+  for i=1,#bonusIDs,1 do
+	if AdvancedTooltips.CorruptionEffects[tonumber(bonusIDs[i])] ~= nil then
+		SpellTooltip(AdvancedTooltips.CorruptionEffects[tonumber(bonusIDs[i])][E_REFSPELL], tooltip, AdvancedTooltips.CorruptionEffects[tonumber(bonusIDs[i])][E_RANK])
+
+
+	end
+  end
+
+end
+
 
 function OnTooltip_Item(self, tooltip)
 	local isUldirItem = false
@@ -803,6 +861,9 @@ function OnTooltip_Item(self, tooltip)
 	if AdvancedTooltips.BackupData[linkToID(link)] ~= nil then
 		AddEnchantInfo(tooltip, itemHeaderAdded, AdvancedTooltips.EnchantData[AdvancedTooltips.BackupData[linkToID(link)]])
 	end
+
+	-- Scan if correcupted
+	scanCorrupted(link, tooltip)
 
 	-- collect stat data
 	scanStats(tooltip)

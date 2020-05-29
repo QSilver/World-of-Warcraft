@@ -1,3 +1,123 @@
+# v2.19.1
+## Changes
+### History Deletion
+Prefer using id time stamp when deleting history entries by date (CurseClassic#57).
+Should be more precise until a planend overhaul of the time keeping is implemented.
+
+## Bugfixes
+*Fixed issue with the disenchant button introduced in v2.19.0.*
+
+# v2.19.0
+## Changes
+
+### Award Later
+When `Award Later` and `Auto Start` both are enabled, all items are automatically awarded to the Master Looter/Group Leader for award later.
+
+I generally don't recommend enabling `Auto Start` as you will have no control over what happens before setting the addon free to do its thing.
+This is especially dangerous with `Award Later`, as ALL eligible items will be awarded automatically.  
+**You have been warned.**
+
+### Bonus Rolls
+Bonus Rolls detection has been moved to the Core addon from Extra Utilities.
+This means all bonus roll detection is built into RCLootCouncil, and doesn't require the EU module to work.
+By default all bonus rolls are logged to the Loot History, but this can be changed with the new `Save Bonus Rolls` option under Master Looter options.
+The column showing bonus rolls is still part of the EU module.
+
+### Boss Name in History
+The boss name is now directly attached to items, meaning no matter when you award items the boss name should be correct in the Loot History.
+This would not be the case earlier if another boss was pulled before awarding registered items.
+
+### Classic
+The retail version will now show a chat message if installed in the Classic client and vice versa, before disabling itself.
+
+### Error Handler
+RCLootCouncil will now log any lua errors caused by it.
+This will help in debugging errors as users are no longer required to turn on scriptErrors to register them.
+
+### Voting Frame
+When `Hide Votes` is enabled, the Voting Frame will no longer sort the list when receiving votes from other councilmembers.
+Once the player has voted, the list is sorted as normal.
+
+## Bugfixes
+* *Fixed another issue with EQdkp Plus XML export introduced with v2.18.3.*
+* *Loot should no longer linger in the Session Frame after leaving the instance (CurseClassic#41).*
+* *Multiple items can be automatically added to a pending trade at once.*
+* *Moving responses up/down in the options menu now properly updates their sorting position (Classic#18).*
+* *Deleting history older than a specified number of days now works correctly.*
+
+
+# v2.18.3
+## Bugfixes
+* *Fixed rare error when award later items have no trade time remaining. (CurseClassic#37)*
+* *Fixed issues with EQdkp Plus XML export (CurseClassic#35).*
+* *Fixed issue with Award Later when items aren't available in the ML's bags when expected.*
+
+# v2.18.2
+## Changes
+### Allow Keeping
+The pop-up for keeping items now shows "Keep"/"Trade" instead of yes/no. (#183).
+
+## Bugfixes
+* *Passes no longer require a note with 'Require Notes' enabled. (#184)*
+* *Fixes issue with receiving votes outside an instance (Curse#413).*
+* *Fixed issues with TSV Export hyperlinks.*
+
+
+# v2.18.0
+## Additions
+### Auto Award BoE's
+Added a new system allowing for auto awarding BoE's.
+Only Epic, Equippable, non-bags items qualify.
+This is checked before the normal auto award, so if both is enabled, this will have priority.
+
+### Class Filter
+Added class filters to the Loot History.
+Unlike the normal filters, these are active when enabled, i.e. checking 'Warrior' and 'Priest' will only show warriors and priests.
+
+### Require Notes
+Added a new option for ML's that will require a note to be added to all responses.
+When enabled, if no note is supplied, the response is blocked, and the candidate shown a message to why that happened.
+Note: This is not backwards compatible with older version of the addon.
+
+### Winners of item
+Added all the winners of the selected item to the More Info tooltip in the Loot History.
+Note: Different versions of an item is not included in the count.
+
+## Changes
+### Auto Award
+Apparently Auto Awards never worked with Personal Loot - this has now been rectified.
+
+### Corrupted Items
+Corrupted items now have a purple border and 'Corrupted' text as their bonus text.
+This should help you spotting those.
+
+### History Exports
+All exports will now respect all currently active filters, i.e. only export what you're currently able to see.
+
+### Out of Raid Support
+An "Out of Raid" response is no longer automatically sent if you're outside an instance while in a group of 8 or more.
+Instead, the Master Looter will now have to specifically enable it in the "Master Looter > Usage Options" options.
+When enabled, it functions exactly as it did before.
+*DevNote: I decided to make this change now, as I've seen an increasingly amount of confusion as to why people didn't get Loot pop-ups when out of an instance. I expect the few that actually use this feature will figure out how to turn it on.*
+
+## Bugfixes
+* *Candidate info no longer has the potential to wait a long time before being sync, i.e. guild rank not showing up in the voting frame.*
+* *2.18.1: Previous version would error out when awarding during tests.*
+
+
+#### Dev
+* Changed parameters of `ML:AutoAward`.
+* Changed parameters and return type of `ML:ShouldAutoAward`.
+* Added new comm `do_trade` for handling trading of items not contained in `lootTable`.
+* Changed system for sending candidate updates (`ML:SendCandidates`).
+
+
+
+# v2.17.2
+## Bugfixes
+* *Characters with Non-ascii names that have a lower-case by WoW lua's definition can now be council members (CurseClassic#31).*
+* *Fixed issue regarding adding items to a session could potentially cause an error (Curse#406).*
+
 # v2.17.1
 ## Changes
 ### Corruption
@@ -6,7 +126,7 @@ When awarding a corruption item, the tooltip showing the new total corruption no
 Corruption Effects in the tooltip are now colored yellow if an award would make a player exceed its threshold.
 
 ### Item Registration
-Changed the detection of looted items to ensure better reliability with high latencies (Classic#9).
+Changed the detection of looted items to ensure better reliability with high latencies (CurseClassic#9).
 
 ## Bugfixes
 * *Mousing over an empty corruption column will no longer result in an error.*

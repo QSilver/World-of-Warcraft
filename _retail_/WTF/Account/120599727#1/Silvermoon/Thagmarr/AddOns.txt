@@ -174,3 +174,4 @@ AllTheThings: disabled
 RaiderIO: disabled
 QE-DungeonTips: disabled
 MoveAnything: enabled
+Gladius: enabled

@@ -21,6 +21,9 @@ local rightClickMenu;
 local ROW_HEIGHT = 20;
 local NUM_ROWS = 15;
 local epochDates = {} -- [DateTime] = epoch
+local useClassFilters = false
+
+LootHistory.wowheadBaseUrl = "https://www.wowhead.com/item="
 
 --globals
 local tinsert, tostring, getglobal, pairs, ipairs, tremove, strsplit = tinsert, tostring, getglobal, pairs, ipairs, tremove, strsplit
@@ -73,6 +76,12 @@ function LootHistory:OnEnable()
 	moreInfo = true
 	db = addon:Getdb()
 	lootDB = addon:GetHistoryDB()
+	for _,v in pairs(db.modules["RCLootHistory"].filters.class) do
+		if v then
+			useClassFilters = true
+			break
+		end
+	end
 	self.frame = self:GetFrame()
 	self:BuildData()
 	self:Show()
@@ -103,7 +112,7 @@ function LootHistory:GetLocalizedDate(date) -- date is "DD/MM/YY"
 	local d, m, y = strsplit("/", date, 3)
 	-- FormatShortDate is defined in SharedXML/Util.lua
 	-- "(D)D/(M)M/YY" for EU, "(M)M/DD/YY" otherwise
-	return FormatShortDate(d, m, y)
+	return _G.FormatShortDate(d, m, y)
 end
 
 function LootHistory:BuildData()
@@ -112,9 +121,9 @@ function LootHistory:BuildData()
 	local date
 	-- We want to rebuild lootDB to the "data" format:
 	--local i = 1
-	for name, v in pairs(lootDB) do
+	for name, a in pairs(lootDB) do
 		-- Now we actually add the data
-		for i,v in ipairs(v) do
+		for i,v in ipairs(a) do
 			date = v.date
 			if not date then -- Unknown date
 				date = L["Unknown date"]
@@ -145,7 +154,7 @@ function LootHistory:BuildData()
 	self.frame.rows = {}
 	local dateData, nameData, insertedNames = {}, {}, {}
 	local row = 1;
-	for date, v in pairs(data) do
+	for date, v in pairs(data) do --luacheck: ignore
 		for name, x in pairs(v) do
 			for num, i in pairs(x) do
 				if num ~= "class" then
@@ -204,8 +213,8 @@ end
 function LootHistory:GetAllRegisteredCandidates()
 	local names = {}
 	lootDB = addon:GetHistoryDB()
-	for name, v in pairs(lootDB) do
-		for _, v in ipairs(v) do
+	for name, a in pairs(lootDB) do
+		for _, v in ipairs(a) do
 			if v.class then
 				names[name] = {name = addon.Ambiguate(name), color = addon:GetClassColor(v.class)}
 				break
@@ -220,8 +229,8 @@ end
 function LootHistory:GetAllRegisteredInstances()
 	local raids = {}
 	lootDB = addon:GetHistoryDB()
-	for _, v in pairs(lootDB) do
-		for _,v in ipairs(v) do
+	for _, a in pairs(lootDB) do
+		for _,v in ipairs(a) do
 			if v.mapID and v.instance and v.difficultyID then
 				raids[v.mapID .. "-" .. v.difficultyID] = v.instance
 			end
@@ -267,13 +276,26 @@ end
 function LootHistory:DeleteEntriesOlderThanEpoch(epoch)
 	addon:Debug("DeleteEntriesOlderThanEpoch", epoch)
 	local removal = {} -- Create a list of the entries to be removed
-	for name, v in pairs(lootDB) do
+	for name,a in pairs(lootDB) do
 		removal[name] = {}
 		local num = 1
-		for i,v in ipairs(v) do
+		for i,v in ipairs(a) do
 			local index = v.date..v.time
 			if not epochDates[index] then
-				self:AddEpochDate(v.date, v.time)
+				local added = false
+				-- Prefer using the epoch timestamp from the id
+				if v.id then
+					local id = strsplit(v.id, "-")
+					if id and id ~= "" then
+						id = tonumber(id)
+						epochDates[index] = id
+						added = true
+					end
+				end
+				-- Fallback to recreating the time string from date/time.
+				if not added then
+					self:AddEpochDate(v.date, v.time)
+				end
 			end
 			if epochDates[index] < epoch then
 				removal[name][num] = i
@@ -296,26 +318,77 @@ function LootHistory:DeleteEntriesOlderThanEpoch(epoch)
 	end
 end
 
-function LootHistory.FilterFunc(table, row)
+local function filterNameData (name, date)
 	local nameAndDate = true -- default to show everything
 	if selectedName and selectedDate then
-		nameAndDate = row.name == selectedName and row.date == selectedDate
+		nameAndDate = name == selectedName and date == selectedDate
 	elseif selectedName then
-		nameAndDate = row.name == selectedName
+		nameAndDate = name == selectedName
 	elseif selectedDate then
-		nameAndDate = row.date == selectedDate
+		nameAndDate = date == selectedDate
 	end
+	return nameAndDate
+end
 
-	local responseFilter = true -- default to show
-	if not db.modules["RCLootHistory"].filters then return nameAndDate end -- db hasn't been initialized
-	local response = row.response
-	if response == "AUTOPASS" or response == "PASS" or type(response) == "number" and not row.isAwardReason then
+local function filterResponse (response, isAwardReason)
+	local responseFilter
+	if response == "AUTOPASS" or response == "PASS" or type(response) == "number" and not isAwardReason then
 		responseFilter = db.modules["RCLootHistory"].filters[response]
 	else -- Filter out the status texts
 		responseFilter = db.modules["RCLootHistory"].filters["STATUS"]
 	end
+	return responseFilter
+end
 
-	return nameAndDate and responseFilter -- Either one can filter the entry
+local function classFilter (class)
+	local classFilter = true -- Don't filter classes if none are selected
+	if useClassFilters then
+		local classID = addon.classTagNameToID[class]
+		classFilter = db.modules["RCLootHistory"].filters.class[classID]
+	end
+	return classFilter
+end
+
+-- Filter function for Lib-ScrollingTable
+function LootHistory.FilterFunc(table, row)
+	-- Name and Date filters:
+	local nameAndDate = filterNameData(row.name, row.date)
+
+	-- Response filters:
+	if not db.modules["RCLootHistory"].filters then return nameAndDate end -- db hasn't been initialized
+	local responseFilter = filterResponse(row.response, row.isAwardReason)
+
+	-- Class Filters:
+	local classFilter = classFilter(row.class)
+
+	return nameAndDate and responseFilter and classFilter -- Either one can filter the entry
+end
+
+function LootHistory:FilterForLootDB (winner, entry)
+	-- Name and Date filters:
+	local nameAndDate = filterNameData(winner, entry.date)
+
+	-- Response filters:
+	if not db.modules["RCLootHistory"].filters then return nameAndDate end -- db hasn't been initialized
+	local responseFilter = filterResponse(entry.responseID, entry.isAwardReason)
+
+	-- Class Filters:
+	local classFilter = classFilter(entry.class)
+
+	return nameAndDate and responseFilter and classFilter -- Either one can filter the entry
+end
+
+function LootHistory:GetFilteredDB ()
+	local filtered = {}
+	for name, items in pairs(lootDB) do
+		for _, entry in pairs(items) do
+			if self:FilterForLootDB(name, entry) then
+				if not filtered[name] then filtered[name] = {} end
+				tinsert(filtered[name], entry)
+			end
+		end
+	end
+	return filtered
 end
 
 -- for date scrolling table
@@ -485,7 +558,6 @@ function LootHistory.ResponseSort(table, rowa, rowb, sortbycol)
 	else
 		b = 500
 	end
-	local column = table.cols[sortbycol]
 	if a == b then
 			if column.sortnext then
 				local nextcol = table.cols[column.sortnext];
@@ -514,7 +586,6 @@ function LootHistory.ItemSort(table, rowa, rowb, sortbycol)
 	local a,b = lootDB[rowa.name][rowa.num].lootWon, lootDB[rowb.name][rowb.num].lootWon
 	a = addon:GetItemNameFromLink(a)
 	b = addon:GetItemNameFromLink(b)
-	local column = table.cols[sortbycol]
 	if a == b then
 		if column.sortnext then
 			local nextcol = table.cols[column.sortnext];
@@ -657,10 +728,9 @@ function LootHistory:ImportPlayerExport (import)
 end
 
 function LootHistory:GetWowheadLinkFromItemLink(link)
-    local color, itemType, itemID, enchantID, gemID1, gemID2, gemID3, gemID4, suffixID, uniqueID, linkLevel, specializationID,
-	 upgradeTypeID, upgradeID, instanceDifficultyID, numBonuses, bonusIDs = addon:DecodeItemLink(link)
+    local color, itemType, itemID, enchantID, gemID1, gemID2, gemID3, gemID4, suffixID, uniqueID, linkLevel, specializationID, upgradeTypeID, upgradeID, instanceDifficultyID, numBonuses, bonusIDs = addon:DecodeItemLink(link) --luacheck: no unused
 
-    local itemurl = "https://www.wowhead.com/item="..itemID
+    local itemurl = self.wowheadBaseUrl..itemID
 
 	 -- It seems bonus id 1487 (and basically any other id that's -5 below Wowheads first ilvl upgrade doesn't work)
 	 -- Neither does Warforged items it seems
@@ -685,8 +755,11 @@ end
 -- @section Visuals.
 ---------------------------------------------------
 local function IsFiltering()
-	for k,v in pairs(db.modules["RCLootHistory"].filters) do
+	for _,v in pairs(db.modules["RCLootHistory"].filters) do
 		if not v then return true end
+	end
+	for _,v in pairs(db.modules["RCLootHistory"].filters.class) do
+		if v then return true end
 	end
 end
 
@@ -781,8 +854,8 @@ function LootHistory:GetFrame()
 	f.moreInfoBtn = b2
 
 	f.content:SetScript("OnSizeChanged", function()
- 		self.moreInfo:SetScale(f:GetScale() * 0.6)
- 	end)
+		self.moreInfo:SetScale(f:GetScale() * 0.6)
+	end)
 
 	-- Export
 	local b3 = addon:CreateButton(L["Export"], f.content)
@@ -867,7 +940,7 @@ function LootHistory:GetFrame()
 	hugeExp:SetWidth(700)
 	hugeExp:SetHeight(100)
 
-	local edit = AG:Create("EditBox")
+	edit = AG:Create("EditBox")
 	edit:SetFullWidth(true)
 	edit:SetLabel(L["huge_export_desc"])
 	edit:SetMaxLetters(0)
@@ -883,7 +956,7 @@ function LootHistory:GetFrame()
 	imp:SetWidth(700)
 	imp:SetHeight(360)
 
-	local edit = AG:Create("MultiLineEditBox")
+	edit = AG:Create("MultiLineEditBox")
 	edit:SetNumLines(20)
 	edit:SetFullWidth(true)
 	edit:SetLabel(L["import_desc"])
@@ -934,6 +1007,29 @@ function LootHistory:GetFrame()
 	return f;
 end
 
+--- Returns a table of all the winners of an item.
+-- @param item The item to check for.
+-- @return A table which values are a numeric table of numLoot, name, class
+function LootHistory:GetWinnersOfItem (item)
+	local winners = {}
+	local count = 1
+	local ret = {}
+	for name, items in pairs(lootDB) do
+		for _,entry in pairs(items) do
+			if addon:ItemIsItem(entry.lootWon, item) then
+				if not winners[name] then
+					winners[name] = count
+					ret[count] = {1, name, entry.class}
+					count = count + 1
+				else
+					ret[winners[name]][1] = ret[winners[name]][1] + 1
+				end
+			end
+		end
+	end
+	return ret
+end
+
 function LootHistory:UpdateMoreInfo(rowFrame, cellFrame, dat, cols, row, realrow, column, tabel, button, ...)
 	if not dat then return end
 	if not moreInfoData then return addon:Debug("No moreInfoData in UpdateMoreInfo()") end
@@ -963,7 +1059,7 @@ function LootHistory:UpdateMoreInfo(rowFrame, cellFrame, dat, cols, row, realrow
 	tip:AddLine(" ")
 	tip:AddLine(L["Tokens received"])
 	-- Add tier tokens
-	for name, v in pairs(moreInfoData[row.name].totals.tokens) do
+	for _, v in pairs(moreInfoData[row.name].totals.tokens) do
 		if v.mapID and v.difficultyID and tierLookUpTable[v.mapID] then
 			tip:AddDoubleLine(tierLookUpTable[v.mapID].." "..difficultyLookupTable[v.difficultyID]..":", v.num, 1,1,1, 1,1,1)
 		end
@@ -971,13 +1067,25 @@ function LootHistory:UpdateMoreInfo(rowFrame, cellFrame, dat, cols, row, realrow
 	tip:AddLine(" ")
 	tip:AddLine(L["Total awards"])
 	table.sort(moreInfoData[row.name].totals.responses, function(a,b) return type(a[4]) == "number" and type(b[4]) == "number" and a[4] < b[4] or false end)
-	for i, v in pairs(moreInfoData[row.name].totals.responses) do
+	for _, v in pairs(moreInfoData[row.name].totals.responses) do
 		local r,g,b
 		if v[3] then r,g,b = unpack(v[3],1,3) end
 		tip:AddDoubleLine(v[1], v[2], r or 1, g or 1, b or 1, 1,1,1)
 	end
 	tip:AddDoubleLine(L["Number of raids received loot from:"], moreInfoData[row.name].totals.raids.num, 1,1,1, 1,1,1)
 	tip:AddDoubleLine(L["Total items won:"], moreInfoData[row.name].totals.total, 1,1,1, 0,1,0)
+	tip:AddLine(" ")
+
+	-- Other recipient of the item
+	local winners = self:GetWinnersOfItem(data.lootWon)
+	table.sort(winners, function (a,b)
+		return a[2] < b[2]
+	end)
+	tip:AddLine(format(L["lootHistory_moreInfo_winnersOfItem"], data.lootWon))
+	for _, data in ipairs(winners) do
+		local c = addon:GetClassColor(data[3])
+		tip:AddDoubleLine(addon.Ambiguate(data[2]), data[1], c.r,c.g,c.b, 1,1,1)
+	end
 
 	-- Debug stuff
 	if addon.debug then
@@ -1016,7 +1124,9 @@ end
 ---------------------------------------------------
 function LootHistory.FilterMenu(menu, level)
 	local info = MSA_DropDownMenu_CreateInfo()
-	if level == 1 then -- Redundant
+	local value = _G.MSA_DROPDOWNMENU_MENU_VALUE
+
+	if level == 1 then
 		-- Build the data table:
 		local data = {["STATUS"] = true, ["PASS"] = true, ["AUTOPASS"] = true}
 		for i = 1, addon:GetNumButtons() do
@@ -1024,14 +1134,35 @@ function LootHistory.FilterMenu(menu, level)
 		end
 		if not db.modules["RCLootHistory"].filters then -- Create the db entry
 			addon:DebugLog("Created LootHistory filters")
-			db.modules["RCLootHistory"].filters = {}
+			db.modules["RCLootHistory"].filters = {
+				class = {}
+			}
 		end
+
+
 		info.text = _G.FILTER
 		info.isTitle = true
 		info.notCheckable = true
 		info.disabled = true
 		MSA_DropDownMenu_AddButton(info, level)
 		info = MSA_DropDownMenu_CreateInfo()
+
+		info.text = _G.CLASS
+		info.isTitle = false
+		info.hasArrow = true
+		info.notCheckable = true
+		info.disabled = false
+		info.value = "CLASS"
+		MSA_DropDownMenu_AddButton(info, level)
+		info = MSA_DropDownMenu_CreateInfo()
+
+		info.text = L["Responses"]
+		info.isTitle = true
+		info.notCheckable = true
+		info.disabled = true
+		MSA_DropDownMenu_AddButton(info, level)
+		info = MSA_DropDownMenu_CreateInfo()
+
 
 		for k in ipairs(data) do -- Make sure normal responses are on top
 			info.text = addon:GetResponse("default",k).text
@@ -1061,6 +1192,42 @@ function LootHistory.FilterMenu(menu, level)
 				info.checked = db.modules["RCLootHistory"].filters[k]
 				MSA_DropDownMenu_AddButton(info, level)
 			end
+		end
+	elseif level == 2 then
+		if value == "CLASS" then
+			for id, name in pairs(addon.classIDToDisplayName) do
+				local col = addon:GetClassColor(addon.classIDToFileName[id])
+				info.text = name
+				info.colorCode = "|cff"..addon:RGBToHex(col.r,col.g,col.b)
+				info.func = function()
+					addon:Debug("Update class filter")
+					db.modules["RCLootHistory"].filters.class[id] = not db.modules["RCLootHistory"].filters.class[id]
+					for _,v in pairs(db.modules["RCLootHistory"].filters.class) do
+						if v then
+							useClassFilters = true
+							break
+						end
+					end
+					LootHistory:Update()
+				end
+				info.checked = db.modules["RCLootHistory"].filters.class[id]
+				MSA_DropDownMenu_AddButton(info, level)
+				info = MSA_DropDownMenu_CreateInfo()
+			end
+
+			-- Create constants
+			info.text = "Deselect All"
+			info.notCheckable = true
+			info.keepShownOnClick = true
+			info.func = function()
+				for k in pairs(db.modules["RCLootHistory"].filters.class) do
+					db.modules["RCLootHistory"].filters.class[k] = false
+					MSA_DropDownMenu_SetSelectedName(filterMenu, addon.classIDToDisplayName[k], false)
+					useClassFilters = false
+					LootHistory:Update()
+				end
+			end
+			MSA_DropDownMenu_AddButton(info, level)
 		end
 	end
 end
@@ -1118,7 +1285,7 @@ LootHistory.rightClickEntries = {
 -- NOTE Changing e.g. a tier token item's response to a non-tier token response is possible display wise,
 -- but it will retain it's tier token tag, and vice versa. Can't decide whether it's a feature or bug.
 function LootHistory.RightClickMenu(menu, level)
-	local info = MSA_DropDownMenu_CreateInfo()
+	local info
 	local data = menu.datatable
 
 	local value = _G.MSA_DROPDOWNMENU_MENU_VALUE
@@ -1176,7 +1343,7 @@ function LootHistory.RightClickMenu(menu, level)
 				end
 			end)
 
-			for _,i in ipairs(sorttable) do
+			for _,i in ipairs(sorttable) do --luacheck: ignore
 				local v = LootHistory.frame.name.data[i]
 				info.text = v[2].value
 				local c = addon:GetClassColor(v[1].args[1])
@@ -1202,14 +1369,14 @@ function LootHistory.RightClickMenu(menu, level)
 			end
 		elseif value == "EDIT_RESPONSE" and entry.special == value then
 			local v;
-			for i = 1, db.buttons.default.numButtons do
+			for i = 1, db.buttons.default.numButtons do --luacheck: ignore
 				v = db.responses.default[i]
 				info.text = v.text
 				info.colorCode = "|cff"..addon:RGBToHex(unpack(v.color))
 				info.notCheckable = true
 				info.func = function()
 					addon:Debug("Changing response id @", data.name, "from", data.response, "to", i)
-					local entry = lootDB[data.name][data.num]
+					local entry = lootDB[data.name][data.num] --luacheck: ignore
 					entry.responseID = i
 					entry.response = addon:GetResponse("default",i).text
 					entry.color = {addon:GetResponseColor("default", i)}
@@ -1233,7 +1400,7 @@ function LootHistory.RightClickMenu(menu, level)
 					info.disabled = true
 					info.notCheckable = true
 					MSA_DropDownMenu_AddButton(info, level)
-					for i, v in ipairs(responses) do
+					for i, v in ipairs(responses) do --luacheck: ignore
 						addon:Debug("responses:", i)
 						info.text = v.text
 						info.colorCode = "|cff"..addon:RGBToHex(unpack(v.color))
@@ -1242,7 +1409,7 @@ function LootHistory.RightClickMenu(menu, level)
 						info.notCheckable = true
 						info.func = function()
 							addon:Debug("Changing response id @", data.name, "from", data.response, "to", i)
-							local entry = lootDB[data.name][data.num]
+							local entry = lootDB[data.name][data.num] --luacheck: ignore
 							entry.responseID = i
 							entry.response = addon:GetResponse(k,i).text
 							entry.color = {addon:GetResponseColor(k, i)}
@@ -1260,14 +1427,14 @@ function LootHistory.RightClickMenu(menu, level)
 			end
 
 			if addon.debug then
-				for k,v in pairs(db.responses.default) do
+				for k,v in pairs(db.responses.default) do --luacheck: ignore
 					if type(k) ~= "number" and k ~= "tier" and k ~= "relic" then
 						info.text = v.text
 						info.colorCode = "|cff"..addon:RGBToHex(unpack(v.color))
 						info.notCheckable = true
 						info.func = function()
 							addon:Debug("Changing response id @", data.name, "from", data.response, "to", i)
-							local entry = lootDB[data.name][data.num]
+							local entry = lootDB[data.name][data.num] --luacheck: ignore
 							entry.responseID = k
 							entry.response = addon:GetResponse("default",k).text
 							entry.color = {addon:GetResponseColor("default", k)}
@@ -1289,7 +1456,7 @@ function LootHistory.RightClickMenu(menu, level)
 				info.notCheckable = true
 				info.func = function()
 					addon:Debug("Changing award reason id @", data.name, "from", data.response, "to", k)
-					local entry = lootDB[data.name][data.num]
+					local entry = lootDB[data.name][data.num] --luacheck: ignore
 					entry.responseID = k
 					entry.response = v.text
 					entry.color = {unpack(v.color)} -- For some reason it won't just accept v.color (!)
@@ -1331,44 +1498,39 @@ do
 		-- Add headers
 		wipe(export)
 		wipe(ret)
-		local subType, equipLoc, rollType, _
+		local subType, equipLoc
 		tinsert(ret, "player,date,time,id,item,itemID,itemString,response,votes,class,instance,boss,difficultyID,mapID,groupSize,gear1,gear2,responseID,isAwardReason,subType,equipLoc,note,owner\r\n")
-		for player, v in pairs(lootDB) do
-			if selectedName and selectedName == player or not selectedName then
-				for i, d in pairs(v) do
-					if selectedDate and selectedDate == d.date or not selectedDate then
-						_,_,subType, equipLoc = GetItemInfoInstant(d.lootWon)
-						if d.tierToken then subType = L["Armor Token"] end
-						rollType = (d.tokenRoll and "token") or (d.relicRoll and "relic") or "normal"
-						-- We might have commas in various things here :/
-						tinsert(export, tostring(player))
-						tinsert(export, tostring(self:GetLocalizedDate(d.date)))
-						tinsert(export, tostring(d.time))
-						tinsert(export, tostring(d.id))
-						tinsert(export, CSVEscape(d.lootWon))
-						tinsert(export, addon:GetItemIDFromLink(d.lootWon))
-						tinsert(export, addon:GetItemStringFromLink(d.lootWon))
-						tinsert(export, CSVEscape(d.response))
-						tinsert(export, tostring(d.votes))
-						tinsert(export, tostring(d.class))
-						tinsert(export, CSVEscape(d.instance))
-						tinsert(export, CSVEscape(d.boss))
-						tinsert(export, d.difficultyID or "")
-						tinsert(export, d.mapID or "")
-						tinsert(export, d.groupSize or "")
-						tinsert(export, CSVEscape(self:EscapeItemLink(d.itemReplaced1 or "")))
-						tinsert(export, CSVEscape(self:EscapeItemLink(d.itemReplaced2 or "")))
-						tinsert(export, tostring(d.responseID))
-						tinsert(export, tostring(d.isAwardReason or false))
-						tinsert(export, tostring(subType))
-						tinsert(export, tostring(getglobal(equipLoc) or ""))
-						tinsert(export, CSVEscape(d.note))
-						tinsert(export, tostring(d.owner or "Unknown"))
-						tinsert(ret, table.concat(export, ","))
-						tinsert(ret, "\r\n")
-						wipe(export)
-					end
-				end
+		for player, v in pairs(self:GetFilteredDB()) do
+			for _, d in pairs(v) do
+				_,_,subType, equipLoc = GetItemInfoInstant(d.lootWon)
+				if d.tierToken then subType = L["Armor Token"] end
+				-- We might have commas in various things here :/
+				tinsert(export, tostring(player))
+				tinsert(export, tostring(self:GetLocalizedDate(d.date)))
+				tinsert(export, tostring(d.time))
+				tinsert(export, tostring(d.id))
+				tinsert(export, CSVEscape(d.lootWon))
+				tinsert(export, addon:GetItemIDFromLink(d.lootWon))
+				tinsert(export, addon:GetItemStringFromLink(d.lootWon))
+				tinsert(export, CSVEscape(d.response))
+				tinsert(export, tostring(d.votes))
+				tinsert(export, tostring(d.class))
+				tinsert(export, CSVEscape(d.instance))
+				tinsert(export, CSVEscape(d.boss))
+				tinsert(export, d.difficultyID or "")
+				tinsert(export, d.mapID or "")
+				tinsert(export, d.groupSize or "")
+				tinsert(export, CSVEscape(self:EscapeItemLink(d.itemReplaced1 or "")))
+				tinsert(export, CSVEscape(self:EscapeItemLink(d.itemReplaced2 or "")))
+				tinsert(export, tostring(d.responseID))
+				tinsert(export, tostring(d.isAwardReason or false))
+				tinsert(export, tostring(subType))
+				tinsert(export, tostring(getglobal(equipLoc) or ""))
+				tinsert(export, CSVEscape(d.note))
+				tinsert(export, tostring(d.owner or "Unknown"))
+				tinsert(ret, table.concat(export, ","))
+				tinsert(ret, "\r\n")
+				wipe(export)
 			end
 		end
 		return table.concat(ret)
@@ -1380,40 +1542,36 @@ do
 		-- Add headers
 		wipe(export)
 		wipe(ret)
-		local subType, equipLoc, rollType, _
+		local subType, equipLoc, rollType
 		tinsert(ret, "player\tdate\ttime\titem\titemID\titemString\tresponse\tvotes\tclass\tinstance\tboss\tgear1\tgear2\tresponseID\tisAwardReason\trollType\tsubType\tequipLoc\tnote\towner\r\n")
-		for player, v in pairs(lootDB) do
-			if selectedName and selectedName == player or not selectedName then
-				for i, d in pairs(v) do
-					if selectedDate and selectedDate == d.date or not selectedDate then
-						_,_,subType, equipLoc = GetItemInfoInstant(d.lootWon)
-						if d.tierToken then subType = L["Armor Token"] end
-						rollType = (d.tokenRoll and "token") or (d.relicRoll and "relic") or "normal"
-						tinsert(export, tostring(player))
-						tinsert(export, tostring(self:GetLocalizedDate(d.date)))
-						tinsert(export, tostring(d.time))
-						tinsert(export, "=HYPERLINK(\""..self:GetWowheadLinkFromItemLink(d.lootWon).."\",\""..tostring(d.lootWon).."\")")
-						tinsert(export, addon:GetItemIDFromLink(d.lootWon))
-						tinsert(export, addon:GetItemStringFromLink(d.lootWon))
-						tinsert(export, tostring(d.response))
-						tinsert(export, tostring(d.votes))
-						tinsert(export, tostring(d.class))
-						tinsert(export, tostring(d.instance))
-						tinsert(export, tostring(d.boss))
-						tinsert(export, d.itemReplaced1 and "=HYPERLINK(\""..self:GetWowheadLinkFromItemLink(tostring(d.itemReplaced1)).."\",\""..tostring(d.itemReplaced1).."\")" or "")
-						tinsert(export, d.itemReplaced2 and "=HYPERLINK(\""..self:GetWowheadLinkFromItemLink(tostring(d.itemReplaced2)).."\",\""..tostring(d.itemReplaced2).."\")" or "")
-						tinsert(export, tostring(d.responseID))
-						tinsert(export, tostring(d.isAwardReason or false))
-						tinsert(export, rollType)
-						tinsert(export, tostring(subType))
-						tinsert(export, tostring(getglobal(equipLoc) or ""))
-						tinsert(export, d.note or "")
-						tinsert(export, tostring(d.owner or "Unknown"))
-						tinsert(ret, table.concat(export, "\t"))
-						tinsert(ret, "\r\n")
-						wipe(export)
-					end
-				end
+		for player, v in pairs(self:GetFilteredDB()) do
+			for _, d in pairs(v) do
+				_,_,subType, equipLoc = GetItemInfoInstant(d.lootWon)
+				if d.tierToken then subType = L["Armor Token"] end
+				rollType = (d.tokenRoll and "token") or (d.relicRoll and "relic") or "normal"
+				tinsert(export, tostring(player))
+				tinsert(export, tostring(self:GetLocalizedDate(d.date)))
+				tinsert(export, tostring(d.time))
+				tinsert(export, "=HYPERLINK(\""..self:GetWowheadLinkFromItemLink(d.lootWon).."\";\""..tostring(d.lootWon).."\")")
+				tinsert(export, addon:GetItemIDFromLink(d.lootWon))
+				tinsert(export, addon:GetItemStringFromLink(d.lootWon))
+				tinsert(export, tostring(d.response))
+				tinsert(export, tostring(d.votes))
+				tinsert(export, tostring(d.class))
+				tinsert(export, tostring(d.instance))
+				tinsert(export, tostring(d.boss))
+				tinsert(export, d.itemReplaced1 and "=HYPERLINK(\""..self:GetWowheadLinkFromItemLink(tostring(d.itemReplaced1)).."\";\""..tostring(d.itemReplaced1).."\")" or "")
+				tinsert(export, d.itemReplaced2 and "=HYPERLINK(\""..self:GetWowheadLinkFromItemLink(tostring(d.itemReplaced2)).."\";\""..tostring(d.itemReplaced2).."\")" or "")
+				tinsert(export, tostring(d.responseID))
+				tinsert(export, tostring(d.isAwardReason or false))
+				tinsert(export, rollType)
+				tinsert(export, tostring(subType))
+				tinsert(export, tostring(getglobal(equipLoc) or ""))
+				tinsert(export, d.note or "")
+				tinsert(export, tostring(d.owner or "Unknown"))
+				tinsert(ret, table.concat(export, "\t"))
+				tinsert(ret, "\r\n")
+				wipe(export)
 			end
 		end
 		return table.concat(ret)
@@ -1422,58 +1580,50 @@ do
 	function LootHistory:ExportJSON()
 		wipe(export)
 		wipe(ret)
-		local subType, equipLoc, rollType, _
+		local subType, equipLoc, rollType
 		local eligibleEntries = 0;
 
-		for player, v in pairs(lootDB) do
-			if selectedName and selectedName == player or not selectedName then
-				for i, d in pairs(v) do
-					if selectedDate and selectedDate == d.date or not selectedDate then
-						eligibleEntries = eligibleEntries + 1;
-					end
-				end
+		for _, v in pairs(self:GetFilteredDB()) do
+			for _ in pairs(v) do
+					eligibleEntries = eligibleEntries + 1;
 			end
 		end
 
 		local processedEntries = 0;
 
-		for player, v in pairs(lootDB) do
-			if selectedName and selectedName == player or not selectedName then
-				for i, d in pairs(v) do
-					if selectedDate and selectedDate == d.date or not selectedDate then
-						_,_,subType, equipLoc = GetItemInfoInstant(d.lootWon)
-						if d.tierToken then subType = L["Armor Token"] end
-						rollType = (d.tokenRoll and "token") or (d.relicRoll and "relic") or "normal"
-						tinsert(export, string.format("\"%s\":\"%s\"", "player", tostring(player)))
-						tinsert(export, string.format("\"%s\":\"%s\"", "date", tostring(self:GetLocalizedDate(d.date))))
-						tinsert(export, string.format("\"%s\":\"%s\"", "time", tostring(d.time)))
-						tinsert(export, string.format("\"%s\":%s", "itemID", addon:GetItemIDFromLink(d.lootWon)))
-						tinsert(export, string.format("\"%s\":\"%s\"", "itemString", addon:GetItemStringFromLink(d.lootWon)))
-						tinsert(export, string.format("\"%s\":\"%s\"", "response", tostring(d.response)))
-						tinsert(export, string.format("\"%s\":%s", "votes", tostring(d.votes or 0)))
-						tinsert(export, string.format("\"%s\":\"%s\"", "class", tostring(d.class)))
-						tinsert(export, string.format("\"%s\":\"%s\"", "instance", tostring(d.instance)))
-						tinsert(export, string.format("\"%s\":\"%s\"", "boss", tostring(d.boss)))
-						tinsert(export, string.format("\"%s\":\"%s\"", "gear1", tostring(d.itemReplaced1 or "")))
-						tinsert(export, string.format("\"%s\":\"%s\"", "gear2", tostring(d.itemReplaced2 or "")))
-						tinsert(export, string.format("\"%s\":\"%s\"", "responseID", tostring(d.responseID)))
-						tinsert(export, string.format("\"%s\":\"%s\"", "isAwardReason", tostring(d.isAwardReason or false)))
-						tinsert(export, string.format("\"%s\":\"%s\"", "rollType", rollType))
-						tinsert(export, string.format("\"%s\":\"%s\"", "subType", tostring(subType)))
-						tinsert(export, string.format("\"%s\":\"%s\"", "equipLoc", tostring(getglobal(equipLoc) or "")))
-						tinsert(export, string.format("\"%s\":\"%s\"", "note", (d.note or "")))
-						tinsert(export, string.format("\"%s\":\"%s\"", "owner", tostring(d.owner or "Unknown")))
+		for player, v in pairs(self:GetFilteredDB()) do
+			for _, d in pairs(v) do
+				_,_,subType, equipLoc = GetItemInfoInstant(d.lootWon)
+				if d.tierToken then subType = L["Armor Token"] end
+				rollType = (d.tokenRoll and "token") or (d.relicRoll and "relic") or "normal"
+				tinsert(export, string.format("\"%s\":\"%s\"", "player", tostring(player)))
+				tinsert(export, string.format("\"%s\":\"%s\"", "date", tostring(self:GetLocalizedDate(d.date))))
+				tinsert(export, string.format("\"%s\":\"%s\"", "time", tostring(d.time)))
+				tinsert(export, string.format("\"%s\":%s", "itemID", addon:GetItemIDFromLink(d.lootWon)))
+				tinsert(export, string.format("\"%s\":\"%s\"", "itemString", addon:GetItemStringFromLink(d.lootWon)))
+				tinsert(export, string.format("\"%s\":\"%s\"", "response", tostring(d.response)))
+				tinsert(export, string.format("\"%s\":%s", "votes", tostring(d.votes or 0)))
+				tinsert(export, string.format("\"%s\":\"%s\"", "class", tostring(d.class)))
+				tinsert(export, string.format("\"%s\":\"%s\"", "instance", tostring(d.instance)))
+				tinsert(export, string.format("\"%s\":\"%s\"", "boss", tostring(d.boss)))
+				tinsert(export, string.format("\"%s\":\"%s\"", "gear1", tostring(d.itemReplaced1 or "")))
+				tinsert(export, string.format("\"%s\":\"%s\"", "gear2", tostring(d.itemReplaced2 or "")))
+				tinsert(export, string.format("\"%s\":\"%s\"", "responseID", tostring(d.responseID)))
+				tinsert(export, string.format("\"%s\":\"%s\"", "isAwardReason", tostring(d.isAwardReason or false)))
+				tinsert(export, string.format("\"%s\":\"%s\"", "rollType", rollType))
+				tinsert(export, string.format("\"%s\":\"%s\"", "subType", tostring(subType)))
+				tinsert(export, string.format("\"%s\":\"%s\"", "equipLoc", tostring(getglobal(equipLoc) or "")))
+				tinsert(export, string.format("\"%s\":\"%s\"", "note", (d.note or "")))
+				tinsert(export, string.format("\"%s\":\"%s\"", "owner", tostring(d.owner or "Unknown")))
 
-						processedEntries = processedEntries + 1;
+				processedEntries = processedEntries + 1;
 
-						if processedEntries < eligibleEntries then
-							tinsert(ret, "{" .. table.concat(export, ",") .. "},")
-						else
-							tinsert(ret, "{" .. table.concat(export, ",") .. "}")
-						end
-						wipe(export)
-					end
+				if processedEntries < eligibleEntries then
+					tinsert(ret, "{" .. table.concat(export, ",") .. "},")
+				else
+					tinsert(ret, "{" .. table.concat(export, ",") .. "}")
 				end
+				wipe(export)
 			end
 		end
 		return "[" .. table.concat(ret) .. "]"
@@ -1483,24 +1633,20 @@ do
 	-- ~24 ms (84%) improvement by switching to table and concat
 	function LootHistory:ExportBBCode()
 		wipe(export)
-		for player, v in pairs(lootDB) do
-			if selectedName and selectedName == player or not selectedName then
-				tinsert(export, "[b]"..addon.Ambiguate(player)..":[/b]\r\n")
-				tinsert(export, "[list=1]")
-				local first = true
-				for i, d in pairs(v) do
-					if selectedDate and selectedDate == d.date or not selectedDate then
-						if first then
-							first = false
-						else
-							tinsert(export, "[*]")
-						end
-						tinsert(export, "[url="..self:GetWowheadLinkFromItemLink(d.lootWon).."]"..d.lootWon.."[/url]"
-						.." Response: "..tostring(d.response)..".\r\n")
-					end
+		for player, v in pairs(self:GetFilteredDB()) do
+			tinsert(export, "[b]"..addon.Ambiguate(player)..":[/b]\r\n")
+			tinsert(export, "[list=1]")
+			local first = true
+			for _, d in pairs(v) do
+				if first then
+					first = false
+				else
+					tinsert(export, "[*]")
 				end
-				tinsert(export, "[/list]\r\n\r\n")
+				tinsert(export, "[url="..self:GetWowheadLinkFromItemLink(d.lootWon).."]"..d.lootWon.."[/url]"
+				.." Response: "..tostring(d.response)..".\r\n")
 			end
+			tinsert(export, "[/list]\r\n\r\n")
 		end
 		return table.concat(export)
 	end
@@ -1508,19 +1654,15 @@ do
 	--- BBCode, as supported by SMF
 	function LootHistory:ExportBBCodeSMF()
 		wipe(export)
-		for player, v in pairs(lootDB) do
-			if selectedName and selectedName == player or not selectedName then
-				tinsert(export, "[b]"..addon.Ambiguate(player)..":[/b]\r\n")
-				tinsert(export, "[list]")
-				for i, d in pairs(v) do
-					if selectedDate and selectedDate == d.date or not selectedDate then
-						tinsert(export, "[*]")
-						tinsert(export, "[url="..self:GetWowheadLinkFromItemLink(d.lootWon).."]"..d.lootWon.."[/url]")
-						tinsert(export, " Response: "..tostring(d.response)..".\r\n")
-					end
-				end
-				tinsert(export, "[/list]\r\n\r\n")
+		for player, v in pairs(self:GetFilteredDB()) do
+			tinsert(export, "[b]"..addon.Ambiguate(player)..":[/b]\r\n")
+			tinsert(export, "[list]")
+			for _, d in pairs(v) do
+				tinsert(export, "[*]")
+				tinsert(export, "[url="..self:GetWowheadLinkFromItemLink(d.lootWon).."]"..d.lootWon.."[/url]")
+				tinsert(export, " Response: "..tostring(d.response)..".\r\n")
 			end
+			tinsert(export, "[/list]\r\n\r\n")
 		end
 		return table.concat(export)
 	end
@@ -1528,51 +1670,51 @@ do
 	--- EQdkp Plus XML, primarily for Enjin import
 	function LootHistory:ExportEQXML()
 		local export = "<raidlog><head><export><name>EQdkp Plus XML</name><version>1.0</version></export>"
-	 		.."<tracker><name>RCLootCouncil</name><version>"..addon.version.."</version></tracker>"
-	 		.."<gameinfo><game>World of Warcraft</game><language>"..GetLocale().."</language><charactername>"..UnitName("Player").."</charactername></gameinfo></head>\r\n"
-	 		.."<raiddata>\r\n"
+			.."<tracker><name>RCLootCouncil</name><version>"..addon.version.."</version></tracker>"
+			.."<gameinfo><game>World of Warcraft</game><language>"..GetLocale().."</language><charactername>"..UnitName("Player").."</charactername></gameinfo></head>\r\n"
+			.."<raiddata>\r\n"
 		local bossData = "\t<bosskills>\r\n"
 		local zoneData = "\t<zones>\r\n"
 		local itemsData = "\t<items>\r\n"
 		local membersData = {}
 		local raidData = {}
+		local bossesAdded = {}
 		local earliest = 9999999999
 		local latest = 0
-		for player, v in pairs(lootDB) do
-			if selectedName and selectedName == player or not selectedName then
-				for i, d in pairs(v) do
-					if selectedDate and selectedDate == d.date or not selectedDate then
-						local day, month, year = strsplit("/", d.date, 3)
-						local hour,minute,second = strsplit(":",d.time,3)
-						local sinceEpoch = time({year = "20"..year, month = month, day = day,hour = hour,min = minute,sec=second})
-						itemsData = itemsData.."\t\t<item>\r\n"
-						.."\t\t\t<itemid>" .. addon:GetItemStringClean(d.lootWon) .. "</itemid>\r\n"
-						.."\t\t\t<name>" .. addon:GetItemNameFromLink(d.lootWon) .. "</name>\r\n"
-						.."\t\t\t<member>" .. addon.Ambiguate(player) .. "</member>\r\n"
-						.."\t\t\t<time>" .. sinceEpoch .. "</time>\r\n"
-						.."\t\t\t<count>1</count>\r\n"
-						.."\t\t\t<cost>" .. tostring(d.votes) .. "</cost>\r\n"
-						.."\t\t\t<note>" .. tostring(d.response) .. "</note>\r\n"
-						membersData[addon.Ambiguate(player)] = true
-						bossData = bossData .. "\t\t<bosskill>\r\n"
-						if d.boss then
-							itemsData = itemsData .. "\t\t\t<boss>" .. gsub(tostring(d.boss),",","").. "</boss>\r\n"
-							bossData = bossData.. "\t\t\t<name>"..gsub(tostring(d.boss),",","").."</name>\r\n"
-						else
-							itemsData = itemsData .. "\t\t\t<boss />\r\n"
-							bossData = bossData.. "\t\t\t<name>Unknown</name>\r\n"
-						end
-						if d.instance then
-							itemsData = itemsData .. "\t\t\t<zone>" .. gsub(tostring(d.instance),",","") .. "</zone>\r\n"
-							raidData[time({year="20"..year,month=month,day=day})] = gsub(tostring(d.instance),",","")
-							bossData = bossData.."\t\t\t<time>"..sinceEpoch.."</time>\r\n"
-						else
-							itemsData = itemsData .. "\t\t\t<zone />\r\n"
-						end
-						itemsData = itemsData.."\t\t</item>\r\n"
-						bossData = bossData .. "\t\t</bosskill>\r\n"
-					end
+		for player, v in pairs(self:GetFilteredDB()) do
+			for _, d in pairs(v) do
+				local day, month, year = strsplit("/", d.date, 3)
+				local hour,minute,second = strsplit(":",d.time,3)
+				local sinceEpoch = time({year = "20"..year, month = month, day = day,hour = hour,min = minute,sec=second})
+				itemsData = itemsData.."\t\t<item>\r\n"
+				.."\t\t\t<itemid>" .. addon:GetItemStringClean(d.lootWon) .. "</itemid>\r\n"
+				.."\t\t\t<name>" .. addon:GetItemNameFromLink(d.lootWon) .. "</name>\r\n"
+				.."\t\t\t<member>" .. addon.Ambiguate(player) .. "</member>\r\n"
+				.."\t\t\t<time>" .. sinceEpoch .. "</time>\r\n"
+				.."\t\t\t<count>1</count>\r\n"
+				.."\t\t\t<cost>" .. tostring(d.votes) .. "</cost>\r\n"
+				.."\t\t\t<note>" .. tostring(d.response) .. "</note>\r\n"
+				membersData[addon.Ambiguate(player)] = true
+
+				local boss = gsub(tostring(d.boss),",","")
+				itemsData = itemsData .. (boss and "\t\t\t<boss>" .. boss .. "</boss>\r\n" or "\t\t\t<boss />\r\n")
+
+				if d.instance then
+					itemsData = itemsData .. "\t\t\t<zone>" .. gsub(tostring(d.instance),",","") .. "</zone>\r\n"
+					raidData[time({year="20"..year,month=month,day=day})] = gsub(tostring(d.instance),",","")
+				else
+					itemsData = itemsData .. "\t\t\t<zone />\r\n"
 				end
+				itemsData = itemsData.."\t\t</item>\r\n"
+
+				if not bossesAdded[boss] then
+					bossesAdded[boss] = true
+					bossData = bossData .. "\t\t<bosskill>\r\n"
+					bossData = bossData .. (boss and "\t\t\t<name>"..boss.."</name>\r\n" or "\t\t\t<name>Unknown</name>\r\n")
+					bossData = bossData .. (d.instance and "\t\t\t<time>"..sinceEpoch.."</time>\r\n" or "")
+					bossData = bossData .. "\t\t</bosskill>\r\n"
+				end
+				latest = max(latest, sinceEpoch + 600)
 			end
 		end
 		bossData = bossData .."\t</bosskills>\r\n"
@@ -1580,10 +1722,9 @@ do
 			zoneData = zoneData .. "\t\t<zone>\r\n"
 			.. "\t\t\t<enter>"..id.."</enter>\r\n"
 			.. "\t\t\t<name>"..name.."</name>\r\n"
-			.. "\t\t\t<leave>"..(id + 26000).."</leave>\r\n"
+			.. "\t\t\t<leave>"..latest.."</leave>\r\n"
 			.. "\t\t</zone>\r\n"
 			earliest = min(earliest, id)
-			latest = max(latest, id + 26000)
 		end
 		zoneData = zoneData .."\t</zones>\r\n"
 		itemsData = itemsData.. "\t</items>\r\n"
@@ -1594,7 +1735,7 @@ do
 			.."\t\t\t<name>"..name.."</name>\r\n"
 			.."\t\t\t<times>\r\n"
 			.."\t\t\t\t<time type='join'>"..earliest.."</time>\r\n"
-			.."\t\t\t\t<time type='leave'>"..latest.."</time>\r\n"
+			.."\t\t\t\t<time type='leave'>".. latest .."</time>\r\n"
 			.."\t\t\t</times>\r\n"
 			.."\t\t</member>\r\n"
 		end
@@ -1605,31 +1746,27 @@ do
 	--- Discord friendly output
 	function LootHistory:ExportDiscord()
 		wipe(export)
-		for player, v in pairs(lootDB) do
-			if selectedName and selectedName == player or not selectedName then
-				tinsert(export, "__ **")
-				tinsert(export,addon.Ambiguate(player))
-				tinsert(export, ":** __\r\n")
-				for i, d in pairs(v) do
-					if selectedDate and selectedDate == d.date or not selectedDate then
-						tinsert(export, "Item: **")
-						tinsert(export, d.lootWon)
-						tinsert(export, "** - Response: ***")
-						tinsert(export, tostring(d.response))
-						tinsert(export, "***\r\n")
-						tinsert(export, " - View Item: <")
-						tinsert(export, self:GetWowheadLinkFromItemLink(d.lootWon))
-						tinsert(export, ">\r\n")
-					end
-				end
-				tinsert(export, "\r\n\r\n")
+		for player, v in pairs(self:GetFilteredDB()) do
+			tinsert(export, "__ **")
+			tinsert(export,addon.Ambiguate(player))
+			tinsert(export, ":** __\r\n")
+			for _, d in pairs(v) do
+				tinsert(export, "Item: **")
+				tinsert(export, d.lootWon)
+				tinsert(export, "** - Response: ***")
+				tinsert(export, tostring(d.response))
+				tinsert(export, "***\r\n")
+				tinsert(export, " - View Item: <")
+				tinsert(export, self:GetWowheadLinkFromItemLink(d.lootWon))
+				tinsert(export, ">\r\n")
 			end
+			tinsert(export, "\r\n\r\n")
 		end
 		return table.concat(export)
 	end
 
 	function LootHistory:ExportHTML()
-		local export = "html test"
+		-- local export = "html test"
 	end
 
 	--- Generates a serialized string containing the entire DB.

@@ -27,8 +27,8 @@ Prat3DB = {
 							["r"] = 1,
 						},
 						["general"] = {
-							["b"] = 0.752941250801086,
-							["g"] = 0.752941250801086,
+							["b"] = 0.7529412508010864,
+							["g"] = 0.7529412508010864,
 							["r"] = 1,
 						},
 						["wqp50847"] = {
@@ -215,15 +215,17 @@ Prat3DB = {
 		},
 		["Prat_ChannelNames"] = {
 		},
-		["Prat_Font"] = {
-		},
 		["Prat_KeyBindings"] = {
+		},
+		["Prat_Font"] = {
 		},
 		["Prat_Bubbles"] = {
 		},
+		["Prat_Timestamps"] = {
+		},
 		["Prat_Scroll"] = {
 		},
-		["Prat_Timestamps"] = {
+		["Prat_Mentions"] = {
 		},
 		["Prat_Paragraph"] = {
 		},
@@ -289,6 +291,7 @@ Prat3DB = {
 		["Default"] = {
 			["modules"] = {
 				["ChatLog"] = 2,
+				["Mentions"] = 2,
 				["PopupMessage"] = 2,
 				["AltNames"] = 2,
 				["Sounds"] = 2,

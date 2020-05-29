@@ -287,6 +287,8 @@ L["Diff"] = "Илвл"
 --[[ L["Discord friendly output."] = ""--]] 
 --[[Translation missing --]]
 --[[ L["disenchant_desc"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["Do you want to keep %s for yourself or trade?"] = ""--]] 
 L["Do you want to keep %s for yourself?"] = "Вы хотите оставить %s себе?"
 --[[Translation missing --]]
 --[[ L["Done syncing"] = ""--]] 
@@ -378,6 +380,8 @@ L["Item was awarded to"] = "Предмет был выдан"
 --[[ L["Items stored in the loot master's bag for award later cannot be awarded later."] = ""--]] 
 L["Items under consideration:"] = "Предметы, ожидающие рассмотрения:"
 --[[Translation missing --]]
+--[[ L["Keep"] = ""--]] 
+--[[Translation missing --]]
 --[[ L["Latest item(s) won"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["Length"] = ""--]] 
@@ -398,6 +402,10 @@ L["Loot won:"] = "Предмет выиграл:"
 --[[Translation missing --]]
 --[[ L["Looted"] = ""--]] 
 L["Looted by:"] = "Предмет забрал:"
+--[[Translation missing --]]
+--[[ L["lootFrame_error_note_required"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["lootHistory_moreInfo_winnersOfItem"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["Looting options"] = ""--]] 
 L["Lower Quality Limit"] = "Нижняя Граница Качества"
@@ -528,6 +536,20 @@ L["Open the Loot History"] = "Открыть Историю Лута"
 --[[ L["opt_rejectTrade_Desc"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["opt_rejectTrade_Name"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_saveBonusRolls_Desc"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_saveBonusRolls_Name"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["options_autoAwardBoE_desc"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["options_autoAwardBoE_name"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["options_ml_outOfRaid_desc"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["options_ml_outOfRaid_name"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["options_requireNotes_desc"] = ""--]] 
 L["Original Owner"] = "Изначальный владелец"
 L["Out of instance"] = "Вне подземелья"
 --[[Translation missing --]]
@@ -594,6 +616,8 @@ L["Remove from consideration"] = "Убрать с голосования"
 --[[ L["remove_all_desc"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["Requested rolls for 'item' from 'target'"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["Require Notes"] = ""--]] 
 L["Reset Skin"] = "Сбросить скин"
 --[[Translation missing --]]
 --[[ L["Reset skins"] = ""--]] 

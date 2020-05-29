@@ -11,7 +11,7 @@ local mod, CL = BigWigs:NewBoss("Ra-den the Despoiled", 2217, 2364)
 if not mod then return end
 mod:RegisterEnableMob(156866) -- Ra-den
 mod.engageId = 2331
-mod.respawnTime = 15
+mod.respawnTime = 30
 
 --------------------------------------------------------------------------------
 -- Locals
@@ -20,6 +20,7 @@ mod.respawnTime = 15
 local essenceCount = 1
 local stage = 1
 local voidEruptionCount = 1
+local unstableVoidCount = 0
 
 --------------------------------------------------------------------------------
 -- Localization
@@ -67,6 +68,10 @@ function mod:GetOptions()
 	}
 end
 
+function mod:VerifyEnable(_, _, mapArtID)
+	return mapArtID == 1591 -- Prevent enabling unless on the same area as Ra-den (Can see him from Vexiona)
+end
+
 function mod:OnBossEnable()
 	self:Log("SPELL_CAST_START", "NullifyingStrikeStart", 306819)
 	self:Log("SPELL_AURA_APPLIED", "NullifyingStrikeApplied", 306819)
@@ -108,6 +113,7 @@ function mod:OnEngage()
 	essenceCount = 1
 	stage = 1
 	voidEruptionCount = 1
+	unstableVoidCount = 0
 
 	self:Bar("essences", 10, CL.count:format(L.essences, essenceCount), L.essences_icon) -- Essences (1)
 	self:Bar(306819, 15.8) -- Nullifying Strike
@@ -167,12 +173,14 @@ end
 
 -- Void
 function mod:VoidEmpowered(args)
+	unstableVoidCount = 0
 	self:Message2(args.spellId, "cyan")
 	self:PlaySound(args.spellId, "info")
 end
 
 function mod:UnstableVoid(args)
-	self:Message2(args.spellId, "orange")
+	unstableVoidCount = unstableVoidCount + 1
+	self:Message2(args.spellId, "orange", CL.count:format(args.spellName, unstableVoidCount))
 	self:PlaySound(args.spellId, "alarm")
 end
 

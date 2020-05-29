@@ -91,9 +91,9 @@ BigWigs:AddSounds("Vexiona", {
 	[307403] = "alert",
 	[307639] = "alert",
 	[307729] = "long",
-	[309882] = "alarm",
 	[310323] = "warning",
 	[315762] = "warning",
+	[315932] = "alarm",
 	["stages"] = {"info","long"},
 })
 

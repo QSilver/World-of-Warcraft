@@ -35,6 +35,9 @@ VER 3 000000000000001F "Feign" "132293"
 /stopcasting
 /use Feign Death
 END
+VER 3 0000000000000038 "FocusMouseover" "1002596"
+/focus [@mouseover]
+END
 VER 3 000000000000002E "Health" "136030"
 #showtooltip
 /castsequence reset=60/alt Healthstone, Abyssal Healing Potion
@@ -52,11 +55,19 @@ VER 3 0000000000000008 "Mend" "SPELL_NATURE_SPIRITARMOR"
 /stopcasting
 /use [@target,help][@player]Spirit Mend
 END
+VER 3 0000000000000039 "mount" "130730"
+/tar Ivory Cloud Serpent
+/use Zan-Tien Lasso
+END
 VER 3 0000000000000015 "Raid" "CREATUREPORTRAIT_PORTAL_ISLEOFCONQUESTALLIANCE"
 /run CompactRaidFrameManager:UnregisterAllEvents()
 /run CompactRaidFrameManager:Hide()
 /run CompactRaidFrameContainer:UnregisterAllEvents()
 /run CompactRaidFrameContainer:Hide()
+END
+VER 3 000000000000003A "Sacrifice" "132121"
+#showtooltip
+/cast [target=mouseover,exists,help,nodead] Roar of Sacrifice; Roar of Sacrifice
 END
 VER 3 0000000000000037 "Suicide" "1376046"
 /cancelaura Rejuvenation
@@ -70,12 +81,12 @@ VER 3 0000000000000037 "Suicide" "1376046"
 /cancelaura Resounding Protection
 /cancelaura Essence Font
 END
-VER 3 0000000000000033 "Turtle" "1002600"
-/cancelaura Aspect of the Turtle
-END
 VER 3 0000000000000035 "Turtle" "1002597"
 /stopcasting
 /cast Aspect of the Turtle
+END
+VER 3 0000000000000033 "Turtle" "1002600"
+/cancelaura Aspect of the Turtle
 END
 VER 3 0000000000000036 "XHero" "135900"
 /cancelaura time warp

@@ -7,7 +7,10 @@ MethodDungeonToolsDB = {
 		["anchorTo"] = "CENTER",
 		["scale"] = 2.020790003871058,
 		["currentDifficulty"] = 16,
-		["nonFullscreenScale"] = 1,
+		["currentPreset"] = {
+			[15] = 4,
+			[21] = 2,
+		},
 		["MDI"] = {
 		},
 		["maximized"] = true,
@@ -619,18 +622,6 @@ MethodDungeonToolsDB = {
 				{
 					["difficulty"] = 16,
 					["week"] = 4,
-					["objects"] = {
-					},
-					["colorPaletteInfo"] = {
-						["autoColoring"] = true,
-						["colorPaletteIdx"] = 1,
-					},
-					["text"] = "Default 2 3",
-					["mdi"] = {
-						["freehold"] = 1,
-						["beguiling"] = 1,
-						["freeholdJoined"] = false,
-					},
 					["value"] = {
 						["currentPull"] = 2,
 						["currentSublevel"] = 1,
@@ -909,11 +900,54 @@ MethodDungeonToolsDB = {
 							}, -- [11]
 						},
 					},
+					["colorPaletteInfo"] = {
+						["autoColoring"] = true,
+						["colorPaletteIdx"] = 1,
+					},
+					["text"] = "Default 2 3",
+					["mdi"] = {
+						["freehold"] = 1,
+						["beguiling"] = 1,
+						["freeholdJoined"] = false,
+					},
+					["objects"] = {
+					},
 				}, -- [4]
 				{
 					["value"] = 0,
 					["text"] = "<New Preset>",
 				}, -- [5]
+			},
+			[18] = {
+				{
+					["objects"] = {
+					},
+					["week"] = 4,
+					["value"] = {
+						["selection"] = {
+							1, -- [1]
+						},
+						["currentSublevel"] = 1,
+						["pulls"] = {
+							{
+								["color"] = "ff3eff",
+							}, -- [1]
+						},
+						["currentDungeonIdx"] = 18,
+						["teeming"] = false,
+						["currentPull"] = 1,
+						["riftOffsets"] = {
+							[4] = {
+							},
+						},
+					},
+					["mdi"] = {
+						["freeholdJoined"] = false,
+						["beguiling"] = 1,
+						["freehold"] = 1,
+					},
+					["difficulty"] = 16,
+				}, -- [1]
 			},
 			[21] = {
 				{
@@ -1201,7 +1235,17 @@ MethodDungeonToolsDB = {
 					["text"] = "<New Preset>",
 				}, -- [3]
 			},
+			[22] = {
+				{
+					["value"] = {
+						["currentSublevel"] = 1,
+						["selection"] = {
+						},
+					},
+				}, -- [1]
+			},
 		},
+		["anchorFrom"] = "CENTER",
 		["colorPaletteInfo"] = {
 			["customPaletteValues"] = {
 				{
@@ -1266,13 +1310,10 @@ MethodDungeonToolsDB = {
 				}, -- [12]
 			},
 		},
-		["version"] = 302,
+		["version"] = 304,
 		["xoffset"] = -109.40160369873,
-		["anchorFrom"] = "CENTER",
-		["currentPreset"] = {
-			[15] = 4,
-			[21] = 2,
-		},
+		["currentDungeonIdx"] = 22,
+		["nonFullscreenScale"] = 1,
 		["yoffset"] = 38.5514259338379,
 	},
 }

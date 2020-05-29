@@ -199,6 +199,8 @@ L["Deselect responses to filter them"] = "取消回應以過濾"
 L["Diff"] = "差異"
 L["Discord friendly output."] = "Discord格式輸出"
 L["disenchant_desc"] = "當你經由分解按鈕贏得物品時使用這個理由"
+--[[Translation missing --]]
+--[[ L["Do you want to keep %s for yourself or trade?"] = ""--]] 
 L["Do you want to keep %s for yourself?"] = "是否要保留 %s 給自己?"
 L["Done syncing"] = "同步結束"
 L["Double click to delete this entry."] = "點擊兩下刪除此條目"
@@ -262,6 +264,8 @@ L["Item(s) replaced:"] = "取代物品:"
 L["item_in_bags_low_trade_time_remaining_reminder"] = "你的背包中的以下在稍后分配列表的物品剩余交易時間不足%s。如果你想避免此提示，交易該物品，使用‘/rc remove [index]’將物品從列表中移除，使用‘/rc clear’清空列表，或者裝備該物品使其無法被交易。"
 L["Items stored in the loot master's bag for award later cannot be awarded later."] = "存放在戰利品分配者背包內的物品無法被稍后分配。"
 L["Items under consideration:"] = "待決定的物品："
+--[[Translation missing --]]
+--[[ L["Keep"] = ""--]] 
 L["Latest item(s) won"] = "上一次取得物品:"
 L["Length"] = "長度"
 L["Log"] = "日誌"
@@ -280,6 +284,10 @@ L["loot_history_desc"] = [=[RCLootCouncil 將自動記錄分配相關訊息
 --[[Translation missing --]]
 --[[ L["Looted"] = ""--]] 
 L["Looted by:"] = "拾取人: "
+--[[Translation missing --]]
+--[[ L["lootFrame_error_note_required"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["lootHistory_moreInfo_winnersOfItem"] = ""--]] 
 L["Looting options"] = "拾取選項"
 L["Lower Quality Limit"] = "最低品質"
 L["lower_quality_limit_desc"] = "選擇自動分配時物品的最低品質"
@@ -373,6 +381,20 @@ L["opt_deleteName_confirm"] = "你確定你要刪除所有 %s 的紀錄嗎? 刪�
 --[[ L["opt_rejectTrade_Desc"] = ""--]] 
 L["opt_rejectTrade_Name"] = "允許保留裝備"
 --[[Translation missing --]]
+--[[ L["opt_saveBonusRolls_Desc"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_saveBonusRolls_Name"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["options_autoAwardBoE_desc"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["options_autoAwardBoE_name"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["options_ml_outOfRaid_desc"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["options_ml_outOfRaid_name"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["options_requireNotes_desc"] = ""--]] 
+--[[Translation missing --]]
 --[[ L["Original Owner"] = ""--]] 
 L["Out of instance"] = "不在副本內"
 --[[Translation missing --]]
@@ -410,6 +432,8 @@ L["Remove All"] = "移除全部"
 L["Remove from consideration"] = "從待決定中移除"
 L["remove_all_desc"] = "移除所有可拾取成員"
 L["Requested rolls for 'item' from 'target'"] = "已要求 %2$s 對 %1$s 擲點"
+--[[Translation missing --]]
+--[[ L["Require Notes"] = ""--]] 
 L["Reset Skin"] = "重置外觀"
 L["Reset skins"] = "重置外觀"
 L["reset_announce_to_default_desc"] = "重置所有通知選項"

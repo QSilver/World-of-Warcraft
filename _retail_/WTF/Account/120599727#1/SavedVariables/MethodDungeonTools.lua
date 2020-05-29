@@ -685,6 +685,8 @@ MethodDungeonToolsDB = {
 				{
 					["difficulty"] = 16,
 					["week"] = 4,
+					["objects"] = {
+					},
 					["value"] = {
 						["currentPull"] = 2,
 						["currentSublevel"] = 1,
@@ -963,23 +965,52 @@ MethodDungeonToolsDB = {
 							},
 						},
 					},
-					["colorPaletteInfo"] = {
-						["autoColoring"] = true,
-						["colorPaletteIdx"] = 1,
-					},
 					["text"] = "Default 2 3",
 					["mdi"] = {
 						["freehold"] = 1,
 						["freeholdJoined"] = false,
 						["beguiling"] = 1,
 					},
-					["objects"] = {
+					["colorPaletteInfo"] = {
+						["autoColoring"] = true,
+						["colorPaletteIdx"] = 1,
 					},
 				}, -- [4]
 				{
 					["value"] = 0,
 					["text"] = "<New Preset>",
 				}, -- [5]
+			},
+			[18] = {
+				{
+					["objects"] = {
+					},
+					["week"] = 4,
+					["value"] = {
+						["selection"] = {
+							1, -- [1]
+						},
+						["currentSublevel"] = 1,
+						["riftOffsets"] = {
+							[4] = {
+							},
+						},
+						["currentDungeonIdx"] = 18,
+						["teeming"] = false,
+						["currentPull"] = 1,
+						["pulls"] = {
+							{
+								["color"] = "ff3eff",
+							}, -- [1]
+						},
+					},
+					["difficulty"] = 16,
+					["mdi"] = {
+						["freeholdJoined"] = false,
+						["freehold"] = 1,
+						["beguiling"] = 1,
+					},
+				}, -- [1]
 			},
 			[21] = {
 				{
@@ -1267,12 +1298,22 @@ MethodDungeonToolsDB = {
 					["text"] = "<New Preset>",
 				}, -- [3]
 			},
+			[22] = {
+				{
+					["value"] = {
+						["currentSublevel"] = 1,
+						["selection"] = {
+						},
+					},
+				}, -- [1]
+			},
 		},
-		["scale"] = 2.020790003871058,
-		["version"] = 302,
-		["xoffset"] = -109.40160369873,
 		["currentDifficulty"] = 16,
+		["scale"] = 2.020790003871058,
+		["version"] = 304,
+		["xoffset"] = -109.40160369873,
 		["nonFullscreenScale"] = 1,
+		["currentDungeonIdx"] = 22,
 		["yoffset"] = 38.5514259338379,
 	},
 }

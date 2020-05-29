@@ -30,7 +30,7 @@ Bagnon_Sets = {
 	},
 	["mineColor"] = {
 	},
-	["version"] = "8.3.4",
+	["version"] = "8.3.5",
 	["fridgeColor"] = {
 	},
 	["countGuild"] = false,
@@ -71,8 +71,8 @@ Bagnon_Sets = {
 			["scale"] = 1,
 			["alpha"] = 1,
 			["brokerObject"] = "BagnonLauncher",
-			["y"] = 340.7565307617188,
-			["x"] = -258.955810546875,
+			["y"] = 284.1414489746094,
+			["x"] = -289.6412353515625,
 			["sort"] = false,
 			["borderColor"] = {
 			},
@@ -118,7 +118,7 @@ Bagnon_Sets = {
 			},
 		},
 		["guild"] = {
-			["y"] = -393.961181640625,
+			["y"] = 398.8848571777344,
 			["rules"] = {
 				"all", -- [1]
 				"all/all", -- [2]
@@ -146,12 +146,12 @@ Bagnon_Sets = {
 				"contain/all", -- [24]
 				"misc/all", -- [25]
 			},
-			["point"] = "TOPLEFT",
+			["point"] = "BOTTOMLEFT",
 			["borderColor"] = {
 			},
 			["color"] = {
 			},
-			["x"] = 602.8717651367188,
+			["x"] = 698.0516357421875,
 			["hiddenRules"] = {
 			},
 			["hiddenBags"] = {
@@ -191,8 +191,8 @@ Bagnon_Sets = {
 			["color"] = {
 			},
 			["alpha"] = 1,
-			["y"] = -57.5380859375,
-			["x"] = 523.8543090820312,
+			["y"] = -80.5123291015625,
+			["x"] = 579.6491088867188,
 			["borderColor"] = {
 			},
 			["columns"] = 14,
