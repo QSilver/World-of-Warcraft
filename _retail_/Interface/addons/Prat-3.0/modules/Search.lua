@@ -18,7 +18,7 @@ Prat:AddModuleToLoad(function()
   PL:AddLocale(PRAT_MODULE, "enUS", {
     module_name = "Search",
     module_desc = "Adds the ability to search the chatframes.",
-    module_info = "This module adds the /find commands to search the chat history\n\nUsage:\n\n /find <text>",
+    module_info = "This module adds search boxes on the chat frames, and the /find commands to search the chat history\n\nUsage:\n\n /find <text>",
     err_tooshort = "Search term is too short",
     err_notfound = "Not Found",
     find_results = "Find Results:",
@@ -40,7 +40,7 @@ L = {
 		["err_tooshort"] = "Search term is too short",
 		["find_results"] = "Find Results:",
 		["module_desc"] = "Adds the ability to search the chatframes.",
-		["module_info"] = [=[This module adds the /find commands to search the chat history
+		["module_info"] = [=[This module adds search boxes on the chat frames, and the /find commands to search the chat history
 
 Usage:
 
@@ -65,7 +65,7 @@ L = {
 		--[[Translation missing --]]
 		["module_desc"] = "Adds the ability to search the chatframes.",
 		--[[Translation missing --]]
-		["module_info"] = [=[This module adds the /find commands to search the chat history
+		["module_info"] = [=[This module adds search boxes on the chat frames, and the /find commands to search the chat history
 
 Usage:
 
@@ -107,8 +107,7 @@ Suche]=],
 
 L = {
 	["Search"] = {
-		--[[Translation missing --]]
-		["bnet_removed"] = "<BNET REMOVED>",
+		["bnet_removed"] = "<베틀넷 제거됨>",
 		["err_notfound"] = "찾을 수 없음",
 		["err_tooshort"] = "검색 구문이 너무 짧습니다",
 		["find_results"] = "검색 결과:",
@@ -141,7 +140,7 @@ L = {
 		--[[Translation missing --]]
 		["module_desc"] = "Adds the ability to search the chatframes.",
 		--[[Translation missing --]]
-		["module_info"] = [=[This module adds the /find commands to search the chat history
+		["module_info"] = [=[This module adds search boxes on the chat frames, and the /find commands to search the chat history
 
 Usage:
 
@@ -212,7 +211,7 @@ L = {
 		--[[Translation missing --]]
 		["module_desc"] = "Adds the ability to search the chatframes.",
 		--[[Translation missing --]]
-		["module_info"] = [=[This module adds the /find commands to search the chat history
+		["module_info"] = [=[This module adds search boxes on the chat frames, and the /find commands to search the chat history
 
 Usage:
 
@@ -236,7 +235,7 @@ L = {
 		--[[Translation missing --]]
 		["module_desc"] = "Adds the ability to search the chatframes.",
 		--[[Translation missing --]]
-		["module_info"] = [=[This module adds the /find commands to search the chat history
+		["module_info"] = [=[This module adds search boxes on the chat frames, and the /find commands to search the chat history
 
 Usage:
 
@@ -291,17 +290,19 @@ Usage:
     local f = CreateFrame("EditBox", name .. "ChatSearchEditBox", chatFrame, "SearchBoxTemplate")
 
     f:SetWidth(130)
-    f:SetHeight(50)
+    f:SetHeight(16)
     f:SetFrameStrata("HIGH")
-    f:SetPoint("TOPRIGHT", chatFrame, "TOPRIGHT", 10, 10)
-    f:SetScript("OnEnter", function() self:UnstashSearch(f) end)
+    f:SetPoint("TOPRIGHT", chatFrame, "TOPRIGHT")
+    f:SetScript("OnEnter", function()
+      local hoverAlpha = self.db.profile.searchinactivealpha + (self.db.profile.searchactivealpha - self.db.profile.searchinactivealpha) / 2
+      if f:HasFocus() then self:UnstashSearch(f) else f:SetAlpha(hoverAlpha) end
+    end)
     f:SetScript("OnLeave", function()
       if f:HasFocus() then self:UnstashSearch(f) else self:StashSearch(f) end
     end)
-    f:SetScript("OnEditFocusLost", function()
-      if f:IsMouseOver() then self:UnstashSearch(f) else self:StashSearch(f) end
-    end)
+    f:SetScript("OnEditFocusLost", function() self:StashSearch(f) end)
     f:SetScript("OnEditFocusGained", function() self:UnstashSearch(f) end)
+    f:SetScript("OnEscapePressed", function() f:ClearFocus() end)
     f:SetScript("OnEnterPressed", function(frame)
       local query = f:GetText()
       if query and query:len() > 0 then
@@ -309,6 +310,20 @@ Usage:
       end
     end)
     f.anim = f:CreateAnimationGroup()
+    f.anim.fade1 = f.anim:CreateAnimation("Alpha")
+    f.anim.fade1:SetFromAlpha(self.db.profile.searchactivealpha)
+    f.anim.fade1:SetDuration(3)
+    f.anim.fade1:SetToAlpha(self.db.profile.searchinactivealpha)
+    f.anim.fade1:SetSmoothing("IN")
+    f.anim:SetScript("OnFinished", function(...)
+      if f:HasFocus() then
+        self:UnstashSearch(f)
+      else
+        self:StashSearch(f)
+      end
+    end)
+
+    f.anim:Play()
 
     return f
   end
@@ -334,21 +349,6 @@ Usage:
 
     for _, f in pairs(self.searchBoxes) do
       f:Show()
-
-      f.anim.fade1 = f.anim:CreateAnimation("Alpha")
-      f.anim.fade1:SetFromAlpha(self.db.profile.searchactivealpha)
-      f.anim.fade1:SetDuration(3)
-      f.anim.fade1:SetToAlpha(self.db.profile.searchinactivealpha)
-      f.anim.fade1:SetSmoothing("IN")
-      f.anim:SetScript("OnFinished", function(...)
-        if f:HasFocus() or f:IsMouseOver() then
-          self:UnstashSearch(f)
-        else
-          self:StashSearch(f)
-        end
-      end)
-
-      f.anim:Play()
     end
   end
 
@@ -364,10 +364,6 @@ Usage:
 
   local foundlines = {}
   local scrapelines = {}
-
-  local function out(frame, msg)
-    frame:AddMessage(msg)
-  end
 
   local CLR = Prat.CLR
   local function SearchTerm(term) return CLR:Colorize("ffff40", term) end
@@ -385,13 +381,13 @@ Usage:
 
     if #word <= 1 then
       frame:ScrollToBottom()
-      out(frame, PL.err_tooshort)
+      self:Output(frame, PL.err_tooshort)
       return
     end
 
     if frame:GetNumMessages() == 0 then
       frame:ScrollToBottom()
-      out(frame, PL.err_notfound)
+      self:Output(frame, PL.err_notfound)
       return
     end
 
@@ -414,17 +410,17 @@ Usage:
     frame:ScrollToBottom()
 
     if all and #foundlines > 0 then
-      out(frame, "-------------------------------------------------------------")
-      out(frame, PL.find_results .. ": " .. SearchTerm(word))
+      self:Output(frame, "-------------------------------------------------------------")
+      self:Output(frame, PL.find_results .. ": " .. SearchTerm(word))
 
       Prat.loading = true -- prevent double timestamp
       for _, v in ipairs(foundlines) do
         frame:AddMessage(v.message:gsub("|K.-|k", PL.bnet_removed), v.r, v.g, v.b)
       end
       Prat.loading = nil
-      out(frame, "-------------------------------------------------------------")
+      self:Output(frame, "-------------------------------------------------------------")
     else
-      out(frame, PL.err_notfound)
+      self:Output(frame, PL.err_notfound)
     end
 
     wipe(foundlines)
@@ -434,9 +430,11 @@ Usage:
   function module:ScrapeFrame(frame)
     wipe(scrapelines)
 
-    for _, v in ipairs(frame.historyBuffer.elements) do
-      if v.message then
-        table.insert(scrapelines, v)
+    for i=frame:GetNumMessages(),1,-1 do
+      local msg = frame.historyBuffer:GetEntryAtIndex(i)
+
+      if msg and msg.message then
+        table.insert(scrapelines, msg)
       end
     end
   end

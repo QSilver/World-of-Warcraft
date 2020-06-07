@@ -17,8 +17,8 @@ HandyNotes_LegionTreasuresDB = {
 					[54003800] = true,
 					[76465651] = true,
 					[55702190] = true,
-					[63102520] = true,
 					[58001200] = true,
+					[63102520] = true,
 				},
 				["ArgusSurface"] = {
 					[44390734] = true,
@@ -28,20 +28,20 @@ HandyNotes_LegionTreasuresDB = {
 		},
 	},
 	["profileKeys"] = {
-		["Simroth - Silvermoon"] = "Simroth - Silvermoon",
+		["Alyara - Silvermoon"] = "Alyara - Silvermoon",
 		["Qsilver - Silvermoon"] = "Qsilver - Silvermoon",
 		["Lachrymas - Silvermoon"] = "Lachrymas - Silvermoon",
-		["Alyara - Silvermoon"] = "Alyara - Silvermoon",
+		["Simroth - Silvermoon"] = "Simroth - Silvermoon",
 	},
 	["profiles"] = {
-		["Simroth - Silvermoon"] = {
+		["Alyara - Silvermoon"] = {
 		},
 		["Qsilver - Silvermoon"] = {
 			["show_npcs"] = false,
 		},
 		["Lachrymas - Silvermoon"] = {
 		},
-		["Alyara - Silvermoon"] = {
+		["Simroth - Silvermoon"] = {
 		},
 	},
 }

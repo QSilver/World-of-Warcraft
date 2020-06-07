@@ -527,11 +527,10 @@ RematchSettings = {
 	["QueueSortOrder"] = 1,
 	["XPos"] = 765.2564697265625,
 	["DialogYPos"] = 591.5899658203125,
-	["FavoriteFilters"] = {
-	},
+	["JournalUsed"] = true,
 	["QueueSanctuary"] = {
 	},
-	["DialogXPos"] = 1051.076904296875,
+	["DontWarnMissing"] = true,
 	["JournalPanel"] = 1,
 	["BackupCount"] = 0,
 	["TeamGroups"] = {
@@ -540,41 +539,41 @@ RematchSettings = {
 			"Interface\\Icons\\PetJournalPortrait", -- [2]
 		}, -- [1]
 	},
-	["Sort"] = {
-		["Order"] = 2,
-		["FavoritesFirst"] = true,
-	},
+	["DialogXPos"] = 1051.076904296875,
 	["Filters"] = {
 		["Other"] = {
 		},
 		["Script"] = {
 		},
-		["Moveset"] = {
+		["Types"] = {
 		},
-		["Tough"] = {
+		["Favorite"] = {
 		},
-		["Level"] = {
+		["Collected"] = {
+		},
+		["Strong"] = {
 		},
 		["Sources"] = {
-		},
-		["Similar"] = {
 		},
 		["Breed"] = {
 		},
 		["Rarity"] = {
 		},
-		["Strong"] = {
+		["Similar"] = {
 		},
-		["Collected"] = {
+		["Level"] = {
 		},
-		["Favorite"] = {
+		["Tough"] = {
 		},
-		["Types"] = {
+		["Moveset"] = {
 		},
 	},
-	["SelectedTab"] = 1,
-	["loadedTeam"] = 154928,
-	["DontWarnMissing"] = true,
+	["CustomScaleValue"] = 100,
+	["AllowHiddenPetsDefaulted"] = true,
+	["Sort"] = {
+		["Order"] = 2,
+		["FavoritesFirst"] = true,
+	},
 	["CollapsedOptHeaders"] = {
 	},
 	["LevelingQueue"] = {
@@ -652,10 +651,11 @@ RematchSettings = {
 	["SpecialSlots"] = {
 	},
 	["CornerPos"] = "BOTTOMLEFT",
-	["AllowHiddenPetsDefaulted"] = true,
-	["JournalUsed"] = true,
+	["loadedTeam"] = 154928,
+	["FavoriteFilters"] = {
+	},
 	["YPos"] = 288.7692260742188,
-	["CustomScaleValue"] = 100,
+	["SelectedTab"] = 1,
 	["PetNotes"] = {
 	},
 }

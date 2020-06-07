@@ -1,16 +1,16 @@
-lightweight tag 30ed4c1a6e87a68ba8444d7426ff2af0314273c6 Plater-v8.3.0.295-Retail
+lightweight tag 73faa4388abb9cb7fae9337137510a4038a6be8e Plater-v8.3.0.297-Retail
 Author:	Continuity <continuity@gmx.net>
-Date:	Mon May 11 10:06:02 2020 +0200
+Date:	Sat Jun 6 11:37:32 2020 +0200
 
-commit 30ed4c1a6e87a68ba8444d7426ff2af0314273c6
+commit 73faa4388abb9cb7fae9337137510a4038a6be8e
 Author: Continuity <continuity@gmx.net>
-Date:   Mon May 11 10:06:02 2020 +0200
+Date:   Sat Jun 6 11:37:32 2020 +0200
 
-    - only show widget bar on your units
+    - updating changelog
 
-commit ffc9b14128915a6c1b50ba30c408f4fffa4cdaa9
+commit 0e9506606f0d0e1b4af504a85e76204e6fa9faae
 Author: Continuity <continuity@gmx.net>
-Date:   Sat May 9 12:29:58 2020 +0200
+Date:   Sat Jun 6 11:36:14 2020 +0200
 
-    - fixing absorb/health not being updated properly sometimes
+    - fixing error with WA-Companion not being available
 

@@ -5,13 +5,14 @@ MSBTProfiles_SavedVars = {
 			["critFontName"] = "Arial Narrow",
 			["enableBlizzardDamage"] = false,
 			["exclusiveSkillsDisabled"] = true,
-			["creationVersion"] = "5.7.134",
 			["overkill"] = {
 				["disabled"] = false,
 			},
+			["creationVersion"] = "5.7.134",
 			["critFontSize"] = 19,
 			["hideFullOverheals"] = true,
 			["groupNumbers"] = true,
+			["enableBlizzardHealing"] = false,
 			["scrollAreas"] = {
 				["Static"] = {
 					["offsetY"] = 213,
@@ -32,7 +33,6 @@ MSBTProfiles_SavedVars = {
 					["offsetY"] = -75,
 				},
 			},
-			["enableBlizzardHealing"] = false,
 			["normalFontName"] = "Arial Narrow",
 			["soundsDisabled"] = true,
 			["normalFontSize"] = 13,

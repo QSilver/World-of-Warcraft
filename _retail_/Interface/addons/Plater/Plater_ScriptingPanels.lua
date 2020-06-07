@@ -374,6 +374,18 @@ Plater.OpenCopyUrlDialog = openURL
 			if id and WeakAurasCompanion.Plater.slugs[id] then
 				local update = WeakAurasCompanion.Plater.slugs[id]
 				local companionVersion = tonumber(update.wagoVersion)
+				
+				--skip?
+				if scriptObject.skipWagoUpdate and scriptObject.skipWagoUpdate == (companionVersion or 0) then
+					return false
+				end
+				
+				--ignore?
+				if scriptObject.ignoreWagoUpdate then
+					return false
+				end
+				
+				--update?
 				return companionVersion > (scriptObject.version or 0)
 			end
 		end
@@ -382,16 +394,32 @@ Plater.OpenCopyUrlDialog = openURL
 	end
 	Plater.HasWagoUpdate = has_wago_update
 	
+	local get_update_from_companion = function (object)
+		--if not has_wago_update(object) then return end
+		
+		if WeakAurasCompanion and WeakAurasCompanion.Plater and WeakAurasCompanion.Plater.slugs and object and object.url then
+			local url = object.url
+			local id = url:match("wago.io/([^/]+)/([0-9]+)") or url:match("wago.io/([^/]+)$")
+			if id and WeakAurasCompanion.Plater.slugs[id] then
+				local update = WeakAurasCompanion.Plater.slugs[id]
+				return update
+			end
+		end
+		return nil
+	end
+	Plater.GetWagoUpdateDataFromCompanion = get_update_from_companion
+	
 	local update_from_wago = function (scriptObject)
 		if not has_wago_update(scriptObject) then return end
 		
-		local url = scriptObject.url
-		local id = url:match("wago.io/([^/]+)/([0-9]+)") or url:match("wago.io/([^/]+)$")
-		if id and WeakAurasCompanion.Plater.slugs[id] then
-			local update = WeakAurasCompanion.Plater.slugs[id]
-			import_mod_or_script(update.encoded)
+		if WeakAurasCompanion and WeakAurasCompanion.Plater and WeakAurasCompanion.Plater.slugs and scriptObject and scriptObject.url then
+			local url = scriptObject.url
+			local id = url:match("wago.io/([^/]+)/([0-9]+)") or url:match("wago.io/([^/]+)$")
+			if id and WeakAurasCompanion.Plater.slugs[id] then
+				local update = WeakAurasCompanion.Plater.slugs[id]
+				import_mod_or_script(update.encoded)
+			end
 		end
-		
 	end
 	
 	function Plater.CheckWagoUpdates(silent)
@@ -443,9 +471,37 @@ Plater.OpenCopyUrlDialog = openURL
 				return
 			end
 			Plater.ExportScriptToGroup (scriptId, mainFrame.ScriptType)
+			
 		elseif (option == "wago_update") then
-			local scriptObject = mainFrame
+			local scriptObject = mainFrame.GetScriptObject (scriptId)
 			update_from_wago(scriptObject)
+			
+		elseif (option == "skip_wago_update") then
+			local scriptObject = mainFrame.GetScriptObject (scriptId)
+			local update = get_update_from_companion(scriptObject)
+			local companionVersion = update and tonumber(update.wagoVersion) or nil
+			scriptObject.skipWagoUpdate = companionVersion
+			mainFrame.ScriptSelectionScrollBox:Refresh()
+			Plater.UpdateOptionsTabUpdateState()
+			
+		elseif (option == "ignore_wago_update") then
+			local scriptObject = mainFrame.GetScriptObject (scriptId)
+			scriptObject.ignoreWagoUpdate = true
+			mainFrame.ScriptSelectionScrollBox:Refresh()
+			Plater.UpdateOptionsTabUpdateState()
+			
+		elseif (option == "dont_skip_wago_update") then
+			local scriptObject = mainFrame.GetScriptObject (scriptId)
+			scriptObject.skipWagoUpdate = nil
+			mainFrame.ScriptSelectionScrollBox:Refresh()
+			Plater.UpdateOptionsTabUpdateState()
+			
+		elseif (option == "dont_ignore_wago_update") then
+			local scriptObject = mainFrame.GetScriptObject (scriptId)
+			scriptObject.ignoreWagoUpdate = nil
+			mainFrame.ScriptSelectionScrollBox:Refresh()
+			Plater.UpdateOptionsTabUpdateState()
+			
 		end
 		
 		GameCooltip:Hide()
@@ -467,6 +523,15 @@ Plater.OpenCopyUrlDialog = openURL
 		else
 			self:SetBackdropColor (unpack (scrollbox_line_backdrop_color))
 		end
+	end
+	
+	local onclick_wago_icon = function (self, button)
+		if (button == "LeftButton") then
+			local mainFrame = self.line.MainFrame
+			local scriptObject = mainFrame.GetScriptObject (self.line.ScriptId)
+			update_from_wago(scriptObject)
+		end
+		
 	end
 	
 	--when the user clicks on a scrollbox line
@@ -534,17 +599,41 @@ Plater.OpenCopyUrlDialog = openURL
 			
 			local scriptObject = mainFrame.GetScriptObject (self.ScriptId)
 
-			GameCooltip:AddLine ("$div")
-			
-			if (has_wago_update(scriptObject)) then
-				GameCooltip:AddLine ("Update from Wago.io")
-				GameCooltip:AddMenu (1, onclick_menu_scroll_line, "wago_update", scriptObject)
-				GameCooltip:AddIcon ([[Interface\AddOns\Plater\images\wagologo.tga]], 1, 1, 16, 10)
-			end
-
 			if (scriptObject.url) then
+				GameCooltip:AddLine ("$div")
+			
 				GameCooltip:AddLine ("Copy Wago.io URL")
 				GameCooltip:AddMenu (1, onclick_menu_scroll_line, "url", scriptObject.url)
+				GameCooltip:AddIcon ([[Interface\AddOns\Plater\images\wagologo.tga]], 1, 1, 16, 10)
+			
+				local has_update = has_wago_update(scriptObject)
+				local wago_update = get_update_from_companion(scriptObject)
+				local companionVersion = wago_update and tonumber(wago_update.wagoVersion) or nil
+				
+				if (has_update) then
+					GameCooltip:AddLine ("Update from Wago.io")
+					GameCooltip:AddMenu (1, onclick_menu_scroll_line, "wago_update", mainFrame)
+					GameCooltip:AddIcon ([[Interface\AddOns\Plater\images\wagologo.tga]], 1, 1, 16, 10)
+				end
+				
+				if (scriptObject.skipWagoUpdate and wago_update) or has_update then
+					if scriptObject.skipWagoUpdate or companionVersion and scriptObject.skipWagoUpdate == companionVersion then
+						GameCooltip:AddLine ("Don't skip this version")
+						GameCooltip:AddMenu (1, onclick_menu_scroll_line, "dont_skip_wago_update", mainFrame)
+					else
+						GameCooltip:AddLine ("Skip this version")
+						GameCooltip:AddMenu (1, onclick_menu_scroll_line, "skip_wago_update", mainFrame)
+					end
+					GameCooltip:AddIcon ([[Interface\AddOns\Plater\images\wagologo.tga]], 1, 1, 16, 10)
+				end
+				
+				if scriptObject.ignoreWagoUpdate then
+					GameCooltip:AddLine ("Don't ignore Wago Updates")
+					GameCooltip:AddMenu (1, onclick_menu_scroll_line, "dont_ignore_wago_update", mainFrame)
+				else
+					GameCooltip:AddLine ("Ignore Wago Updates")
+					GameCooltip:AddMenu (1, onclick_menu_scroll_line, "ignore_wago_update", mainFrame)
+				end
 				GameCooltip:AddIcon ([[Interface\AddOns\Plater\images\wagologo.tga]], 1, 1, 16, 10)
 				
 			else
@@ -672,9 +761,8 @@ Plater.OpenCopyUrlDialog = openURL
 		local icon = line:CreateTexture ("$parentIcon", "overlay")
 		icon:SetSize (scrollbox_line_height-4, scrollbox_line_height-4)
 		
-		local updateIcon = line:CreateTexture ("$parentIcon", "overlay")
-		updateIcon:SetSize (16, 10)
-		updateIcon:SetTexture([[Interface\AddOns\Plater\images\wagologo.tga]])
+		local updateIcon = DF:CreateButton (line, onclick_wago_icon, 16, 10, nil, param1, param2, [[Interface\AddOns\Plater\images\wagologo.tga]], nil, "$parentUpdateIconFrame")
+		updateIcon.button.line = line
 		
 		local script_name = DF:CreateLabel (line, "", DF:GetTemplate ("font", "PLATER_SCRIPTS_NAME"))
 		local script_type = DF:CreateLabel (line, "", DF:GetTemplate ("font", "PLATER_SCRIPTS_TYPE"))

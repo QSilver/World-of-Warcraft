@@ -5,6 +5,7 @@ GladiatorlosSADB = {
 	},
 	["profiles"] = {
 		["Default"] = {
+			["battleground"] = false,
 		},
 	},
 }

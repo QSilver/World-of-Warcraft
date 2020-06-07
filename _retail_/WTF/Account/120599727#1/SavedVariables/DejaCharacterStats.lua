@@ -63,8 +63,8 @@ DejaCharacterStatsDB = {
 			["ItemLevelEQ_AV_SetChecked"] = true,
 			["ItemLevelSetChecked"] = true,
 			["ItemLevelTwoDecimalsSetChecked"] = true,
-			["ItemLevelClassColorSetChecked"] = true,
 			["ItemLevelDecimalsSetChecked"] = false,
+			["ItemLevelClassColorSetChecked"] = true,
 		},
 		["dejacharacterstatsExpandChecked"] = {
 			["ExpandSetChecked"] = true,
@@ -444,7 +444,7 @@ DCS_ClassSpecDB = {
 		}, -- [10]
 		{
 			["statKey"] = "ATTACK_DAMAGE",
-			["hidden"] = false,
+			["hidden"] = true,
 		}, -- [11]
 		{
 			["statKey"] = "ATTACK_AP",
@@ -452,7 +452,7 @@ DCS_ClassSpecDB = {
 		}, -- [12]
 		{
 			["statKey"] = "DCS_ATTACK_ATTACKSPEED",
-			["hidden"] = true,
+			["hidden"] = false,
 		}, -- [13]
 		{
 			["statKey"] = "WEAPON_DPS",
@@ -481,6 +481,7 @@ DCS_ClassSpecDB = {
 		}, -- [20]
 		{
 			["statKey"] = "GCD",
+			["hidden"] = false,
 		}, -- [21]
 		{
 			["statKey"] = "DURABILITY_STAT",
@@ -511,6 +512,7 @@ DCS_ClassSpecDB = {
 		{
 			["statKey"] = "LIFESTEAL",
 			["hideAt"] = 0,
+			["hidden"] = true,
 		}, -- [29]
 		{
 			["statKey"] = "AVOIDANCE",
@@ -598,11 +600,11 @@ DCS_ClassSpecDB = {
 		}, -- [47]
 		{
 			["statKey"] = "STAGGER",
-			["hideAt"] = 0,
-			["hidden"] = true,
 			["roles"] = {
 				"TANK", -- [1]
 			},
+			["hideAt"] = 0,
+			["hidden"] = true,
 		}, -- [48]
 		{
 			["statKey"] = "CR_CORRUPTION_RESISTANCE",
@@ -1529,11 +1531,11 @@ DCS_ClassSpecDB = {
 		}, -- [47]
 		{
 			["statKey"] = "STAGGER",
+			["hidden"] = true,
+			["hideAt"] = 0,
 			["roles"] = {
 				"TANK", -- [1]
 			},
-			["hideAt"] = 0,
-			["hidden"] = true,
 		}, -- [48]
 		{
 			["statKey"] = "SPEED_RATING",
@@ -2120,11 +2122,11 @@ DCS_ClassSpecDB = {
 		}, -- [47]
 		{
 			["statKey"] = "STAGGER",
-			["hidden"] = true,
-			["hideAt"] = 0,
 			["roles"] = {
 				"TANK", -- [1]
 			},
+			["hidden"] = true,
+			["hideAt"] = 0,
 		}, -- [48]
 		{
 			["statKey"] = "SPEED_RATING",

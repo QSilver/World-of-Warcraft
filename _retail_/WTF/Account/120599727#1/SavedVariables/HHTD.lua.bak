@@ -1,0 +1,23 @@
+
+HHTD_SavedVariables = {
+	["char"] = {
+		["Qsilver - Silvermoon"] = {
+			["settingsMigrated"] = false,
+		},
+	},
+	["profileKeys"] = {
+		["Qsilver - Silvermoon"] = "Qsilver - Silvermoon",
+	},
+	["global"] = {
+		["settingsMigrated"] = false,
+		["oldNameEnableState"] = 0,
+	},
+	["namespaces"] = {
+		["Announcer"] = {
+		},
+		["CM"] = {
+		},
+		["NPH"] = {
+		},
+	},
+}

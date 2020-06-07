@@ -191,7 +191,7 @@ L = {
 		["leavejoin_name"] = "Filter Kanal Verlassen/Beitreten",
 		["notices_desc"] = "Die allgemein üblichen Benachrichtigungen in Kanälen verhindern, z.B. Moderatorenwechsel.",
 		["notices_name"] = "Kanal-Meldungen filtern",
-		["tradespam_desc"] = "Begrenze die Nachrichten um zu verhindern das gleiche Nachrichten ständig wiederholt werden",
+		["tradespam_desc"] = "Unterdrückt Nachrichten, um zu verhindern, dass dieselbe Nachricht mehrmals wiederholt wird",
 		["tradespam_name"] = "Spam begrenzen",
 	}
 }
@@ -477,8 +477,8 @@ end
 
   function module:Prat_FrameMessage(arg, message, frame, event)
     local newEvent = true
-    if Prat.EVENT_ID and
-      Prat.EVENT_ID == self.lastevent and
+    if message.LINE_ID and
+      message.LINE_ID == self.lastevent and
       self.lasteventtype == event then
       newEvent = false
     end
@@ -496,7 +496,7 @@ end
             end
           else
             self.lasteventtype = event
-            self.lastevent = Prat.EVENT_ID
+            self.lastevent = message.LINE_ID
             MessageTime[msg] = time();
           end
         end
@@ -515,7 +515,7 @@ end
           end
         else
           self.lasteventtype = event
-          self.lastevent = Prat.EVENT_ID
+          self.lastevent = message.LINE_ID
           MessageTime[msg] = time();
         end
       end

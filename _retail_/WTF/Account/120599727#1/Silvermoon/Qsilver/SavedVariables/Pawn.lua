@@ -1,9 +1,6 @@
 
 PawnOptions = {
-	["LastVersion"] = 2.0327,
-	["LastPlayerFullName"] = "Qsilver-Silvermoon",
-	["AutoSelectScales"] = false,
-	["UpgradeTracking"] = false,
+	["LastVersion"] = 2.0328,
 	["ItemLevels"] = {
 		{
 			["ID"] = 174151,
@@ -12,8 +9,8 @@ PawnOptions = {
 		}, -- [1]
 		{
 			["ID"] = 158075,
-			["Level"] = 513,
-			["Link"] = "|cffe6cc80|Hitem:158075::::::::120:253::11:4:6316:4932:4933:1650:::|h[Heart of Azeroth]|h|r",
+			["Level"] = 515,
+			["Link"] = "|cffe6cc80|Hitem:158075::::::::120:253::11:4:6316:4932:4933:1652:::|h[Heart of Azeroth]|h|r",
 		}, -- [2]
 		{
 			["ID"] = 159385,
@@ -22,9 +19,9 @@ PawnOptions = {
 		}, -- [3]
 		nil, -- [4]
 		{
-			["ID"] = 174150,
-			["Level"] = 480,
-			["Link"] = "|cffa335ee|Hitem:174150::::::::120:253::6:5:4824:1517:4786:6510:4775:::|h[Scales of the Scheming Behemoth]|h|r",
+			["ID"] = 174147,
+			["Level"] = 490,
+			["Link"] = "|cffa335ee|Hitem:174147::::::::120:253::6:5:4824:1517:4786:6510:4775:::|h[Last Vestige of Neltharion]|h|r",
 		}, -- [5]
 		{
 			["ID"] = 174158,
@@ -86,7 +83,9 @@ PawnOptions = {
 			["Link"] = "|cffa335ee|Hitem:159130::::::::120:253::35:7:6536:6578:6579:6560:6515:1647:4786:::|h[Captain's Diplomacy]|h|r",
 		}, -- [16]
 	},
-	["LastKeybindingsSet"] = 1,
+	["AutoSelectScales"] = false,
+	["UpgradeTracking"] = false,
+	["LastPlayerFullName"] = "Qsilver-Silvermoon",
 	["Artifacts"] = {
 		[128861] = {
 			["Relics"] = {
@@ -106,6 +105,7 @@ PawnOptions = {
 			["Name"] = "Titanstrike",
 		},
 	},
+	["LastKeybindingsSet"] = 1,
 }
 PawnMrRobotScaleProviderOptions = {
 	["LastClass"] = "HUNTER",

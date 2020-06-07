@@ -988,11 +988,11 @@ Plater.DefaultSpellRangeList = {
 					plateFrame.unitFrame [MEMBER_RANGE] = true
 
 				else
-					local healthBarNewAlpha = inRangeAlpha * (notTheTarget and healthBar_rangeCheckAlpha or 1)
-					if (not DF:IsNearlyEqual (healthBar:GetAlpha(), healthBarNewAlpha, 0.01)) then
+					local newAlpha = inRangeAlpha * (notTheTarget and overallRangeCheckAlpha or 1)
+					if (not DF:IsNearlyEqual (unitFrame:GetAlpha(), newAlpha, 0.01)) then
 						--play animations (animation aren't while in development)
 						unitFrame:SetAlpha (inRangeAlpha * (notTheTarget and overallRangeCheckAlpha or 1))
-						healthBar:SetAlpha (healthBarNewAlpha)
+						healthBar:SetAlpha (inRangeAlpha * (notTheTarget and healthBar_rangeCheckAlpha or 1))
 						castBar:SetAlpha (inRangeAlpha * (notTheTarget and castBar_rangeCheckAlpha or 1))
 						powerBar:SetAlpha (inRangeAlpha * (notTheTarget and powerBar_rangeCheckAlpha or 1))
 						buffFrame1:SetAlpha (inRangeAlpha * (notTheTarget and buffFrames_rangeCheckAlpha or 1))
@@ -1025,8 +1025,8 @@ Plater.DefaultSpellRangeList = {
 					plateFrame.unitFrame [MEMBER_RANGE] = false
 
 				else
-					local healthBarNewAlpha = healthBar_rangeCheckAlpha * (notTheTarget and healthBar_rangeCheckAlpha or 1)
-					if (not DF:IsNearlyEqual (healthBar:GetAlpha(), healthBarNewAlpha, 0.01)) then
+					local newAlpha = overallRangeCheckAlpha * (notTheTarget and alphaMultiplier or 1)
+					if (not DF:IsNearlyEqual (unitFrame:GetAlpha(), newAlpha, 0.01)) then
 						
 						--play animations (animation aren't while in development)
 --						unitFrame:SetAlpha (overallRangeCheckAlpha * (notTheTarget and overallRangeCheckAlpha or 1))
@@ -3037,7 +3037,8 @@ Plater.DefaultSpellRangeList = {
 			plateFrame.unitFrame.WidgetContainer:SetScale(Plater.db.profile.widget_bar_scale)
 			unitFrame.WidgetContainer:UnregisterForWidgetSet()
 			local widgetSetId = UnitWidgetSet(unitID)
-		    if widgetSetId and UnitPlayerControlled(unitID) and not UnitIsOwnerOrControllerOfUnit('player', unitID) then
+		    local playerControlled = UnitPlayerControlled(unitID)
+		    if widgetSetId and ((playerControlled and UnitIsOwnerOrControllerOfUnit('player', unitID)) or not playerControlled) then
 				unitFrame.WidgetContainer:RegisterForWidgetSet(widgetSetId)
 				unitFrame.WidgetContainer:ProcessAllWidgets()
 			end
@@ -6231,7 +6232,8 @@ end
 			Plater.UpdateResourceFrame()
 			
 			local widgetSetId = UnitWidgetSet(plateFrame.unitFrame [MEMBER_UNITID])
-		    if widgetSetId and UnitPlayerControlled(unitID) and not UnitIsOwnerOrControllerOfUnit('player', unitID) then
+			local playerControlled = UnitPlayerControlled(unitID)
+		    if widgetSetId and ((playerControlled and UnitIsOwnerOrControllerOfUnit('player', unitID)) or not playerControlled) then
 				plateFrame.unitFrame.WidgetContainer:RegisterForWidgetSet(widgetSetId)
 				plateFrame.unitFrame.WidgetContainer:ProcessAllWidgets()
 			end
@@ -10874,6 +10876,7 @@ end
 
 	--make an indexScriptTable for the script object using indexes instead of key to decrease the size of the string to be exported
 	function Plater.PrepareTableToExport (scriptObject)
+	--function Plater.PrepareTableToExport_OLD (scriptObject)
 		
 		if (scriptObject.Hooks) then
 			--script for hooks
@@ -10939,8 +10942,10 @@ end
 				t ["9"] [hookName] = hookCode
 			end
 			
-			t["options"] = scriptObject.Options or {}
+			t ["options"] = scriptObject.Options or {}
 			
+			t ["addon"] = "Plater"
+			t ["toc"] = select(4, GetBuildInfo()) -- provide export toc
 			t ["type"] = "hook"
 			
 			return t
@@ -10964,8 +10969,10 @@ end
 				t [(10 + i)..""] = scriptObject [memberName]
 			end
 			
-			t["options"] = scriptObject.Options or {}
+			t ["options"] = scriptObject.Options or {}
 			
+			t ["addon"] = "Plater"
+			t ["toc"] = select(4, GetBuildInfo()) -- provide export toc
 			t ["type"] = "script"
 			
 			return t

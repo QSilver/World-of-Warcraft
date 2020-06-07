@@ -17,7 +17,7 @@ ParagonReputationDB = {
 	["r"] = 0,
 	["redcheck"] = false,
 	["text"] = "PARAGON",
-	["toast"] = false,
+	["fade"] = 5,
 	["profiles"] = {
 		["Default"] = {
 		},
@@ -25,19 +25,19 @@ ParagonReputationDB = {
 	["y"] = 256,
 	["deficit"] = false,
 	["default"] = true,
-	["point"] = {
-		"TOP", -- [1]
-		"TOP", -- [2]
-		0, -- [3]
-		-160, -- [4]
-	},
-	["x"] = 0,
+	["enable"] = false,
 	["value"] = {
 		0, -- [1]
 		0.5, -- [2]
 		0.9, -- [3]
 		1, -- [4]
 	},
-	["enable"] = false,
-	["fade"] = 5,
+	["x"] = 0,
+	["point"] = {
+		"TOP", -- [1]
+		"TOP", -- [2]
+		0, -- [3]
+		-160, -- [4]
+	},
+	["toast"] = false,
 }

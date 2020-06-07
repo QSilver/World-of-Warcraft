@@ -1,11 +1,14 @@
 
 TD_DB_BATTLEPETSCRIPT_GLOBAL = {
-	["profileKeys"] = {
-		["Qsilver - Silvermoon"] = "Default",
-	},
 	["global"] = {
 		["version"] = 80100.01,
 		["scripts"] = {
+			["AllInOne"] = {
+			},
+			["FirstEnemy"] = {
+			},
+			["Base"] = {
+			},
 			["Rematch"] = {
 				[154913] = {
 					["name"] = "Shadowspike Lurker",
@@ -88,13 +91,10 @@ TD_DB_BATTLEPETSCRIPT_GLOBAL = {
 					["code"] = "use(Black Claw:919) [!enemy(Unit 6:2741).aura(Black Claw:918).exists]\nuse(Flock:581)\n\nchange(Twilight Clutch-Sister:2081) [self(Ikky:1532).dead]\n\nuse(Twilight Fire:1890)\nuse(Twilight Meteorite:1960)",
 				},
 			},
-			["Base"] = {
-			},
-			["FirstEnemy"] = {
-			},
-			["AllInOne"] = {
-			},
 		},
+	},
+	["profileKeys"] = {
+		["Qsilver - Silvermoon"] = "Default",
 	},
 	["profiles"] = {
 		["Default"] = {

@@ -155,21 +155,21 @@ MADB = {
 						0, -- [5]
 					},
 				},
-				["BossBanner"] = {
+				["PlayerPowerBarAltMover"] = {
 					["orgPos"] = {
-						"TOP", -- [1]
+						"BOTTOM", -- [1]
 						"UIParent", -- [2]
-						"TOP", -- [3]
+						"BOTTOM", -- [3]
 						0, -- [4]
-						-120, -- [5]
+						155, -- [5]
 					},
-					["name"] = "BossBanner",
+					["name"] = "PlayerPowerBarAltMover",
 					["pos"] = {
-						"TOP", -- [1]
+						"BOTTOM", -- [1]
 						"UIParent", -- [2]
-						"TOP", -- [3]
-						-6.103515625e-05, -- [4]
-						-119.999877929688, -- [5]
+						"BOTTOM", -- [3]
+						0.000213623046875, -- [4]
+						121.0000534057617, -- [5]
 					},
 				},
 				["BagsMover"] = {
@@ -245,29 +245,29 @@ MADB = {
 						565.538330078125, -- [5]
 					},
 				},
-				["PlayerPowerBarAltMover"] = {
+				["BossBanner"] = {
 					["orgPos"] = {
-						"BOTTOM", -- [1]
+						"TOP", -- [1]
 						"UIParent", -- [2]
-						"BOTTOM", -- [3]
+						"TOP", -- [3]
 						0, -- [4]
-						155, -- [5]
+						-120, -- [5]
 					},
-					["name"] = "PlayerPowerBarAltMover",
+					["name"] = "BossBanner",
 					["pos"] = {
-						"BOTTOM", -- [1]
+						"TOP", -- [1]
 						"UIParent", -- [2]
-						"BOTTOM", -- [3]
-						0.000213623046875, -- [4]
-						121.0000534057617, -- [5]
+						"TOP", -- [3]
+						-6.103515625e-05, -- [4]
+						-119.999877929688, -- [5]
 					},
 				},
 			},
 		},
 	},
-	["closeGUIOnEscape"] = false,
+	["playSound"] = false,
 	["frameListRows"] = 18,
 	["noBags"] = false,
 	["disableErrorMessages"] = true,
-	["playSound"] = false,
+	["closeGUIOnEscape"] = false,
 }
