@@ -124,8 +124,8 @@ L = {
 		["Attach edit box to..."] = "Befestige Eingabefeld an ...",
 		["Attach to..."] = "Befestige an ...",
 		["Background color"] = "Hintergrundfarbe",
-		["Background Inset"] = "Hintergrundbild",
-		["Background texture"] = "Hintergrundtextur",
+		["Background Inset"] = "Hintergrundeinfügung",
+		["Background texture"] = "Hintergrundbeschaffenheit",
 		["Border color"] = "Randfarbe",
 		["Border texture"] = "Randtextur",
 		["Bottom"] = "Unten",
@@ -701,7 +701,7 @@ end
     f:Hide()
 
     self.frames[i] = f
-    self.frames[i]:Show()
+--    self.frames[i]:Show()
     local font, s, m = f:GetFont()
     f:SetFont(Media:Fetch("font", self.db.profile.font), s, m)
 

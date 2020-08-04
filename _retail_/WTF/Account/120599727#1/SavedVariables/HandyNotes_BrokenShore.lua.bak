@@ -1,16 +1,16 @@
 
 HandyNotes_BrokenShoreDB = {
 	["profileKeys"] = {
-		["Qsilver - Silvermoon"] = "Qsilver - Silvermoon",
+		["Stephanna - Argent Dawn"] = "Stephanna - Argent Dawn",
 		["Lachrymas - Silvermoon"] = "Lachrymas - Silvermoon",
 		["Alyara - Silvermoon"] = "Alyara - Silvermoon",
 		["Kjerstina - Silvermoon"] = "Kjerstina - Silvermoon",
 		["Flaville - Silvermoon"] = "Flaville - Silvermoon",
 		["Simroth - Silvermoon"] = "Simroth - Silvermoon",
-		["Stephanna - Argent Dawn"] = "Stephanna - Argent Dawn",
+		["Qsilver - Silvermoon"] = "Qsilver - Silvermoon",
 	},
 	["profiles"] = {
-		["Qsilver - Silvermoon"] = {
+		["Stephanna - Argent Dawn"] = {
 		},
 		["Lachrymas - Silvermoon"] = {
 		},
@@ -22,7 +22,7 @@ HandyNotes_BrokenShoreDB = {
 		},
 		["Simroth - Silvermoon"] = {
 		},
-		["Stephanna - Argent Dawn"] = {
+		["Qsilver - Silvermoon"] = {
 		},
 	},
 }

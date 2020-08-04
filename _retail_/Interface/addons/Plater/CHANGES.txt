@@ -1,16 +1,40 @@
-lightweight tag 73faa4388abb9cb7fae9337137510a4038a6be8e Plater-v8.3.0.297-Retail
+lightweight tag dd4ed3c4606fb1ea26051b3903d7d53eb004836c Plater-v8.3.0.300-Retail
 Author:	Continuity <continuity@gmx.net>
-Date:	Sat Jun 6 11:37:32 2020 +0200
+Date:	Wed Jul 15 22:37:26 2020 +0200
 
-commit 73faa4388abb9cb7fae9337137510a4038a6be8e
+commit dd4ed3c4606fb1ea26051b3903d7d53eb004836c
 Author: Continuity <continuity@gmx.net>
-Date:   Sat Jun 6 11:37:32 2020 +0200
+Date:   Wed Jul 15 22:37:26 2020 +0200
 
-    - updating changelog
+    - fix button selection
 
-commit 0e9506606f0d0e1b4af504a85e76204e6fa9faae
+commit ab05ce25c64c6d011eda1265551d602045679c96
 Author: Continuity <continuity@gmx.net>
-Date:   Sat Jun 6 11:36:14 2020 +0200
+Date:   Wed Jul 15 22:29:45 2020 +0200
 
-    - fixing error with WA-Companion not being available
+    - changelog update
+
+commit 04a374fcac44b1f1645200a2409f7ce9dd395e2a
+Author: Continuity <continuity@gmx.net>
+Date:   Wed Jul 15 22:22:27 2020 +0200
+
+    - fixing scripting buttons showing the wrong event code
+
+commit d21bab8c035d6232aa9214fd03e2f598626df305
+Author: Continuity <continuity@gmx.net>
+Date:   Sun Jul 12 01:04:41 2020 +0200
+
+    - DF lib update
+
+commit 72033ddd00f121473bf746f2524af0d26aec1148
+Author: Continuity <continuity@gmx.net>
+Date:   Thu Jul 9 18:53:22 2020 +0200
+
+    - DF lib update
+
+commit 1fddd18c05a98c96673a2dbb4d66624463cc4380
+Author: Continuity <continuity@gmx.net>
+Date:   Thu Jul 9 18:53:14 2020 +0200
+
+    - updating options to surpress tullaCC/OmniCC for #59
 

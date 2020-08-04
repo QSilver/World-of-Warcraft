@@ -5,19 +5,19 @@ RangeDisplayDB3 = {
 		},
 	},
 	["profileKeys"] = {
-		["Alyara - Silvermoon"] = "Default",
 		["Linela - Silvermoon"] = "Default",
+		["Alyara - Silvermoon"] = "Default",
+		["Thagmarr - Silvermoon"] = "Default",
 		["Erdanii - Silvermoon"] = "Default",
-		["Flaville - Silvermoon"] = "Default",
-		["Simroth - Silvermoon"] = "Default",
+		["Tenderbreeze - Silvermoon"] = "Default",
 		["Stephanna - Argent Dawn"] = "Default",
 		["Siluna - Silvermoon"] = "Default",
-		["Kjerstina - Silvermoon"] = "Default",
+		["Spinhoof - Ragnaros"] = "Default",
 		["Lachrymas - Silvermoon"] = "Default",
 		["Myvanna - Silvermoon"] = "Default",
-		["Spinhoof - Ragnaros"] = "Default",
-		["Tenderbreeze - Silvermoon"] = "Default",
-		["Thagmarr - Silvermoon"] = "Default",
+		["Kjerstina - Silvermoon"] = "Default",
+		["Simroth - Silvermoon"] = "Default",
+		["Flaville - Silvermoon"] = "Default",
 		["Qsilver - Silvermoon"] = "Default",
 	},
 	["profiles"] = {
@@ -27,14 +27,14 @@ RangeDisplayDB3 = {
 			["units"] = {
 				["pet"] = {
 				},
-				["arena2"] = {
+				["playertarget"] = {
+					["y"] = -246.000427246094,
+					["x"] = 276.000427246094,
 				},
 				["focus"] = {
 					["enabled"] = false,
 				},
-				["playertarget"] = {
-					["y"] = -246.000427246094,
-					["x"] = 276.000427246094,
+				["arena2"] = {
 				},
 				["arena5"] = {
 				},

@@ -1,6 +1,6 @@
-## Interface: 60000
+## Interface: 80300
 ## Title: I_Hear_You_All |cff00aa004.4|r
-## Notes: Plays sounds when you receive messages. |cffB90A04Created by: Audedit |r
-## Version: 4.5
+## Notes: Plays sounds when you receive messages. |cffB90A04Created by: Addondev |r
+## Version: 5.2
 
 I_Hear_You_All.lua

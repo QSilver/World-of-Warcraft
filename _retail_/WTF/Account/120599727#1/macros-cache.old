@@ -9,23 +9,9 @@ VER 3 000000000000000F "Call" "ABILITY_HUNTER_MASTERSCALL"
 #showtooltip
 /use [@player]Master's Call
 END
-VER 3 0000000000000031 "Chimera" "236176"
-#showtooltip
-/cast Chimaera Shot
-/use Claw(Basic Attack)
-/use Bite(Basic Attack)
-/use Smack(Basic Attack)
-END
 VER 3 000000000000002F "cobra" "461114"
 #showtooltip
 /cast Cobra Shot
-/use Claw(Basic Attack)
-/use Bite(Basic Attack)
-/use Smack(Basic Attack)
-END
-VER 3 0000000000000032 "Crows" "645217"
-#showtooltip
-/cast A Murder of Crows
 /use Claw(Basic Attack)
 /use Bite(Basic Attack)
 /use Smack(Basic Attack)
@@ -37,10 +23,6 @@ VER 3 000000000000001F "Feign" "132293"
 END
 VER 3 0000000000000038 "FocusMouseover" "1002596"
 /focus [@mouseover]
-END
-VER 3 000000000000002E "Health" "136030"
-#showtooltip
-/castsequence reset=60/alt Healthstone, Abyssal Healing Potion
 END
 VER 3 000000000000002C "KC" "132176"
 #showtooltip
@@ -55,10 +37,6 @@ VER 3 0000000000000008 "Mend" "SPELL_NATURE_SPIRITARMOR"
 /stopcasting
 /use [@target,help][@player]Spirit Mend
 END
-VER 3 0000000000000039 "mount" "130730"
-/tar Ivory Cloud Serpent
-/use Zan-Tien Lasso
-END
 VER 3 0000000000000015 "Raid" "CREATUREPORTRAIT_PORTAL_ISLEOFCONQUESTALLIANCE"
 /run CompactRaidFrameManager:UnregisterAllEvents()
 /run CompactRaidFrameManager:Hide()
@@ -69,27 +47,10 @@ VER 3 000000000000003A "Sacrifice" "132121"
 #showtooltip
 /cast [target=mouseover,exists,help,nodead] Roar of Sacrifice; Roar of Sacrifice
 END
-VER 3 0000000000000037 "Suicide" "1376046"
-/cancelaura Rejuvenation
-/cancelaura Regrowth
-/cancelaura Spring Blossoms
-/cancelaura Regrowth
-/cancelaura Lifebloom
-/cancelaura Riptide
-/cancelaura Renewing Mist
-/cancelaura Bestow Faith
-/cancelaura Resounding Protection
-/cancelaura Essence Font
-END
-VER 3 0000000000000035 "Turtle" "1002597"
-/stopcasting
-/cast Aspect of the Turtle
+VER 3 000000000000003B "Trap" "135834"
+#showtooltip Freezing Trap
+/cast [@cursor] Freezing Trap
 END
 VER 3 0000000000000033 "Turtle" "1002600"
 /cancelaura Aspect of the Turtle
-END
-VER 3 0000000000000036 "XHero" "135900"
-/cancelaura time warp
-/cancelaura bloodlust
-/cancelaura heroism
 END

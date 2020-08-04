@@ -16,7 +16,7 @@ Bartender4DB = {
 		},
 		["ActionBars"] = {
 			["profiles"] = {
-				["Alyara - Silvermoon"] = {
+				["Simroth - Silvermoon"] = {
 					["actionbars"] = {
 						{
 							["padding"] = 6,
@@ -32,7 +32,7 @@ Bartender4DB = {
 							["version"] = 3,
 							["position"] = {
 								["y"] = -227.499923706055,
-								["x"] = -231.500061035156,
+								["x"] = -231.500183105469,
 								["point"] = "CENTER",
 							},
 						}, -- [2]
@@ -83,7 +83,7 @@ Bartender4DB = {
 						}, -- [10]
 					},
 				},
-				["Simroth - Silvermoon"] = {
+				["Alyara - Silvermoon"] = {
 					["actionbars"] = {
 						{
 							["padding"] = 6,
@@ -99,7 +99,7 @@ Bartender4DB = {
 							["version"] = 3,
 							["position"] = {
 								["y"] = -227.499923706055,
-								["x"] = -231.500183105469,
+								["x"] = -231.500061035156,
 								["point"] = "CENTER",
 							},
 						}, -- [2]
@@ -116,6 +116,73 @@ Bartender4DB = {
 						{
 							["padding"] = 5,
 							["rows"] = 12,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 610,
+								["x"] = -42,
+								["point"] = "BOTTOMRIGHT",
+							},
+						}, -- [4]
+						{
+							["padding"] = 6,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 83,
+								["x"] = 3,
+								["point"] = "BOTTOM",
+							},
+						}, -- [5]
+						{
+							["padding"] = 6,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 83,
+								["x"] = -510,
+								["point"] = "BOTTOM",
+							},
+						}, -- [6]
+						{
+						}, -- [7]
+						{
+						}, -- [8]
+						nil, -- [9]
+						{
+						}, -- [10]
+					},
+				},
+				["Thagmarr - Silvermoon"] = {
+					["actionbars"] = {
+						{
+							["padding"] = 6,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 41.75,
+								["x"] = -510,
+								["point"] = "BOTTOM",
+							},
+						}, -- [1]
+						{
+							["enabled"] = false,
+							["version"] = 3,
+							["position"] = {
+								["y"] = -227.499923706055,
+								["x"] = -231.500061035156,
+								["point"] = "CENTER",
+							},
+						}, -- [2]
+						{
+							["rows"] = 12,
+							["padding"] = 5,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 610,
+								["x"] = -82,
+								["point"] = "BOTTOMRIGHT",
+							},
+						}, -- [3]
+						{
+							["rows"] = 12,
+							["padding"] = 5,
 							["version"] = 3,
 							["position"] = {
 								["y"] = 610,
@@ -151,538 +218,6 @@ Bartender4DB = {
 					},
 				},
 				["Erdanii - Silvermoon"] = {
-					["actionbars"] = {
-						{
-							["padding"] = 6,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 41.75,
-								["x"] = -510,
-								["point"] = "BOTTOM",
-							},
-						}, -- [1]
-						{
-							["enabled"] = false,
-							["version"] = 3,
-							["position"] = {
-								["y"] = -227.499923706055,
-								["x"] = -231.500183105469,
-								["point"] = "CENTER",
-							},
-						}, -- [2]
-						{
-							["padding"] = 5,
-							["rows"] = 12,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 610,
-								["x"] = -82,
-								["point"] = "BOTTOMRIGHT",
-							},
-						}, -- [3]
-						{
-							["padding"] = 5,
-							["rows"] = 12,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 610,
-								["x"] = -42,
-								["point"] = "BOTTOMRIGHT",
-							},
-						}, -- [4]
-						{
-							["padding"] = 6,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 83,
-								["x"] = 3,
-								["point"] = "BOTTOM",
-							},
-						}, -- [5]
-						{
-							["padding"] = 6,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 83,
-								["x"] = -510,
-								["point"] = "BOTTOM",
-							},
-						}, -- [6]
-						{
-						}, -- [7]
-						{
-						}, -- [8]
-						[10] = {
-						},
-					},
-				},
-				["Flaville - Silvermoon"] = {
-					["actionbars"] = {
-						{
-							["rows"] = 2,
-							["padding"] = 5,
-							["version"] = 3,
-							["position"] = {
-								["y"] = -1.5000022649765,
-								["x"] = 496.777893066406,
-								["point"] = "BOTTOMLEFT",
-								["growVertical"] = "UP",
-							},
-						}, -- [1]
-						{
-							["rows"] = 2,
-							["padding"] = 5,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 84.5000076293945,
-								["x"] = -19.31640625,
-								["point"] = "BOTTOM",
-								["growHorizontal"] = "LEFT",
-							},
-						}, -- [2]
-						{
-							["padding"] = 5,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 82.8797988891602,
-								["x"] = -16.0001220703125,
-								["point"] = "BOTTOM",
-							},
-						}, -- [3]
-						{
-							["enabled"] = false,
-							["padding"] = 5,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 167.749984741211,
-								["x"] = -510.000122070313,
-								["point"] = "BOTTOM",
-							},
-						}, -- [4]
-						{
-							["enabled"] = false,
-							["padding"] = 5,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 210.75,
-								["x"] = -510.000122070313,
-								["point"] = "BOTTOM",
-							},
-						}, -- [5]
-						{
-							["enabled"] = false,
-							["padding"] = 6,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 254.749984741211,
-								["x"] = -521.000061035156,
-								["point"] = "BOTTOM",
-							},
-						}, -- [6]
-						{
-						}, -- [7]
-						{
-						}, -- [8]
-						nil, -- [9]
-						{
-						}, -- [10]
-					},
-				},
-				["Linela - Silvermoon"] = {
-					["actionbars"] = {
-						{
-							["version"] = 3,
-							["position"] = {
-								["y"] = -227.499923706055,
-								["x"] = -231.500061035156,
-								["point"] = "CENTER",
-							},
-						}, -- [1]
-						{
-							["version"] = 3,
-							["position"] = {
-								["y"] = -227.499923706055,
-								["x"] = -231.500061035156,
-								["point"] = "CENTER",
-							},
-						}, -- [2]
-						{
-							["version"] = 3,
-							["position"] = {
-								["y"] = -227.499923706055,
-								["x"] = -231.500061035156,
-								["point"] = "CENTER",
-							},
-						}, -- [3]
-						{
-							["version"] = 3,
-							["position"] = {
-								["y"] = -227.499923706055,
-								["x"] = -231.500061035156,
-								["point"] = "CENTER",
-							},
-						}, -- [4]
-						{
-							["version"] = 3,
-							["position"] = {
-								["y"] = -227.499923706055,
-								["x"] = -231.500061035156,
-								["point"] = "CENTER",
-							},
-						}, -- [5]
-						{
-							["version"] = 3,
-							["position"] = {
-								["y"] = -227.499923706055,
-								["x"] = -231.500061035156,
-								["point"] = "CENTER",
-							},
-						}, -- [6]
-						{
-						}, -- [7]
-						{
-						}, -- [8]
-						[10] = {
-						},
-					},
-				},
-				["Stephanna - Argent Dawn"] = {
-					["actionbars"] = {
-						{
-							["padding"] = 6,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 41.75,
-								["x"] = -510,
-								["point"] = "BOTTOM",
-							},
-						}, -- [1]
-						{
-							["enabled"] = false,
-							["version"] = 3,
-							["position"] = {
-								["y"] = -227.499923706055,
-								["x"] = -231.500061035156,
-								["point"] = "CENTER",
-							},
-						}, -- [2]
-						{
-							["rows"] = 12,
-							["padding"] = 5,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 610,
-								["x"] = -82,
-								["point"] = "BOTTOMRIGHT",
-							},
-						}, -- [3]
-						{
-							["rows"] = 12,
-							["padding"] = 5,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 610,
-								["x"] = -42,
-								["point"] = "BOTTOMRIGHT",
-							},
-						}, -- [4]
-						{
-							["padding"] = 6,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 83,
-								["x"] = 3,
-								["point"] = "BOTTOM",
-							},
-						}, -- [5]
-						{
-							["padding"] = 6,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 83,
-								["x"] = -510,
-								["point"] = "BOTTOM",
-							},
-						}, -- [6]
-						{
-						}, -- [7]
-						{
-						}, -- [8]
-						[10] = {
-						},
-					},
-				},
-				["Siluna - Silvermoon"] = {
-					["actionbars"] = {
-						{
-							["rows"] = 2,
-							["version"] = 3,
-							["position"] = {
-								["y"] = -2.99999117851257,
-								["x"] = 391.414825439453,
-								["point"] = "BOTTOMLEFT",
-								["growVertical"] = "UP",
-							},
-						}, -- [1]
-						{
-							["rows"] = 2,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 80.0000152587891,
-								["x"] = -311.58056640625,
-								["point"] = "BOTTOMRIGHT",
-								["growHorizontal"] = "LEFT",
-							},
-						}, -- [2]
-						{
-							["rows"] = 4,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 156.000030517578,
-								["x"] = -318.426391601563,
-								["point"] = "BOTTOMRIGHT",
-							},
-						}, -- [3]
-						{
-							["rows"] = 12,
-							["padding"] = 5,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 139.417175292969,
-								["x"] = -44.0126953125,
-								["point"] = "RIGHT",
-							},
-						}, -- [4]
-						{
-							["enabled"] = false,
-							["padding"] = 6,
-							["version"] = 3,
-							["position"] = {
-								["y"] = -117.777648925781,
-								["x"] = 174.033203125,
-								["point"] = "TOP",
-							},
-						}, -- [5]
-						{
-							["enabled"] = false,
-							["padding"] = 6,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 88.1964111328125,
-								["x"] = 73.402961730957,
-								["point"] = "LEFT",
-							},
-						}, -- [6]
-						{
-						}, -- [7]
-						{
-						}, -- [8]
-						nil, -- [9]
-						{
-						}, -- [10]
-					},
-				},
-				["Kjerstina - Silvermoon"] = {
-					["actionbars"] = {
-						{
-							["padding"] = 6,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 41.75,
-								["x"] = -510,
-								["point"] = "BOTTOM",
-							},
-						}, -- [1]
-						{
-							["enabled"] = false,
-							["version"] = 3,
-							["position"] = {
-								["y"] = -227.499923706055,
-								["x"] = -231.500061035156,
-								["point"] = "CENTER",
-							},
-						}, -- [2]
-						{
-							["padding"] = 5,
-							["rows"] = 12,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 610,
-								["x"] = -82,
-								["point"] = "BOTTOMRIGHT",
-							},
-						}, -- [3]
-						{
-							["padding"] = 5,
-							["rows"] = 12,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 610,
-								["x"] = -42,
-								["point"] = "BOTTOMRIGHT",
-							},
-						}, -- [4]
-						{
-							["padding"] = 6,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 83,
-								["x"] = 3,
-								["point"] = "BOTTOM",
-							},
-						}, -- [5]
-						{
-							["padding"] = 6,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 83,
-								["x"] = -510,
-								["point"] = "BOTTOM",
-							},
-						}, -- [6]
-						{
-						}, -- [7]
-						{
-						}, -- [8]
-						nil, -- [9]
-						{
-						}, -- [10]
-					},
-				},
-				["Lachrymas - Silvermoon"] = {
-					["actionbars"] = {
-						{
-							["padding"] = 6,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 41.75,
-								["x"] = -510,
-								["point"] = "BOTTOM",
-							},
-						}, -- [1]
-						{
-							["enabled"] = false,
-							["version"] = 3,
-							["position"] = {
-								["y"] = -227.499923706055,
-								["x"] = -231.500061035156,
-								["point"] = "CENTER",
-							},
-						}, -- [2]
-						{
-							["rows"] = 12,
-							["padding"] = 5,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 610,
-								["x"] = -82,
-								["point"] = "BOTTOMRIGHT",
-							},
-						}, -- [3]
-						{
-							["rows"] = 12,
-							["padding"] = 5,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 610,
-								["x"] = -42,
-								["point"] = "BOTTOMRIGHT",
-							},
-						}, -- [4]
-						{
-							["padding"] = 6,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 83,
-								["x"] = 3,
-								["point"] = "BOTTOM",
-							},
-						}, -- [5]
-						{
-							["padding"] = 6,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 83,
-								["x"] = -510,
-								["point"] = "BOTTOM",
-							},
-						}, -- [6]
-						{
-						}, -- [7]
-						{
-						}, -- [8]
-						nil, -- [9]
-						{
-						}, -- [10]
-					},
-				},
-				["Myvanna - Silvermoon"] = {
-					["actionbars"] = {
-						{
-							["padding"] = 6,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 41.75,
-								["x"] = -510,
-								["point"] = "BOTTOM",
-							},
-						}, -- [1]
-						{
-							["enabled"] = false,
-							["version"] = 3,
-							["position"] = {
-								["y"] = -227.499923706055,
-								["x"] = -231.500183105469,
-								["point"] = "CENTER",
-							},
-						}, -- [2]
-						{
-							["padding"] = 5,
-							["rows"] = 12,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 610,
-								["x"] = -82,
-								["point"] = "BOTTOMRIGHT",
-							},
-						}, -- [3]
-						{
-							["padding"] = 5,
-							["rows"] = 12,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 610,
-								["x"] = -42,
-								["point"] = "BOTTOMRIGHT",
-							},
-						}, -- [4]
-						{
-							["padding"] = 6,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 83,
-								["x"] = 3,
-								["point"] = "BOTTOM",
-							},
-						}, -- [5]
-						{
-							["padding"] = 6,
-							["version"] = 3,
-							["position"] = {
-								["y"] = 83,
-								["x"] = -510,
-								["point"] = "BOTTOM",
-							},
-						}, -- [6]
-						{
-						}, -- [7]
-						{
-						}, -- [8]
-						[10] = {
-						},
-					},
-				},
-				["Spinhoof - Ragnaros"] = {
 					["actionbars"] = {
 						{
 							["padding"] = 6,
@@ -769,8 +304,8 @@ Bartender4DB = {
 							},
 						}, -- [2]
 						{
-							["rows"] = 12,
 							["padding"] = 5,
+							["rows"] = 12,
 							["version"] = 3,
 							["position"] = {
 								["y"] = 610,
@@ -779,8 +314,8 @@ Bartender4DB = {
 							},
 						}, -- [3]
 						{
-							["rows"] = 12,
 							["padding"] = 5,
+							["rows"] = 12,
 							["version"] = 3,
 							["position"] = {
 								["y"] = 610,
@@ -815,7 +350,7 @@ Bartender4DB = {
 						}, -- [10]
 					},
 				},
-				["Thagmarr - Silvermoon"] = {
+				["Stephanna - Argent Dawn"] = {
 					["actionbars"] = {
 						{
 							["padding"] = 6,
@@ -870,6 +405,471 @@ Bartender4DB = {
 							["position"] = {
 								["y"] = 83,
 								["x"] = -510,
+								["point"] = "BOTTOM",
+							},
+						}, -- [6]
+						{
+						}, -- [7]
+						{
+						}, -- [8]
+						[10] = {
+						},
+					},
+				},
+				["Siluna - Silvermoon"] = {
+					["actionbars"] = {
+						{
+							["rows"] = 2,
+							["version"] = 3,
+							["position"] = {
+								["y"] = -2.99999117851257,
+								["x"] = 391.414825439453,
+								["point"] = "BOTTOMLEFT",
+								["growVertical"] = "UP",
+							},
+						}, -- [1]
+						{
+							["rows"] = 2,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 80.0000152587891,
+								["x"] = -311.58056640625,
+								["point"] = "BOTTOMRIGHT",
+								["growHorizontal"] = "LEFT",
+							},
+						}, -- [2]
+						{
+							["rows"] = 4,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 156.000030517578,
+								["x"] = -318.426391601563,
+								["point"] = "BOTTOMRIGHT",
+							},
+						}, -- [3]
+						{
+							["padding"] = 5,
+							["rows"] = 12,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 139.417175292969,
+								["x"] = -44.0126953125,
+								["point"] = "RIGHT",
+							},
+						}, -- [4]
+						{
+							["enabled"] = false,
+							["padding"] = 6,
+							["version"] = 3,
+							["position"] = {
+								["y"] = -117.777648925781,
+								["x"] = 174.033203125,
+								["point"] = "TOP",
+							},
+						}, -- [5]
+						{
+							["enabled"] = false,
+							["padding"] = 6,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 88.1964111328125,
+								["x"] = 73.402961730957,
+								["point"] = "LEFT",
+							},
+						}, -- [6]
+						{
+						}, -- [7]
+						{
+						}, -- [8]
+						nil, -- [9]
+						{
+						}, -- [10]
+					},
+				},
+				["Spinhoof - Ragnaros"] = {
+					["actionbars"] = {
+						{
+							["padding"] = 6,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 41.75,
+								["x"] = -510,
+								["point"] = "BOTTOM",
+							},
+						}, -- [1]
+						{
+							["enabled"] = false,
+							["version"] = 3,
+							["position"] = {
+								["y"] = -227.499923706055,
+								["x"] = -231.500183105469,
+								["point"] = "CENTER",
+							},
+						}, -- [2]
+						{
+							["padding"] = 5,
+							["rows"] = 12,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 610,
+								["x"] = -82,
+								["point"] = "BOTTOMRIGHT",
+							},
+						}, -- [3]
+						{
+							["padding"] = 5,
+							["rows"] = 12,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 610,
+								["x"] = -42,
+								["point"] = "BOTTOMRIGHT",
+							},
+						}, -- [4]
+						{
+							["padding"] = 6,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 83,
+								["x"] = 3,
+								["point"] = "BOTTOM",
+							},
+						}, -- [5]
+						{
+							["padding"] = 6,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 83,
+								["x"] = -510,
+								["point"] = "BOTTOM",
+							},
+						}, -- [6]
+						{
+						}, -- [7]
+						{
+						}, -- [8]
+						[10] = {
+						},
+					},
+				},
+				["Lachrymas - Silvermoon"] = {
+					["actionbars"] = {
+						{
+							["padding"] = 6,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 41.75,
+								["x"] = -510,
+								["point"] = "BOTTOM",
+							},
+						}, -- [1]
+						{
+							["enabled"] = false,
+							["version"] = 3,
+							["position"] = {
+								["y"] = -227.499923706055,
+								["x"] = -231.500061035156,
+								["point"] = "CENTER",
+							},
+						}, -- [2]
+						{
+							["padding"] = 5,
+							["rows"] = 12,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 610,
+								["x"] = -82,
+								["point"] = "BOTTOMRIGHT",
+							},
+						}, -- [3]
+						{
+							["padding"] = 5,
+							["rows"] = 12,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 610,
+								["x"] = -42,
+								["point"] = "BOTTOMRIGHT",
+							},
+						}, -- [4]
+						{
+							["padding"] = 6,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 83,
+								["x"] = 3,
+								["point"] = "BOTTOM",
+							},
+						}, -- [5]
+						{
+							["padding"] = 6,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 83,
+								["x"] = -510,
+								["point"] = "BOTTOM",
+							},
+						}, -- [6]
+						{
+						}, -- [7]
+						{
+						}, -- [8]
+						nil, -- [9]
+						{
+						}, -- [10]
+					},
+				},
+				["Myvanna - Silvermoon"] = {
+					["actionbars"] = {
+						{
+							["padding"] = 6,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 41.75,
+								["x"] = -510,
+								["point"] = "BOTTOM",
+							},
+						}, -- [1]
+						{
+							["enabled"] = false,
+							["version"] = 3,
+							["position"] = {
+								["y"] = -227.499923706055,
+								["x"] = -231.500183105469,
+								["point"] = "CENTER",
+							},
+						}, -- [2]
+						{
+							["rows"] = 12,
+							["padding"] = 5,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 610,
+								["x"] = -82,
+								["point"] = "BOTTOMRIGHT",
+							},
+						}, -- [3]
+						{
+							["rows"] = 12,
+							["padding"] = 5,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 610,
+								["x"] = -42,
+								["point"] = "BOTTOMRIGHT",
+							},
+						}, -- [4]
+						{
+							["padding"] = 6,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 83,
+								["x"] = 3,
+								["point"] = "BOTTOM",
+							},
+						}, -- [5]
+						{
+							["padding"] = 6,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 83,
+								["x"] = -510,
+								["point"] = "BOTTOM",
+							},
+						}, -- [6]
+						{
+						}, -- [7]
+						{
+						}, -- [8]
+						[10] = {
+						},
+					},
+				},
+				["Kjerstina - Silvermoon"] = {
+					["actionbars"] = {
+						{
+							["padding"] = 6,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 41.75,
+								["x"] = -510,
+								["point"] = "BOTTOM",
+							},
+						}, -- [1]
+						{
+							["enabled"] = false,
+							["version"] = 3,
+							["position"] = {
+								["y"] = -227.499923706055,
+								["x"] = -231.500061035156,
+								["point"] = "CENTER",
+							},
+						}, -- [2]
+						{
+							["rows"] = 12,
+							["padding"] = 5,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 610,
+								["x"] = -82,
+								["point"] = "BOTTOMRIGHT",
+							},
+						}, -- [3]
+						{
+							["rows"] = 12,
+							["padding"] = 5,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 610,
+								["x"] = -42,
+								["point"] = "BOTTOMRIGHT",
+							},
+						}, -- [4]
+						{
+							["padding"] = 6,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 83,
+								["x"] = 3,
+								["point"] = "BOTTOM",
+							},
+						}, -- [5]
+						{
+							["padding"] = 6,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 83,
+								["x"] = -510,
+								["point"] = "BOTTOM",
+							},
+						}, -- [6]
+						{
+						}, -- [7]
+						{
+						}, -- [8]
+						nil, -- [9]
+						{
+						}, -- [10]
+					},
+				},
+				["Linela - Silvermoon"] = {
+					["actionbars"] = {
+						{
+							["version"] = 3,
+							["position"] = {
+								["y"] = -227.499923706055,
+								["x"] = -231.500061035156,
+								["point"] = "CENTER",
+							},
+						}, -- [1]
+						{
+							["version"] = 3,
+							["position"] = {
+								["y"] = -227.499923706055,
+								["x"] = -231.500061035156,
+								["point"] = "CENTER",
+							},
+						}, -- [2]
+						{
+							["version"] = 3,
+							["position"] = {
+								["y"] = -227.499923706055,
+								["x"] = -231.500061035156,
+								["point"] = "CENTER",
+							},
+						}, -- [3]
+						{
+							["version"] = 3,
+							["position"] = {
+								["y"] = -227.499923706055,
+								["x"] = -231.500061035156,
+								["point"] = "CENTER",
+							},
+						}, -- [4]
+						{
+							["version"] = 3,
+							["position"] = {
+								["y"] = -227.499923706055,
+								["x"] = -231.500061035156,
+								["point"] = "CENTER",
+							},
+						}, -- [5]
+						{
+							["version"] = 3,
+							["position"] = {
+								["y"] = -227.499923706055,
+								["x"] = -231.500061035156,
+								["point"] = "CENTER",
+							},
+						}, -- [6]
+						{
+						}, -- [7]
+						{
+						}, -- [8]
+						[10] = {
+						},
+					},
+				},
+				["Flaville - Silvermoon"] = {
+					["actionbars"] = {
+						{
+							["padding"] = 5,
+							["rows"] = 2,
+							["version"] = 3,
+							["position"] = {
+								["y"] = -1.5000022649765,
+								["x"] = 496.777893066406,
+								["point"] = "BOTTOMLEFT",
+								["growVertical"] = "UP",
+							},
+						}, -- [1]
+						{
+							["padding"] = 5,
+							["rows"] = 2,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 84.5000076293945,
+								["x"] = -19.31640625,
+								["point"] = "BOTTOM",
+								["growHorizontal"] = "LEFT",
+							},
+						}, -- [2]
+						{
+							["padding"] = 5,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 82.8797988891602,
+								["x"] = -16.0001220703125,
+								["point"] = "BOTTOM",
+							},
+						}, -- [3]
+						{
+							["enabled"] = false,
+							["padding"] = 5,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 167.749984741211,
+								["x"] = -510.000122070313,
+								["point"] = "BOTTOM",
+							},
+						}, -- [4]
+						{
+							["enabled"] = false,
+							["padding"] = 5,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 210.75,
+								["x"] = -510.000122070313,
+								["point"] = "BOTTOM",
+							},
+						}, -- [5]
+						{
+							["enabled"] = false,
+							["padding"] = 6,
+							["version"] = 3,
+							["position"] = {
+								["y"] = 254.749984741211,
+								["x"] = -521.000061035156,
 								["point"] = "BOTTOM",
 							},
 						}, -- [6]
@@ -958,6 +958,14 @@ Bartender4DB = {
 		},
 		["ExtraActionBar"] = {
 			["profiles"] = {
+				["Simroth - Silvermoon"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 223.000015258789,
+						["x"] = -31.5000610351563,
+						["point"] = "BOTTOM",
+					},
+				},
 				["Alyara - Silvermoon"] = {
 					["version"] = 3,
 					["position"] = {
@@ -966,11 +974,11 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
-				["Simroth - Silvermoon"] = {
+				["Thagmarr - Silvermoon"] = {
 					["version"] = 3,
 					["position"] = {
-						["y"] = 223.000015258789,
-						["x"] = -31.5000610351563,
+						["y"] = 222.999984741211,
+						["x"] = -31.4999389648438,
 						["point"] = "BOTTOM",
 					},
 				},
@@ -982,15 +990,7 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
-				["Flaville - Silvermoon"] = {
-					["version"] = 3,
-					["position"] = {
-						["y"] = 222.999984741211,
-						["x"] = -31.4999389648438,
-						["point"] = "BOTTOM",
-					},
-				},
-				["Linela - Silvermoon"] = {
+				["Tenderbreeze - Silvermoon"] = {
 					["version"] = 3,
 					["position"] = {
 						["y"] = 222.999984741211,
@@ -1014,11 +1014,11 @@ Bartender4DB = {
 						["point"] = "CENTER",
 					},
 				},
-				["Kjerstina - Silvermoon"] = {
+				["Spinhoof - Ragnaros"] = {
 					["version"] = 3,
 					["position"] = {
-						["y"] = 222.999984741211,
-						["x"] = -31.4999389648438,
+						["y"] = 223.000015258789,
+						["x"] = -31.5000610351563,
 						["point"] = "BOTTOM",
 					},
 				},
@@ -1038,15 +1038,7 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
-				["Spinhoof - Ragnaros"] = {
-					["version"] = 3,
-					["position"] = {
-						["y"] = 223.000015258789,
-						["x"] = -31.5000610351563,
-						["point"] = "BOTTOM",
-					},
-				},
-				["Tenderbreeze - Silvermoon"] = {
+				["Kjerstina - Silvermoon"] = {
 					["version"] = 3,
 					["position"] = {
 						["y"] = 222.999984741211,
@@ -1054,7 +1046,15 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
-				["Thagmarr - Silvermoon"] = {
+				["Linela - Silvermoon"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 222.999984741211,
+						["x"] = -31.4999389648438,
+						["point"] = "BOTTOM",
+					},
+				},
+				["Flaville - Silvermoon"] = {
 					["version"] = 3,
 					["position"] = {
 						["y"] = 222.999984741211,
@@ -1067,143 +1067,6 @@ Bartender4DB = {
 						["y"] = 31.5001220703125,
 						["x"] = 306.702392578125,
 						["point"] = "CENTER",
-					},
-					["version"] = 3,
-				},
-			},
-		},
-		["MicroMenu"] = {
-			["profiles"] = {
-				["Alyara - Silvermoon"] = {
-					["padding"] = -2,
-					["version"] = 3,
-					["position"] = {
-						["y"] = 41.75,
-						["x"] = 37.5,
-						["point"] = "BOTTOM",
-						["scale"] = 1,
-					},
-				},
-				["Simroth - Silvermoon"] = {
-					["version"] = 3,
-					["position"] = {
-						["y"] = 41.75,
-						["x"] = 37.5,
-						["point"] = "BOTTOM",
-						["scale"] = 1,
-					},
-				},
-				["Erdanii - Silvermoon"] = {
-					["version"] = 3,
-					["position"] = {
-						["scale"] = 1,
-						["x"] = 37.5,
-						["point"] = "BOTTOM",
-						["y"] = 41.75,
-					},
-				},
-				["Flaville - Silvermoon"] = {
-					["padding"] = -2,
-					["version"] = 3,
-					["position"] = {
-						["y"] = 41.0000076293945,
-						["x"] = 182.701965332031,
-						["point"] = "BOTTOM",
-						["scale"] = 1,
-					},
-				},
-				["Linela - Silvermoon"] = {
-					["version"] = 3,
-					["position"] = {
-						["scale"] = 0.800000011920929,
-						["x"] = -198.79981641387,
-						["point"] = "CENTER",
-						["y"] = 42.4001681263653,
-					},
-				},
-				["Stephanna - Argent Dawn"] = {
-					["padding"] = -2,
-					["version"] = 3,
-					["position"] = {
-						["scale"] = 1,
-						["x"] = 37.5,
-						["point"] = "BOTTOM",
-						["y"] = 41.75,
-					},
-				},
-				["Siluna - Silvermoon"] = {
-					["version"] = 3,
-					["position"] = {
-						["y"] = 40.5000038146973,
-						["x"] = -5.50000143051147,
-						["point"] = "BOTTOMLEFT",
-						["scale"] = 1,
-					},
-				},
-				["Kjerstina - Silvermoon"] = {
-					["padding"] = -2,
-					["version"] = 3,
-					["position"] = {
-						["y"] = 41.75,
-						["x"] = 37.5,
-						["point"] = "BOTTOM",
-						["scale"] = 1,
-					},
-				},
-				["Lachrymas - Silvermoon"] = {
-					["padding"] = -2,
-					["version"] = 3,
-					["position"] = {
-						["y"] = 41.75,
-						["x"] = 37.5,
-						["point"] = "BOTTOM",
-						["scale"] = 1,
-					},
-				},
-				["Myvanna - Silvermoon"] = {
-					["version"] = 3,
-					["position"] = {
-						["scale"] = 1,
-						["x"] = 37.5,
-						["point"] = "BOTTOM",
-						["y"] = 41.75,
-					},
-				},
-				["Spinhoof - Ragnaros"] = {
-					["version"] = 3,
-					["position"] = {
-						["scale"] = 1,
-						["x"] = 37.5,
-						["point"] = "BOTTOM",
-						["y"] = 41.75,
-					},
-				},
-				["Tenderbreeze - Silvermoon"] = {
-					["padding"] = -2,
-					["version"] = 3,
-					["position"] = {
-						["y"] = 41.75,
-						["x"] = 37.5,
-						["point"] = "BOTTOM",
-						["scale"] = 1,
-					},
-				},
-				["Thagmarr - Silvermoon"] = {
-					["padding"] = -2,
-					["version"] = 3,
-					["position"] = {
-						["y"] = 41.75,
-						["x"] = 37.5,
-						["point"] = "BOTTOM",
-						["scale"] = 1,
-					},
-				},
-				["Qsilver - Silvermoon"] = {
-					["position"] = {
-						["y"] = 40.5000038146973,
-						["x"] = -5.50000143051147,
-						["point"] = "BOTTOMLEFT",
-						["scale"] = 1,
 					},
 					["version"] = 3,
 				},
@@ -1235,6 +1098,14 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
+				["Qsilver - Silvermoon"] = {
+					["position"] = {
+						["y"] = 222.999984741211,
+						["x"] = -31.4999389648438,
+						["point"] = "BOTTOM",
+					},
+					["version"] = 3,
+				},
 				["Stephanna - Argent Dawn"] = {
 					["version"] = 3,
 					["position"] = {
@@ -1243,11 +1114,140 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
+			},
+		},
+		["MicroMenu"] = {
+			["profiles"] = {
+				["Simroth - Silvermoon"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 41.75,
+						["x"] = 37.5,
+						["point"] = "BOTTOM",
+						["scale"] = 1,
+					},
+				},
+				["Alyara - Silvermoon"] = {
+					["padding"] = -2,
+					["version"] = 3,
+					["position"] = {
+						["y"] = 41.75,
+						["x"] = 37.5,
+						["point"] = "BOTTOM",
+						["scale"] = 1,
+					},
+				},
+				["Thagmarr - Silvermoon"] = {
+					["padding"] = -2,
+					["version"] = 3,
+					["position"] = {
+						["y"] = 41.75,
+						["x"] = 37.5,
+						["point"] = "BOTTOM",
+						["scale"] = 1,
+					},
+				},
+				["Erdanii - Silvermoon"] = {
+					["version"] = 3,
+					["position"] = {
+						["scale"] = 1,
+						["x"] = 37.5,
+						["point"] = "BOTTOM",
+						["y"] = 41.75,
+					},
+				},
+				["Tenderbreeze - Silvermoon"] = {
+					["padding"] = -2,
+					["version"] = 3,
+					["position"] = {
+						["y"] = 41.75,
+						["x"] = 37.5,
+						["point"] = "BOTTOM",
+						["scale"] = 1,
+					},
+				},
+				["Stephanna - Argent Dawn"] = {
+					["padding"] = -2,
+					["version"] = 3,
+					["position"] = {
+						["scale"] = 1,
+						["x"] = 37.5,
+						["point"] = "BOTTOM",
+						["y"] = 41.75,
+					},
+				},
+				["Siluna - Silvermoon"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 40.5000038146973,
+						["x"] = -5.50000143051147,
+						["point"] = "BOTTOMLEFT",
+						["scale"] = 1,
+					},
+				},
+				["Spinhoof - Ragnaros"] = {
+					["version"] = 3,
+					["position"] = {
+						["scale"] = 1,
+						["x"] = 37.5,
+						["point"] = "BOTTOM",
+						["y"] = 41.75,
+					},
+				},
+				["Lachrymas - Silvermoon"] = {
+					["padding"] = -2,
+					["version"] = 3,
+					["position"] = {
+						["y"] = 41.75,
+						["x"] = 37.5,
+						["point"] = "BOTTOM",
+						["scale"] = 1,
+					},
+				},
+				["Myvanna - Silvermoon"] = {
+					["version"] = 3,
+					["position"] = {
+						["scale"] = 1,
+						["x"] = 37.5,
+						["point"] = "BOTTOM",
+						["y"] = 41.75,
+					},
+				},
+				["Kjerstina - Silvermoon"] = {
+					["padding"] = -2,
+					["version"] = 3,
+					["position"] = {
+						["y"] = 41.75,
+						["x"] = 37.5,
+						["point"] = "BOTTOM",
+						["scale"] = 1,
+					},
+				},
+				["Linela - Silvermoon"] = {
+					["version"] = 3,
+					["position"] = {
+						["scale"] = 0.800000011920929,
+						["x"] = -198.79981641387,
+						["point"] = "CENTER",
+						["y"] = 42.4001681263653,
+					},
+				},
+				["Flaville - Silvermoon"] = {
+					["padding"] = -2,
+					["version"] = 3,
+					["position"] = {
+						["y"] = 41.0000076293945,
+						["x"] = 182.701965332031,
+						["point"] = "BOTTOM",
+						["scale"] = 1,
+					},
+				},
 				["Qsilver - Silvermoon"] = {
 					["position"] = {
-						["y"] = 222.999984741211,
-						["x"] = -31.4999389648438,
-						["point"] = "BOTTOM",
+						["y"] = 40.5000038146973,
+						["x"] = -5.50000143051147,
+						["point"] = "BOTTOMLEFT",
+						["scale"] = 1,
 					},
 					["version"] = 3,
 				},
@@ -1323,7 +1323,8 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
-				["Flaville - Silvermoon"] = {
+				["Tenderbreeze - Silvermoon"] = {
+					["enabled"] = true,
 					["version"] = 3,
 					["position"] = {
 						["y"] = 47,
@@ -1349,8 +1350,8 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
-				["Siluna - Silvermoon"] = {
-					["artLayout"] = "TWOBAR",
+				["Spinhoof - Ragnaros"] = {
+					["enabled"] = true,
 					["version"] = 3,
 					["position"] = {
 						["y"] = 47,
@@ -1385,17 +1386,16 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
-				["Spinhoof - Ragnaros"] = {
-					["enabled"] = true,
-					["version"] = 3,
+				["Siluna - Silvermoon"] = {
 					["position"] = {
 						["y"] = 47,
 						["x"] = -512,
 						["point"] = "BOTTOM",
 					},
+					["version"] = 3,
+					["artLayout"] = "TWOBAR",
 				},
-				["Tenderbreeze - Silvermoon"] = {
-					["enabled"] = true,
+				["Flaville - Silvermoon"] = {
 					["version"] = 3,
 					["position"] = {
 						["y"] = 47,
@@ -1414,8 +1414,252 @@ Bartender4DB = {
 				},
 			},
 		},
+		["Vehicle"] = {
+			["profiles"] = {
+				["Simroth - Silvermoon"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 47.5000305175781,
+						["x"] = 99.5,
+						["point"] = "CENTER",
+					},
+				},
+				["Alyara - Silvermoon"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 47.5001220703125,
+						["x"] = 99.4998779296875,
+						["point"] = "CENTER",
+					},
+				},
+				["Thagmarr - Silvermoon"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 47.5001220703125,
+						["x"] = 99.4998779296875,
+						["point"] = "CENTER",
+					},
+				},
+				["Erdanii - Silvermoon"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 47.5000305175781,
+						["x"] = 99.5,
+						["point"] = "CENTER",
+					},
+				},
+				["Tenderbreeze - Silvermoon"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 47.5001220703125,
+						["x"] = 99.4998779296875,
+						["point"] = "CENTER",
+					},
+				},
+				["Stephanna - Argent Dawn"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 47.5001220703125,
+						["x"] = 99.4998779296875,
+						["point"] = "CENTER",
+					},
+				},
+				["Siluna - Silvermoon"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 168.177337646484,
+						["x"] = 218.430908203125,
+						["point"] = "BOTTOM",
+					},
+				},
+				["Spinhoof - Ragnaros"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 47.5000305175781,
+						["x"] = 99.5,
+						["point"] = "CENTER",
+					},
+				},
+				["Lachrymas - Silvermoon"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 47.5001220703125,
+						["x"] = 99.4998779296875,
+						["point"] = "CENTER",
+					},
+				},
+				["Myvanna - Silvermoon"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 47.5000305175781,
+						["x"] = 99.5,
+						["point"] = "CENTER",
+					},
+				},
+				["Kjerstina - Silvermoon"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 47.5001220703125,
+						["x"] = 99.4998779296875,
+						["point"] = "CENTER",
+					},
+				},
+				["Linela - Silvermoon"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 47.5001220703125,
+						["x"] = 99.4998779296875,
+						["point"] = "CENTER",
+					},
+				},
+				["Flaville - Silvermoon"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 38.0000114440918,
+						["x"] = -5.4649658203125,
+						["point"] = "BOTTOM",
+					},
+				},
+				["Qsilver - Silvermoon"] = {
+					["position"] = {
+						["y"] = 168.177337646484,
+						["x"] = 218.430908203125,
+						["point"] = "BOTTOM",
+					},
+					["version"] = 3,
+				},
+			},
+		},
+		["BagBar"] = {
+			["profiles"] = {
+				["Simroth - Silvermoon"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 38.5,
+						["x"] = 345,
+						["point"] = "BOTTOM",
+					},
+				},
+				["Alyara - Silvermoon"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 38.5,
+						["x"] = 345,
+						["point"] = "BOTTOM",
+					},
+				},
+				["Thagmarr - Silvermoon"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 38.5,
+						["x"] = 345,
+						["point"] = "BOTTOM",
+					},
+				},
+				["Erdanii - Silvermoon"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 38.5,
+						["x"] = 345,
+						["point"] = "BOTTOM",
+					},
+				},
+				["Tenderbreeze - Silvermoon"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 38.5,
+						["x"] = 345,
+						["point"] = "BOTTOM",
+					},
+				},
+				["Stephanna - Argent Dawn"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 38.5,
+						["x"] = 345,
+						["point"] = "BOTTOM",
+					},
+				},
+				["Siluna - Silvermoon"] = {
+					["enabled"] = false,
+					["version"] = 3,
+					["position"] = {
+						["y"] = 174.211059570313,
+						["x"] = 453.233276367188,
+						["point"] = "CENTER",
+					},
+				},
+				["Spinhoof - Ragnaros"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 38.5,
+						["x"] = 345,
+						["point"] = "BOTTOM",
+					},
+				},
+				["Lachrymas - Silvermoon"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 38.5,
+						["x"] = 345,
+						["point"] = "BOTTOM",
+					},
+				},
+				["Myvanna - Silvermoon"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 38.5,
+						["x"] = 345,
+						["point"] = "BOTTOM",
+					},
+				},
+				["Kjerstina - Silvermoon"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 38.5,
+						["x"] = 345,
+						["point"] = "BOTTOM",
+					},
+				},
+				["Linela - Silvermoon"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 1.5001220703125,
+						["x"] = 58.5001831054688,
+						["point"] = "CENTER",
+					},
+				},
+				["Flaville - Silvermoon"] = {
+					["enabled"] = false,
+					["version"] = 3,
+					["position"] = {
+						["y"] = 38.5,
+						["x"] = 345,
+						["point"] = "BOTTOM",
+					},
+				},
+				["Qsilver - Silvermoon"] = {
+					["enabled"] = false,
+					["version"] = 3,
+					["position"] = {
+						["y"] = 174.211059570313,
+						["x"] = 453.233276367188,
+						["point"] = "CENTER",
+					},
+				},
+			},
+		},
 		["StanceBar"] = {
 			["profiles"] = {
+				["Simroth - Silvermoon"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 116,
+						["x"] = -460,
+						["point"] = "BOTTOM",
+						["scale"] = 1,
+					},
+				},
 				["Alyara - Silvermoon"] = {
 					["version"] = 3,
 					["position"] = {
@@ -1424,7 +1668,7 @@ Bartender4DB = {
 						["point"] = "CENTER",
 					},
 				},
-				["Simroth - Silvermoon"] = {
+				["Thagmarr - Silvermoon"] = {
 					["version"] = 3,
 					["position"] = {
 						["y"] = 116,
@@ -1441,19 +1685,11 @@ Bartender4DB = {
 						["point"] = "CENTER",
 					},
 				},
-				["Flaville - Silvermoon"] = {
+				["Tenderbreeze - Silvermoon"] = {
 					["version"] = 3,
 					["position"] = {
 						["y"] = -14.9999847412109,
 						["x"] = -82.5000305175781,
-						["point"] = "CENTER",
-					},
-				},
-				["Linela - Silvermoon"] = {
-					["version"] = 3,
-					["position"] = {
-						["y"] = 14.2500610351563,
-						["x"] = -159.750030517578,
 						["point"] = "CENTER",
 					},
 				},
@@ -1474,12 +1710,13 @@ Bartender4DB = {
 						["scale"] = 1.20000004768372,
 					},
 				},
-				["Kjerstina - Silvermoon"] = {
+				["Spinhoof - Ragnaros"] = {
 					["version"] = 3,
 					["position"] = {
-						["y"] = -14.9999847412109,
-						["x"] = -82.5000305175781,
-						["point"] = "CENTER",
+						["scale"] = 1,
+						["x"] = -460,
+						["point"] = "BOTTOM",
+						["y"] = 116,
 					},
 				},
 				["Lachrymas - Silvermoon"] = {
@@ -1499,16 +1736,7 @@ Bartender4DB = {
 						["y"] = 116,
 					},
 				},
-				["Spinhoof - Ragnaros"] = {
-					["version"] = 3,
-					["position"] = {
-						["scale"] = 1,
-						["x"] = -460,
-						["point"] = "BOTTOM",
-						["y"] = 116,
-					},
-				},
-				["Tenderbreeze - Silvermoon"] = {
+				["Kjerstina - Silvermoon"] = {
 					["version"] = 3,
 					["position"] = {
 						["y"] = -14.9999847412109,
@@ -1516,13 +1744,20 @@ Bartender4DB = {
 						["point"] = "CENTER",
 					},
 				},
-				["Thagmarr - Silvermoon"] = {
+				["Linela - Silvermoon"] = {
 					["version"] = 3,
 					["position"] = {
-						["y"] = 116,
-						["x"] = -460,
-						["point"] = "BOTTOM",
-						["scale"] = 1,
+						["y"] = 14.2500610351563,
+						["x"] = -159.750030517578,
+						["point"] = "CENTER",
+					},
+				},
+				["Flaville - Silvermoon"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = -14.9999847412109,
+						["x"] = -82.5000305175781,
+						["point"] = "CENTER",
 					},
 				},
 				["Qsilver - Silvermoon"] = {
@@ -1536,243 +1771,16 @@ Bartender4DB = {
 				},
 			},
 		},
-		["BagBar"] = {
-			["profiles"] = {
-				["Alyara - Silvermoon"] = {
-					["version"] = 3,
-					["position"] = {
-						["y"] = 38.5,
-						["x"] = 345,
-						["point"] = "BOTTOM",
-					},
-				},
-				["Simroth - Silvermoon"] = {
-					["version"] = 3,
-					["position"] = {
-						["y"] = 38.5,
-						["x"] = 345,
-						["point"] = "BOTTOM",
-					},
-				},
-				["Erdanii - Silvermoon"] = {
-					["version"] = 3,
-					["position"] = {
-						["y"] = 38.5,
-						["x"] = 345,
-						["point"] = "BOTTOM",
-					},
-				},
-				["Flaville - Silvermoon"] = {
-					["enabled"] = false,
-					["version"] = 3,
-					["position"] = {
-						["y"] = 38.5,
-						["x"] = 345,
-						["point"] = "BOTTOM",
-					},
-				},
-				["Linela - Silvermoon"] = {
-					["version"] = 3,
-					["position"] = {
-						["y"] = 1.5001220703125,
-						["x"] = 58.5001831054688,
-						["point"] = "CENTER",
-					},
-				},
-				["Stephanna - Argent Dawn"] = {
-					["version"] = 3,
-					["position"] = {
-						["y"] = 38.5,
-						["x"] = 345,
-						["point"] = "BOTTOM",
-					},
-				},
-				["Siluna - Silvermoon"] = {
-					["enabled"] = false,
-					["version"] = 3,
-					["position"] = {
-						["y"] = 174.211059570313,
-						["x"] = 453.233276367188,
-						["point"] = "CENTER",
-					},
-				},
-				["Kjerstina - Silvermoon"] = {
-					["version"] = 3,
-					["position"] = {
-						["y"] = 38.5,
-						["x"] = 345,
-						["point"] = "BOTTOM",
-					},
-				},
-				["Lachrymas - Silvermoon"] = {
-					["version"] = 3,
-					["position"] = {
-						["y"] = 38.5,
-						["x"] = 345,
-						["point"] = "BOTTOM",
-					},
-				},
-				["Myvanna - Silvermoon"] = {
-					["version"] = 3,
-					["position"] = {
-						["y"] = 38.5,
-						["x"] = 345,
-						["point"] = "BOTTOM",
-					},
-				},
-				["Spinhoof - Ragnaros"] = {
-					["version"] = 3,
-					["position"] = {
-						["y"] = 38.5,
-						["x"] = 345,
-						["point"] = "BOTTOM",
-					},
-				},
-				["Tenderbreeze - Silvermoon"] = {
-					["version"] = 3,
-					["position"] = {
-						["y"] = 38.5,
-						["x"] = 345,
-						["point"] = "BOTTOM",
-					},
-				},
-				["Thagmarr - Silvermoon"] = {
-					["version"] = 3,
-					["position"] = {
-						["y"] = 38.5,
-						["x"] = 345,
-						["point"] = "BOTTOM",
-					},
-				},
-				["Qsilver - Silvermoon"] = {
-					["enabled"] = false,
-					["version"] = 3,
-					["position"] = {
-						["y"] = 174.211059570313,
-						["x"] = 453.233276367188,
-						["point"] = "CENTER",
-					},
-				},
-			},
-		},
-		["Vehicle"] = {
-			["profiles"] = {
-				["Alyara - Silvermoon"] = {
-					["version"] = 3,
-					["position"] = {
-						["y"] = 47.5001220703125,
-						["x"] = 99.4998779296875,
-						["point"] = "CENTER",
-					},
-				},
-				["Simroth - Silvermoon"] = {
-					["version"] = 3,
-					["position"] = {
-						["y"] = 47.5000305175781,
-						["x"] = 99.5,
-						["point"] = "CENTER",
-					},
-				},
-				["Erdanii - Silvermoon"] = {
-					["version"] = 3,
-					["position"] = {
-						["y"] = 47.5000305175781,
-						["x"] = 99.5,
-						["point"] = "CENTER",
-					},
-				},
-				["Flaville - Silvermoon"] = {
-					["version"] = 3,
-					["position"] = {
-						["y"] = 38.0000114440918,
-						["x"] = -5.4649658203125,
-						["point"] = "BOTTOM",
-					},
-				},
-				["Linela - Silvermoon"] = {
-					["version"] = 3,
-					["position"] = {
-						["y"] = 47.5001220703125,
-						["x"] = 99.4998779296875,
-						["point"] = "CENTER",
-					},
-				},
-				["Stephanna - Argent Dawn"] = {
-					["version"] = 3,
-					["position"] = {
-						["y"] = 47.5001220703125,
-						["x"] = 99.4998779296875,
-						["point"] = "CENTER",
-					},
-				},
-				["Siluna - Silvermoon"] = {
-					["version"] = 3,
-					["position"] = {
-						["y"] = 168.177337646484,
-						["x"] = 218.430908203125,
-						["point"] = "BOTTOM",
-					},
-				},
-				["Kjerstina - Silvermoon"] = {
-					["version"] = 3,
-					["position"] = {
-						["y"] = 47.5001220703125,
-						["x"] = 99.4998779296875,
-						["point"] = "CENTER",
-					},
-				},
-				["Lachrymas - Silvermoon"] = {
-					["version"] = 3,
-					["position"] = {
-						["y"] = 47.5001220703125,
-						["x"] = 99.4998779296875,
-						["point"] = "CENTER",
-					},
-				},
-				["Myvanna - Silvermoon"] = {
-					["version"] = 3,
-					["position"] = {
-						["y"] = 47.5000305175781,
-						["x"] = 99.5,
-						["point"] = "CENTER",
-					},
-				},
-				["Spinhoof - Ragnaros"] = {
-					["version"] = 3,
-					["position"] = {
-						["y"] = 47.5000305175781,
-						["x"] = 99.5,
-						["point"] = "CENTER",
-					},
-				},
-				["Tenderbreeze - Silvermoon"] = {
-					["version"] = 3,
-					["position"] = {
-						["y"] = 47.5001220703125,
-						["x"] = 99.4998779296875,
-						["point"] = "CENTER",
-					},
-				},
-				["Thagmarr - Silvermoon"] = {
-					["version"] = 3,
-					["position"] = {
-						["y"] = 47.5001220703125,
-						["x"] = 99.4998779296875,
-						["point"] = "CENTER",
-					},
-				},
-				["Qsilver - Silvermoon"] = {
-					["position"] = {
-						["y"] = 168.177337646484,
-						["x"] = 218.430908203125,
-						["point"] = "BOTTOM",
-					},
-					["version"] = 3,
-				},
-			},
-		},
 		["PetBar"] = {
 			["profiles"] = {
+				["Simroth - Silvermoon"] = {
+					["version"] = 3,
+					["position"] = {
+						["y"] = 116,
+						["x"] = -120,
+						["point"] = "BOTTOM",
+					},
+				},
 				["Alyara - Silvermoon"] = {
 					["version"] = 3,
 					["position"] = {
@@ -1781,7 +1789,7 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
-				["Simroth - Silvermoon"] = {
+				["Thagmarr - Silvermoon"] = {
 					["version"] = 3,
 					["position"] = {
 						["y"] = 116,
@@ -1797,21 +1805,12 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
-				["Flaville - Silvermoon"] = {
-					["enabled"] = false,
+				["Tenderbreeze - Silvermoon"] = {
 					["version"] = 3,
 					["position"] = {
-						["y"] = -211.795318603516,
-						["x"] = 443.931579589844,
-						["point"] = "LEFT",
-					},
-				},
-				["Linela - Silvermoon"] = {
-					["version"] = 3,
-					["position"] = {
-						["y"] = 89.5001220703125,
-						["x"] = -163.5,
-						["point"] = "CENTER",
+						["y"] = 116,
+						["x"] = -460,
+						["point"] = "BOTTOM",
 					},
 				},
 				["Stephanna - Argent Dawn"] = {
@@ -1830,11 +1829,11 @@ Bartender4DB = {
 						["point"] = "BOTTOMLEFT",
 					},
 				},
-				["Kjerstina - Silvermoon"] = {
+				["Spinhoof - Ragnaros"] = {
 					["version"] = 3,
 					["position"] = {
 						["y"] = 116,
-						["x"] = -460,
+						["x"] = -120,
 						["point"] = "BOTTOM",
 					},
 				},
@@ -1854,15 +1853,7 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
-				["Spinhoof - Ragnaros"] = {
-					["version"] = 3,
-					["position"] = {
-						["y"] = 116,
-						["x"] = -120,
-						["point"] = "BOTTOM",
-					},
-				},
-				["Tenderbreeze - Silvermoon"] = {
+				["Kjerstina - Silvermoon"] = {
 					["version"] = 3,
 					["position"] = {
 						["y"] = 116,
@@ -1870,12 +1861,21 @@ Bartender4DB = {
 						["point"] = "BOTTOM",
 					},
 				},
-				["Thagmarr - Silvermoon"] = {
+				["Linela - Silvermoon"] = {
 					["version"] = 3,
 					["position"] = {
-						["y"] = 116,
-						["x"] = -120,
-						["point"] = "BOTTOM",
+						["y"] = 89.5001220703125,
+						["x"] = -163.5,
+						["point"] = "CENTER",
+					},
+				},
+				["Flaville - Silvermoon"] = {
+					["enabled"] = false,
+					["version"] = 3,
+					["position"] = {
+						["y"] = -211.795318603516,
+						["x"] = 443.931579589844,
+						["point"] = "LEFT",
 					},
 				},
 				["Qsilver - Silvermoon"] = {
@@ -1921,28 +1921,33 @@ Bartender4DB = {
 		},
 	},
 	["profileKeys"] = {
-		["Alyara - Silvermoon"] = "Qsilver - Silvermoon",
 		["Simroth - Silvermoon"] = "Qsilver - Silvermoon",
+		["Alyara - Silvermoon"] = "Qsilver - Silvermoon",
+		["Thagmarr - Silvermoon"] = "Qsilver - Silvermoon",
 		["Erdanii - Silvermoon"] = "Qsilver - Silvermoon",
-		["Flaville - Silvermoon"] = "Flaville - Silvermoon",
-		["Linela - Silvermoon"] = "Qsilver - Silvermoon",
+		["Tenderbreeze - Silvermoon"] = "Qsilver - Silvermoon",
 		["Stephanna - Argent Dawn"] = "Stephanna - Argent Dawn",
 		["Siluna - Silvermoon"] = "Siluna - Silvermoon",
-		["Kjerstina - Silvermoon"] = "Qsilver - Silvermoon",
+		["Spinhoof - Ragnaros"] = "Qsilver - Silvermoon",
 		["Lachrymas - Silvermoon"] = "Qsilver - Silvermoon",
 		["Myvanna - Silvermoon"] = "Qsilver - Silvermoon",
-		["Spinhoof - Ragnaros"] = "Qsilver - Silvermoon",
-		["Tenderbreeze - Silvermoon"] = "Qsilver - Silvermoon",
-		["Thagmarr - Silvermoon"] = "Qsilver - Silvermoon",
+		["Kjerstina - Silvermoon"] = "Qsilver - Silvermoon",
+		["Linela - Silvermoon"] = "Qsilver - Silvermoon",
+		["Flaville - Silvermoon"] = "Flaville - Silvermoon",
 		["Qsilver - Silvermoon"] = "Qsilver - Silvermoon",
 	},
 	["profiles"] = {
+		["Simroth - Silvermoon"] = {
+			["focuscastmodifier"] = false,
+			["blizzardVehicle"] = true,
+			["outofrange"] = "hotkey",
+		},
 		["Alyara - Silvermoon"] = {
 			["focuscastmodifier"] = false,
 			["blizzardVehicle"] = true,
 			["outofrange"] = "hotkey",
 		},
-		["Simroth - Silvermoon"] = {
+		["Thagmarr - Silvermoon"] = {
 			["focuscastmodifier"] = false,
 			["blizzardVehicle"] = true,
 			["outofrange"] = "hotkey",
@@ -1952,12 +1957,10 @@ Bartender4DB = {
 			["blizzardVehicle"] = true,
 			["outofrange"] = "hotkey",
 		},
-		["Flaville - Silvermoon"] = {
+		["Tenderbreeze - Silvermoon"] = {
 			["focuscastmodifier"] = false,
 			["blizzardVehicle"] = true,
 			["outofrange"] = "hotkey",
-		},
-		["Linela - Silvermoon"] = {
 		},
 		["Stephanna - Argent Dawn"] = {
 			["focuscastmodifier"] = false,
@@ -1967,10 +1970,10 @@ Bartender4DB = {
 		["Siluna - Silvermoon"] = {
 			["focuscastmodifier"] = false,
 			["blizzardVehicle"] = true,
-			["buttonlock"] = true,
 			["outofrange"] = "hotkey",
+			["buttonlock"] = true,
 		},
-		["Kjerstina - Silvermoon"] = {
+		["Spinhoof - Ragnaros"] = {
 			["focuscastmodifier"] = false,
 			["blizzardVehicle"] = true,
 			["outofrange"] = "hotkey",
@@ -1985,17 +1988,14 @@ Bartender4DB = {
 			["blizzardVehicle"] = true,
 			["outofrange"] = "hotkey",
 		},
-		["Spinhoof - Ragnaros"] = {
+		["Kjerstina - Silvermoon"] = {
 			["focuscastmodifier"] = false,
 			["blizzardVehicle"] = true,
 			["outofrange"] = "hotkey",
 		},
-		["Tenderbreeze - Silvermoon"] = {
-			["focuscastmodifier"] = false,
-			["blizzardVehicle"] = true,
-			["outofrange"] = "hotkey",
+		["Linela - Silvermoon"] = {
 		},
-		["Thagmarr - Silvermoon"] = {
+		["Flaville - Silvermoon"] = {
 			["focuscastmodifier"] = false,
 			["blizzardVehicle"] = true,
 			["outofrange"] = "hotkey",

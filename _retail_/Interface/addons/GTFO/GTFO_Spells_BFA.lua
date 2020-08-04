@@ -282,7 +282,7 @@ GTFO.SpellID["318391"] = {
 GTFO.SpellID["315161"] = {
   --desc = "Eye of Corruption";
   sound = 2;
-  category = "EyeOfCorruption";
+  category = "EyeOfCorruption2";
 };
 
 GTFO.SpellID["315197"] = {

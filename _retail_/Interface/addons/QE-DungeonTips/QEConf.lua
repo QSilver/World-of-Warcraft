@@ -62,6 +62,13 @@ local function createString(frame, text, font, size)
 	return fontString
 end
 
+local function updateTextSize(size)
+	local p,_,_ = QE_TipText:GetFont();
+	--print("Resetting Font Size" .. QEConfig.FontSize)
+	QE_TipText:SetFont(p, QEConfig.FontSize, nil)
+
+end
+
 
 --[[
 function createDropdown(frame, label, option1, option2, changingVar)
@@ -136,7 +143,7 @@ local function createConfigMenu()
 	----------------------------
 	-- Setup "Dropdown" boxes --
 	----------------------------
-	-- Fuck Dropdown taint
+	-- Dropdown Taint Sucks
 	local headerFont = "Fonts\\MORPHEUS.ttf"
 	local headerSize = 16
 	
@@ -232,6 +239,60 @@ local function createConfigMenu()
 	end)
 	chkRaid:SetPoint("TOPLEFT", chkRegDungeons, "BOTTOMLEFT", 0, -8)
 	
+
+	-- Other Stuff
+	local OtherFS = createString(addon.configPanel, "Font Size", headerFont, headerSize)
+	OtherFS:SetPoint("TOPLEFT", classFS, "BOTTOMLEFT", 0, -54)
+	
+	--local deleteme = createString(addon.configPanel, "Delete me after", headerFont, headerSize)
+	--deleteme:SetPoint("TOPLEFT", OtherFS, "BOTTOMLEFT", 0, -16)
+	
+	local sliderName = "FontSizeS"
+	local fontEdit = CreateFrame("Slider", sliderName, addon.configPanel, "OptionsSliderTemplate")
+	
+	fontEdit:SetWidth(120)
+	fontEdit:SetHeight(20)
+	fontEdit:SetOrientation('HORIZONTAL')
+	fontEdit:SetMinMaxValues(8, 14)
+	fontEdit:SetValue(QEConfig.FontSize)
+	fontEdit:SetValueStep(1)
+	
+	fontEdit.textLow = _G[sliderName.."Low"]
+	fontEdit.textHigh = _G[sliderName.."High"]
+	fontEdit.text = _G[sliderName.."Text"]
+	fontEdit.minValue, fontEdit.maxValue = fontEdit:GetMinMaxValues() 
+	fontEdit.textLow:SetText(fontEdit.minValue)
+	fontEdit.textHigh:SetText(fontEdit.maxValue)
+	fontEdit.text:SetText(QEConfig.FontSize)
+	
+	fontEdit.textLow = 8
+	fontEdit.textHigh = 14
+	--fontEdit.text = "Font Size"
+	
+	
+	fontEdit:SetPoint("TOPLEFT", OtherFS, "BOTTOMLEFT", 0, -22)
+	fontEdit:Enable()
+	fontEdit:SetScript("OnValueChanged", function(self,event,arg1) 
+		
+		QEConfig.FontSize = math.floor(event + 0.5)
+		updateTextSize()
+		--print(QEConfig.FontSize)
+		self.text:SetText(QEConfig.FontSize)
+			end)
+	
+	--[[
+	
+	
+	
+	local fontEdit = CreateFrame("EditBox", nil, addon.configPanel)
+	fontEdit:SetMultiLine(false)
+	fontEdit:SetWidth(40)
+	fontEdit:SetText(12)
+	fontEdit:SetFontObject(ChatFontNormal)
+	fontEdit:SetPoint("TOPLEFT", OtherFS, "BOTTOMLEFT", 0, -8)
+	fontEdit:SetEnabled(true) ]]--
+	--chkRegDungeons:SetChecked(true)
+	
 	
 	
 	-- Load in SavedVariables on ADDON_LOADED
@@ -248,7 +309,8 @@ local function createConfigMenu()
 			QEConfig.FrameOpacity = QEConfig.FrameOpacity or 0.55
 			QEConfig.FrameWidth = QEConfig.FrameWidth or 450
 			QEConfig.FrameHeight = QEConfig.FrameHeight or 175
-			QEConfig.FontSize = QEConfig.FontSize or 12
+			QEConfig.FontSize = QEConfig.FontSize or 14
+			--print(QEConfig.FontSize)
 			
 			-- Set default checkbox behaviour
 			chkPriority:SetChecked(QEConfig.PriorityTargets)
@@ -271,6 +333,9 @@ local function createConfigMenu()
 			chkRole:SetChecked(QEConfig.RoleChoice == "Show all roles")
 			chkClass:SetChecked(QEConfig.ClassChoice == "Show all classes")
 			
+			updateTextSize()
+			fontEdit.text:SetText(QEConfig.FontSize)
+			fontEdit:SetValue(QEConfig.FontSize)
 			
 			addon:setEnabled()
 			addon:setDropdownEnabled()
@@ -279,7 +344,11 @@ local function createConfigMenu()
 	
 	-- Add panel to config options
 	InterfaceOptions_AddCategory(addon.configPanel)
+	
+	-- Proceed
+	createQEFrame()
 end
 
 createConfigMenu()
+
 

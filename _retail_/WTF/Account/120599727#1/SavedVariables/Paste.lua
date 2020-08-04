@@ -1,9 +1,13 @@
 
 PasteDB = {
 	["profileKeys"] = {
+		["Lachrymas - Silvermoon"] = "Lachrymas - Silvermoon",
 		["Qsilver - Silvermoon"] = "Qsilver - Silvermoon",
 	},
 	["profiles"] = {
+		["Lachrymas - Silvermoon"] = {
+			["loaded"] = true,
+		},
 		["Qsilver - Silvermoon"] = {
 			["loaded"] = true,
 			["minimap"] = {

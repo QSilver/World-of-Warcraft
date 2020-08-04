@@ -42,6 +42,7 @@ DF:InstallTemplate ("font", "PLATER_BUTTON_DISABLED", {color = {1/3, .8/3, .2/3}
 
 --button templates
 DF:InstallTemplate ("button", "PLATER_BUTTON_DISABLED", {backdropcolor = {.4, .4, .4, .3}, backdropbordercolor = {0, 0, 0, .5}}, "OPTIONS_BUTTON_TEMPLATE")
+DF:InstallTemplate ("button", "PLATER_BUTTON_SELECTED", {backdropbordercolor = {1, .7, .1, 1},}, "OPTIONS_BUTTON_TEMPLATE")
 
 -- those two may be removed, as they are covered by settings now
 DF:NewColor ("PLATER_FRIEND", .71, 1, 1, 1)
@@ -757,6 +758,7 @@ PLATER_DEFAULT_SETTINGS = {
 		bossmod_aura_height = 32,
 		bossmod_aura_width = 32,
 		bossmod_cooldown_text_size = 16,
+		bossmod_cooldown_text_enabled = true,
 		bossmod_icons_anchor = {side = 8, x = 0, y = 30},
 		
 		not_affecting_combat_enabled = false,

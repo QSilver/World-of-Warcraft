@@ -24,12 +24,29 @@ do
 		WidgetType = "panel",
 		SetHook = DF.SetHook,
 		RunHooksForWidget = DF.RunHooksForWidget,
+
+		dversion = DF.dversion,
 	}
 
-	_G [DF.GlobalWidgetControlNames ["panel"]] = _G [DF.GlobalWidgetControlNames ["panel"]] or metaPrototype
+	--check if there's a metaPrototype already existing
+	if (_G[DF.GlobalWidgetControlNames["panel"]]) then
+		--get the already existing metaPrototype
+		local oldMetaPrototype = _G[DF.GlobalWidgetControlNames ["panel"]]
+		--check if is older
+		if ( (not oldMetaPrototype.dversion) or (oldMetaPrototype.dversion < DF.dversion) ) then
+			--the version is older them the currently loading one
+			--copy the new values into the old metatable
+			for funcName, _ in pairs(metaPrototype) do
+				oldMetaPrototype[funcName] = metaPrototype[funcName]
+			end
+		end
+	else
+		--first time loading the framework
+		_G[DF.GlobalWidgetControlNames ["panel"]] = metaPrototype
+	end
 end
 
-local PanelMetaFunctions = _G [DF.GlobalWidgetControlNames ["panel"]]
+local PanelMetaFunctions = _G[DF.GlobalWidgetControlNames ["panel"]]
 
 --> mixin for options functions
 DF.OptionsFunctions = {
@@ -4228,7 +4245,7 @@ DF.ScrollBoxFunctions.Refresh = function (self)
 	
 	local offset = 0
 	if (self.IsFauxScroll) then
-		FauxScrollFrame_Update (self, #self.data, self.LineAmount, self.LineHeight+1)
+		FauxScrollFrame_Update (self, #self.data, self.LineAmount, self.LineHeight)
 		offset = FauxScrollFrame_GetOffset (self)
 	end	
 	
@@ -5106,6 +5123,7 @@ DF.IconRowFunctions = {
 			cooldownFrame:SetAllPoints()
 			cooldownFrame:EnableMouse (false)
 			cooldownFrame:SetFrameLevel (newIconFrame:GetFrameLevel()+1)
+			cooldownFrame.noCooldownCount = self.options.surpress_tulla_omni_cc
 			
 			newIconFrame.CountdownText = cooldownFrame:CreateFontString (nil, "overlay", "GameFontNormal")
 			--newIconFrame.CountdownText:SetPoint ("center")
@@ -5330,6 +5348,7 @@ local default_icon_row_options = {
 	backdrop_border_color = {0, 0, 0, 1},
 	anchor = {side = 6, x = 2, y = 0},
 	grow_direction = 1, --1 = to right 2 = to left
+	surpress_tulla_omni_cc = false,
 }
 
 function DF:CreateIconRow (parent, name, options)
@@ -7087,10 +7106,27 @@ DF.StatusBarFunctions = {
 		WidgetType = "healthBar",
 		SetHook = DF.SetHook,
 		RunHooksForWidget = DF.RunHooksForWidget,
-	}
-	_G [DF.GlobalWidgetControlNames ["healthBar"]] = _G [DF.GlobalWidgetControlNames ["healthBar"]] or healthBarMetaPrototype
 
-	local healthBarMetaFunctions = _G [DF.GlobalWidgetControlNames ["healthBar"]]
+		dversion = DF.dversion,
+	}
+	--check if there's a metaPrototype already existing
+	if (_G[DF.GlobalWidgetControlNames["healthBar"]]) then
+		--get the already existing metaPrototype
+		local oldMetaPrototype = _G[DF.GlobalWidgetControlNames ["healthBar"]]
+		--check if is older
+		if ( (not oldMetaPrototype.dversion) or (oldMetaPrototype.dversion < DF.dversion) ) then
+			--the version is older them the currently loading one
+			--copy the new values into the old metatable
+			for funcName, _ in pairs(healthBarMetaPrototype) do
+				oldMetaPrototype[funcName] = healthBarMetaPrototype[funcName]
+			end
+		end
+	else
+		--first time loading the framework
+		_G[DF.GlobalWidgetControlNames ["healthBar"]] = healthBarMetaPrototype
+	end
+
+	local healthBarMetaFunctions = _G[DF.GlobalWidgetControlNames ["healthBar"]]
 
 --hook list
 	local defaultHooksForHealthBar = {
@@ -8265,16 +8301,17 @@ DF.CastFrameFunctions = {
 			self.flashTexture:Hide()
 			self:Animation_StopAllAnimations()
 			
+			self:SetAlpha (1)
+			
+			--> set the statusbar color
+			self:UpdateCastColor()
+			
 			if (not self:IsShown()) then
 				self:Animation_FadeIn()
 			end
 			
 			self.Spark:Show()
-			self:SetAlpha (1)
 			self:Show()
-		
-		--> set the statusbar color
-		self:UpdateCastColor()
 		
 		--> update the interrupt cast border
 		self:UpdateInterruptState()
@@ -8321,16 +8358,17 @@ DF.CastFrameFunctions = {
 			self.flashTexture:Hide()
 			self:Animation_StopAllAnimations()
 			
+			self:SetAlpha (1)
+			
+			--> set the statusbar color
+			self:UpdateCastColor()
+			
 			if (not self:IsShown()) then
 				self:Animation_FadeIn()
 			end
 			
 			self.Spark:Show()
-			self:SetAlpha (1)
 			self:Show()
-			
-		--> set the statusbar color
-		self:UpdateCastColor()
 		
 		--> update the interrupt cast border
 		self:UpdateInterruptState()

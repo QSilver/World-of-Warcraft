@@ -2,7 +2,7 @@
 Overachiever_Tabs_Settings = {
 	["WatchLists_Realms"] = {
 	},
-	["SearchType"] = 1,
+	["SearchType"] = 2,
 	["WatchSort"] = 0,
 	["SearchSort"] = 2,
 	["SuggestionsSort"] = 0,

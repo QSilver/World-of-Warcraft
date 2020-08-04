@@ -554,7 +554,7 @@ local function importPendingData()
     button.callbacks.UpdateExpandButton()
     WeakAuras.UpdateGroupOrders(parentData)
     WeakAuras.UpdateDisplayButton(parentData)
-    WeakAuras.ReloadGroupRegionOptions(parentData)
+    WeakAuras.ClearAndUpdateOptions(parentData.id)
     WeakAuras.SortDisplayButtons()
   end
   WeakAuras.SetImporting(false)
@@ -581,9 +581,13 @@ end)
 
 local Compresser = LibStub:GetLibrary("LibCompress")
 local LibDeflate = LibStub:GetLibrary("LibDeflate")
+local Serializer = LibStub:GetLibrary("AceSerializer-3.0")
+local LibSerialize = LibStub("LibSerialize")
+local Comm = LibStub:GetLibrary("AceComm-3.0")
 local configForDeflate = {level = 9} -- the biggest bottleneck by far is in transmission and printing; so use maximal compression
-local Serializer = LibStub:GetLibrary("AceSerializer-3.0");
-local Comm = LibStub:GetLibrary("AceComm-3.0");
+local configForLS = {
+  errorOnUnserializableType =  false
+}
 
 local tooltipLoading;
 local receivedData;
@@ -632,7 +636,7 @@ end);
 local compressedTablesCache = {}
 
 function TableToString(inTable, forChat)
-  local serialized = Serializer:Serialize(inTable)
+  local serialized = LibSerialize:SerializeEx(configForLS, inTable)
   local compressed
   -- get from / add to cache
   if compressedTablesCache[serialized] then
@@ -651,9 +655,7 @@ function TableToString(inTable, forChat)
       compressedTablesCache[k] = nil
     end
   end
-  -- prepend with "!" so that we know that it is not a legacy compression
-  -- also this way, old versions of weakauras will error out due to the "bad" encoding
-  local encoded = "!"
+  local encoded = "!WA:2!"
   if(forChat) then
     encoded = encoded .. LibDeflate:EncodeForPrint(compressed)
   else
@@ -663,11 +665,21 @@ function TableToString(inTable, forChat)
 end
 
 function StringToTable(inString, fromChat)
-  -- if gsub strips off a ! at the beginning then we know that this is not a legacy encoding
-  local encoded, usesDeflate = inString:gsub("^%!", "")
+  -- encoding format:
+  -- version 0: simple b64 string, compressed with LC and serialized with AS
+  -- version 1: b64 string prepended with "!", compressed with LD and serialized with AS
+  -- version 2+: b64 string prepended with !WA:N! (where N is encode version)
+  --   compressed with LD and serialized with LS
+  local _, _, encodeVersion, encoded = inString:find("^(!WA:%d+!)(.+)$")
+  if encodeVersion then
+    encodeVersion = tonumber(encodeVersion:match("%d+"))
+  else
+    encoded, encodeVersion = inString:gsub("^%!", "")
+  end
+
   local decoded
   if(fromChat) then
-    if usesDeflate == 1 then
+    if encodeVersion > 0 then
       decoded = LibDeflate:DecodeForPrint(encoded)
     else
       decoded = decodeB64(encoded)
@@ -681,7 +693,7 @@ function StringToTable(inString, fromChat)
   end
 
   local decompressed, errorMsg = nil, "unknown compression method"
-  if usesDeflate == 1 then
+  if encodeVersion > 0 then
     decompressed = LibDeflate:DecompressDeflate(decoded)
   else
     decompressed, errorMsg = Compresser:Decompress(decoded)
@@ -690,11 +702,16 @@ function StringToTable(inString, fromChat)
     return "Error decompressing: " .. errorMsg
   end
 
-  local success, deserialized = Serializer:Deserialize(decompressed);
-  if not(success) then
-    return "Error deserializing "..deserialized;
+  local success, deserialized
+  if encodeVersion < 2 then
+    success, deserialized = Serializer:Deserialize(decompressed)
+  else
+    success, deserialized = LibSerialize:Deserialize(decompressed)
   end
-  return deserialized;
+  if not(success) then
+    return "Error deserializing "..deserialized
+  end
+  return deserialized
 end
 
 function WeakAuras.DisplayToString(id, forChat)
@@ -748,25 +765,25 @@ local function recurseStringify(data, level, lines)
   for k, v in pairs(data) do
     local lineFormat = strrep("    ", level) .. "[%s] = %s"
     local form1, form2, value
-    local ktype, vtype = type(k), type(v)
-    if ktype == "string" then
+    local kType, vType = type(k), type(v)
+    if kType == "string" then
       form1 = "%q"
-    elseif ktype == "number" then
+    elseif kType == "number" then
       form1 = "%d"
     else
       form1 = "%s"
     end
-    if vtype == "string" then
+    if vType == "string" then
       form2 = "%q"
       v = v:gsub("\\", "\\\\"):gsub("\n", "\\n"):gsub("\"", "\\\"")
-    elseif vtype == "boolean" then
+    elseif vType == "boolean" then
       v = tostring(v)
       form2 = "%s"
     else
       form2 = "%s"
     end
     lineFormat = lineFormat:format(form1, form2)
-    if vtype == "table" then
+    if vType == "table" then
       tinsert(lines, lineFormat:format(k, "{"))
       recurseStringify(v, level + 1, lines)
       tinsert(lines, strrep("    ", level) .. "},")
@@ -1177,6 +1194,9 @@ local function findMatch(data, children)
       if old.uid ~= new.uid then
         return
       else
+        if (children == nil) ~= (old.controlledChildren == nil) then
+          return
+        end
         return true
       end
     else
@@ -1423,7 +1443,7 @@ function WeakAuras.ShowDisplayTooltip(data, children, matchInfo, icon, icons, im
   local hasDescription = data.desc and data.desc ~= "";
   local hasUrl = data.url and data.url ~= "";
   local hasVersion = (data.semver and data.semver ~= "") or (data.version and data.version ~= "");
-  local tocbuild = data.tocbuild;
+  local tocversion = data.tocversion;
 
   if hasDescription or hasUrl or hasVersion then
     tinsert(tooltip, {1, " "});
@@ -1566,7 +1586,7 @@ function WeakAuras.ShowDisplayTooltip(data, children, matchInfo, icon, icons, im
           if excessChildren <= 0 then
             tinsert(tooltip, {2, " ", child.id, 1, 1, 1, 1, 1, 1})
           end
-          tocbuild = tocbuild or child.tocbuild
+          tocversion = tocversion or child.tocversion
         end
         if excessChildren > 0 then
           tinsert(tooltip, {2, " ", "[...]", 1, 1, 1, 1, 1, 1})
@@ -1590,10 +1610,10 @@ function WeakAuras.ShowDisplayTooltip(data, children, matchInfo, icon, icons, im
       tinsert(tooltip, {1, L["It might not work correctly with your version!"], 1, 0, 0})
     end
 
-    if WeakAuras.IsClassic() and (not tocbuild or tocbuild > 20000) then
+    if WeakAuras.IsClassic() and (not tocversion or tocversion > 20000) then
       tinsert(tooltip, {1, L["This aura was created with the retail version of World of Warcraft."], 1, 0, 0})
       tinsert(tooltip, {1, L["It might not work correctly on Classic!"], 1, 0, 0})
-    elseif tocbuild and not WeakAuras.IsClassic() and tocbuild < 20000 then
+    elseif tocversion and not WeakAuras.IsClassic() and tocversion < 20000 then
       tinsert(tooltip, {1, L["This aura was created with the Classic version of World of Warcraft."], 1, 0, 0})
       tinsert(tooltip, {1, L["It might not work correctly on Retail!"], 1, 0, 0})
     end

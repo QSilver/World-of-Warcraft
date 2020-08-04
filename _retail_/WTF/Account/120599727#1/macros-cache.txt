@@ -47,6 +47,10 @@ VER 3 000000000000003A "Sacrifice" "132121"
 #showtooltip
 /cast [target=mouseover,exists,help,nodead] Roar of Sacrifice; Roar of Sacrifice
 END
+VER 3 000000000000003C "Tar" "1129603"
+#showtooltip Tar Trap
+/cast [@cursor] Tar Trap
+END
 VER 3 000000000000003B "Trap" "135834"
 #showtooltip Freezing Trap
 /cast [@cursor] Freezing Trap

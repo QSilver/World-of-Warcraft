@@ -2,20 +2,20 @@
 mOnWDSave = {
 	["onlyMiniList"] = false,
 	["miniListScale"] = 1,
+	["blacklist"] = {
+	},
+	["reloadOnStart"] = false,
+	["favoriteInstances"] = {
+	},
 	["minimap"] = {
 		["hide"] = true,
 	},
-	["reloadOnStart"] = false,
-	["sortColumn"] = 0,
-	["blacklist"] = {
-	},
 	["disableConfirmation"] = false,
-	["favoriteInstances"] = {
-	},
+	["sortColumn"] = 0,
 	["completionistMode"] = false,
-	["miniListRowCount"] = 16,
-	["sortDirection"] = 1,
 	["hideList"] = false,
+	["sortDirection"] = 1,
+	["miniListRowCount"] = 16,
 	["disableProgress"] = false,
 	["hideCompletedInstances"] = false,
 }

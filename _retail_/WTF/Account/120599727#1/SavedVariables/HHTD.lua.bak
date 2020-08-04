@@ -1,16 +1,12 @@
 
 HHTD_SavedVariables = {
 	["char"] = {
+		["Lachrymas - Silvermoon"] = {
+			["settingsMigrated"] = false,
+		},
 		["Qsilver - Silvermoon"] = {
 			["settingsMigrated"] = false,
 		},
-	},
-	["profileKeys"] = {
-		["Qsilver - Silvermoon"] = "Qsilver - Silvermoon",
-	},
-	["global"] = {
-		["settingsMigrated"] = false,
-		["oldNameEnableState"] = 0,
 	},
 	["namespaces"] = {
 		["Announcer"] = {
@@ -19,5 +15,13 @@ HHTD_SavedVariables = {
 		},
 		["NPH"] = {
 		},
+	},
+	["profileKeys"] = {
+		["Lachrymas - Silvermoon"] = "Lachrymas - Silvermoon",
+		["Qsilver - Silvermoon"] = "Qsilver - Silvermoon",
+	},
+	["global"] = {
+		["settingsMigrated"] = false,
+		["oldNameEnableState"] = 0,
 	},
 }

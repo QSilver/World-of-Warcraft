@@ -1,9 +1,16 @@
 
 dbBFA = {
 	["char"] = {
+		["Lachrymas - Silvermoon"] = {
+			["firstun"] = false,
+		},
 		["Qsilver - Silvermoon"] = {
 			["firstun"] = false,
 		},
+	},
+	["profileKeys"] = {
+		["Lachrymas - Silvermoon"] = "Default",
+		["Qsilver - Silvermoon"] = "Default",
 	},
 	["global"] = {
 		["warn01_seen"] = 0,
@@ -11,9 +18,6 @@ dbBFA = {
 		["news"] = {
 		},
 		["warn02_seen"] = 0,
-	},
-	["profileKeys"] = {
-		["Qsilver - Silvermoon"] = "Default",
 	},
 	["profiles"] = {
 		["Default"] = {
@@ -37,12 +41,11 @@ dbBFA = {
 				["PREFERHIGH"] = false,
 				["NOTROOPS"] = false,
 				["MAKEITQUICK"] = false,
-				["MAXCHAMP"] = 3,
 				["TROOPALERT"] = true,
+				["MAXCHAMP"] = 3,
 				["IGNOREBUSY"] = true,
 				["BASECHANCE"] = 0,
 			},
-			["showmenu"] = false,
 			["blacklist"] = {
 				[1884] = true,
 				[1888] = true,
@@ -64,35 +67,38 @@ dbBFA = {
 				[2078] = true,
 				[1886] = true,
 				[1890] = true,
-				[2126] = true,
 				[2071] = true,
+				[2126] = true,
+				[1902] = true,
 				[1906] = true,
 				[1910] = true,
+				[2079] = true,
 				[1918] = true,
-				[1893] = false,
+				[1899] = true,
 				[2119] = true,
 				[2127] = true,
 				[2072] = true,
 				[2080] = true,
 				[2151] = true,
-				[2079] = true,
-				[2132] = true,
+				[2136] = true,
+				[1907] = true,
 				[1891] = true,
 				[1895] = true,
 				[2128] = true,
 				[1903] = false,
 				[2144] = true,
-				[2141] = true,
 				[2075] = true,
-				[2077] = true,
-				[2073] = true,
 				[1900] = true,
+				[2073] = true,
+				[2077] = true,
+				[2141] = true,
 				[2129] = true,
 				[2074] = true,
-				[2136] = true,
+				[2132] = true,
 				[2153] = true,
-				[1902] = true,
+				[1893] = false,
 			},
+			["showmenu"] = false,
 		},
 	},
 }

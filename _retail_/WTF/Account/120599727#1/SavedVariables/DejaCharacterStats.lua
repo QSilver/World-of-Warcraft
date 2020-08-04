@@ -31,6 +31,13 @@ DejaCharacterStatsDB = {
 		["dejacharacterstatsDurabilityStatChecked"] = {
 			["DurabilityStatSetChecked"] = true,
 		},
+		["dejacharacterstatsItemLevelChecked"] = {
+			["ItemLevelEQ_AV_SetChecked"] = true,
+			["ItemLevelSetChecked"] = true,
+			["ItemLevelTwoDecimalsSetChecked"] = true,
+			["ItemLevelClassColorSetChecked"] = true,
+			["ItemLevelDecimalsSetChecked"] = false,
+		},
 		["dejacharacterstatsShowDuraChecked"] = {
 			["ShowDuraSetChecked"] = false,
 		},
@@ -59,12 +66,8 @@ DejaCharacterStatsDB = {
 		["dejacharacterstatsClassBackgroundChecked"] = {
 			["ClassBackgroundChecked"] = true,
 		},
-		["dejacharacterstatsItemLevelChecked"] = {
-			["ItemLevelEQ_AV_SetChecked"] = true,
-			["ItemLevelSetChecked"] = true,
-			["ItemLevelTwoDecimalsSetChecked"] = true,
-			["ItemLevelDecimalsSetChecked"] = false,
-			["ItemLevelClassColorSetChecked"] = true,
+		["dejacharacterstatsConfigButtonChecked"] = {
+			["ConfigButtonSetChecked"] = true,
 		},
 		["dejacharacterstatsExpandChecked"] = {
 			["ExpandSetChecked"] = true,
@@ -600,11 +603,11 @@ DCS_ClassSpecDB = {
 		}, -- [47]
 		{
 			["statKey"] = "STAGGER",
+			["hidden"] = true,
+			["hideAt"] = 0,
 			["roles"] = {
 				"TANK", -- [1]
 			},
-			["hideAt"] = 0,
-			["hidden"] = true,
 		}, -- [48]
 		{
 			["statKey"] = "CR_CORRUPTION_RESISTANCE",
@@ -1152,8 +1155,66 @@ DCS_ClassSpecDB = {
 		}, -- [46]
 		{
 			["statKey"] = "SPEED",
+			["hideAt"] = 0,
 			["hidden"] = true,
 		}, -- [47]
+		{
+			["statKey"] = "STAGGER",
+			["hideAt"] = 0,
+			["roles"] = {
+				"TANK", -- [1]
+			},
+		}, -- [48]
+		{
+			["statKey"] = "RATING_2V2",
+			["hideAt"] = 0,
+		}, -- [49]
+		{
+			["statKey"] = "HONOR_PROGRESS",
+			["hideAt"] = 0,
+		}, -- [50]
+		{
+			["statKey"] = "CONQUEST_PROGRESS",
+			["hideAt"] = 0,
+		}, -- [51]
+		{
+			["statKey"] = "RATING_RBG",
+			["hideAt"] = 0,
+		}, -- [52]
+		{
+			["statKey"] = "RATING_3V3",
+			["hideAt"] = 0,
+		}, -- [53]
+		{
+			["statKey"] = "CR_CORRUPTION_RESISTANCE",
+			["hideAt"] = 0,
+		}, -- [54]
+		{
+			["statKey"] = "CR_CORRUPTION",
+			["hideAt"] = 0,
+		}, -- [55]
+		{
+			["statKey"] = "CorruptionCategory",
+		}, -- [56]
+		{
+			["statKey"] = "CR_TOTAL_CORRUPTION",
+			["hideAt"] = 0,
+		}, -- [57]
+		{
+			["statKey"] = "HONOR_LEVEL",
+			["hideAt"] = 0,
+		}, -- [58]
+		{
+			["statKey"] = "HonorCategory",
+		}, -- [59]
+		{
+			["statKey"] = "ConquestCategory",
+		}, -- [60]
+		{
+			["statKey"] = "SPEED_RATING",
+			["hideAt"] = 0,
+			["hidden"] = true,
+		}, -- [61]
 		["uniqueKey"] = "Lachrymas:Silvermoon:1",
 	},
 	["Alyara:Silvermoon:1"] = {
@@ -1531,11 +1592,11 @@ DCS_ClassSpecDB = {
 		}, -- [47]
 		{
 			["statKey"] = "STAGGER",
-			["hidden"] = true,
-			["hideAt"] = 0,
 			["roles"] = {
 				"TANK", -- [1]
 			},
+			["hidden"] = true,
+			["hideAt"] = 0,
 		}, -- [48]
 		{
 			["statKey"] = "SPEED_RATING",
@@ -1927,6 +1988,7 @@ DCS_ClassSpecDB = {
 		}, -- [1]
 		{
 			["statKey"] = "AttributesCategory",
+			["hidden"] = false,
 		}, -- [2]
 		{
 			["statKey"] = "HEALTH",
@@ -2018,17 +2080,17 @@ DCS_ClassSpecDB = {
 			["hideAt"] = 0,
 		}, -- [25]
 		{
-			["statKey"] = "MASTERY",
-			["hideAt"] = 0,
-		}, -- [26]
-		{
 			["statKey"] = "HASTE",
 			["hideAt"] = 0,
-		}, -- [27]
+		}, -- [26]
 		{
 			["statKey"] = "VERSATILITY",
 			["hideAt"] = 0,
 			["hidden"] = false,
+		}, -- [27]
+		{
+			["statKey"] = "MASTERY",
+			["hideAt"] = 0,
 		}, -- [28]
 		{
 			["statKey"] = "LIFESTEAL",
@@ -2069,17 +2131,17 @@ DCS_ClassSpecDB = {
 			["hidden"] = false,
 		}, -- [36]
 		{
-			["statKey"] = "MASTERY_RATING",
+			["statKey"] = "HASTE_RATING",
 			["hideAt"] = 0,
 			["hidden"] = false,
 		}, -- [37]
 		{
-			["statKey"] = "HASTE_RATING",
+			["statKey"] = "VERSATILITY_RATING",
 			["hideAt"] = 0,
 			["hidden"] = false,
 		}, -- [38]
 		{
-			["statKey"] = "VERSATILITY_RATING",
+			["statKey"] = "MASTERY_RATING",
 			["hideAt"] = 0,
 			["hidden"] = false,
 		}, -- [39]
@@ -2122,11 +2184,11 @@ DCS_ClassSpecDB = {
 		}, -- [47]
 		{
 			["statKey"] = "STAGGER",
+			["hideAt"] = 0,
+			["hidden"] = true,
 			["roles"] = {
 				"TANK", -- [1]
 			},
-			["hidden"] = true,
-			["hideAt"] = 0,
 		}, -- [48]
 		{
 			["statKey"] = "SPEED_RATING",
@@ -2152,6 +2214,44 @@ DCS_ClassSpecDB = {
 			["hideAt"] = 0,
 			["hidden"] = true,
 		}, -- [53]
+		{
+			["statKey"] = "RATING_2V2",
+			["hideAt"] = 0,
+			["hidden"] = true,
+		}, -- [54]
+		{
+			["statKey"] = "HONOR_PROGRESS",
+			["hideAt"] = 0,
+			["hidden"] = true,
+		}, -- [55]
+		{
+			["statKey"] = "CONQUEST_PROGRESS",
+			["hideAt"] = 0,
+			["hidden"] = true,
+		}, -- [56]
+		{
+			["statKey"] = "RATING_RBG",
+			["hideAt"] = 0,
+			["hidden"] = true,
+		}, -- [57]
+		{
+			["statKey"] = "RATING_3V3",
+			["hideAt"] = 0,
+			["hidden"] = true,
+		}, -- [58]
+		{
+			["statKey"] = "HONOR_LEVEL",
+			["hideAt"] = 0,
+			["hidden"] = true,
+		}, -- [59]
+		{
+			["statKey"] = "HonorCategory",
+			["hidden"] = true,
+		}, -- [60]
+		{
+			["statKey"] = "ConquestCategory",
+			["hidden"] = true,
+		}, -- [61]
 		["uniqueKey"] = "Qsilver:Silvermoon:1",
 	},
 	["Simroth:Silvermoon:1"] = {

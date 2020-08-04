@@ -1,5 +1,5 @@
 
 CoordinatesDB = {
-	["worldmap"] = true,
 	["minimap"] = true,
+	["worldmap"] = true,
 }

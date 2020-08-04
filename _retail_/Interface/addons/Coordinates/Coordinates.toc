@@ -1,4 +1,4 @@
-## Interface: 11302
+## Interface: 80200
 ## Title: Coordinates
 ## Version: 2.1.0
 ## Author: TomCat

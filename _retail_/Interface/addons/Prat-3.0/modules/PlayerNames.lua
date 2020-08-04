@@ -270,9 +270,9 @@ L = {
 		["bnetclienticon_name"] = "BNet-Client Symbol anzeigen",
 		["Brackets"] = "Klammern",
 		["Brackets Common Color"] = "Standardfarbe der Klammern",
-		["Brackets Use Common Color"] = "Klammern verwende die Standardfarbe",
+		["Brackets Use Common Color"] = "Klammern verwenden die Standardfarbe",
 		["Class"] = "Klasse",
-		["Color by Level Difference"] = "Entsprechend des Stufenunterschieds einfärben",
+		["Color by Level Difference"] = "Farbe nach Stufenunterschied",
 		["coloreverywhere_desc"] = "Spielernamen einfärben, wenn diese im Text einer Chat-Mitteilung auftreten.",
 		["coloreverywhere_name"] = "Namen überall einfärben",
 		["Enable Alt-Invite"] = "Alternative Einladung aktivieren",
@@ -1632,7 +1632,7 @@ L = {
       if self.db.profile.bnetclienticon then
         local client = GetBnetClientByID(message.PRESENCE_ID)
         if client then
-          message.PLAYERCLIENTICON = ("|T%s:%d:%d:%d:%d|t"):format(BNet_GetClientTexture(client), 14, 14, 0, -6)
+          message.PLAYERCLIENTICON = ("|T%s:%d:%d:%d:%d|t"):format(BNet_GetClientTexture(client), 14)
         end
       end
     else

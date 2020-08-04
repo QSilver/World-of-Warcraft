@@ -1,10 +1,7 @@
 -- file generated automatically
 local buildTimeTarget = 20190123023201
-local waBuildTime = tonumber(WeakAuras.buildTime)
-
-if waBuildTime and waBuildTime < buildTimeTarget then
-  WeakAurasCompanion = nil
-else
+local waBuildTime = tonumber(WeakAuras and WeakAuras.buildTime or 0)
+if waBuildTime and waBuildTime > buildTimeTarget then
   local loadedFrame = CreateFrame("FRAME")
   loadedFrame:RegisterEvent("ADDON_LOADED")
   loadedFrame:SetScript("OnEvent", function(_, _, addonName)
@@ -26,6 +23,17 @@ else
           end
         end
       end
+      local emptyStash = true
+      for _ in pairs(WeakAurasCompanion.stash) do
+        emptyStash = false
+      end
+      if not emptyStash and WeakAuras.StashShow then
+        C_Timer.After(5, function() WeakAuras.StashShow() end)
+      end
     end
   end)
+end
+
+if Plater and Plater.CheckWagoUpdates then
+    Plater.CheckWagoUpdates()
 end

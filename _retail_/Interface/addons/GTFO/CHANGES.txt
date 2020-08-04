@@ -1,11 +1,108 @@
 ------------------------------------------------------------------------
-r517 | Zensunim | 2020-04-01 03:05:57 +0000 (Wed, 01 Apr 2020) | 2 lines
+r524 | Zensunim | 2020-07-27 01:13:13 +0000 (Mon, 27 Jul 2020) | 4 lines
+Changed paths:
+   M /trunk/GTFO.xml
+   M /trunk/GTFO_Fail_SL.lua
+   M /trunk/GTFO_Spells_SL.lua
+   M /trunk/ReadMe.txt
+
+* Added SL spells for Mists of Tirna Scithe
+* Added SL spells for Theater of Pain
+* Added SL spells for The Necrotic Wake
+* Added SL spells for De Other Side
+------------------------------------------------------------------------
+r523 | Zensunim | 2020-07-25 19:07:29 +0000 (Sat, 25 Jul 2020) | 2 lines
+Changed paths:
+   M /trunk/GTFO_Fail_SL.lua
+   M /trunk/GTFO_Spells_SL.lua
+   M /trunk/ReadMe.txt
+
+* Added SL spells for Sanguine Depths
+* Added SL spells for Spires of Ascension
+------------------------------------------------------------------------
+r522 | Zensunim | 2020-07-23 07:23:23 +0000 (Thu, 23 Jul 2020) | 3 lines
+Changed paths:
+   M /trunk/GTFO_FF_BC.lua
+   M /trunk/GTFO_FF_BFA.lua
+   M /trunk/GTFO_FF_CAT.lua
+   M /trunk/GTFO_FF_LGN.lua
+   M /trunk/GTFO_FF_LK.lua
+   M /trunk/GTFO_FF_MP.lua
+   M /trunk/GTFO_FF_WOD.lua
+   M /trunk/GTFO_Fail_BC.lua
+   M /trunk/GTFO_Fail_BFA.lua
+   M /trunk/GTFO_Fail_CAT.lua
+   M /trunk/GTFO_Fail_Classic.lua
+   M /trunk/GTFO_Fail_GenericClassic.lua
+   M /trunk/GTFO_Fail_GenericRetail.lua
+   M /trunk/GTFO_Fail_LGN.lua
+   M /trunk/GTFO_Fail_LK.lua
+   M /trunk/GTFO_Fail_MP.lua
+   M /trunk/GTFO_Fail_SL.lua
+   M /trunk/GTFO_Fail_Vanilla.lua
+   M /trunk/GTFO_Fail_WOD.lua
+   M /trunk/GTFO_Mobs.lua
+   M /trunk/GTFO_Recount.lua
+   M /trunk/GTFO_Spells_BC.lua
+   M /trunk/GTFO_Spells_BFA.lua
+   M /trunk/GTFO_Spells_CAT.lua
+   M /trunk/GTFO_Spells_Classic.lua
+   M /trunk/GTFO_Spells_GenericClassic.lua
+   M /trunk/GTFO_Spells_GenericRetail.lua
+   M /trunk/GTFO_Spells_LGN.lua
+   M /trunk/GTFO_Spells_LK.lua
+   M /trunk/GTFO_Spells_MP.lua
+   M /trunk/GTFO_Spells_SL.lua
+   M /trunk/GTFO_Spells_Special.lua
+   M /trunk/GTFO_Spells_Vanilla.lua
+   M /trunk/GTFO_Spells_WOD.lua
+   M /trunk/Localization/Boss.lua
+   M /trunk/Localization/deDE.lua
+   M /trunk/Localization/esES.lua
+   M /trunk/Localization/esMX.lua
+   M /trunk/Localization/frFR.lua
+   M /trunk/Localization/itIT.lua
+   M /trunk/Localization/koKR.lua
+   M /trunk/Localization/ptBR.lua
+   M /trunk/Localization/ruRU.lua
+   M /trunk/Localization/zhCN.lua
+   M /trunk/Localization/zhTW.lua
+   M /trunk/ReadMe.txt
+
+* Added Shadowlands spells (world)
+* Added SL spells for Halls of Atonement
+* Added SL spells for Plaguefall
+------------------------------------------------------------------------
+r521 | Zensunim | 2020-07-20 16:42:08 +0000 (Mon, 20 Jul 2020) | 1 line
+Changed paths:
+   M /trunk/GTFO_Spells_BFA.lua
+
+* Eye of Corruption (BFA) is now ignored by default (for real this time)
+------------------------------------------------------------------------
+r520 | Zensunim | 2020-07-19 16:38:06 +0000 (Sun, 19 Jul 2020) | 1 line
+Changed paths:
+   M /trunk/GTFO.lua
+   M /trunk/GTFO_Ignore.lua
+   M /trunk/ReadMe.txt
+
+* Eye of Corruption (BFA) is now ignored by default
+------------------------------------------------------------------------
+r519 | Zensunim | 2020-07-18 19:28:42 +0000 (Sat, 18 Jul 2020) | 4 lines
 Changed paths:
    M /trunk/GTFO.lua
    M /trunk/GTFO.toc
+   M /trunk/GTFO.xml
+   A /trunk/GTFO_FF_SL.lua
+   A /trunk/GTFO_Fail_SL.lua
+   M /trunk/GTFO_Ignore.lua
+   M /trunk/GTFO_Spells_BFA.lua
+   A /trunk/GTFO_Spells_SL.lua
+   M /trunk/Libs/LibUIDropDownMenu/LibUIDropDownMenu.lua
    M /trunk/ReadMe.txt
 
-4.55.2
-* Trying to fix Twitch/Curse from perpetually marking this out-of-date
+4.56
+* Added support for Shadowlands
+* Removed Eye of Corruption (BFA) from GTFO
+
 ------------------------------------------------------------------------
 

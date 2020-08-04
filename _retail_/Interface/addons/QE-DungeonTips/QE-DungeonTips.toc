@@ -1,10 +1,11 @@
-## Interface: 80100
+## Interface: 90001
 ## Title: QE-DungeonTips
 ## Author: Voulk (Discord: Voulk#1858)
-## Notes: QE Mythic+ Dungeon Tips highlights information about dangerous trash mobs in BFA dungeons.
-## Version: 4.9.0
+## Notes: QE Mythic+ Dungeon Tips highlights information about dangerous trash mobs in dungeons.
+## Version: 5.0.0
 ## SavedVariables: QEConfig
 
-QE-DungeonTips BFA.lua
-QEConf.lua
+QEDatabase.lua
+QE-DungeonTips SL.lua
 QEFrame.lua
+QEConf.lua

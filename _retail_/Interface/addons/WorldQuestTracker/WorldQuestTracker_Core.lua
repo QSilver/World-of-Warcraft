@@ -1261,10 +1261,10 @@ WorldQuestTracker.OnToggleWorldMap = function (self)
 								local mapID = quest.mapID
 								WorldQuestTracker.AddQuestTomTom (questID, mapID, true)
 							end
-							WorldQuestTracker.RemoveAllQuestsFromTracker()
+							--WorldQuestTracker.RemoveAllQuestsFromTracker()
 						else
 							--desligou o tracker do tomtom
-							for questID, t in pairs (WorldQuestTracker.db.profile.tomtom.uids) do
+							for questID, t in pairs (WorldQuestTracker.TomTomUIDs) do
 								if (type (questID) == "number" and QuestMapFrame_IsQuestWorldQuest (questID)) then
 									--procura o bot�o da quest
 									for _, widget in ipairs (WorldQuestTracker.WorldMapWidgets) do
@@ -1276,7 +1276,7 @@ WorldQuestTracker.OnToggleWorldMap = function (self)
 									end
 								end
 							end
-							wipe (WorldQuestTracker.db.profile.tomtom.uids)
+							wipe (WorldQuestTracker.TomTomUIDs)
 							
 							if (WorldQuestTrackerAddon.GetCurrentZoneType() == "world") then
 								WorldQuestTracker.UpdateWorldQuestsOnWorldMap (true, false, false, true)
@@ -1313,10 +1313,10 @@ WorldQuestTracker.OnToggleWorldMap = function (self)
 					WorldQuestTracker.RemoveAllQuestsFromTracker()
 					
 					if (TomTom and IsAddOnLoaded ("TomTom")) then
-						for questID, t in pairs (WorldQuestTracker.db.profile.tomtom.uids) do
+						for questID, t in pairs (WorldQuestTracker.TomTomUIDs) do
 							TomTom:RemoveWaypoint (t)
 						end
-						wipe (WorldQuestTracker.db.profile.tomtom.uids)
+						wipe (WorldQuestTracker.TomTomUIDs)
 					end
 					
 					GameCooltip:Hide()
@@ -1503,7 +1503,7 @@ WorldQuestTracker.OnToggleWorldMap = function (self)
 					worldSummary.CreateFactionButtons()
 					worldSummary.BuiltFactionWidgets = true
 				end
-				
+
 				worldSummary.UpdateFactionAnchor()
 			end
 			
@@ -1990,7 +1990,6 @@ WorldQuestTracker.OnToggleWorldMap = function (self)
 			
 			--update anchors for the faction button in the topleft or topright corners
 			function worldSummary.UpdateFactionAnchor()
-			
 				local factionAnchor = worldSummary.FactionAnchor
 				local anchorSide = worldSummary.GetAnchorSide (true)
 				factionAnchor:ClearAllPoints()
@@ -2570,7 +2569,6 @@ WorldQuestTracker.OnToggleWorldMap = function (self)
 			--it only exists when it's not a full update and it carry a small list of quests to update
 			--the list is equal to questList but is hash with true values
 			function worldSummary.Update (questList, questsToUpdate)
-			
 				if (not WorldQuestTracker.db.profile.world_map_config.summary_show) then
 					worldSummary.HideSummary()
 					return

@@ -24,7 +24,7 @@ local SubRegionEventSystem =
   end,
 
   RemoveSubscriber = function(self, event, subRegion)
-    tremove(self.events[event], subRegion)
+    tremove(self.events[event], tIndexOf(self.events[event], subRegion))
   end,
 
   Notify = function(self, event, ...)
@@ -118,7 +118,7 @@ local screenWidth, screenHeight = math.ceil(GetScreenWidth() / 20) * 20, math.ce
 function WeakAuras.GetAnchorsForData(parentData, type)
   local result
   if not parentData.controlledChildren then
-    if not WeakAuras.regionOptions[parentData.regionType].getAnchors then
+    if not WeakAuras.regionOptions[parentData.regionType] or not WeakAuras.regionOptions[parentData.regionType].getAnchors then
       return
     end
 
@@ -278,7 +278,8 @@ local function SendChat(self, options)
   if (not options or WeakAuras.IsOptionsOpen()) then
     return
   end
-  WeakAuras.HandleChatAction(options.message_type, options.message, options.message_dest, options.message_channel, options.r, options.g, options.b, self, options.message_custom);
+
+  WeakAuras.HandleChatAction(options.message_type, options.message, options.message_dest, options.message_channel, options.r, options.g, options.b, self, options.message_custom, nil, options.message_formaters);
 end
 
 local function RunCode(self, func)
@@ -540,14 +541,39 @@ function WeakAuras.regionPrototype.modify(parent, region, data)
   end
 
   if not parent or parent.regionType ~= "dynamicgroup" then
-    if not (
-      data.anchorFrameType == "CUSTOM"
-      or data.anchorFrameType == "UNITFRAME"
-      or data.anchorFrameType == "NAMEPLATE"
-    ) then
+    if
+      -- Don't anchor single Auras that with custom anchoring,
+      -- these will be anchored in expand
+      not (
+        data.anchorFrameType == "CUSTOM"
+        or data.anchorFrameType == "UNITFRAME"
+        or data.anchorFrameType == "NAMEPLATE"
+      )
+      -- Group Auras that will never be expanded, so those need
+      -- to be always anchored here
+      or data.regionType == "dynamicgroup"
+      or data.regionType == "group"
+    then
       WeakAuras.AnchorFrame(data, region, parent);
     end
   end
+
+  region.startFormatters = WeakAuras.CreateFormatters(data.actions.start.message, function(key, default)
+    local fullKey = "message_format_" .. key
+    if data.actions.start[fullKey] == nil then
+      data.actions.start[fullKey] = default
+    end
+    return data.actions.start[fullKey]
+  end)
+
+  region.finishFormatters = WeakAuras.CreateFormatters(data.actions.finish.message, function(key, default)
+    local fullKey = "message_format_" .. key
+    if data.actions.finish[fullKey] == nil then
+      data.actions.finish[fullKey] = default
+    end
+    return data.actions.finish[fullKey]
+  end)
+
 end
 
 function WeakAuras.regionPrototype.modifyFinish(parent, region, data)
@@ -703,8 +729,8 @@ end
 -- Expand/Collapse function
 function WeakAuras.regionPrototype.AddExpandFunction(data, region, cloneId, parent, parentRegionType)
   local id = data.id
-  local indynamicgroup = parentRegionType == "dynamicgroup";
-  local ingroup = parentRegionType == "group";
+  local inDynamicGroup = parentRegionType == "dynamicgroup";
+  local inGroup = parentRegionType == "group";
 
   local startMainAnimation = function()
     WeakAuras.Animate("display", data, "main", data.animation.main, region, false, nil, true, cloneId);
@@ -726,7 +752,7 @@ function WeakAuras.regionPrototype.AddExpandFunction(data, region, cloneId, pare
   end
 
   local hideRegion;
-  if(indynamicgroup) then
+  if(inDynamicGroup) then
     hideRegion = function()
       if region.PreHide then
         region:PreHide()
@@ -757,7 +783,7 @@ function WeakAuras.regionPrototype.AddExpandFunction(data, region, cloneId, pare
     end
   end
 
-  if(indynamicgroup) then
+  if(inDynamicGroup) then
     function region:Collapse()
       if (not region.toShow) then
         return;
@@ -812,7 +838,7 @@ function WeakAuras.regionPrototype.AddExpandFunction(data, region, cloneId, pare
         hideRegion();
       end
 
-      if ingroup then
+      if inGroup then
         parent:UpdateBorder(region);
       end
 
@@ -850,7 +876,7 @@ function WeakAuras.regionPrototype.AddExpandFunction(data, region, cloneId, pare
         startMainAnimation();
       end
 
-      if ingroup then
+      if inGroup then
         parent:UpdateBorder(region);
       end
 

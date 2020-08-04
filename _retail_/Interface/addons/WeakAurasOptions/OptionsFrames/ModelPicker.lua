@@ -197,7 +197,6 @@ local function ConstructModelPicker(frame)
           childData.model_st_us = model_us;
           WeakAuras.Add(childData);
           WeakAuras.UpdateThumbnail(childData);
-          WeakAuras.SetIconNames(childData);
         end
       end
     else
@@ -215,7 +214,6 @@ local function ConstructModelPicker(frame)
       else
         WeakAuras.Add(self.data);
         WeakAuras.UpdateThumbnail(self.data);
-        WeakAuras.SetIconNames(self.data);
       end
     end
   end
@@ -245,7 +243,6 @@ local function ConstructModelPicker(frame)
           childData.model_y = model_y;
           WeakAuras.Add(childData);
           WeakAuras.UpdateThumbnail(childData);
-          WeakAuras.SetIconNames(childData);
         end
       end
     else
@@ -260,7 +257,6 @@ local function ConstructModelPicker(frame)
       else
         WeakAuras.Add(self.data);
         WeakAuras.UpdateThumbnail(self.data);
-        WeakAuras.SetIconNames(self.data);
       end
     end
   end
@@ -386,7 +382,7 @@ local function ConstructModelPicker(frame)
   function group.Close()
     frame.window = "default"
     frame:UpdateFrameVisible()
-    AceConfigDialog:Open("WeakAuras", frame.container);
+    WeakAuras.FillOptions()
   end
 
   function group.CancelClose(self)
@@ -412,15 +408,14 @@ local function ConstructModelPicker(frame)
           end
           WeakAuras.Add(childData);
           WeakAuras.UpdateThumbnail(childData);
-          WeakAuras.SetIconNames(childData);
         end
       end
     else
       if (group.givenApi) then
-        group:PickSt(group.givenPath, group.givenPathId, group.givenTX, group.givenTY, group.givenTZ,
+        group:PickSt(group.givenModel, group.givenModelId, group.givenTX, group.givenTY, group.givenTZ,
           group.givenRX, group.givenRY, group.givenRZ, group.givenUS );
       else
-        group:Pick(group.givenPath, group.givenPathId, group.givenZ, group.givenX, group.givenY);
+        group:Pick(group.givenModel, group.givenModelId, group.givenZ, group.givenX, group.givenY);
       end
     end
     group.Close();

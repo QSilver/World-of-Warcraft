@@ -1,6 +1,9 @@
 
 PawnOptions = {
 	["LastVersion"] = 2.0328,
+	["LastPlayerFullName"] = "Qsilver-Silvermoon",
+	["AutoSelectScales"] = false,
+	["UpgradeTracking"] = false,
 	["ItemLevels"] = {
 		{
 			["ID"] = 174151,
@@ -9,8 +12,8 @@ PawnOptions = {
 		}, -- [1]
 		{
 			["ID"] = 158075,
-			["Level"] = 515,
-			["Link"] = "|cffe6cc80|Hitem:158075::::::::120:253::11:4:6316:4932:4933:1652:::|h[Heart of Azeroth]|h|r",
+			["Level"] = 519,
+			["Link"] = "|cffe6cc80|Hitem:158075::::::::120:253::11:4:6316:4932:4933:1656:::|h[Heart of Azeroth]|h|r",
 		}, -- [2]
 		{
 			["ID"] = 159385,
@@ -82,10 +85,12 @@ PawnOptions = {
 			["Level"] = 475,
 			["Link"] = "|cffa335ee|Hitem:159130::::::::120:253::35:7:6536:6578:6579:6560:6515:1647:4786:::|h[Captain's Diplomacy]|h|r",
 		}, -- [16]
+		{
+			["ID"] = 172190,
+			["Level"] = 475,
+			["Link"] = "|cffa335ee|Hitem:172190::::::::120:253::6:5:4824:6516:6513:1517:4786:::|h[Uhnish Vwah]|h|r",
+		}, -- [17]
 	},
-	["AutoSelectScales"] = false,
-	["UpgradeTracking"] = false,
-	["LastPlayerFullName"] = "Qsilver-Silvermoon",
 	["Artifacts"] = {
 		[128861] = {
 			["Relics"] = {

@@ -10,6 +10,7 @@ local GSA_OUTPUT = {["MASTER"] = L["Master"],["SFX"] = L["SFX"],["AMBIENCE"] = L
 
 function GSA:ShowConfig()
 	for i=1,2 do InterfaceOptionsFrame_OpenToCategory(GetAddOnMetadata("GladiatorlosSA2", "Title")) end -- ugly fix
+
 end
 
 function GSA:ShowConfig2() -- ***** @
@@ -38,6 +39,7 @@ local function setOption(info, value)
 	if value then
 		PlaySoundFile("Interface\\Addons\\"..gsadb.path_menu.."\\"..name..".ogg",gsadb.output_menu);
 	end
+	GSA:CanTalkHere()
 end
 
 local function getOption(info)
@@ -52,13 +54,11 @@ local function spellOption(order, spellID, ...)
 			type = 'toggle',
 			name = "\124T" .. icon .. ":24\124t" .. spellname,			
 			desc = function ()
-				--GameTooltip:SetOwner(UIParent, "ANCHOR_CURSOR")				
-				--GameTooltip:SetHyperlink(GetSpellLink(spellID))			
-				--Fix this.
-				
-				--GameTooltip:Show(GetSpellLink(spellID))
-				--GameTooltip:Show(descr)  
+				GameTooltip:SetOwner(UIParent, "ANCHOR_CURSOR")				
+				GameTooltip:SetHyperlink(GetSpellLink(spellID))			
+				GameTooltip:Show()  
 			end, -- https://i.imgur.com/ChzUb.jpg
+			-- why are you reading this disaster, go away this is embarrassing
 			descStyle = "custom",
 					order = order,
 		}
@@ -71,6 +71,7 @@ local function spellOption(order, spellID, ...)
 		}
 	end
 end
+
 
 local function listOption(spellList, listType, ...)
 	local args = {}
@@ -854,7 +855,7 @@ function GSA:OnOptionCreate()
 								inline = true,
 								name = L["|cffC41F3BDeath Knight|r"],
 								order = 40,
-								args = listOption({47476,207127,47568,207289,207349,49206,77606,108194,108199,152280,207167,204160,130736,190778,275699,49576,212468,212552,49028,48265,203173,48743,46584},"castSuccess"),
+								args = listOption({47476,207127,47568,207289,207349,49206,77606,108194,108199,152280,207167,204160,305392,130736,190778,275699,49576,212468,212552,49028,48265,203173,48743,46584},"castSuccess"),
 							},
 							demonhunter = { -- CastSuccess
 								type = 'group',

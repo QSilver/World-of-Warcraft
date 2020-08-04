@@ -2,6 +2,15 @@ if not WeakAuras.IsCorrectVersion() then return end
 
 local L = WeakAuras.L
 
+local removeFuncs = WeakAuras.commonOptions.removeFuncs
+local replaceNameDescFuncs = WeakAuras.commonOptions.replaceNameDescFuncs
+local replaceImageFuncs = WeakAuras.commonOptions.replaceImageFuncs
+local replaceValuesFuncs = WeakAuras.commonOptions.replaceValuesFuncs
+local disabledAll = WeakAuras.commonOptions.CreateDisabledAll("action")
+local hiddenAll = WeakAuras.commonOptions.CreateHiddenAll("action")
+local getAll = WeakAuras.commonOptions.CreateGetAll("action")
+local setAll = WeakAuras.commonOptions.CreateSetAll("action", getAll)
+
 local send_chat_message_types = WeakAuras.send_chat_message_types;
 local sound_types = WeakAuras.sound_types;
 
@@ -16,7 +25,7 @@ else
   end
 end
 
-function WeakAuras.AddActionOption(id, data)
+function WeakAuras.GetActionOptions(data)
   local action = {
     type = "group",
     name = L["Actions"],
@@ -61,6 +70,9 @@ function WeakAuras.AddActionOption(id, data)
         pcall(PlaySound, v, "Master");
       end
       WeakAuras.Add(data);
+      if(value == "message") then
+        WeakAuras.ClearAndUpdateOptions(data.id)
+      end
     end,
     args = {
       init_header = {
@@ -108,7 +120,7 @@ function WeakAuras.AddActionOption(id, data)
         name = "",
         order = 3,
         image = function() return "", 0, 0 end,
-        hidden = function() return not(data.actions.start.message_type == "WHISPER" or data.actions.start.message_type == "CHANNEL" or data.actions.start.message_type == "COMBAT" or data.actions.start.message_type == "PRINT") end
+        hidden = function() return not(data.actions.start.message_type == "WHISPER" or data.actions.start.message_type == "COMBAT" or data.actions.start.message_type == "PRINT") end
       },
       start_message_color = {
         type = "color",
@@ -129,23 +141,15 @@ function WeakAuras.AddActionOption(id, data)
         type = "input",
         width = WeakAuras.normalWidth,
         name = L["Send To"],
-        order = 4,
+        order = 3.1,
         disabled = function() return not data.actions.start.do_message end,
         hidden = function() return data.actions.start.message_type ~= "WHISPER" end
-      },
-      start_message_channel = {
-        type = "input",
-        width = WeakAuras.normalWidth,
-        name = L["Channel Number"],
-        order = 4,
-        disabled = function() return not data.actions.start.do_message end,
-        hidden = function() return data.actions.start.message_type ~= "CHANNEL" end
       },
       start_message = {
         type = "input",
         width = WeakAuras.doubleWidth,
         name = L["Message"],
-        order = 5,
+        order = 4,
         disabled = function() return not data.actions.start.do_message end,
         desc = function()
           return L["Dynamic text tooltip"] .. WeakAuras.GetAdditionalProperties(data)
@@ -156,27 +160,27 @@ function WeakAuras.AddActionOption(id, data)
         type = "toggle",
         width = WeakAuras.normalWidth,
         name = L["Play Sound"],
-        order = 7
+        order = 8
       },
       start_do_loop = {
         type = "toggle",
         width = WeakAuras.normalWidth,
         name = L["Loop"],
-        order = 7.1,
+        order = 8.1,
         disabled = function() return not data.actions.start.do_sound end,
       },
       start_sound_repeat = {
         type = "range",
         width = WeakAuras.normalWidth,
         name = L["Repeat After"],
-        order = 7.2,
+        order = 8.2,
         hidden = function() return not data.actions.start.do_loop end,
         disabled = function() return not data.actions.start.do_sound end,
       },
       start_sound_repeat_space = {
         type = "description",
         width = WeakAuras.normalWidth,
-        order = 7.3,
+        order = 8.3,
         name = "",
         hidden = function() return not data.actions.start.do_loop end,
       },
@@ -184,7 +188,7 @@ function WeakAuras.AddActionOption(id, data)
         type = "select",
         width = WeakAuras.normalWidth,
         name = L["Sound"],
-        order = 8,
+        order = 8.4,
         values = sound_types,
         disabled = function() return not data.actions.start.do_sound end,
         control = "WeakAurasSortedDropdown"
@@ -499,7 +503,7 @@ function WeakAuras.AddActionOption(id, data)
         name = "",
         order = 23,
         image = function() return "", 0, 0 end,
-        hidden = function() return not(data.actions.finish.message_type == "WHISPER" or data.actions.finish.message_type == "CHANNEL") end
+        hidden = function() return data.actions.finish.message_type ~= "WHISPER" end
       },
       finish_message_color = {
         type = "color",
@@ -520,23 +524,15 @@ function WeakAuras.AddActionOption(id, data)
         type = "input",
         width = WeakAuras.normalWidth,
         name = L["Send To"],
-        order = 24,
+        order = 23.1,
         disabled = function() return not data.actions.finish.do_message end,
         hidden = function() return data.actions.finish.message_type ~= "WHISPER" end
-      },
-      finish_message_channel = {
-        type = "input",
-        width = WeakAuras.normalWidth,
-        name = L["Channel Number"],
-        order = 24,
-        disabled = function() return not data.actions.finish.do_message end,
-        hidden = function() return data.actions.finish.message_type ~= "CHANNEL" end
       },
       finish_message = {
         type = "input",
         width = WeakAuras.doubleWidth,
         name = L["Message"],
-        order = 25,
+        order = 24,
         disabled = function() return not data.actions.finish.do_message end,
         desc = function()
           return L["Dynamic text tooltip"] .. WeakAuras.GetAdditionalProperties(data)
@@ -547,13 +543,13 @@ function WeakAuras.AddActionOption(id, data)
         type = "toggle",
         width = WeakAuras.normalWidth,
         name = L["Play Sound"],
-        order = 27
+        order = 28
       },
       finish_sound = {
         type = "select",
         width = WeakAuras.normalWidth,
         name = L["Sound"],
-        order = 28,
+        order = 28.1,
         values = sound_types,
         disabled = function() return not data.actions.finish.do_sound end,
         control = "WeakAurasSortedDropdown"
@@ -850,20 +846,147 @@ function WeakAuras.AddActionOption(id, data)
     },
   }
 
-  WeakAuras.AddCodeOption(action.args, data, L["Custom Code"], "init", "https://github.com/WeakAuras/WeakAuras2/wiki/Custom-Code-Blocks#on-init",
+  -- Text format option helpers
+
+  WeakAuras.commonOptions.AddCodeOption(action.args, data, L["Custom Code"], "init", "https://github.com/WeakAuras/WeakAuras2/wiki/Custom-Code-Blocks#on-init",
                           0.011, function() return not data.actions.init.do_custom end, {"actions", "init", "custom"}, true);
 
-  WeakAuras.AddCodeOption(action.args, data, L["Custom Code"], "start_message", "https://github.com/WeakAuras/WeakAuras2/wiki/Custom-Code-Blocks#chat-message---custom-code",
-                          5.1, function() return not (data.actions.start.do_message and WeakAuras.ContainsCustomPlaceHolder(data.actions.start.message)) end, {"actions", "start", "message_custom"}, false);
+  WeakAuras.commonOptions.AddCodeOption(action.args, data, L["Custom Code"], "start_message", "https://github.com/WeakAuras/WeakAuras2/wiki/Custom-Code-Blocks#chat-message---custom-code",
+                          5, function() return not (data.actions.start.do_message and WeakAuras.ContainsCustomPlaceHolder(data.actions.start.message)) end, {"actions", "start", "message_custom"}, false);
 
-  WeakAuras.AddCodeOption(action.args, data, L["Custom Code"], "start", "https://github.com/WeakAuras/WeakAuras2/wiki/Custom-Code-Blocks#on-show",
+  local startHidden = function()
+    return WeakAuras.IsCollapsed("format_option", "actions", "start_message", true)
+  end
+
+  local startSetHidden = function(hidden)
+    WeakAuras.SetCollapsed("format_option", "actions", "start_message", hidden)
+  end
+
+  local startGet = function(key)
+    return data.actions.start["message_format_" .. key]
+  end
+
+  local order = 6
+  local usedKeys = {}
+  local function startAddOption(key, option)
+    if usedKeys[key] then
+      return
+    end
+    usedKeys[key] = true
+    option.order = order
+    order = order + 0.01
+    local reload = option.reloadOptions
+    option.reloadOptions = nil
+    option.set = function(info, v)
+      data.actions.start["message_format_" .. key] = v
+      WeakAuras.Add(data)
+      if reload then
+        WeakAuras.ClearAndUpdateOptions(data.id)
+      end
+    end
+
+    if option.hidden then
+      local hidden = option.hidden
+      option.hidden = function() return not data.actions.start.do_message or hidden() end
+    else
+      option.hidden = function() return not data.actions.start.do_message end
+    end
+
+    action.args["start_message_format_" .. key] = option
+  end
+
+  if data.controlledChildren then
+    for _, childId in pairs(data.controlledChildren) do
+      local childData = WeakAuras.GetData(childId)
+      local startGet = function(key)
+        return childData.actions.start["message_format_" .. key]
+      end
+      WeakAuras.AddTextFormatOption(childData.actions and childData.actions.start.message, true, startGet, startAddOption, startHidden, startSetHidden)
+    end
+  else
+    WeakAuras.AddTextFormatOption(data.actions and data.actions.start.message, true, startGet, startAddOption, startHidden, startSetHidden)
+  end
+
+
+  WeakAuras.commonOptions.AddCodeOption(action.args, data, L["Custom Code"], "start", "https://github.com/WeakAuras/WeakAuras2/wiki/Custom-Code-Blocks#on-show",
                           13, function() return not data.actions.start.do_custom end, {"actions", "start", "custom"}, true);
 
-  WeakAuras.AddCodeOption(action.args, data, L["Custom Code"], "finish_message", "https://github.com/WeakAuras/WeakAuras2/wiki/Custom-Code-Blocks#chat-message---custom-code",
-                          26, function() return not (data.actions.finish.do_message and WeakAuras.ContainsCustomPlaceHolder(data.actions.finish.message)) end, {"actions", "finish", "message_custom"}, false);
+  WeakAuras.commonOptions.AddCodeOption(action.args, data, L["Custom Code"], "finish_message", "https://github.com/WeakAuras/WeakAuras2/wiki/Custom-Code-Blocks#chat-message---custom-code",
+                          25, function() return not (data.actions.finish.do_message and WeakAuras.ContainsCustomPlaceHolder(data.actions.finish.message)) end, {"actions", "finish", "message_custom"}, false);
 
-  WeakAuras.AddCodeOption(action.args, data, L["Custom Code"], "finish", "https://github.com/WeakAuras/WeakAuras2/wiki/Custom-Code-Blocks#on-hide",
+  local finishHidden = function()
+    return WeakAuras.IsCollapsed("format_option", "actions", "finish_message", true)
+  end
+
+  local finishSetHidden = function(hidden)
+    WeakAuras.SetCollapsed("format_option", "actions", "finish_message", hidden)
+  end
+
+  local finishGet = function(key)
+    return data.actions.finish["message_format_" .. key]
+  end
+
+  order = 25
+  usedKeys = {}
+  local function finishAddOption(key, option)
+    if usedKeys[key] then
+      return
+    end
+    option.order = order
+    order = order + 0.01
+    local reload = option.reloadOptions
+    option.reloadOptions = nil
+    option.set = function(info, v)
+      data.actions.finish["message_format_" .. key] = v
+      WeakAuras.Add(data)
+      if reload then
+        WeakAuras.ClearAndUpdateOptions(data.id)
+      end
+    end
+
+    if option.hidden then
+      local hidden = option.hidden
+      option.hidden = function() return not data.actions.finish.do_message or hidden() end
+    else
+      option.hidden = function() return not data.actions.finish.do_message end
+    end
+
+    action.args["finish_message_format_" .. key] = option
+  end
+
+  if data.controlledChildren then
+    for _, childId in pairs(data.controlledChildren) do
+      local childData = WeakAuras.GetData(childId)
+      local finishGet = function(key)
+        return childData.actions.finish["message_format_" .. key]
+      end
+      WeakAuras.AddTextFormatOption(childData.actions and childData.actions.finish.message, true, finishGet, finishAddOption, finishHidden, finishSetHidden)
+    end
+  else
+    WeakAuras.AddTextFormatOption(data.actions and data.actions.finish.message, true, finishGet, finishAddOption, finishHidden, finishSetHidden)
+  end
+
+  WeakAuras.commonOptions.AddCodeOption(action.args, data, L["Custom Code"], "finish", "https://github.com/WeakAuras/WeakAuras2/wiki/Custom-Code-Blocks#on-hide",
                           32, function() return not data.actions.finish.do_custom end, {"actions", "finish", "custom"}, true);
+
+  if data.controlledChildren then
+    removeFuncs(action)
+    replaceNameDescFuncs(action, data, "action")
+    replaceImageFuncs(action, data, "action")
+    replaceValuesFuncs(action, data, "action")
+
+    action.get = function(info, ...) return getAll(data, info, ...); end;
+    action.set = function(info, ...)
+      setAll(data, info, ...);
+      if(type(data.id) == "string") then
+        WeakAuras.Add(data);
+        WeakAuras.UpdateThumbnail(data);
+        WeakAuras.ResetMoverSizer();
+      end
+    end
+    action.hidden = function(info, ...) return hiddenAll(data, info, ...); end;
+    action.disabled = function(info, ...) return disabledAll(data, info, ...); end;
+  end
 
   return action;
 end

@@ -1,10 +1,10 @@
-lightweight tag c8aaf3c2a6984df3c3818e62bac74eb68ab7ae3f v80300-1.1.2
+lightweight tag 0cc7aaf3e4b9f152c7c4fc0115957b8eae388a72 v80300-1.1.3
 Author:	Ludovicus <ludovicus.maior@gmail.com>
-Date:	Thu Feb 27 15:01:23 2020 -0500
+Date:	Sun Jul 12 15:33:30 2020 -0400
 
-commit c8aaf3c2a6984df3c3818e62bac74eb68ab7ae3f
+commit 0cc7aaf3e4b9f152c7c4fc0115957b8eae388a72
 Author: Ludovicus <ludovicus.maior@gmail.com>
-Date:   Thu Feb 27 15:01:23 2020 -0500
+Date:   Sun Jul 12 15:33:30 2020 -0400
 
-    Update to HereBeDragons 2.03
+    Retail Interface update.
 

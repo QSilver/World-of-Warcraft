@@ -51,7 +51,7 @@ local function moveOnePxl(direction)
           WeakAuras.Add(parentData)
         end
       end
-      WeakAuras.ReloadOptions(data.id)
+      WeakAuras.FillOptions()
     end
   end
 end
@@ -614,7 +614,7 @@ local function ConstructMoverSizer(parent)
           WeakAuras.Add(parentData)
         end
       end
-      AceConfigDialog:Open("WeakAuras", parent.container)
+      WeakAuras.FillOptions()
       WeakAuras.Animate("display", data, "main", data.animation.main, WeakAuras.regions[data.id].region, false, nil, true)
       -- hide alignment lines
       frame.lineY:Hide()
@@ -669,7 +669,7 @@ local function ConstructMoverSizer(parent)
           region:ResetPosition()
           WeakAuras.Add(data, nil, true)
           frame:ScaleCorners(region:GetWidth(), region:GetHeight())
-          AceConfigDialog:Open("WeakAuras", parent.container)
+          WeakAuras.FillOptions()
         end)
 
         mover.align = BuildAlignLines(mover)
@@ -734,7 +734,7 @@ local function ConstructMoverSizer(parent)
         end
         frame.text:Hide()
         frame:SetScript("OnUpdate", nil)
-        AceConfigDialog:Open("WeakAuras", parent.container)
+        WeakAuras.FillOptions()
         WeakAuras.Animate("display", data, "main", data.animation.main, WeakAuras.regions[data.id].region, false, nil, true)
         -- hide alignment lines
         frame.lineY:Hide()
@@ -875,20 +875,20 @@ local function ConstructMoverSizer(parent)
     end
     local regionScale = self.moving.region:GetScale()
     self.text:SetText(("(%.2f, %.2f)"):format(dX*1/regionScale, dY*1/regionScale))
-    local midx = (distance / 2) * cos(angle)
-    local midy = (distance / 2) * sin(angle)
-    self.text:SetPoint("CENTER", self.anchorPointIcon, "CENTER", midx, midy)
+    local midX = (distance / 2) * cos(angle)
+    local midY = (distance / 2) * sin(angle)
+    self.text:SetPoint("CENTER", self.anchorPointIcon, "CENTER", midX, midY)
     local left, right, top, bottom, centerX, centerY = frame:GetLeft(), frame:GetRight(), frame:GetTop(), frame:GetBottom(), frame:GetCenter()
-    if (midx > 0 and (self.text:GetRight() or 0) > (left or 0))
-    or (midx < 0 and (self.text:GetLeft() or 0) < (right or 0))
+    if (midX > 0 and (self.text:GetRight() or 0) > (left or 0))
+    or (midX < 0 and (self.text:GetLeft() or 0) < (right or 0))
     then
-      if midy > 0 and (self.text:GetTop() or 0) > (top or 0) then
-        midy = midy - ((self.text:GetTop() or 0) - (bottom or 0))
-      elseif midy < 0 and (self.text:GetBottom() or 0) < (top or 0) then
-        midy = midy + ((top or 0) - (self.text:GetBottom() or 0))
+      if midY > 0 and (self.text:GetTop() or 0) > (top or 0) then
+        midY = midY - ((self.text:GetTop() or 0) - (bottom or 0))
+      elseif midY < 0 and (self.text:GetBottom() or 0) < (top or 0) then
+        midY = midY + ((top or 0) - (self.text:GetBottom() or 0))
       end
     end
-    self.text:SetPoint("CENTER", self.anchorPointIcon, "CENTER", midx, midy)
+    self.text:SetPoint("CENTER", self.anchorPointIcon, "CENTER", midX, midY)
     if self.isMoving then
       if mover.align then
         local ctrlDown = IsControlKeyDown()
@@ -945,7 +945,7 @@ local function ConstructMoverSizer(parent)
               frame.lineX:SetStartPoint("BOTTOMLEFT", UIParent, 0, v)
               frame.lineX:SetEndPoint("BOTTOMRIGHT", UIParent, 0, v)
               frame.lineX:Show()
-              mover.alignYFrom = ctrlDown and "CENTER" or (top >= v - 5 and top <= v + 5) and "TOP" or "BOTTOM"
+              mover.alignYFrom = (ctrlDown and "CENTER" or (top >= v - 5 and top <= v + 5) and "TOP" or "BOTTOM")
                 or (reverse and ((top >= v - 5 and top <= v + 5) and "TOP" or "BOTTOM")) -- top side first
                 or (not reverse and ((bottom >= v - 5 and bottom <= v + 5) and "BOTTOM" or "TOP")) -- bottom side first
               mover.alignYOf = v

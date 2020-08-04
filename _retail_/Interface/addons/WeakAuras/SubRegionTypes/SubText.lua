@@ -3,6 +3,8 @@ if not WeakAuras.IsCorrectVersion() then return end
 local SharedMedia = LibStub("LibSharedMedia-3.0");
 local L = WeakAuras.L;
 
+local screenWidth, screenHeight = math.ceil(GetScreenWidth() / 20) * 20, math.ceil(GetScreenHeight() / 20) * 20
+
 local defaultFont = WeakAuras.defaultFont
 local defaultFontSize = WeakAuras.defaultFontSize
 
@@ -80,7 +82,23 @@ local properties = {
     softMax = 72,
     step = 1,
     default = 12
-  }
+  },
+  text_anchorXOffset = {
+    display = L["X-Offset"],
+    setter = "SetXOffset",
+    type = "number",
+    softMin = (-1 * screenWidth),
+    softMax = screenWidth,
+    bigStep = 10,
+  },
+  text_anchorYOffset = {
+    display = L["Y-Offset"],
+    setter = "SetYOffset",
+    type = "number",
+    softMin = (-1 * screenHeight),
+    softMax = screenHeight,
+    bigStep = 10,
+  },
 }
 
 
@@ -91,7 +109,7 @@ local function animRotate(object, degrees, anchor)
   end
   -- Something to rotate
   if object.animationGroup or degrees ~= 0 then
-    -- Create AnimatioGroup and rotation animation
+    -- Create AnimationGroup and rotation animation
     object.animationGroup = object.animationGroup or object:CreateAnimationGroup();
     local group = object.animationGroup;
     group.rotate = group.rotate or group:CreateAnimation("rotation");
@@ -150,8 +168,8 @@ local function create()
   -- WOW's layout system works best if frames and all their parents are anchored
   -- In this case, it appears that a text doesn't get the right size on the initial
   -- load with a custom font. (Though it works if the font is non-custom or after
-  -- a reloadui). Just moving the normal AnchorSubRegion to the start of modify was not enough
-  -- But anchoring the text to UIParent before reanchoring it correctly does seem to fix
+  -- a ReloadUI). Just moving the normal AnchorSubRegion to the start of modify was not enough
+  -- But anchoring the text to UIParent before re-anchoring it correctly does seem to fix
   -- the issue. Also see #1778
   text:SetPoint("CENTER", UIParent, "CENTER")
 
@@ -225,12 +243,6 @@ local function modify(parent, region, parentData, data, first)
   end
 
   if first then
-    -- Certain data is stored directly on the parent, because it's shared between multiple texts
-    -- And shared by other code paths e.g. SendChatMessage
-    -- That is partly for legacy reasons
-    parent.progressPrecision = parentData.progressPrecision
-    parent.totalPrecision = parentData.totalPrecision
-
     local containsCustomText = false
     for index, subRegion in ipairs(parentData.subRegions) do
       if subRegion.type == "subtext" and WeakAuras.ContainsCustomPlaceHolder(subRegion.text_text) then
@@ -249,14 +261,22 @@ local function modify(parent, region, parentData, data, first)
 
   local UpdateText
   if data.text_text and WeakAuras.ContainsAnyPlaceHolders(data.text_text) then
+    local getter = function(key, default)
+      local fullKey = "text_text_format_" .. key
+      if data[fullKey] == nil then
+        data[fullKey] = default
+      end
+      return data[fullKey]
+    end
+    local formatters = WeakAuras.CreateFormatters(data.text_text, getter)
     UpdateText = function()
       local textStr = data.text_text or ""
-      textStr = WeakAuras.ReplacePlaceHolders(textStr, parent, nil)
+      textStr = WeakAuras.ReplacePlaceHolders(textStr, parent, nil, false, formatters)
 
       if text:GetFont() then
         text:SetText(WeakAuras.ReplaceRaidMarkerSymbols(textStr))
       end
-      region:UpdateAnchor()
+      region:UpdateAnchorOnTextChange()
     end
   end
 
@@ -340,7 +360,7 @@ local function modify(parent, region, parentData, data, first)
     local fontPath = SharedMedia:Fetch("font", data.text_font);
     region.text:SetFont(fontPath, size, data.text_fontType);
     region.text:SetTextHeight(size)
-    region:UpdateAnchor();
+    region:UpdateAnchorOnTextChange();
   end
 
   function region:SetVisible(visible)
@@ -378,18 +398,39 @@ local function modify(parent, region, parentData, data, first)
     end
   end
 
+  region.text_anchorXOffset = data.text_anchorXOffset
+  region.text_anchorYOffset = data.text_anchorYOffset
+
   local textDegrees = data.rotateText == "LEFT" and 90 or data.rotateText == "RIGHT" and -90 or 0;
-  local xo, yo = getRotateOffset(text, textDegrees, selfPoint)
-  parent:AnchorSubRegion(text, "point", selfPoint, data.text_anchorPoint, (data.text_anchorXOffset or 0) + xo, (data.text_anchorYOffset or 0) + yo)
+
+  region.UpdateAnchor = function(self)
+    local xo, yo = getRotateOffset(text, textDegrees, selfPoint)
+    parent:AnchorSubRegion(text, "point", selfPoint, data.text_anchorPoint, (self.text_anchorXOffset or 0) + xo, (self.text_anchorYOffset or 0) + yo)
+  end
+
+  region:UpdateAnchor()
   animRotate(text, textDegrees, selfPoint)
 
   if textDegrees == 0 then
-    region.UpdateAnchor = function() end
+    region.UpdateAnchorOnTextChange = function() end
   else
-    region.UpdateAnchor = function(self)
-      local xo, yo = getRotateOffset(self.text, textDegrees, selfPoint)
-      parent:AnchorSubRegion(self.text, "point", selfPoint, data.text_anchorPoint, (data.text_anchorXOffset or 0) + xo, (data.text_anchorYOffset or 0) + yo)
+    region.UpdateAnchorOnTextChange = region.UpdateAnchor
+  end
+
+  region.SetXOffset = function(self, xOffset)
+    if self.text_anchorXOffset == xOffset then
+      return
     end
+    self.text_anchorXOffset = xOffset
+    self:UpdateAnchor()
+  end
+
+  region.SetYOffset = function(self, yOffset)
+    if self.text_anchorYOffset == yOffset then
+      return
+    end
+    self.text_anchorYOffset = yOffset
+    self:UpdateAnchor()
   end
 end
 

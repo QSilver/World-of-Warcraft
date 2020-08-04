@@ -411,12 +411,20 @@ WorldQuestTracker.MapData.ResourceIcons = {
 }
 
 --which faction set to be used by the map id
-WorldQuestTracker.MapData.FactionByMapID = {
+WorldQuestTracker.MapData.FactionByMapID = { --not in use
 	[WorldQuestTracker.MapData.ZoneIDs.ZANDALAR] = "BFA",
 	[WorldQuestTracker.MapData.ZoneIDs.KULTIRAS] = "BFA",
 	[WorldQuestTracker.MapData.ZoneIDs.AZEROTH] = "BFA",
+
 	[619] = "LEGION", --brosken isles map
 	[905] = "LEGION", --argus map
+
+	[WorldQuestTracker.MapData.ZoneIDs.ZULDAZAAR] = 	"BFA",
+	[WorldQuestTracker.MapData.ZoneIDs.NAZMIR] = 		"BFA",
+	[WorldQuestTracker.MapData.ZoneIDs.VOLDUN] = 		"BFA",
+	[WorldQuestTracker.MapData.ZoneIDs.TIRAGARDE] = 	"BFA",
+	[WorldQuestTracker.MapData.ZoneIDs.STORMSONG] = 	"BFA",
+	[WorldQuestTracker.MapData.ZoneIDs.DRUSTVAR] = 		"BFA",
 }
 
 -- texture ID of the reward when the world quest reward is a faction rep token
@@ -544,11 +552,20 @@ local LegionFactions = {
 
 --what are the factionIds belong to the map
 WorldQuestTracker.MapData.ReputationByMap = {
+	--world maps
 	[WorldQuestTracker.MapData.ZoneIDs.BROKENISLES] = LegionFactions,
 	[WorldQuestTracker.MapData.ZoneIDs.ARGUS] = LegionFactions,
 	[WorldQuestTracker.MapData.ZoneIDs.KULTIRAS] = BFAFactions,
 	[WorldQuestTracker.MapData.ZoneIDs.ZANDALAR] = BFAFactions,
 	[WorldQuestTracker.MapData.ZoneIDs.AZEROTH] = BFAFactions,
+
+	--zones
+	[WorldQuestTracker.MapData.ZoneIDs.ZULDAZAAR] = 	BFAFactions,
+	[WorldQuestTracker.MapData.ZoneIDs.NAZMIR] = 		BFAFactions,
+	[WorldQuestTracker.MapData.ZoneIDs.VOLDUN] = 		BFAFactions,
+	[WorldQuestTracker.MapData.ZoneIDs.TIRAGARDE] = 	BFAFactions,
+	[WorldQuestTracker.MapData.ZoneIDs.STORMSONG] = 	BFAFactions,
+	[WorldQuestTracker.MapData.ZoneIDs.DRUSTVAR] = 		BFAFactions,
 }
 
 function WorldQuestTracker.GetFactionsAllowedOnMap(mapId)
